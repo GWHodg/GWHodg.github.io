@@ -1,0 +1,700 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>WS1P</title>
+<link rel="manifest" href="WaltStuff.webmanifest">
+<!--Changed href = "manifest.json" To <link rel="manifest" href="WaltStuff.webmanifest">  -->
+<style>
+	body { background-color:RED; color:white; padding-top:15px; }
+	#tab { display:inline-block; margin-left: 60px; }
+	eR { font-size:16px; color:red;}
+		
+	/*Animated Sidenav (Menu):
+		create an animated, closable side navigation menu
+	  	https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sidenav*/
+			.sidenav {
+			  height: 100%;
+			  width: 0;
+			  position: fixed;
+			  z-index: 1;
+			  top: 0;
+			  left: 0;
+			  background-color:black;	/*blue;	  #111;*/
+			  overflow-x: hidden;
+			  overflow-y:scroll; 
+			  transition: 0.5s;
+			  padding-top: 30px;
+			}		
+			.sidenav a {
+			  padding: 8px 8px 8px 32px;
+			  text-decoration: none;
+			  font-size: 20px;	/* 25px; */
+			  color: #818181;
+			  display: block;
+			  transition: 0.3s;
+			}		
+			.sidenav a:hover {
+			  color: #f1f1f1;
+			}		
+			.sidenav .closebtn {
+			  position: absolute;
+			  top: 0;
+			  right: 25px;
+			  font-size: 36px;
+			  margin-left: 50px;
+			}	
+			@media screen and (max-height: 450px) {
+			  .sidenav {padding-top: 15px;}
+			  .sidenav a {font-size: 18px;}
+			}
+
+		/* dropUP menu: */
+			.dropbtn { 
+				position:absolute; left:30px;
+				border-radius:10px; cursor:grabbing; background:orange; color:black;
+				BORDER-RIGHT: outset; BORDER-TOP: outset;  
+				BORDER-LEFT: outset; BORDER-BOTTOM: outset
+			}	
+					  /* background-color: #3498DB; color: white;
+			           padding: 5px; font-size: 16px; border: none; */
+			.dropup { position: relative; display: inline-block; }			
+			.dropup-content { display: none; position:absolute; left:40px; background-color: #f1f1f1;
+			  			      min-width: 120px; bottom: -5px; z-index: 1; }	/* bottom: 0px;  position: absolute; */	
+			.dropup-content a { color: black; padding: 5px 6px; text-decoration: none; display: block; }	
+										/* padding: 12px 16px;  */
+			.dropup-content a:hover {background-color:green;}	/* #ccc */		
+			.dropup:hover .dropup-content { display: block; }			
+			.dropup:hover .dropbtn { background-color: #2980B9; }
+			
+		/*DROPDOWN TABLE MENU:*/
+		td.menu{background:blue; padding:10px; border-radius:10%;}	/*black}*/     /*td.menu{background:lightblue}*/
+		table.menu { font-size:100%; position:absolute; visibility:hidden;} 	/* font-size:100%;  */	
+		td.menu2{background:lime;}
+		table.menu2 { 
+			font-size:100%; position:absolute; LEFT: 40px; visibility:hidden; 
+			BORDER-BOTTOM: blue outset; BORDER-LEFT: blue outset; 
+			BORDER-RIGHT: blue outset;   
+		}			
+			
+</style>
+<script type="text/javascript">
+		function popupERA(myERA, windowname) {
+			if (! window.focus)return true;
+			window.open('', windowname, 'height=650,width=850,scrollbars=yes');
+			myERA.target=windowname;
+			return true;
+		}
+
+		function openNav() {
+			  document.getElementById("mySidenav").style.width = "250px";
+		}
+		
+		function closeNav() {
+			document.getElementById("mySidenav").style.width = "0";
+		}	
+
+			function showmenu(elmnt) { 
+				document.getElementById(elmnt).style.visibility="visible" 
+			} 
+			function hidemenu(elmnt) { 
+				document.getElementById(elmnt).style.visibility="hidden" 
+			} 
+			
+	function hideTIP() {
+		document.getElementById("musicCONTENT").style.visibility="hidden";
+	}
+	function showTIP(topic) {
+		if (topic=="tipMUSIC") {
+			document.getElementById("musicCONTENT").style.visibility="visible";
+		}
+	}
+	
+	/*	---------------------------------------------------------------------	*/
+
+	var CURRENTarray = new Array();
+	var NOTEScontents = new Array();
+	var TOPICSarray = new Array();
+	function readXPT2() {
+		showNOTES();
+			/* var file = prompt("Enter file to open:\n \t $CODE/xDet_Jul27.xml \n\tzMISC/zS4txtB_Sep04.txt \nzMISC/zcsvWH_Sep01.xml","$CODE/xDet_Jul27.xml"); */
+		var file="Notes21.xml";		//"zMISC/zcsvWH_Sep01.xml";		
+						
+		var xmlhttp, xmlDoc;
+		xmlhttp = new XMLHttpRequest();
+			//xmlhttp.open("GET", "xmlCURRENT.xml", false);
+		xmlhttp.open("GET", file, false);
+
+		xmlhttp.send();
+		xmlDoc = xmlhttp.responseXML;
+
+		//var CURRENTarray = new Array();
+		var tags = xmlDoc.getElementsByTagName('*');
+/*		for (var i = 0; i < tags.length; i++) {
+					//if (tags[i].nodeName != "player" && tags[i].nodeName != "bluejays") {
+			CURRENTarray.push(tags[i].firstChild.nodeValue);
+		}		
+		alert("'Notes21.xml' FILE Array ('"+file+"'):\n\n"+CURRENTarray);	
+*/		
+		//var TOPICSarray = new Array();
+		for (var i = 0; i < tags.length; i++) {
+			if (tags[i].nodeName == "title") {
+				TOPICSarray.push(tags[i].firstChild.nodeValue);
+			}
+		}		
+			//alert("TOPICSarray ('"+file+"'):\n\n"+TOPICSarray);	
+			/* for (var i = 0; i < TOPICSarray.length; i++) {
+				alert("topic "+(i+1)+" is " + TOPICSarray[i]);
+			} */		
+			//var selectTOPIC = prompt("Enter topic to open:\n \t ??",TOPICSarray[2]); 
+			
+		for (var i = 0; i < tags.length; i++) {
+			if (tags[i].nodeName == "detail") {
+				NOTEScontents.push(tags[i].firstChild.nodeValue);
+			}
+		}
+		
+		//i = 0;
+		var topicLIST = " ";	// = "1. ";
+		for (var i = 0; i < TOPICSarray.length; i++) {
+			topicLIST =topicLIST + (i+1) + " " + TOPICSarray[i] + "\n";
+		}
+		alert("topicLIST:\n\n" + topicLIST);
+		
+		document.getElementById("NOTEtopics").innerHTML = topicLIST;
+		//var NOTESdivCONTENT = document.getElementById("NOTESdiv").textContent;
+		//document.getElementById("NOTESdiv").innerHTML = NOTESdivCONTENT + "<br>" + topicLIST;
+		
+	}
+
+	function selectTopic() {
+		var topicNO = document.getElementById("TopicSelect").value;
+		//alert("You selected topic # " + topicNO);
+		// covert 8 to number:
+		topicINT = Number(topicNO)-1;
+		//alert("topicINT = '"+topicINT+ "'!");
+		document.getElementById("NOTEcontent").value = TOPICSarray[topicINT] + ":\n\t" + NOTEScontents[topicINT];
+			//document.getElementById("NOTEfile").value = "zMISC/Notes21.xml";
+	}	
+		
+			/*	======================================================	*/
+
+	function showNOTES() {
+		if ( document.getElementById("NOTESdiv").style.left == "-999em" ) {		//"73em" ) {
+			document.getElementById("NOTESdiv").style.left="300px";
+			document.getElementById("NOTESdiv").style.top="300px";
+			document.getElementById("NOTESdiv").style.width="370px";
+			document.getElementById("NOTEfile").value = "Notes21.xml";
+		}
+		else { document.getElementById("NOTESdiv").style.left="-999em"; }	
+	}
+	function hideNOTES() { document.getElementById("NOTESdiv").style.left="-999em"; }	 
+	
+	function showBJO() {
+		if ( document.getElementById("BJOdiv").style.left == "-999em" ) {		//"73em" ) {
+			document.getElementById("BJOdiv").style.left="250px";
+			document.getElementById("BJOdiv").style.top="100px";
+			document.getElementById("BJOdiv").style.width="600px";
+			//document.getElementById("NOTEfile").value = "BJO21.xml";
+		}
+		else { document.getElementById("BJOdiv").style.left="-999em"; }	
+	}
+	function hideBJO() { document.getElementById("BJOdiv").style.left="-999em"; }	
+	
+	function showSWIM() {
+		if ( document.getElementById("SWIMdiv").style.left == "-999em" ) {		//"73em" ) {
+			document.getElementById("SWIMdiv").style.left="350px";
+			document.getElementById("SWIMdiv").style.top="130px";
+			document.getElementById("SWIMdiv").style.width="650px";
+			//document.getElementById("NOTEfile").value = "SWIM21.xml";
+		}
+		else { document.getElementById("SWIMdiv").style.left="-999em"; }	
+	}
+	function hideSWIM() { document.getElementById("SWIMdiv").style.left="-999em"; }	
+
+	function showGOLF() {
+		if ( document.getElementById("GOLFdiv").style.left == "-999em" ) {		//"73em" ) {
+			document.getElementById("GOLFdiv").style.left="460px";
+			document.getElementById("GOLFdiv").style.top="300px";
+			document.getElementById("GOLFdiv").style.width="550px";
+			//document.getElementById("NOTEfile").value = "GOLF21.xml";
+		}
+		else { document.getElementById("GOLFdiv").style.left="-999em"; }	
+	}
+	function hideGOLF() { document.getElementById("GOLFdiv").style.left="-999em"; }	
+
+//SERVICE WORKER
+	 /* DISABLED/ENABLED SERVICE WORKER CODE FOR TESTING NEW CODE IN THIS VERSION !!!!*/
+
+
+  if('serviceWorker' in navigator) {
+    navigator.serviceWorker
+             .register('/WaltStuffsw.js')
+             .then(function() { console.log('Service Worker Registered'); });
+			alert('Service Worker Registered!'); navigator.storage.estimate().then(function(estimate) {
+  //document.getElementById("percent").value =
+    //  (estimate.usage / estimate.quota * 100).toFixed(2);
+  });//end storageManagerEstimate	
+  
+		 }//end if service worker
+	//StorageManager.estimate()..https://developer.mozilla.org/en-US/docs/Web/API/StorageManager/estimate
+	
+	if(!navigator.serviceWorker) {
+	console.log('You are not running in Safari!');
+	//document.getElementById("percent").value = '(Not running in Safari so not able to return )';
+}//end if not! service worker
+	
+	//what about the manifest file? triggered by oninstall? A2HS?	 
+//If the service worker API is supported in the browser, it is registered against the site using the ServiceWorkerContainer.register() method. Its contents reside in the sw.js file, and can be executed after the registration is successful. It's the only piece of Service Worker code that sits inside the app.js file; everything else that is Service Worker-specific is written in the sw.js file itself.
+//END OF DISABLED SERVICE WORKER !!!*/
+
+	
+	//SERVICE WORKER
+	
+	
+</script>		
+		
+</head>
+
+<body>
+	
+<div id="mySidenav" class="sidenav"  style='opacity:0.8; border-right: 5px solid red;'>
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+  <a>
+	  	&nbsp;&nbsp;
+  		<font size=5 face="papyrus" color=red>Menu</font><br>
+	  	&nbsp;&nbsp;&#9935;<font size=2 color=orange>Textastic App</font>&#9935;
+  </a> 
+  
+  <br>
+  
+  <A style="cursor:pointer; FONT-SIZE:20px; border:2px outset yellow; width:60%;"
+			onclick="showGOLF()" title=''>
+			<font><u><b>Golf Swing</b></u></font>
+  </A>
+  <!--
+  <A href="rotbndWS.html">Golf Swing</A>
+	-->
+  		<!--<A href="../2021/ttGOLF21.html">Golf Swing</A>-->
+	
+	<!--
+ 	<div class="dropup">
+	  <button class="dropbtn" id='musicBTN' onclick="showTIP('tipMUSIC')"
+	  style="background:white;">MUSIC&nbsp;&#9836;</button> 
+	  <div class="dropup-content" style="border:3px solid red; border-radius:10px;"
+	  id="musicCONTENT">
+		
+				<span style="float:right; text-align:right; padding-right: 5px;">
+					<button id="OKbtn" onclick="hideTIP()" style="FONT-WEIGHT: bold; 
+					FONT-SIZE:10px; COLOR:black">close</button>
+				</span>	
+		
+		<a> </a>
+		<a> </a>		
+		<A href="ttPIANO.html">Piano</A> 
+		<A href="bjoNOTESws.html">Banjo</A> 
+	  </div>
+	</div>
+	-->
+
+	<br>
+	
+	<A style="cursor:pointer; FONT-SIZE:20px; border:2px outset yellow; width:60%;"
+			onclick="showBJO()" title=''>
+			<font color=lime><u><b>Banjo</b></u>&nbsp;&#9836;</font><br>
+			&emsp;&emsp;<font size=2 color=white>fretboard</font>
+	</A>	
+	<br>
+
+	<!--
+	<a href="BRIDGEws.html"><font color=slategray>Bridge</font></a>
+
+	<a href="SWIMws.html"><font color=slategray>Swim</font></a>
+	-->	
+	<A style="cursor:pointer; FONT-SIZE:20px; border:2px outset yellow; width:60%;"
+			onclick="showSWIM()" title=''>
+			<font color=lime><u><b>Swim</b></u></font>
+	</A>	
+
+	
+	
+	<A> 
+	</A>
+		<A style="cursor:pointer; FONT-SIZE:20px; border:2px outset yellow; width:60%;"
+			onclick="readXPT2()" title=''>
+			<font color=lime><u><b>HELP!</b></u></font><br>
+			&emsp;&emsp;<font size=2 color=white>read .xml file</font>
+		</A>	
+	<A> </A>
+	<A> </A>
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+<div id="titleDiv" name="chooseDiv" title="" align="center"
+	style="background-color:black;
+	font-family: Helvetica; font-size: 12pt; border: 0px solid black;
+	margin:0 auto; padding:0px;">
+	
+	<font style="font-size:25px;" color=yellow face="papyrus">Walt</font><font style="font-size:12px;" color=yellow face="papyrus">stuff</font> <font style="font-size:15px;" color=orange face="papyrus">1P</font>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<span style="font-size:30px;cursor:pointer; color:white;" 
+	onclick="openNav()">&#9776;</span>	
+	<br>
+	<font color=silver size=1><i>Nov 2-6, 2021</i></font> <!-- Textastic  -->			
+</div>
+
+	
+	<br>
+	<IMG style="background-color:yellow; border: 2px black solid;
+	display:block; margin-left:auto; margin-right:auto; width:50%;" 
+    alt="elmer" src="fudd4.jpeg" >	
+	<!-- changed fudd4.jpg to fudd4.jpeg -->
+
+</body>
+
+						<!--  ************** NOTES ************************  -->
+
+	<div id="NOTESdiv" style="font-size:15px; cursor:pointer; background:antiquewhite; color:slategray; border:2px orange inset; border-radius:5%; padding:10px; width:500px; position:absolute; left:-999em; top:300px; text-align:center; height:400px; width:370px; overflow:scroll;">	<!-- left:-999em; or 300px; top:250px;  -->
+
+		<font size=5 face="cooper black"><b>HELP!</b></font>
+			<!--&emsp;&emsp;&emsp;-->
+			<span style="float:right; text-align:right; padding-right: 10px;">
+				<a onclick="hideNOTES()">&times;</a>
+			</span>	
+		<br>
+		<!--<font size=4 face="papyrus">GWH Notes</u></font>-->
+		
+		<TABLE align=center border=1><TR><TD colspan=3 align=center>
+			<textarea id="NOTEfile" name="" rows="1" cols="30"></textarea> 
+		</TD></TR><TR><TD>
+			Topic List:<br>
+			<textarea id="NOTEtopics" name="" rows="7" cols="25">Topic List:</textarea> 
+		</TD><TD width=10px></TD><TD align=center>
+			<font color=blue>Select Topic #:</font><br>
+			<input id="TopicSelect" style="width:20px; font-size:15px; 
+			background:yellow; color:blue; border:1px solid black;;" value=""
+			onclick=""></input><br>
+			<button id="_BTNselTOP" onclick="selectTopic()" style='cursor:pointer; background-color:lawngreen; color:black; border:2px solid navy; border-radius:8px; font-size:12px;'><b>GO</b></button>		
+		</TD></TR><TR><TD colspan=3 align=center>	
+			Topic Content:<br>
+			<textarea id="NOTEcontent" name="" rows="7" cols="30"></textarea> 			
+		</TD></TR>
+		</TABLE>	
+		<br>
+		<!--
+		<A style='Font-size:15px; background:ivory; color:blue; border-radius:10%; padding:5px; border:2px inset orange;' href="DWNLDlist.html">Download 'Help' File List</A>
+		-->
+
+	</div>							
+
+	
+	<div id="BJOdiv" style="font-size:15px; cursor:pointer; background:yellow; color:slategray; border:2px orange inset; border-radius:5%; padding:10px; width:500px; position:absolute; left:-999em; top:300px; text-align:center; height:400px; width:370px; overflow:scroll;">
+		<font style="font-size:35px;" color=purple face="papyrus">Banjo NOTES '21</font>
+		<span style="float:right; text-align:right; padding-right: 10px;">
+				<a onclick="hideBJO()">&times;</a>
+			</span>	
+		<br>
+		<IMG alt="BANJO notes" src="bjoCchrtH2.png" height="350" width="700" 
+		style="border: 1px brown outset; border-radius:20px; background-color:lightyellow;">
+		
+	</div>
+			
+			
+			
+	<div id="SWIMdiv" style="font-size:15px; cursor:pointer; background:white; color:slategray; border:2px orange inset; border-radius:5%; padding:10px; width:500px; position:absolute; left:-999em; top:300px; text-align:center; height:400px; width:370px; overflow:scroll;">
+			<font style="font-size:35px;" color=purple face="papyrus">FREESTYLE SWIMMING</font>
+				<span style="float:right; text-align:right; padding-right: 10px;">
+						<a onclick="hideSWIM()">&times;</a>
+					</span>	
+					<br>
+					<A style="FONT-WEIGHT: normal; COLOR: blue" onclick="" href="http://www.swimsmooth.com/">Mr. Smooth</A>  
+					  
+				
+				  <div id="myDIV" align=left style="padding-top:15px; width:600px;
+				  				margin: auto;  
+				    border: 3px solid green;
+				    padding: 10px;"
+				  >
+				   	
+					<font color=orange size=6><u>Front QUADRANT</u> Catch-Up:</font><br>	
+					<A style="FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: "
+							onclick="return popupINDEX(this, 'index')" 
+							href="https://www.thoughtco.com/catch-up-swimming-3168752">
+							https://www.thoughtco.com/catch-up-swimming-3168752</A><br>
+					<font color=black>CATCH-UP DRILL</font><br><br>
+					Assume prone position in water and <e>extend arms forward</e>; arms should be just a bit under <br>
+					surface of water, pointing at destination. <e>One arm then performs a regular freestyle pull</e>,<br>
+					starting from that extension, through the catch and finish, then it recovers to an <br>
+					extension, pointing at your destination, back to where it started.<br><br>
+					<span style="background:yellow; color:black">Other arm is still</span>,
+					just keep it pointing forward. Should feel like you body is very long <br>
+					or extended, and you may feel pulses or instants of power as you pull, then pulses of <br>
+					gliding as one arm recovers but the other arm has not yet started pulling.<br><br>
+					The swimming arm 
+					<A style="FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: blue"
+						 	onclick="AlertSLOT()" href="javascript:;">
+						 	<b><span style="background:yellow;">
+					catches up</span></b></A>
+					
+					to the arm that is still extended, pointing forward.
+					<font color=red>  
+						 		< <span style="background:yellow;"> NB!</span></font>
+					<br><br>
+					
+					<A style="FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: "
+							onclick="return popupINDEX(this, 'index')" 
+							href="https://www.youtube.com/watch?v=jx1Dltg49Xo">
+							https://www.youtube.com/watch?v=jx1Dltg49Xo</A>
+					<br>
+					<A style="FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: "
+							onclick="return popupINDEX(this, 'index')" 
+							href="http://www.feelforthewater.com/2014/09/clearing-up-confusion-about-front.html">
+							http://www.feelforthewater.com/2014/09/clearing-up-confusion-about-front.html</A>
+					<br><br>
+					
+					<e><span style="background:yellow;"><b>High Elbow Catch</b></span> Is Important!</e>
+						<font color=black>< need to keep shouder up by ear to keep elbow high</font><br>
+					<span id="tab">Stop over-reaching. At a point reaching too far in front of you ends up actually <br>
+					costing you. If you are reaching and gliding at the beginning of the stroke it <br>
+					becomes very difficult not to drop the wrist and elbow.<br>
+					Do not sacrifice a powerful catch for a longer stroke. When we over-glide we<br> naturally
+					end up dropping our elbow.<br>
+					<A style="FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: "
+							onclick="return popupINDEX(this, 'index')" 
+							href="https://www.yourswimlog.com/high-elbow-catch/">
+							https://www.yourswimlog.com/high-elbow-catch/</A>	
+					</span><br>	
+				  </div>
+				  <br><br>
+				<!--    _____________________________________________________________________________ -->
+				  
+				  <div id="myDIV2" align=left style="padding-top:15px; width:600px;
+				  				margin: auto; border: 3px solid green; padding: 10px;"
+				  >   	
+					<font color=orange size=6><u>Leg Kick</u></font><br>	
+					<A style="FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: "
+							onclick="return popupINDEX(this, 'index')" 
+							href="http://www.swimsmooth.com/kick.html">
+							http://www.swimsmooth.com/kick.html</A><br>
+					<i>Not looking to get much or <e>any</e> propulsion from leg kick.<br>
+					Want: lift legs up; low drag; low effort.</i><br><br>
+					1. <e>Kick from the hip</e><br>
+					2. <e>Plantar flexed feet</e> (Pointing Your Toes)<br>
+					<span id="tab"> Presents a much lower profile to the water. Not pointing your toes will push water <br>
+					forwards when you kick, <b><u>slowing you dramatically</u></b>.</span><br>
+					4. Timing<br>
+					<span id="tab"><e>When the hand enters the water at the front of the stroke, the opposite <br>
+					leg should kick</e>. <font color=red>< <span style="background:yellow;"> ??(see below)</span></font><br>
+					In 2 beat kick this is the only kick, in 4 and 6 beats there are other kicks in between</span><br><br>
+					
+					<e>Scissor kicks</e> - <b><u>cut them out</u></b> and you'll go a lot faster.<br>
+					<span id="tab">A scissor kick is a very large opening of the legs, normally when a swimmer goes to <br>
+					take a breath. They hurt you because of the enormous amount of drag they generate<br> 
+					It's a bit like opening up a parachute behind you.</span><br>
+				  </div>
+				  <br><br>
+				<!--    _____________________________________________________________________________ -->
+				
+				  <div id="myDIV2" align=left style="padding-top:15px; width:600px;
+				  				margin: auto; border: 3px solid green; padding: 10px;"
+				  >   	
+					<font color=orange size=6><u>Catch & Pull</u></font><br>	
+					<A style="FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: "
+							onclick="return popupINDEX(this, 'index')" 
+							href="http://www.swimsmooth.com/catch.html">
+							http://www.swimsmooth.com/catch.html</A><br>
+					Lock on & press the water <u>back</u> behind you. Contrast this to what most swimmers <br>
+					do - pressing the water down at the front of the stroke rather than back.<br> <br>	
+					Palm looks at bottom of pool, but with <e><u>finger tips angled slightly down</u></e>.<br>
+					This should be <e><u>flexed from the wrist</e> (not from the knuckles)</u>. Need to keep <br>
+					palm flat and open, <u>fingers closed</u> loosely together.<br><br>
+					At full reach and without dropping your elbow, <u>feel like you are tipping your<br>
+					finger-tips over the front of a barrel (again flexing at the wrist)</u>, which <br>
+					will <b>start the catch</b>.<br>
+				
+					At the same time start <e><b>bending the elbow</b></e> and pressing back on the water with <br>
+					the forearm in a near-vertical position.<br>
+					This is what keeping your <e>elbows high on the catch</e> is all about.<br><br>
+				  </div>
+				
+				<!--    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+				<br>
+				
+				  <br><br>
+				<!--    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+				
+				  <div id="myDIV2" align=left style="padding-top:15px; width:600px;
+				  				margin: auto; border: 2px solid maroon; padding: 10px;"
+				  >   	
+					<font color=orange size=6><u>Bend Like Becky</u></font><br>	
+					<A style="FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: "
+							onclick="return popupINDEX(this, 'index')" 
+							href="http://www.swimsmooth.com/improve/intermediate/bend-it-like-becky">
+							http://www.swimsmooth.com/improve/intermediate/bend-it-like-becky</A><br>
+					<font color=maroon>Catch And Pull <span style="background:yellow;">
+							Pull-Through Technique</font></span><br><br>
+					
+					<e>As press water backwards, elbow is bent to 110 deg</e> > perfect leverage to press water <br>
+					backwards, propelling forwards. Aim for an elbow bend of between 100 and 120 deg.<br>
+					Many swimmers pull through with a very <e>straight arm</e> which places a lot of load on the <br>
+					shoulder and <e>produces much less propulsion</e>.<br>
+					<IMG style="WIDTH: 350px; HEIGHT: 150px; background-color:yellow; border: 2px black solid;" 
+					alt="Elbow Pull" src="HighElbowCatch.jpg" ><font color=orange>PULL:</font> <font color=maroon>
+													<u>high-elbow catch position</u></font><br><br>
+					
+					Also <e>hand is directly below shoulder as pull through</e>. If you press wide of this or <br>
+					cross the centre line then you will snake down the pool and waste a lot of energy.
+				
+					<e><b>SUBTLY</b> tip wrist right at front of stroke</e>, just before starting the catch - helps initiate a <br>
+					<e><b><u>high-elbow catch position</u></b></e>. NB because it helps bring the fingers and hand downwards to <br>
+					initiate "the catch" (the point at which you start to gain purchase on the water at the <br>
+					very front of the stroke). Initiation from the wrist brings the hand and forearm downwards <br>
+					into the classic high elbow catch position. <e>Can now press the water backwards, not <br>
+					downwards</e>, which is the essence of a great propulsive technique. It is possible to over-do<br>
+					this action and point the fingertips too far downwards.<br>
+					<e>Do not rush the catch</e> but engage with the water and progressively press it backward, helping <br>
+					you generate more propulsion for less effort.<br>
+				
+				  </div>
+				  <br><br>
+				<!--    _____________________________________________________________________________ -->  
+				
+				  <div id="myDIV2" align=left style="padding-top:15px; width:600px;
+				  				margin: auto; border: 2px solid maroon; padding: 10px;"
+				  >   	
+					<font color=orange size=6><u>Kick Timing</u></font><br>	
+						<A style="FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: "
+							onclick="return popupINDEX(this, 'index')" 
+							href="https://www.usms.org/fitness-and-training/articles-and-videos/articles/kick-timing-101">
+							https://www.usms.org/fitness-and-training/articles-and-videos/articles/kick-timing-101</A><br>
+					<font color=maroon>Two-, Four, and Six-Beat Kicking Patterns</font><br><br>
+					
+					<font color=silver>
+					Compare it to walking. When you are walking, as your left leg swings forward your <br>
+					right arm swings forward as counterbalance. 1 <e><b>downward</b> kick should <br>
+					always be timed with the recovery of the <b><u>opposite</u></b> arm</e> as it slices in to forward <br>
+					extension.<br>
+					Count the kick as it snaps <b>down</b>, not up, as you would if you were running and counting <br>
+					foot strikes - the foot strike happens immediately after the leg swings forward, not when <br>
+					it swings back on recovery.<br><br>
+					
+					<span style="background:yellow;"><font color=maroon><b><u>Six-beat kick</font></u></b></span>:
+					Think of this <b><i>common</i></b> kick pattern as being <br>
+					similar to the <e>timing of a waltz</e>: Count "One-two-three; one-two-three" or <br>
+					"Right-two-three; left-two-three" and so on. In short, you should complete six <br>
+					kicks per stroke cycle or three kicks per single arm stroke. The <e>first kick is down</e>, <br>
+					timed <e>with the opposite recovery arm spearing to forward</e> extension. So, in this pattern,<br>
+					the <e>right leg kicks down (one) and <b>rotates the torso to the <u>left skating edge</u></e>, which is <br>
+					followed by a downward kick on the left side (two). The third beat comes with the right <br>
+					leg kicking down (three), then the left leg kicks down (one). Next, the torso rotates to <br>
+					the right skating edge, which is followed by another downward right kick (two)  <br>and finally
+					a downward left kick (three). <br>
+					</font>
+					
+					<br>
+					
+					&nbsp;&nbsp;&nbsp;&nbsp;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++<br><br>
+					
+					The start of the <e>propulsive</e> phase of the arm stroke always coincides with a downward<br>
+					motion of the leg on the <e><u>same</u></e> side.<br>
+					<A style="FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: "
+							onclick="return popupINDEX(this, 'index')" 
+							href="http://www.enjoy-swimming.com/flutter-kick.html">
+							http://www.enjoy-swimming.com/flutter-kick.html</A><br>
+					In the <e><u><b>six-beat kick</b></u></e>, each leg kicks three times per stroke cycle. Consider the <br>
+					movements of the right arm and the right leg. The <span style="background:black;">first 
+									downbeat of the leg occurs<br>
+					during the forward extension of the <e>same</e> arm</span>. The second downbeat of the leg occurs<br>
+					during the upsweep of the arm. The third downbeat of the leg occurs during<br>
+					the recovery of the arm. The left leg moves in opposition to the right leg.<br><br>
+					
+					In the <e><u><b>two-beat kick</b></u></e> you kick once with each leg per stroke cycle.<br>
+					The <e>downbeat</e> of the <e>right leg</e> occurs during the <e>propulsive phase</e> of the <e>right arm</e> <br>
+					stroke (insweep and upsweep to be precise).<br><br>
+				  
+				    &nbsp;&nbsp;&nbsp;&nbsp;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++<br><br>
+				    
+				 	Downward leg kick and the finish of the arm 'push' phase are timed together.<br> 
+				 	<A style="FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: "
+							onclick="return popupINDEX(this, 'index')" 
+							href="https://swimcoachingblog.com/2013/03/12/frontcrawl-timing-pt-1-arms-and-legs/">
+							https://swimcoachingblog.com/2013/03/12/frontcrawl-timing-pt-1-arms-and-legs/</A><br>
+					<span id="tab"><font color=orange> http://www.youtube.com/watch?v=VbelgVrdsSk</font></span><br>
+					In the <e>two beat</e> kick the <e>right leg kicks downwards as the right arm<br> 
+					finishes the push phase</e>.  In the two beat kick there is a distinctive pause between kicks; <br>
+					(L)kick-pause-(R)kick-pause. . . and in the <e>six beat</e> kick instead of the pause a swimmer <br>
+					squeezes in two additional kicks; <e>(L)kick-two quick kicks-(R)kick-two quick kicks</e>.<br><br>
+				 </div>
+				 	
+  
+  	</div>
+
+
+	<div id="GOLFdiv" style="font-size:15px; cursor:pointer; background:slategray; color:white; border:2px orange inset; border-radius:5%; padding:10px; width:500px; position:absolute; left:-999em; top:300px; text-align:left; height:300px; width:370px; overflow:scroll;">
+		<font style="font-size:35px;" color=purple face="papyrus">Golf Swing</font>
+		<span style="float:right; text-align:right; padding-right: 10px;">
+				<a onclick="hideGOLF()">&times;</a>
+			</span>	
+		<br>
+				<font size=5>3+ Simple Keys</font>
+				<font size=1><i>(Oct 13/21)</i></font>
+						<font size=2>
+						<ol>	
+							 <li>
+								<font color=yellow><b>Erect ('horizontal mode') 3-hinge drill</b></font> <i>(club head @ eye level)</i>:<br>	
+							 	<div style='margin-left:10px;'>
+								<span style='background:yellow; color:red; cursor:progress;' 
+										title="PASSIVE ARMS > cntrifugal force!"><b>connected</b> 1-piece 
+								<i>(arms + trunk)</i> ROTATION w/ R elbow in</span> vs 
+							    chest w/o > fwd or up @ impact.&nbsp;
+								<br>
+							    &emsp;&emsp;&emsp;
+								<span style='background:orange; color:black; '><u> <span style='border:4px inset red; border-radius:20px;'>PASSIVE ARMS (+ loose wrists)</span></u> > <i>centrifugal force</i>!
+								</span>
+								</div>
+							 </li>
+				   			 <li>
+				   			 	<b>Bend @ hips, <font color=yellow><b>turn w/ SHOULDERS/ribs <i>(spine straight)</i></b></font> & keep R arm vs side</b>
+				   			 	<div style="margin-left:10px;">- add a little legs on dwnswg > <u>full F/T</u> <i>('pose')</i>
+				   			 </li>
+							 <li><font color=yellow><u>Stop/slow fwd body/<b>hand</b> 'action' @ impact</u></font> > allows/forces R wrist to UN-extend/flex > clubhead-hands '<font color=orange>catch-up</font>' (lag) <font color=yellow size=3>*</font>
+							 </li>		
+						
+							<li type="circle">	<!-- <li type="1|a|A|i|I|disc|circle|square"> -->
+								? Conscious R wist straighten @ impact
+							</li>		
+						</ol>
+						</font>
+				</div>				
+				
+			
+			
+
+
+		
+		
+	</div>	
+	
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

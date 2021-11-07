@@ -1,0 +1,15 @@
+{
+  "background_color": "purple",
+  "description": "This is Walts Stuff.",
+  "display": "fullscreen",
+  "icons": [
+    {
+      "src": "fudd4.jpeg",
+      "sizes": "192x192",
+      "type": "image/JPG"
+    }
+  ],
+  "name": "WaltStuffPWA",
+  "short_name": "WaltStuff",
+  "start_url": "/index.html"
+  }
