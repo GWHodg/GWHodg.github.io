@@ -1,4 +1,4 @@
-//DougieBaseVer34sw.js added eyeore bkgrd image file O Nov 10, 2021
+//DougieBaseVer34sw.js added eyeore bkgrd image file O Nov 10, 2021. Messing arround!
 //from … TableNotesVer30sw.js
 var cacheName = 'WaltStuff-v1'
 self.addEventListener('install', function(e) {
