@@ -2,10 +2,54 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>WS1P</title>
+<title>WS1Pc</title>
 <link rel="manifest" href="WaltStuff.webmanifest">
 <!--Changed href = "manifest.json" To <link rel="manifest" href="WaltStuff.webmanifest">  -->
 <style>
+	.accordion {
+		background-color: #eee;
+		color: #444;
+		cursor: pointer;
+		padding: 18px;
+		width: 100%;
+		border: none;
+		text-align: left;
+		outline: none;
+		font-size: 15px;
+		transition: 0.4s;
+		
+		height: 10px;
+	}
+	
+	.active, .accordion:hover {
+		background-color: #ccc;
+	}
+	
+	.panel {
+		padding: 0 18px;
+		background-color: white;
+		max-height: 0;
+			/*overflow:scroll;*/
+		overflow: hidden;
+		transition: max-height 0.2s ease-out;
+		
+		border-bottom:1px solid #aaa;
+	}
+	
+	
+	/*Add a symbol to each button to indicate whether the collapsible content is open or closed:*/
+	.accordion:after {
+		content: '\02795'; /* Unicode character for "plus" sign (+) */
+		font-size: 13px;
+		color: #777;
+		float: right;
+		margin-left: 5px;
+	}
+	.active:after {
+		content: "\2796"; /* Unicode character for "minus" sign (-) */
+	}
+
+
 	body { background-color:RED; color:white; padding-top:15px; }
 	#tab { display:inline-block; margin-left: 60px; }
 	eR { font-size:16px; color:red;}
@@ -190,41 +234,23 @@
 	}
 	function hideNOTES() { document.getElementById("NOTESdiv").style.left="-999em"; }	 
 	
-	function showBJO() {
-		if ( document.getElementById("BJOdiv").style.left == "-999em" ) {		//"73em" ) {
-			document.getElementById("BJOdiv").style.left="250px";
-			document.getElementById("BJOdiv").style.top="100px";
-			document.getElementById("BJOdiv").style.width="600px";
-			//document.getElementById("NOTEfile").value = "BJO21.xml";
-		}
-		else { document.getElementById("BJOdiv").style.left="-999em"; }	
-	}
-	function hideBJO() { document.getElementById("BJOdiv").style.left="-999em"; }	
-	
-	function showSWIM() {
-		if ( document.getElementById("SWIMdiv").style.left == "-999em" ) {		//"73em" ) {
-			document.getElementById("SWIMdiv").style.left="350px";
-			document.getElementById("SWIMdiv").style.top="130px";
-			document.getElementById("SWIMdiv").style.width="650px";
-			//document.getElementById("NOTEfile").value = "SWIM21.xml";
-		}
-		else { document.getElementById("SWIMdiv").style.left="-999em"; }	
-	}
-	function hideSWIM() { document.getElementById("SWIMdiv").style.left="-999em"; }	
 
-	function showGOLF() {
-		if ( document.getElementById("GOLFdiv").style.left == "-999em" ) {		//"73em" ) {
-			document.getElementById("GOLFdiv").style.left="460px";
-			document.getElementById("GOLFdiv").style.top="300px";
-			document.getElementById("GOLFdiv").style.width="550px";
-			//document.getElementById("NOTEfile").value = "GOLF21.xml";
-		}
-		else { document.getElementById("GOLFdiv").style.left="-999em"; }	
-	}
-	function hideGOLF() { document.getElementById("GOLFdiv").style.left="-999em"; }	
 
 	
-	function hideEEYORE() { document.getElementById("EEYOREdiv").style.left="-999em"; }	
+	function hideEEYORE() { 
+		//document.getElementById("EEYOREdiv").style.left="-999em"; 
+		if ( document.getElementById("EEYOREdiv").style.left == "-999em" ) {
+			document.getElementById("EEYOREdiv").style.left="850px";
+			document.getElementById("EEYOREdiv").style.top="700px";
+					//document.getElementById("NOTESdiv").style.width="600px";	//"370px";
+					//document.getElementById("NOTEfile").value = "Notes21.xml";
+			document.getElementById("MENUeeyore").textContent="Hide Eeyore";
+		}
+		else { 
+			document.getElementById("EEYOREdiv").style.left="-999em";
+			document.getElementById("MENUeeyore").textContent="Show Eeyore"; 
+		}			
+	}	
 
 //SERVICE WORKER
 	 /* DISABLED/ENABLED SERVICE WORKER CODE FOR TESTING NEW CODE IN THIS VERSION !!!!*/
@@ -256,25 +282,24 @@
 
 /* +++++++++++++++++++++++ ADDED BY DOUG ^ ++++++++++++++++++++++++++++++++++++++ */	
 
-	function frontSWIM() {
-		alert("Will try to bring 'SWIMdiv' to the front!");
-		//document.getElementById("SWIMdiv").style.zIndex=10;
-		var nB = document.getElementById("BJOdiv").style.zIndex;
-		var nH = document.getElementById("NOTESdiv").style.zIndex;
-		var nG = document.getElementById("GOLFdiv").style.zIndex;
-		alert("nB = "+nB+"\nnH = "+nH+"\nnG = "+nG);
-		
-		let bMAX = Math.max(nB, nH, nG);
-		alert("bMAX = "+bMAX);
-		
-		//document.getElementById("SWIMdiv").style.zIndex=nB+1;
-		document.getElementById("SWIMdiv").style.zIndex=bMAX+1;
-	}	
 	
 	function elmerEGG() {
 		//alert("Eeyore rules!");
 	document.getElementById("EEYOREdiv").style.left="850px"; 
 	}	
+
+	function showTOPICS() {
+		//alert("MENUtopics textContent = "+document.getElementById("MENUtopics").textContent);
+		if (document.getElementById("MENUtopics").textContent=="Hide Topics") {
+			document.getElementById("ACDNdiv").style.display="none"; //inline 	
+			document.getElementById("MENUtopics").textContent="Show Topics";
+		}		
+		else {	//(document.getElementById("ACDNdiv").style.display="none") {
+			document.getElementById("ACDNdiv").style.display="block"; //inline 	
+			document.getElementById("MENUtopics").textContent="Hide Topics";
+		}
+		
+	}
 	
 </script>		
 		
@@ -286,70 +311,32 @@
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
   <a>
-	  	&nbsp;&nbsp;
+	  	<!--&nbsp;&nbsp;
   		<font size=5 face="papyrus" color=red>Menu</font><br>
-	  	&nbsp;&nbsp;&#9935;<font size=2 color=orange>Textastic App</font>&#9935;
+	  	&nbsp;&nbsp;&#9935;<font size=2 color=orange>Textastic App</font>&#9935;-->
   </a> 
   
   <br>
   
-  <A style="cursor:pointer; FONT-SIZE:20px; border:2px outset yellow; width:60%;"
-			onclick="showGOLF()" title=''>
-			<font><u><b>Golf Swing</b></u></font>
+  <A id="MENUtopics" style="cursor:pointer; FONT-SIZE:20px; border:2px outset yellow; width:60%;"
+			onclick="showTOPICS()" title=''>
+			<font><u><b>Show TOPICS</b></u></font><br>
+				&emsp;<font size=2 color=white>Golf Swing</font><br>
+				&emsp;<font size=2 color=white>Banjo Fretboard&nbsp;&#9836;</font><br>
+				&emsp;<font size=2 color=white>HELP!</font>&nbsp;<font size=1 color=white><i>(read .xml file)</i></font><br>		
+				&emsp;<font size=2 color=white>SWIM</font><br>
   </A>
-  <!--
-  <A href="rotbndWS.html">Golf Swing</A>
-	-->
-  		<!--<A href="../2021/ttGOLF21.html">Golf Swing</A>-->
-	
-	<!--
- 	<div class="dropup">
-	  <button class="dropbtn" id='musicBTN' onclick="showTIP('tipMUSIC')"
-	  style="background:white;">MUSIC&nbsp;&#9836;</button> 
-	  <div class="dropup-content" style="border:3px solid red; border-radius:10px;"
-	  id="musicCONTENT">
-		
-				<span style="float:right; text-align:right; padding-right: 5px;">
-					<button id="OKbtn" onclick="hideTIP()" style="FONT-WEIGHT: bold; 
-					FONT-SIZE:10px; COLOR:black">close</button>
-				</span>	
-		
-		<a> </a>
-		<a> </a>		
-		<A href="ttPIANO.html">Piano</A> 
-		<A href="bjoNOTESws.html">Banjo</A> 
-	  </div>
-	</div>
-	-->
 
 	<br>
 	
-	<A style="cursor:pointer; FONT-SIZE:20px; border:2px outset yellow; width:60%;"
-			onclick="showBJO()" title=''>
-			<font color=lime><u><b>Banjo</b></u>&nbsp;&#9836;</font><br>
-			&emsp;&emsp;<font size=2 color=white>fretboard</font>
+	<A  id="MENUeeyore" style="cursor:pointer; FONT-SIZE:20px; border:2px outset yellow; width:60%;"
+			onclick="hideEEYORE()" title=''>
+			<font color=lime><u><b>Hide Eeyore</b></u></font><br>
+			&emsp;<IMG alt="EEYORE pic" src="EeyoreX.jpg"
+			style="border: 1px brown outset; border-radius:20px; background-color:lightyellow; width:70%;">
 	</A>	
 	<br>
 
-	<!--
-	<a href="BRIDGEws.html"><font color=slategray>Bridge</font></a>
-
-	<a href="SWIMws.html"><font color=slategray>Swim</font></a>
-	-->	
-	<A style="cursor:pointer; FONT-SIZE:20px; border:2px outset yellow; width:60%;"
-			onclick="showSWIM()" title=''>
-			<font color=lime><u><b>Swim</b></u></font>
-	</A>	
-
-	
-	
-	<A> 
-	</A>
-		<A style="cursor:pointer; FONT-SIZE:20px; border:2px outset yellow; width:60%;"
-			onclick="readXPT2()" title=''>
-			<font color=lime><u><b>HELP!</b></u></font><br>
-			&emsp;&emsp;<font size=2 color=white>read .xml file</font>
-		</A>	
 	<A> </A>
 	<A> </A>
   
@@ -366,40 +353,90 @@
 	font-family: Helvetica; font-size: 12pt; border: 0px solid black;
 	margin:0 auto; padding:0px;">
 	
-	<font style="font-size:30px;" color=yellow face="papyrus">Walt</font><font style="font-size:20px;" color=yellow face="papyrus">stuff</font> <font style="font-size:15px;" color=orange face="papyrus">1P</font> <i>(Vn 4)</i>
+	<font style="font-size:30px;" color=yellow face="papyrus">Walt</font><font style="font-size:20px;" color=yellow face="papyrus">stuff</font> <font style="font-size:15px;" color=orange face="papyrus">1P</font> <i>(Vn c)</i>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<span style="font-size:30px;cursor:pointer; color:white;" 
 	onclick="openNav()">&#9776;</span><br>
 	<font style="font-size:15px;" color=lime face="papyrus">by Eeyore & Elmer</font>
 	&emsp;
-	<font color=silver size=1><i>Nov 2-20, 2021</i></font> <!-- Textastic  -->	
+	<font color=silver size=1><i>Nov 2-24, 2021</i></font> <!-- Textastic  -->	
 </div>
 
-	
-	<br>
-	<IMG style="background-color:yellow; border: 2px black solid;
-	display:block; margin-left:auto; margin-right:auto; width:50%;" 
-    alt="elmer" src="fudd4.jpg" onclick="elmerEGG()">	
-	<!-- changed fudd4.jpg to fudd4.jpeg -->
-	
-	<br>
-	<div style='border:3px inset green; width:500px; background:black; margin:auto; padding:5px;'>
-		<u>Make edits to all the files in the workingCopy GWHodg.github.io repository listing in TEXTASTIC</u>. The textastic editor then sends these changes to WorkingCopy, and <b>in WorkingCopy you go through the process of 'COMMIT' and your changes will be seen in the file in the github repository</b>. Now when you run the PWA the app reflects the edits you made way back in Textastic. 
-	</div>
 
-</body>
+<div id="ACDNdiv" style="display:none;  font-size:15px; cursor:pointer; background:blue; color:slategray; border:2px orange inset; border-radius:5%; padding:10px; width:700px; position:absolute; left:300px; top:200px; text-align:center; height:400px; overflow:scroll;"
+	  onclick="readXPT2()">	<!-- left:-999em; or 300px; top:250px;    width:370px;  -->
 
-						<!--  ************** NOTES ************************  -->
-
-	<div id="NOTESdiv" style="font-size:15px; cursor:pointer; background:antiquewhite; color:slategray; border:2px orange inset; border-radius:5%; padding:10px; width:500px; position:absolute; left:-999em; top:300px; text-align:center; height:400px; width:370px; overflow:scroll;">	<!-- left:-999em; or 300px; top:250px;  -->
-
-		<font size=5 face="cooper black"><b>HELP!</b></font>
-			<!--&emsp;&emsp;&emsp;-->
-			<span style="float:right; text-align:right; padding-right: 10px;">
-				<a onclick="hideNOTES()">&times;</a>
-			</span>	
+	<button class="accordion"><b>GOLF SWING</b> <i><font style="opacity:.6" size=1>(Nov 23/21)</font></i></button>
+	<div class="panel" style="background:black; color:white;">
+		<font style="font-size:35px;" color=lime face="papyrus">Golf Swing</font>
+		<!--
+		<span style="float:right; text-align:right; padding-right: 10px;">
+				<a onclick="hideGOLF()"><font size=7><b>&times;</b></font></a>
+				&emsp;
+				<a onclick="frontDIV('GOLFdiv')"><font size=7><b>&plus;</b></font></a>
+		</span>
+		-->	
 		<br>
-		<!--<font size=4 face="papyrus">GWH Notes</u></font>-->
+				<font size=5>3+ Simple Keys</font>
+				<font size=1><i>(Oct 13/21)</i></font>
+						<font size=2>
+						<ol style="text-align:left;">	
+							 <li>
+								<font color=yellow><b>Erect ('horizontal mode') 3-hinge drill</b></font> <i>(club head @ eye level)</i>:<br>	
+							 	<div style='margin-left:10px;'>
+								<span style='background:yellow; color:red; cursor:progress;' 
+										title="PASSIVE ARMS > cntrifugal force!"><b>connected</b> 1-piece 
+								<i>(arms + trunk)</i> ROTATION w/ R elbow in</span> vs 
+							    chest w/o > fwd or up @ impact.&nbsp;
+								<br>
+							    &emsp;&emsp;&emsp;
+								<span style='background:orange; color:black; '><u> <span style='border:4px inset red; border-radius:20px;'>PASSIVE ARMS (+ loose wrists)</span></u> > <i>centrifugal force</i>!
+								</span>
+								</div>
+							 </li>
+				   			 <li>
+				   			 	<b>Bend @ hips, <font color=yellow><b>turn w/ SHOULDERS/ribs <i>(spine straight)</i></b></font> & keep R arm vs side</b>
+				   			 	<div style="margin-left:10px;">- add a little legs on dwnswg > <u>full F/T</u> <i>('pose')</i>
+				   			 </li>
+							 <li><font color=yellow><u>Stop/slow fwd body/<b>hand</b> 'action' @ impact</u></font> > allows/forces R wrist to UN-extend/flex > clubhead-hands '<font color=orange>catch-up</font>' (lag) <font color=yellow size=3>*</font>
+							 </li>		
+						
+							<li type="circle">	<!-- <li type="1|a|A|i|I|disc|circle|square"> -->
+								? Conscious R wist straighten @ impact
+							</li>		
+						</ol>
+						</font>
+							
+
+	</div>
+	
+	<button class="accordion" id="btnBJO" style="visibility:visible; display:block;">Banjo Notes
+		<!--&emsp;<font size=2><b>&times;</b></font>-->
+	</button>
+	<div class="panel" id="pnlBJO">
+		<font style="font-size:35px;" color=purple face="papyrus">Banjo NOTES '21</font>
+		<!--<span style="float:right; text-align:right; padding-right: 10px;">
+				<a onclick="hideBJO()"><font size=7><b>&times;</b></font></a>
+				&emsp;
+				<a onclick="frontDIV('BJOdiv')"><font size=7><b>&plus;</b></font></a>
+		</span>-->
+		<br>
+		<IMG alt="BANJO notes" src="bjoCchrtH2.png" height="350" width="700" 
+		style="border: 1px brown outset; border-radius:20px; background-color:lightyellow;">	
+	</div>	
+
+	<button class="accordion">HELP!</button>
+	<div id="NOTESdiv"  class="panel"> <!-- pnlHELP -->		
+		<font size=5 face="cooper black"><b>HELP!</b></font>
+			<!--<span style="float:right; text-align:right; padding-right: 10px;">
+				<a onclick="hideNOTES()">&times;</a>
+			</span>-->	
+		<br>		
+		<!--
+		<A style="cursor:pointer; FONT-SIZE:15px;" onclick="readXPT2()">
+			<font color=maroon><u><b>read .xml file</b></u></font>
+		</A>
+		-->
 		
 		<TABLE align=center border=1><TR><TD colspan=3 align=center>
 			<textarea id="NOTEfile" name="" rows="1" cols="30"></textarea> 
@@ -421,31 +458,31 @@
 		<!--
 		<A style='Font-size:15px; background:ivory; color:blue; border-radius:10%; padding:5px; border:2px inset orange;' href="DWNLDlist.html">Download 'Help' File List</A>
 		-->
-
+		
+		<!--<span style="float:right; text-align:right; padding-right: 10px;">
+				<a onclick="hideNOTES()"><font size=7><b>&times;</b></font></a>&emsp;
+				<a onclick="frontDIV('NOTESdiv')"><font size=7><b>&plus;</b></font></a>
+		</span>-->	
+		
+		
 	</div>							
 
+	<button class="accordion">SWIM</button>
+	<div id="pnlSWIM"  class="panel">	
 	
-	<div id="BJOdiv" style="font-size:15px; cursor:pointer; background:yellow; color:slategray; border:2px orange inset; border-radius:5%; padding:10px; width:500px; position:absolute; left:-999em; top:300px; text-align:center; height:400px; width:370px; overflow:scroll;">
-		<font style="font-size:35px;" color=purple face="papyrus">Banjo NOTES '21</font>
-		<span style="float:right; text-align:right; padding-right: 10px;">
-				<a onclick="hideBJO()">&times;</a>
-			</span>	
-		<br>
-		<IMG alt="BANJO notes" src="bjoCchrtH2.png" height="350" width="700" 
-		style="border: 1px brown outset; border-radius:20px; background-color:lightyellow;">
-		
-	</div>
-			
-			
-			
-	<div id="SWIMdiv" style="font-size:15px; cursor:pointer; background:white; color:slategray; border:2px orange inset; border-radius:5%; padding:10px; width:500px; position:absolute; left:-999em; top:300px; text-align:center; height:400px; width:370px; overflow:scroll;"  onclick="frontSWIM()">
+				<!--<script>
+					document.getElementById("pnlBJO").textContent = " GWH added <span style='background:yellow;'>this</span>!";
+				</script>-->				 		
+	
+	
 			<font style="font-size:35px;" color=purple face="papyrus">FREESTYLE SWIMMING</font>
-				<span style="float:right; text-align:right; padding-right: 10px;">
-						<a onclick="hideSWIM()">&times;</a>
-					</span>	
+				<!--<span style="float:right; text-align:right; padding-right: 10px;">
+						<a onclick="hideSWIM()"><font size=7><b>&times;</b></font></a>
+						&emsp;
+						<a onclick="frontDIV('SWIMdiv')"><font size=7><b>&plus;</b></font></a>
+					</span>-->	
 					<br>
 					<A style="FONT-WEIGHT: normal; COLOR: blue" onclick="" href="http://www.swimsmooth.com/">Mr. Smooth</A>  
-					  
 				
 				  <div id="myDIV" align=left style="padding-top:15px; width:600px;
 				  				margin: auto;  
@@ -662,49 +699,53 @@
 					(L)kick-pause-(R)kick-pause. . . and in the <e>six beat</e> kick instead of the pause a swimmer <br>
 					squeezes in two additional kicks; <e>(L)kick-two quick kicks-(R)kick-two quick kicks</e>.<br><br>
 				 </div>
-				 	
+	
   
   	</div>
 
+	
+	<!--</div>-->
 
-	<div id="GOLFdiv" style="font-size:15px; cursor:pointer; background:slategray; color:white; border:2px orange inset; border-radius:5%; padding:10px; width:500px; position:absolute; left:-999em; top:300px; text-align:left; height:300px; width:370px; overflow:scroll;">
-		<font style="font-size:35px;" color=purple face="papyrus">Golf Swing</font>
-		<span style="float:right; text-align:right; padding-right: 10px;">
-				<a onclick="hideGOLF()">&times;</a>
-			</span>	
-		<br>
-				<font size=5>3+ Simple Keys</font>
-				<font size=1><i>(Oct 13/21)</i></font>
-						<font size=2>
-						<ol>	
-							 <li>
-								<font color=yellow><b>Erect ('horizontal mode') 3-hinge drill</b></font> <i>(club head @ eye level)</i>:<br>	
-							 	<div style='margin-left:10px;'>
-								<span style='background:yellow; color:red; cursor:progress;' 
-										title="PASSIVE ARMS > cntrifugal force!"><b>connected</b> 1-piece 
-								<i>(arms + trunk)</i> ROTATION w/ R elbow in</span> vs 
-							    chest w/o > fwd or up @ impact.&nbsp;
-								<br>
-							    &emsp;&emsp;&emsp;
-								<span style='background:orange; color:black; '><u> <span style='border:4px inset red; border-radius:20px;'>PASSIVE ARMS (+ loose wrists)</span></u> > <i>centrifugal force</i>!
-								</span>
-								</div>
-							 </li>
-				   			 <li>
-				   			 	<b>Bend @ hips, <font color=yellow><b>turn w/ SHOULDERS/ribs <i>(spine straight)</i></b></font> & keep R arm vs side</b>
-				   			 	<div style="margin-left:10px;">- add a little legs on dwnswg > <u>full F/T</u> <i>('pose')</i>
-				   			 </li>
-							 <li><font color=yellow><u>Stop/slow fwd body/<b>hand</b> 'action' @ impact</u></font> > allows/forces R wrist to UN-extend/flex > clubhead-hands '<font color=orange>catch-up</font>' (lag) <font color=yellow size=3>*</font>
-							 </li>		
-						
-							<li type="circle">	<!-- <li type="1|a|A|i|I|disc|circle|square"> -->
-								? Conscious R wist straighten @ impact
-							</li>		
-						</ol>
-						</font>
-				</div>						
+
+
+
+</div>	
 		
-	</div>	
+
+
+
+	
+	<br>
+	<IMG style="background-color:yellow; border: 2px black solid;
+	display:block; margin-left:auto; margin-right:auto; width:50%;" 
+    alt="elmer" src="fudd4.jpg" onclick="elmerEGG()">	
+	<!-- changed fudd4.jpg to fudd4.jpeg -->
+	
+	<br>
+	<div style='border:3px inset green; width:500px; background:black; margin:auto; padding:5px;'>
+		<u>Make edits to all the files in the workingCopy GWHodg.github.io repository listing in TEXTASTIC</u>. The textastic editor then sends these changes to WorkingCopy, and <b>in WorkingCopy you go through the process of 'COMMIT' and your changes will be seen in the file in the github repository</b>. Now when you run the PWA the app reflects the edits you made way back in Textastic. 
+	</div>
+
+<script>	/* js must be HERE (after body html) */
+	var acc = document.getElementsByClassName("accordion");
+	var i;
+	
+	for (i = 0; i < acc.length; i++) {
+	  acc[i].addEventListener("click", function() {
+		this.classList.toggle("active");
+		var panel = this.nextElementSibling;
+		if (panel.style.maxHeight){
+		  panel.style.maxHeight = null;
+		} else {
+		  panel.style.maxHeight = panel.scrollHeight + "px";
+		} 
+	  });
+	}
+</script>
+
+</body>
+
+
 	
 	<!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
 	
