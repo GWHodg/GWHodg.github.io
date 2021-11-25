@@ -165,7 +165,7 @@
 
 		showNOTES();
 			/* var file = prompt("Enter file to open:\n \t $CODE/xDet_Jul27.xml \n\tzMISC/zS4txtB_Sep04.txt \nzMISC/zcsvWH_Sep01.xml","$CODE/xDet_Jul27.xml"); */
-		var file="Notes21.xml";		//"zMISC/zcsvWH_Sep01.xml";		
+		var file="Help21.xml";		//"zMISC/zcsvWH_Sep01.xml";		
 						
 		var xmlhttp, xmlDoc;
 		xmlhttp = new XMLHttpRequest();
@@ -181,7 +181,7 @@
 					//if (tags[i].nodeName != "player" && tags[i].nodeName != "bluejays") {
 			CURRENTarray.push(tags[i].firstChild.nodeValue);
 		}		
-		alert("'Notes21.xml' FILE Array ('"+file+"'):\n\n"+CURRENTarray);	
+		alert("'Help21.xml' FILE Array ('"+file+"'):\n\n"+CURRENTarray);	
 */		
 		//var TOPICSarray = new Array();
 		for (var i = 0; i < tags.length; i++) {
@@ -221,7 +221,7 @@
 		topicINT = Number(topicNO)-1;
 		//alert("topicINT = '"+topicINT+ "'!");
 		document.getElementById("NOTEcontent").value = TOPICSarray[topicINT] + ":\n\t" + NOTEScontents[topicINT];
-			//document.getElementById("NOTEfile").value = "zMISC/Notes21.xml";
+			//document.getElementById("NOTEfile").value = "zMISC/Help21.xml";
 	}	
 		
 			/*	======================================================	*/
@@ -231,7 +231,7 @@
 			document.getElementById("NOTESdiv").style.left="980px";
 			document.getElementById("NOTESdiv").style.top="60px";
 			document.getElementById("NOTESdiv").style.width="280px";	//"370px";
-			document.getElementById("NOTEfile").value = "Notes21.xml";
+			document.getElementById("NOTEfile").value = "Help21.xml";
 			document.getElementById("MENUhelp").textContent="Hide Help";
 		}
 		else { 
@@ -253,7 +253,7 @@
 			document.getElementById("EEYOREdiv").style.left="850px";
 			document.getElementById("EEYOREdiv").style.top="700px";
 					//document.getElementById("NOTESdiv").style.width="600px";	//"370px";
-					//document.getElementById("NOTEfile").value = "Notes21.xml";
+					//document.getElementById("NOTEfile").value = "Help21.xml";
 			document.getElementById("MENUeeyore").textContent="Hide Eeyore";
 		}
 		else { 
