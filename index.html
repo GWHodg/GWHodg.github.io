@@ -156,10 +156,13 @@
 	
 	/*	---------------------------------------------------------------------	*/
 
-	var CURRENTarray = new Array();
+	//var CURRENTarray = new Array();
 	var NOTEScontents = new Array();
 	var TOPICSarray = new Array();
 	function readXPT2() {
+		NOTEScontents.length = 0;
+		TOPICSarray.length = 0;
+
 		showNOTES();
 			/* var file = prompt("Enter file to open:\n \t $CODE/xDet_Jul27.xml \n\tzMISC/zS4txtB_Sep04.txt \nzMISC/zcsvWH_Sep01.xml","$CODE/xDet_Jul27.xml"); */
 		var file="Notes21.xml";		//"zMISC/zcsvWH_Sep01.xml";		
