@@ -3,7 +3,7 @@
 		<no>1</no>
 		<date>Nov 25/21</date>
 		<title>Cloning repositories</title>
-		<detail>You provide a URL pointing to a repository on the Git remote you wish to clone from.</detail>
+		<detail>You provide a URL pointing to a repository on the Git remote you wish to clone from</detail>
 		<misc>x</misc>
 		<author>x</author>
 	</note>
@@ -11,15 +11,15 @@
 		<no>2</no>
 		<date>Oct 2/21</date>
 		<title>Committing changes</title>
-		<detail>You can commit a single file, multiple files or the entire repository at once, and it is considered good practice to make a commit represent one conceptual change to your repository. </detail>
-		<misc>Word suggestions are shown above the keyboard when writing your commit message.</misc>
+		<detail>You can commit a single file, multiple files or the entire repository at once, and it is considered good practice to make a commit represent one conceptual change to your repository</detail>
+		<misc>Word suggestions are shown above the keyboard when writing your commit message</misc>
 		<author>GWH</author>
 	</note>
 	<note>
 		<no>3</no>
 		<date>Aug 5/21</date>
 		<title>Repository actions</title>
-		<detail>To make it easier to perform important actions a floating fingerprint button is available in the lower right corner on iPhone. This button opens a repository status sheet with easy access to Commit, Revert, Fetch, Pull & Push and lists modified files.</detail>
+		<detail>To make it easier to perform important actions a floating fingerprint button is available in the lower right corner on iPhone. This button opens a repository status sheet with easy access to Commit, Revert, Fetch, Pull and Push and lists modified files</detail>
 		<misc>x</misc>
 		<author>x</author>
 	</note>		
@@ -27,8 +27,8 @@
 		<no>4</no>
 		<date>Sept 22/21</date>
 		<title>Deleting repositories</title>
-		<detail>Once you are done with a repository you can delete it from the repository context menu or status screen.</detail>
-		<misc> This has no influence on remote repositories.</misc>
+		<detail>Once you are done with a repository you can delete it from the repository context menu or status screen</detail>
+		<misc> This has no influence on remote repositories</misc>
 		<author>GWH</author>
 	</note>		
 </NOTES>
