@@ -225,15 +225,22 @@
 
 	function showNOTES() {
 		if ( document.getElementById("NOTESdiv").style.left == "-999em" ) {		//"73em" ) {
-			document.getElementById("NOTESdiv").style.left="300px";
-			document.getElementById("NOTESdiv").style.top="300px";
-			document.getElementById("NOTESdiv").style.width="370px";
+			document.getElementById("NOTESdiv").style.left="980px";
+			document.getElementById("NOTESdiv").style.top="60px";
+			document.getElementById("NOTESdiv").style.width="280px";	//"370px";
 			document.getElementById("NOTEfile").value = "Notes21.xml";
+			document.getElementById("MENUhelp").textContent="Hide Help";
 		}
-		else { document.getElementById("NOTESdiv").style.left="-999em"; }	
+		else { 
+			document.getElementById("NOTESdiv").style.left="-999em"; 
+			document.getElementById("MENUhelp").textContent="HELP!";
+		}	
 	}
-	function hideNOTES() { document.getElementById("NOTESdiv").style.left="-999em"; }	 
-	
+	function hideNOTES() { 
+		document.getElementById("NOTESdiv").style.left="-999em"; 
+		document.getElementById("MENUhelp").textContent="HELP!";
+	}	 
+
 
 
 	
@@ -323,7 +330,7 @@
 			<font><u><b>Show TOPICS</b></u></font><br>
 				&emsp;<font size=2 color=white>Golf Swing</font><br>
 				&emsp;<font size=2 color=white>Banjo Fretboard&nbsp;&#9836;</font><br>
-				&emsp;<font size=2 color=white>HELP!</font>&nbsp;<font size=1 color=white><i>(read .xml file)</i></font><br>		
+				<!--&emsp;<font size=2 color=white>HELP!</font>&nbsp;<font size=1 color=white><i>(read .xml file)</i></font><br>-->		
 				&emsp;<font size=2 color=white>SWIM</font><br>
   </A>
 
@@ -336,7 +343,11 @@
 			style="border: 1px brown outset; border-radius:20px; background-color:lightyellow; width:70%;">
 	</A>	
 	<br>
-
+	<A id="MENUhelp" style="cursor:pointer; FONT-SIZE:20px; border:2px outset yellow; width:60%;"
+			onclick="readXPT2()" title=''>
+			<u><b>HELP!</b></u><br>
+			&emsp;&emsp;<font size=2 color=white>read .xml file</font>
+	</A>	
 	<A> </A>
 	<A> </A>
   
@@ -422,49 +433,7 @@
 		<br>
 		<IMG alt="BANJO notes" src="bjoCchrtH2.png" height="350" width="700" 
 		style="border: 1px brown outset; border-radius:20px; background-color:lightyellow;">	
-	</div>	
-
-	<button class="accordion">HELP!</button>
-	<div id="NOTESdiv"  class="panel"> <!-- pnlHELP -->		
-		<font size=5 face="cooper black"><b>HELP!</b></font>
-			<!--<span style="float:right; text-align:right; padding-right: 10px;">
-				<a onclick="hideNOTES()">&times;</a>
-			</span>-->	
-		<br>		
-		<!--
-		<A style="cursor:pointer; FONT-SIZE:15px;" onclick="readXPT2()">
-			<font color=maroon><u><b>read .xml file</b></u></font>
-		</A>
-		-->
-		
-		<TABLE align=center border=1><TR><TD colspan=3 align=center>
-			<textarea id="NOTEfile" name="" rows="1" cols="30"></textarea> 
-		</TD></TR><TR><TD>
-			Topic List:<br>
-			<textarea id="NOTEtopics" name="" rows="7" cols="25">Topic List:</textarea> 
-		</TD><TD width=10px></TD><TD align=center>
-			<font color=blue>Select Topic #:</font><br>
-			<input id="TopicSelect" style="width:20px; font-size:15px; 
-			background:yellow; color:blue; border:1px solid black;;" value=""
-			onclick=""></input><br>
-			<button id="_BTNselTOP" onclick="selectTopic()" style='cursor:pointer; background-color:lawngreen; color:black; border:2px solid navy; border-radius:8px; font-size:12px;'><b>GO</b></button>		
-		</TD></TR><TR><TD colspan=3 align=center>	
-			Topic Content:<br>
-			<textarea id="NOTEcontent" name="" rows="7" cols="30"></textarea> 			
-		</TD></TR>
-		</TABLE>	
-		<br>
-		<!--
-		<A style='Font-size:15px; background:ivory; color:blue; border-radius:10%; padding:5px; border:2px inset orange;' href="DWNLDlist.html">Download 'Help' File List</A>
-		-->
-		
-		<!--<span style="float:right; text-align:right; padding-right: 10px;">
-				<a onclick="hideNOTES()"><font size=7><b>&times;</b></font></a>&emsp;
-				<a onclick="frontDIV('NOTESdiv')"><font size=7><b>&plus;</b></font></a>
-		</span>-->	
-		
-		
-	</div>							
+	</div>			
 
 	<button class="accordion">SWIM</button>
 	<div id="pnlSWIM"  class="panel">	
@@ -760,7 +729,47 @@
 		
 	</div>
 	
-	
+						<!--  ************** NOTES ************************  -->
+
+	<div id="NOTESdiv" style="font-size:15px; cursor:pointer; background:antiquewhite; color:slategray; border:2px orange inset; border-radius:5%; padding:10px; width:500px; position:absolute; left:-999em; top:300px; text-align:center; height:400px; overflow:scroll;">	<!-- left:-999em; or 300px; top:250px;    width:370px;  -->
+
+		<font size=5 face="cooper black"><b>HELP!</b></font>
+			<!--&emsp;&emsp;&emsp;-->
+			<span style="float:right; text-align:right; padding-right: 10px;">
+				<a onclick="hideNOTES()"><font size=7><b>&times;</b></font></a>
+			</span>	
+		<br>
+		<!--<font size=4 face="papyrus">GWH Notes</u></font>-->
+		
+		<TABLE align=center border=1><TR><TD colspan=3 align=center>
+			<textarea id="NOTEfile" name="" rows="1" cols="30"></textarea> 
+		</TD></TR><TR><TD>
+			Topic List:<br>
+			<textarea id="NOTEtopics" name="" rows="7" cols="25">Topic List:</textarea> 
+		</TD><TD width=10px></TD><TD align=center>
+			<font color=blue>Select Topic #:</font><br>
+			<input id="TopicSelect" style="width:20px; font-size:15px; 
+			background:yellow; color:blue; border:1px solid black;;" value=""
+			onclick=""></input><br>
+			<button id="_BTNselTOP" onclick="selectTopic()" style='cursor:pointer; background-color:lawngreen; color:black; border:2px solid navy; border-radius:8px; font-size:12px;'><b>GO</b></button>		
+		</TD></TR><TR><TD colspan=3 align=center>	
+			Topic Content:<br>
+			<textarea id="NOTEcontent" name="" rows="7" cols="30"></textarea> 			
+		</TD></TR>
+		</TABLE>	
+		<br>
+		<!--
+		<A style='Font-size:15px; background:ivory; color:blue; border-radius:10%; padding:5px; border:2px inset orange;' href="DWNLDlist.html">Download 'Help' File List</A>
+		-->
+		
+		<!--<span style="float:right; text-align:right; padding-right: 10px;">
+				<a onclick="hideNOTES()"><font size=7><b>&times;</b></font></a>&emsp;
+				<a onclick="frontDIV('NOTESdiv')"><font size=7><b>&plus;</b></font></a>
+		</span>-->
+		
+		
+	</div>							
+		
 </html>
 
 
