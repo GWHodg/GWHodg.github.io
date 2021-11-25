@@ -157,13 +157,13 @@
 	/*	---------------------------------------------------------------------	*/
 
 	//var CURRENTarray = new Array();
-	var NOTEScontents = new Array();
+	var HELPcontents = new Array();
 	var TOPICSarray = new Array();
 	function readXPT2() {
-		NOTEScontents.length = 0;
+		HELPcontents.length = 0;
 		TOPICSarray.length = 0;
 
-		showNOTES();
+		showHELP();
 			/* var file = prompt("Enter file to open:\n \t $CODE/xDet_Jul27.xml \n\tzMISC/zS4txtB_Sep04.txt \nzMISC/zcsvWH_Sep01.xml","$CODE/xDet_Jul27.xml"); */
 		var file="Help21.xml";		//"zMISC/zcsvWH_Sep01.xml";		
 						
@@ -197,7 +197,7 @@
 			
 		for (var i = 0; i < tags.length; i++) {
 			if (tags[i].nodeName == "detail") {
-				NOTEScontents.push(tags[i].firstChild.nodeValue);
+				HELPcontents.push(tags[i].firstChild.nodeValue);
 			}
 		}
 		
@@ -208,9 +208,9 @@
 		}
 		alert("topicLIST:\n\n" + topicLIST);
 		
-		document.getElementById("NOTEtopics").innerHTML = topicLIST;
-		//var NOTESdivCONTENT = document.getElementById("NOTESdiv").textContent;
-		//document.getElementById("NOTESdiv").innerHTML = NOTESdivCONTENT + "<br>" + topicLIST;
+		document.getElementById("HELPtopics").innerHTML = topicLIST;
+		//var HELPdivCONTENT = document.getElementById("HELPdiv").textContent;
+		//document.getElementById("HELPdiv").innerHTML = HELPdivCONTENT + "<br>" + topicLIST;
 		
 	}
 
@@ -220,27 +220,27 @@
 		// covert 8 to number:
 		topicINT = Number(topicNO)-1;
 		//alert("topicINT = '"+topicINT+ "'!");
-		document.getElementById("NOTEcontent").value = TOPICSarray[topicINT] + ":\n\t" + NOTEScontents[topicINT];
-			//document.getElementById("NOTEfile").value = "zMISC/Help21.xml";
+		document.getElementById("HELPcontent").value = TOPICSarray[topicINT] + ":\n\t" + HELPcontents[topicINT];
+			//document.getElementById("HELPfile").value = "zMISC/Help21.xml";
 	}	
 		
 			/*	======================================================	*/
 
-	function showNOTES() {
-		if ( document.getElementById("NOTESdiv").style.left == "-999em" ) {		//"73em" ) {
-			document.getElementById("NOTESdiv").style.left="980px";
-			document.getElementById("NOTESdiv").style.top="60px";
-			document.getElementById("NOTESdiv").style.width="280px";	//"370px";
-			document.getElementById("NOTEfile").value = "Help21.xml";
+	function showHELP() {
+		if ( document.getElementById("HELPdiv").style.left == "-999em" ) {		//"73em" ) {
+			document.getElementById("HELPdiv").style.left="980px";
+			document.getElementById("HELPdiv").style.top="60px";
+			document.getElementById("HELPdiv").style.width="280px";	//"370px";
+			document.getElementById("HELPfile").value = "Help21.xml";
 			document.getElementById("MENUhelp").textContent="Hide Help";
 		}
 		else { 
-			document.getElementById("NOTESdiv").style.left="-999em"; 
+			document.getElementById("HELPdiv").style.left="-999em"; 
 			document.getElementById("MENUhelp").textContent="HELP!";
 		}	
 	}
-	function hideNOTES() { 
-		document.getElementById("NOTESdiv").style.left="-999em"; 
+	function hideHELP() { 
+		document.getElementById("HELPdiv").style.left="-999em"; 
 		document.getElementById("MENUhelp").textContent="HELP!";
 	}	 
 
@@ -252,8 +252,8 @@
 		if ( document.getElementById("EEYOREdiv").style.left == "-999em" ) {
 			document.getElementById("EEYOREdiv").style.left="850px";
 			document.getElementById("EEYOREdiv").style.top="700px";
-					//document.getElementById("NOTESdiv").style.width="600px";	//"370px";
-					//document.getElementById("NOTEfile").value = "Help21.xml";
+					//document.getElementById("HELPdiv").style.width="600px";	//"370px";
+					//document.getElementById("HELPfile").value = "Help21.xml";
 			document.getElementById("MENUeeyore").textContent="Hide Eeyore";
 		}
 		else { 
@@ -423,11 +423,11 @@
 
 	</div>
 	
-	<button class="accordion" id="btnBJO" style="visibility:visible; display:block;">Banjo Notes
+	<button class="accordion" id="btnBJO" style="visibility:visible; display:block;">Banjo HELP
 		<!--&emsp;<font size=2><b>&times;</b></font>-->
 	</button>
 	<div class="panel" id="pnlBJO">
-		<font style="font-size:35px;" color=purple face="papyrus">Banjo NOTES '21</font>
+		<font style="font-size:35px;" color=purple face="papyrus">Banjo HELP '21</font>
 		<!--<span style="float:right; text-align:right; padding-right: 10px;">
 				<a onclick="hideBJO()"><font size=7><b>&times;</b></font></a>
 				&emsp;
@@ -732,23 +732,23 @@
 		
 	</div>
 	
-						<!--  ************** NOTES ************************  -->
+						<!--  ************** HELP ************************  -->
 
-	<div id="NOTESdiv" style="font-size:15px; cursor:pointer; background:antiquewhite; color:slategray; border:2px orange inset; border-radius:5%; padding:10px; width:500px; position:absolute; left:-999em; top:300px; text-align:center; height:400px; overflow:scroll;">	<!-- left:-999em; or 300px; top:250px;    width:370px;  -->
+	<div id="HELPdiv" style="font-size:15px; cursor:pointer; background:antiquewhite; color:slategray; border:2px orange inset; border-radius:5%; padding:10px; width:500px; position:absolute; left:-999em; top:300px; text-align:center; height:400px; overflow:scroll;">	<!-- left:-999em; or 300px; top:250px;    width:370px;  -->
 
 		<font size=5 face="cooper black"><b>HELP!</b></font>
 			<!--&emsp;&emsp;&emsp;-->
 			<span style="float:right; text-align:right; padding-right: 10px;">
-				<a onclick="hideNOTES()"><font size=7><b>&times;</b></font></a>
+				<a onclick="hideHELP()"><font size=7><b>&times;</b></font></a>
 			</span>	
 		<br>
-		<!--<font size=4 face="papyrus">GWH Notes</u></font>-->
+		<!--<font size=4 face="papyrus">GWH HELP</u></font>-->
 		
 		<TABLE align=center border=1><TR><TD colspan=3 align=center>
-			<textarea id="NOTEfile" name="" rows="1" cols="30"></textarea> 
+			<textarea id="HELPfile" name="" rows="1" cols="30"></textarea> 
 		</TD></TR><TR><TD>
 			Topic List:<br>
-			<textarea id="NOTEtopics" name="" rows="7" cols="25">Topic List:</textarea> 
+			<textarea id="HELPtopics" name="" rows="7" cols="25">Topic List:</textarea> 
 		</TD><TD width=10px></TD><TD align=center>
 			<font color=blue>Select Topic #:</font><br>
 			<input id="TopicSelect" style="width:20px; font-size:15px; 
@@ -757,7 +757,7 @@
 			<button id="_BTNselTOP" onclick="selectTopic()" style='cursor:pointer; background-color:lawngreen; color:black; border:2px solid navy; border-radius:8px; font-size:12px;'><b>GO</b></button>		
 		</TD></TR><TR><TD colspan=3 align=center>	
 			Topic Content:<br>
-			<textarea id="NOTEcontent" name="" rows="7" cols="30"></textarea> 			
+			<textarea id="HELPcontent" name="" rows="7" cols="30"></textarea> 			
 		</TD></TR>
 		</TABLE>	
 		<br>
@@ -766,8 +766,8 @@
 		-->
 		
 		<!--<span style="float:right; text-align:right; padding-right: 10px;">
-				<a onclick="hideNOTES()"><font size=7><b>&times;</b></font></a>&emsp;
-				<a onclick="frontDIV('NOTESdiv')"><font size=7><b>&plus;</b></font></a>
+				<a onclick="hideHELP()"><font size=7><b>&times;</b></font></a>&emsp;
+				<a onclick="frontDIV('HELPdiv')"><font size=7><b>&plus;</b></font></a>
 		</span>-->
 		
 		
