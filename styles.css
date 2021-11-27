@@ -1,0 +1,114 @@
+	.accordion {
+		background-color: #eee;
+		color: #444;
+		cursor: pointer;
+		padding: 18px;
+		width: 100%;
+		border: none;
+		text-align: left;
+		outline: none;
+		font-size: 15px;
+		transition: 0.4s;
+		
+		height: 10px;
+	}
+	
+	.active, .accordion:hover {
+		background-color: #ccc;
+	}
+	
+	.panel {
+		padding: 0 18px;
+		background-color: white;
+		max-height: 0;
+			/*overflow:scroll;*/
+		overflow: hidden;
+		transition: max-height 0.2s ease-out;
+		
+		border-bottom:1px solid #aaa;
+	}
+	
+	
+	/*Add a symbol to each button to indicate whether the collapsible content is open or closed:*/
+	.accordion:after {
+		content: '\02795'; /* Unicode character for "plus" sign (+) */
+		font-size: 13px;
+		color: #777;
+		float: right;
+		margin-left: 5px;
+	}
+	.active:after {
+		content: "\2796"; /* Unicode character for "minus" sign (-) */
+	}
+
+
+	body { background-color:RED; color:white; padding-top:15px; }
+	#tab { display:inline-block; margin-left: 60px; }
+	eR { font-size:16px; color:red;}
+		
+	/*Animated Sidenav (Menu):
+		create an animated, closable side navigation menu
+	  	https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sidenav*/
+			.sidenav {
+			  height: 100%;
+			  width: 0;
+			  position: fixed;
+			  z-index: 1;
+			  top: 0;
+			  left: 0;
+			  background-color:black;	/*blue;	  #111;*/
+			  overflow-x: hidden;
+			  overflow-y:scroll; 
+			  transition: 0.5s;
+			  padding-top: 30px;
+			}		
+			.sidenav a {
+			  padding: 8px 8px 8px 32px;
+			  text-decoration: none;
+			  font-size: 20px;	/* 25px; */
+			  color: #818181;
+			  display: block;
+			  transition: 0.3s;
+			}		
+			.sidenav a:hover {
+			  color: #f1f1f1;
+			}		
+			.sidenav .closebtn {
+			  position: absolute;
+			  top: 0;
+			  right: 25px;
+			  font-size: 36px;
+			  margin-left: 50px;
+			}	
+			@media screen and (max-height: 450px) {
+			  .sidenav {padding-top: 15px;}
+			  .sidenav a {font-size: 18px;}
+			}
+
+		/* dropUP menu: */
+			.dropbtn { 
+				position:absolute; left:30px;
+				border-radius:10px; cursor:grabbing; background:orange; color:black;
+				BORDER-RIGHT: outset; BORDER-TOP: outset;  
+				BORDER-LEFT: outset; BORDER-BOTTOM: outset
+			}	
+					  /* background-color: #3498DB; color: white;
+			           padding: 5px; font-size: 16px; border: none; */
+			.dropup { position: relative; display: inline-block; }			
+			.dropup-content { display: none; position:absolute; left:40px; background-color: #f1f1f1;
+			  			      min-width: 120px; bottom: -5px; z-index: 1; }	/* bottom: 0px;  position: absolute; */	
+			.dropup-content a { color: black; padding: 5px 6px; text-decoration: none; display: block; }	
+										/* padding: 12px 16px;  */
+			.dropup-content a:hover {background-color:green;}	/* #ccc */		
+			.dropup:hover .dropup-content { display: block; }			
+			.dropup:hover .dropbtn { background-color: #2980B9; }
+			
+		/*DROPDOWN TABLE MENU:*/
+		td.menu{background:blue; padding:10px; border-radius:10%;}	/*black}*/     /*td.menu{background:lightblue}*/
+		table.menu { font-size:100%; position:absolute; visibility:hidden;} 	/* font-size:100%;  */	
+		td.menu2{background:lime;}
+		table.menu2 { 
+			font-size:100%; position:absolute; LEFT: 40px; visibility:hidden; 
+			BORDER-BOTTOM: blue outset; BORDER-LEFT: blue outset; 
+			BORDER-RIGHT: blue outset;   
+		}			
