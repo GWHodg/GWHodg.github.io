@@ -1,0 +1,298 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ttPIANO</title>
+
+<style>
+	body { background-color:orange; color:white; padding-top:15px; text-align:center; }	
+
+	#keyboard {
+	  /*font-family: Arial, Helvetica, sans-serif;*/
+	  border-collapse: collapse;
+	  /*width: 30%;*/
+	  border: 4px inset gray;
+	}
+	
+	#keyboard td, #keyboard th {
+	  border: 0px solid black;	/* #ddd; */
+	  padding: 0px; height:80px; width:15px;
+	  background: white; color:black;
+	}
+	#keyboard tr:nth-child(even){background-color: #f2f2f2;}
+	#keyboard tr:hover {background-color: gray;}
+
+			.CHDbtn { 
+				position:relative; left:0px; cursor:grabbing; color:yellow;
+					/*BORDER-TOP:none; BORDER-left:none; BORDER-right:none; BORDER-bottom:none;*/
+				background:purple; border-radius:10px; font-size:20px;
+					/*border-radius:10px;  background:orange; color:black;
+					BORDER-RIGHT: outset; BORDER-TOP: outset;  
+					BORDER-LEFT: outset; BORDER-BOTTOM: outset*/
+				border: 1px silver outset;
+			}	
+			.dropup { position: relative; display: inline-block; }	
+			.dropup:hover .CHDbtn { background-color:yellow; color:purple; border-radius:10px;
+				font-size:13.4px;}	
+			
+</style>
+
+<script type="text/javascript">
+
+	function showC(key) {	//C/I chd:
+			//document.getElementById("C3").style.color="yellow";
+		clearCHDS();
+		document.getElementById("C3").style.background="red";
+		document.getElementById("E3").style.background="red";
+		document.getElementById("G3").style.background="red";	
+		if ( key=='C' ) {	
+			document.getElementById("Ibtn").style.background="yellow";
+			document.getElementById("Ibtn").style.color="purple";	
+		}
+		if ( key=='G' ) {	
+			document.getElementById("IVbtnG").style.background="yellow";
+			document.getElementById("IVbtnG").style.color="purple";	
+		}
+	}
+	
+	function showF(key) {	//F/IV chd:
+		clearCHDS();	//alert("showF key = " + key);
+		document.getElementById("A2").style.background="red";
+		document.getElementById("C3").style.background="red";
+		document.getElementById("F3").style.background="red";
+		if ( key=='C' ) {
+			document.getElementById("IVbtn").style.background="yellow";
+			document.getElementById("IVbtn").style.color="purple";
+		}
+		
+	}
+	
+	function showG(key) {	//G/V chd:
+		clearCHDS();
+		document.getElementById("B2").style.background="red";
+		document.getElementById("D3").style.background="red";
+		document.getElementById("G3").style.background="red";
+		if ( key=='C' ) {
+			document.getElementById("Vbtn").style.background="yellow";
+			document.getElementById("Vbtn").style.color="purple";	
+		}
+		if ( key=='G' ) {	
+			document.getElementById("IbtnG").style.background="yellow";
+			document.getElementById("IbtnG").style.color="purple";	
+		}		
+	}
+	
+	function showAm(key) {	//Am/vi (minor 6th) chd:
+		clearCHDS();
+		document.getElementById("A3").style.background="red";
+		document.getElementById("C3").style.background="red";
+		document.getElementById("E3").style.background="red";
+		if ( key=='C' ) {
+			document.getElementById("vibtn").style.background="yellow";
+			document.getElementById("vibtn").style.color="purple";	
+		}	
+		
+	}
+
+	function showD(key) {	//D/V chd in G key:
+		clearCHDS();
+		document.getElementById("D3").style.background="red";
+		document.getElementById("F#3").style.background="red";
+		document.getElementById("A3").style.background="red";
+		if ( key=='G' ) {
+			document.getElementById("VbtnG").style.background="yellow";
+			document.getElementById("VbtnG").style.color="purple";
+		}
+		
+	}
+
+	function showEm(key) {	//Em/vi chd in G key:
+		clearCHDS();
+		document.getElementById("E3").style.background="red";
+		document.getElementById("G3").style.background="red";
+		document.getElementById("B2").style.background="red";
+		if ( key=='G' ) {
+			document.getElementById("vibtnG").style.background="yellow";
+			document.getElementById("vibtnG").style.color="purple";
+		}
+		
+	}	
+	function clearCHDS() {
+		document.getElementById("C3").style.background="white";
+		document.getElementById("E3").style.background="white";
+		document.getElementById("G3").style.background="white";
+		document.getElementById("A2").style.background="white";
+		document.getElementById("F3").style.background="white";
+		document.getElementById("B2").style.background="white";
+		document.getElementById("D3").style.background="white";
+		document.getElementById("A3").style.background="white";
+		
+		document.getElementById("D3").style.background="white";
+		document.getElementById("F#3").style.background="black";
+		document.getElementById("A3").style.background="white";
+		
+		document.getElementById("Ibtn").style.background="purple";
+			document.getElementById("Ibtn").style.color="yellow";	
+		document.getElementById("IVbtn").style.background="purple";
+			document.getElementById("IVbtn").style.color="yellow";	
+		document.getElementById("Vbtn").style.background="purple";
+			document.getElementById("Vbtn").style.color="yellow";
+		document.getElementById("vibtn").style.background="purple";
+			document.getElementById("vibtn").style.color="yellow";	
+
+		document.getElementById("IbtnG").style.background="purple";
+			document.getElementById("IbtnG").style.color="yellow";	
+		document.getElementById("IVbtnG").style.background="purple";
+			document.getElementById("IVbtnG").style.color="yellow";	
+		document.getElementById("VbtnG").style.background="purple";
+			document.getElementById("VbtnG").style.color="yellow";
+		document.getElementById("vibtnG").style.background="purple";
+		document.getElementById("vibtnG").style.color="yellow";			
+	}
+	
+</script>
+
+</head>
+
+<body>
+	<font style="font-size:35px;" color=maroon face="papyrus">PIANO</font>
+		
+	<br><br>
+
+	<TABLE id="keyboard" align=center>
+		<TR height=50px>	
+			<TD colspan=2></TD>
+			<TD id="F#2" colspan=2 style="background:black; color:white;"></TD>
+			<TD></TD>
+			<TD id="Ab2" colspan=2 style="background:black; color:white;"></TD>
+			<TD colspan=2></TD>
+			
+			<TD id="Bb2" colspan=2 style="background:black; color:white;"></TD>
+			<TD colspan=2 style="border-right:1px solid black;"></TD>	
+
+					<!-- - - - - - - - - - - - - - - - - - -->
+
+			<TD colspan=2></TD>	
+			<TD id="Db3" colspan=2 style="background:black; color:white;"></TD>
+			<TD></TD>
+			<TD id="Eb3" colspan=2 style="background:black; color:white;"></TD>
+			<TD colspan=2 style="border-right:1px solid black;"></TD>	
+			
+			<TD colspan=2></TD>
+			<TD id="F#3" colspan=2 style="background:black; color:white;"></TD>
+			<TD></TD>
+			<TD id="Ab3" colspan=2 style="background:black; color:white;"></TD>
+			<TD colspan=2></TD>
+			
+			<TD id="Bb3" colspan=2 style="background:black; color:white;"></TD>
+			<TD colspan=2 style="border-right:1px solid black;"></TD>	
+			
+			<!--<TD colspan=2></TD>-->
+			
+			<TD colspan=2></TD>	
+			<TD id="Db4" colspan=2 style="background:black; color:white;"></TD>
+			<TD></TD>
+			<TD id="Eb4" colspan=2 style="background:black; color:white;"></TD>
+			<TD colspan=2 style="border-right:1px solid black;"></TD>	
+				
+		</TR>
+		<TR height=80px>	
+			<TD id="F2" colspan=3 style="border-right:1px solid black;" valign='bottom'>F</TD>
+			<TD id="G2" colspan=3 style="border-right:1px solid black;" valign='bottom'>G</TD>
+			<TD id="A2" colspan=4 style="border-right:1px solid black;" valign='bottom'>A</TD>
+			
+			<TD id="B2" colspan=3 style="border-right:1px solid black;" valign='bottom'>B</TD>
+
+					<!-- - - - - - - - - - - - - - - - - - -->
+
+			<TD id="C3" colspan=3 style="border-right:1px solid black;" valign='bottom'>&#8226;<br>C</TD>
+			<TD id="D3" colspan=3 style="border-right:1px solid black;" valign='bottom'>D</TD>
+			<TD id="E3" colspan=3 style="border-right:1px solid black;" valign='bottom'>E</TD>
+				
+			<TD id="F3" colspan=3 style="border-right:1px solid black;" valign='bottom'>F</TD>
+			<TD id="G3" colspan=3 style="border-right:1px solid black;" valign='bottom'>G</TD>
+			<TD id="A3" colspan=4 style="border-right:1px solid black;" valign='bottom'>A</TD>
+			
+			<TD id="B3" colspan=3 style="border-right:1px solid black;" valign='bottom'>B</TD>
+			
+			<!--<TD id="C4" colspan=3 style="border-right:1px solid black;" valign='bottom'>C</TD>-->
+			
+			<TD id="C4" colspan=3 style="border-right:1px solid black;" valign='bottom'>C</TD>
+			<TD id="D4" colspan=3 style="border-right:1px solid black;" valign='bottom'>D</TD>
+			<TD id="E4" colspan=3 style="border-right:1px solid black;" valign='bottom'>E</TD>
+				
+		</TR>
+		
+	</TABLE>
+						<!--    ♬	Beamed Sixteenth Notes	&#9836;
+								♭	Music Flat Sign	&#9837;
+								♮	Music Natural Sign	&#9838;
+								♯	Music Sharp Sign	&#9839;		
+								Musical Keyboard	&#127929;		-->
+
+	<!--<div class="dropup">-->
+	<font color=green size=5>Key of <b>C</b>:&nbsp;</font> 	
+		<button class="CHDbtn"  id="Ibtn" onclick="showC('C')">I <font size=1>(C)</font></button><!--</div>-->
+		<button class="CHDbtn"  id="IVbtn" onclick="showF('C')">IV <font size=1>(F)</font></button>
+		<button class="CHDbtn"  id="Vbtn" onclick="showG('C')">V <font size=1>(G)</font></button>
+		<button class="CHDbtn"  id="vibtn" onclick="showAm('C')">vi <font size=1>(Am)</font></button>
+	<br>
+	<font color=green size=5>Key of <b>G</b>:&nbsp;</font> 	
+		<button class="CHDbtn"  id="IbtnG" onclick="showG('G')">I <font size=1>(G)</font></button><!--</div>-->
+		<button class="CHDbtn"  id="IVbtnG" onclick="showC('G')">IV <font size=1>(C)</font></button>
+		<button class="CHDbtn"  id="VbtnG" onclick="showD('G')">V <font size=1>(D)</font></button>
+		<button class="CHDbtn"  id="vibtnG" onclick="showEm('G')">vi <font size=1>(Em)</font></button>						
+								
+	<br><br>
+
+<div id="pwdDIV" align=left style="padding-top:15px; background:slategrey; width:500px; height:300px;
+margin: auto; border: 3px inset silver; padding: 10px; overflow-y:scroll; display:block;">		
+	<font size=5 color=lime>5 Common Progressions</font>&emsp;
+	<A style="FONT-WEIGHT:normal; color:blue; FONT-SIZE:15px;" href="https://www.libertyparkmusic.com/5-common-guitar-chord-progressions/">link</A>
+	<br>	<br>
+	<font size=4 color=black><b><u>C - F - G  (I - IV - V)</u></b></font> <i>[#2]</i><br>
+		Foundation of rock and pop. Roots back to the blues.<br>Playing these 3 chords in different variations > other progressions - e.g. 12 bar blues: I - I - I - I - IV - IV - I - I - V - IV - I - V.<br>Another example is I - IV - V - IV.<br>
+		Sample: I - IV - V - V (4 bars)<br>
+		&emsp;<font color=yellow><b><u>Mine</b></u> = I - I - IV - IV - I - I - V - V (8 bars).</font> 
+		<br><br>
+
+	<font size=4 color=black><b><u>C - G - Am - F  (I - V - vi - IV)</u></b></font> <i>[#<b>1</b>]</i>
+		&emsp;&emsp;&emsp;<font size=2><i>vi = minor 6th</i></font><br>
+		<u><b>Most popular</b></u> chord progression (<b>1-5-6-4</b>) in Western popular music.<br>
+		e.g. - 'Let It Be'<br>
+		Sample: (I - V - vi - IV) X2 > 8b
+		<br><br>
+		
+	<font size=4 color=black><b><u>C - Am - F - G  (I - vi - IV - V)</u></b></font> <i>[#3]</i>
+		&emsp;&emsp;&emsp;<font size=2><i>vi = minor 6th</i></font><br>
+		Also known as the 1950s progression (<u>doo-wop</u>).<br>
+		e.g. - 'Stand By Me'<br>
+		Sample: (I - vi - IV - V) X2 > 8b > I
+		<br><br>	
+	
+	<font size=4 color=black><b><u>Am - F - C - G, vi - IV - I - V</u></b></font> <i>[#4]</i>
+		&emsp;&emsp;&emsp;<font size=2><i>vi = minor 6th</i></font><br>
+		Darker and sadder than the others.<br>
+		Sample: (vi - IV - I - V) X2 > 8b > vi
+		<br><br>	
+	
+	<font size=4 color=black><b><u>C - F - Am - G, I - IV - vi - V</u></b></font> <i>[#5]</i>
+		&emsp;&emsp;&emsp;<font size=2><i>vi = minor 6th</i></font><br>
+		Similar to # 4 <i>(I & vi switched)</i> -> similar sounding progression, just not as sad.<br>
+		Sample: (I - IV - vi - V) X2 > 8b > I
+		<br><br>		
+
+	<font color=yellow>
+	Usually, songs use a combination of different progressions for the different sections.<br>
+	Learn the 4 chords in the <u>five most common keys</u> (C, A, G, E, D). Start with the key of G > A, C, D, and finally, E.	
+	</font>
+	<br><br>
+
+</div>
+
+	<br>
+	
+	<font size=5>1-5-6-4 Progression</font>&emsp;
+	<A style="FONT-WEIGHT:normal; color:blue; FONT-SIZE:15px;" href="https://www.youtube.com/watch?v=8n7LsgFfFC4">Link </A><i><font size=1 color=blue>(YT)</font></i>
+</body>
+</html>
