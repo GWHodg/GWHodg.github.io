@@ -185,3 +185,17 @@
 		}
 		
 	}
+	
+	function showPIANO() {
+		//alert("MENUtopics textContent = "+document.getElementById("MENUtopics").textContent);
+		if (document.getElementById("MENUpianoIFRAME").textContent=="Hide Piano") {
+			document.getElementById("PIANOdiv").style.display="none"; //inline 	
+			document.getElementById("MENUpianoIFRAME").textContent="Show Piano";
+		}		
+		else {	//(document.getElementById("ACDNdiv").style.display="none") {
+			document.getElementById("PIANOdiv").style.display="block"; //inline 	
+			document.getElementById("MENUpianoIFRAME").textContent="Hide Piano";
+		}
+		
+	}
+	
