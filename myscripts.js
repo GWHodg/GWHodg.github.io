@@ -199,3 +199,14 @@
 		
 	}
 	
+			/*		========================		*/
+			
+	function hideTIP() {
+		document.getElementById("miscCONTENT").style.visibility="hidden";
+	}			
+	function showTIP(topic) {
+		if (topic=="tipMISC") {
+			document.getElementById("miscCONTENT").style.visibility="visible";
+		}
+	}	
+	
