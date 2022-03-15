@@ -199,6 +199,21 @@
 		
 	}
 	
+	
+	function showCHAT() {
+		//alert("MENUtopics textContent = "+document.getElementById("MENUtopics").textContent);
+		if (document.getElementById("MENUchat").textContent=="Hide Chat") {
+			document.getElementById("CHATdiv").style.display="none"; //inline 	
+			document.getElementById("MENUchat").textContent="Show Chat";
+		}		
+		else {	//(document.getElementById("ACDNdiv").style.display="none") {
+			document.getElementById("CHATdiv").style.display="block"; //inline 	
+			document.getElementById("MENUchat").textContent="Hide Chat";
+		}
+		
+	}
+		
+	
 			/*		========================		*/
 			
 	function hideTIP() {
