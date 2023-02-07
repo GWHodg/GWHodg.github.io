@@ -225,3 +225,14 @@
 		}
 	}	
 	
+	function hideMENU23() {
+		//document.getElementById("miscCONTENT").style.visibility="hidden";
+		document.getElementById("menu23").style.visibility="hidden";
+	}
+	function showMENU23() {
+		if (document.getElementById("menu23").style.visibility=="hidden") {	
+			//alert("trying to display 'menu23'!");
+			document.getElementById("menu23").style.visibility="visible";
+				/* document.getElementById("menu23").style.display="block"; */		 //inline 	
+		}		
+	}
