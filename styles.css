@@ -87,7 +87,8 @@
 
 		/* dropUP menu: */
 			.dropbtn { 
-				position:absolute; left:30px;
+				/* position:absolute; left:30px; */
+				position:relative;
 				border-radius:10px; cursor:grabbing; background:orange; color:black;
 				BORDER-RIGHT: outset; BORDER-TOP: outset;  
 				BORDER-LEFT: outset; BORDER-BOTTOM: outset

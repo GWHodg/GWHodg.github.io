@@ -237,7 +237,7 @@
 	</div>
 	-->
 
-	<div id="PIANOdiv" style="font-size:15px; cursor:pointer; background:yellow; color:slategray; border:2px orange inset; border-radius:5%; padding:10px; position:absolute; left:100px; top:1200px; display:none; text-align:center; overflow:scroll;">.   <!-- width:500px; height:400px; width:370px;  left:-999em; -->
+	<div id="PIANOdiv" style="font-size:15px; cursor:pointer; background:yellow; color:slategray; border:2px orange inset; border-radius:5%; padding:10px; position:absolute; left:100px; top:1200px; display:none; text-align:center; overflow:scroll;">   <!-- width:500px; height:400px; width:370px;  left:-999em; -->
 			<iframe id='PIANOiframe' src="ttPIANO.html" title="iframe of 'PIANO.html'" style=" width:500px; height:500px; " onclick="frontPIANO()">
 			</iframe>	<!-- left:-999em; top:300px; -->
 	</div>									
@@ -256,7 +256,7 @@
 			<!--<A href="$GOLF/FALL22b.html" style="color:yellow;">Fall '22</A>-->
 			<A id="fall22mnuitm" style="cursor:pointer; border:2px outset yellow; width:60%;"
 					onclick="showJAN23()" title=''><font><u><b>Fall '22</b></u></font></A>&emsp; &#128512;	<!-- grinning emoji --><br>
-			<br> 
+			<!--<br>-->
 			<A href="ttSIM.html" style="color:moccasin;"">SIM</A><br>
 			<!-- <br> -->			  
 			<A id="MENUpianoIFRAME" style="cursor:pointer; border:2px outset yellow; width:60%;"
@@ -266,21 +266,30 @@
 			<br>
   			<A id="MENUtopics" style="cursor:pointer; FONT-SIZE:60px; border:2px outset yellow; width:60%;"
 			onclick="showTOPICS()" title=''>
-			<font><u><b>Show TOPICS</b></u></font><br>
-				<!--
-				&emsp;<font size=2 color=white>Golf Swing</font><br>
-				&emsp;<font size=2 color=white>Banjo Fretboard&nbsp;&#9836;</font><br>
-				&emsp;<font size=2 color=white>SWIM</font><br>
-				&emsp;<font size=2 color=white>SSI Well</font><br>	
-				-->			
-			</A>			
-				
-			<br><!--<br>-->
+			<font><u><b>Show TOPICS</b></u></font></A>
+			<br>
+			<div class="dropup">
+			  <button class="dropbtn" id='miscBTN' onclick="showTIP('tipMISC')"
+			  style="background:white; font-size:60px;">Miscellaneous</button>
+			  <div class="dropup-content" style="border:3px solid red; border-radius:10px;"
+			  id="miscCONTENT">				
+						<span style="float:right; text-align:right; padding-right: 5px;">
+							<button id="OKbtn" onclick="hideTIP()" style="FONT-WEIGHT: bold; 
+							FONT-SIZE:10px; COLOR:black">close</button>
+						</span>					
+				<a> </a>
+				<a> </a>		
+				<A href="">&nbsp;</A>
+				<a href=""><font size=7>Update&nbsp;Available</font></a>
+			  </div>
+			</div>
+			<br>
+			<!--<br>-->
 			  <A style='Font-size:60px; background:antiquewhite; color:blue; border-radius:10%; padding:5px; border:2px inset purple;' onclick="showDPlive()">DP Live '23</A><br>
 										<!-- href="zMISC/DPlive.html" 
 											Desert Princess Live	Condo Communities	cathyhodgins2@gmail.com	Princess123	# 13447; Gate: 'durham'; AP (auto-pay) -->
 			  <button id="_BTNdevon" style='cursor:pointer; background-color:aqua; padding:10px; color:black; border:2px solid navy; border-radius:8px; Font-size:60px;'><a href="zMISC/DEVON/Devon22.html"><b>Devon '22</a></button><br>	
-			  <br>
+			  <!--<br>-->
 			  <A href="ttPS19.html"  style="color:yellow;"">PS '19</A>  <!--<i><font size=1>(Spanish; Folks; Batteries)</font></i>--><br>
 			  
 			  <a href="$SWIM/ttSWIM.html"  style="color:yellow;"><m>Swim</m></a><br>
@@ -289,13 +298,15 @@
 
 		</div>
 				
-
+	<!--
+	<div id="JAN23div" style="font-size:15px; cursor:pointer; background:black; color:lime; border:2px orange inset; border-radius:5%; padding:10px; position:absolute; left:50px; top:1400px; display:none; text-align:center; overflow:scroll;">	
+	-->
 	<div id="JAN23div" style="width:90%; height:650px; border-radius:10px; padding:10px; 
-		        			  position:fixed; top:900px; /* left:200px;  */
-		        			  		/* position: absolute; left:630px; top:1300px;*/
-		                      margin:20px; display:none;		 /* margin:auto; */
-							  text-align:left; border:3px slategray outset; background:black; color:lime;
-						      overflow: scroll; z-index:100;">
+	position:absolute; top:900px; margin:20px; display:none; text-align:left; border:3px slategray outset; 
+	background:black; color:lime; overflow: scroll; z-index:100;">
+	<!-- /* left:200px;  */
+							  /* position:fixed; left:630px; top:1300px;*/  /* margin:auto; */ -->
+			
 			<!--<span style="display:block; margin:0 auto; width:300px; padding: 2px; text-align:center;">-->
 				
 			<font size=5 color=red>Jan '23 Keys</font><br>		
@@ -354,7 +365,53 @@
 					</video>
 					-->			
 				     
-
+			<!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
+			<br>&emsp;&emsp;&emsp;&emsp;$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$<br><br>
+		
+			<font size=6 color=white>Bonus Keys</font>&emsp;&emsp;
+									<font size=4 color=yellow>(Jan/23)</font>
+			<span style="float:right; text-align:right; padding-right: 10px; cursor:pointer; color:white;">
+						<a onclick="showBONUS()">&times;</a>
+			</span>	
+			<br>
+			  <ul>
+				<li><l><u>effortless</u></l> > <span style="background:yellow; color:black;">HIP BUMP</span> <l>> hammer w/ head back</l>/down <l>> <br>
+			    	&emsp;&emsp;FULL</l> 'EASY' <l>F/T</l> w/ <span style="background:yellow; color:black;">club bounce on shoulder</span><br>
+			   <li>straighten both <span style="background:lightyellow; color:black;">ELBOWS</span> @ impact <i>(w/ 'hammer')</i><br>
+			   <li><div style="border:1px black outset; background:brown; margin-left:0px;">
+			    	Loose <u>hip rotation</u> <i>(c.f. swimming)</i> + arms/wrist 'structure'
+			    	&emsp;<a href="https://www.golfaiapp.com/post/hip-rotation-what-you-need-to-know-golfai" style="padding:2px; background:white; font-size:14px;" title="">golf ai</a> <br>
+			    	&emsp;&emsp;&emsp;<font size=2>Ensuring hips maintain connection to upper body vital for consistency</font><br>
+			    	&emsp;&emsp;&emsp;<A onclick="return rotateHIPS()" style="color:lightblue;"><b>Don't rush!</b></A><br>
+			    		<div style="margin-left:100px;">
+			    			Don't get 'handsy': keep club face closed <font size=1>(Maude; 8:15)</font></i>
+			    		</div>
+			      </div></li>
+			   <li>
+			   		<div style="border:1px black outset; background:gray; margin-left:0px;">
+			    	<s>"turn BACK; step FWD": ? straighten R leg (& bend L knee) as wt shifts & rotate BACK (relative to body, not target); step FWD (rel to body) as straighten L leg in dwnswg [may help w/ inside-out path]
+			    	&emsp;<a href="https://youtu.be/7SyUxVaQcHU" style="padding:2px; background:white; font-size:14px;" title=""><u>Clay Balard *</u></a>
+			    	&emsp;<a href="https://youtu.be/T6CTbpuYAxA" style="padding:2px; background:white; font-size:14px;" title="">'secret'</a></s> <br>
+			    	
+			    	</div>
+			   </li>
+			   <li>
+			   		<div style="border:1px black outset; background:blue; color:white; padding:5px; margin-left:0px; width:60%;">
+						<font size=5>Stay calm & 'swing easy'!</font><br>
+					</div>
+			   </li> 
+			   <li>
+				   <l>Hit vs firm <i>(planted)</i> L leg</l>/<i>hip</i> [> ^ distance]<br>
+				   &emsp;<i>- also helps <> fwd 'slide'</i><br>
+			   </li>
+			   <li>
+				  <div style="border:1px black outset; background:brown; margin-left:0px;">
+				   <l>Waist/L elbow</l> <A onclick="return waistFWD()" style='color:blue; background:white;'> thrusts fwd</A> while chest/head stays back > '<b>hammer</b>' (club head passing hands) @ impact > full EASY F/T [?]
+				   			<!--&emsp; <A onclick="return waistFWD()" href=""><b>note</b></A>-->
+				  </div>
+			   </li>
+			  </ul>     			
+			  
 			
 			
 	</div>
