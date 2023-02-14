@@ -190,8 +190,8 @@
     alt="elmer" src="DPcondo.jpeg" onclick="elmerEGG()">	
 	<!-- changed fudd4.jpg to fudd4.jpeg -->	
 	<br>
-	<IMG style="background-color:gray; border: 5px white inset;
-	display:block; margin-left:auto; margin-right:auto; width:50%; border-radius:10%; padding:0px; opacity:50%;" 
+	<IMG style="background-color:mocassin; border: 5px white inset;
+	display:block; margin-left:auto; margin-right:auto; width:50%; border-radius:10%; padding:0px; opacity:100%;" 
     alt="signature" src="GWHsig2.jpeg" onclick="elmerEGG()">	
 	
 	
@@ -246,13 +246,18 @@
 				<!--    ==============================================    -->
 				
 		<div id="menu23" style="width:500px; height:625px; position:fixed;  left:5em; top:250px;  opacity:100%; background:transparent; border-radius:10%; padding:10px; border:5px inset orange; overflow:scroll; font-size:60px; color:white; visibility:hidden;" > <!-- z-index:20; -->
-			<TABLE border=1>
+			<TABLE border=1 style="width:100%;">
+			<thead bgcolor='gray' style="color:white;">
 			<TR><TH>
 			<font face="CooperBlack" color=orange style='font-size:70px; text-shadow: 2px 2px silver;'>MENU '23</font>
-								<span style="float:right; text-align:right; padding-right: 10px; cursor:pointer; color:white;">
-										<a onclick=" hideMENU23()" style="font-size:70px;"><b>&times;</b></a>
-								</span>	
-			</TH></TR><TR><TD>
+				&emsp;
+				<span style="float:right; text-align:right; padding-right: 10px; cursor:pointer; color:white;">
+					<a onclick=" hideMENU23()" style="font-size:70px;"><b>&times;</b></a>
+				</span>	
+			</TH></TR>
+			<thead>
+			<tbody>
+			<TR><TD>
 			<A href="Brandon21.html" style="color:yellow;">GwF '21/'22</A>
 			</TD></TR><TR><TD>
 			<A href="THUgp.html" style="color:yellow;">VGC Thur</A>
@@ -271,21 +276,26 @@
 			onclick="showTOPICS()" title=''>
 			<font><u><b>Show TOPICS</b></u></font></A>
 			</TD></TR><TR><TD>
-			<div class="dropup">
-			  <button class="dropbtn" id='miscBTN' onclick="showTIP('tipMISC')"
-			  style="background:white; font-size:60px;">Miscellaneous</button>
-			  <div class="dropup-content" style="border:3px solid red; border-radius:10px;"
-			  id="miscCONTENT">				
-						<span style="float:right; text-align:right; padding-right: 5px;">
-							<button id="OKbtn" onclick="hideTIP()" style="FONT-WEIGHT: bold; 
-							FONT-SIZE:10px; COLOR:black">close</button>
-						</span>					
-				<a> </a>
-				<a> </a>		
-				<A href="">&nbsp;</A>
-				<a href=""><font size=7>Update&nbsp;Available</font></a>
-			  </div>
-			</div>
+			<a href=""><font size=7 color=orange>Update&nbsp;Available</font></a>
+				<!--
+				<div class="dropup">
+				  <button class="dropbtn" id='miscBTN' onclick="showTIP('tipMISC')"
+				  style="background:white; font-size:60px;">Miscellaneous</button>
+				  <div class="dropup-content" style="border:3px solid red; border-radius:10px;"
+				  id="miscCONTENT">				
+							<span style="float:right; text-align:right; padding-right: 5px;">
+								<button id="OKbtn" onclick="hideTIP()" style="FONT-WEIGHT: bold; 
+								FONT-SIZE:10px; COLOR:black">close</button>
+							</span>					
+					<a> </a>
+					<a> </a>		
+					<a> </a>
+					<a> </a>		
+					<A href="">&nbsp;</A>
+					<a href=""><font size=7>Update&nbsp;Available</font></a>
+				  </div>
+				</div>
+				-->
 			</TD></TR><TR><TD>
 			<A style='Font-size:60px; background:antiquewhite; color:blue; border-radius:10%; padding:5px; border:2px inset purple;' onclick="showDPlive()">DP Live '23</A>
 			</TD></TR><TR><TD>
@@ -297,6 +307,7 @@
 			</TD></TR><TR><TD>
 			<a href="$SWIM/ttBIKE.html" style="color:yellow;"">BIKE</a><br>
 			</TD></TR>
+			</tbody>
 			</TABLE>
 		</div>
 				
