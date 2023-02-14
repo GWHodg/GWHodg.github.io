@@ -8,6 +8,13 @@
 
 <link rel="stylesheet" href="styles.css">
 
+<style>
+		table.table2 thead { display:block; }
+		table.table2 tbody { height:150px; overflow-y:scroll; display:block; } /* height:300px; was 200 ht */
+		/* table.table2 td { width: 80px; }
+		table.table2 th { width: 80px; } */
+</style>
+
 <script src="myscripts.js"></script>
 
 <script>
@@ -246,7 +253,7 @@
 				<!--    ==============================================    -->
 				
 		<div id="menu23" style="width:500px; height:625px; position:fixed;  left:5em; top:250px;  opacity:100%; background:transparent; border-radius:10%; padding:10px; border:5px inset orange; overflow:scroll; font-size:60px; color:white; visibility:hidden;" > <!-- z-index:20; -->
-			<TABLE border=1 style="width:100%;">
+			<TABLE id="tableMNU" border=1 style="width:100%;">
 			<thead bgcolor='gray' style="color:white;">
 			<TR><TH>
 			<font face="CooperBlack" color=orange style='font-size:70px; text-shadow: 2px 2px silver;'>MENU '23</font>
