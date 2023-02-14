@@ -1,0 +1,1959 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>THUgroup</title>
+
+<style>
+		 img {
+			 transition: -webkit-transform 0.25s ease;
+			 transition: transform 0.25s ease;
+		 }
+		 
+		 img:active {
+			 -webkit-transform: scale(3);
+			 transform: scale(3);
+		 }
+		 
+		/* dropUP menu: */
+			.dropbtn { 
+				/*position:absolute; left:30px;*/
+				border-radius:10px; cursor:grabbing; background:orange; color:black;
+				BORDER-RIGHT: outset; BORDER-TOP: outset;  
+				BORDER-LEFT: outset; BORDER-BOTTOM: outset
+			}	
+					  /* background-color: #3498DB; color: white;
+			           padding: 5px; font-size: 16px; border: none; */
+			.dropup { position: relative; display: inline-block; }			
+			.dropup-content { display: none; position:absolute; left:40px; background-color: #f1f1f1;
+			  			      min-width: 120px; bottom: 20px; z-index: 1; }	/* bottom: 0px;  position: absolute; */	
+			.dropup-content a { color: black; padding: 5px 6px; text-decoration: none; display: block; }	
+										/* padding: 12px 16px;  */
+			.dropup-content a:hover {background-color:green;}	/* #ccc */		
+			.dropup:hover .dropup-content { display: block; }			
+			.dropup:hover .dropbtn { background-color: #2980B9; }
+
+    .container{
+        /*width: 200px;*/
+		width:500px;
+			border-radius:10px; 
+			padding:10px;
+        height: 500px;
+        position: absolute; /*relative;*/
+			left:220px;
+			top:100px;	/* 10px; */
+        margin: 20px;
+		border: 3px purple solid;
+		margin: auto;  
+		 	display:none; 	/* visibility:hidden; */
+    }
+    .box{
+        width: 100%;
+        height: 100%;            
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0.8;  /* for demo purpose  */
+    }
+    .stack-top{
+        z-index: 9;
+        margin: 20px; /* for demo purpose  */
+		height: 80%;   
+		width: 75%; 
+		text-align:left;
+    }
+	
+    .stack-release{
+        z-index: 10;
+        margin-left: 380px; margin-top: 30px; 
+		height:50%; width:80%; 
+		text-align:left;
+		border: 3px orange outset; border-radius:10px; padding:5px;
+		background:red;
+    }	
+
+	 .stack-brandon{
+        z-index: 12;
+        margin-left: 350px; margin-top: 260px; 
+		height:75%; width:70%; 
+		text-align:left;
+		border: 3px slategray outset; border-radius:10px; padding:5px;
+		background:lime;
+    }	
+
+	 .stack-wrists{
+        z-index: 15;
+        margin-left: 550px; margin-top: 530px; 
+		height:50%; width:70%; 
+		text-align:left;
+		border: 3px slategray outset; border-radius:10px; padding:5px;
+		background:black; color:white;
+		overflow: scroll;
+    }	
+	
+		table.table2 thead { display:block; }
+		table.table2 tbody { height:150px; overflow-y:scroll; display:block; } /* height:300px; was 200 ht */
+		table.table2 td { width: 80px; }
+		table.table2 th { width: 80px; }
+
+									/*	::::::::::::::::::::::::::::::::::::::  */
+								
+	/*Animated Sidenav (Menu):
+		create an animated, closable side navigation menu
+	  	https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sidenav*/
+			.sidenav {
+			  height: 100%;
+			  width: 0;
+			  position: fixed;
+			  z-index: 1;
+			  top: 0;
+			  left: 0;
+			  background-color:black;	/*blue;	  #111;*/
+			  overflow-x: hidden;
+			  overflow-y:scroll; 
+			  transition: 0.5s;
+			  padding-top: 30px;
+			}		
+			.sidenav a {
+			  padding: 8px 8px 8px 32px;
+			  text-decoration: none;
+			  font-size: 20px;	/* 25px; */
+			  color: #818181;
+			  display: block;
+			  transition: 0.3s;
+			}		
+			.sidenav a:hover {
+			  color: #f1f1f1;
+			}		
+			.sidenav .closebtn {
+			  position: absolute;
+			  top: 0;
+			  right: 25px;
+			  font-size: 36px;
+			  margin-left: 50px;
+			}	
+			@media screen and (max-height: 450px) {
+			  .sidenav {padding-top: 15px;}
+			  .sidenav a {font-size: 18px;}
+		  }
+
+		/* ============================================================================= */
+
+	.accordion {
+		background-color: #eee;
+		color: #444;
+		cursor: pointer;
+		padding: 18px;
+		width: 100%;
+		border: none;
+		text-align: left;
+		outline: none;
+		font-size: 15px;
+		transition: 0.4s;
+		
+		height: 10px;
+	}
+	
+	.active, .accordion:hover {
+		background-color: #ccc;
+	}
+	
+	.panel {
+		padding: 0 18px;
+		background-color: white;
+		max-height: 0;
+			/*overflow:scroll;*/
+		overflow: hidden;
+		transition: max-height 0.2s ease-out;
+		
+		border-bottom:1px solid #aaa;
+	}
+		
+	/*Add a symbol to each button to indicate whether the collapsible content is open or closed:*/
+	.accordion:after {
+		content: '\02795'; /* Unicode character for "plus" sign (+) */
+		font-size: 13px;
+		color: #777;
+		float: right;
+		margin-left: 5px;
+	}
+	.active:after {
+		content: "\2796"; /* Unicode character for "minus" sign (-) */
+	}
+	
+</style>
+
+<script>
+	function Raine() {
+		alert("BOB RAINE:\n \trjraine@shaw.ca\n \t250-812-1620");
+	}
+
+	function GWH() {
+		alert("GWH:\n"+
+			"2 strokes on 3, 11, 7, 15, 4 & 10 + ?5 \n\t[3, 4, ?5 & 7 + 10, 11 &15]");
+	}
+	
+	function VERTICAL() {
+		alert("Roate UPPER body around a more horizontal chest\n"+
+			"\t- FEELS like head > sl FWD (?)");
+	}
+
+	function TRIANGLE() {
+		alert("July 9/22:\n\n"+
+					"\t∆ TRIANGLE @ top!\n"+
+						"\t\t- seems to help rhythm/tempo/'sequencing'\n"+
+					"\tWAIT/chest (separate chest & arms)\n"+
+						"\t\t - lower body fwd > arms back & dwn > chest fwd > \n\t\t\tarms fwd\n"+
+					"\tLoose (arms/wrists)\n"+
+					"\tUpper body back (& down) @ impact\n"+
+						"\t\t - head behind & club head in front of ball @ impact\n"+
+						"\t\t\t - w/ arms extended/straight (& loose wrists)\n"+
+					"\tHold full F/T");
+	}		/*  alt-J  */
+	
+	function showWRISTS() {
+		//alert("MENUtopics textContent = "+document.getElementById("MENUtopics").textContent);
+		if (document.getElementById("btnWRISTS").textContent=="Hide Keys") {
+			document.getElementById("KEYSdiv").style.display="none"; //inline 	
+			document.getElementById("btnWRISTS").textContent="Swing Keys";
+		}		
+		else {
+			document.getElementById("KEYSdiv").style.display="block"; //inline 	
+			document.getElementById("btnWRISTS").textContent="Hide Keys";
+		}
+		
+	}
+
+	function showTLRMD() {
+		if (document.getElementById("btnTLRMD").textContent=="Hide TaylorMade") {
+			document.getElementById("TLRMDdiv").style.display="none"; //inline 	
+			document.getElementById("btnTLRMD").textContent="TaylorMade Clubs";
+		}		
+		else {
+			document.getElementById("TLRMDdiv").style.display="block"; //inline 	
+			document.getElementById("btnTLRMD").textContent="Hide TaylorMade";
+		}		
+	}	
+
+
+	function showGROUP() {
+		if (document.getElementById("btnGROUP").textContent=="Hide Group") {
+			document.getElementById("GROUPdiv").style.display="none"; //inline 	
+			document.getElementById("btnGROUP").textContent="The Group";
+		}		
+		else {
+			document.getElementById("GROUPdiv").style.display="block"; //inline 	
+			document.getElementById("btnGROUP").textContent="Hide Group";
+		}		
+	}	
+
+	function showSHORT() {
+		if (document.getElementById("btnSHORT").textContent=="Hide Short") {
+			document.getElementById("SHORTdiv").style.display="none"; //inline 	
+			document.getElementById("btnSHORT").textContent="Short Backswing";
+		}		
+		else {
+			document.getElementById("SHORTdiv").style.display="block"; //inline 	
+			document.getElementById("btnSHORT").textContent="Hide Short";
+		}		
+	}	
+	function hideSHORT() { 
+		document.getElementById("SHORTdiv").style.display="none";  
+		document.getElementById("btnSHORT").textContent="Short Backswing";
+	}
+
+	function show2FORCE() {
+		if (document.getElementById("btn2FORCE").textContent=="Hide 2 Force") {
+			document.getElementById("2FORCEdiv").style.display="none"; //inline 	
+			document.getElementById("btn2FORCE").textContent="'2 Force' Theory";
+		}		
+		else {
+			document.getElementById("2FORCEdiv").style.display="block"; //inline 	
+			document.getElementById("btn2FORCE").textContent="Hide 2 Force";
+		}		
+	}	
+
+	
+	function showSAND() {
+		if (document.getElementById("btnSAND").textContent=="Hide SAND") {
+			document.getElementById("SANDdiv").style.display="none"; //inline 	
+			document.getElementById("btnSAND").textContent="SAND Play";
+		}		
+		else {
+			document.getElementById("SANDdiv").style.display="block"; //inline 	
+			document.getElementById("btnSAND").textContent="Hide SAND";
+		}		
+	}	
+	function showGRIP() {
+		if (document.getElementById("btnGRIP").textContent=="Hide GRIP") {
+			document.getElementById("GRIPdiv").style.display="none"; //inline 	
+			document.getElementById("btnGRIP").textContent="STRONG GRIP";
+		}		
+		else {
+			document.getElementById("GRIPdiv").style.display="block"; //inline 	
+			document.getElementById("btnGRIP").textContent="Hide GRIP";
+		}		
+	}	
+	
+	function showAUG22() {
+		if (document.getElementById("btnAUG22").textContent=="Hide 'Accumulated'") {
+			document.getElementById("AUG22div").style.display="none"; //inline 	
+			document.getElementById("btnAUG22").textContent="Accumulated Keys";
+		}		
+		else {
+			document.getElementById("AUG22div").style.display="block"; //inline 	
+			document.getElementById("btnAUG22").textContent="Hide 'Accumulated'";
+		}		
+	}	
+	
+	function showACCORDION() {
+		if (document.getElementById("btnACCORDION").textContent=="Hide 'Accordion'") {
+			document.getElementById("ACCORDIONdiv").style.display="none"; //inline 	
+			document.getElementById("btnACCORDION").textContent="Accordion Keys";
+		}		
+		else {
+			document.getElementById("ACCORDIONdiv").style.display="block"; //inline 	
+			document.getElementById("btnACCORDION").textContent="Hide 'Accordion'";
+		}		
+	}		
+	
+	function DPclubs() {
+		alert("Brandon's Desert Princess Clubs\n\n"+
+			"DRIVER: 11 deg loft; ? adjustable; reg flex (not 'ladies/senior')\n"+
+			"\tBrandon’s loaner: TaylorMade R9 460 (2009) 10.5 (FCT); \t\tshaft - ‘Motore 65’ by Fujikura - FLEX S\n"+
+			"5 WOOD: TM 'Burner'\n\n"+
+			"\t\t\tFCT = 'Flight Control Technology'");	
+	}	
+
+	/*		=========================================================		*/
+			
+		//Sort Table Numerically:  [https://www.w3schools.com/howto/howto_js_sort_table.asp]
+		function sortTableN() {
+		  var table, rows, switching, i, x, y, shouldSwitch;
+		  table = document.getElementById("TBLbody");	//myTable");
+		  switching = true;
+		  /*Make a loop that will continue until
+		  no switching has been done:*/
+		  while (switching) {
+		    //start by saying: no switching is done:
+		    switching = false;
+		    rows = table.rows;
+		    /*Loop through all table rows (except the
+		    first, which contains table headers):*/
+		    //for (i = 1; i < (rows.length - 1); i++) {
+			for (i = 0; i < (rows.length - 1); i++) {    
+				//start by saying there should be no switching:
+		      shouldSwitch = false;
+		      /*Get the two elements you want to compare,
+		      one from current row and one from the next:*/
+		      x = rows[i].getElementsByTagName("td")[0];
+		      y = rows[i + 1].getElementsByTagName("td")[0];
+		      //check if the two rows should switch place:
+		      if (Number(x.innerHTML) < Number(y.innerHTML)) {
+		        //if so, mark as a switch and break the loop:
+		        shouldSwitch = true;
+		        break;
+		      }
+		    }
+		    if (shouldSwitch) {
+		      /*If a switch has been marked, make the switch
+		      and mark that a switch has been done:*/
+		      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+		      switching = true;
+		    }
+		  }
+	  }	
+
+		//Sort Table by SCORE:  [https://www.w3schools.com/howto/howto_js_sort_table.asp]
+		function sortTableS() {
+		  var table, rows, switching, i, x, y, shouldSwitch;
+		  table = document.getElementById("TBLbody");	//myTable");
+		  switching = true;
+		  /*Make a loop that will continue until
+		  no switching has been done:*/
+		  while (switching) {
+		    //start by saying: no switching is done:
+		    switching = false;
+		    rows = table.rows;
+		    /*Loop through all table rows (except the
+		    first, which contains table headers):*/
+		    //for (i = 1; i < (rows.length - 1); i++) {
+			for (i = 0; i < (rows.length - 1); i++) {    
+				//start by saying there should be no switching:
+		      shouldSwitch = false;
+		      /*Get the two elements you want to compare,
+		      one from current row and one from the next:*/
+		      x = rows[i].getElementsByTagName("td")[3];
+		      y = rows[i + 1].getElementsByTagName("td")[3];
+		      //check if the two rows should switch place:
+		      if (Number(x.innerHTML) > Number(y.innerHTML)) {
+		        //if so, mark as a switch and break the loop:
+		        shouldSwitch = true;
+		        break;
+		      }
+		    }
+		    if (shouldSwitch) {
+		      /*If a switch has been marked, make the switch
+		      and mark that a switch has been done:*/
+		      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+		      switching = true;
+		    }
+		  }
+	  }		  
+	  
+								/* :::::::::::::::::::::::::::::::::::::::::: */	 
+							
+		function openNav() {
+			  document.getElementById("mySidenav").style.width = "250px";
+		}
+		
+		function closeNav() {
+			document.getElementById("mySidenav").style.width = "0";
+		}	
+
+		function NARROWdrill() {
+			alert("WIDE to NARROW Drill\n\n"+
+					"When swinging back feel like you are making a huge wide arc with your club head and arms extending away from your body. As you transition into the downswing feel the angles in your wrists and rear elbow decrease or get deeper (i.e. go from 120 degrees with your rear elbow to 85 degrees).\n\n"+
+					"While you are making practice swings look at the clubshaft and as you are swinging down try to get it to move closer in to your right shoulder.");
+		}
+
+		function SEPARATEcount() {
+			alert("'Separate' COUNT:\n\n"+
+					"1.   'WIDE' \n"+
+					"2a. 'narrow' - ^ R wrist/elbow flex > shaft close to shoulder\n"+
+					"2b. 'DROP' - R shoulder 'falls' > elbow vs side\n"+
+					"   \t\t- - - -\n"+
+					"3.   'BUMP' - > impact\n"+
+					"4.   'wide' - @ impact > F/T");
+		}
+
+	function DeviceScoring() {
+		alert("SPREADSHEET STABLEFORD SCORING '23:\n\n"+
+			"NUMBERS (iPod/Ipad)\n"+
+				"!#GSnmT2 > !#GSnmT2e (VGC, '23)*\n"+
+				"!#GSnmDPv (DP, '23)\n\n"+
+			"GOOGLE SHEETS (Pixel/iMac)\n"+
+				"!SFnmXL5 (VGC)*\n"+
+					"!#SCRgsT (Sep 9/22)??");		
+	}	
+	
+</script>
+
+</head>
+
+<body align="center">
+	<font size=8 color=green>THURSDAY GOLF GROUP</font> <i>(Aug, 2021)</i>
+		&emsp;
+		<span style="font-size:30px;cursor:pointer; color:blue;" 
+		onclick="openNav()">&#9776;</span>	<!-- position:absolute; LEFT:750px; top:30px;  -->
+	
+
+				<div id="mySidenav" class="sidenav"  style='opacity:0.8; border-right: 5px solid red;'>
+					  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+					
+					  <a>
+						  	&nbsp;&nbsp;
+						  	<!--<font size=2 face="papyrus" color=red>tt</font>-->
+					  		<font size=5 face="papyrus" color=red>VGC Menu</font><br>
+						  	&nbsp;&nbsp;&#127948;<font size=2 color=orange>iMac Textastic App</font>&#127948;
+					  </a> 
+					  
+					  <a href="https://www.victoriagolf.com/web/pages/home" title="8119/hodgins">victoriagolf.com</a>
+<!--					  
+					  <button id="btnTLRMD" onclick="showTLRMD()" style='cursor:pointer; background-color:dodgerblue; color:white; border:2px solid navy; border-radius:8px; font-size:12px;' title="DP Clubs '22"><b>TaylorMade Clubs</b>
+					  </button><br>
+					  
+					  <button id="btnWRISTS" onclick="showWRISTS()" style='cursor:pointer; background-color:red; color:white; border:2px solid navy; border-radius:8px; font-size:17px;'><b>Keys <font size=1>(May/22)</font></b>
+						</button>
+-->						
+					  <a href="WHS.html"><font size=3>World Handicap System</font></a>	
+					  
+					  <a href="https://theleftrough.com/stableford-scoring-system/" title="Should aim for minimum of 36 points – 2 points a hole over 18 holes – though anything above 32 points always respectable. Topping 40 means you've had a phenomenal round.&#13;36 pts = NET par (70). < 36 = > par by that #. > 36 = < par (net) by that #.">Stableford Scoring</a>	
+					  
+					  <a href="https://golftips.golfweek.usatoday.com/play-skins-golf-20144.html" title="">SKINS</a>	
+					  
+					  <button id="btnGROUP" onclick="showGROUP()" style='cursor:pointer; background-color:orange; color:black; border:2px solid navy; border-radius:8px; font-size:14px;' title="VGC Thursday Group">The Group
+					  </button>	
+<!--					  
+					  <br>
+					  
+					  <button id="btnSHORT" onclick="showSHORT()" style='cursor:pointer; background-color:lime; color:black; border:2px solid navy; border-radius:8px; font-size:12px;' title="July 23, 2022"><b>Short Backswing</b>
+					  </button><br>			  
+					  <button id="btn2FORCE" onclick="show2FORCE()" style='cursor:pointer; background-color:lime; color:black; border:2px solid navy; border-radius:8px; font-size:12px;' title="July 26, 2022"><b>My "Two Force' <i>Theory</i></b>
+					  </button><br>
+					  
+					  <button id="btnSAND" onclick="showSAND()" style='cursor:pointer; background-color:black; color:white; border:2px solid white; border-radius:8px; font-size:12px;' title=""><b>Sand Play <i>(Maude)</i></b>
+					  </button><br>  
+					  <button id="btnGRIP" onclick="showGRIP()" style='cursor:pointer; background-color:black; color:white; border:2px solid white; border-radius:8px; font-size:12px;' title=""><b>Strong Grip</b>
+					  </button><br>  
+
+					  <button id="btnACCORDION" onclick="showACCORDION()" style='cursor:pointer; background-color:maroon; color:ivory; border:2px solid white; border-radius:8px; font-size:12px;' title="Aug 5-28, 2022"><b>Accordion Keys <font size=1 color=silver>(Aug 28/22)</font></b>
+					  </button><br>	
+-->					  
+				</div>
+
+	
+	<TABLE border=1 align=center>
+		<TR>
+			<TH>#</TH>   <TH>NAME</TH>	<TH>CHb</TH>  <TH>H.I.</TH>  
+			<TH rowspan=1>				
+			</TH>
+		</TR>	
+		<TR>
+			<TD>1</TD>
+			<TD>
+				<A style="FONT-WEIGHT:bold; FONT-SIZE:normal; COLOR:blue; cursor:pointer;" 
+				onclick="Raine()"><span style='background:yellow; border:2px outset orange; border-radius:10px;'>
+				&nbsp;<b>Raine, Robert</b>&nbsp;</A>
+			</TD>
+			<TD>√</TD>
+			<TD>14.4</TD>
+			
+		</TR>
+		<TR>
+			<TD>2</TD>
+			<TD><i>Paulson, David B.</i></TD>
+			<TD>18√</TD>
+			<TD style='background:yellow;'>16.1</TD>
+			<TD rowspan=13>
+				<!--<IMG style="WIDTH:500px; HEIGHT:300px; background-color:; border: 2px black solid;
+				cursor:pointer;" alt="" src="VGC/VGCcard21.png" title=''>-->
+			</TD>			
+			<!--
+			<TD rowspan=5>
+				<IMG style="WIDTH:225px; HEIGHT:95px; background-color:; border:2px black solid;
+					cursor:pointer;" alt="" src="VGC/VGCguest21.png" title=''>
+				<IMG style="WIDTH:225px; HEIGHT:95px; background-color:; border:2px black solid;
+				cursor:pointer;" alt="" src="VGC/VGCcarts21.png" title=''>	
+			</TD>	
+			-->			
+		</TR>
+		<TR>
+			<TD>3</TD>
+			<TD><b>Connolly, Thomas</b></TD>
+			<TD>16√</TD>
+			<TD style='background:moccasin;'>15.0</TD>
+		</TR>
+		<TR>
+			<TD>4</TD>
+			<TD><i>Jessop, Shayne A.</i></TD>
+			<TD>18√</TD>
+			<TD style='background:yellow;'>16.3</TD>		
+		</TR>
+		<TR>
+			<TD>5</TD>
+			<TD><font style="opacity:50%;">Dutton, James W.</font></TD>
+			<TD></TD>
+			<TD>13.8</TD>
+		</TR>
+		<TR>
+			<TD>6</TD>
+			<TD><b>Pengelly, Delmer B.</b></TD>
+			<TD>12√
+				<!--<IMG style="WIDTH:50px; HEIGHT:43px; background-color:; border: 2px black solid;
+				cursor:pointer;" alt="" src="VGC/PICpengelly.jpeg" title=''>-->
+			</TD>
+			<TD style="cursor:pointer;" title='June/22'>11.7</TD>
+			
+		</TR>
+		<TR>
+			<TD>7</TD>
+			<TD><b>Kuechler, Peter M.</b></TD>
+			<TD>7√</TD>
+			<TD>8.8</TD>
+			<!--
+			<TD rowspan=13>
+				<IMG style="WIDTH:500px; HEIGHT:300px; background-color:; border: 2px black solid;
+				cursor:pointer;" alt="" src="VGC/VGCcard21.png" title=''>					
+			</TD>
+			-->
+		</TR>
+		<TR>
+			<TD>8</TD>
+			<TD>Nielsen, Gary K.</TD>
+			<TD>√</TD>
+			<TD>10.7</TD>			
+		</TR>
+		<TR>
+			<TD>9</TD>
+			<TD><i>Schofield, John A.</i></TD>
+			<TD>15√</TD>
+			<TD>14.6</TD>
+		</TR>
+		<TR>
+			<TD>10</TD>
+			<TD><b>Porter, George R.</b></TD>
+			<TD>√
+				<!--<IMG style="WIDTH:50px; HEIGHT:50px; background-color:; border: 2px black solid;
+				cursor:pointer;" alt="" src="VGC/PICporter.jpeg" title=''>-->
+			</TD>
+			<TD>13.8</TD>
+		</TR>
+		<TR>
+			<TD>11</TD>
+			<TD><i>Ritchie, William</i></TD>
+			<TD>13√</TD>
+			<TD>9.3</TD>
+		</TR>
+		<TR>
+			<TD>12</TD>
+			<TD><b>Zacks, David</b></TD>
+			<TD>20√</TD>
+			<TD style='background:moccasin;'>15.8</TD>			
+		</TR>		
+		<TR>
+			<TD>13</TD>
+			<TD ><b>Buckley, Alan</b></TD>
+			<TD>18√
+				<!--<IMG style="WIDTH:50px; HEIGHT:50px; background-color:; border: 2px black solid;" alt="" 
+				src="VGC/PICbuckley.jpeg" title=''>-->
+			</TD>
+			<TD style='background:yellow;'>16.1</TD>
+			
+		</TR>
+		<TR>
+			<TD>14</TD>
+			<TD style="background:yellow; cursor:pointer;" title="charlesmed@shaw.ca"><b>Medhurst, Charles</b></TD>
+			<TD>15√</TD>
+			<TD>11.4</TD>
+		</TR>
+		<TR>
+			<TD></TD>
+			<TD><s>North, Brian</s></TD>
+			<TD>
+				<!--<IMG style="WIDTH:75px; HEIGHT:100px; background-color:; border: 2px black solid;
+				cursor:pointer;" alt="" src="" title=''>-->
+			</TD>
+			<TD style='background:moccasin;'>18.3</TD>
+			<TD align=left>√ = regular <i>(<u>13</u> w/o GWH)</i></TD>						
+		</TR>		
+		<TR>
+			<TD>15</TD>
+			<TD>
+				<!--<A style="FONT-WEIGHT:bold; FONT-SIZE:normal; COLOR:blue; cursor:pointer;" 
+				onclick="Hodgins()"><span style='background:yellow; border:2px outset orange; border-radius:10px;'>
+					&nbsp;<b>Hodgins, G.W.</b>&nbsp;</A>-->
+				<div class="dropup">
+					<button class="dropbtn" id='miscBTN' onclick="showTIP('tipMISC')"
+					  style="background:white;">Hodgins, G.W.</button>
+					<div class="dropup-content" style="border:3px solid red; border-radius:10px;"
+					  id="miscCONTENT">						
+						<span style="float:right; text-align:right; padding-right: 5px;">
+							<button id="OKbtn" onclick="hideTIP()" style="FONT-WEIGHT: bold; 
+							FONT-SIZE:10px; COLOR:black">close</button>
+						</span>	
+						<IMG style="WIDTH:549px; HEIGHT:191px; background-color:; border:2px black solid;
+						cursor:pointer;" alt="" src="VGC/VGCsenior21.png" title=''>	
+					</div>								
+				</div>		
+					
+			</TD>
+			<TD>24<!-- <font size=1>(+5)</font>--> </TD>
+			<TD style='background:yellow; cursor:pointer;' title='June 13/22'>21.9</TD>
+			<TD align=left><i>< <b>GWH</b>: 2 strokes on 3, 11, 7, 15, 4 & <u>10</u> + <b><s>5</s></b> <font size=1>(June 16/22)</font></i>  <br>
+				&nbsp;<font size=2 color=red>[3, 4, <s>5</s> & 7 + 10, 11 &15]</font>
+			</TD>
+		</TR>
+		<TR>
+			<TD>16</TD>
+			<TD><i>Stockdill, James</i></TD>
+			<TD></TD>
+			<TD style='background:moccasin;'>20.8</TD>	
+			<TD rowspan=3 align=center>
+				<TABLE border=1>
+					<TR><TD colspan=2 align=center><b>Spreadsheet Scoring</b> <i>[Feb/23]</i></TD></TR>
+					<TR>
+						<TD><b>Google Sheets</b> <i><font size=2>(<b>Pixel</b>/iMac)</font></i></TD>
+						<TD><b>Numbers</b> <i><font size=2>(<b>iPod</b>/Ipad)</font></i></TD>
+					</TR>
+					<TR>
+						<TD>
+							<a href="https://docs.google.com/spreadsheets/d/1Xr3-587on_8DBjdJemFyGbi4s5EiS-J4SEweNMGVf0U/edit#gid=1482467181" title="">!SFnmXL<i>4</i></a>/<b>5</b> > <i>(<s>!#SCRgsTc</s>)</i>
+						</TD>
+						<TD>
+							!SFDnum3a&nbsp;<a href="" onclick="window.open('SFDnum3aPIC.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=700px, height=450px, top=125px left=120px'); return false;"><font size=1>image</font></a> > <span style="background:yellow; color:blue;"  onclick="DeviceScoring()"><b><u>!#GSnmT2e</u></b></span><br>
+							<!-- !SFDnum3a -->
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>		
+		</TR>		
+		<TR>
+			<TD>17</TD>
+			<TD><i>Sanders, Bruce</i></TD>
+			<TD></TD>
+			<TD style='background:moccasin;'>17.3</TD>					
+		</TR>	
+		<TR>
+			<TD></TD>
+			<TD><font style="opacity:40%;"><i>McQueen, Tom</i></font></TD>
+			<TD></TD>
+			<TD>12.1</TD>	
+		</TR>			
+	</TABLE>
+
+					
+	<!--<IMG style="WIDTH:500px; HEIGHT:300px; background-color:; border: 2px black solid;
+	cursor:pointer;" alt="" src="VGC/VGCcard21.png" title=''>-->	
+	
+	<br>
+
+	<div id="pwdDIV" align=left style="padding-top:0px; background:yellow; width:550px; 
+	margin: auto; border:3px inset silver; border-radius:10px; padding:15px;">		
+		<font face="Cooper Black" size=5>Return To VGC</font> <i>(May 19, 2022)</i><br>
+	
+		<table border=1>
+		
+		<tr><td>
+			John Schofield
+		</td><td>
+			Shayne Jessop
+		</td><td>
+			Bill Ritchie
+		</td><td>
+			Dave Paulson
+		</td><td style="opacity:100%;">
+			Gary Nielsen
+		</td></tr>
+		<tr>
+		
+			<td title="heavy set; tall">Jim Bell</td>
+			<!--<td title="heavy set; tall">Geoff Field</td>-->
+			<td><a href="" onclick="window.open('VGC/GField.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=200px, height=190px, top=505px left=500px'); return false;">Geoff Field</a></td>
+			<td><a href="" onclick="window.open('VGC/NigelBailey.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=200px, height=190px, top=505px left=500px'); return false;">Nigel Bailey</a></td>
+			<td><i>Bing Chew</i></td>
+			<td><a href="" onclick="window.open('VGC/Brossard.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=400px, height=300px, top=505px left=500px'); return false;">Mike Brossard</a></td>	
+		</tr>
+		<tr>
+			<td><a href="" onclick="window.open('VGC/Miles.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=400px, height=300px, top=505px left=500px'); return false;">Michael Miles</a></td>	
+			<td><span  title="Ophthalmologist" style="cursor:help;"><i>Malcolm Orr</i></span></td>
+			<td><a href="" onclick="window.open('VGC/McQueen.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=400px, height=300px, top=505px left=500px'); return false;"><font color=gray>Tom McQueen</font></a></td>	
+			<td><a href="" onclick="window.open('VGC/Faulkner.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=400px, height=300px, top=505px left=500px'); return false;"><font color=gray>Bud Faulkner</font></a></td>	
+			<td><span  title="" style=""><i><font color=gray>Henry Bauld</font></i></span></td>
+		</tr>
+		<tr>
+			<td title="ret Calgary engineer; tallish/blemished/paunchy; 2 hips!; 16 hcp" style="cursor:help;">Des Barton</td>
+			<td><span  title="Dr Geoff Johnston; Graham Bavington" style="cursor:help;"><font size=2 color=gray><i>Johnston/Bavington</i></font></span></td>
+			<td><a href="" onclick="window.open('VGC/VGC_HazelE.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=400px, height=300px, top=505px left=500px'); return false;">Evan Hazel</a></td>	
+			<td><a href="" onclick="window.open('VGC/VGC_pughL.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=400px, height=300px, top=505px left=500px'); return false;">Lucas Pugh</a></td>	
+			<td><a href="" onclick="window.open('VGC/McCrackenJ.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=400px, height=300px, top=505px left=500px'); return false;"><i><font color=gray>J. McCracken</font></i></a></td>
+		</tr>
+		<tr>
+			<td title="? ret Alberta opthimologist" style="cursor:help;"><font size=2>David Climenhaga</font></td>
+			<td><span  title="? pharmacist" style="cursor:help;"><font size=2 color=gray><i>John Forster-Coull</i></font></span></td>
+			<td></td>	
+			<td></td>	
+			<td></td>
+		</tr>
+		<tr>
+
+			<td colspan=5 style="background:orange; padding:10px;">
+				<a href="https://golfcanada.ca" title="VGC100860/123456"><font size=5>golfcanada.ca</font></a>
+				<!--
+				<TABLE border=1>
+					<TH><TD>SCORE</TD><TD>HI</TD><TD>CH b</TD></TH>
+					<TR><TD>Apr 1/22</TD> <TD></TD> <TD>21.2</TD><TD>23</TD></TR>
+					<TR><TD>Apr 30/22</TD> <TD>45 (9wF)</TD> <TD>21.2</TD><TD>23</TD></TR>
+					<TR><TD>May 19/22</TD> <TD>96 (b)</TD> <TD>21.2</TD> <TD>23</TD></TR>				
+				</TABLE>
+				-->
+				
+					  &emsp;&emsp;
+					  <button style='cursor:pointer;' onclick="sortTableN()">Sort Numerically <font size=1><i>(latest 1st)</i></font></button>
+					  <button style='cursor:pointer;' onclick="sortTableS()">Sort by Score <font size=1><i>(lowest 1st)</i></font></button>
+				
+					  <table class="table2" id="SCORESdiv" border='3'   align=center 
+					  style='FONT-SIZE: small; color:maroon; visibility:visible;' bgcolor='lightgreen'>
+						<thead bgcolor='gray' style="color:white;">
+								<th style="width:25px;">#</th>
+								<th>DATE</th>	<!-- style='width:25px;' -->
+								<th>CRS/tee</th> 
+								<th title='1st entry = Feb 11, 2013' onclick="sortTableA(1)" style='cursor:pointer;'>SCORE</th> 
+								<th>HI</th> 
+								<th>CH <i>(Vb)</i></th>  
+						</thead>
+						<tbody id='TBLbody'> 							
+							<!--
+							<tr>
+								<TD style="width:25px;">1</TD>
+								<td align=center>Apr 30/22</td>	
+								<td>VGC f9 wh</td>			
+								<td bgcolor='maroon' align='center'; style='color:white' 
+									title='VGH w/ G!'>45</td> 
+									<td align=center style='color:black; background:white;'>21.2</A> 					
+								</td> 
+								<td align=center style='color:black; background:white;'><font size=4>23</font></td>						
+							</tr> 
+							-->		
+							<tr>
+								<TD style="width:25px;">2</TD>
+								<td align=center>May 19/22</td>	
+								<td>VGC bl</td>	
+								<td bgcolor='maroon' align='center'; style='color:white' title='1st back w/ group'>96</td>
+								<td align=center style='color:black; background:white;'>21.2</td> 
+								<td align=center style='color:black; background:white;'><font size=2 color=red>23</font></td>								
+							</tr>
+							<tr><TD style="width:25px;">3</TD><td align=center>May 26/22</td>		
+								<td> </td>
+								<td bgcolor='maroon' align='center'; style='color:white' title=''>102</td>
+								<td align=center style='color:black; background:white;'></td> 
+								<td align=center style='color:black; background:white;'><b></b></td>								
+							</tr> 
+							<tr><TD style="width:25px;">4</TD><td align=center>June 2/22</td>		
+								<td> </td>
+								<td bgcolor='maroon' align='center'; style='color:white' title=''>97</td>
+								<td align=center style='color:black; background:white;'></td> 
+								<td align=center style='color:black; background:white;'><b></b></td>								
+							</tr> 
+							<tr><TD style="width:25px;">5</TD><td align=center>June 9/22</td>		
+								<td> </td>
+								<td bgcolor='maroon' align='center'; style='color:white' title=''>99</td>
+								<td align=center style='color:black; background:white;'>21.5</td> 
+								<td align=center style='color:black; background:white;'><b>24</b></td>								
+							</tr> 
+							<tr><TD style="width:25px;">6</TD><td align=center>June 13/22</td>		
+								<td>VGC wh</td>
+								<td bgcolor='maroon' align='center'; style='color:white' title=''>100</td>
+								<td align=center style='color:black; background:white;'>22.2</td> 
+								<td align=center style='color:black; background:white;'><b>25</b></td>								
+							</tr> 	
+							<tr><TD style="width:25px;">7</TD><td align=center>June 16/22</td>		
+								<td>VGC bl</td>
+								<td bgcolor='maroon' align='center'; style='color:white' title=''>91</td>
+								<td align=center style='color:black; background:white;'>21.9</td> 
+								<td align=center style='color:black; background:white;'><b>24</b></td>								
+							</tr> 	
+							<tr><TD style="width:25px;">8</TD><td align=center>June 23/22</td>		
+								<td> </td>
+								<td bgcolor='maroon' align='center'; style='color:white' title=''>99</td>
+								<td align=center style='color:black; background:white;'></td> 
+								<td align=center style='color:black; background:white;'><b></b></td>								
+							</tr> 	
+							<tr><TD style="width:25px;">9</TD><td align=center>June 30/22</td>		
+								<td> </td>
+								<td bgcolor='maroon' align='center'; style='color:white' title=''>97</td>
+								<td align=center style='color:black; background:white;'></td> 
+								<td align=center style='color:black; background:white;'><b></b></td>								
+							</tr> 	
+							<tr>
+								<TD style="width:25px;">10</TD>
+								<td align=center>July 7/22</td>		
+								<td> </td>
+								<td bgcolor='maroon' align='center'; style='color:white' title=''>96</td>
+								<td align=center style='color:black; background:white;'></td> 
+								<td align=center style='color:black; background:white;'><b></b></td>								
+							</tr> 	
+							<tr>
+								<TD style="width:25px;">11</TD>
+								<td align=center>July 14/22</td>		
+								<td> </td>
+								<td bgcolor='maroon' align='center'; style='color:white' title=''>98</td>
+								<td align=center style='color:black; background:white;'></td> 
+								<td align=center style='color:black; background:white;'><b></b></td>								
+							</tr> 	
+							<tr><TD style="width:25px;">12</TD>								
+								<td align=center>July 21/22</td>		
+								<td> </td>
+								<td bgcolor='maroon' align='center'; style='color:white' title=''>96</td>
+								<td align=center style='color:black; background:white;'>22.0</td> 
+								<td align=center style='color:black; background:white;'><b></b>24</td>								
+							</tr> 	
+							<tr>
+								<TD style="width:25px;">13
+								</TD>
+								<td align=center>July 28/22</td>		
+								<td> </td>
+								<td bgcolor='maroon' align='center'; style='color:white' title=''>93</td>
+								<td align=center style='color:black; background:white;'>21.9</td> 
+								<td align=center style='color:black; background:white;'><b>24</b></td>								
+							</tr> 	
+							<tr>
+								<TD style="width:25px;">14</TD>
+								<td align=center>Aug 4/22</td>		
+								<td> </td>
+								<td bgcolor='maroon' align='center'; style='color:white' title=''>97</td>
+								<td align=center style='color:black; background:white;'></td> 
+								<td align=center style='color:black; background:white;'><b></b></td>								
+							</tr> 	
+							<tr>
+								<TD style="width:25px;">15</TD>
+								<td align=center>Aug 11/22</td>		
+								<td> </td>
+								<td bgcolor='maroon' align='center'; style='color:white' title=''>102</td>
+								<td align=center style='color:black; background:white;'>22.0</td> 
+								<td align=center style='color:black; background:white;'><b>24</b></td>								
+							</tr> 		
+							<tr>
+								<TD style="width:25px;">16</TD>
+								<td align=center>Aug 18/22</td>		
+								<td> </td>
+								<td bgcolor='maroon' align='center'; style='color:white' title=''>93</td>
+								<td align=center style='color:black; background:white;'>21.6</td> 
+								<td align=center style='color:black; background:white;'><b>24</b></td>								
+							</tr> 		
+							<tr>
+								<TD style="width:25px;">17</TD>
+								<td align=center>Aug 25/22</td>		
+								<td> </td>
+								<td bgcolor='maroon' align='center'; style='color:white; cursor:pointer;' title='w/ John Pasternak'>97</td>
+								<td align=center style='color:black; background:white;'>21.6</td> 
+								<td align=center style='color:black; background:white;'><b>24</b></td>								
+							</tr> 		
+							<tr>
+								<TD style="width:25px;">18</TD>
+								<td align=center>Sept 1/22</td>		
+								<td> </td>
+								<td bgcolor='maroon' align='center'; style='color:white;'>94</td>
+								<td align=center style='color:black; background:white;'>21.8</td> 
+								<td align=center style='color:black; background:white;'><b>24</b></td>								
+							</tr>
+							<tr>
+								<TD style="width:25px;">19</TD>
+								<td align=center>Sept 8/22</td>		
+								<td> </td>
+								<td bgcolor='maroon' align='center'; style='color:white;'>104</td>
+								<td align=center style='color:black; background:white;'>22.1</td> 
+								<td align=center style='color:black; background:white;'><b>25</b></td>								
+							</tr> 
+							<tr>
+								<TD style="width:25px;">20</TD>
+								<td align=center>Sept 15/22</td>		
+								<td> </td>
+								<td bgcolor='maroon' align='center'; style='color:white;'>93</td>
+								<td align=center style='color:black; background:white;'>21.7</td> 
+								<td align=center style='color:black; background:white;'><b>24</b></td>								
+							</tr> 			
+							<tr>
+								<TD style="width:25px;">21</TD>
+								<td align=center>Sept 22/22</td>		
+								<td> </td>
+								<td bgcolor='maroon' align='center'; style='color:white;'>102</td>
+								<td align=center style='color:black; background:white;'>21.7</td> 
+								<td align=center style='color:black; background:white;'><b>24</b></td>								
+							</tr> 	
+							<tr>
+								<TD style="width:25px;">22</TD>
+								<td align=center>Sept 29/22</td>		
+								<td> </td>
+								<td bgcolor='maroon' align='center'; style='color:white;'>96</td>
+								<td align=center style='color:black; background:white;'>21.7</td> 
+								<td align=center style='color:black; background:white;'><b>24</b></td>								
+							</tr> 	
+							<tr>
+								<TD style="width:25px;">23</TD>
+								<td align=center>Oct 13/22</td>		
+								<td> </td>
+								<td bgcolor='maroon' align='center'; style='color:white;'>93</td>
+								<td align=center style='color:black; background:white;'>21.4</td> 
+								<td align=center style='color:black; background:white;'><b>24</b></td>								
+							</tr> 	
+							<tr>
+								<TD style="width:25px;">24</TD>
+								<td align=center>Oct 20/22</td>		
+								<td> </td>
+								<td bgcolor='maroon' align='center'; style='color:white;'>105</td>
+								<td align=center style='color:black; background:white;'>21.4</td> 
+								<td align=center style='color:black; background:white;'><b>24</b></td>								
+							</tr> 			
+							<tr>
+								<TD style="width:25px;">25</TD>
+								<td align=center>Oct 27/22</td>		
+								<td> </td>
+								<td bgcolor='maroon' align='center'; style='color:white;'>100</td>
+								<td align=center style='color:black; background:white;'>21.4</td> 
+								<td align=center style='color:black; background:white;'><b>24</b></td>								
+							</tr> 
+							
+							<tr>
+								<TD style="width:25px;">26</TD>
+								<td align=center>Nov 3/22</td>		
+								<td> </td>
+								<td bgcolor='maroon' align='center'; style='color:white;'>96</td>
+								<td align=center style='color:black; background:white;'></td> 
+								<td align=center style='color:black; background:white;'><b></b></td>					
+							</tr> 
+							<tr>
+								<TD style="width:25px;">27</TD>
+								<td align=center>Nov 17/22</td>		
+								<td> </td>
+								<td bgcolor='maroon' align='center'; style='color:white;'>95</td>
+								<td align=center style='color:black; background:white;'>21.8</td> 
+								<td align=center style='color:black; background:white;'><b>25</b></td>	
+							</tr> 																						
+																			
+							<tr>
+								<TD style="width:25px;">28</TD>
+								<td align=center>Nov 26/22</td>		
+								<td>VSTw/VSTw</td>
+								<td bgcolor='gray' align='center'; style='color:white;'>94</td>
+								<td align=center style='color:black; background:white;'>21.7</td> 
+								<td align=center style='color:black; background:white;'><b>24</b></td>	
+							</tr> 																					
+							<tr>
+								<TD style="width:25px;">29</TD>
+								<td align=center>Dec 4/22</td>		
+								<td>LGSw/LGSw</td>
+								<td bgcolor='gray' align='center'; style='color:white;'>90</td>
+								<td align=center style='color:black; background:white;'></td> 
+								<td align=center style='color:black; background:white;'><b></b></td>	
+							</tr> 
+							<tr>
+								<TD style="width:25px;">30</TD>
+								<td align=center>Dec 30/22</td>		
+								<td>VSTw/LGSb</td>
+								<td bgcolor='gray' align='center'; style='color:white;'>100</td>
+								<td align=center style='color:black; background:white;'></td> 
+								<td align=center style='color:black; background:white;'><b></b></td>	
+							</tr> 																				
+							<tr>
+								<TD style="width:25px;">31</TD>
+								<td align=center>Jan 4/23</td>		
+								<td>VSTw/VSTw</td>
+								<td bgcolor='gray' align='center'; style='color:white;'>89</td>
+								<td align=center style='color:black; background:white;'>21.0</td> 
+								<td align=center style='color:black; background:white;'><b>24</b></td>	
+							</tr> 
+							<tr>
+								<TD style="width:25px;">32</TD>
+								<td align=center>Feb 1/23</td>		
+								<td>VSTw/VSTw</td>
+								<td bgcolor='gray' align='center'; style='color:white;'>101</td>
+								<td align=center style='color:black; background:white;'>21.0</td> 
+								<td align=center style='color:black; background:white;'><b>24</b></td>	
+							</tr>																																																																												
+						</tbody>
+					  </table>
+					  <span style="float:right;">
+						  <A style="FONT-WEIGHT: normal; FONT-SIZE:large; COLOR:blue;"
+						  href="VGC/SCRgrph.html"><i>Annotation</i> Chart</A>
+						  <font size=2 color=gray> V=VGC&emsp;S=SSI&emsp;Dv=DPvista&emsp;b=blue&emsp;w=white
+					  		&emsp;f=front</font>
+					  </span>
+				
+				<br>
+				
+			</td>
+			
+		</tr>
+		
+		<TR>
+			<TD colspan=3 align=center>
+				
+			</TD>
+			<TD colspan=2 valign=top>
+				"A <b><i>fixture</i></b> now" <font size=1>(A. Buckley; June 30/22)</font>
+			</TD>
+		</TR>
+		
+		<TR>
+			<TD colspan=5 align=center>
+				
+			</TD>
+		</TR>
+		
+	</table>
+		
+	</div>
+
+	<br><br>
+	
+	
+	
+				<!--    ==================================================    -->
+				
+	<div id="HOMEdiv" style="border-radius:10px; padding:5px;border:3px slategray outset; background:black; 	color:white; position:fixed; left:0em; top:0px;">
+		<A href="index.html" style="color:moccasin; font-size:100px;"> &#x2302;<!--HOME symbol--></A>	
+	</div>
+
+	
+	
+								<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+								
+    <div class="container" id="KEYSdiv">
+
+        <div class="box" style="background-image: url('TextasticLOGO.jpg'); background-size:100% 100%;">
+			<!-- background-repeat: no-repeat;
+			  background-attachment: fixed; 
+			  background-size: cover; -->
+		</div>
+        <div class="box stack-top" style="background: blue; color:white;">
+        	<span style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:black; text-align:left; cursor:pointer; background:black; border-radius:10px;"> 
+				<font size=3 color=white>&nbsp;Swing Keys May 8-21, 2022</font>
+            	<font size=5 color=white>&#8681;&nbsp;</font>
+			</span>
+			
+			<span style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:black; text-align:left; cursor:pointer; border-radius:10px;"> 
+				<font size=3 color=yellow>
+				  <ol style="background:purple;  border-radius:20px; border: 3px green dotted;">
+					  <li><font color=white>TURN back (<> 'lift' arms)</font><br>
+					  <span style="background:white; color:red;"><b><u>ROTATE</u></b> <i>loosely</i> around stationary spine. <br>&emsp;Avoid bkwd/fwd motion & bobbing</span>
+					  <div style="margin-left: 16px; width:80%">
+					  		<span style="background:yellow; color:red;">Feel 
+						  	body rotation <i><b>propel</b></i> more passive arms fwd <i>(w/ chest leading)</i></span>
+					  </div>
+					  
+				  </li>
+				  <li style="border: 4px orange outset;">
+					  <span style="background:yellow; color:red;">Open club face [supinate wrists] going back [forces R elbow vs body]. Close club face coming down [R elbow still in].
+					  </span>
+				  </li>
+				  <li>
+					<u>CHEST > fwd</u> <i>(not @ ball)</i> <font color=white>< EARLY!</font>
+				  </li>
+				  <li><u>Path > out (loop)</u></li>
+				  <li>
+					  <span style="background:yellow; color:red;">"It's in the wrists": EASY until <u><b> wrist 'snap' @ 
+					  	impact</b></u> > full F/T
+					  </span>
+				  </li>
+				  <li>
+					? just <u>'chop' w/ wrists @ impact</u> <font size=1>(w/o 'rollover')</font><br>
+					&emsp;Make the 'rollover' gradual <!-- > impact.--><br>
+					? rollover EARLY in dwnswg & chop (release hinge) @ impact<br>
+				  </li>
+				  <li style="opacity:70%;">
+					<u>?? COCK wrists > staightens L arm</u>!<br>
+					&emsp;^ wrist cock > less elbow bend<br>
+					JUST cock wrists + turn <font size=1>(forget 'taking club back')</font><br>
+					<!--- ? > wrist 'rotation' more coming down than going back (??)<br>-->
+					&emsp;<font size=2>Not much turn back</font><br>
+					swingLIST (Nov 30/21):<br>
+					<font size=1>&emsp;"ONE": TURN back; COCK wrists (> staightens L arm); WAIT<br>
+					&emsp;"TWO": SHIFT fwd *; wait/'relax'<br>
+					&emsp;"THROW": ROTATE wrists (ext > int)coming down<br></font>
+				</li>				  
+				 </ol>
+				</font>
+			</span>
+        </div>
+		
+		<div class="box stack-release" style="">	
+			In any golf swing there is a <font color=white><b>SUBTLE</b> moment <i><b> at impact</b></i> where it <u>converts</u>
+			from an EASY, EFFORTLESS feeling to a more <b>substantial</b> feel as > into F/T ('catch-up' > <u>release</u>)
+			with <b><i>club 'pulling' body</i></b></font> fwd. <font color=white size=2>(arms extended)</font><br>
+			<font size=1>
+				Make a swing, but let go of the club as you follow through. To do this, you have to lighten your grip pressure as well as maintain a feeling of extension in your arms.
+			</font><br>
+			&emsp;<span  style="opacity:50%;"><a href="https://theleftrough.com/golf-swing-release/">theleftrough.com</a></span><br>
+			<A style="FONT-WEIGHT:normal; color:blue; FONT-SIZE:15px;" onclick="" 
+						href="https://www.youtube.com/watch?v=1KPkyTkQxtU">
+					MASTER THE RELEASE (YT)</A>: @ impact get <font color=white>clubhead as far from you as poss <u>w/o it passing the lead arm</u></font> (keep L elbow extended)<br>
+			<!--<font color=yellow><a href="https://www.youtube.com/watch?v=FOK92n_aeSk">youtube.com</a></font><br>-->
+			
+			<A style="FONT-WEIGHT:normal; color:blue; FONT-SIZE:15px;" onclick="" 
+						href="https://golficity.com/releasing-the-golf-club-how-to-master-the-fundamentals/" title="light grip&#013;rotation&#013;<> hold back&#013;grip not too thick&#013;shaft not too stiff">golficity.com</A> - How to Master the Fundamentals of the 'Release'	
+		</div>
+
+		<div class="box stack-brandon" > 
+			<b><font color=green>'LAST' Brandon KEYS</font></b> <i>(Feb 20/22)</i>
+					<span style="float:right;"><font size=1 color=silver>Striking pretty well</i>!</font></span>
+			<OL>
+				<li>Closer (& taller)</li>
+				
+				<li>
+					<div style="border:3px outset green; width:50%;">
+	                	<span style="background:gray;"><b>TURN away</b></span> (+> lift)<br>
+                    </div>
+				</li>
+				<li>&emsp; <i>(? ski)</i></font></li>
+				<li> 
+					<div style="background:darkred; color:white; border:1px outset green; border-radius:10px; width:76%;">
+						CHEST > fwd (not @ ball)
+					</div>
+				</li>
+				<li>Path > out (loop)</li>
+				<li>
+					 <span style="background:black; color:white; ">IRONS/5-WOOD</span>:<br>
+					 &emsp;<font color=red size=3><b><u>wrist chop/unhinge @ impact</u></b></font>
+				</li>
+				<li>				
+					 <span style="background:black; color:white; ">DRIVER</span>:<br>
+						&emsp;<font color=black size=3><b>Slow/effortless</b></font> for control;<br>
+						&emsp;2-hand THROW/toss/lob w/ CHEST *<br>
+						&emsp;&emsp;&emsp;(w/ wrist 'rollover')
+				</li>
+				<li>
+					<div id="FINISH" style="background:white; color:black; border:1px black dotted; border-radius:2%; padding:5px; text-align:left; overflow:scroll; float:left; width:300px;">	
+							FINISH fully/over-<b>turn</b>ed w/ club <b>shaft</b> resting <b>on '<A style=" color:blue; FONT-WEIGHT:normal; FONT-SIZE:normal;"onclick="FINISH()">colarbone'</A>.
+					</div>
+				</li>
+			
+			</div>								
+
+		<div class="box stack-wrists" > 
+			<b><font color=yellow>'FLOPPY' WRISTS</font></b> <i>(June 15/22)</i><br>
+			
+			<div style="background:white; color:black; width:350px; margin: auto; border:2px yellow outset; border-radius:2%; ">
+				<u>Improved Distance @ Range June 18/22</u>
+				<ol>
+					<li>Tighter <u><b>more erect/upright/<A style="FONT-WEIGHT:bold; FONT-SIZE:normal; COLOR:blue; cursor:pointer;" 
+						onclick="VERTICAL()"><i>vertical</i></A>
+						backswing TURN w/o sway <i>(or bob)</i></b></u>, <i>opening club face</i> <font size=2 color=gray>(keeps R elbow in)</font> w/ <b><span style="background:yellow; color:red;">floppy</span>/loose <span style="background:yellow; color:red;">wrists</span></b>/hands (grip)<br>
+						&emsp;&emsp;<a href="https://www.youtube.com/watch?v=vBJFNA4Iq-o" title=""><font size=2>Vertical Line Swing (<i>YT)</font></i></a>
+							&emsp;&emsp;<a href="" onclick="window.open('FLATvsUPRIGHT.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=700px, height=450px, top=125px left=120px'); return false;"><font size=1>image here</font></a> <br>
+						&emsp;&emsp;&emsp;<font size=1>https://www.youtube.com/watch?v=0edmEaM-YHc</font><br>
+						&emsp;&emsp;&emsp;<font size=1><b>https://www.youtube.com/watch?v=BG4TthRcKjg</b></font><br>
+					
+					</li>
+					<li>CHEST leads downswing<br>
+						<font size=2>
+							<b>Be careful here!</b> Legs should go 1st - then chest - then floppy hands.<br>
+							&emsp;&emsp;<A style="FONT-WEIGHT:normal; color:blue; FONT-SIZE:15px;" onclick="" 
+							href="https://youtu.be/G3jrCNUP4S8">Lag - <i>Maude</i> (YT)</A><br>
+							
+							Take longer to complete backswing (Maude)
+								
+								<A style="FONT-WEIGHT:bold; FONT-SIZE:normal; COLOR:blue; cursor:pointer;" 
+								onclick="TRIANGLE()" title="∆">
+									- <span style="background:yellow; color:red;">delay torso - legs 1st (R arm holds L back <font size=5>[∆˜]</font></span> > 'snap')
+								</A>
+							
+							&emsp;&emsp;<A style="FONT-WEIGHT:normal; color:blue; FONT-SIZE:15px;" onclick="" 
+							href="https://www.perfectgolfswingreview.net/impact.htm">perfectgolfswingreview: impact</A> *
+							&emsp;&emsp;<a href="" onclick="window.open('BennettNoRollRelease.jpg','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=700px, height=300px, top=125px left=120px'); return false;"><font size=1>image</font></a> 
+							<br>
+								
+							&emsp;&emsp;<A style="FONT-WEIGHT:normal; color:blue; FONT-SIZE:15px;" onclick="" 
+							href="https://youtu.be/z-GL6HCFm2Y">'longer to complete backswing' (YT)</A><br>
+					
+						</font>
+					</li>
+					<li>'CATCH-UP' w/ <span style="background:yellow; color:red;">club head CATCHING <i>(<u>but not passsing</u>)</i> hands</span> @ impact; <i>loose wrists</i></li>
+					<li>> full, relaxed F/T</li>					
+				</ol>
+			</div>
+			<br>
+			Wrist Tension<br>
+			When the grip pressure is sufficiently light, it's difficult to keep the wrists tense. However, consider the challenge of executing a golf swing with wrists that are not supple. Ben Hogan writes that the hands and wrists must release through contact; however, excess tension in the wrists prevents this from happening naturally. One common cause of tightness in the wrists is the tendency of players wanting to control the golf club up to the point of contact.<br><br>			
+			Loose for Power<br>			
+			The range of motion covered in a golf swing requires loose hands and wrists not only for the sake of getting the club into the proper position, but also for creating adequate club head speed. Club head speed is the most significant factor behind generating power and gaining distance. The fluidity necessary in the body for club head speed, according to Jim Miller Golf, begins with a loose and supple set of hands and wrists.<br><br>			
+			Consistent Tension<br>			
+			It's not uncommon for golfers to begin their swing with loose hands and wrists only to tighten them either at the top of the swing or as they brace for contact. Consequently, as part of the fluidity that Jim Miller Golf heralds, players must learn how to maintain this lack of tension all the way through the swing. It's not as easy as it sounds and you may find it difficult to accomplish at first. With practice, however, your body will learn to trust the loose approach and allow itself to remain this way during the entire swing.<br>
+					
+		</div>	
+	
+	
+	
+			
+    </div>
+	
+
+						<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+						
+	<div id="TLRMDdiv" style="width:500px;
+					border-radius:10px; 
+					padding:10px;
+		        height: 400px;
+		        position: absolute; /*relative;*/
+					left:500px;
+					top:350px;	/* 10px; */
+		        margin: 20px;
+				margin: auto;  
+				display:none;
+				text-align:left;
+					border: 3px slategray outset;
+					background:green; color:white;
+					overflow: scroll;">
+			<b><u>Brandon's Desert Princess Clubs</u></b>
+				<span style="float:right; text-align:right; padding-right: 10px; cursor:pointer;">
+					<a onclick="showTLRMD()">&times;</a></span>
+			<br><br>
+			DRIVER: 11 deg loft; ? adjustable; reg flex (not 'ladies/senior')<br>
+			&emsp;Brandon’s loaner: TaylorMade R9 460 (2009) 10.5 (FCT); <br>&emsp;&emsp;&emsp;shaft - ‘Motore 65’ by Fujikura - FLEX S<br>
+			5 WOOD: TM 'Burner'<br><br>
+			&emsp;&emsp;FCT = 'Flight Control Technology<br>
+			<br>
+			
+			<A style="FONT-WEIGHT:normal; color:skyblue; FONT-SIZE:15px;" onclick="" 
+			href="https://www.golfavenue.ca/en/taylormade-r9-460-driver">R9 460 Driver (Golf Ave)</A> √ <i><font size=2 color=silver>(July 10/22)</font></i><br>
+			<A style="FONT-WEIGHT:normal; color:skyblue; FONT-SIZE:15px;" onclick="" 
+			href="https://www.golfavenue.ca/en/taylormade-burner-high-launch-fairway-wood-tm-b43526">Burner 5-Wood (Golf Ave)</A> √ <i><font size=2 color=silver>(July 10/22)</font></i><br>
+			<A style="FONT-WEIGHT:normal; color:skyblue; FONT-SIZE:15px;" onclick="" 
+			href="https://www.amazon.ca/Taylormade-Golf-Driver-Fairway-Adjustment/dp/B017E01HZA/ref=asc_df_B017E01HZA/?tag=googleshopc0c-20&linkCode=df0&hvadid=292950517351&hvpos=&hvnetw=g&hvrand=11654780352539442370&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9001596&hvtargid=pla-525289877655&psc=1">Adjustment Tool (Amazon)</A> √<br>
+			&emsp;<A style="FONT-WEIGHT:normal; color:skyblue; FONT-SIZE:15px;" onclick="" 
+			href="https://www.golfavenue.ca/en/checkout/cart/">Golf Avenue Cart (Jul 10/22)</A><br>
+			<br>
+			<a href="" onclick="window.open('R9 Diver Adjust.png','driverWindow', 'toolbar=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=250px, height=500px, top=200px left=600px'); return false;">R9 Adjustment</a>
+								<!-- location=no -->
+			
+	</div>		
+
+
+	<div id="GROUPdiv" style="width:600px; height:400px; border-radius:10px; padding:10px; 
+		        			  position: absolute; left:500px; top:300px;	
+		                      margin:20px; display:none; /* margin:auto; */
+							  text-align:left; border:3px slategray outset; background:green; color:white;
+						      overflow: scroll;">
+		<span style="display:block; margin:0 auto; width:300px; padding: 2px; text-align:center;"><font size=4 color=lawngreen>
+			  <b>VGC Thursday Group</b> <font size=2>(July/22)</font></font>
+			  <span style="float:right; text-align:right; padding-right: 10px; cursor:pointer;">
+						<a onclick="showGROUP()">&times;</a>
+			  </span>
+		</span>	  			  		
+			  <span style="display:block; margin:0 auto; width:450px; border:1px inset maroon; padding: 2px; text-align:center;"> 	<!-- style='float:right;'> -->
+			  		<button style='cursor:pointer;' onclick="sortTableN()">Sort Numerically</button>
+					<button style='cursor:pointer;' onclick="sortTableA(1)">Sort Alphabetically</button>
+				    &emsp;&emsp;
+					<label>
+				        Search:<input type="text" id="Search" style='width:100px;' 
+						onkeyup="SEARCHtable()" placeholder="search for SITE">
+				    </label>
+					&emsp;
+			  </span>
+								
+		  <TABLE align=center  id="myTable"><TR><TD>
+		  <table border='3'   align=center 
+		  style='FONT-SIZE: small; color:maroon; visibility:visible;' bgcolor='yellow'>
+		  				<!-- class="table2" id="DJIdiv" -->
+			<thead bgcolor='gray' style="color:white;">
+					<th style='width:25px;'>ID</th>
+					<th title='1st entry = Feb 11, 2013' onclick="sortTableA(1)" style='cursor:pointer;'>NAME</th> 
+					<th>email</th> <th>phone</th> 
+					<th>CHb</th>    <th><i>note</i></th>  <th><i>status</i></th>
+			</thead>
+
+			<tbody> <!--  id='TBLbody' -->							
+				<tr> <td>1</td> 
+					<td><font color=red>Raine, Robert</font></td>  <td>rjraine@shaw.ca</td>  <td>250-812-1620</td>
+					<td>?16</td>  <td>Primary booker</td>  <td>√</td>
+				</tr>	
+				<!--
+				<tr><td style='width:25px;' align=right>1</td>					
+					<td bgcolor='maroon' align='center'; style='color:white' 
+						title=Oct 26/20'>Raine, Robert</td> 
+					<td align=center style='color:black; background:white;'>
+ 						<A style="FONT-WEIGHT:normal; color:blue; FONT-SIZE:15px;" onclick="" 
+						href="https://www.DevonProperties.com">
+						rjraine@shaw.ca</A> 					
+					</td> 
+					<td>250-812-1620</td>
+					<td align=center style='color:black; background:white;'><font size=1>?16</font></td>
+					
+					<td>
+						<A style="FONT-WEIGHT: normal; FONT-SIZE:10px;" onclick="return popupLINK(this, 'MOlogin')" 
+				            href="https://marineoaks.activebuilding.com/login">
+				            <span style='background:moccasin;'>Primary booker</span>
+				        </A>
+						<font size=1>&nbsp;<i>√</i></font>
+							<br>
+					</td>
+				</tr> 
+				-->
+				<tr> <td>2</td> 
+					<td>Paulson, David B.</td>  <td>dave.pianoman@gmail.com</td>  <td></td>
+					<td>18</td>  <td></td>  <td>√</td>
+				</tr>				
+				<tr>   <td>3</td> 
+					<td>Connolly, Thomas</td>  <td>tp70connolly@gmail.com</td>  <td></td>
+					<td>16</td>  <td></td>  <td>√</td>
+				</tr>	
+				<tr>   <td>4</td> 
+					<td>Jessop, Shayne A.</td>  <td>shaynej@shaw.ca</td>  <td></td>
+					<td>18</td>  <td></td>  <td>√</td>
+				</tr>
+			    <tr>   <td>5</td> 
+					<td>Pengelly, Delmer B.</td>  <td>dbpengelly@gmail.com</td>  <td></td>
+					<td>12</td>  <td></td>  <td>√</td>
+				</tr>
+				<tr>  <td>6</td>  
+					<td>Kuechler, Peter M.</td>  <td>pmkuechler@gmail.com</td>  <td></td>
+					<td>7</td>  <td></td>  <td>√</td>
+				</tr>
+				<tr>   <td>7</td> 
+					<td>Nielsen, Gary K.</td>  <td>garyknielsen@shaw.ca</td>  <td></td>
+					<td></td>  <td></td>
+				</tr>
+			    <tr>   <td>8</td> 
+					<td>Schofield, John A.</td>  <td>jas@uvic.ca</td>  <td></td>
+					<td>15</td>  <td></td>  <td>√</td>
+				</tr>
+			    <tr>   <td>9</td> 
+					<td>Porter, George R.</td>  <td>gporter@telus.net</td>  <td></td>
+					<td></td>  <td></td>  <td>√</td>
+				</tr>
+			    <tr>   <td>10</td> 
+					<td>Ritchie, William</td>  <td>therad@shaw.ca</td>  <td></td>
+					<td>13</td>  <td></td>  <td>√</td>
+				</tr>	
+				<tr>   <td>11</td> 
+					<td>Zacks, David</td>  <td>zacksdavid43@gmail.com<br><s>dzacks@shaw.ca</s></td>  <td></td>
+					<td>20</td>  <td></td>  <td>√</td>
+				</tr>	
+				<tr>   <td>12</td> 
+					<td>Buckley, Alan</td>  <td>abbuck@shaw.ca</td>  <td></td>
+					<td>18</td>  <td></td>  <td>√</td>
+				</tr>	
+				<tr>   <td>13</td> 
+					<td><font color=red>Medhurst, Charles</font></td>  <td>charlesmed@shaw.ca</td>  <td></td>
+					<td>15</td>  <td>2ary booker</td>  <td>√</td>
+				</tr>
+				<tr>   <td>14</td> 
+					<td valign=top style="padding-top:7px;">						
+						<A style="FONT-WEIGHT:bold; FONT-SIZE:normal; COLOR:blue; cursor:pointer;" 
+						onclick="GWH()"><span style='background:yellow; border:2px outset orange; border-radius:5px;  padding:3px;'>Hodgins, G.W.</A></td>  
+					<td>cathyhodgins2@gmail.com<br><font color=gray><u>gwhodgins@shaw.ca</u><br>hodginsgw@gmail.com</font></td>  
+					<td valign=top>250-658-2094</td>
+					<td valign=top>24</td>  
+					<td></td>
+				</tr>
+				<tr>   <td>15</td> 
+					<td><font style="opacity:50%;">Dutton, James W.</font></td>  <td>jwdutton@telus.net</td>  <td></td>
+					<td>?15</td>  <td></td>
+				</tr>
+				<tr>   <td>16</td> 
+					<td><font style="opacity:50%;">Stockdill, James</font></td>  
+						<td><font style="opacity:50%;">stockdill@shaw.ca</font></td>  <td></td>
+					<td>?22</td>  <td></td>
+				</tr>
+				<tr>   <td>17</td> 
+					<td><font style="opacity:50%;">Sanders, Bruce</font></td>  
+						<td><font style="opacity:50%;">brucersanders@gmail.com</font></td>  <td></td>
+					<td>?18</td>  <td></td>
+				</tr>
+				<tr>   <td>18</td> 
+					<td><font color=blue>Bell, Jim</font></td>  <td></td>  <td></td>
+					<td></td>  <td></td>
+				</tr>
+				<tr>   <td>19</td> 
+					<td><font color=blue>Field, Geoff</font></td>  <td>geofffield@shaw.ca</td>  <td></td>
+					<td></td>  <td></td>
+				</tr>
+				<tr>   <td>20</td> 
+					<td><font color=blue>Hazell, Evan</font></td>  <td>evan@evanhazell.com</td>  <td></td>
+					<td></td>  <td></td>
+				</tr>
+				<tr>   <td>21</td> 
+					<td><font color=blue>Bailey, Nigel</font></td>  <td>nigelbailey@shaw.ca</td>  <td></td>
+					<td></td>  <td></td>
+				</tr>
+				<tr>   <td>22</td> 
+					<td><font color=gray>Johnston, G.</font></td>  <td>LandGJohnston@shaw.ca</td>  <td></td>
+					<td></td>  <td></td>
+				</tr>
+				
+				
+			</tbody>
+		  </table>
+		  </TABLE>
+	  
+				
+	</div>
+
+						<!--  ::::::::::::::::::::::::::::::::::::::::::   -->
+						
+	<div id="SHORTdiv" style="width:600px; height:750px; border-radius:10px; padding:10px; 
+		        			  position: absolute; left:300px; top:50px;	
+		                      margin:20px; display:none; /* margin:auto; */
+							  text-align:left; border:3px slategray outset; background:gray; color:white;
+						      overflow: scroll;">
+			<!--<span style="display:block; margin:0 auto; width:300px; padding: 2px; text-align:center;">--><font size=5 color=lawngreen>
+			<b>Short Backswing</b> <font size=2>(July 22, 2022)</font></font></span>
+					<span style="float:right; text-align:right; padding-right: 10px; cursor:pointer;">
+						<!--<button id="OKbtn" onclick="hideHELP()" style="FONT-WEIGHT: bold; 
+							FONT-SIZE: 10px; COLOR: black">OK</button>-->
+						<a onclick="hideSHORT()">&times;</a>
+					</span>	
+							
+				<ul>
+					<li>L elbow bends ++<br>
+						&emsp;<b><u><span style="background:yellow; color:red;">^ wrist cock —> less elbow bend</span></u></b><br>
+								&emsp;&emsp;&emsp;&emsp;- <span style="background:red; color:white;"><u>JUST cock wrists</u> + turn <i>(forget ‘taking club back)</i></span><br>
+								&emsp;&emsp;&emsp;&emsp;<i><font size=3>- ? —> wrist ‘rotation’ more coming down than going back (??)</font></i><br>
+					</li>
+				</ul>
+				<ol type='i'>
+					<li>"<b>ONE</b>": TURN back; <span style="background:yellow; color:red;">COCK wrists (> staightens L arm)</span>; WAIT</li>
+					<li>"<b>TWO</b>": SHIFT fwd *; <i>wait/'relax'</i></li>
+					<li>"<b><span style='background:red; color:white;'>THROW</span></b>": ROTATE wrists (ext > int)coming down</li>
+				</ol>	
+	
+			<u><font size=4 color=lime><b>Shorter Backswing For MORE POWER</b></font></u><br>
+				&emsp;<a href="https://youtu.be/TrwXEFXbbo0" title="8119/hodgins">Hitting It Solid Golf (YT)</a><br>
+				&emsp;<a href="https://www.youtube.com/watch?v=MKiv5AvvK94" title="8119/hodgins">Hitting It Solid: Optimize (YT)</a>
+						&nbsp;Troy Vayanos (Australia): <font size=2 color=lightgray>https://hittingitsolid.com</font>
+				<ol>
+					<li>L arm straight <i>(see above)</i></li>
+					<li>Rotate hips</li>
+					<li><font color=maroon>Pull R shoulder back <I>(& up)</i></font>&emsp;
+							<a href="" onclick="window.open('VGC/SHORTeg.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=500px, height=500px, top=400px left=700px'); return false;">image</a><br>
+						<font color=yellow>> hands OUT</font> > max width<br>
+						<font color=lightgray>1-piece take away w/ bit of hinge</font>
+					</li>
+					<li><font color=lightgray><i>add bit of 'hip depth' (R hip > back a bit)</font></li>
+					<li><font color=yellow>Hands & arms DEEPER</font> (more post)</i> in bkswg
+						&emsp;<a href="" onclick="window.open('VGC/SHORThandsdeep.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=500px, height=500px, top=400px left=700px'); return false;">image</a><br>
+							> easier to 'shallow it' <i>(shaft angle more horizontal to the ground; 'drop into slot')</i>
+					</li>
+					<li>@ top club pts more down tgt line or bit out/post
+						&emsp;<a href="" onclick="window.open('VGC/SHORTdwnline.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=500px, height=500px, top=400px left=700px'); return false;">image</a><br>
+							(not over/fwd; > more dif to 'shallow club')<br>
+							<font color=lightgray><u>actually better if club is more 'layed off'</u> rather than str dwn line</font>
+					</li>
+					<li><font color=yellow>Don't let arms pass body going back *</font><br>
+							- keep club out in front of chest (not behind/R)
+						&emsp;<a href="" onclick="window.open('VGC/SHORTclubchest.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=500px, height=500px, top=400px left=700px'); return false;">image</a><br>	
+					</li>
+					<div  style="border: 3px solid red;">
+					<li><font color=maroon><b><u>FEEL wt of club</b></u><br>
+							<div style="margin-left:30px;""><font color=lightgray> - light grip pressure so can maintain some of hinge in trail wrist</font> <font size=2 color=lightgray>(prevents casting)</font></div>
+							- let club move on it's own</font><br>
+							- allows club to DROP in dwnswg > ^ speed  **<br>
+							<font color=lightgray>Feel trail elbow close to body (helps shallow) + lead shoulder & hip go DOWN (> pressure to lead side)!</font>
+					</li>
+					</div>
+					<li>Flare feet out <i>(> easier to turn away)</i></li>
+					<li><font color=yellow>Release club w/ straight arms matching club</font>
+						&emsp;<a href="" onclick="window.open('VGC/SHORTrelease.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=500px, height=500px, top=400px left=700px'); return false;">image</a> &nbsp;<font color=maroon><i>(L shoulder up!)</font><br>
+							- feel like are <b>stetching arms</b><br>
+							<font color=lightgray>Feel like club handle is inside clubhead @/post impact <i>(maintains clubhead stability</i>). &emsp;
+									<a href="" onclick="window.open('VGC/SHORThandlein.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=500px, height=500px, top=400px left=700px'); return false;">image</a>	
+								<br>
+								&emsp;&emsp;Maintain SOME wrist (cupped trail wrist) angle @ impact.<br>
+								Lead leg straightens AFTER IMPACT!<br>
+								"Body-driven swing"<br>
+									&emsp;&emsp;<i>- handle finishes in line w/ belly button</i>.&emsp;
+										<a href="" onclick="window.open('VGC/SHORTfinish.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=500px, height=500px, top=400px left=700px'); return false;">image</a>		
+								<br>
+								&emsp;&emsp;- less reliant on wrists. Encouages rotation!<br>
+							</i>	
+							</font>
+							
+					</li>
+				</ol>
+							
+
+	</div>			
+
+	<div id="2FORCEdiv" style="width:600px; height:400px; border-radius:10px; padding:10px; 
+		        			  position: absolute; left:300px; top:250px;	
+		                      margin:20px; display:none; /* margin:auto; */
+							  text-align:left; border:3px slategray outset; background:black; color:lime;
+						      overflow: scroll;">
+			<!--<span style="display:block; margin:0 auto; width:300px; padding: 2px; text-align:center;">--><font size=5 color=white>
+			<b>My "Two Force' Swing</b> <font size=2>(July 26, 2022)</font></font></span>
+					<span style="float:right; text-align:right; padding-right: 10px; cursor:pointer;">
+						<!--<button id="OKbtn" onclick="hideHELP()" style="FONT-WEIGHT: bold; 
+							FONT-SIZE: 10px; COLOR: black">OK</button>-->
+						<a onclick="show2FORCE()">&times;</a>
+						</span>	
+			<br><br>			
+			There are ONLY 2 forces involved in the swing:<br>
+			&emsp; Gravity<br>
+			&emsp; Centrifugal force<br>
+			There should be no or very little arm 'effort'!<br>
+			<br>
+			Gravity STARTS the downswing. Centrifugal force, 2ary to the unwind, PROPELS it <u>@ impact</u>. WAIT until near bottom of gravity arc to add energy/effort to the unwind <i>(sequencing)</i>.			
+	</div>
+
+
+	<div id="SANDdiv" style="width:600px; height:400px; border-radius:10px; padding:10px; 
+		        			  position: absolute; left:300px; top:250px;	
+		                      margin:20px; display:none; /* margin:auto; */
+							  text-align:left; border:3px slategray outset; background:black; color:lime;
+						      overflow: scroll;">
+			<!--<span style="display:block; margin:0 auto; width:300px; padding: 2px; text-align:center;">-->
+				
+			<font size=5 color=white>
+			<b>Sand Play</b> <font size=2>(Maude)</font></font></span>
+					<span style="float:right; text-align:right; padding-right: 10px; cursor:pointer;">
+						<!--<button id="OKbtn" onclick="hideHELP()" style="FONT-WEIGHT: bold; 
+							FONT-SIZE: 10px; COLOR: black">OK</button>-->
+						<a onclick="showSAND()">&times;</a>
+						</span>	
+			&emsp;&emsp;&emsp;						
+			&emsp;<a href="https://youtu.be/deY2rotjICI" style="color:dodgerblue; font-size:14px;" title="">YouTube</i></a><br>
+			</b>
+			<ul>
+				<li>square stance w/ <u><b>L foot turned out & knee pointing fwd</u></b><br>
+					&emsp;<u><b>> wt on L side</u></b> > SPACE to come thru</li>
+				<li>ball just inside lead heal (front of centre)</li>
+				<li>don't lean bkwd</li>
+				<li>club FALLS down & 'bottoms out' under ball<br> 
+					&emsp;> bounce of club to pop ball out<br>
+					&emsp;if body back lower pt will be too far back<br>
+					&emsp;&emsp;	- if sand hard > bounce > thin</li>
+				<li></li>
+				<li>stance: pressure on L leg. </li>
+				<li>start w/ square face (not open yet)</li>
+				<li>arms low</li>
+				<li><u><b>butt end of club pts twd belly btn</u></b><br>
+					&emsp;- if too fwd leading edge hits 1st > fat (no 'bounce')</li>
+				<li>let <u><b>gravity</u></b> of club fall down to sand > TOE > under ball<br>
+					&emsp;- <u><b>arm pressure > down L <i>(bring TOE down)</i> </u></b><br>
+					&emsp;&emsp;	-if > fwd toe is open > 'flicks'</li>
+				<li></li>
+				<li><u>OPENING FACE</u> > ball higher (& shorter) <br>
+					&emsp;- hands FURTHER BACK > toe fwd more (back w/ open face)<br>
+					&emsp;&emsp;	- arms > down & L > TOE under ball (no flick)<br>
+					&emsp;&emsp;	- don't lean back w/ open face *<br>
+					&emsp;&emsp;&emsp;		- don't lift; let club fall</li>
+			</ul>
+			
+			&emsp;&emsp;++++++++++++++++++++++++++++++++++++++++++++++++<br><br>
+			
+			<font color=green>
+				<u>HIGH  BUNKER SHOT</u> <i>(EASIEST Way To Get Out ANY Bunker)</i>:<br>
+				&emsp;<a href="https://www.youtube.com/watch?v=XFkVfKZ2Sfw" style="color:dodgerblue; font-size:14px;" title="">YouTube</i></a><br>
+				<TABLE border=1>
+				<TR><TD style="width:200px;"">
+					<IMG style="WIDTH:90%; background-color:; border: 2px black solid;
+					cursor:pointer;" alt="" src="BUNKERthrow.png" title=''>
+				</TD><TD valign=top>Grip slows as arrives @ ball on dwnsg > allow club head to overtake 'super fast'. Lead wrist 'buckles' (disastrous w/ irons) > gt for HEIGHT in bunkers. Allows loft of club to stay up (points back to you in F/T).<br> DON"T WANT ANY ROTATION OF FOREARM (pts club down).<br>
+					TRAIL HAND 'THROWS CLUB' UNDERNEATH BALL PAST THE HANDS. Lead arm almost completely stops.
+				</TD></TR>
+				</TABLE>
+			</font>
+			
+	</div>	
+	
+	<div id="GRIPdiv" style="width:600px; height:400px; border-radius:10px; padding:10px; 
+		        			  position: absolute; left:300px; top:250px;	
+		                      margin:20px; display:none; /* margin:auto; */
+							  text-align:left; border:3px slategray outset; background:black; color:lime;
+						      overflow: scroll;">
+			<!--<span style="display:block; margin:0 auto; width:300px; padding: 2px; text-align:center;">-->
+				
+			<font size=5 color=red>STRONG GRIP</font><br>		</b>
+				&emsp;&emsp;<a href="https://golfworkoutprogram.com/strong-golf-grip/" style="color:dodgerblue; font-size:14px;" title="">golfworkoutprogram.com</i></a>
+				<span style="float:right; text-align:right; padding-right: 10px; cursor:pointer; color:white;">
+						<a onclick="showGRIP()">&times;</a>
+				</span>	
+			<br><br>
+			Switching to a strong golf grip puts the hands in a <font color=silver>more powerful</font> position. This could lead to <font color=silver>more yardage</font> off the tee with the <u>driver</u>. The ability to hit the ball further can lead to lower scores on the course.<br><br>
+			
+			The strong grip also makes the golf <font color=silver>club feel much lighter</font>, which helps generate a little <font color=silver>more clubhead speed</font>. With the club feeling lighter, the golfer has <font color=silver>better control of the shaft</font>. More control of the golf club often leads to more accurate shots and extra distance.<br><br>
+			
+			The strong grip makes it much <font color=silver>easier to close the clubface</font> on impact. This is in stark contrast to the weak and neutral grips, which usually make it too easy to hit the ball with an open clubface.<br><br>
+			
+			<font color=silver>Promotes an In to Out Swing Path</font>. &nbsp;<font color=red>*</font><br><br>
+			
+			<font size=4 color=yellow>Cons</font>:<br>
+			1. <u>Lower Ball Flight</u><br>
+				<i>While most golfers, especially slicers, may welcome a lower ball flight, that is not the case for all golfers. The closed clubface that the strong grip promotes usually leads to <u>less trajectory</u>. This isn’t such a problem with the longer clubs but it can <u>negatively affect approach shots with wedges</u>.</i><br>
+					&emsp;&emsp; <font color=silver>- ? use conventional grip w/ irons & strong w/ driver & 5-wood</font><br>
+			
+			2. <u>Less Comfortable</u><br><br>
+			
+			+++++++++++++++++++++<br><br>
+			
+			<font size=4 color=yellow>AZINGER</font>: L knuckles up/out @ impact<br>
+				&emsp;&emsp;<a href="https://www.golfchannel.com/video/martin-halls-paul-azinger-strong-grip-swing-tip" style="color:dodgerblue; font-size:14px;" title="">golfchannel.com</i></a>
+			<br><br>
+			
+			<a href="https://www.youtube.com/watch?v=8-RoXDeH_Ao" style="color:dodgerblue; font-size:14px;" title="">Benefits of a strong grip</i></a><br>			
+			&emsp;&emsp; <font size=2>- bone behind bone HAMMER > ^ strength</font> *
+			<br>
+	
+			
+	</div>	
+		
+		<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+		
+	<div id="ACCORDIONdiv" style="width:600px; height:780px; border-radius:10px; padding:10px; 
+		        			  position: absolute; left:300px; top:40px;	
+		                      margin:20px; display:none; /* margin:auto; */
+							  text-align:left; border:3px slategray outset; background:maroon; color:white;
+						      overflow: scroll;">
+			<font size=5 color=white><b>Accordion Keys</b> <font size=2>(Aug 28, 2022)</font></font>
+					<span style="float:right; text-align:right; padding-right: 10px; cursor:pointer;">
+						<a onclick="showACCORDION()">&times;</a>
+					</span>	
+
+
+			<button class="accordion"><b>Wide To Narrow</b> <i><font style="opacity:.6" size=1>(Aug 28/22)</font></i></button>
+			<div class="panel">			
+				<div style="background:lime; width:90%;  border:3px slategray outset; border-radius:10px; padding:10px; color:black; margin: auto;">
+				<font size=5>7-iron Wed Aug 3</font>:<br>
+				<ul>
+					<li>R elbow in <u>coming down</u>!; <i>(full turn back)</i><br>
+							&emsp;<A style="FONT-WEIGHT:bold; FONT-SIZE:normal; COLOR:blue; cursor:pointer;" 
+									onclick="NARROWdrill()"><span style='background:yellow; border:2px outset orange; border-radius:10px;'>
+					&nbsp;<b>Wide to Narrow Drill:</b>&nbsp;</A>
+							<a style="color:dodgerblue;" href="https://www.mygolfinstructor.com/instruction/diagnosing-problems/drills/wide-to-narrow-drill/250/" title="drill">mygolfinstructor.com</a>&emsp;*<br>
+					&emsp;&emsp;&emsp;<IMG style="WIDTH:30%; background-color:; border: 2px black solid;
+								cursor:pointer;" alt="" src="VGC/WideToNARROW.png" title=''>
+								<video style="border:3px slategray outset; border-radius:10px;" width="240" controls> <!--  width="150" height="120" -->
+								  <source src="VGC/Narrow1.mov" type="video/mp4">
+								  <source src="movie.ogg" type="video/ogg">
+									Your browser does not support the video tag.
+								</video>
+					&emsp;&emsp;&emsp;&emsp;
+							<font color=gray>"<u>Just Drop It</u>":<br>
+								<div style="margin-left:100px; width:330px;">
+								<b><font color=black>As</font></b> 'bump' fwd:<br>&emsp;Trailing (R) shoulder just drops/falls directly &emsp;downward without effort 
+								until impact
+								<br><b><font color=black>then</font></b> there <b><i>may</i></b> be some relaxed wrist + R elbow toss/flip throwing action into <i>wide</i> F/T
+								</div>	</font>										
+					
+								<div style="margin-left:100px; width:330px; background:yellow; border: 2px black solid; padding:5px; cursor:help;" title="May be 'the CLUE'! Sat Aug 13/22">		
+									SEPARATE 'R shoulder drop' fr 'fwd bump':<br>
+									<font size=2>R shoulder drop (> R elbow vs side) part of BCKSWNG.<br>
+									Fwd 'bump' is start of DOWNSWING (> fwd CHEST &emsp;'thrust' > release > F/T).<br>
+								    <span style='opacity:50%;'>- seems to work w/ 7-iron & driver.</span></font>&emsp;
+									<A style="FONT-WEIGHT:bold; FONT-SIZE:normal; COLOR:blue; cursor:pointer;" 
+									onclick="SEPARATEcount()"><span style='background:silver; border:2px outset orange; border-radius:10px;'>&nbsp;<b>&nbsp;Count&nbsp;</b></A>
+									<br>	
+									<span style='background:red; color:white;'>
+										<b>L grip</b> w/ <u>FINGERS</u>, not palm <font size=2>(enables/encourages straight L arm --> ^ distance; 1 lever)
+										&emsp;<a style="color:blue;" href="https://www.youtube.com/watch?v=TYmrpuyGfEs" title="drill">Kerrod Gray (YT)</a></font>
+									</span>	
+						   		</div>
+   
+												
+					&emsp;<b><font color=blue>AMG</font>:</b>&nbsp;<a style="color:dodgerblue;" href="https://www.youtube.com/watch?v=ZuFcamokY0I">YouTube</a>
+					</li>
+					<li>'Bump' fwd; EASY down
+					<li>head back; midriff fwd!
+					<li>LATE 'release' (inside-out)
+					</ul>
+				</div>
+			</div>	
+			
+			<button class="accordion" style="background:yellow;"><b>Reliable 'Brandon' Swing</b>
+				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &#128512; <font color=gray size=1><i>(Oct 13/22)</i></font><!--grinning emoji-->
+			</button>
+			<div class="panel">			
+				<div style="background:white; width:70%;  border:3px slategray outset; border-radius:10px; padding:10px; color:black; margin: auto;">
+				<font size=5>Most <span style='background:yellow; border:2px outset orange; color:black; border-radius:10px;'>&nbsp;RELIABLE&nbsp;</span> 'Brandon' Swing</font><br><i>(Thu Aug 4/22)</i><br>
+					<ul>
+					<li>Full wrist cock @ top (> str L arm)
+					<li><u>Easy</u> baseball 'THROW' <font color=gray><i>(sidearm)</i></font> w/ CHEST fwd<br>
+						&emsp;&emsp;legs 1st; chest 2nd <font size=1 color=gray><i>(just prior to or at impact)</i></font> <font color=red>*</font>
+					<li>'Catch-up' @ impact *
+					<li>head back/dwn @ impact
+					</ul>
+				</div>
+				<font color=green>+ Left <u>Arm Swing</u> for irons <i>(see below)</i></font><br>	
+			</div>
+			
+			<button class="accordion"><b>FEEL</b></button>
+			<div class="panel">			
+				<div style="background:slategray; width:70%;  border:3px slategray outset; border-radius:10px; padding:10px; color:ivory; margin: auto;">			
+				<font size=5 color=yellow>FEEL most NB part of swing</font><br>
+					1. Grip the club<br>
+						<div style="margin-left:25px;">Use any golf club for this drill. Grip the club with your dominant hand in the general area where you would hold it in your completed grip.</div>
+					
+					2. Feet together<br>
+						<div style="margin-left:25px;">Assume your golf posture but stand with your ankles touching each other.</div>
+					
+					3. Make continuous swings<br>
+						<div style="margin-left:25px;">Swing the club back and forth without stopping while <u>engaging your abs</u> to the fullest extent possible.</div>
+					<br>
+					As you <b><font color=maroon>stabilize your core</font></b> you will <u>feel the “pull” of the clubhead</u> through certain zones in the swing arc. As you swing you will instantaneously feel the clubhead. You will <i><b>hear</b></i> where the clubbed accelerates and slows down. You will <u>sense how the clubhead “finds” its best, most efficient arc and how it will tell your shoulders and upper body when and how much to pivot</u>.<br>
+					
+					Try the same drill with your non-dominant hand and feel the different sensations. Realize how you are becoming <b><font color=maroon>clubhead (and spatially) aware</font></b>.<br>
+					
+					Understanding the feeling, shape, speed changes and clubhead “weighting and unweighting” during the swing is infinitely important to building a <u>free-flowing, <i>uninterrupted</i> golf swing</u>.<br>
+					<br>
+					<a href="https://projectgolfau.com/what-golf-swing-should-feel-like/" title="8119/hodgins">What Swing Feels Like</a>
+
+				</div>			
+			</div>			
+
+			<button class="accordion" style="background:yellow; cursor:help;" title="NB for ME to \/ all-arm swing"><b>Connected Rotation</b> <font size=1 color=gray><i>(Sat Aug 27/22)</i></font> &emsp; <font color=red>&#9888;</font> </button>
+			<div class="panel">			
+				<div style="background:blue; width:90%;  border:3px slategray outset; border-radius:10px; padding:10px; color:ivory; margin: auto;">			
+				<font color=silver>To discourage too much arm use . . .</font>
+							<span style="float:right; color:lime;">Changes entire swing 'feel'!</span><br>
+				<font size=5 color=yellow><u><b>Connected Rotation</b></u></font>
+						<span style="float:right">
+							<a href="RotaryBend.html" title="" style='cursor:pointer; background-color:dodgerblue; color:white; border:2px solid navy; border-radius:8px; font-size:12px; padding:2px;'>Original 'Rotary Bend' Page</a>
+						</span>					
+				<ul style='text-align:left;'>
+					<li>Bend @ hips, not waistline <i>(buttocks extend sl)</i></li>
+					<li>Spinal column = 'axis of turning'</li>
+					<li>Spine > 90-deg angleto shaft <i>(R-angle connection bet spine & shaft)</i></li>
+					<li>THEN > <span style='background:yellow; color:red; cursor:progress;' 
+								title="PASSIVE ARMS > cntrifugal force!"><b>connected</b> 1-piece 
+						<i>(arms + trunk)</i> ROTATION w/ R elbow in</span> vs 
+					    chest w/o > fwd or up @ impact.&nbsp;
+					    	<span style='background:orange; color:black; '><u> <span style='border:4px inset red; border-radius:20px;'>PASSIVE ARMS</span></u> > <i>centrifugal 
+					    	force</i>!</span>
+					    <br><br>
+					    <!--<IMG style="WIDTH:500px; HEIGHT:250px; border: 0px black solid; 
+						background-color:white;" alt="3-hinge drill" src="3-HingeDrill2.PNG" >-->
+					</li>
+					<li><font color=silver>Upper back leans away fr target</font></li>
+					<li>
+	   			 		<b>Bend @ hips, <font color=yellow><b>turn w/ SHOULDERS/ribs <i>(spine straight)</i></b></font> & <span style='background:yellow; color:red;'> keep R arm vs side</span></b>
+					</li>
+					<br>
+					<li><span style='background:yellow; color:red;'>Close stance a bit</span> > ecourage inside-out path</li>
+					<br>
+					<li>
+						Downswing feel: Keep <span style='background:yellow; color:red;'>chest & hands in unison</span><br>
+						If don't >:
+						<ul>
+							<li>hand left behind > 'stuck' > blocks/hooks</li>
+							<li>hands too quick > shaft 'steepening' > over-top slices, poor rotation & early extension
+						</ul>
+						Wrists & forearms stay close as possible together during entire swing.<br>
+						<a style="color:dodgerblue;" href="https://projectgolfau.com/what-golf-swing-should-feel-like/" title="8119/hodgins">What Swing Feels Like</a>
+					</li>
+					<li>
+						Then incorporate as much of Brandon's 'structure' as possible:<br>
+						<font size=1>
+							&emsp;&emsp;Closer & taller<br>
+							&emsp;&emsp;THROW<br>
+							&emsp;&emsp;CHEST <i>(auto w/ 'Connected Rotation')</i><br>
+							&emsp;&emsp;'Right field' <i>(inside-out path)</i><br>
+							&emsp;&emsp;Wrists > R 2 L<br>
+							&emsp;&emsp;Finish LOOSE w/ shaft on L shoulder + R heal up
+						</font>					
+					</li>
+				</ul>	
+				</div>
+			</div>		
+	
+
+			<button class="accordion" style="" title=""><b><font color=red>Arms Swing</font></b></button>
+			<div class="panel">	
+				<font color=blue>Body Or Arms Feel Golf Swing: Which is Right For You?<br>
+				&emsp;<a style="color:dodgerblue;" href="https://www.youtube.com/watch?v=yPwMObewOQo" title="8119/hodgins">Art of Simple Golf</a></font>
+				<br><br>
+				
+				<div style="border:4px solid red; border-radius:8px;">
+				<font color=red>
+				<b><u>Left Arm Swing</u></b> <i>(Sep 7/22)</i>:   &emsp; * &emsp;&emsp; &#128512;<!-- grinning emoji -->
+						&emsp;<font color=gray size=1>< <i>may be MY 'feel' (+ Brandon stuff)</i></font> 
+				<br>
+						&emsp;L arm only - L elbow straight<br>
+						&emsp;Add a little R hand (fingers) 'push' (fwd/out) @ impact<br>
+							&emsp;&emsp;- release R hand @ impact on practice but not real swing<br>
+						&emsp;Don't 'baby' it!<br>
+				</font>
+				<font color=blue><u>All L ARM</u>: str L arm back as far as poss - 'stretch' it w/o undue force 
+					on dwnswg <i>(Oct 4/22)</i></font><br>
+					&emsp;&emsp;<font color=gray> - works well w/ 7-iron<br>
+					&emsp;&emsp;&emsp; - <i>try</i> w/ driver using more horizontal/flatter plane < *</font><br>
+				<div style="margin-left:25px;">
+				<font color=dodgerblue>
+				GOLF: Leverage<br>
+					&emsp;&emsp;<a style="color:dodgerblue;" href="https://www.youtube.com/watch?v=Eg5z0N-A0i4" title="">Difference between Swinging and Leverage</a>
+					<br>
+					&emsp;&emsp;<a style="color:dodgerblue;" href="https://rotaryswing.com/golf-instruction/golfbiomechanics/arms-in-golf-swing-how-they-move" title="">How much arm elevation you want</a>
+					<br>
+				</font>
+			</div>
+				
+				
+				</div>
+				
+				<br>
+				<font color=green>
+				<b><u>Fling Swing</u></b> <i>(Sep 9/22)</i>:   &emsp; *<br>
+						&emsp;Slow/easy body + arms start to dwnsg > EFFORTFUL 'fling' of R + L arms<BR>
+						&emsp;&emsp;into FULL F/T<br>
+						&emsp;'Fling' as hands reach ball-level <i>('catch-up')</i><br>
+						&emsp;'Pose' finish <i>(CMH)</i><br>
+				</font><br>
+				<br>
+				<font color=gray>
+				? "Do the twist"<<br>
+				</font>				
+				<br>
+				<font color=purple>
+					'WHIP':&emsp;&emsp;
+						&emsp;<a style="color:dodgerblue;" href="https://www.youtube.com/watch?v=wUeVlOQUAzY" title="YouTube">Throw the Club head OUT <i>(not down)</i></a><br>
+					<div style='margin-left:25pt;'>
+						Baseball swing: complexity (3:30) - <span style='background:yellow;'>wrist twist (L flexes; R extends) fwd > clubface pt to tgt ('twisting logo over') < [just prior to the 'whip']</span><br>
+						- "throw it <i>(club)</i> behind me" <br>	
+						<IMG style="WIDTH:30%; background-color:; border: 2px black solid;
+						cursor:pointer;" alt="" src="WHIP2.png" title=''>
+						<IMG style="WIDTH:30%; background-color:; border: 2px black solid;
+						cursor:pointer;" alt="" src="VGC/WHIP1.png" title=''>
+						<IMG style="WIDTH:30%; background-color:; border: 2px black solid;
+						cursor:pointer;" alt="" src="WHIP 3.png" title=''>
+					</div>	
+				</font>
+				<br>
+				<div style="border:2px solid navy; border-radius:8px;">
+				<font color=red>
+					Right Arm Throw Action - For Incredible Clubhead Speed!:</font> &emsp;<font color=gray><i>< * (Sep 13/22)</i></font><br>
+					&emsp;&emsp;&emsp;<a style="color:dodgerblue;" href="https://www.youtube.com/watch?v=KZzGHAKx2c0" title="YouTube">R Arm Throw</a><br>
+					<font color=black size=2>
+					&emsp;Backswing: 3 rt angles (wrist; elbow; armpit > <i>keep L arm straight</i>) + <u>R shouler back</u>;<br>
+						&emsp;&emsp;&emsp;	> sl 'chicken-wing  <font color=gray size=1>[int > ext rotate > momentum = 7:25]</font><br>
+						&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+						<IMG style="WIDTH:30%; background-color:; border: 2px black solid;
+						cursor:pointer;" alt="" src="SpringLoad1.png" title=''>
+						<IMG style="WIDTH:30%; background-color:; border: 2px black solid;
+						cursor:pointer;" alt="" src="SpringLoad2.png" title='Spring Load'> '<span style='background:yellow;'>Spring Load</span>' <font color=red>*</font>
+					<br>
+					&emsp;Downswing: R elbow > IN (loop) & 'explodes'<br>
+						&emsp;&emsp;<font color=red>- 'snap' R knee at same time</font><br>
+					<br>
+					&emsp;Bump > CHEST fwd > THROW <FONT color=gray size=1><i>(early GRADUAL wrist rollover)</i></font> > <u>head back</u> ><br>
+						&emsp;&emsp;&emsp;'bounce' (club on L shoulder) <br>
+						
+					<br>
+					&emsp;<u>CHOKE UP ON DRIVER</u> <i>(CMH)</i>
+						
+					</font>
+					<br>	
+				</font>
+				<br>				
+						<div style="border:1px dotted navy; border-radius:2px; width:80%; color:red; margin:auto;">
+							<b><u>CIRCLE SWING</u></b>:      &emsp;&emsp; &#128512;	<!-- grinning emoji --><br>
+								&emsp;- arms extended & LOOSE<br>
+								&emsp;- close club face<br>
+								&emsp;- make circle/loop w/ clubHEAD > release/throw it @ impact<br>
+									&emsp;&emsp;- release HEAD (not entire club)<br>
+								&emsp;- 3 rt-angles w/ R arm @ top <i>(^)</i><br>
+								&emsp;- ^ body effort @ impact <i>(GRSP)</i><br>
+								&emsp;<font color=pink>- ? <u>more arms than body</u></font><br>
+							<br>
+							<a style="" href="https://www.youtube.com/watch?v=BelbBH5NkKQ" title="YouTube">HIT HARD; STOP QUICK</a><br>
+							<br>
+							<font color= green>?"Hit w/ <u><b>FINGERS</b></u>" <i>(flex MP its)</i> + flex & adduct wrists as <b>hands change positions</b> in 'rollover' (R > R & R > L > close club face); "SQEEZE & roll"</font><br>
+						</div>
+				<br>	
+			
+			
+				</div>
+				
+				<br>	
+				
+				
+	
+	
+			<div>	
+				
+	</div>	
+		
+	
+
+	</div>	
+			<button class="accordion" style="" title=""><b><font color=dodgerblue>'Screw' Swing</font></b></button>
+			<div class="panel">	
+				<font color=blue>Wrist Condition To Help Draw:</font>&nbsp;
+					<a style="color:dodgerblue;" href="https://scramble.golftec.com/blog/2015/07/wrist-condition-to-help-draw-every-shot/" title="YouTube">golftec.com</a>
+					
+				<br><br>
+				<font color=black>Think of your body as a hardware screw—it's driving down as you pivot on the forward swing while turning left and into the ground (opposite for lefties). This drill will help you develop a feel for <u>minimizing the amount you turn away from the ball and lessening your reliance on timing</u>.</font><br>
+				&emsp;<a style="color:dodgerblue;" href="https://golf.com/instruction/improve-backswing-golf-sean-hogan/" title="YouTube">pivot, not a slide</a>
+			</div>			
+			
+					
+<script>	/* js must be HERE (after body html) */
+	var acc = document.getElementsByClassName("accordion");
+	var i;
+	
+	for (i = 0; i < acc.length; i++) {
+	  acc[i].addEventListener("click", function() {
+		this.classList.toggle("active");
+		var panel = this.nextElementSibling;
+		if (panel.style.maxHeight){
+		  panel.style.maxHeight = null;
+		} else {
+		  panel.style.maxHeight = panel.scrollHeight + "px";
+		} 
+	  });
+	}
+</script>
+
+
+
+	
+</body>
+</html>
