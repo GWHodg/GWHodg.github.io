@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>WHS</title>
+
+<style>
+	body { background-color:yellow; color:green; padding-top:15px; text-align:center;
+	}	
+	#tab { display:inline-block; 
+       	       margin-left: 60px;
+       	}
+    eP { color:orange;  font-size:20px;}  /* pronunciation (e)*/
+    eS { color:skyblue; font-size:20px;}   /* SPANISH */
+    e0 { color:green; opacity:0.7; font-size:20px;}  /* silent (e2) */
+    eNB { color:red; opacity:1.0; font-size:20px;} /* NB phrases (english; e3) */
+    e { color:red;  font-size:20px;}
+    
+    .container {
+      position: relative;
+      font-family: Arial;
+    }
+    .text-block {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background-color: black;
+      color: white;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+	/*	+++++++++++++++++++++++++++++++++++	*/
+
+ 	#BUMPoverlay {
+	  color: blue;	font-size: 15px; position: fixed; margin: 0; box-shadow: 10px 10px 5px grey;
+	  top: 100px; left: 300px;	
+	  width:500px;	/*625px;*/
+	  height: 250px;
+	  padding: 15px;
+	}
+
+	/*	+++++++++++++++++++++++++++++++++++	*/
+	
+</style>
+<script type="text/javascript">
+<!--
+
+	function imageGREEN() {
+			/*alert("Will load 'gravity arm drop'\n"+"image here!"); */
+		window.open('Green1.jpeg','popUpWindow',',,left=10,top=10,,'+
+			    'scrollbars=yes,menubar=no');
+			    				/* 'height=400,width=600,left=10,top=10,,' */ 
+	}
+
+	function alertADIOS() {
+	    alert("'Adios' seems permanent!\n"+
+	          "'Chau' & 'hasta luego' more informal.")   
+	}
+
+
+	function alertCURRENTstroke()  {     
+	   alert("STROKE FEB 2019:  \n\n"+
+	  "Front quadrant catch-up.\n"+
+	  "2-beat kick - R leg > down as R arm finishes push.\n"+
+	  "Full but unforced HIP ROTATION w/ ea stroke (GWH). A 'response' to body turn.")
+	}
+
+	function hideTIP() {
+		document.getElementById("BUMPoverlay").style.visibility="hidden";
+
+	}
+	function showTIP(topic) {
+		if (topic=="tipBUMP") {
+			document.getElementById("BUMPoverlay").style.visibility="visible";
+		}
+	}	
+
+//-->
+</script>
+</head>
+
+<body align="center">
+
+<TABLE align=center>
+    <tr><td>
+      <h1><font size=7 color=maroon face="papyrus">World Handicap System</font><font color=black size=4></font>
+      <font color=gray size=3>Jan 1/20</font></h1>
+    </td><td width=20px></td>
+    </tr>
+    
+    <tr><td>
+        <font color=blue>USGA: </font>&nbsp;&nbsp;&nbsp;
+        <A style="FONT-WEIGHT: normal; COLOR: blue; FONT-SIZE:15px;" onclick="" 
+        href="https://www.usga.org/content/usga/home-page/handicapping/world-handicap-system/world-handicap-system-usga-golf-faqs.html">
+            FAQs</A>
+        &nbsp;&nbsp;&nbsp;
+        <A style="FONT-WEIGHT: normal; COLOR: blue; FONT-SIZE:15px;" onclick="" 
+        href="https://www.usga.org/content/usga/home-page/handicapping.html">Details</A>
+        
+    </td></tr>
+</TABLE>
+
+
+<table>
+<tr><td colspan=2>
+    <p align=left> 
+        <A style="FONT-WEIGHT: normal; COLOR: blue; FONT-SIZE:25px;" onclick="" 
+        href="https://www.usga.org/content/usga/home-page/handicapping/world-handicap-system/world-handicap-system-usga-golf-faqs.html">
+        New Rules<i>('usga')</i></A>
+    </p>
+</td></tr>
+<tr>    
+<td>
+        <ul align=left style="color:brown;">
+            <li>
+                You are encouraged to <u>pick up once you’ve reached your maximum hole score for handicap 
+                purposes - which is a Net Double Bogey</u>.<br>
+                <eNB>Net Double Bogey = Double Bogey + any handicap strokes received on a hole. </eNB>
+                    <i>(= par + 3 for GWH & par + 5 for CMH)</i>
+                <br>
+                With a course Handicap of 9 on par 4 2nd-ranked Stroke Index hole & hit drive out of bounds, 
+                continue to struggle & pick up, your maximum score for handicap purposes is a 7, so in 
+                this case you would submit a score of 7 for that hole.<br>
+                If you were to pick up on a hole before reaching Net Double Bogey, then you would record your 
+                Most Likely Score as long as it does not exceed your Net Double Bogey limit.
+            </li>
+            <li>
+                For a nine-hole score to be acceptable, you must play at least seven holes.<br>
+                To submit an 18-hole score, you must play a minimum of 14 holes.
+            </li>
+            <li>
+                <u>GWH</u> 9 hole score goal: 45 = bogey golf (9 + 36) = 20 HCP 
+            </li>
+            <li><u>CMH</u> 9 hole score goal: par (to green) + 3 putt = triple bogey golf =  63 = 38 HCP
+            </li>
+
+        </ul>
+</td></tr>
+
+</table>
+
+<br>
+
+</body>
+
+<!--	+++++++++++++++++++++++++++++++++++ TIPS \/ ++++++++++++++++++++++++++++++++++++++++++++++++++	-->
+
+	<div id="BUMPoverlay"
+	style="color:blue; background-color: rgba(63,255,106,0.90); border: 3px solid white;
+	       visibility:hidden; text-align:left;">
+		STROKE FEB 2019
+		<span style="float:right; text-align:right; padding-right: 10px;">
+			<button id="OKbtn" onclick="hideTIP()" style="FONT-WEIGHT: bold; 
+			FONT-SIZE: 10px; COLOR: black">OK</button>
+		</span>
+				
+		<ul>
+		    <li>Front quadrant catch-up</li>
+		    <li><u>2-beat kick</u> - R leg > down as R arm finishes push</li>
+		    <li>Full but unforced <u>HIP ROTATION</u> w/ ea stroke <i>(GWH)</i>:
+		        <br>&nbsp;&nbsp;&nbsp;&nbsp; ? 'response' to body turn</li>
+		</ul>
+
+	</div>
+
+<!--	+++++++++++++++++++++++++++++++++++ TIPS ^ ++++++++++++++++++++++++++++++++++++++++++++++++++	-->
+
+</html>
