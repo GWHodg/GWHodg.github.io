@@ -1,0 +1,391 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>SWIM Catchup</title>
+
+<style>
+	body { background-color:gray; color:white; padding-top:15px; text-align:center; }	
+	#tab { display:inline-block; 
+       	       margin-left: 40px;
+       	}
+       	e { color:orange; }
+       	
+		/* dropUP menu: */
+			.dropbtn { 
+				/*position:absolute; left:30px;*/
+				border-radius:10px; cursor:grabbing; background:orange; color:black;
+				BORDER-RIGHT: outset; BORDER-TOP: outset;  
+				BORDER-LEFT: outset; BORDER-BOTTOM: outset
+			}	
+					  /* background-color: #3498DB; color: white;
+			           padding: 5px; font-size: 16px; border: none; */
+			.dropup { position: relative; display: inline-block; }			
+			.dropup-content { display: none; position:absolute; left:40px; background-color: #f1f1f1;
+			  			      min-width: 120px; bottom: -70px; z-index: 1; }	/* bottom: -5px;  position: absolute; */	
+			.dropup-content a { color: black; padding: 5px 6px; text-decoration: none; display: block; }	
+										/* padding: 12px 16px;  */
+			.dropup-content a:hover {background-color:green;}	/* #ccc */		
+			.dropup:hover .dropup-content { display: block; }			
+			.dropup:hover .dropbtn { background-color: #2980B9; }
+       	
+</style>
+<script type="text/javascript">
+<!--
+function AlertSLOT()  {     
+   alert("Front Quadrant Swimming:  \n\n"+
+  " A longer vessel is faster in the water. So when swimmers can make\n"+
+  "themselves as long as possible, by keeping their one arm out stretched,\n"+
+  "overhead, they will be less likely to drop their hips, which \n"+
+  "creates drag and slows a swimmer down.\n\n"+
+  "When swimming freestyle, it is imperative that an athlete \n"+
+  "switches their arms from right to left overhead. Speeding up this switch,\n"+
+  "and keeping one arm overhead for as long as possible,\n"+
+  "will increase an athlete's speed in the water. \n\n"+
+  "https://www.sharecare.com/health/swimming/what-front-swimming-practice-it")
+} 
+
+
+		function hideSIMPLE() { document.getElementById("SIMPLEdiv").style.left="-999em"; }
+		function showSIMPLE() {
+			if ( document.getElementById("SIMPLEdiv").style.left == "-999em" ) {	
+				document.getElementById("SIMPLEdiv").style.left="900px";
+				document.getElementById("SIMPLEdiv").style.top="300px";
+			}	
+			else { document.getElementById("SIMPLEdiv").style.left="-999em"; }	
+		}
+
+	function hideMENU() {
+		//document.getElementById("miscCONTENT").style.visibility="hidden";
+		document.getElementById("menuCONTENT").style.visibility="hidden";
+	}
+	function showMENU(topic) {
+		if (topic=="tipMENU") {
+			document.getElementById("menuCONTENT").style.visibility="visible";
+		}
+		if (topic=="tipMENU") {
+			document.getElementById("menuCONTENT").style.visibility="visible";
+		}
+	}
+
+//-->
+</script>
+</head>
+<body align="center">
+
+<table align=center><tr><td>
+  <h1><font color=black>FREESTYLE SWIMMING</font>
+  <IMG style="WIDTH: 50px; HEIGHT: 50px; background-color:yellow; border: 2px black solid;" 
+	alt="effortless" src="SwimIcon.png" >
+  <font color=yellow>May 2018</font></h1>
+</td><td width=20px></td>
+</td><td>
+	  <A style="FONT-WEIGHT: normal; COLOR: blue" onclick="" href="http://www.swimsmooth.com/">Mr. Smooth</A>  
+</td></tr>
+</table>
+
+				<A style="FONT-WEIGHT: normal; FONT-SIZE:large; COLOR:orange; "
+			onclick="return popupINDEX(this, 'index')" 
+			href="https://www.liveabout.com/lap-swimming-etiquette-3170041">
+			Lap Swimming Etiquite</A>
+			
+			&emsp;
+			
+		 	<div class="dropup">
+			  <button class="dropbtn" id='menuBTN' onclick="showMENU('tipMENU')" style="background:white;">
+			  	  	<span style="font-size:30px;cursor:pointer; color:blue;" 
+					onclick="">&#9776;</span>
+			  </button>
+			  <div class="dropup-content" style="border:3px solid red; border-radius:10px;"
+			  id="menuCONTENT">		
+						<span style="float:right; text-align:right; padding-right: 5px;">
+							<font color=blue>2023</font>
+							<button id="OKbtn" onclick="hideMENU()" style="FONT-WEIGHT: bold; 
+							FONT-SIZE:10px; COLOR:black">close</button>
+						</span>			
+					<a> </a>
+					<a> </a>		
+					<a style="border:2px solid black; border-radius:8px;" href="https://outpaceswimming.co.nz/wp-content/uploads/2021/09/Front-Quadrant-Freestyle.pdf"><font color=black><b>FQF Timing</b></font></a>
+					<!--<button id="btnJAN23" onclick="showJAN23()" style='cursor:pointer; background-color:black; color:white; border:2px solid white; border-radius:8px; font-size:12px;'><b>FQF '23</b>
+					</button><br>-->
+					<a href="https://outpaceswimming.co.nz/swim-drill-videos/#front-quadrant">Catch-up Video</a>
+			  </div>
+			</div>	
+			
+			<br> 
+ 
+ 
+  <div id="myDIV" align=left style="padding-top:15px; width:600px;
+  				margin: auto;  
+    border: 3px solid green;
+    padding: 10px;"
+  >
+   	
+	<font color=yellow size=6><u>Front QUADRANT</u> Catch-Up:</font><br>	
+	<A style="FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: "
+			onclick="return popupINDEX(this, 'index')" 
+			href="https://www.thoughtco.com/catch-up-swimming-3168752">
+			https://www.thoughtco.com/catch-up-swimming-3168752</A><br>
+	<font color=black>CATCH-UP DRILL</font><br><br>
+	Assume prone position in water and <e>extend arms forward</e>; arms should be just a bit under <br>
+	surface of water, pointing at destination. <e>One arm then performs a regular freestyle pull</e>,<br>
+	starting from that extension, through the catch and finish, then it recovers to an <br>
+	extension, pointing at your destination, back to where it started.<br><br>
+	<span style="background:yellow; color:black">Other arm is still</span>,
+	just keep it pointing forward. Should feel like you body is very long <br>
+	or extended, and you may feel pulses or instants of power as you pull, then pulses of <br>
+	gliding as one arm recovers but the other arm has not yet started pulling.<br><br>
+	The swimming arm 
+	<A style="FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: blue"
+		 	onclick="AlertSLOT()" href="javascript:;">
+		 	<b><span style="background:yellow;">
+	catches up</span></b></A>
+	
+	to the arm that is still extended, pointing forward.
+	<font color=red>  
+		 		< <span style="background:yellow;"> NB!</span></font>
+	<br><br>
+	
+	<A style="FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: "
+			onclick="return popupINDEX(this, 'index')" 
+			href="https://www.youtube.com/watch?v=jx1Dltg49Xo">
+			https://www.youtube.com/watch?v=jx1Dltg49Xo</A>
+	<br>
+	<A style="FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: "
+			onclick="return popupINDEX(this, 'index')" 
+			href="http://www.feelforthewater.com/2014/09/clearing-up-confusion-about-front.html">
+			http://www.feelforthewater.com/2014/09/clearing-up-confusion-about-front.html</A>
+	<br><br>
+	
+	<e><span style="background:yellow;"><b>High Elbow Catch</b></span> Is Important!</e>
+		<font color=black>< need to keep shouder up by ear to keep elbow high</font><br>
+	<span id="tab">Stop over-reaching. At a point reaching too far in front of you ends up actually <br>
+	costing you. If you are reaching and gliding at the beginning of the stroke it <br>
+	becomes very difficult not to drop the wrist and elbow.<br>
+	Do not sacrifice a powerful catch for a longer stroke. When we over-glide we<br> naturally
+	end up dropping our elbow.<br>
+	<A style="FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: "
+			onclick="return popupINDEX(this, 'index')" 
+			href="https://www.yourswimlog.com/high-elbow-catch/">
+			https://www.yourswimlog.com/high-elbow-catch/</A>	
+	</span><br>	
+  </div>
+  <br><br>
+<!--    _____________________________________________________________________________ -->
+  
+  <div id="myDIV2" align=left style="padding-top:15px; width:600px;
+  				margin: auto; border: 3px solid green; padding: 10px;"
+  >   	
+	<font color=yellow size=6><u>Leg Kick</u></font><br>	
+	<A style="FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: "
+			onclick="return popupINDEX(this, 'index')" 
+			href="http://www.swimsmooth.com/kick.html">
+			http://www.swimsmooth.com/kick.html</A><br>
+	<i>Not looking to get much or <e>any</e> propulsion from leg kick.<br>
+	Want: lift legs up; low drag; low effort.</i><br><br>
+	1. <e>Kick from the hip</e><br>
+	2. <e>Plantar flexed feet</e> (Pointing Your Toes)<br>
+	<span id="tab"> Presents a much lower profile to the water. Not pointing your toes will push water <br>
+	forwards when you kick, <b><u>slowing you dramatically</u></b>.</span><br>
+	4. Timing<br>
+	<span id="tab"><e>When the hand enters the water at the front of the stroke, the opposite <br>
+	leg should kick</e>. <font color=red>< <span style="background:yellow;"> ??(see below)</span></font><br>
+	In 2 beat kick this is the only kick, in 4 and 6 beats there are other kicks in between</span><br><br>
+	
+	<e>Scissor kicks</e> - <b><u>cut them out</u></b> and you'll go a lot faster.<br>
+	<span id="tab">A scissor kick is a very large opening of the legs, normally when a swimmer goes to <br>
+	take a breath. They hurt you because of the enormous amount of drag they generate<br> 
+	It's a bit like opening up a parachute behind you.</span><br>
+  </div>
+  <br><br>
+<!--    _____________________________________________________________________________ -->
+
+  <div id="myDIV2" align=left style="padding-top:15px; width:600px;
+  				margin: auto; border: 3px solid green; padding: 10px;"
+  >   	
+	<font color=yellow size=6><u>Catch & Pull</u></font><br>	
+	<A style="FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: "
+			onclick="return popupINDEX(this, 'index')" 
+			href="http://www.swimsmooth.com/catch.html">
+			http://www.swimsmooth.com/catch.html</A><br>
+	Lock on & press the water <u>back</u> behind you. Contrast this to what most swimmers <br>
+	do - pressing the water down at the front of the stroke rather than back.<br> <br>	
+	Palm looks at bottom of pool, but with <e><u>finger tips angled slightly down</u></e>.<br>
+	This should be <e><u>flexed from the wrist</e> (not from the knuckles)</u>. Need to keep <br>
+	palm flat and open, <u>fingers closed</u> loosely together.<br><br>
+	At full reach and without dropping your elbow, <u>feel like you are tipping your<br>
+	finger-tips over the front of a barrel (again flexing at the wrist)</u>, which <br>
+	will <b>start the catch</b>.<br>
+	<IMG style="WIDTH: 350px; HEIGHT: 150px; background-color:yellow; border: 2px black solid;" 
+	alt="effortless" src="catchhandcatchinitial.jpg" ><font color=yellow>Initial Catch</font><br>
+	At the same time start <e><b>bending the elbow</b></e> and pressing back on the water with <br>
+	the forearm in a near-vertical position.<br>
+	This is what keeping your <e>elbows high on the catch</e> is all about.<br><br>
+  </div>
+
+<!--    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<br>
+  <IMG style="WIDTH: 100px; HEIGHT: 75px; background-color:blue; border: 5px yellow solid;" 
+	alt="effortless" src="swimLogo.gif" >
+  <font style="opacity:.6" size=1>Windmilling?</font>
+  <br><br>
+<!--    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+  <div id="myDIV2" align=left style="padding-top:15px; width:600px;
+  				margin: auto; border: 2px solid maroon; padding: 10px;"
+  >   	
+	<font color=yellow size=6><u>Bend Like Becky</u></font><br>	
+	<A style="FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: "
+			onclick="return popupINDEX(this, 'index')" 
+			href="http://www.swimsmooth.com/improve/intermediate/bend-it-like-becky">
+			http://www.swimsmooth.com/improve/intermediate/bend-it-like-becky</A><br>
+	<font color=maroon>Catch And Pull <span style="background:yellow;">
+			Pull-Through Technique</font></span><br><br>
+	
+	<e>As press water backwards, elbow is bent to 110 deg</e> > perfect leverage to press water <br>
+	backwards, propelling forwards. Aim for an elbow bend of between 100 and 120 deg.<br>
+	Many swimmers pull through with a very <e>straight arm</e> which places a lot of load on the <br>
+	shoulder and <e>produces much less propulsion</e>.<br>
+	<IMG style="WIDTH: 350px; HEIGHT: 150px; background-color:yellow; border: 2px black solid;" 
+	alt="Elbow Pull" src="HighElbowCatch.jpg" ><font color=yellow>PULL:</font> <font color=maroon>
+									<u>high-elbow catch position</u></font><br><br>
+	
+	Also <e>hand is directly below shoulder as pull through</e>. If you press wide of this or <br>
+	cross the centre line then you will snake down the pool and waste a lot of energy.
+	<IMG style="WIDTH: 350px; HEIGHT: 150px; background-color:yellow; border: 2px black solid;" 
+	alt="Hand Pull" src="pull_elbow.jpg" ><font color=yellow>PULL: hand</font><br><br>
+
+	<e><b>SUBTLY</b> tip wrist right at front of stroke</e>, just before starting the catch - helps initiate a <br>
+	<e><b><u>high-elbow catch position</u></b></e>. NB because it helps bring the fingers and hand downwards to <br>
+	initiate "the catch" (the point at which you start to gain purchase on the water at the <br>
+	very front of the stroke). Initiation from the wrist brings the hand and forearm downwards <br>
+	into the classic high elbow catch position. <e>Can now press the water backwards, not <br>
+	downwards</e>, which is the essence of a great propulsive technique. It is possible to over-do<br>
+	this action and point the fingertips too far downwards.<br>
+	<e>Do not rush the catch</e> but engage with the water and progressively press it backward, helping <br>
+	you generate more propulsion for less effort.<br>
+	<IMG style="WIDTH: 350px; HEIGHT: 150px; background-color:yellow; border: 2px black solid;" 
+	alt="Wrist Tip" src="tip-wrist.jpg" ><font color=yellow>PULL: wrist</font><br>
+
+  </div>
+  <br><br>
+<!--    _____________________________________________________________________________ -->  
+
+  <div id="myDIV2" align=left style="padding-top:15px; width:600px;
+  				margin: auto; border: 2px solid maroon; padding: 10px;"
+  >   	
+	<font color=yellow size=6><u>Kick Timing</u></font><br>	
+		<A style="FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: "
+			onclick="return popupINDEX(this, 'index')" 
+			href="https://www.usms.org/fitness-and-training/articles-and-videos/articles/kick-timing-101">
+			https://www.usms.org/fitness-and-training/articles-and-videos/articles/kick-timing-101</A><br>
+	<font color=maroon>Two-, Four, and Six-Beat Kicking Patterns</font><br><br>
+	
+	<font color=silver>
+	Compare it to walking. When you are walking, as your left leg swings forward your <br>
+	right arm swings forward as counterbalance. 1 <e><b>downward</b> kick should <br>
+	always be timed with the recovery of the <b><u>opposite</u></b> arm</e> as it slices in to forward <br>
+	extension.<br>
+	Count the kick as it snaps <b>down</b>, not up, as you would if you were running and counting <br>
+	foot strikes - the foot strike happens immediately after the leg swings forward, not when <br>
+	it swings back on recovery.<br><br>
+	
+	<span style="background:yellow;"><font color=maroon><b><u>Six-beat kick</font></u></b></span>:
+	Think of this <b><i>common</i></b> kick pattern as being <br>
+	similar to the <e>timing of a waltz</e>: Count "One-two-three; one-two-three" or <br>
+	"Right-two-three; left-two-three" and so on. In short, you should complete six <br>
+	kicks per stroke cycle or three kicks per single arm stroke. The <e>first kick is down</e>, <br>
+	timed <e>with the opposite recovery arm spearing to forward</e> extension. So, in this pattern,<br>
+	the <e>right leg kicks down (one) and <b>rotates the torso to the <u>left skating edge</u></e>, which is <br>
+	followed by a downward kick on the left side (two). The third beat comes with the right <br>
+	leg kicking down (three), then the left leg kicks down (one). Next, the torso rotates to <br>
+	the right skating edge, which is followed by another downward right kick (two)  <br>and finally
+	a downward left kick (three). <br>
+	</font>
+	
+	<br>
+	
+	&nbsp;&nbsp;&nbsp;&nbsp;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++<br><br>
+	
+	The start of the <e>propulsive</e> phase of the arm stroke always coincides with a downward<br>
+	motion of the leg on the <e><u>same</u></e> side.<br>
+	<A style="FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: "
+			onclick="return popupINDEX(this, 'index')" 
+			href="http://www.enjoy-swimming.com/flutter-kick.html">
+			http://www.enjoy-swimming.com/flutter-kick.html</A><br>
+	In the <e><u><b>six-beat kick</b></u></e>, each leg kicks three times per stroke cycle. Consider the <br>
+	movements of the right arm and the right leg. The <span style="background:black;">first 
+					downbeat of the leg occurs<br>
+	during the forward extension of the <e>same</e> arm</span>. The second downbeat of the leg occurs<br>
+	during the upsweep of the arm. The third downbeat of the leg occurs during<br>
+	the recovery of the arm. The left leg moves in opposition to the right leg.<br><br>
+	
+	In the <e><u><b>two-beat kick</b></u></e> you kick once with each leg per stroke cycle.<br>
+	The <e>downbeat</e> of the <e>right leg</e> occurs during the <e>propulsive phase</e> of the <e>right arm</e> <br>
+	stroke (insweep and upsweep to be precise).<br><br>
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++<br><br>
+    
+ 	Downward leg kick and the finish of the arm 'push' phase are timed together.<br> 
+ 	<A style="FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: "
+			onclick="return popupINDEX(this, 'index')" 
+			href="https://swimcoachingblog.com/2013/03/12/frontcrawl-timing-pt-1-arms-and-legs/">
+			https://swimcoachingblog.com/2013/03/12/frontcrawl-timing-pt-1-arms-and-legs/</A><br>
+	<span id="tab"><font color=yellow> http://www.youtube.com/watch?v=VbelgVrdsSk</font></span><br>
+	In the <e>two beat</e> kick the <e>right leg kicks downwards as the right arm<br> 
+	finishes the push phase</e>.  In the two beat kick there is a distinctive pause between kicks; <br>
+	(L)kick-pause-(R)kick-pause. . . and in the <e>six beat</e> kick instead of the pause a swimmer <br>
+	squeezes in two additional kicks; <e>(L)kick-two quick kicks-(R)kick-two quick kicks</e>.<br><br>
+ 	
+ 	
+  
+  </div>
+
+<br><br>
+
+
+<br><br>
+
+			<!--   &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&   -->
+			
+	<div id="SIMPLEdiv" style="font-size:15px; cursor:pointer; color:antiquewhite; background:slategray; border:4px red outset; border-radius:5%; padding:10px; position:absolute; left:900px; top:300px; text-align:left; height:190px; width:320px; overflow:scroll; font-weight:normal;">	
+		<span style="float:right; text-align:right; padding-right: 10px;">
+			<a onclick="hideSIMPLE()">&times;</a>
+		</span>	
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<font size=1><i>(Oct 18/21)</i></font>
+		<br>
+		<A style="FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: "
+			onclick="return popupINDEX(this, 'index')" 
+			href="https://www.swimnow.co.uk/featured/how-to-improve-swimming-speed/">Improve Swimming Speed</A><br>
+	
+			<font size=3>
+			<ol>	
+				 <li>
+					<b><span style='background:yellow; color:red;''>Chest down</span> > <span style='border:4px inset red; border-radius:20px;'>legs up</span><br>
+				 </li>
+	   			 <li>
+					 Kick fr hips (knees straight)
+	   			 </li>
+				 <li>
+					 <font color=orange>Rotate body</font> > less drag<br>
+				 </li>		
+			
+				 <li type="circle">	<!-- <li type="1|a|A|i|I|disc|circle|square"> -->
+					 <u><b>Elbow/Wrist relation on pull (pinky up):</u></b><br>
+					 A low-elbow catch occurs when your elbow drops below your wrist’s level during the pulling phase of your freestyle stroke.<br>	
+					This common fault puts your arms in a poor biomechanical position, preventing you from recruiting the powerful muscles on your back. Result: plod city.<br>					
+					For fast swimming, you need to focus on keeping your elbow high. Here’s how to do it:<br>
+					Start by extending your leading arm the whole way<br>
+					With arm outstretched, <u>initiate your pull by rotating your shoulder ‘inwards’ so your baby finger rises above your thumb</u> (imagine you’re pouring a cup from a teapot)<br>
+					Keeping your forearm, wrist, and hand stiff, begin to <u>point your fingers towards the bottom of the pool</u><br>
+					As you pull, repeat shoulder above elbow, elbow above wrist, wrist above hand, hand above fingers<br>
+					Drawing your arm back, catch the water with your newfound paddle and keep your elbow high until your forearm is at 90deg.<br>
+				 </li>		
+			</ol>
+			</font>
+	</div>				
+	</div>	
+	<button id="BTNsimple" onclick="showSIMPLE()" style='position:absolute; left:900px; top:300px; cursor:pointer; background-color:antiquewhite; color:black;border:2px solid orange; border-radius:8px; font-size:12px;'>Swim Free Style Faster</button>	
+	
+</body>
+</html>

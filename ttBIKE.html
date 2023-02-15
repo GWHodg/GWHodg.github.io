@@ -1,0 +1,351 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>BIKE23</title>
+<style>
+		 img {
+			 transition: -webkit-transform 0.25s ease;
+			 transition: transform 0.25s ease;
+		 }
+		 
+		 img:active {
+			 -webkit-transform: scale(1.5);
+			 transform: scale(1.5);
+		 }	
+		 
+		/* dropUP menu: */
+			.dropbtn { 
+				left:30px;	/* position:absolute;  */
+				border-radius:10px; cursor:grabbing; background:orange; color:black;
+				BORDER-RIGHT: outset; BORDER-TOP: outset;  
+				BORDER-LEFT: outset; BORDER-BOTTOM: outset
+			}	
+					  /* background-color: #3498DB; color: white;
+			           padding: 5px; font-size: 16px; border: none; */
+			.dropup { position: relative; display: inline-block; }			
+			.dropup-content { display: none; position:absolute; left:40px; background-color: #f1f1f1;
+			  			      min-width: 120px; bottom: -5px; z-index: 1; }	/* bottom: 0px;  position: absolute; */	
+			.dropup-content a { color: black; padding: 5px 6px; text-decoration: none; display: block; }	
+										/* padding: 12px 16px;  */
+			.dropup-content a:hover {background-color:green;}	/* #ccc */		
+			.dropup:hover .dropup-content { display: block; }			
+			.dropup:hover .dropbtn { background-color: #2980B9; }
+		 
+</style>
+
+<script>
+	function xmasKEYS() {
+		alert("XMAS KEYS:\n\n"+
+			"Grip - L ^ clockwise\n"+
+			"'Closer & Taller'\n"+
+			"TURN\n"+
+			"COCK (> str L arm + R elblow @ side)\n"+
+			"LEGS! (ski)\n"+
+			"THROW (head back)\n"+
+			"Delay wrist 'rollover'");
+			
+	}
+
+	function hideMENU() {
+		//document.getElementById("miscCONTENT").style.visibility="hidden";
+		document.getElementById("menuCONTENT").style.visibility="hidden";
+	}
+	function showMENU(topic) {
+		if (topic=="tipMENU") {
+			document.getElementById("menuCONTENT").style.visibility="visible";
+		}
+		if (topic=="tipMENU") {
+			document.getElementById("menuCONTENT").style.visibility="visible";
+		}
+	}
+
+	function showSEAT() {
+		if (document.getElementById("btnSEAT").textContent=="Hide SEAT") {
+			document.getElementById("SEATdiv").style.display="none"; //inline 	
+			document.getElementById("btnSEAT").textContent="Seat Fit ";
+		}		
+		else {
+			document.getElementById("SEATdiv").style.display="block"; //inline 	
+			document.getElementById("btnSEAT").textContent="Hide SEAT";
+		}		
+	}	
+	function showBRAKES() {
+		if (document.getElementById("btnBRAKES").textContent=="Hide Brakes") {
+			document.getElementById("BRAKESdiv").style.display="none"; //inline 	
+			document.getElementById("btnBRAKES").textContent="Brake Release";
+		}		
+		else {
+			document.getElementById("BRAKESdiv").style.display="block"; //inline 	
+			document.getElementById("btnBRAKES").textContent="Hide Brakes";
+		}		
+	}	
+	function showCAR() {
+		if (document.getElementById("btnCAR").textContent=="Hide CAR") {
+			document.getElementById("CARdiv").style.display="none"; //inline 	
+			document.getElementById("btnCAR").textContent="Car Trunk";
+		}		
+		else {
+			document.getElementById("CARdiv").style.display="block"; //inline 	
+			document.getElementById("btnCAR").textContent="Hide CAR";
+		}		
+	}
+	function showTOES() {
+		if (document.getElementById("btnTOES").textContent=="Hide TOES") {
+			document.getElementById("TOESdiv").style.display="none"; //inline 	
+			document.getElementById("btnTOES").textContent="Toe Overlap";
+		}		
+		else {
+			document.getElementById("TOESdiv").style.display="block"; //inline 	
+			document.getElementById("btnTOES").textContent="Hide TOES";
+		}		
+	}															
+	function showWASH() {
+		if (document.getElementById("btnWASH").textContent=="Hide WASH") {
+			document.getElementById("WASHdiv").style.display="none"; //inline 	
+			document.getElementById("btnWASH").textContent="Wash/Lube";
+		}		
+		else {
+			document.getElementById("WASHdiv").style.display="block"; //inline 	
+			document.getElementById("btnWASH").textContent="Hide WASH";
+		}		
+	}																
+</script>
+
+</head>
+
+<body style="padding:10px; background:lightgray;" onLoad="window.scroll(0,3200)">
+	<h1 style='background:black; padding:15px; border:2px inset blue; border-radius:20px;' align=center><font face="CooperBlack" color=orange style='text-shadow: 2px 2px silver;'>TREK Bike '23</font>
+				&emsp;<font color=silver size=2>Navigator 1.0</font>
+	 			&emsp;<A href="https://trek.scene7.com/is/content/TrekBicycleProducts/Asset%20Library/Bike%20OM_withWeightsAddendum_en-US.pdf" style='FONT-SIZE:small; COLOR:dodgerblue;'>Trek Manual</A>
+	 			
+	 			&emsp;<a href="https://youtu.be/taw6-nUgwxw" style="color:dodgerblue; font-size:14px;" title="">Fix V brake pad rubbing on 1 side</a> <i><font color=silver size=2>(YT)</font></i>
+	 			
+		
+				&emsp;<a href="https://youtu.be/YHmYzDvdCX4" style="color:dodgerblue; font-size:14px;" title="">Fix Brake Pad Rubbing on Rim</a> <font color=silver size=2>(YT) *</font>
+				
+		
+
+	</h1>
+	
+<TABLE style="margin:auto;" border=1>
+<caption>My NB Topcs Jan/23</caption>
+<tr>
+    <th style="width:30%"><font color=red size=5>Brakes</font></th>
+    <th style="width:30%">Wheels</th>
+	<th style="width:30%">
+		<font face="CooperBlack" color=blue style='text-shadow: 2px 2px white;' size=5>Electra Townie 7D EQ</font> <i>('23)</i>
+	</th>
+</tr>	
+<TR><TD valign='top'>			
+	<div id="LARMdiv" style="font-size:15px; background:white; color:black; border:2px orange inset; border-radius:5%; padding:10px; text-align:left; overflow:scroll; margin:auto;">	<!-- width:600px;  -->
+		<font size=5>Direct-pull Rim Brakes</font>  <font color=gray size=3></font>
+		<br>
+		<IMG style="WIDTH:95%; background-color:; border: 2px black solid;
+						cursor:pointer;" alt="" src="TREKbrake.jpg" title=''>
+						
+	</div>
+	
+	<br>
+
+	<div id="ALIGNdiv" style="font-size:15px; background:white; color:black; border:2px orange inset; border-radius:5%; padding:10px; text-align:left; overflow:scroll; margin:auto;">	<!-- width:600px;  -->
+		<font size=5>ALIGN Brake Pads</font>  <font color=gray size=3></font>
+		<br>
+		<IMG style="WIDTH:95%; background-color:; border: 2px black solid;
+						cursor:pointer;" alt="" src="ALIGNpads.jpg" title=''>
+						
+	</div>
+	
+	<br>
+	
+	<div id="SCORESdiv" style="border-radius:10px; padding:10px; 	
+	text-align:left; border:3px slategray outset; background:black; color:lime;">
+				<b>To adjust clearance between brake-pads & rim turn the <u>barrel-adjuster</u></b><br>
+					&emsp; <i>- for most direct-pull systems barrel-adjuster is on lever!<br>
+					&emsp;    - ^ clearance > turn barrel-adjuster clockwise. </i>	
+	</div>
+
+	<div id="CENTERdiv" style="border-radius:10px; padding:10px; 	
+	text-align:left; border:3px brown outset; background:lime; color:black;">	
+		To put a direct-pull brake in the center turn the <u>center-adjust screw</u>
+	</div>
+	
+</TD>
+
+<TD valign=top>
+	<div id="WHEEL1div" style="font-size:15px; background:white; color:black; border:2px orange inset; border-radius:5%; padding:10px; text-align:left; overflow:scroll; margin:auto;">	
+		<font size=5>Remove Front Wheel</font>  <font color=gray size=3></font>
+		<br>
+		<IMG style="WIDTH:95%; background-color:; border: 2px black solid;
+						cursor:pointer;" alt="" src="WHEEL1.jpg" title=''>						
+	</div>
+	<div id="WHEEL1div" style="font-size:15px; background:white; color:black; border:2px orange inset; border-radius:5%; padding:10px; text-align:left; overflow:scroll; margin:auto;">	
+		<font size=5>Remove Back Wheel</font>  <font color=gray size=3></font>
+		<br>
+		<IMG style="WIDTH:95%; background-color:; border: 2px black solid;
+						cursor:pointer;" alt="" src="WHEEL2.jpg" title=''>						
+	</div>
+</TD>
+
+
+	<TD valign=top style="padding:10px;">
+
+		<div id="TOWNIEdiv" style="font-size:15px; background:white; color:black; border:2px orange inset; border-radius:5%; padding:10px; text-align:left; overflow:scroll; margin:auto;">	
+			<!--<font size=5>Remove Back Wheel</font>  <font color=gray size=3></font><br>-->
+			<IMG style="WIDTH:95%; background-color:; border: 2px black solid;
+							cursor:pointer;" alt="" src="TOWNIE.jpg" title=''>						
+		</div>
+
+		Electra Manual:
+			<a href="https://trek.scene7.com/is/content/TrekBicycleProducts/EL%5FElectra%5FOwnersManual%5FEN%5FRev3%5FOct26%20WEB.pdf" style="color:blue; font-size:18px;" title="">trek.scene7.com</a> <i><font color=black size=2>(.pdf)</font></i>
+		<br><br>
+		<b>Adjust brakes</b>:<br>
+		&emsp;<a href="https://youtu.be/zZedL-2GBB4" style="color:blue;" title="">Cycling UK (YT)</a><br>
+		&emsp;<a href="https://youtu.be/qpDtKwkl4bA" style="color:blue;" title="">Quick Release (YT)</a>
+			&emsp;&emsp;<a href="https://youtu.be/aOdy9Bvk2TQ" style="color:blue;" title="">Cable Slack (YT)</a><br><br>
+		<b><u>Remove rear wheel</u></b>:
+			<a href="https://youtu.be/1orUoZ_oO7g" style="color:blue;" title="">REI (YT)</a> <br>
+		<br>
+		Adjust Bike FENDERS:
+		<a href="https://www.sixthreezero.com/blogs/bike-advice/how-to-adjust-bike-fenders" style="color:blue;" title="">sixthreezero.com</a> <br>
+		
+		<br>
+
+
+
+	 	<div class="dropup">
+		  <button class="dropbtn" id='menuBTN' onclick="showMENU('tipMENU')" style="background:white;">
+		  	  	<span style="font-size:30px;cursor:pointer; color:blue;" 
+				onclick="">&#9776;</span>
+		  </button>
+		  <div class="dropup-content" style="border:3px solid red; border-radius:10px;"
+		  id="menuCONTENT">		
+					<span style="float:right; text-align:right; padding-right: 5px;">
+						<button id="OKbtn" onclick="hideMENU()" style="FONT-WEIGHT: bold; 
+						FONT-SIZE:10px; COLOR:black">close</button>
+					</span>			
+				<a> </a>
+				<a> </a>		
+				<!--<a href=""><font color=black><b>Jan '23 Test</b></font></a>-->
+				<button id="btnCAR" onclick="showCAR()" style='cursor:pointer; background-color:black; color:white; border:2px solid white; border-radius:8px; font-size:12px;' title=""><b>Car Transfer</b>
+				</button><br>
+				
+				<!-- <A onclick="showBONUS()" href=""><b>Bonus Keys</b></A>	-->
+				
+				<button id="btnBRAKES" onclick="showBRAKES()" style='cursor:pointer; background-color:red; color:white; border:2px solid white; border-radius:8px; font-size:12px;' title=""><b>Brake Release</b>
+				</button><br>
+				
+				<button id="btnWASH" onclick="showWASH()" style='cursor:pointer; background-color:black; color:white; border:2px solid white; border-radius:8px; font-size:12px;' title=""><b>Wash & Lube</b>
+				</button><br>
+				  
+				<button id="btnSEAT" onclick="showSEAT()" style='cursor:pointer; background-color:gray; color:white; border:2px solid white; border-radius:8px; font-size:12px;' title=""><b>Seat Height</b>
+				</button><br>
+				  
+				<button id="btnTOES" onclick="showTOES()" style='cursor:pointer; background-color:gray; color:white; border:2px solid white; border-radius:8px; font-size:12px;' title=""><b>Toe Overlap</b>
+				</button><br>
+								  
+		  </div>
+		</div>	
+
+
+
+		<br><br>
+
+
+	</TD>
+				
+
+
+
+</TR>
+</TABLE>
+
+<!--               +++++++++++++++++++++++++++++++++++++++++++++               -->
+
+	<div id="BRAKESdiv" style="width:450px; height:400px; border-radius:10px; padding:10px; 
+		        			  position: absolute; left:600px; top:800px;	
+		                      margin:20px; display:none; /* margin:auto; */
+							  text-align:left; border:3px slategray outset; background:slategray; color:white;
+						      overflow: scroll; z-index:100;">
+			<!--<span style="display:block; margin:0 auto; width:300px; padding: 2px; text-align:center;">-->
+				
+			<font size=6 color=white>Release Brakes</font>&emsp;&emsp;
+									<font size=4 color=yellow>Jan/23:</font>
+			<span style="float:right; text-align:right; padding-right: 10px; cursor:pointer; color:white;">
+						<a onclick="showBRAKES()">&times;</a>
+			</span>	
+			<br>
+			<IMG style="WIDTH:100%; background-color:; border: 2px black solid;
+							cursor:pointer;" alt="" src="BrakeParts.jpg" title=''>						
+			<IMG style="WIDTH:100%; background-color:; border: 2px black solid;
+							cursor:pointer;" alt="" src="BrakeRelease.jpg" title=''>									
+	</div>
+
+	<div id="WASHdiv" style="width:450px; height:400px; border-radius:10px; padding:10px; 
+		        			  position: absolute; left:500px; top:700px;	
+		                      margin:20px; display:none; /* margin:auto; */
+							  text-align:left; border:3px slategray outset; background:slategray; color:white;
+						      overflow: scroll; z-index:100;">
+				
+			<font size=6 color=white>Wash & Lube</font>&emsp;&emsp;
+			<span style="float:right; text-align:right; padding-right: 10px; cursor:pointer; color:white;">
+						<a onclick="showWASH()">&times;</a>
+			</span>	
+			<br>
+			<IMG style="WIDTH:100%; background-color:; border: 2px black solid;
+							cursor:pointer;" alt="" src="WashBike.jpg" title=''>						
+	</div>
+
+	<div id="SEATdiv" style="width:450px; height:400px; border-radius:10px; padding:10px; 
+		        			  position: absolute; left:500px; top:700px;	
+		                      margin:20px; display:none; /* margin:auto; */
+							  text-align:left; border:3px slategray outset; background:slategray; color:white;
+						      overflow: scroll; z-index:100;">
+				
+			<font size=6 color=white>Adjust Saddle</font>&emsp;&emsp;
+			<span style="float:right; text-align:right; padding-right: 10px; cursor:pointer; color:white;">
+						<a onclick="showSEAT()">&times;</a>
+			</span>	
+			<br>
+			<IMG style="WIDTH:100%; background-color:; border: 2px black solid;
+							cursor:pointer;" alt="" src="BikeSEAT.jpg" title=''>	
+							
+			Adjust Seat Height:<br>
+				&emsp;<a href="https://youtu.be/b_Zpj9m6lf8" style="color:blue;" title="">seat only</a> <br> 
+				&emsp;<a href="https://youtu.be/rTzhWfb1Cwk" style="color:blue;" title="">seat + handlebar</a> <br> 
+	</div>
+
+	<div id="CARdiv" style="width:450px; height:400px; border-radius:10px; padding:10px; 
+		        			  position: absolute; left:500px; top:700px;	
+		                      margin:20px; display:none; /* margin:auto; */
+							  text-align:left; border:3px slategray outset; background:slategray; color:white;
+						      overflow: scroll; z-index:100;">
+				
+			<font size=6 color=white>Car Transfer</font>&emsp;&emsp;
+			<span style="float:right; text-align:right; padding-right: 10px; cursor:pointer; color:white;">
+						<a onclick="showCAR()">&times;</a>
+			</span>	
+			<br>
+			<IMG style="WIDTH:100%; background-color:; border: 2px black solid;
+							cursor:pointer;" alt="" src="BikeTransfer.jpg" title=''>						
+	</div>
+
+	<div id="TOESdiv" style="width:450px; height:400px; border-radius:10px; padding:10px; 
+		        			  position: absolute; left:500px; top:700px;	
+		                      margin:20px; display:none; /* margin:auto; */
+							  text-align:left; border:3px slategray outset; background:slategray; color:white;
+						      overflow: scroll; z-index:100;">
+				
+			<font size=6 color=white>Toe Overlap</font>&emsp;&emsp;
+			<span style="float:right; text-align:right; padding-right: 10px; cursor:pointer; color:white;">
+						<a onclick="showTOES()">&times;</a>
+			</span>	
+			<br>
+			<IMG style="WIDTH:100%; background-color:; border: 2px black solid;
+							cursor:pointer;" alt="" src="BikeTOES.jpg" title=''>						
+	</div>
+		
+<!--               +++++++++++++++++++++++++++++++++++++++++++++               -->					
+					
+</body>
+</html>
