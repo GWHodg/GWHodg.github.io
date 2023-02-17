@@ -8,12 +8,13 @@
 	bl { color:blue; }
 
 .center-screen {
-  display: flex;
+  position:fixed; left:50px; top:100px;
+  /*display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  min-height: 100vh;
+  min-height: 100vh;*/
 }
 	
 		 img {
@@ -641,7 +642,7 @@ h2 {
 
 	<br>
 
-	<div id="KEYSdiv" style="font-size:15px; background:black; color:white; border:2px orange inset; border-radius:5%; padding:10px; text-align:left; width:80%; overflow:scroll; margin:auto; height:300px;"> <!--  height:210px; -->			
+	<div id="KEYSdiv" style="font-size:15px; background:black; color:white; border:2px orange inset; border-radius:5%; padding:10px; text-align:left; width:80%; overflow:scroll; margin:auto; height:400px;"> <!--  height:210px; -->			
 		<header style="background:slategray;">
 			<h3>Current Keys <font color=silver size=3>(Jan 24/22)</font></h3>
 		</header>
@@ -705,7 +706,7 @@ h2 {
 		</ol>
 		
 		
-		<div id="CHECKdiv" style="font-size:30px; background:transparent; color:red; position:relative; left:250px; top:100px; text-align:center; z-index:20;">
+		<div id="CHECKdiv" style="font-size:30px; background:transparent; color:red; position:relative; left:250px; top:-300px; text-align:center; z-index:20;">
 			<b>&#8592; The<br>&emsp;&emsp;Clue!</b><br>
 			<font size=3 color=blue><i>&emsp;&emsp;Throw Club</i></font>
 			
@@ -899,7 +900,7 @@ h2 {
 	</div>									
 
 
-	<div id="24jan22div" style="font-size:15px; cursor:pointer; background:slategray; color:white; border:2px gray inset; border-radius:5%; padding:10px; position:absolute; left:300px; top:3000px; display:none; text-align:left; overflow:scroll; z-index:40; width:500px; height:300px;"> 
+	<div id="24jan22div" class="center-screen" style="font-size:15px; cursor:pointer; background:slategray; color:white; border:2px gray inset; border-radius:5%; padding:10px; display:none; text-align:left; overflow:scroll; z-index:40; width:500px; height:300px;"> <!-- position:absolute; left:300px; top:3000px; -->
 			<b><font color=lime>CURRENT KEYS</font></b> <i>(Jan 24/22 > <i><u>NOW</u>!</i>)</i>
 					<span style="float:right;"><font size=1 color=silver>changes daily!</font></span>
 			<br><br>
