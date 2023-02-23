@@ -20,11 +20,13 @@
 <script>
 	function showJAN23() {
 		//alert("Trying to show 'JAN23div'!");	
-		document.getElementById("JAN23div").style.display="block"; 	 //inline 			
+		document.getElementById("JAN23div").style.display="block"; 	 //inline 
+		document.getElementById("golfBNRdiv").style.display="block"; 	 //inline 
 	}		
 	function hideJAN23() {
 		//alert("Trying to HIDE 'JAN23div'!");	
-		document.getElementById("JAN23div").style.display="none"; 	 //inline 			
+		document.getElementById("JAN23div").style.display="none"; 	 //inline 	
+		document.getElementById("golfBNRdiv").style.display="none"; 			
 	}		
 	
 	function showDPlive() {
@@ -441,9 +443,9 @@
 		
 	<div id="golfBNRdiv" style="height:70px; border-radius:10px; padding:0px; 
 	position:absolute; top:300px;
-	margin-left: auto; margin-right: auto;
-  	width: 80%; display:block; text-align:left; border:1px blue dotted; 
-	background:transparent; color:orange; overflow: scroll; z-index:100;">	<!--margin:20px;/auto;--> <!-- display:none; display:block; -->
+	margin-left:100px; 
+  	width: 80%; display:none; text-align:left; border:0px blue dotted; 
+	background:transparent; color:orange; overflow: scroll; z-index:100;">	<!--margin:20px;/auto; margin-right: auto;--> <!-- display:none; display:block; -->
 		<!--<font size=5 color=blue>Fall '22 GOLF Banner</font><br>-->	
 		
 			<marquee bgcolor=transparent scrolldelay=50 onmousedown="this.stop();" onmouseup="this.start();" loop=3
