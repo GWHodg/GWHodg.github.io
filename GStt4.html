@@ -17,10 +17,18 @@
 		input.inptTXT { background:gray; width:60px; } /* beige ivory linen */
 	span { color:white; background:black; font-size:12px; }
 		span.gTOT { color:black; background:white; font-size:12px; border:0px solid blue; border-radius:0px; padding:2px; font-weight:bold; }
-	
+		span.sliderVAL { color:black; background:white; font-size:20px; border:1px solid blue; border-radius:0px; padding:5px; font-weight:bold; }  /* < slider */
+
+	.slidecontainer {
+	  width: 20%; /* Width of the outside container */
+	  border:3px solid red; border-radius:10px;
+	  margin:auto;
+	  padding:10px;
+  	}	
+  
 </style>
 
-<script src="gsJSa.js"></script>
+<!--<script src="gsJSa.js"></script>-->
 <script>
 	  function calcSFpts_P2H2() {
 			//alert("Will TRY to calculate Stableford points here . . .");  
@@ -147,19 +155,19 @@
 				}
 				else {   // HC > 18 but <Hhc!
 					IFnote = "in UNIVcalc Phc>18/else [Hhcp>Phc-18]!";
-					/*
+					
 					if (Hscr-1 == Hpar ) {Hpts = 2;} //net par
 					else if (Hscr-2 == Hpar ) {Hpts = 1;} //net bogie
 					else if (Hscr-0 == Hpar ) {Hpts = 3;} //net birdie
 					else if (+Hscr + +1 == Hpar ) {Hpts = 4;} //net EAGLE
 					else {Hpts = 0;}	//net ^ bogie:			
-					*/
+					/*
 					if (Hscr-1 == Hpar ) {Hpts = 2;}	//net par
 					else if (Hscr-2 == Hpar ) {Hpts = 1;} //net bogie
 					else if (+Hscr + +2 == Hpar ) {Hpts = 3;} //net birdie
 					else if (+Hscr + +3 == Hpar ) {Hpts = 4;} //net EAGLE
 					else {Hpts = 0;}	//net ^ bogie
-									
+					*/				
 				}
 			}	
 			
@@ -213,7 +221,25 @@
 	  	alert("Will try to FOCUS on 'p1HC'!")
 		document.getElementById("p1HC").focus();	//();
 	}	
-
+	
+	//var triggerElement = document.activeElement;
+	function enterHscr (SCRinput) {
+		//const element = document.activeElement.tagName;
+		//alert("activeElement = " + element); 
+		/*
+		let testElement = document.getElementById("p1HC");	//elementId)
+		if(document.activeElement == testElement){
+		//DO something...
+			alert("testElement = "+testElement);
+		}
+		*/
+		alert("SCRinput = " + SCRinput);
+		let sliderVAL = document.getElementById("demo").innerText;				//value;
+		if (SCRinput = "p1h1") {
+			document.getElementById("p1h1").value = sliderVAL;		
+		}
+	}
+	
 </script>
 
 </head>
@@ -221,6 +247,14 @@
 <body">		<!--  onload="focusFunction() -->
 	
 	<lable style="FONT-WEIGHT: bold; FONT-SIZE:25px; COLOR:white; background:royalblue; position:relative; left:35%; border:3px solid black; border-radius:10px; opacity:100%; padding:5px;">VGC blue <font size=2 color=silver><i>(GStt<b>4</b>)</i></font></lable>
+	<div class="slidecontainer">
+  		<input type="range" min="0" max="10" value="0" class="slider" id="myRange" 
+			style="width:200px;">
+		<p>Strokes: <span id="demo" class="sliderVAL"></span>&emsp; 
+					<button id='ENTERbtn' onclick="enterHscr()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:white; background:black; border:3px solid orange; border-radius:10px;">Enter</button>
+		</p>
+	</div>	
+	
 	
 	<table class="table2" id="SCOREStbl" border='3'   align=center 
 	style='FONT-SIZE:large; color:maroon; visibility:visible;' bgcolor='lightgreen'>
@@ -238,7 +272,7 @@
 		<tbody id='TBLbody'> 							
 			<TR>
 				<TH style="background:lightgreen;"></TH>
-				<TH><input type="number" id="p1HC" autofocus tabindex="2" style="background:silver; width:60%; font-weight:bold;" placeholder=24 value=24></TH> <!-- P1 HC -->
+				<TH><input type="number" id="p1HC" name='NMp1hc' autofocus tabindex="2" style="background:silver; width:60%; font-weight:bold;" placeholder=24 value=24></TH> <!-- P1 HC -->
 				<TH><input type="number" id="p2HC" tabindex="4" style="background:silver; width:60%;" placeholder=17 value=17></TH> <!-- P2 HC -->
 				<TH><input type="number" id="p3HC" tabindex="6" style="background:silver; width:60%;" placeholder=10 value=10></TH>
 				<TH><input type="number" id="p4HC" style="background:silver; width:60%;" placeholder=13 ></TH>
@@ -246,7 +280,7 @@
 			</TR>
 			<tr>
 				<TH>1</TH>
-				<td> <input class='' type="number" id="p1h1" tabindex="7"><span id='SPp1h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
+				<td> <input class='' type="number" id="p1h1"  ondblclick="enterHscr('p1h1')" tabindex="7"><span id='SPp1h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
 				<td> <input class='' type="number" id="p2h1" tabindex="8"><span id='SPp2h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	
 				<td> <input class='' type="number" id="p3h1" tabindex="9"><span id='SPp3h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
 				<td> <input class='uncoded' type="number" id="p4h1"><span id='SPp4h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	
@@ -351,8 +385,7 @@ style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:white; background:blue; position
 <br>
 <input class="inptTXT" type="text" id="ref" style='position:relative; left:50%; background:gray; color:white;' value="uncoded">
 
-<!--
-<div style="position:relative; left:30%; background:lightyellow; color:black; border:3px dotted black; border-radius:10px; width:400px; padding:5px; opacity:50%;"><b>CODING NOTES:</b>
+<div style="position:relative; left:30%; background:lightyellow; color:black; border:3px dotted black; border-radius:10px; width:400px; height:300px; overflow:scroll; padding:5px; opacity:50%;"><b>CODING NOTES:</b>
 					<ul>
 						<li><font color=blue><b>if Phc > 18 but Hhcp > (Phc-18) <> work <i>(=0)</i>!</b></font>
 							<br>
@@ -362,20 +395,26 @@ style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:white; background:blue; position
 						<li><s><> correct Mar 4: <b>if Phc > 18 but < 2XHhcp still > 2 strokes!</b></s> 
 								<font color=red>  < corrected!</font>
 						</li>
-						<li><b>if Phc < 19 & Hhcp > Phc still -> 1 stroke!</b> <i>(Mar 4)</i><br>
+						<li><b>if Phc < 19 & Hhcp > Phc still --> 1 stroke!</b> <i>(Mar 4)</i><br>
 							<font color=red>- prob fixed! < but 'calcSFpts_P2H2()' not fixed & still works??</font>
 						<li><s>var not picked up from 'span': use .innerText (not '.value')</s></li>
+						<li>H2 > 4 pts w/o any entry (& w entry = '0') <u>IF Phc > 18</u> (Mar 5)<br>
+							- ? problem in 'else' statement of 'Phc > 18'<br>
+							- <font color=red><b>may</b> have fixed (used original/<i>upper</i> code)</font>
+						</li>
+						<li><font color=blue>Need coding for 3 < par (? <u>albatross/dbl eagle</u>) in Phc < 19!</font> <font color=red>*</font></li>
 					</ul>	
 </div>
--->
 
-				<!--    ==================================================    -->
-				
-	<div id="HOMEdiv" style="border-radius:10px; padding:5px;border:3px slategray outset; background:black; 	color:white; position:fixed; left:0em; top:0px;">
-		<A href="index.html" style="color:moccasin; font-size:100px;"> &#x2302;<!--HOME symbol--></A>	
-	</div>
-
-				<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<script>
+	//SLIDER stuff:
+	var slider = document.getElementById("myRange");
+	var output = document.getElementById("demo");
+	output.innerHTML = slider.value;	
+	slider.oninput = function() {
+	  output.innerHTML = this.value;
+  }	
+</script>	
 
 
 </body>
