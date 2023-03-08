@@ -1,0 +1,488 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>GStt6b</title>
+		<!-- https://www.w3schools.com/jsref/jsref_split.asp -->
+<style>
+	body { padding:20px; }
+	
+	table.table2 thead { display:block; }
+	table.table2 tbody { height:200px; overflow-y:scroll; display:block; } /* height:300px; was 200 ht */
+	table.table2 td { width: 40px; background:black; color:white; text-align:center;}
+	table.table2 th { width: 40px; background:yellow; color:maroon }
+	
+	input { width:11px; font-size:15px; text-align:center; }
+		input.uncoded { background:gray; } /* beige ivory linen */
+		input.inptTXT { background:gray; width:110px; } /* beige ivory linen */
+	span { color:white; background:black; font-size:12px; }
+		span.gTOT { color:black; background:white; font-size:12px; border:0px solid blue; border-radius:0px; padding:2px; font-weight:bold; }
+		span.sliderVAL { color:black; background:white; font-size:20px; border:1px solid blue; border-radius:0px; padding:5px; font-weight:bold; }  /* < slider */
+
+	.slidecontainer {
+	  width:20%;	/* 30%; /* Width of the outside container */
+	  border:3px solid red; border-radius:10px;
+	  margin:auto; padding:10px;
+	  position:fixed; left:30em; top:40px;  
+	  opacity:100%; background:white;	/*transparent;*/ 
+	  visibility:hidden;
+  	}	
+  
+</style>
+
+<!--<script src="gsJSa.js"></script>-->
+<script>
+
+	function calcALL() {
+		/*alert("UNIVERSAL Stableford Point Calculation\n\n"+". . .");*/
+		// H1/p1:
+		UNIVcalc( document.getElementById("p1NAME").value, document.getElementById("p1HC").value, 
+				  document.getElementById("HCPh1").value, document.getElementById("p1h1").value,
+				  document.getElementById("PARh1").value, 0, 1, 'SPp1h1' );         
+	 		// H1/p2:
+			UNIVcalc( document.getElementById("p2NAME").value, document.getElementById("p2HC").value, 
+					  document.getElementById("HCPh1").value, document.getElementById("p2h1").value,
+					  document.getElementById("PARh1").value, 0, 1, 'SPp2h1' );         
+			// H1/p3
+			UNIVcalc( document.getElementById("p3NAME").value, document.getElementById("p3HC").value, 
+					  document.getElementById("HCPh1").value, document.getElementById("p3h1").value,
+					  document.getElementById("PARh1").value, 0, 1, 'SPp3h1' );   
+			// H1/p4
+			UNIVcalc( document.getElementById("p4NAME").value, document.getElementById("p4HC").value, 
+					  document.getElementById("HCPh1").value, document.getElementById("p4h1").value,
+					  document.getElementById("PARh1").value, 0, 1, 'SPp4h1' );   
+			// H1/p5
+			UNIVcalc( document.getElementById("p5NAME").value, document.getElementById("p5HC").value, 
+					  document.getElementById("HCPh1").value, document.getElementById("p5h1").value,
+					  document.getElementById("PARh1").value, 0, 1, 'SPp5h1' );       					  
+
+		// H2/p1:
+		UNIVcalc( document.getElementById("p1NAME").value, document.getElementById("p1HC").value, 
+				  document.getElementById("HCPh2").value, document.getElementById("p1h2").value,
+				  document.getElementById("PARh2").value, 0, 2, 'SPp1h2' );         
+			// H2/p2:
+			UNIVcalc( document.getElementById("p2NAME").value, document.getElementById("p2HC").value, 
+					  document.getElementById("HCPh2").value, document.getElementById("p2h2").value,
+					  document.getElementById("PARh2").value, 0, 2, 'SPp2h2' );         
+			// H2/p3:
+			UNIVcalc( document.getElementById("p3NAME").value, document.getElementById("p3HC").value, 
+					  document.getElementById("HCPh2").value, document.getElementById("p3h2").value,
+					  document.getElementById("PARh2").value, 0, 2, 'SPp3h2' );
+			// H2/p4:
+			UNIVcalc( document.getElementById("p4NAME").value, document.getElementById("p4HC").value, 
+					  document.getElementById("HCPh2").value, document.getElementById("p4h2").value,
+					  document.getElementById("PARh2").value, 0, 2, 'SPp4h2' );
+			// H2/p5:
+			UNIVcalc( document.getElementById("p5NAME").value, document.getElementById("p5HC").value, 
+					  document.getElementById("HCPh2").value, document.getElementById("p5h2").value,
+					  document.getElementById("PARh2").value, 0, 2, 'SPp5h2' );					  
+				
+		// H3/p1:		/*	xxxxxxxxxxxxxxxxx	*/			  
+	UNIVcalc(document.getElementById("p1NAME").value,document.getElementById("p1HC").value,document.getElementById("HCPh3").value, document.getElementById("p1h3").value,document.getElementById("PARh3").value,0,3,'SPp1h3');	 
+				  			/*	xxxxxxxxxxxxxxxxx	*/		
+			// H3/p2:
+			UNIVcalc( document.getElementById("p2NAME").value, document.getElementById("p2HC").value, 
+					  document.getElementById("HCPh3").value, document.getElementById("p2h3").value,
+					  document.getElementById("PARh3").value, 0, 3, 'SPp2h3' ); 
+			// H3/p3:
+			UNIVcalc( document.getElementById("p3NAME").value, document.getElementById("p3HC").value, 
+					  document.getElementById("HCPh3").value, document.getElementById("p3h3").value,
+					  document.getElementById("PARh3").value, 0, 3, 'SPp3h3' ); 
+			// H3/p4:
+			UNIVcalc( document.getElementById("p4NAME").value, document.getElementById("p4HC").value, 
+					  document.getElementById("HCPh3").value, document.getElementById("p4h3").value,
+					  document.getElementById("PARh3").value, 0, 3, 'SPp4h3' ); 
+			// H3/p5:
+			UNIVcalc( document.getElementById("p5NAME").value, document.getElementById("p5HC").value, 
+					  document.getElementById("HCPh3").value, document.getElementById("p5h3").value,
+					  document.getElementById("PARh3").value, 0, 3, 'SPp5h3' ); 
+
+		// H4/p1:
+		UNIVcalc( document.getElementById("p1NAME").value, document.getElementById("p1HC").value, 
+				  document.getElementById("HCPh4").value, document.getElementById("p1h4").value,
+				  document.getElementById("PARh4").value, 0, 4, 'SPp1h4' );         
+			// H2/p2:
+			UNIVcalc( document.getElementById("p2NAME").value, document.getElementById("p2HC").value, 
+					  document.getElementById("HCPh4").value, document.getElementById("p2h4").value,
+					  document.getElementById("PARh4").value, 0, 4, 'SPp2h4' );         
+			// H2/p3:
+			UNIVcalc( document.getElementById("p3NAME").value, document.getElementById("p3HC").value, 
+					  document.getElementById("HCPh4").value, document.getElementById("p3h4").value,
+					  document.getElementById("PARh4").value, 0, 4, 'SPp3h4' );
+			// H2/p4:
+			UNIVcalc( document.getElementById("p4NAME").value, document.getElementById("p4HC").value, 
+					  document.getElementById("HCPh4").value, document.getElementById("p4h4").value,
+					  document.getElementById("PARh4").value, 0, 4, 'SPp4h4' );
+			// H2/p5:
+			UNIVcalc( document.getElementById("p5NAME").value, document.getElementById("p5HC").value, 
+					  document.getElementById("HCPh4").value, document.getElementById("p5h4").value,
+					  document.getElementById("PARh4").value, 0, 4, 'SPp5h4' );						  
+			  
+	}
+	function UNIVcalc(name,Phc,Hhcp,Hscr,Hpar,Hpts,hole,PTSid) {
+			var IFnote;
+			if (Phc<19) {
+				if (+Hhcp <= +Phc) {	//if (Hhcp<=Phc) {
+					IFnote = "in UNIVcalc Phc<19/Hhcp("+Hhcp+")<=Phc("+Phc+") . . .";
+					if (Hscr-1 == Hpar ) {Hpts = 2;} //net par
+					else if (Hscr-2 == Hpar ) {Hpts = 1;} //net bogie
+					else if (Hscr-0 == Hpar ) {Hpts = 3;} //net birdie
+					else if (+Hscr + +1 == Hpar ) {Hpts = 4;} //net EAGLE
+					else {Hpts = 0;}	//net ^ bogie:			
+				}
+				else {   // HC < 19 but <Hhc!
+					IFnote = "in UNIVcalc Phc<19/else [Hhcp>Phc] . . .";
+					if (Hscr-0 == Hpar ) {Hpts = 2;}	//net par
+					else if (Hscr-1 == Hpar ) {Hpts = 1;} //net bogie
+					else if (+Hscr + +1 == Hpar ) {Hpts = 3;} //net birdie
+					else if (+Hscr + +2 == Hpar ) {Hpts = 4;} //net EAGLE
+					else {Hpts = 0;}	//net ^ bogie								
+				}
+			}	
+			if (Phc>18) {	// <> correct Mar 4: if Phc > 18 but < 2XHhcp still > 2 strokes!
+				if (+Hhcp<=(+Phc-18)) {		//if ((Hhcp-18)<=Phc) {
+					let alertPhc = Phc-18;
+					IFnote = "in UNIVcalc Phc>18/Hhcp("+Hhcp+")<=(Phc-18) . . .\n{Phc-18 = "+alertPhc+"}";
+					if (Hscr-2 == Hpar ) {Hpts = 2;} //net par
+					else if (Hscr-3 == Hpar ) {Hpts = 1;} //net bogie
+					else if (Hscr-1 == Hpar ) {Hpts = 3;} //net birdie
+					else if (+Hscr + +0 == Hpar ) {Hpts = 4;} //net EAGLE
+					else {Hpts = 0;}	//net ^ bogie:			
+				}
+				else {   // HC > 18 but <Hhc!
+					IFnote = "in UNIVcalc Phc>18/else [Hhcp>Phc-18]!";
+					
+					if (Hscr-1 == Hpar ) {Hpts = 2;} //net par
+					else if (Hscr-2 == Hpar ) {Hpts = 1;} //net bogie
+					else if (Hscr-0 == Hpar ) {Hpts = 3;} //net birdie
+					else if (+Hscr + +1 == Hpar ) {Hpts = 4;} //net EAGLE
+					else {Hpts = 0;}	//net ^ bogie:			
+				}
+			}	
+			
+			if (+Hscr>0) {
+				alert("Now trying to develop a UNIVERSAL SF point calculator\n\n"+
+					  "PLAYER = "+name+" | HOLE: "+hole+"\n"+
+					  "Phc = "+Phc+"\n"+
+					  "Hhcp = "+Hhcp+"\n"+
+					  "Hscr = "+Hscr+"\n"+
+					  "Hpar = "+Hpar+"\n"+
+					  "Hpts = "+Hpts+"\n"+
+					  "\t\t[PTSid: "+PTSid+"]\n\n"+
+					  IFnote);
+			}
+			document.getElementById(PTSid).innerHTML = Hpts;	
+			
+	}
+	  
+	function calcTOTALS() {
+		//alert("Will try to calculate TOTAL gross scores & Stableford points here!");
+		let p2h1scr = document.getElementById("p2h1").value;
+		let p2h2scr = document.getElementById("p2h2").value;
+		let p2h3scr = document.getElementById("p2h3").value;		
+		let p2Tscr = +p2h1scr + +p2h2scr + +p2h3scr;
+		
+		let p2h1sf = document.getElementById("SPp2h1").innerText;  //document.getElementById("SPp2h1").value;
+		let p2h2sf = document.getElementById("SPp2h2").innerText;
+		let p2h3sf = document.getElementById("SPp2h3").innerText;		
+		let p2Tsf = +p2h1sf + +p2h2sf + +p2h3sf;	
+		
+		alert("Will try to calculate TOTAL gross scores & Stableford points here!\n\n"+
+			  "p2Tscr = "+p2Tscr+
+			  "\np2Tpts = "+p2Tsf+" | p2h1sf = "+p2h1sf);		// < var not picked up from 'span'?  * *
+		document.getElementById("gTf9p2").innerHTML = p2Tscr;	//gTf9p2 |  sTf9p2
+		document.getElementById("sTf9p2").innerHTML = p2Tsf;
+	}	  
+	
+	var GLOBALinput = 'GWH';
+
+	function enterHscr() {			//(SCRinput) {
+			//alert("SCRinput = " + SCRinput+"\n\tGLOBALinput = "+GLOBALinput);
+		let sliderVAL = document.getElementById("demo").innerText;				//value;
+		if (GLOBALinput == "p1h1") {
+			document.getElementById("p1h1").value = sliderVAL;		
+		}
+		if (GLOBALinput == "p2h1") { document.getElementById("p2h1").value = sliderVAL; }
+		if (GLOBALinput == "p3h1") { document.getElementById("p3h1").value = sliderVAL; }		
+		document.getElementById(GLOBALinput).value = sliderVAL;	//	**
+			document.getElementById("check").style.visibility = "visible";	//	**
+		
+	}
+
+	function changeGLOBAL(SCRinput) {		// < display slider! *
+		GLOBALinput = SCRinput;	//"ADD";
+		//document.getElementById("SLIDER").style.visibility="visible";
+			document.getElementById("check").style.visibility = "hidden";	//	**
+		
+		const nameArray = GLOBALinput.split("h");
+			let pNUM = nameArray[0]; 
+			var pNAME;
+			if ( pNUM=="p1" ) { pNAME = document.getElementById("p1NAME").value; }
+			if ( pNUM=="p2" ) { pNAME = document.getElementById("p2NAME").value; }
+			if ( pNUM=="p3" ) { pNAME = document.getElementById("p3NAME").value; }
+			if ( pNUM=="p4" ) { pNAME = document.getElementById("p4NAME").value; }
+			//alert("pNUM = "+pNUM+"\npNAME = "+pNAME);
+		document.getElementById("p&h").value = pNAME+" "+nameArray[1]; 		//GLOBALinput;
+		
+		document.getElementById("myRange").value = 0;	//value="0";	// < **
+			document.getElementById("demo").innerHTML = 0;
+		
+	}
+	
+	function hideSLIDE() {
+		document.getElementById("SLIDER").style.visibility="hidden";
+			document.getElementById("check").style.visibility="hidden";
+	}
+	function showSLIDE() {
+		//if (document.getElementById("SLIDER").style.visibility=="hidden") {	
+			document.getElementById("SLIDER").style.visibility="visible";
+						/* document.getElementById("menu23").style.display="block"; */		 //inline 	
+		//}		
+	}	
+	
+	function focusNextElement() {
+		alert("Trying to go UP 1 'tabindex' in 'focus'!");		
+		let index = document.getElementById(GLOBALinput).tabIndex;
+		var Pno; var Hno;
+			const gblARY = GLOBALinput.split("");
+			Pno = gblARY[1]; Hno = gblARY[3];		// + gblARY[4];
+			var newHno; var newPno;
+				if ( Pno==5 ) { newHno = +Hno + +1; newPno = 1;}
+				else { newPno = +Pno + +1; newHno = Hno; }
+
+		
+						/* To get the last N characters of a string in JavaScript, call the slice() method on the string, passing -N as an argument. For example, str. slice(-3) returns a new string containing the last 3 characters of str */
+						const GBLIPlast2 = GLOBALinput.slice(-2);
+						//alert("GBLIPlast2 = "+GBLIPlast2);
+		
+				
+		alert("at end of 'focusNextElement' function!\nindex = "+index+"\n"+
+			  "Pno = "+Pno+" | Hno = "+Hno+"\n"+
+			  "newHno = "+newHno+" | newPno = "+newPno);
+			  
+		document.getElementById("p"+newPno+"h"+newHno).focus();	  
+		//alert(document.activeElement.tabIndex);		
+		changeGLOBAL("p"+newPno+"h"+newHno);
+  	}		
+	function focusPreviousElement() {
+		alert("Trying to go DOWN 1 'tabindex' in 'focus'!");		
+		let index = document.getElementById(GLOBALinput).tabIndex;
+		var Pno; var Hno;
+			const gblARY = GLOBALinput.split("");
+			Pno = gblARY[1]; Hno = gblARY[3];		// + gblARY[4];
+			var newHno; var newPno;
+				if ( Pno==1 ) { newHno = +Hno - +1; newPno = 5; }		//+Pno - +1;}
+				else { newPno = +Pno - +1; newHno = Hno; }
+		
+		alert("at end of 'focusPreviousElement' function!\nindex = "+index+"\n"+
+			  "Pno = "+Pno+" | Hno = "+Hno+"\n"+
+			  "newHno = "+newHno+" | newPno = "+newPno);
+			  
+		document.getElementById("p"+newPno+"h"+newHno).focus();	  
+		//alert(document.activeElement.tabIndex);		
+		changeGLOBAL("p"+newPno+"h"+newHno);
+  	}				
+
+	function save() {
+		alert("Will try to SAVE this round to file . . if possible!");
+		//https://stackoverflow.com/questions/21012580/is-it-possible-to-write-data-to-file-using-only-javascript
+			
+	}	
+	
+</script>
+
+</head>
+
+<body">		<!--  onload="focusFunction() -->
+	
+	<label style="FONT-WEIGHT: bold; FONT-SIZE:25px; COLOR:white; background:royalblue; position:relative; left:35%; border:3px solid black; border-radius:10px; opacity:100%; padding:5px;">VGC blue <font size=2 color=silver><i>(GStt<b>6b</b>)</i></font></label>
+	<input type="text" id="DATE" tabindex="300" style="background:green; color:white; width:100px; position:relative; left:43%;" placeholder="Apr 14/23" value="Apr 14/23" >
+
+				<!--    ===================== SLIDER =================================    -->
+	
+	<div class="slidecontainer" id='SLIDER'>
+  		<input type="range" min="0" max="10" value="0" class="slider" id="myRange" 
+			style="width:200px;"><br>
+		Strokes: <span id="demo" class="sliderVAL"></span><!--&emsp;-->
+		<a onclick=" hideSLIDE()" style="float:right; cursor:pointer; font-size:30px;"><b>&times;</b></a>
+			<button id='ENTERbtn' onclick="enterHscr()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:white; background:black; border:3px solid orange; border-radius:10px;">Enter</button>
+			<input type="text" id="p&h" style="background:white; width:45px; border:1px solid blue; border-radius:10px;" placeholder="p3h7"><br>
+			
+						<span id='check' class='gTOT' style="position:relative; left:47%; font-size:20px; visibility:hidden;"><b>√</b></span>			
+						<button id='+btn' onclick="focusNextElement()" style="FONT-WEIGHT:bold; FONT-SIZE:10px; COLOR:blue; background:ivory; border:1px solid blue; border-radius:0px; position:relative; left:64%;">+</button>
+						<button id='-btn' onclick="focusPreviousElement()" style="FONT-WEIGHT:bold; FONT-SIZE:10px; COLOR:blue; background:ivory; border:1px solid blue; border-radius:0px; position:relative; left:64%;">-</button>
+			
+	</div>	
+	
+				<!--    ===============================================================    -->
+	
+	<table class="table2" id="SCOREStbl" border='3'   align=center 
+	style='FONT-SIZE:large; color:maroon; visibility:visible;' bgcolor='lightgreen'>
+		<thead> <!--  bgcolor='gray' style="color:white;" -->
+				<th>H</th>
+				<th><input type="text" id="p1NAME" tabindex="201" style="background:silver; width:60%;" placeholder="WH" value="WH"></th>	<!-- P1 -->
+				<th><input type="text" id="p2NAME" tabindex="203" style="background:silver; width:60%;" placeholder="AB" value="AB"></th> <!-- P2 -->
+				<th><input type="text" id="p3NAME" tabindex="205" style="background:silver; width:60%;" placeholder="DZ" value="DZ"></th> 
+				<th><input type="text" id="p4NAME" tabindex="207" style="background:silver; width:60%;" placeholder="BP" value="BP"></th>
+				<th><input type="text" id="p5NAME" tabindex="209" style="background:silver; width:60%;" placeholder="DP"></th>	
+				<th>H</th>
+				<th>par</th>
+				<th>hcp</th>	
+		</thead>
+		<tbody id='TBLbody'> 							
+			<TR>
+				<TH style="background:lightgreen;"></TH>
+				<TH><input type="number" id="p1HC" name='NMp1hc' autofocus tabindex="202" style="background:silver; width:60%; font-weight:bold;" placeholder=24 value=24></TH> <!-- P1 HC -->
+				<TH><input type="number" id="p2HC" tabindex="204" style="background:silver; width:60%;" placeholder=17 value=17></TH> <!-- P2 HC -->
+				<TH><input type="number" id="p3HC" tabindex="206" style="background:silver; width:60%;" placeholder=10 value=10></TH>
+				<TH><input type="number" id="p4HC" tabindex="208" style="background:silver; width:60%;" placeholder=13   value=13></TH>
+				<TH><input type="number" id="p5HC" tabindex="210" style="background:silver; width:60%;" placeholder=15 ></TH>
+				<TD style="background:transparent;" colspan=3>
+					<button id='SLIDEbtn' onclick="showSLIDE()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">Slider Input</button>		
+				</TD>
+			</TR>
+			<tr>
+				<TH>1</TH>
+				<td> <input class='' type="number" id="p1h1"  onclick="changeGLOBAL('p1h1')" tabindex="1"><span id='SPp1h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
+				<td> <input class='' type="number" id="p2h1" onclick="changeGLOBAL('p2h1')"  tabindex="2"><span id='SPp2h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	
+				<td> <input class='' type="number" id="p3h1" onclick="changeGLOBAL('p3h1')" tabindex="3"><span id='SPp3h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
+				<td> <input class='' type="number" id="p4h1" onclick="changeGLOBAL('p4h1')" tabindex="4" ><span id='SPp4h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	
+				<td> <input class='' type="number" id="p5h1" onclick="changeGLOBAL('p5h1')"  tabindex="5"><span id='SPp5h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
+				<TH>1</TH>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="PARh1" style="background:white; color:black; width:60%;" placeholder=5 value=5 readonly>
+				</TD>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="HCPh1" style="background:white;  color:black; width:60%;" placeholder=13 value=13 readonly>
+				</TD>
+			</tr>
+			<tr>
+				<TH>2</TH>
+				<td> <input class='' type="number" id="p1h2" onclick="changeGLOBAL('p1h2')" tabindex="6"><span id='SPp1h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
+				<td>	<!-- style='background:orange;' --> 
+					<input class='' type="number" id="p2h2" onclick="changeGLOBAL('p2h2')" tabindex="7"><span id='SPp2h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
+				<td> <input class='' type="number" id="p3h2" onclick="changeGLOBAL('p3h2')" tabindex="8"><span id='SPp3h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
+				<td> <input class='' type="number" id="p4h2" onclick="changeGLOBAL('p4h2')" tabindex="9"><span id='SPp4h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
+				<td> <input class='' type="number" id="p5h2" onclick="changeGLOBAL('p5h2')" tabindex="10"><span id='SPp5h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>
+				<TH>2</TH>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="PARh2" style="background:white; color:black; width:60%;" placeholder=3 value=3 readonly>
+				</TD>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="HCPh2" style="background:white;  color:black; width:60%;" placeholder=17 value=17 readonly>
+				</TD>
+			</tr>				
+			<tr> <TH>3</TH> 
+				<td> <input type="number" id="p1h3" onclick="changeGLOBAL('p1h3')" tabindex="11"><span id='SPp1h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td> <input type="number" id="p2h3" onclick="changeGLOBAL('p2h3')" tabindex="12"><span id='SPp2h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td> <input class='' type="number" id="p3h3" onclick="changeGLOBAL('p3h3')" tabindex="13"><span id='SPp3h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p4h3" onclick="changeGLOBAL('p4h3')" tabindex="14"><span id='SPp4h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p5h3" onclick="changeGLOBAL('p5h3')" tabindex="15"><span id='SPp5h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<TH>3</TH>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="PARh3" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
+				</TD>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="HCPh3" style="background:white;  color:black; width:60%;" placeholder=1 value=1 readonly>
+				</TD>				
+				<!--<TD style='background:white; color:black;'>4</TD> <TD style='background:white; color:black;'>1</TD>-->
+			</tr>	
+			<tr> <TH>4</TH> 
+				<td> <input class='' type="number" id="p1h4" onclick="changeGLOBAL('p1h4')" tabindex="16"><span id='SPp1h4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td> <input class='' type="number" id="p2h4" onclick="changeGLOBAL('p2h4')" tabindex="17"><span id='SPp2h4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td> <input class='' type="number" id="p3h4" onclick="changeGLOBAL('p3h4')" tabindex="18"><span id='SPp3h4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p4h4" onclick="changeGLOBAL('p4h4')" tabindex="19"><span id='SPp4h4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p5h4" onclick="changeGLOBAL('p5h4')" tabindex="20"><span id='SPp5h4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<TH>4</TH>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="PARh4" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
+				</TD>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="HCPh4" style="background:white;  color:black; width:60%;" placeholder=5 value=5 readonly>
+				</TD>								
+			</tr>	
+			<tr> <TH>5</TH> 
+				<td> <input class='uncoded' type="number" id="p1h5"><span id='SPp1h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td>6</td> <td>7</td> <td>0</td> <td>0</td> <TH>5</TH>
+				<TD style='background:white; color:black;'>4</TD> <TD style='background:white; color:black;'>7</TD>
+			</tr>	
+			<tr> <TH>6</TH> 
+				<td> <input class='uncoded' type="number" id="p1h6"><span id='SPp1h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td>6</td> <td>7</td> <td>0</td> <td>0</td> <TH>6</TH>
+				<TD style='background:white; color:black;'>4</TD> <TD style='background:white; color:black;'>11</TD>		
+			</tr>	
+			<tr> <TH>7</TH> 
+				<td> <input class='uncoded' type="number" id="p1h7"><span id='SPp1h7' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+			</tr>
+			<tr> <TH>8</TH> 
+				<td> <input class='uncoded' type="number" id="p1h8"><span id='SPp1h8' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+			</tr>
+			<tr> <TH>9</TH> 
+				<td> <input class='uncoded' type="number" id="p1h9"><span id='SPp1h9' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+			</tr>	
+	
+			<TR>
+				<TH style="background:white;"></TH>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="gTf9p1" style="background:white;  color:black; width:60%;" placeholder=12  readonly>
+				</TD>
+				<TD style='background:white; color:black;'>  <!-- * -->
+					<span class="gTOT" id='gTf9p2'>25<!--&nbsp;&nbsp;--></span>
+					<span id='sTf9p2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">22<!--&nbsp;&nbsp;--></span>
+				</TD>				
+			</TR>
+			
+		</tbody>
+	</table>		
+
+<button id='calcALLbtn' onclick="calcALL()"
+style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:white; background:blue; position:relative; left:50%; border:3px solid black; border-radius:10px; opacity:95%;">Calc <u><b>STABLEFORD Points</b></u></button><br>
+
+<button id='calcTOTbtn' onclick="calcTOTALS()"
+style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:black; background:lime; position:relative; left:50%; border:3px solid black; border-radius:10px; opacity:95%;">Calc <u><b>TOTALS</b></u></button>&emsp;
+<button id='SAVEbtn' onclick="save()"
+style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; position:relative; left:50%; border:2px solid black; border-radius:10px; opacity:50%;"><i>save</i></button>
+<br>
+
+<div style="position:relative; left:30%; background:lightyellow; color:black; border:3px dotted black; border-radius:10px; width:400px; height:300px; overflow:scroll; padding:5px; opacity:50%;">
+		<b>CODING NOTES:</b>&emsp;&emsp;&emsp;<input class="inptTXT" type="text" id="ref" style='background:gray; color:white;' value="uncoded inputs">	
+					<ul>
+						<li><font color=blue><b>if Phc > 18 but Hhcp > (Phc-18) <> work <i>(=0)</i>!</b></font>
+							<br>
+							- looks like it gets to correct slot (>18 else) but ? error in code there<br>
+							- also - P2H2 > incorrect pts!
+						</li>
+						<li><s><> correct Mar 4: <b>if Phc > 18 but < 2XHhcp still > 2 strokes!</b></s> 
+								<font color=red>  < corrected!</font>
+						</li>
+						<li><b>if Phc < 19 & Hhcp > Phc still --> 1 stroke!</b> <i>(Mar 4)</i><br>
+							<font color=red>- prob fixed! < but 'calcSFpts_P2H2()' not fixed & still works??</font>
+						<li><s>var not picked up from 'span': use .innerText (not '.value')</s></li>
+						<li>H2 > 4 pts w/o any entry (& w entry = '0') <u>IF Phc > 18</u> (Mar 5)<br>
+							- ? problem in 'else' statement of 'Phc > 18'<br>
+							- <font color=red><b>may</b> have fixed (used original/<i>upper</i> code)</font>
+						</li>
+						<li><font color=blue>Need coding for 3 < par (? <u>albatross/dbl eagle</u>) in Phc < 19!</font> <font color=red>*</font></li>
+					</ul>	
+</div>
+
+<script>
+	//SLIDER stuff:
+	var slider = document.getElementById("myRange");
+	var output = document.getElementById("demo");
+	output.innerHTML = slider.value;	
+	slider.oninput = function() {
+	  output.innerHTML = this.value;
+  }	
+</script>	
+
+				<!--    ==================================================    -->
+				
+	<div id="HOMEdiv" style="border-radius:10px; padding:5px;border:3px slategray outset; background:black; 	color:white; position:fixed; left:0em; top:0px;">
+		<A href="index.html" style="color:moccasin; font-size:100px;"> &#x2302;<!--HOME symbol--></A>	
+	</div>
+
+				<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+</body>
+</html>
