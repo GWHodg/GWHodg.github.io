@@ -444,27 +444,6 @@ style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:black; background:lime; position
 style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; position:relative; left:50%; border:2px solid black; border-radius:10px; opacity:50%;"><i>save</i></button>
 <br>
 
-<div style="position:relative; left:30%; background:lightyellow; color:black; border:3px dotted black; border-radius:10px; width:400px; height:300px; overflow:scroll; padding:5px; opacity:50%;">
-		<b>CODING NOTES:</b>&emsp;&emsp;&emsp;<input class="inptTXT" type="text" id="ref" style='background:gray; color:white;' value="uncoded inputs">	
-					<ul>
-						<li><font color=blue><b>if Phc > 18 but Hhcp > (Phc-18) <> work <i>(=0)</i>!</b></font>
-							<br>
-							- looks like it gets to correct slot (>18 else) but ? error in code there<br>
-							- also - P2H2 > incorrect pts!
-						</li>
-						<li><s><> correct Mar 4: <b>if Phc > 18 but < 2XHhcp still > 2 strokes!</b></s> 
-								<font color=red>  < corrected!</font>
-						</li>
-						<li><b>if Phc < 19 & Hhcp > Phc still --> 1 stroke!</b> <i>(Mar 4)</i><br>
-							<font color=red>- prob fixed! < but 'calcSFpts_P2H2()' not fixed & still works??</font>
-						<li><s>var not picked up from 'span': use .innerText (not '.value')</s></li>
-						<li>H2 > 4 pts w/o any entry (& w entry = '0') <u>IF Phc > 18</u> (Mar 5)<br>
-							- ? problem in 'else' statement of 'Phc > 18'<br>
-							- <font color=red><b>may</b> have fixed (used original/<i>upper</i> code)</font>
-						</li>
-						<li><font color=blue>Need coding for 3 < par (? <u>albatross/dbl eagle</u>) in Phc < 19!</font> <font color=red>*</font></li>
-					</ul>	
-</div>
 
 <script>
 	//SLIDER stuff:
