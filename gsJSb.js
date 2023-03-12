@@ -583,18 +583,152 @@
 
 					/*    √√√√√√√√√√√√ \/ BACK 9 \/ √√√√√√√√√√√√√√√    */
 					
-		//P10:				#######################
-/*		for (var h = 10; h < 19; h++) {
-			//alert("hole = "+h);
-			let p+h+h1scr = document.getElementById("p1h"+h).value;
-		}
-		let p1TscrB9 = +p1h10scr + +p1h11scr + +p1h12scr + +p1h13scr + +p1h14scr + +p1h15scr + +p1h16scr + +p1h17scr + +p1h18scr;		
-
+		//P1 (b9):				#######################
+		let p1h10scr = document.getElementById("p1h10").value;
+		let p1h11scr = document.getElementById("p1h11").value;
+		let p1h12scr = document.getElementById("p1h12").value;		
+		let p1h13scr = document.getElementById("p1h13").value;
+		let p1h14scr = document.getElementById("p1h14").value;
+		let p1h15scr = document.getElementById("p1h15").value;		
+		let p1h16scr = document.getElementById("p1h16").value;
+		let p1h17scr = document.getElementById("p1h17").value;
+		let p1h18scr = document.getElementById("p1h18").value;				
+		let p1TscrB9 = +p1h10scr + +p1h11scr + +p1h12scr + +p1h13scr + +p1h14scr + +p1h15scr + +p1h16scr + +p1h17scr + +p1h18scr;
+		
+		let p1h10sf = document.getElementById("SPp1h10").innerText; 
+		let p1h11sf = document.getElementById("SPp1h11").innerText;
+		let p1h12sf = document.getElementById("SPp1h12").innerText;		
+		let p1h13sf = document.getElementById("SPp1h13").innerText;
+		let p1h14sf = document.getElementById("SPp1h14").innerText;
+		let p1h15sf = document.getElementById("SPp1h15").innerText;		
+		let p1h16sf = document.getElementById("SPp1h16").innerText;
+		let p1h17sf = document.getElementById("SPp1h17").innerText; 
+		let p1h18sf = document.getElementById("SPp1h18").innerText;				
+		let p1TsfB9 = +p1h10sf + +p1h11sf + +p1h12sf + +p1h13sf + +p1h14sf + +p1h15sf + +p1h16sf + +p1h17sf + +p1h18sf;	
+		
+		/*document.getElementById("gTf9p1").innerHTML = p1TscrF9;	//gTf9p1 |  sTf9p1
+		document.getElementById("sTf9p1").innerHTML = p1TsfF9;*/
 		document.getElementById("gTb9p1").innerHTML = p1TscrB9;	//gTf9p5 |  sTf9p5
 		document.getElementById("sTb9p1").innerHTML = p1TsfB9;								
-*/		
 		
+
+
+		//P2 (b9):				#######################
+		let p2h10scr = document.getElementById("p2h10").value;
+		let p2h11scr = document.getElementById("p2h11").value;
+		let p2h12scr = document.getElementById("p2h12").value;		
+		let p2h13scr = document.getElementById("p2h13").value;
+		let p2h14scr = document.getElementById("p2h14").value;
+		let p2h15scr = document.getElementById("p2h15").value;		
+		let p2h16scr = document.getElementById("p2h16").value;
+		let p2h17scr = document.getElementById("p2h17").value;
+		let p2h18scr = document.getElementById("p2h18").value;				
+		let p2TscrB9 = +p2h10scr + +p2h11scr + +p2h12scr + +p2h13scr + +p2h14scr + +p2h15scr + +p2h16scr + +p2h17scr + +p2h18scr;
 		
+		let p2h10sf = document.getElementById("SPp2h10").innerText;  //document.getElementById("SPp2h1").value;
+		let p2h11sf = document.getElementById("SPp2h11").innerText;
+		let p2h12sf = document.getElementById("SPp2h12").innerText;		
+		let p2h13sf = document.getElementById("SPp2h13").innerText;
+		let p2h14sf = document.getElementById("SPp2h14").innerText;
+		let p2h15sf = document.getElementById("SPp2h15").innerText;		
+		let p2h16sf = document.getElementById("SPp2h16").innerText;
+		let p2h17sf = document.getElementById("SPp2h17").innerText;
+		let p2h18sf = document.getElementById("SPp2h18").innerText;				
+		let p2TsfB9 = +p2h10sf + +p2h11sf + +p2h12sf + +p2h13sf + +p2h14sf + +p2h15sf + +p2h16sf + +p2h17sf + +p2h18sf;	
+		
+		/*alert("Will try to calculate TOTAL gross scores & Stableford points here!\n\n"+
+			  "p2Tscr = "+p2Tscr+
+			  "\np2Tpts = "+p2Tsf+" | p2h1sf = "+p2h1sf);*/		// < var not picked up from 'span'?  * *
+		document.getElementById("gTb9p2").innerHTML = p2TscrB9;	//gTf9p2 |  sTf9p2
+		document.getElementById("sTb9p2").innerHTML = p2TsfB9;
+		
+		//P3 (b9):				#######################
+		let p3h10scr = document.getElementById("p3h10").value;
+		let p3h11scr = document.getElementById("p3h11").value;
+		let p3h12scr = document.getElementById("p3h12").value;		
+		let p3h13scr = document.getElementById("p3h13").value;
+		let p3h14scr = document.getElementById("p3h14").value;
+		let p3h15scr = document.getElementById("p3h15").value;		
+		let p3h16scr = document.getElementById("p3h16").value;
+		let p3h17scr = document.getElementById("p3h17").value;
+		let p3h18scr = document.getElementById("p3h18").value;				
+		let p3TscrB9 = +p3h10scr + +p3h11scr + +p3h12scr + +p3h13scr + +p3h14scr + +p3h15scr + +p3h16scr + +p3h17scr + +p3h18scr;
+		
+		let p3h10sf = document.getElementById("SPp3h10").innerText; 
+		let p3h11sf = document.getElementById("SPp3h11").innerText;
+		let p3h12sf = document.getElementById("SPp3h12").innerText;		
+		let p3h13sf = document.getElementById("SPp3h13").innerText;
+		let p3h14sf = document.getElementById("SPp3h14").innerText;
+		let p3h15sf = document.getElementById("SPp3h15").innerText;		
+		let p3h16sf = document.getElementById("SPp3h16").innerText;
+		let p3h17sf = document.getElementById("SPp3h17").innerText;
+		let p3h18sf = document.getElementById("SPp3h18").innerText;				
+		let p3TsfB9 = +p3h10sf + +p3h11sf + +p3h12sf + +p3h13sf + +p3h14sf + +p3h15sf + +p3h16sf + +p3h17sf + +p3h18sf;	
+		
+		document.getElementById("gTb9p3").innerHTML = p3TscrB9;	//gTf9p3 |  sTf9p3
+		document.getElementById("sTb9p3").innerHTML = p3TsfB9;	
+
+		//P4 (b9):				#######################
+		let p4h10scr = document.getElementById("p4h10").value;
+		let p4h11scr = document.getElementById("p4h11").value;
+		let p4h12scr = document.getElementById("p4h12").value;		
+		let p4h13scr = document.getElementById("p4h13").value;
+		let p4h14scr = document.getElementById("p4h14").value;
+		let p4h15scr = document.getElementById("p4h15").value;		
+		let p4h16scr = document.getElementById("p4h16").value;
+		let p4h17scr = document.getElementById("p4h17").value;
+		let p4h18scr = document.getElementById("p4h18").value;				
+		let p4TscrB9 = +p4h10scr + +p4h11scr + +p4h12scr + +p4h13scr + +p4h14scr + +p4h15scr + +p4h16scr + +p4h17scr + +p4h18scr;
+		
+		let p4h10sf = document.getElementById("SPp4h10").innerText; 
+		let p4h11sf = document.getElementById("SPp4h11").innerText;
+		let p4h12sf = document.getElementById("SPp4h12").innerText;		
+		let p4h13sf = document.getElementById("SPp4h13").innerText;
+		let p4h14sf = document.getElementById("SPp4h14").innerText;
+		let p4h15sf = document.getElementById("SPp4h15").innerText;		
+		let p4h16sf = document.getElementById("SPp4h16").innerText;
+		let p4h17sf = document.getElementById("SPp4h17").innerText;
+		let p4h18sf = document.getElementById("SPp4h18").innerText;				
+		let p4TsfB9 = +p4h10sf + +p4h11sf + +p4h12sf + +p4h13sf + +p4h14sf + +p4h15sf + +p4h16sf + +p4h17sf + +p4h18sf;	
+		
+		document.getElementById("gTb9p4").innerHTML = p4TscrB9;	//gTf9p4 |  sTf9p4
+		document.getElementById("sTb9p4").innerHTML = p4TsfB9;		
+
+		//P5 (b9):				#######################
+		let p5h10scr = document.getElementById("p5h10").value;
+		let p5h11scr = document.getElementById("p5h11").value;
+		let p5h12scr = document.getElementById("p5h12").value;		
+		let p5h13scr = document.getElementById("p5h13").value;
+		let p5h14scr = document.getElementById("p5h14").value;
+		let p5h15scr = document.getElementById("p5h15").value;		
+		let p5h16scr = document.getElementById("p5h16").value;
+		let p5h17scr = document.getElementById("p5h17").value;
+		let p5h18scr = document.getElementById("p5h18").value;				
+		let p5TscrB9 = +p5h10scr + +p5h11scr + +p5h12scr + +p5h13scr + +p5h14scr + +p5h15scr + +p5h16scr + +p5h17scr + +p5h18scr;
+		
+		let p5h10sf = document.getElementById("SPp5h10").innerText; 
+		let p5h11sf = document.getElementById("SPp5h11").innerText;
+		let p5h12sf = document.getElementById("SPp5h12").innerText;		
+		let p5h13sf = document.getElementById("SPp5h13").innerText;
+		let p5h14sf = document.getElementById("SPp5h14").innerText;
+		let p5h15sf = document.getElementById("SPp5h15").innerText;		
+		let p5h16sf = document.getElementById("SPp5h16").innerText;
+		let p5h17sf = document.getElementById("SPp5h17").innerText;
+		let p5h18sf = document.getElementById("SPp5h18").innerText;				
+		let p5TsfB9 = +p5h10sf + +p5h11sf + +p5h12sf + +p5h13sf + +p5h14sf + +p5h15sf + +p5h16sf + +p5h17sf + +p5h18sf;	
+		
+		document.getElementById("gTb9p5").innerHTML = p5TscrB9;	//gTf9p5 |  sTf9p5
+		document.getElementById("sTb9p5").innerHTML = p5TsfB9;								
+		
+					/*    √√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√.   */		
+		
+		document.getElementById("sTf9gp").innerHTML = +p1TsfF9 + +p2TsfF9 + +p3TsfF9 + +p4TsfF9 + +p5TsfF9;	
+					
+		document.getElementById("gT18p1").innerHTML = +p1TscrF9 + +p1TscrB9;	
+			document.getElementById("sT18p1").innerHTML = +p1TsfF9 + +p1TsfB9;			
+		document.getElementById("gT18p2").innerHTML = +p2TscrF9 + +p2TscrB9;	
+			document.getElementById("sT18p2").innerHTML = +p2TsfF9 + +p2TsfB9;			
+					
 	}	  
 
 	
@@ -792,6 +926,7 @@
 	function showDROP() {
 		if (document.getElementById("DROPdiv").style.visibility=="visible") {
 			document.getElementById("DROPdiv").style.visibility="hidden"; 
+			document.getElementById("DROPcheck").style.visibility="hidden";
 		}		
 		else {
 			document.getElementById("DROPdiv").style.visibility="visible";
@@ -849,7 +984,8 @@
 					  /* Problem if pt is minus (-)!
 					  	 BUT - max = par + HCP strokes + 2 > net dbl bogey > 0 so should be OK. */
 						 
-		document.getElementById("H1ptT").innerText = newH1ptT;				 
+		document.getElementById("H1ptT").innerText = newH1ptT;	
+			document.getElementById("DROPcheck").style.visibility = "visible";			
 		
 	}
 	
@@ -876,13 +1012,139 @@
 		if ( document.getElementById("FULLbtn").innerText == "+" ) {
 			document.getElementById("TBLbody").style.height = "100%";	//'800px';
 			document.getElementById("FULLbtn").innerText = "-";
+			document.getElementById("FULLbtn2").innerText = "-";
+			
+			document.getElementById("DROPdiv").style.position = 'fixed';	//"fixed";
+			document.getElementById("DROPdiv").style.left = "800px";
+			document.getElementById("DROPdiv").style.top = "100px";
+			//position:fixed; left:20em; top:300px;  	/*left:30em; top:40px;*/  
 		}
 		else { 
 			document.getElementById("TBLbody").style.height = '300px';
 			document.getElementById("FULLbtn").innerText = "+";
+			document.getElementById("FULLbtn2").innerText = "+";
+			
+			document.getElementById("DROPdiv").style.position = "fixed";
+			document.getElementById("DROPdiv").style.left = '50%';
+			document.getElementById("DROPdiv").style.top = '42%';
+				//document.getElementById("DROPdiv").style.height = '600px;';
+			
+			//document.getElementById("DROPdiv").style.top = "100px";
 		}
 		
 				//table.table2 tbody { height:300px; 		
 	}
 	
 	
+	function restrictTAB() {
+				/* How to ignore HTML element from tabindex:
+						https://stackoverflow.com/questions/5192859/how-to-ignore-html-element-from-tabindex 
+					- just add the attribute disabled to the element 
+					- element.tabIndex = -1	*/
+		//alert("in 'restrictTAB' fn!");	
+		if ( document.getElementById("p5NAME").value == "" ) {
+			alert("p5NAME element is empty! Will disable it's inputs.");
+				//document.getElementById("p5h1").style.tabIndex = '-1';		// p1h1')" tabindex="1"
+				//document.getElementById("p5h2").style.tabIndex = '-1';
+				//document.getElementById("p5h3").style.tabIndex = '-1';
+			document.getElementById('p5h1').setAttribute('disabled', '');
+			document.getElementById('p5h2').setAttribute('disabled', '');
+			document.getElementById('p5h3').setAttribute('disabled', '');
+			document.getElementById('p5h4').setAttribute('disabled', '');
+			document.getElementById('p5h5').setAttribute('disabled', '');
+			document.getElementById('p5h6').setAttribute('disabled', '');
+			document.getElementById('p5h7').setAttribute('disabled', '');
+			document.getElementById('p5h8').setAttribute('disabled', '');
+			document.getElementById('p5h9').setAttribute('disabled', '');
+			document.getElementById('p5h10').setAttribute('disabled', '');
+			document.getElementById('p5h11').setAttribute('disabled', '');
+			document.getElementById('p5h12').setAttribute('disabled', '');
+			document.getElementById('p5h13').setAttribute('disabled', '');
+			document.getElementById('p5h14').setAttribute('disabled', '');
+			document.getElementById('p5h15').setAttribute('disabled', '');
+			document.getElementById('p5h16').setAttribute('disabled', '');
+			document.getElementById('p5h17').setAttribute('disabled', '');
+			document.getElementById('p5h18').setAttribute('disabled', '');
+		} 					
+		else { 
+			alert("p5NAME element is NOT empty! How do you ENABLE a 'disabled' input?");
+			//document.getElementById('p5h1').setAttribute('disabled', false); 
+			document.getElementById("p5h1").disabled = false;
+			document.getElementById("p5h2").disabled = false;
+			document.getElementById("p5h3").disabled = false;
+			document.getElementById("p5h4").disabled = false;
+			document.getElementById("p5h5").disabled = false;
+			document.getElementById("p5h6").disabled = false;
+			document.getElementById("p5h7").disabled = false;
+			document.getElementById("p5h8").disabled = false;
+			document.getElementById("p5h9").disabled = false;
+			document.getElementById("p5h10").disabled = false;
+			document.getElementById("p5h11").disabled = false;
+			document.getElementById("p5h12").disabled = false;
+			document.getElementById("p5h13").disabled = false;
+			document.getElementById("p5h14").disabled = false;
+			document.getElementById("p5h15").disabled = false;
+			document.getElementById("p5h16").disabled = false;
+			document.getElementById("p5h17").disabled = false;
+			document.getElementById("p5h18").disabled = false;
+		}
+		
+		if ( document.getElementById("p4NAME").value == "" ) {
+			alert("p4NAME element is empty! Will disable it's inputs.");			
+			let get = document.getElementById('p4h1');
+				get.setAttribute('disabled', '');
+			document.getElementById('p4h2').setAttribute('disabled', '');
+			document.getElementById('p4h3').setAttribute('disabled', '');
+			document.getElementById('p4h4').setAttribute('disabled', '');
+			document.getElementById('p4h5').setAttribute('disabled', '');
+			document.getElementById('p4h6').setAttribute('disabled', '');
+			document.getElementById('p4h7').setAttribute('disabled', '');
+			document.getElementById('p4h8').setAttribute('disabled', '');
+			document.getElementById('p4h9').setAttribute('disabled', '');
+			document.getElementById('p4h10').setAttribute('disabled', '');
+			document.getElementById('p4h11').setAttribute('disabled', '');
+			document.getElementById('p4h12').setAttribute('disabled', '');
+			document.getElementById('p4h13').setAttribute('disabled', '');
+			document.getElementById('p4h14').setAttribute('disabled', '');
+			document.getElementById('p4h15').setAttribute('disabled', '');
+			document.getElementById('p4h16').setAttribute('disabled', '');
+			document.getElementById('p4h17').setAttribute('disabled', '');
+			document.getElementById('p4h18').setAttribute('disabled', '');			
+		} 							
+		else { 
+			alert("p4NAME element is NOT empty! Will ENABLE it's 'disabled' inputs.");
+			//document.getElementById('p5h1').setAttribute('disabled', false); 
+			document.getElementById("p4h1").disabled = false;
+			document.getElementById("p4h2").disabled = false;
+			document.getElementById("p4h3").disabled = false;
+			document.getElementById("p4h4").disabled = false;
+			document.getElementById("p4h5").disabled = false;
+			document.getElementById("p4h6").disabled = false;
+			document.getElementById("p4h7").disabled = false;
+			document.getElementById("p4h8").disabled = false;
+			document.getElementById("p4h9").disabled = false;
+			document.getElementById("p4h10").disabled = false;
+			document.getElementById("p4h11").disabled = false;
+			document.getElementById("p4h12").disabled = false;
+			document.getElementById("p4h13").disabled = false;
+			document.getElementById("p4h14").disabled = false;
+			document.getElementById("p4h15").disabled = false;
+			document.getElementById("p4h16").disabled = false;
+			document.getElementById("p4h17").disabled = false;
+			document.getElementById("p4h18").disabled = false;
+		}
+		//alert("p5h1 tabIndex = " + document.getElementById("p5h1").style.tabIndex);
+		
+	}	
+	
+	function FULLdrop() {
+		//alert("in 'FULLdrop' fn! Will try to ^ div height.");
+		if ( document.getElementById("fullDRPbtn").innerText == "+" ) {
+			document.getElementById("DROPdiv").style.height = '650px';	//"100%";	//'800px';
+			document.getElementById("fullDRPbtn").innerText = "-";
+		}
+		else { 
+			document.getElementById("DROPdiv").style.height = '300px';
+			document.getElementById("fullDRPbtn").innerText = "+";
+		}
+	}

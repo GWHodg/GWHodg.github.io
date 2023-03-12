@@ -34,7 +34,7 @@
 		/* dropUP menu: */
 			.dropbtn { 
 				/* position:absolute; left:30px; */
-				margin-left: 125px;
+				margin-left: 0px;	/*125px;*/
 				border-radius:10px; cursor:grabbing; background:orange; color:black;
 				BORDER-RIGHT: outset; BORDER-TOP: outset;  
 				BORDER-LEFT: outset; BORDER-BOTTOM: outset
@@ -42,8 +42,8 @@
 					  /* background-color: #3498DB; color: white;
 			           padding: 5px; font-size: 16px; border: none; */
 			.dropup { position: relative; display: inline-block; }			
-			.dropup-content { display: none; position:absolute; left:175px; background-color: #f1f1f1;
-			  			      min-width: 120px; bottom: -5px; z-index: 1; }	/* bottom: 0px;  position: absolute; */	
+			.dropup-content { display: none; position:absolute; left:55px; background-color: #f1f1f1;
+			  			      min-width:200px; bottom: -240px; z-index: 1; }	/* bottom: 0px;  position: absolute; */	
 			.dropup-content a { color: black; padding: 5px 6px; text-decoration: none; display: block; }	
 										/* padding: 12px 16px;  */
 			.dropup-content a:hover {background-color:green;}	/* #ccc */		
@@ -56,17 +56,57 @@
 
 <script src="gsJSb.js"></script>
 <script>
-	
+	function hideMENU() {
+		//document.getElementById("miscCONTENT").style.visibility="hidden";
+		document.getElementById("menuCONTENT").style.visibility="hidden";
+	}
+	function showMENU(topic) {
+		if (topic=="tipMENU") {
+			document.getElementById("menuCONTENT").style.visibility="visible";
+		}
+		if (topic=="tipMENU") {
+			document.getElementById("menuCONTENT").style.visibility="visible";
+		}
+	}	
 </script>	
 </head>
 
 <body">		<!--  onload="focusFunction() -->
 	
 	<label style="FONT-WEIGHT: bold; FONT-SIZE:25px; COLOR:white; background:royalblue; position:relative; left:35%; border:3px solid black; border-radius:10px; opacity:100%; padding:5px;">VGC blue <font size=2 color=silver><i>(GStt<b>7a</b>)</i></font></label>
+	
+	<!--<span style="font-size:30px;cursor:pointer; color:blue; background:white; position:relative; left:38%;" onclick="openMENU()">&#9776;</span>-->	<!-- position:absolute; LEFT:750px; top:30px;  -->
 
-	<span style="font-size:30px;cursor:pointer; color:blue; background:white; position:relative; left:38%;"" onclick="openMENU()">&#9776;</span>	<!-- position:absolute; LEFT:750px; top:30px;  -->
+					<div class="dropup" style="cursor:pointer; color:black; background:white; position:relative; left:38%;">
+						  <button class="dropbtn" id='menuBTN' onclick="showMENU('tipMENU')" style="background:white;">
+						  	  	<span style="font-size:30px;cursor:pointer; color:white;" 
+								onclick="">&#9776;</span>
+						  </button>
+						  <div class="dropup-content" style="border:3px solid red; border-radius:10px;"
+						  id="menuCONTENT">		
+									<span style="float:right; text-align:right; padding-right: 5px;">
+										<button id="OKbtn" onclick="hideMENU()" style="FONT-WEIGHT: bold; 
+										FONT-SIZE:10px; COLOR:black">close</button>
+									</span>			
+								<a> </a>
+								<a> </a>										
+								<button id='calcALLbtn' onclick="calcALL()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:white; background:blue; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>STABLEFORD Points</b></u></button> <br>
+								<button id='calcTOTbtn' onclick="calcTOTALS()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>TOTALS</b></u></button><br>
+								<button id='STROKESbtn' onclick="pHCcolors()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;">Display Stroke Holes<br>
+										<span style='background:lime; color:black;'>&nbsp;1&nbsp;</span>&emsp;
+										<span style='background:green;'>&nbsp;2&nbsp;</span>&emsp;
+										<span style='background:white; color:black;'>&nbsp;0&nbsp;</span>
+								</button> <br>
+								<button id='SLIDEbtn' onclick="showSLIDE()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">Slider Input</button> <br>	
+								<button id='TABbtn' onclick="restrictTAB()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><b>Disable/Enable Inputs<!--Restrict Tabs--><!--bing--></b></button>
+								<button id='DROPbtn' onclick="showDROP()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><b>Drop Box!</b></button>								
+								<button id='DROPbtn' onclick="showINFO()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><b>Round Info +/-</b></button>
+								<button id='NOTESbtn' onclick="showNOTES()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><i>coding notes</i></button>
 
-	<input type="text" id="DATE" tabindex="300" style="background:white; color:blue; width:100px; position:relative; left:41%;" placeholder="Apr 14/23" value="Apr 14/23" >
+						  </div>
+					</div>		
+	
+	<input type="text" id="DATE" tabindex="300" style="background:white; color:blue; width:100px; position:relative; left:40%;" placeholder="Apr 14/23" value="Apr 14/23" >
 
 				<!--    ===================== SLIDER =================================    -->
 	
@@ -83,11 +123,15 @@
 						<button id='+btn' onclick="focusNextElement()" style="FONT-WEIGHT:bold; FONT-SIZE:10px; COLOR:blue; background:ivory; border:1px solid blue; border-radius:0px; position:relative; left:60%;">+</button>
 						&emsp;
 						<button id='-btn' onclick="focusPreviousElement()" style="FONT-WEIGHT:bold; FONT-SIZE:10px; COLOR:blue; background:ivory; border:1px solid blue; border-radius:0px; position:relative; left:60%;">-</button>
-		<span id='NEarw' onclick="NEslide()" style='display:inline-block; background:white;''>&#8599;</span>
-						<!--NE arrow.  display:inline-block; or none; -->
+		<span id='NEarw' onclick="NEslide()" style='display:inline-block; color:black; background:white; FONT-SIZE:30px;'>&#8663;</span>
+						<!--NE arrow   &#8599;   display:inline-block; or none; -->
 		&emsp;
-		<span id='NEarw' onclick="SWslide()" style='display:inline-block; background:white;'>&#8601;</span><!--SW arrow-->
-						 
+		<span id='NEarw' onclick="SWslide()" style='display:inline-block; color:black; background:white; FONT-SIZE:30px;'>&#8665;</span><!--SW arrow &#8601; -->
+							<!-- ⇕	8661	21D5	 	UP DOWN DOUBLE ARROW
+								 ⇖	8662	21D6	 	NORTH WEST DOUBLE ARROW
+								 ⇗	8663	21D7	 	NORTH EAST DOUBLE ARROW   &#8663;
+								 ⇘	8664	21D8	 	SOUTH EAST DOUBLE ARROW
+								 ⇙	8665	21D9	 	SOUTH WEST DOUBLE ARROW       -->		
 	</div>	
 	
 				<!--    ===============================================================    -->
@@ -113,8 +157,9 @@
 				<TH><input type="number" id="p3HC" tabindex="206" style="background:silver; width:60%;" placeholder=10 value=10></TH>
 				<TH><input type="number" id="p4HC" tabindex="208" style="background:silver; width:60%;" placeholder=13   value=13></TH>
 				<TH><input type="number" id="p5HC" tabindex="210" style="background:silver; width:60%;" placeholder=0 value=0></TH>
-				<TD style="background:transparent;" colspan=3>
+				<TD  colspan=3 style="background:transparent;"> <!--  float:right; -->
 					<!--<button id='SLIDEbtn' onclick="showSLIDE()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">Slider Input</button>	-->
+					<button id='FULLbtn2' onclick="FULLtbl()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:blue; background:transparent; border:0px solid blue; border-radius:5px;">+</button>
 				</TD>
 			</TR>
 			<tr>
@@ -270,7 +315,9 @@
 					<span class="gTOT" id='gTf9p5'>00</span>
 					<span id='sTf9p5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">00</span>
 				</TD>
-				<TD style="background:lightgreen;"></TD>
+				<TD style="background:lightgreen;">
+					<span id='sTf9gp' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold; font-size:20px;">00</span>  <!-- F9 SF pt gp total  ** -->
+				</TD>
 				<TD style='background:white; color:black;'>
 					<input type="number" id="PARfront" style="background:white; color:black; width:60%; font-weight:bold;" placeholder=34 value=34 readonly>
 				</TD>	
@@ -444,7 +491,9 @@
 					<span class="gTOT" id='gTb9p5'>00</span>
 					<span id='sTb9p5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">00</span>
 				</TD>
-				<TD style="background:lightgreen;"></TD>
+				<TD style="background:lightgreen;">
+					<span id='sTb9gp' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold; font-size:20px;">00</span>  <!-- B9 SF pt gp total  ** -->
+				</TD>
 				<TD style='background:white; color:black;'>
 					<input type="number" id="PARback" style="background:white; color:black; width:60%; font-weight:bold;" placeholder=36 value=36 readonly>
 				</TD>	
@@ -472,7 +521,9 @@
 					<span class="gTOT" id='gT18p5'>00</span>
 					<span id='sT18p5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">00</span>
 				</TD>
-				<TD style="background:lightgreen;"></TD>
+				<TD style="background:lightgreen;">
+					<span id='sT18gp' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold; font-size:20px;">00</span>  <!-- F9 SF pt gp total  ** -->
+				</TD>
 				<TD style='background:white; color:black;'>
 					<input type="number" id="PAR18" style="background:white; color:black; width:60%; font-weight:bold;" placeholder=70 value=70 readonly>
 				</TD>	
@@ -482,7 +533,8 @@
 	</table>		
 
 	
-	<table border=0 class="" id="MENUtbl" border='3'  align=center  style='FONT-SIZE:large; background:white; color:yellow; visibility:visible;'>
+	<!--<table border=0 class="" id="MENUtbl" border='3'  align=center  style='FONT-SIZE:large; background:white; color:yellow; visibility:visible;'>-->
+		<!--
 		<tr>
 			<td>
 				<button id='STROKESbtn' onclick="pHCcolors()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;">Display Stroke Holes<br>
@@ -503,6 +555,7 @@
 				<button id='calcTOTbtn' onclick="calcTOTALS()" style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;">Calc <u><b>TOTALS</b></u></button>
 			</td>
 		</tr>
+
 		<tr>
 			<td>
 				<button id='SAVEbtn' onclick="save()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:50%;"><i>save</i></button>
@@ -513,27 +566,30 @@
 				<button id='DROPbtn' onclick="showDROP()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><b>Drop Box!</b></button>
 			</td>
 		</tr>
-	</table>
+		-->
+	<!--</table>-->
 	
 <br>
 
 	<!-- 	√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√ \/ DROP BOX \/ √√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√	  -->
 
-<TABLE align=center><TR><TD>	
-	<div id="DROPdiv" style= "border:3px inset slategray; border-radius:10px; width:200px; height:300px; overflow:scroll; margin:auto; visibility:visible;">
+<!--<TABLE align=center><TR><TD>-->
+	<div id="DROPdiv" style= "border:3px inset slategray; border-radius:10px; width:200px; height:400px; overflow:scroll; margin:auto; visibility:visible; background:white;">
 		<font size=5><b>Drop Box</b></font>
-				
+						<button id='fullDRPbtn' onclick="FULLdrop()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:blue; background:transparent; border:1px solid blue; border-radius:5px;">+</button>
 				<span style="float:right; padding-right:10px; cursor:pointer; background:white; color:black; font-size:30px;">
 						<a onclick="showDROP()"><b>&times;</b></a>
 				</span><br>
 		<!--<br>-->
 		
 		<button id='drpPLbtn' onclick="DROP()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><b>DROP:</b></button>
-		<input type="text" id="pDROPPED" tabindex="" style="background:silver; width:30px;" placeholder="DZ" value="DZ">			
-				
+		<input type="text" id="pDROPPED" tabindex="" style="background:silver; width:30px;" placeholder="DZ" value="DZ">	
+		&nbsp;&nbsp;
+		<span id='DROPcheck' class='gTOT' style="font-size:20px; visibility:hidden;"><b>√</b></span> 		<!-- hidden -->
+						
 		<table id="DROPtbl" border=1 align=center>
 			<tr>
-				<th>HOLE</th> <th>pts p drop</th>
+				<th>HOLE</th> <th>SF pts</th> <!--  p drop -->
 			</tr>
 			
 			<tr> <td>1</td> 
@@ -549,29 +605,33 @@
 			<tr> <td>9</td> <td></td> </tr>
 			<tr> <td><b>F9</b></td> <td></td> </tr>
 			
-			<tr> <td>10</td> <td>11</td> </tr>
-			<tr> <td>11</td> <td>14</td> </tr>
-			<tr> <td>12</td> <td>12</td> </tr>
-			<tr> <td>13</td> <td>11</td> </tr>
+			<tr> <td>10</td> <td></td> </tr>
+			<tr> <td>11</td> <td></td> </tr>
+			<tr> <td>12</td> <td></td> </tr>
+			<tr> <td>13</td> <td></td> </tr>
+			<tr> <td>14</td> <td id="H14ptT"></td> </tr>
+			<tr> <td>15</td> <td id="H15ptT"></td> </tr>
+			<tr> <td>16</td> <td id="H16ptT"></td> </tr>
+			<tr> <td>17</td> <td id="H17ptT"></td> </tr>
+			<tr> <td>18</td> <td id="H18ptT"></td> </tr>
 			
 			<tr> <td><b>B9</b></td> <td></td> </tr>
 			<tr> <td><b>T</b></td> <td></td> </tr>
 			
 		</table>
-		
-		
+				
 	</div>	
 
-</TD> <TD width=20px></TD>
+<!--</TD> <TD width=20px></TD>
 
-<TD valign=top>	
+<TD valign=top>	-->
 	
-	<textarea cols="50" rows="5" id='ROUNDnote' style="background:lightyellow;  border:2px solid black; height:100px; width:100px; visibility:hidden;">
+	<textarea cols="50" rows="5" id='ROUNDnote' style="background:lightyellow;  border:2px solid black; height:100px; width:100px; visibility:hidden;  position:fixed; left:30em; top:200px;">
 	Hi there! This is where the user can enter text. If there's too much text, the textbox can develop scrollbars to accommodate the extra text...
 	</textarea>
 
-</TD></TR>
-</TABLE>
+<!--</TD></TR>
+</TABLE>-->
 	
 		
 <br>
@@ -583,8 +643,10 @@
 						<a onclick="showNOTES()"><b>&times;</b></a>
 					</span>
 					<ul>
+						<li><b>DROP NOT WORKING</b> <i>(Mar 12/23)</i> [DZ h3&4] *<br>
+							- DROP() function not coded yet . . .</li>
 						<li><s>H2 > 5 pts p3-p5 w/ 0 stroke entry!<br>
-							- all 3 have <b>no strokes</s></b>
+							- all 3 have <b>no strokes</s></b></li>
 						<li><font color=red size=4><s><b>p1 <> calcing pts if score = par or less <i>(& only getting 1 stroke)</i>. Other p's seem to be OK.</b></s></font></li>
 						<li><font color=blue><b><u>Back 9</u> Problems <i>(Mar 9/23)</i>:</b></font><br>
 							&emsp;- <s>slider +/- not working</s> √<br>
