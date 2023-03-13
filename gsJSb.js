@@ -723,11 +723,38 @@
 					/*    √√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√.   */		
 		
 		document.getElementById("sTf9gp").innerHTML = +p1TsfF9 + +p2TsfF9 + +p3TsfF9 + +p4TsfF9 + +p5TsfF9;	
+		document.getElementById("sTb9gp").innerHTML = +p1TsfB9 + +p2TsfB9 + +p3TsfB9 + +p4TsfB9 + +p5TsfB9;	
+		document.getElementById("sT18gp").innerHTML = +p1TsfB9 + +p2TsfB9 + +p3TsfB9 + +p4TsfB9 + +p5TsfB9 + +p1TsfF9 + +p2TsfF9 + +p3TsfF9 + +p4TsfF9 + +p5TsfF9;	
 					
 		document.getElementById("gT18p1").innerHTML = +p1TscrF9 + +p1TscrB9;	
 			document.getElementById("sT18p1").innerHTML = +p1TsfF9 + +p1TsfB9;			
 		document.getElementById("gT18p2").innerHTML = +p2TscrF9 + +p2TscrB9;	
 			document.getElementById("sT18p2").innerHTML = +p2TsfF9 + +p2TsfB9;			
+		document.getElementById("gT18p3").innerHTML = +p3TscrF9 + +p3TscrB9;	
+			document.getElementById("sT18p3").innerHTML = +p3TsfF9 + +p3TsfB9;
+		document.getElementById("gT18p4").innerHTML = +p4TscrF9 + +p4TscrB9;	
+			document.getElementById("sT18p4").innerHTML = +p4TsfF9 + +p4TsfB9;						
+		document.getElementById("gT18p5").innerHTML = +p5TscrF9 + +p5TscrB9;	
+			document.getElementById("sT18p5").innerHTML = +p5TsfF9 + +p5TsfB9;		
+
+		document.getElementById("SPgpH1").innerHTML = +p1h1sf + +p2h1sf + +p3h1sf + +p4h1sf + +p5h1sf; 
+		document.getElementById("SPgpH2").innerHTML = +p1h2sf + +p2h2sf + +p3h2sf + +p4h2sf + +p5h2sf; 
+		document.getElementById("SPgpH3").innerHTML = +p1h3sf + +p2h3sf + +p3h3sf + +p4h3sf + +p5h3sf;
+		document.getElementById("SPgpH4").innerHTML = +p1h4sf + +p2h4sf + +p3h4sf + +p4h4sf + +p5h4sf; 
+		document.getElementById("SPgpH5").innerHTML = +p1h5sf + +p2h5sf + +p3h5sf + +p4h5sf + +p5h5sf; 
+		document.getElementById("SPgpH6").innerHTML = +p1h6sf + +p2h6sf + +p3h6sf + +p4h6sf + +p5h6sf; 
+		document.getElementById("SPgpH7").innerHTML = +p1h7sf + +p2h7sf + +p3h7sf + +p4h7sf + +p5h7sf; 
+		document.getElementById("SPgpH8").innerHTML = +p1h8sf + +p2h8sf + +p3h8sf + +p4h8sf + +p5h8sf; 
+		document.getElementById("SPgpH9").innerHTML = +p1h9sf + +p2h9sf + +p3h9sf + +p4h9sf + +p5h9sf;  
+		document.getElementById("SPgpH10").innerHTML = +p1h10sf + +p2h10sf + +p3h10sf + +p4h10sf + +p5h10sf;
+		document.getElementById("SPgpH11").innerHTML = +p1h11sf + +p2h11sf + +p3h11sf + +p4h11sf + +p5h11sf; 
+		document.getElementById("SPgpH12").innerHTML = +p1h12sf + +p2h12sf + +p3h12sf + +p4h12sf + +p5h12sf; 
+		document.getElementById("SPgpH13").innerHTML = +p1h13sf + +p2h13sf + +p3h13sf + +p4h13sf + +p5h13sf; 
+		document.getElementById("SPgpH14").innerHTML = +p1h14sf + +p2h14sf + +p3h14sf + +p4h14sf + +p5h14sf; 
+		document.getElementById("SPgpH15").innerHTML = +p1h15sf + +p2h15sf + +p3h15sf + +p4h15sf + +p5h15sf; 
+		document.getElementById("SPgpH16").innerHTML = +p1h16sf + +p2h16sf + +p3h16sf + +p4h16sf + +p5h16sf; 
+		document.getElementById("SPgpH17").innerHTML = +p1h17sf + +p2h17sf + +p3h17sf + +p4h17sf + +p5h17sf; 
+		document.getElementById("SPgpH18").innerHTML = +p1h18sf + +p2h18sf + +p3h18sf + +p4h18sf + +p5h18sf;  		
 					
 	}	  
 
@@ -751,6 +778,52 @@
 		
 		H5ptT = +document.getElementById("SPp1h5").innerText + +document.getElementById("SPp2h5").innerText + +document.getElementById("SPp3h5").innerText + +document.getElementById("SPp4h5").innerText + +document.getElementById("SPp5h5").innerText;
 		document.getElementById("H5ptT").innerText = H5ptT;		
+
+		H6ptT = +document.getElementById("SPp1h6").innerText + +document.getElementById("SPp2h6").innerText + +document.getElementById("SPp3h6").innerText + +document.getElementById("SPp4h6").innerText + +document.getElementById("SPp5h6").innerText;
+		document.getElementById("H6ptT").innerText = H6ptT;	
+
+		H7ptT = +document.getElementById("SPp1h7").innerText + +document.getElementById("SPp2h7").innerText + +document.getElementById("SPp3h7").innerText + +document.getElementById("SPp4h7").innerText + +document.getElementById("SPp5h7").innerText;
+		document.getElementById("H7ptT").innerText = H7ptT;		
+
+		H8ptT = +document.getElementById("SPp1h8").innerText + +document.getElementById("SPp2h8").innerText + +document.getElementById("SPp3h8").innerText + +document.getElementById("SPp4h8").innerText + +document.getElementById("SPp5h8").innerText;
+		document.getElementById("H8ptT").innerText = H8ptT;		
+		
+		H9ptT = +document.getElementById("SPp1h9").innerText + +document.getElementById("SPp2h9").innerText + +document.getElementById("SPp3h9").innerText + +document.getElementById("SPp4h9").innerText + +document.getElementById("SPp5h9").innerText;
+		document.getElementById("H9ptT").innerText = H9ptT;	
+
+		document.getElementById("f9ptT").innerText = +H1ptT + +H2ptT + +H3ptT + +H4ptT + +H5ptT + +H6ptT + +H7ptT + +H8ptT + +H9ptT;			
+		
+		
+		H10ptT = +document.getElementById("SPp1h10").innerText + +document.getElementById("SPp2h10").innerText + +document.getElementById("SPp3h10").innerText + +document.getElementById("SPp4h10").innerText + +document.getElementById("SPp5h10").innerText;
+		document.getElementById("H10ptT").innerText = H10ptT;			
+		
+		H11ptT = +document.getElementById("SPp1h11").innerText + +document.getElementById("SPp2h11").innerText + +document.getElementById("SPp3h11").innerText + +document.getElementById("SPp4h11").innerText + +document.getElementById("SPp5h11").innerText;
+		document.getElementById("H11ptT").innerText = H11ptT;	
+		
+		H12ptT = +document.getElementById("SPp1h12").innerText + +document.getElementById("SPp2h12").innerText + +document.getElementById("SPp3h12").innerText + +document.getElementById("SPp4h12").innerText + +document.getElementById("SPp5h12").innerText;
+		document.getElementById("H12ptT").innerText = H12ptT;		
+
+		H13ptT = +document.getElementById("SPp1h13").innerText + +document.getElementById("SPp2h13").innerText + +document.getElementById("SPp3h13").innerText + +document.getElementById("SPp4h13").innerText + +document.getElementById("SPp5h13").innerText;
+		document.getElementById("H13ptT").innerText = H13ptT;		
+
+		H14ptT = +document.getElementById("SPp1h14").innerText + +document.getElementById("SPp2h14").innerText + +document.getElementById("SPp3h14").innerText + +document.getElementById("SPp4h14").innerText + +document.getElementById("SPp5h14").innerText;
+		document.getElementById("H14ptT").innerText = H14ptT;					
+		
+		H15ptT = +document.getElementById("SPp1h15").innerText + +document.getElementById("SPp2h15").innerText + +document.getElementById("SPp3h15").innerText + +document.getElementById("SPp4h15").innerText + +document.getElementById("SPp5h15").innerText;
+		document.getElementById("H15ptT").innerText = H15ptT;		
+	
+		H16ptT = +document.getElementById("SPp1h16").innerText + +document.getElementById("SPp2h16").innerText + +document.getElementById("SPp3h16").innerText + +document.getElementById("SPp4h16").innerText + +document.getElementById("SPp5h16").innerText;
+		document.getElementById("H16ptT").innerText = H16ptT;					
+		
+		H17ptT = +document.getElementById("SPp1h17").innerText + +document.getElementById("SPp2h17").innerText + +document.getElementById("SPp3h17").innerText + +document.getElementById("SPp4h17").innerText + +document.getElementById("SPp5h17").innerText;
+		document.getElementById("H17ptT").innerText = H17ptT;		
+
+		H18ptT = +document.getElementById("SPp1h18").innerText + +document.getElementById("SPp2h18").innerText + +document.getElementById("SPp3h18").innerText + +document.getElementById("SPp4h18").innerText + +document.getElementById("SPp5h18").innerText;
+		document.getElementById("H18ptT").innerText = H18ptT;	
+
+		document.getElementById("b9ptT").innerText = +H10ptT + +H11ptT + +H12ptT + +H13ptT + +H14ptT + +H15ptT + +H16ptT + +H17ptT + +H18ptT;					
+		
+		document.getElementById("18ptT").innerText = +H10ptT + +H11ptT + +H12ptT + +H13ptT + +H14ptT + +H15ptT + +H16ptT + +H17ptT + +H18ptT + +H1ptT + +H2ptT + +H3ptT + +H4ptT + +H5ptT + +H6ptT + +H7ptT + +H8ptT + +H9ptT;					
 		
 	}
 	
@@ -927,6 +1000,8 @@
 		if (document.getElementById("DROPdiv").style.visibility=="visible") {
 			document.getElementById("DROPdiv").style.visibility="hidden"; 
 			document.getElementById("DROPcheck").style.visibility="hidden";
+			
+			document.getElementById("pDone").style.visibility = "hidden";
 		}		
 		else {
 			document.getElementById("DROPdiv").style.visibility="visible";
@@ -939,54 +1014,169 @@
 		pl1 = document.getElementById("p1NAME").value;
 		pl2 = document.getElementById("p2NAME").value;
 		pl3 = document.getElementById("p3NAME").value;
+		pl4 = document.getElementById("p4NAME").value;
+		pl5 = document.getElementById("p5NAME").value;
 		
 		//H1ptT = +document.getElementById("SPp1h1").innerText + +document.getElementById("SPp2h1").innerText + +document.getElementById("SPp3h1").innerText + +document.getElementById("SPp4h1").innerText + +document.getElementById("SPp5h1").innerText;
-		H2ptT = +document.getElementById("SPp1h2").innerText + +document.getElementById("SPp2h2").innerText + +document.getElementById("SPp3h2").innerText + +document.getElementById("SPp4h2").innerText + +document.getElementById("SPp5h2").innerText;
-		H3ptT = +document.getElementById("SPp1h3").innerText + +document.getElementById("SPp2h3").innerText + +document.getElementById("SPp3h3").innerText + +document.getElementById("SPp4h3").innerText + +document.getElementById("SPp5h3").innerText;		
+		//H2ptT = +document.getElementById("SPp1h2").innerText + +document.getElementById("SPp2h2").innerText + +document.getElementById("SPp3h2").innerText + +document.getElementById("SPp4h2").innerText + +document.getElementById("SPp5h2").innerText;
+		//H3ptT = +document.getElementById("SPp1h3").innerText + +document.getElementById("SPp2h3").innerText + +document.getElementById("SPp3h3").innerText + +document.getElementById("SPp4h3").innerText + +document.getElementById("SPp5h3").innerText;		
 		//alert("Player to be dropped: "+Dp+"\n"+"H1ptT = "+H1ptT);
 
 
 		Dp = document.getElementById("pDROPPED").value;
-		var newH1ptT;
-		alert("Dp = "+Dp+" | pl3 = "+pl3);
+		var newH1ptT; var newH2ptT; var newH3ptT; var newH4ptT; var newH5ptT; var newH6ptT; var newH7ptT; var newH8ptT; var newH9ptT;
+		//alert("Dp = "+Dp+" | pl3 = "+pl3);
 		//for (var h = 1; h < 4; h++) {
 			//alert("hole = "+h);
 			if (Dp == pl1) {
-				alert("Dp = "+pl1)
+				//alert("Dp = "+pl1)
 				newH1ptT = H1ptT - +document.getElementById("SPp1h1").innerText;
+				newH2ptT = H2ptT - +document.getElementById("SPp1h2").innerText;
+				newH3ptT = H3ptT - +document.getElementById("SPp1h3").innerText;
+				newH4ptT = H4ptT - +document.getElementById("SPp1h4").innerText;
+				newH5ptT = H5ptT - +document.getElementById("SPp1h5").innerText;	
+				newH6ptT = H6ptT - +document.getElementById("SPp1h6").innerText;
+				newH7ptT = H7ptT - +document.getElementById("SPp1h7").innerText;
+				newH8ptT = H8ptT - +document.getElementById("SPp1h8").innerText;
+				newH9ptT = H9ptT - +document.getElementById("SPp1h9").innerText;
+				newH10ptT = H10ptT - +document.getElementById("SPp1h10").innerText;
+				newH11ptT = H11ptT - +document.getElementById("SPp1h11").innerText;
+				newH12ptT = H12ptT - +document.getElementById("SPp1h12").innerText;
+				newH13ptT = H13ptT - +document.getElementById("SPp1h13").innerText;
+				newH14ptT = H14ptT - +document.getElementById("SPp1h14").innerText;
+				newH15ptT = H15ptT - +document.getElementById("SPp1h15").innerText;
+				newH16ptT = H16ptT - +document.getElementById("SPp1h16").innerText;
+				newH17ptT = H17ptT - +document.getElementById("SPp1h17").innerText;
+				newH18ptT = H18ptT - +document.getElementById("SPp1h18").innerText;
 			}
 			if (Dp == pl2) {
-				alert("Dp = "+pl2)
-				newH1ptT = H1ptT - +document.getElementById("SPp2h1").innerText;		
+				//alert("Dp = "+pl2)
+				newH1ptT = H1ptT - +document.getElementById("SPp2h1").innerText;
+				newH2ptT = H2ptT - +document.getElementById("SPp2h2").innerText;	
+				newH3ptT = H3ptT - +document.getElementById("SPp2h3").innerText;
+				newH4ptT = H4ptT - +document.getElementById("SPp2h4").innerText;
+				newH5ptT = H5ptT - +document.getElementById("SPp2h5").innerText;
+				newH6ptT = H6ptT - +document.getElementById("SPp2h6").innerText;
+				newH7ptT = H7ptT - +document.getElementById("SPp2h7").innerText;
+				newH8ptT = H8ptT - +document.getElementById("SPp2h8").innerText;
+				newH9ptT = H9ptT - +document.getElementById("SPp2h9").innerText;
+				newH10ptT = H10ptT - +document.getElementById("SPp2h10").innerText;
+				newH11ptT = H11ptT - +document.getElementById("SPp2h11").innerText;
+				newH12ptT = H12ptT - +document.getElementById("SPp2h12").innerText;
+				newH13ptT = H13ptT - +document.getElementById("SPp2h13").innerText;
+				newH14ptT = H14ptT - +document.getElementById("SPp2h14").innerText;
+				newH15ptT = H15ptT - +document.getElementById("SPp2h15").innerText;
+				newH16ptT = H16ptT - +document.getElementById("SPp2h16").innerText;
+				newH17ptT = H17ptT - +document.getElementById("SPp2h17").innerText;
+				newH18ptT = H18ptT - +document.getElementById("SPp2h18").innerText;
 			}
 			if (Dp == pl3) {
-				alert("Dp = "+pl3);
+				//alert("Dp = "+pl3);
 				newH1ptT = H1ptT - +document.getElementById("SPp3h1").innerText;
+				newH2ptT = H2ptT - +document.getElementById("SPp3h2").innerText;
+				newH3ptT = H3ptT - +document.getElementById("SPp3h3").innerText;
+				newH4ptT = H4ptT - +document.getElementById("SPp3h4").innerText;
+				newH5ptT = H5ptT - +document.getElementById("SPp3h5").innerText;
+				newH6ptT = H6ptT - +document.getElementById("SPp3h6").innerText;
+				newH7ptT = H7ptT - +document.getElementById("SPp3h7").innerText;
+				newH8ptT = H8ptT - +document.getElementById("SPp3h8").innerText;
+				newH9ptT = H9ptT - +document.getElementById("SPp3h9").innerText;
+				newH10ptT = H10ptT - +document.getElementById("SPp3h10").innerText;
+				newH11ptT = H11ptT - +document.getElementById("SPp3h11").innerText;
+				newH12ptT = H12ptT - +document.getElementById("SPp3h12").innerText;
+				newH13ptT = H13ptT - +document.getElementById("SPp3h13").innerText;
+				newH14ptT = H14ptT - +document.getElementById("SPp3h14").innerText;
+				newH15ptT = H15ptT - +document.getElementById("SPp3h15").innerText;
+				newH16ptT = H16ptT - +document.getElementById("SPp3h16").innerText;
+				newH17ptT = H17ptT - +document.getElementById("SPp3h17").innerText;
+				newH18ptT = H18ptT - +document.getElementById("SPp3h18").innerText;
 			}
+			if (Dp == pl4) {
+				//alert("Dp = "+pl4);
+				newH1ptT = H1ptT - +document.getElementById("SPp4h1").innerText;
+				newH2ptT = H2ptT - +document.getElementById("SPp4h2").innerText;
+				newH3ptT = H3ptT - +document.getElementById("SPp4h3").innerText;
+				newH4ptT = H4ptT - +document.getElementById("SPp4h4").innerText;
+				newH5ptT = H5ptT - +document.getElementById("SPp4h5").innerText;
+				newH6ptT = H6ptT - +document.getElementById("SPp4h6").innerText;
+				newH7ptT = H7ptT - +document.getElementById("SPp4h7").innerText;
+				newH8ptT = H8ptT - +document.getElementById("SPp4h8").innerText;
+				newH9ptT = H9ptT - +document.getElementById("SPp4h9").innerText;
+				newH10ptT = H10ptT - +document.getElementById("SPp4h10").innerText;
+				newH11ptT = H11ptT - +document.getElementById("SPp4h11").innerText;
+				newH12ptT = H12ptT - +document.getElementById("SPp4h12").innerText;
+				newH13ptT = H13ptT - +document.getElementById("SPp4h13").innerText;
+				newH14ptT = H14ptT - +document.getElementById("SPp4h14").innerText;
+				newH15ptT = H15ptT - +document.getElementById("SPp4h15").innerText;
+				newH16ptT = H16ptT - +document.getElementById("SPp4h16").innerText;
+				newH17ptT = H17ptT - +document.getElementById("SPp4h17").innerText;
+				newH18ptT = H18ptT - +document.getElementById("SPp4h18").innerText;
+			}
+			if (Dp == pl5) {
+				//alert("Dp = "+pl5);
+				newH1ptT = H1ptT - +document.getElementById("SPp5h1").innerText;
+				newH2ptT = H2ptT - +document.getElementById("SPp5h2").innerText;
+				newH3ptT = H3ptT - +document.getElementById("SPp5h3").innerText;
+				newH4ptT = H4ptT - +document.getElementById("SPp5h4").innerText;
+				newH5ptT = H5ptT - +document.getElementById("SPp5h5").innerText;	
+				newH6ptT = H6ptT - +document.getElementById("SPp5h6").innerText;
+				newH7ptT = H7ptT - +document.getElementById("SPp5h7").innerText;
+				newH8ptT = H8ptT - +document.getElementById("SPp5h8").innerText;
+				newH9ptT = H9ptT - +document.getElementById("SPp5h9").innerText;
+				newH10ptT = H10ptT - +document.getElementById("SPp5h10").innerText;
+				newH11ptT = H11ptT - +document.getElementById("SPp5h11").innerText;
+				newH12ptT = H12ptT - +document.getElementById("SPp5h12").innerText;
+				newH13ptT = H13ptT - +document.getElementById("SPp5h13").innerText;
+				newH14ptT = H14ptT - +document.getElementById("SPp5h14").innerText;
+				newH15ptT = H15ptT - +document.getElementById("SPp5h15").innerText;
+				newH16ptT = H16ptT - +document.getElementById("SPp5h16").innerText;
+				newH17ptT = H17ptT - +document.getElementById("SPp5h17").innerText;
+				newH18ptT = H18ptT - +document.getElementById("SPp5h18").innerText;
+			}			
 			if (Dp == "") {
-				alert("Dp = "+"");
-				newH1ptT = H1ptT;
+				//alert("Dp = "+"");
+				newH1ptT = H1ptT; newH2ptT = H2ptT; newH3ptT = H3ptT; newH4ptT = H4ptT; newH5ptT = H5ptT;
+				newH6ptT = H6ptT; newH7ptT = H7ptT; newH8ptT = H8ptT; newH9ptT = H9ptT; 
+				newH10ptT = H10ptT;
+				newH11ptT = H11ptT; newH12ptT = H12ptT; newH13ptT = H13ptT; newH14ptT = H14ptT; newH15ptT = H15ptT;
+				newH16ptT = H16ptT; newH17ptT = H17ptT; newH18ptT = H18ptT;
 			}
-		//}
-
-		
-		//if ( Dp == "DZ" ) { newH1ptT = H1ptT - +document.getElementById("SPp3h1").innerText; }	  
-				/*
-				IF(B$2=2,Table 3::G7−Table 3::B7, >	if ( Dp == p3 ) { H1ptT - +document.getElementById("SPp1h1").innerText; }
-				IF(B$2=1,Table 3::G7−Table 3::A7,
-				IF(B$2=3,Table 3::G7−Table 3::C7,
-				IF(B$2=4,Table 3::G7−Table 3::D7,
-				IF(B$2=5,Table 3::G7−Table 3::E7,
-				Table 3::G7)))))			  
-				*/			  
-		
-		alert("Player to be dropped: "+Dp+"\n"+"H1ptT = "+H1ptT+" | newH1ptT = "+newH1ptT);
+			
+		alert("Player to be dropped: "+Dp);	//+"\n"+"H1ptT = "+H1ptT+" | newH1ptT = "+newH1ptT);
 					  /* Problem if pt is minus (-)!
 					  	 BUT - max = par + HCP strokes + 2 > net dbl bogey > 0 so should be OK. */
 						 
 		document.getElementById("H1ptT").innerText = newH1ptT;	
+		document.getElementById("H2ptT").innerText = newH2ptT;	
+		document.getElementById("H3ptT").innerText = newH3ptT;	
+		document.getElementById("H4ptT").innerText = newH4ptT;	
+		document.getElementById("H5ptT").innerText = newH5ptT;	
+		document.getElementById("H6ptT").innerText = newH6ptT;	
+		document.getElementById("H7ptT").innerText = newH7ptT;	
+		document.getElementById("H8ptT").innerText = newH8ptT;	
+		document.getElementById("H9ptT").innerText = newH9ptT;	
+		document.getElementById("H10ptT").innerText = newH10ptT;
+		document.getElementById("H11ptT").innerText = newH11ptT;	
+		document.getElementById("H12ptT").innerText = newH12ptT;	
+		document.getElementById("H13ptT").innerText = newH13ptT;	
+		document.getElementById("H14ptT").innerText = newH14ptT;	
+		document.getElementById("H15ptT").innerText = newH15ptT;	
+		document.getElementById("H16ptT").innerText = newH16ptT;	
+		document.getElementById("H17ptT").innerText = newH17ptT;	
+		document.getElementById("H18ptT").innerText = newH18ptT;
+	
+		var newF9t = +newH1ptT + +newH2ptT + +newH3ptT + +newH4ptT + +newH5ptT + +newH6ptT + +newH7ptT + +newH8ptT + +newH9ptT;
+		var newB9t = +newH10ptT + +newH11ptT + +newH12ptT + +newH13ptT + +newH14ptT + +newH15ptT + +newH16ptT + +newH17ptT + +newH18ptT;
+		var new18t = +newF9t + +newB9t;
+		document.getElementById("f9ptT").innerText = newF9t;	//newH18ptT;
+		document.getElementById("b9ptT").innerText = newB9t;	//newH18ptT;
+		document.getElementById("18ptT").innerText = new18t;	//newH18ptT;	
+	
 			document.getElementById("DROPcheck").style.visibility = "visible";			
-		
+			document.getElementById("pDone").innerText = Dp;		
+			document.getElementById("pDone").style.visibility = "visible";
+			document.getElementById("pDROPPED").value = "";		
+			
 	}
 	
 	function showINFO() {
@@ -1027,7 +1217,7 @@
 			document.getElementById("DROPdiv").style.position = "fixed";
 			document.getElementById("DROPdiv").style.left = '50%';
 			document.getElementById("DROPdiv").style.top = '42%';
-				//document.getElementById("DROPdiv").style.height = '600px;';
+				//document.getElementById("DROPdiv").style.height = "400px;";
 			
 			//document.getElementById("DROPdiv").style.top = "100px";
 		}
@@ -1043,7 +1233,7 @@
 					- element.tabIndex = -1	*/
 		//alert("in 'restrictTAB' fn!");	
 		if ( document.getElementById("p5NAME").value == "" ) {
-			alert("p5NAME element is empty! Will disable it's inputs.");
+			//alert("p5NAME element is empty! Will disable it's inputs.");
 				//document.getElementById("p5h1").style.tabIndex = '-1';		// p1h1')" tabindex="1"
 				//document.getElementById("p5h2").style.tabIndex = '-1';
 				//document.getElementById("p5h3").style.tabIndex = '-1';
@@ -1064,10 +1254,12 @@
 			document.getElementById('p5h15').setAttribute('disabled', '');
 			document.getElementById('p5h16').setAttribute('disabled', '');
 			document.getElementById('p5h17').setAttribute('disabled', '');
-			document.getElementById('p5h18').setAttribute('disabled', '');
+			document.getElementById('p5h18').setAttribute('disabled', '');			
+					//document.getElementById('gTf9p5').setAttribute('disabled', '');
+					//document.getElementById('sTf9p5').setAttribute('disabled', '');
 		} 					
 		else { 
-			alert("p5NAME element is NOT empty! How do you ENABLE a 'disabled' input?");
+			//alert("p5NAME element is NOT empty! How do you ENABLE a 'disabled' input?");
 			//document.getElementById('p5h1').setAttribute('disabled', false); 
 			document.getElementById("p5h1").disabled = false;
 			document.getElementById("p5h2").disabled = false;
@@ -1090,7 +1282,7 @@
 		}
 		
 		if ( document.getElementById("p4NAME").value == "" ) {
-			alert("p4NAME element is empty! Will disable it's inputs.");			
+			//alert("p4NAME element is empty! Will disable it's inputs.");			
 			let get = document.getElementById('p4h1');
 				get.setAttribute('disabled', '');
 			document.getElementById('p4h2').setAttribute('disabled', '');
@@ -1112,7 +1304,7 @@
 			document.getElementById('p4h18').setAttribute('disabled', '');			
 		} 							
 		else { 
-			alert("p4NAME element is NOT empty! Will ENABLE it's 'disabled' inputs.");
+			//alert("p4NAME element is NOT empty! Will ENABLE it's 'disabled' inputs.");
 			//document.getElementById('p5h1').setAttribute('disabled', false); 
 			document.getElementById("p4h1").disabled = false;
 			document.getElementById("p4h2").disabled = false;
