@@ -927,9 +927,45 @@
   	}				
 
 	function save() {
-		alert("Just take a screenshot!");
+		alert("Just take a screenshot!\n\n" +
+			  "Will 'save' some selected input variables to 'localStorage' for later retrieval . . .");
 		//https://stackoverflow.com/questions/21012580/is-it-possible-to-write-data-to-file-using-only-javascript
+		/* https://stackoverflow.com/questions/29357931/how-to-save-a-javascript-variable:
+					- can use localStorage on client side:
+							<script>
+							  localStorage.setItem("mykey",99); // set a variable
+							  var varNumber = localStorage.getItem("mykey"); // retrieve variable
+							</script> */
+		localStorage.setItem("mykey",99); // set a variable
+		localStorage.setItem("guy1",document.getElementById("p1NAME").value); // set a variable
+		localStorage.setItem("guy2",document.getElementById("p2NAME").value); // set a variable
+		//var varNumber = localStorage.getItem("mykey"); // retrieve variable
+		//alert("'varNumber' variable to test 'localStorage' = "+varNumber);
+		localStorage.setItem("guy3",document.getElementById("p3NAME").value); 
+		localStorage.setItem("guy3HC",document.getElementById("p3HC").value); 
+		localStorage.setItem("guy3H1scr",document.getElementById("p3h1").value); 
+		localStorage.setItem("guy3H1pts",document.getElementById("SPp3h1").innerText); 
+		localStorage.setItem("grpH1pts",document.getElementById("SPgpH1").innerText); 
+		localStorage.setItem("grpF9pts",document.getElementById("sTf9gp").innerText); 		
+	}
+	function retrieve() {
+		var varNumber = localStorage.getItem("mykey"); // retrieve variable
+		var varName = localStorage.getItem("guy1"); // retrieve variable
+		var varName2 = localStorage.getItem("guy2"); // retrieve variable
 		
+		var vGUY3 = localStorage.getItem("guy3");
+		var vG3hc = localStorage.getItem("guy3HC");
+		var vG3h1sc = localStorage.getItem("guy3H1scr");
+		var vG3h1pt = localStorage.getItem("guy3H1pts");
+		var vGPh1pt = localStorage.getItem("grpH1pts");
+		var vGPf9pt = localStorage.getItem("grpF9pts");
+		
+		alert("'varNumber' variable to test 'localStorage' = "+varNumber+"\n"+
+			 "'guy1/varName' variable = "+varName+"\n"+
+			 "'guy2/varName2' variable = "+varName2+"\n\n"+
+			 "vGUY3: "+vGUY3+" | vG3hc: "+vG3hc+"\n"+
+			 "vG3h1sc: "+vG3h1sc+" | vG3h1pt: "+vG3h1pt+"\n"+
+			 "vGPh1pt: "+vGPh1pt+" | vGPf9pt: "+vGPf9pt);
 	}	
 
 	function pHCcolors() {		//pHCcolors(player) {

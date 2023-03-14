@@ -33,6 +33,7 @@
 	.wrapper {
 	  /* Making the wrapper stack above the body */
 	  z-index: 2;
+	  padding:30px; /* < my add (Mar 14/23) */
 	}
 
 	
@@ -83,7 +84,8 @@
 	
 		/* CSS Hack: Disable Chrome’s Pull-to-Refresh on Android:
 				        https://w3bits.com/prevent-chrome-pull-to-refresh-css/ 
-				- trick lies in taking the body and it’s inside container division out of the document flow while maintaining the element stacking. */
+				- trick lies in taking the body and it’s inside container division out of the document flow while maintaining the element stacking. 
+				- seems to work with Chrome but NOT Duck-Duck-Go */
 				
 				
 }
@@ -154,6 +156,8 @@
 								<button id='INFObtn' onclick="showINFO()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><b>Round Info +/-</b></button><br>
 								<br>
 								<button id='NOTESbtn' onclick="showNOTES()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><i>coding notes</i></button><br>
+								<button id='SAVEbtn' onclick="save()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><i>save</i></button>
+								<button id='RETRIEVEbtn' onclick="retrieve()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><i>retrieve</i></button>
 
 						  </div>
 					</div>		
@@ -741,7 +745,7 @@
 
 				<!--    ==================================================    -->
 				
-	<div id="HOMEdiv" style="border-radius:10px; padding:5px;border:3px slategray outset; background:black; 	color:white; position:fixed; left:0em; top:0px;">
+	<div id="HOMEdiv" style="border-radius:10px; padding:5px;border:3px slategray outset; background:black; 	color:white; position:fixed; left:1em; top:10px;">
 		<A href="index.html" style="color:moccasin; font-size:100px;"> &#x2302;<!--HOME symbol--></A>	
 	</div>
 
