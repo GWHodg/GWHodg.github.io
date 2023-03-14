@@ -1,0 +1,751 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>GSpxl2b</title>
+	<!-- https://www.w3schools.com/jsref/jsref_split.asp -->
+	<!-- Using whichever browser you choose, Tap this link below to install 'WaltStuff': https://GWHodg.github.io -->
+
+<style>
+	/* body { padding:20px; } */
+	.body,
+	.wrapper {
+	  /* Break the flow */
+	  position: absolute;
+	  top: 0px;
+	
+	  /* Give them all the available space */
+	  width: 100%;
+	  height: 100%;
+	
+	  /* Remove the margins if any */
+	  margin: 0;
+	
+	  /* Allow them to scroll down the document */
+	  overflow-y: hidden;
+	}
+	
+	.body {
+	  /* Sending body at the bottom of the stack */
+	  z-index: 1;
+	}
+	
+	.wrapper {
+	  /* Making the wrapper stack above the body */
+	  z-index: 2;
+	}
+
+	
+	table.table2 thead { display:block; }
+	table.table2 tbody { height:300px; overflow-y:scroll; display:block; } /* height:300px; was 200 ht */
+	table.table2 td { width: 40px; background:black; color:white; text-align:center;}
+	table.table2 th { width: 40px; background:yellow; color:maroon }
+	
+	input { width:11px; font-size:15px; text-align:center; }
+		input.uncoded { background:gray; } /* beige ivory linen */
+		input.inptTXT { background:gray; width:110px; } /* beige ivory linen */
+	span { color:white; background:black; font-size:12px; }
+		span.gTOT { color:black; background:white; font-size:12px; border:0px solid blue; border-radius:0px; padding:2px; font-weight:bold; }
+		span.sliderVAL { color:black; background:white; font-size:20px; border:1px solid blue; border-radius:0px; padding:5px; font-weight:bold; }  /* < slider */
+
+	.slidecontainer {
+	  width:25%;	/* 30%; /* Width of the outside container */
+	  border:3px solid red; border-radius:10px;
+	  margin:auto; padding:10px;
+	  position:fixed; left:20em; top:300px;  	/*left:30em; top:40px;*/  
+	  opacity:100%; background:white;	/*transparent;*/ 
+	  visibility:hidden;
+	  z-index:100;
+  	}	
+
+	table.DROPtbl, td, th { text-align: center; }
+
+		/* dropUP menu: */
+			.dropbtn { 
+				/* position:absolute; left:30px; */
+				margin-left: 0px;	/*125px;*/
+				border-radius:10px; cursor:grabbing; background:orange; color:black;
+				BORDER-RIGHT: outset; BORDER-TOP: outset;  
+				BORDER-LEFT: outset; BORDER-BOTTOM: outset
+			}	
+					  /* background-color: #3498DB; color: white;
+			           padding: 5px; font-size: 16px; border: none; */
+			.dropup { position: relative; display: inline-block; }			
+			.dropup-content { display: none; position:absolute; left:-25px; background-color: #f1f1f1;
+			  			      min-width:200px; bottom: -460px; z-index: 1; }	
+							  /*  bottom: -240px; left:55px;  bottom: 0px;  position: absolute; */	
+			.dropup-content a { color: black; padding: 5px 6px; text-decoration: none; display: block; }	
+										/* padding: 12px 16px;  */
+			.dropup-content a:hover {background-color:green;}	/* #ccc */		
+			.dropup:hover .dropup-content { display: block; }			
+			.dropup:hover .dropbtn { background-color: #2980B9; 
+				
+	
+		/* CSS Hack: Disable Chrome’s Pull-to-Refresh on Android:
+				        https://w3bits.com/prevent-chrome-pull-to-refresh-css/ 
+				- trick lies in taking the body and it’s inside container division out of the document flow while maintaining the element stacking. */
+				
+				
+}
+	
+</style>
+
+<script src="gsJSpxl2.js"></script>
+<script>
+	function hideMENU() {
+		//document.getElementById("miscCONTENT").style.visibility="hidden";
+		document.getElementById("menuCONTENT").style.visibility="hidden";
+	}
+	function showMENU(topic) {
+		if (topic=="tipMENU") {
+			document.getElementById("menuCONTENT").style.visibility="visible";
+		}
+		if (topic=="tipMENU") {
+			document.getElementById("menuCONTENT").style.visibility="visible";
+		}
+	}
+
+//How to save a javascript variable:
+  localStorage.setItem("mykey",99); // set a variable
+  var varNumber = localStorage.getItem("mykey"); // retrieve variable
+  
+</script>	
+</script>	
+</head>
+
+<body class="body">
+<div class="wrapper"><!-- Put the page contents here -->
+	
+	<label style="FONT-WEIGHT: bold; FONT-SIZE:25px; COLOR:white; background:royalblue; position:relative; left:25%; border:3px solid black; border-radius:10px; opacity:100%; padding:5px;">VGC blue <font size=2 color=silver><i>(GS<b>pxl2b</b>)</i></font></label>
+	
+	<!--<span style="font-size:30px;cursor:pointer; color:blue; background:white; position:relative; left:38%;" onclick="openMENU()">&#9776;</span>-->	<!-- position:absolute; LEFT:750px; top:30px;  -->
+
+					<div class="dropup" style="cursor:pointer; color:black; background:white; position:relative; left:28%;">
+						  <button class="dropbtn" id='menuBTN' onclick="showMENU('tipMENU')" style="background:white;">
+						  	  	<span style="font-size:30px;cursor:pointer; color:white;" 
+								onclick="">&#9776;</span>
+						  </button>
+						  <div class="dropup-content" style="border:3px solid red; border-radius:10px;"
+						  id="menuCONTENT">		
+									<span style="float:right; text-align:right; padding-right: 5px;">
+										<button id="OKbtn" onclick="hideMENU()" style="FONT-WEIGHT: bold; 
+										FONT-SIZE:15px; COLOR:black">close</button>
+									</span>	<br>		
+								<a> </a>
+								<a> </a>										
+								<button id='calcALLbtn' onclick="calcALL()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:white; background:blue; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>STABLEFORD Points</b></u></button> <br>
+								<br>
+								<button id='calcTOTbtn' onclick="calcTOTALS()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>TOTALS</b></u></button><br>
+								<br>
+								<button id='STROKESbtn' onclick="pHCcolors()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;">Display Stroke Holes<br>
+										<span style='background:lime; color:black;'>&nbsp;1&nbsp;</span>&emsp;
+										<span style='background:green;'>&nbsp;2&nbsp;</span>&emsp;
+										<span style='background:white; color:black;'>&nbsp;0&nbsp;</span>
+								</button> <br>
+								<br>
+								<button id='SLIDEbtn' onclick="showSLIDE()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">Slider Input</button> <br>	
+								<br>
+								<button id='TABbtn' onclick="restrictTAB()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><b>Disable/Enable Inputs<!--Restrict Tabs--><!--bing--></b></button><br>
+								<br>
+								<button id='DROPbtn' onclick="showDROP()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><b>Drop Box!</b></button><br>
+								<br>								
+								<button id='FULLbtnMNU' onclick="FULLtbl()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><b>DISPLAY +/-</b></button><br>
+								<br>
+								<button id='INFObtn' onclick="showINFO()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><b>Round Info +/-</b></button><br>
+								<br>
+								<button id='NOTESbtn' onclick="showNOTES()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><i>coding notes</i></button><br>
+
+						  </div>
+					</div>		
+	
+	<input type="text" id="DATE" tabindex="300" style="background:white; color:blue; width:100px; position:relative; left:30%;" placeholder="Apr 14/23" value="Apr 14/23" >
+
+				<!--    ===================== SLIDER =================================    -->
+	
+	<div class="slidecontainer" id='SLIDER'>
+  		<input type="range" min="0" max="10" value="0" class="slider" id="myRange" 
+			style="width:200px;"><br>
+		<br>
+		<!--Strokes:--> <span id="demo" class="sliderVAL"></span><!--&emsp;-->
+		<a onclick=" hideSLIDE()" style="float:right; cursor:pointer; font-size:30px;"><b>&times;</b></a>
+			<button id='ENTERbtn' onclick="enterHscr()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:white; background:black; border:3px solid orange; border-radius:10px;">Enter</button>
+			<input type="text" id="p&h" style="background:white; width:45px; border:1px solid blue; border-radius:10px;" placeholder="p3h7"><br>
+
+		<span id='NEarw' onclick="NEslide()" style='display:inline-block; color:black; background:white; FONT-SIZE:30px;'>&#8663;</span>
+						<!--NE arrow   &#8599;   display:inline-block; or none; -->
+		&emsp;
+		<span id='NEarw' onclick="SWslide()" style='display:inline-block; color:black; background:white; FONT-SIZE:30px;'>&#8665;</span><!--SW arrow &#8601; -->
+			
+						<span id='check' class='gTOT' style="position:relative; left:30%; font-size:20px; visibility:hidden;"><b>√</b></span>			
+						<button id='+btn' onclick="focusNextElement()" style="FONT-WEIGHT:bold; FONT-SIZE:10px; COLOR:blue; background:ivory; border:1px solid blue; border-radius:0px; position:relative; left:40%;">+</button>
+						&emsp;
+						<button id='-btn' onclick="focusPreviousElement()" style="FONT-WEIGHT:bold; FONT-SIZE:10px; COLOR:blue; background:ivory; border:1px solid blue; border-radius:0px; position:relative; left:40%;">-</button>
+						
+							<!-- ⇕	8661	21D5	 	UP DOWN DOUBLE ARROW
+								 ⇖	8662	21D6	 	NORTH WEST DOUBLE ARROW
+								 ⇗	8663	21D7	 	NORTH EAST DOUBLE ARROW   &#8663;
+								 ⇘	8664	21D8	 	SOUTH EAST DOUBLE ARROW
+								 ⇙	8665	21D9	 	SOUTH WEST DOUBLE ARROW       -->		
+	</div>	
+	
+				<!--    ===============================================================    -->
+	
+	<table class="table2" id="SCOREStbl" border='3'   align=center 
+	style='FONT-SIZE:large; color:maroon; visibility:visible;' bgcolor='lightgreen'>
+		<thead> <!--  bgcolor='gray' style="color:white;" -->
+				<th>H</th>
+				<th><input type="text" id="p1NAME" tabindex="201" style="background:silver; width:60%;" placeholder="WH" value="WH"></th>	<!-- P1 -->
+				<th><input type="text" id="p2NAME" tabindex="203" style="background:silver; width:60%;" placeholder="AB" value="AB"></th> <!-- P2 -->
+				<th><input type="text" id="p3NAME" tabindex="205" style="background:silver; width:60%;" placeholder="DZ" value="DZ"></th> 
+				<th><input type="text" id="p4NAME" tabindex="207" style="background:silver; width:60%;" placeholder="BP" value="BP"></th>
+				<th><input type="text" id="p5NAME" tabindex="209" style="background:silver; width:60%;" placeholder="DP"></th>	
+				<th>H</th>
+				<th>par</th>
+				<th>hcp</th>	
+		</thead>
+		<tbody id='TBLbody'> 							
+			<TR>
+				<TH style="background:lightgreen;"></TH>
+				<TH><input type="number" id="p1HC" name='NMp1hc' autofocus tabindex="202" style="background:silver; width:60%; font-weight:bold;" placeholder=24 value=24 ></TH> <!-- onchange="pHCcolors('p1')" -->
+				<TH><input type="number" id="p2HC" tabindex="204" style="background:silver; width:60%;" placeholder=17 value=17></TH> <!-- P2 HC -->
+				<TH><input type="number" id="p3HC" tabindex="206" style="background:silver; width:60%;" placeholder=10 value=10></TH>
+				<TH><input type="number" id="p4HC" tabindex="208" style="background:silver; width:60%;" placeholder=13   value=13></TH>
+				<TH><input type="number" id="p5HC" tabindex="210" style="background:silver; width:60%;" placeholder=0 value=0></TH>
+				<TD  colspan=3 style="background:transparent;"> <!--  float:right; -->
+					<!--<button id='SLIDEbtn' onclick="showSLIDE()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">Slider Input</button>	-->
+					<button id='FULLbtn2' onclick="FULLtbl()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:blue; background:transparent; border:0px solid blue; border-radius:5px;">+</button>
+				</TD>
+			</TR>
+			<tr>
+				<TH>1</TH>
+				<td> <input class='' type="number" id="p1h1"  onclick="changeGLOBAL('p1h1')" tabindex="1"><span id='SPp1h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
+				<td> <input class='' type="number" id="p2h1" onclick="changeGLOBAL('p2h1')"  tabindex="2"><span id='SPp2h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	
+				<td> <input class='' type="number" id="p3h1" onclick="changeGLOBAL('p3h1')" tabindex="3"><span id='SPp3h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
+				<td> <input class='' type="number" id="p4h1" onclick="changeGLOBAL('p4h1')" tabindex="4" ><span id='SPp4h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	
+				<td> <input class='' type="number" id="p5h1" onclick="changeGLOBAL('p5h1')"  tabindex="5"><span id='SPp5h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
+				<TH>1 <span id='SPgpH1' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="PARh1" style="background:white; color:black; width:60%;" placeholder=5 value=5 readonly>
+				</TD>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="HCPh1" style="background:white;  color:black; width:60%;" placeholder=13 value=13 readonly>
+				</TD>
+			</tr>
+			<tr>
+				<TH>2</TH>
+				<td> <input class='' type="number" id="p1h2" onclick="changeGLOBAL('p1h2')" tabindex="6"><span id='SPp1h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
+				<td>	<!-- style='background:orange;' --> 
+					<input class='' type="number" id="p2h2" onclick="changeGLOBAL('p2h2')" tabindex="7"><span id='SPp2h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
+				<td> <input class='' type="number" id="p3h2" onclick="changeGLOBAL('p3h2')" tabindex="8"><span id='SPp3h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
+				<td> <input class='' type="number" id="p4h2" onclick="changeGLOBAL('p4h2')" tabindex="9"><span id='SPp4h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
+				<td> <input class='' type="number" id="p5h2" onclick="changeGLOBAL('p5h2')" tabindex="10"><span id='SPp5h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>
+				<TH>2 <span id='SPgpH2' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH> <!-- &nbsp;&nbsp; ** -->
+				<TD style='background:white; color:black;'>
+					<input type="number" id="PARh2" style="background:white; color:black; width:60%;" placeholder=3 value=3 readonly>
+				</TD>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="HCPh2" style="background:white;  color:black; width:60%;" placeholder=17 value=17 readonly>
+				</TD>
+			</tr>				
+			<tr> <TH>3</TH> 
+				<td> <input type="number" id="p1h3" onclick="changeGLOBAL('p1h3')" tabindex="11"><span id='SPp1h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td> <input type="number" id="p2h3" onclick="changeGLOBAL('p2h3')" tabindex="12"><span id='SPp2h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td> <input class='' type="number" id="p3h3" onclick="changeGLOBAL('p3h3')" tabindex="13"><span id='SPp3h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p4h3" onclick="changeGLOBAL('p4h3')" tabindex="14"><span id='SPp4h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p5h3" onclick="changeGLOBAL('p5h3')" tabindex="15"><span id='SPp5h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<TH>3 <span id='SPgpH3' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="PARh3" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
+				</TD>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="HCPh3" style="background:white;  color:black; width:60%;" placeholder=1 value=1 readonly>
+				</TD>				
+				<!--<TD style='background:white; color:black;'>4</TD> <TD style='background:white; color:black;'>1</TD>-->
+			</tr>	
+			<tr> <TH>4</TH> 
+				<td> <input class='' type="number" id="p1h4" onclick="changeGLOBAL('p1h4')" tabindex="16"><span id='SPp1h4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td> <input class='' type="number" id="p2h4" onclick="changeGLOBAL('p2h4')" tabindex="17"><span id='SPp2h4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td> <input class='' type="number" id="p3h4" onclick="changeGLOBAL('p3h4')" tabindex="18"><span id='SPp3h4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p4h4" onclick="changeGLOBAL('p4h4')" tabindex="19"><span id='SPp4h4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p5h4" onclick="changeGLOBAL('p5h4')" tabindex="20"><span id='SPp5h4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<TH>4 <span id='SPgpH4' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="PARh4" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
+				</TD>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="HCPh4" style="background:white;  color:black; width:60%;" placeholder=5 value=5 readonly>
+				</TD>								
+			</tr>	
+			<tr> <TH>5</TH> 
+				<td> <input class='' type="number" id="p1h5" onclick="changeGLOBAL('p1h5')" tabindex="21"><span id='SPp1h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td> <input class='' type="number" id="p2h5" onclick="changeGLOBAL('p2h5')" tabindex="22"><span id='SPp2h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td> <input class='' type="number" id="p3h5" onclick="changeGLOBAL('p3h5')" tabindex="23"><span id='SPp3h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p4h5" onclick="changeGLOBAL('p4h5')" tabindex="24"><span id='SPp4h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p5h5" onclick="changeGLOBAL('p5h5')" tabindex="25"><span id='SPp5h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<TH>5 <span id='SPgpH5' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="PARh5" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
+				</TD>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="HCPh5" style="background:white;  color:black; width:60%;" placeholder=7 value=7 readonly>
+				</TD>								
+			</tr>	
+			<tr> <TH>6</TH> 
+				<td> <input class='' type="number" id="p1h6" onclick="changeGLOBAL('p1h6')" tabindex="26"><span id='SPp1h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td> <input class='' type="number" id="p2h6" onclick="changeGLOBAL('p2h6')" tabindex="27"><span id='SPp2h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td> <input class='' type="number" id="p3h6" onclick="changeGLOBAL('p3h6')" tabindex="28"><span id='SPp3h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p4h6" onclick="changeGLOBAL('p4h6')" tabindex="29"><span id='SPp4h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p5h6" onclick="changeGLOBAL('p5h6')" tabindex="30"><span id='SPp5h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<TH>6 <span id='SPgpH6' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="PARh6" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
+				</TD>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="HCPh6" style="background:white;  color:black; width:60%;" placeholder=11 value=11 readonly>
+				</TD>										
+			</tr>	
+			<tr> <TH>7</TH> 
+				<td> <input class='' type="number" id="p1h7" onclick="changeGLOBAL('p1h7')" tabindex="31"><span id='SPp1h7' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td> <input class='' type="number" id="p2h7" onclick="changeGLOBAL('p2h7')" tabindex="32"><span id='SPp2h7' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td> <input class='' type="number" id="p3h7" onclick="changeGLOBAL('p3h7')" tabindex="33"><span id='SPp3h7' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p4h7" onclick="changeGLOBAL('p4h7')" tabindex="34"><span id='SPp4h7' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p5h7" onclick="changeGLOBAL('p5h7')" tabindex="35"><span id='SPp5h7' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<TH>7 <span id='SPgpH7' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="PARh7" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
+				</TD>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="HCPh7" style="background:white;  color:black; width:60%;" placeholder=3 value=3 readonly>
+				</TD>										
+			</tr>
+			<tr> <TH>8</TH> 
+				<td> <input class='' type="number" id="p1h8" onclick="changeGLOBAL('p1h8')" tabindex="36"><span id='SPp1h8' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td> <input class='' type="number" id="p2h8" onclick="changeGLOBAL('p2h8')" tabindex="37"><span id='SPp2h8' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td> <input class='' type="number" id="p3h8" onclick="changeGLOBAL('p3h8')" tabindex="38"><span id='SPp3h8' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p4h8" onclick="changeGLOBAL('p4h8')" tabindex="39"><span id='SPp4h8' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p5h8" onclick="changeGLOBAL('p5h8')" tabindex="40"><span id='SPp5h8' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<TH>8 <span id='SPgpH8' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="PARh8" style="background:white; color:black; width:60%;" placeholder=3 value=3 readonly>
+				</TD>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="HCPh8" style="background:white;  color:black; width:60%;" placeholder=15 value=15 readonly>
+				</TD>										
+			</tr>
+			<tr> <TH>9</TH> 
+				<td> <input class='' type="number" id="p1h9" onclick="changeGLOBAL('p1h9')" tabindex="41"><span id='SPp1h9' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td> <input class='' type="number" id="p2h9" onclick="changeGLOBAL('p2h9')" tabindex="42"><span id='SPp2h9' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td> <input class='' type="number" id="p3h9" onclick="changeGLOBAL('p3h9')" tabindex="43"><span id='SPp3h9' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p4h9" onclick="changeGLOBAL('p4h9')" tabindex="44"><span id='SPp4h9' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p5h9" onclick="changeGLOBAL('p5h9')" tabindex="45"><span id='SPp5h9' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<TH>9 <span id='SPgpH9' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="PARh9" style="background:white; color:black; width:60%;" placeholder=3 value=3 readonly>
+				</TD>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="HCPh9" style="background:white;  color:black; width:60%;" placeholder=9 value=9 readonly>
+				</TD>										
+			</tr>	
+	
+			<TR>
+				<TH  style="background:lightgreen;">F9</TH>
+				<TD style='background:white; color:black;'>
+					<span class="gTOT" id='gTf9p1'>00</span>
+					<span id='sTf9p1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">00</span>
+				</TD>				
+				<TD style='background:white; color:black;'>  <!-- * -->
+					<span class="gTOT" id='gTf9p2'>00<!--&nbsp;&nbsp;--></span>
+					<span id='sTf9p2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">00<!--&nbsp;&nbsp;--></span>
+				</TD>
+				<TD style='background:white; color:black;'>
+					<span class="gTOT" id='gTf9p3'>00</span>
+					<span id='sTf9p3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">00</span>
+				</TD>
+				<TD style='background:white; color:black;'>
+					<span class="gTOT" id='gTf9p4'>00</span>
+					<span id='sTf9p4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">00</span>
+				</TD>								
+				<TD style='background:white; color:black;'>
+					<span class="gTOT" id='gTf9p5'>00</span>
+					<span id='sTf9p5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">00</span>
+				</TD>
+				<TD style="background:lightgreen;">
+					<span id='sTf9gp' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold; font-size:20px;">00</span>  <!-- F9 SF pt gp total  ** -->
+				</TD>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="PARfront" style="background:white; color:black; width:60%; font-weight:bold;" placeholder=34 value=34 readonly>
+				</TD>	
+				<TD style="background:lightgreen;">
+					<button id='FULLbtn' onclick="FULLtbl()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:blue; background:transparent; border:0px solid blue; border-radius:5px;">+</button>
+				</TD>				
+			</TR>
+
+						<!--    √√√√√√√√√√√√ \/ BACK NINE \/ √√√√√√√√√√√√√√√√√√     -->
+						
+			<tr>
+				<TH>10</TH>
+				<td> <input class='' type="number" id="p1h10"  onclick="changeGLOBAL('p1h10')" tabindex="46"><span id='SPp1h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
+				<td> <input class='' type="number" id="p2h10" onclick="changeGLOBAL('p2h10')"  tabindex="47"><span id='SPp2h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	
+				<td> <input class='' type="number" id="p3h10" onclick="changeGLOBAL('p3h10')" tabindex="48"><span id='SPp3h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
+				<td> <input class='' type="number" id="p4h10" onclick="changeGLOBAL('p4h10')" tabindex="49" ><span id='SPp4h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	
+				<td> <input class='' type="number" id="p5h10" onclick="changeGLOBAL('p5h10')"  tabindex="50"><span id='SPp5h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
+				<TH>10<span id='SPgpH10' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="PARh10" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
+				</TD>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="HCPh10" style="background:white;  color:black; width:60%;" placeholder=6 value=6 readonly>
+				</TD>
+			</tr>
+			<tr>
+				<TH>11</TH>
+				<td> <input class='' type="number" id="p1h11" onclick="changeGLOBAL('p1h11')" tabindex="51"><span id='SPp1h11' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
+				<td>	<!-- style='background:orange;' --> 
+					<input class='' type="number" id="p2h11" onclick="changeGLOBAL('p2h11')" tabindex="52"><span id='SPp2h11' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
+				<td> <input class='' type="number" id="p3h11" onclick="changeGLOBAL('p3h11')" tabindex="53"><span id='SPp3h11' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
+				<td> <input class='' type="number" id="p4h11" onclick="changeGLOBAL('p4h11')" tabindex="54"><span id='SPp4h11' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
+				<td> <input class='' type="number" id="p5h11" onclick="changeGLOBAL('p5h11')" tabindex="55"><span id='SPp5h11' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>
+				<TH>11<span id='SPgpH11' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="PARh11" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
+				</TD>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="HCPh11" style="background:white;  color:black; width:60%;" placeholder=2 value=2 readonly>
+				</TD>
+			</tr>				
+			<tr> <TH>12</TH> 
+				<td> <input type="number" id="p1h12" onclick="changeGLOBAL('p1h12')" tabindex="56"><span id='SPp1h12' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td> <input type="number" id="p2h12" onclick="changeGLOBAL('p2h12')" tabindex="57"><span id='SPp2h12' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td> <input class='' type="number" id="p3h12" onclick="changeGLOBAL('p3h12')" tabindex="58"><span id='SPp3h12' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p4h12" onclick="changeGLOBAL('p4h12')" tabindex="59"><span id='SPp4h12' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p5h12" onclick="changeGLOBAL('p5h12')" tabindex="60"><span id='SPp5h12' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<TH>12<span id='SPgpH12' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="PARh12" style="background:white; color:black; width:60%;" placeholder=5 value=5 readonly>
+				</TD>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="HCPh12" style="background:white;  color:black; width:60%;" placeholder=14 value=14 readonly>
+				</TD>				
+				<!--<TD style='background:white; color:black;'>4</TD> <TD style='background:white; color:black;'>1</TD>-->
+			</tr>							
+			<tr> <TH>13</TH> 
+				<td> <input type="number" id="p1h13" onclick="changeGLOBAL('p1h13')" tabindex="61"><span id='SPp1h13' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td> <input type="number" id="p2h13" onclick="changeGLOBAL('p2h13')" tabindex="62"><span id='SPp2h13' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td> <input class='' type="number" id="p3h13" onclick="changeGLOBAL('p3h13')" tabindex="63"><span id='SPp3h13' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p4h13" onclick="changeGLOBAL('p4h13')" tabindex="64"><span id='SPp4h13' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p5h13" onclick="changeGLOBAL('p5h13')" tabindex="65"><span id='SPp5h13' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<TH>13<span id='SPgpH13' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="PARh13" style="background:white; color:black; width:60%;" placeholder=3 value=3 readonly>
+				</TD>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="HCPh13" style="background:white;  color:black; width:60%;" placeholder=16 value=16 readonly>
+				</TD>				
+			</tr>
+			<tr>
+				<TH>14</TH>
+				<td> <input class='' type="number" id="p1h14" onclick="changeGLOBAL('p1h14')" tabindex="66"><span id='SPp1h14' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
+				<td>	<!-- style='background:orange;' --> 
+					<input class='' type="number" id="p2h14" onclick="changeGLOBAL('p2h14')" tabindex="67"><span id='SPp2h14' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
+				<td> <input class='' type="number" id="p3h14" onclick="changeGLOBAL('p3h14')" tabindex="68"><span id='SPp3h14' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
+				<td> <input class='' type="number" id="p4h14" onclick="changeGLOBAL('p4h14')" tabindex="69"><span id='SPp4h14' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
+				<td> <input class='' type="number" id="p5h14" onclick="changeGLOBAL('p5h14')" tabindex="70"><span id='SPp5h14' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>
+				<TH>14<span id='SPgpH14' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="PARh14" style="background:white; color:black; width:60%;" placeholder=3 value=3 readonly>
+				</TD>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="HCPh14" style="background:white;  color:black; width:60%;" placeholder=10 value=10 readonly>
+				</TD>
+			</tr>
+			<tr>
+				<TH>15</TH>
+				<td> <input class='' type="number" id="p1h15" onclick="changeGLOBAL('p1h15')" tabindex="71"><span id='SPp1h15' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
+				<td>	<!-- style='background:orange;' --> 
+					<input class='' type="number" id="p2h15" onclick="changeGLOBAL('p2h15')" tabindex="72"><span id='SPp2h15' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
+				<td> <input class='' type="number" id="p3h15" onclick="changeGLOBAL('p3h15')" tabindex="73"><span id='SPp3h15' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
+				<td> <input class='' type="number" id="p4h15" onclick="changeGLOBAL('p4h15')" tabindex="74"><span id='SPp4h15' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
+				<td> <input class='' type="number" id="p5h15" onclick="changeGLOBAL('p5h15')" tabindex="75"><span id='SPp5h15' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>
+				<TH>15<span id='SPgpH15' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="PARh15" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
+				</TD>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="HCPh15" style="background:white;  color:black; width:60%;" placeholder=4 value=4 readonly>
+				</TD>
+			</tr>
+			<tr>
+				<TH>16</TH>
+				<td> <input class='' type="number" id="p1h16" onclick="changeGLOBAL('p1h16')" tabindex="76"><span id='SPp1h16' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
+				<td>	<!-- style='background:orange;' --> 
+					<input class='' type="number" id="p2h16" onclick="changeGLOBAL('p2h16')" tabindex="77"><span id='SPp2h16' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
+				<td> <input class='' type="number" id="p3h16" onclick="changeGLOBAL('p3h16')" tabindex="78"><span id='SPp3h16' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
+				<td> <input class='' type="number" id="p4h16" onclick="changeGLOBAL('p4h16')" tabindex="79"><span id='SPp4h16' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
+				<td> <input class='' type="number" id="p5h16" onclick="changeGLOBAL('p5h16')" tabindex="80"><span id='SPp5h16' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>
+				<TH>16<span id='SPgpH16' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="PARh16" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
+				</TD>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="HCPh16" style="background:white;  color:black; width:60%;" placeholder=12 value=12 readonly>
+				</TD>
+			</tr>
+			<tr>
+				<TH>17</TH>
+				<td> <input class='' type="number" id="p1h17" onclick="changeGLOBAL('p1h17')" tabindex="81"><span id='SPp1h17' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
+				<td>	<!-- style='background:orange;' --> 
+					<input class='' type="number" id="p2h17" onclick="changeGLOBAL('p2h17')" tabindex="82"><span id='SPp2h17' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
+				<td> <input class='' type="number" id="p3h17" onclick="changeGLOBAL('p3h17')" tabindex="83"><span id='SPp3h17' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
+				<td> <input class='' type="number" id="p4h17" onclick="changeGLOBAL('p4h17')" tabindex="84"><span id='SPp4h17' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
+				<td> <input class='' type="number" id="p5h17" onclick="changeGLOBAL('p5h17')" tabindex="85"><span id='SPp5h17' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>
+				<TH>17<span id='SPgpH17' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="PARh17" style="background:white; color:black; width:60%;" placeholder=5 value=5 readonly>
+				</TD>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="HCPh17" style="background:white;  color:black; width:60%;" placeholder=18 value=18 readonly>
+				</TD>
+			</tr>
+			<tr>
+				<TH>18</TH>
+				<td> <input class='' type="number" id="p1h18" onclick="changeGLOBAL('p1h18')" tabindex="86"><span id='SPp1h18' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
+				<td>	<!-- style='background:orange;' --> 
+					<input class='' type="number" id="p2h18" onclick="changeGLOBAL('p2h18')" tabindex="87"><span id='SPp2h18' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
+				<td> <input class='' type="number" id="p3h18" onclick="changeGLOBAL('p3h18')" tabindex="88"><span id='SPp3h18' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
+				<td> <input class='' type="number" id="p4h18" onclick="changeGLOBAL('p4h18')" tabindex="89"><span id='SPp4h18' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
+				<td> <input class='' type="number" id="p5h18" onclick="changeGLOBAL('p5h18')" tabindex="90"><span id='SPp5h18' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>
+				<TH>18<span id='SPgpH18' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="PARh18" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
+				</TD>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="HCPh18" style="background:white;  color:black; width:60%;" placeholder=8 value=8 readonly>
+				</TD>
+			</tr>
+
+			<TR>
+				<TH  style="background:lightgreen;">B9</TH>
+				<TD style='background:white; color:black;'>
+					<span class="gTOT" id='gTb9p1'>00</span>
+					<span id='sTb9p1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">00</span>
+				</TD>				
+				<TD style='background:white; color:black;'>  <!-- * -->
+					<span class="gTOT" id='gTb9p2'>00<!--&nbsp;&nbsp;--></span>
+					<span id='sTb9p2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">00<!--&nbsp;&nbsp;--></span>
+				</TD>
+				<TD style='background:white; color:black;'>
+					<span class="gTOT" id='gTb9p3'>00</span>
+					<span id='sTb9p3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">00</span>
+				</TD>
+				<TD style='background:white; color:black;'>
+					<span class="gTOT" id='gTb9p4'>00</span>
+					<span id='sTb9p4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">00</span>
+				</TD>								
+				<TD style='background:white; color:black;'>
+					<span class="gTOT" id='gTb9p5'>00</span>
+					<span id='sTb9p5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">00</span>
+				</TD>
+				<TD style="background:lightgreen;">
+					<span id='sTb9gp' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold; font-size:20px;">00</span>  <!-- B9 SF pt gp total  ** -->
+				</TD>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="PARback" style="background:white; color:black; width:60%; font-weight:bold;" placeholder=36 value=36 readonly>
+				</TD>	
+				<TD style="background:lightgreen;"></TD>				
+			</TR>	
+			<TR>
+				<TH  style="background:lightgreen;">T</TH>
+				<TD style='background:white; color:black;'>
+					<span class="gTOT" id='gT18p1'>00</span>
+					<span id='sT18p1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">00</span>
+				</TD>				
+				<TD style='background:white; color:black;'>  <!-- * -->
+					<span class="gTOT" id='gT18p2'>00<!--&nbsp;&nbsp;--></span>
+					<span id='sT18p2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">00<!--&nbsp;&nbsp;--></span>
+				</TD>
+				<TD style='background:white; color:black;'>
+					<span class="gTOT" id='gT18p3'>00</span>
+					<span id='sT18p3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">00</span>
+				</TD>
+				<TD style='background:white; color:black;'>
+					<span class="gTOT" id='gT18p4'>00</span>
+					<span id='sT18p4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">00</span>
+				</TD>								
+				<TD style='background:white; color:black;'>
+					<span class="gTOT" id='gT18p5'>00</span>
+					<span id='sT18p5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">00</span>
+				</TD>
+				<TD style="background:lightgreen;">
+					<span id='sT18gp' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold; font-size:20px;">00</span>  <!-- F9 SF pt gp total  ** -->
+				</TD>
+				<TD style='background:white; color:black;'>
+					<input type="number" id="PAR18" style="background:white; color:black; width:60%; font-weight:bold;" placeholder=70 value=70 readonly>
+				</TD>	
+				<TD style="background:lightgreen;"></TD>				
+			</TR>			
+		</tbody>
+	</table>		
+
+	
+	<!--<table border=0 class="" id="MENUtbl" border='3'  align=center  style='FONT-SIZE:large; background:white; color:yellow; visibility:visible;'>-->
+		<!--
+		<tr>
+			<td>
+				<button id='STROKESbtn' onclick="pHCcolors()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;">Display Stroke Holes<br>
+					<span style='background:lime; color:black;'>&nbsp;1&nbsp;</span>&emsp;
+					<span style='background:green;'>&nbsp;2&nbsp;</span>&emsp;
+					<span style='background:white; color:black;'>&nbsp;0&nbsp;</span>
+				</button>
+			</td>
+			<td>
+				<button id='calcALLbtn' onclick="calcALL()" style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:white; background:blue; border:3px solid black; border-radius:10px; opacity:95%;">Calc <u><b>STABLEFORD Points</b></u></button>
+			</td>
+		</tr>
+		<tr>	
+			<td>
+				<button id='SLIDEbtn' onclick="showSLIDE()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">Slider Input</button>		
+			</td>
+			<td>
+				<button id='calcTOTbtn' onclick="calcTOTALS()" style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;">Calc <u><b>TOTALS</b></u></button>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<button id='SAVEbtn' onclick="save()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:50%;"><i>save</i></button>
+				<button id='DROPbtn' onclick="showINFO()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><b>Round Info +/-</b></button>
+			</td>
+			<td>
+				<button id='NOTESbtn' onclick="showNOTES()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><i>coding notes</i></button>
+				<button id='DROPbtn' onclick="showDROP()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><b>Drop Box!</b></button>
+			</td>
+		</tr>
+		-->
+	<!--</table>-->
+	
+<br>
+
+	<!-- 	√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√ \/ DROP BOX \/ √√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√	  -->
+
+<!--<TABLE align=center><TR><TD>-->
+	<div id="DROPdiv" style= "border:3px inset slategray; border-radius:10px; width:200px; height:400px; overflow:scroll; margin:auto; visibility:visible; background:white; position:fixed; left:700px; top:100px;">
+			<!-- position = 'fixed'; left = "700px"; top = "100px"; -->
+			
+		
+		<font size=5><b>Drop Box</b></font>
+						<button id='fullDRPbtn' onclick="FULLdrop()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:blue; background:transparent; border:1px solid blue; border-radius:5px;">+</button>
+				<span style="float:right; padding-right:10px; cursor:pointer; background:white; color:black; font-size:30px;">
+						<a onclick="showDROP()"><b>&times;</b></a>
+				</span><br>
+		<!--<br>-->
+		
+		<button id='drpPLbtn' onclick="DROP()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><b>DROP:</b></button>
+		<input type="text" id="pDROPPED" tabindex="" style="background:silver; width:20px;" placeholder="DZ" value="DZ">	
+		<!--&nbsp;-->
+		<span id='DROPcheck' class='gTOT' style="font-size:20px; visibility:hidden;"><b>√</b></span> 		<!-- hidden    class='gTOT' -->
+		<span id="pDone"  style="background:ivory; color:black; font-size:15px; visibility:hidden;">BP</span>			
+		
+		<table id="DROPtbl" border=1 align=center>
+			<tr>
+				<th>HOLE</th> <th>SF pts</th> <!--  p drop -->
+			</tr>
+			
+			<tr> <td>1</td> 
+				 <td id="H1ptT"></td> 
+			</tr>
+			<tr> <td>2</td> <td id="H2ptT"></td> </tr> 
+			<tr> <td>3</td> <td id="H3ptT"></td> </tr>
+			<tr> <td>4</td> <td id="H4ptT"></td> </tr>
+			<tr> <td>5</td> <td id="H5ptT"></td> </tr>
+			<tr> <td>6</td> <td id="H6ptT"></td> </tr>
+			<tr> <td>7</td> <td id="H7ptT"></td> </tr>
+			<tr> <td>8</td> <td id="H8ptT"></td> </tr>
+			<tr> <td>9</td> <td id="H9ptT"></td> </tr>
+			<tr> <td><b>F9</b></td> <td id="f9ptT"></td> </tr>
+			
+			<tr> <td>10</td> <td id="H10ptT"></td> </tr>
+			<tr> <td>11</td> <td id="H11ptT"></td> </tr>
+			<tr> <td>12</td> <td id="H12ptT"></td> </tr>
+			<tr> <td>13</td> <td id="H13ptT"></td> </tr>
+			<tr> <td>14</td> <td id="H14ptT"></td> </tr>
+			<tr> <td>15</td> <td id="H15ptT"></td> </tr>
+			<tr> <td>16</td> <td id="H16ptT"></td> </tr>
+			<tr> <td>17</td> <td id="H17ptT"></td> </tr>
+			<tr> <td>18</td> <td id="H18ptT"></td> </tr>
+			
+			<tr> <td><b>B9</b></td> <td id="b9ptT"></td> </tr>
+			<tr> <td><b>T</b></td> <td id="18ptT"></td> </tr>
+			
+		</table>
+				
+	</div>	
+
+<!--</TD> <TD width=20px></TD>
+
+<TD valign=top>	-->
+	
+	<textarea cols="50" rows="5" id='ROUNDnote' style="background:lightyellow;  border:2px solid black; height:100px; width:100px; visibility:hidden;  position:fixed; left:30em; top:200px;">
+	Hi there! This is where the user can enter text. If there's too much text, the textbox can develop scrollbars to accommodate the extra text...
+	</textarea>
+
+<!--</TD></TR>
+</TABLE>-->
+	
+		
+<br>
+<!-- 	√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√	  -->
+
+<div id="CODEnotes" style="position:fixed; top:300px; z-index:100; left:5%; background:lightyellow; color:black; border:3px dotted black; border-radius:10px; width:400px; height:300px; overflow:scroll; padding:5px; opacity:100%; visibility:hidden;">
+		<b>CODING NOTES:</b>&emsp;&emsp;&emsp;<!--<input class="inptTXT" type="text" id="ref" style='background:gray; color:white;' value="uncoded inputs">-->	
+					<span style="float:right; text-align:right; padding-right:20px; cursor:pointer; background:white; color:black; font-size:40px;">
+						<a onclick="showNOTES()"><b>&times;</b></a>
+					</span>
+					<ul>
+						<li><s><b>DROP NOT WORKING</b> <i>(Mar 12/23)</i> [DZ h3&4] *<br>
+							- DROP() function not coded yet</s> . . .</li>
+						<li><s>H2 > 5 pts p3-p5 w/ 0 stroke entry!<br>
+							- all 3 have <b>no strokes</s></b></li>
+						<li><font color=red size=4><s><b>p1 <> calcing pts if score = par or less <i>(& only getting 1 stroke)</i>. Other p's seem to be OK.</b></s></font></li>
+						<li><font color=blue><b><u>Back 9</u> Problems <i>(Mar 9/23)</i>:</b></font><br>
+							&emsp;- <s>slider +/- not working</s> √<br>
+							&emsp;- <s>stoke hole display N/A</s> √<br>
+						</li>
+						<li><font color=blue><s>Need coding for 3 < par (? <u>albatross/dbl eagle</u>) in Phc < 19!</s></font> <font color=red>*</font></li>
+						<li style="border:1px solid black;"><font color=blue><b>if Phc > 18 but Hhcp > (Phc-18) <> work <i>(=0)</i>!</b></font>
+							<br>
+							- looks like it gets to correct slot (>18 else) but ? error in code there<br>
+							- also - P2H2 > incorrect pts!
+						</li>
+						<li><s><> correct Mar 4: <b>if Phc > 18 but < 2XHhcp still > 2 strokes!</b></s> 
+								<font color=red>  < corrected!</font>
+						</li>
+						<li><b>if Phc < 19 & Hhcp > Phc still --> 1 stroke!</b> <i>(Mar 4)</i><br>
+							<font color=red>- prob fixed! < but 'calcSFpts_P2H2()' not fixed & still works??</font>
+						<li><s>var not picked up from 'span': use .innerText (not '.value')</s></li>
+						<li>H2 > 4 pts w/o any entry (& w entry = '0') <u>IF Phc > 18</u> (Mar 5)<br>
+							- ? problem in 'else' statement of 'Phc > 18'<br>
+							- <font color=red><b>may</b> have fixed (used original/<i>upper</i> code)</font>
+						</li>
+					</ul>	
+</div>
+
+<script>
+	//SLIDER stuff:
+	var slider = document.getElementById("myRange");
+	var output = document.getElementById("demo");
+	output.innerHTML = slider.value;	
+	slider.oninput = function() {
+	  output.innerHTML = this.value;
+  }	
+</script>	
+
+				<!--    ==================================================    -->
+				
+	<div id="HOMEdiv" style="border-radius:10px; padding:5px;border:3px slategray outset; background:black; 	color:white; position:fixed; left:0em; top:0px;">
+		<A href="index.html" style="color:moccasin; font-size:100px;"> &#x2302;<!--HOME symbol--></A>	
+	</div>
+
+				<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+</div>				
+</body>
+</html>
