@@ -966,6 +966,12 @@
 			 "vGUY3: "+vGUY3+" | vG3hc: "+vG3hc+"\n"+
 			 "vG3h1sc: "+vG3h1sc+" | vG3h1pt: "+vG3h1pt+"\n"+
 			 "vGPh1pt: "+vGPh1pt+" | vGPf9pt: "+vGPf9pt);
+		
+		/*	 
+		alert("Will now try to put player3 H1 score (vG3h1sc="+vG3h1sc+") in it's input box (id='p3h1)!");
+		document.getElementById("p3h1").value = vG3h1sc;
+		*/	 
+		
 	}	
 
 	function pHCcolors() {		//pHCcolors(player) {
