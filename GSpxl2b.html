@@ -11,36 +11,34 @@
 	.body,
 	.wrapper {
 	  /* Break the flow */
-	  position: absolute;
-	  top: 0px;
-	
+		  position: absolute;
+		  top: 0px;	
 	  /* Give them all the available space */
-	  width: 100%;
-	  height: 100%;
-	
+		  width: 100%;
+		  height: 100%;	
 	  /* Remove the margins if any */
-	  margin: 0;
-	
+		  margin: 0;	
 	  /* Allow them to scroll down the document */
-	  overflow-y: hidden;
+		  overflow-y: hidden;
 	}
 	
 	.body {
 	  /* Sending body at the bottom of the stack */
 	  z-index: 1;
-	  background:gray;
+	  background:gray;	  
+	  /*zoom:150%;*/
 	}
 	
 	.wrapper {
 	  /* Making the wrapper stack above the body */
 	  z-index: 2;
 	  padding:30px; /* < my add (Mar 14/23) */
-	  
+	  /*zoom:150%;*/
 	}
 
 	
 	table.table2 thead { display:block; }
-	table.table2 tbody { height:300px; overflow-y:scroll; display:block; } /* height:300px; was 200 ht */
+	table.table2 tbody { height:430px; overflow-y:scroll; display:block; } /* height:300px; */
 	table.table2 td { width: 40px; background:black; color:white; text-align:center;}
 	table.table2 th { width: 40px; background:yellow; color:maroon }
 	
@@ -75,7 +73,7 @@
 			           padding: 5px; font-size: 16px; border: none; */
 			.dropup { position: relative; display: inline-block; }			
 			.dropup-content { display: none; position:absolute; left:-25px; background-color: #f1f1f1;
-			  			      min-width:200px; bottom: -460px; z-index: 1; }	
+			  			      min-width:200px; bottom: -535px; z-index: 1; }	
 							  /*  bottom: -240px; left:55px;  bottom: 0px;  position: absolute; */	
 			.dropup-content a { color: black; padding: 5px 6px; text-decoration: none; display: block; }	
 										/* padding: 12px 16px;  */
@@ -117,7 +115,7 @@
 </script>	
 </head>
 
-<body class="body" style="">
+<body class="body"> <!-- style="zoom:140%;" -->
 <div class="wrapper"><!-- Put the page contents here -->
 	
 	<label style="FONT-WEIGHT: bold; FONT-SIZE:25px; COLOR:white; background:royalblue; position:relative; left:25%; border:3px solid black; border-radius:10px; opacity:100%; padding:5px;">VGC blue <font size=2 color=silver><i>(GS<b>pxl2b</b>)</i></font></label>
@@ -151,7 +149,7 @@
 								<br>
 								<button id='TABbtn' onclick="restrictTAB()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><b>Disable/Enable Inputs<!--Restrict Tabs--><!--bing--></b></button><br>
 								<br>
-								<button id='DROPbtn' onclick="showDROP()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><b>Drop Box!</b></button><br>
+								<button id='DROPbtn' onclick="showDROP()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:ivory; background:slategray; border:2px solid black; border-radius:10px; opacity:100%;"><b>Drop Box!</b></button><br>
 								<br>								
 								<button id='FULLbtnMNU' onclick="FULLtbl()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><b>DISPLAY +/-</b></button><br>
 								<br>
@@ -160,7 +158,9 @@
 								<button id='NOTESbtn' onclick="showNOTES()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><i>coding notes</i></button><br>
 								<button id='SAVEbtn' onclick="save()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><i>save</i></button>
 								<button id='RETRIEVEbtn' onclick="retrieve()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><i>retrieve</i></button>
-
+								<button id='REPLACEbtn' onclick="" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:gray; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><s>replace</s></button>
+								<button id='ZOOMbtn' onclick="changeZOOM()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><i>ZOOM +</i></button><br>
+								<br>
 						  </div>
 					</div>		
 	
@@ -634,7 +634,7 @@
 	<!-- 	√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√ \/ DROP BOX \/ √√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√	  -->
 
 <!--<TABLE align=center><TR><TD>-->
-	<div id="DROPdiv" style= "border:3px inset slategray; border-radius:10px; width:200px; height:400px; overflow:scroll; margin:auto; visibility:visible; background:white; position:fixed; left:700px; top:100px;">
+	<div id="DROPdiv" style= "border:3px inset slategray; border-radius:10px; width:200px; height:400px; overflow:scroll; margin:auto; visibility:hidden; background:white; position:fixed; left:700px; top:100px;">
 			<!-- position = 'fixed'; left = "700px"; top = "100px"; -->
 			
 		

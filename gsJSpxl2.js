@@ -1252,7 +1252,7 @@
 			//position:fixed; left:20em; top:300px;  	/*left:30em; top:40px;*/  
 		}
 		else { 
-			document.getElementById("TBLbody").style.height = '300px';
+			document.getElementById("TBLbody").style.height = "430px";	//300px';
 			document.getElementById("FULLbtn").innerText = "+";
 			document.getElementById("FULLbtn2").innerText = "+";
 			/*
@@ -1378,7 +1378,22 @@
 			document.getElementById("fullDRPbtn").innerText = "-";
 		}
 		else { 
-			document.getElementById("DROPdiv").style.height = '300px';
+			document.getElementById("DROPdiv").style.height = "400px";	//'300px';
 			document.getElementById("fullDRPbtn").innerText = "+";
 		}
+	}
+	
+	function changeZOOM() {
+		//In js you can change zoom by:
+		if ( document.getElementById("ZOOMbtn").innerText == "ZOOM +" ) {
+			document.body.style.zoom="150%";
+			//document.getElementById("TBLbody").style.height = "1200px";	//150%";	// 300px; '800px';
+			document.getElementById("ZOOMbtn").innerText = "ZOOM -";
+		}
+		else { 
+			document.body.style.zoom="100%";
+			document.getElementById("ZOOMbtn").innerText = "ZOOM +";
+		}
+	
+		
 	}
