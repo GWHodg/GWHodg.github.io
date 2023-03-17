@@ -88,10 +88,10 @@
 
 		/* Use mediaqueries to set the background-color to orange if the viewport is 1070 pixels wide or wider, to green if the viewport is between 400 and 1069 pixels wide. If the viewport is smaller than 400 pixels, the background-color is blue: (https://www.w3schools.com/cssref/css3_pr_mediaquery.php) */
 		body { background-color: blue; }  	    /* < viewport < 400 px */
-		@media screen and (min-width: 400px) {	/* < viewport = 400-1069 px wide */
+		@media screen and (min-width: 400px) {	/* < viewport = 400-899 px wide */
 		  body { background-color: green; } 				/* iPod | WorkingCopy Preview | (?? Google Pixel ??) */  		
 		}
-		@media screen and (min-width: 900px) { /* < viewport = 1070 - 1359 px wide */					
+		@media screen and (min-width: 950px) { /* < viewport = 900 - 1359 px wide */					
 		  body { background-color: orange; }				/* Google Pixel */
 		}
 		@media screen and (min-width: 1360px) { /* < viewport => 1360 px wide */ 					
