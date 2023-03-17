@@ -92,19 +92,19 @@
 		  body {
 		    background-color: green; 		/* < viewport = 400-799 px wide */
 		  }										/* ?? Google Pixel viewport size is 412 x 732 PX 
-		                                                       1080 x 1920	| 412 x 732 ??  */
+		                                                       1080 x 1920	| 412 x 732 ??    W:1040; H:2080 √ */
 		}
-		@media screen and (min-width: 800px) {
+		@media screen and (min-width: 1070px) { /*800px*/	 /* ? Pixel W = 1080! */
 		  body {
 		    background-color: orange;       /* < viewport = 800 - 1000 px wide [PIXEL & iPod] */
-		  }
+		  }													/* iPod: W=980; H=1678 √ */
 		}
-		@media screen and (min-width: 1000px) {
+		@media screen and (min-width: 1360px) { /*1000px*/	 /* iPad W = 1366! */
 		  body {
-		    background-color: slategray;       /* < viewport => 1000 px wide [iPad] 
-														iPad Pro viewport size: W=1024/1024; H=1366/1426 PX  */
+		    background-color: slategray;        /* < viewport => 1360 px wide [iPad] 
+													iPad Pro viewport size: W=1426(1366); Ht=1024 PX √  */
 		  }
-	  }
+	  }								    		/*  WorkingCopy Preview:    W=1051 X  H=964  √ */
 </style>
 
 <script src="gsJSpxl2c.js"></script>
