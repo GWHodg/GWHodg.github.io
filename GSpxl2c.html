@@ -86,25 +86,27 @@
 							- trick lies in taking the body and it’s inside container division out of the document flow while maintaining the element stacking. 
 							- seems to work with Chrome but NOT Duck-Duck-Go */
 
-		/* Use mediaqueries to set the background-color to orange if the viewport is 800 pixels wide or wider, to green if the viewport is between 400 and 799 pixels wide. If the viewport is smaller than 400 pixels, the background-color is blue: (https://www.w3schools.com/cssref/css3_pr_mediaquery.php) */
-		body { background-color: blue; }  	/* < viewport < 400 px [? iPod] */
-		@media screen and (min-width: 400px) {
-		  body {
-		    background-color: green; 		/* < viewport = 400-799 px wide */
-		  }										/* ?? Google Pixel viewport size is 412 x 732 PX 
-		                                                       1080 x 1920	| 412 x 732 ??    W:1040; H:2080 √ */
+		/* Use mediaqueries to set the background-color to orange if the viewport is 1070 pixels wide or wider, to green if the viewport is between 400 and 1069 pixels wide. If the viewport is smaller than 400 pixels, the background-color is blue: (https://www.w3schools.com/cssref/css3_pr_mediaquery.php) */
+		body { background-color: blue; }  	    /* < viewport < 400 px */
+		@media screen and (min-width: 400px) {	/* < viewport = 400-1069 px wide */
+		  body background-color: green; 					/* WorkingCopy Preview & iPod */  		
 		}
-		@media screen and (min-width: 1070px) { /*800px*/	 /* ? Pixel W = 1080! */
-		  body {
-		    background-color: orange;       /* < viewport = 800 - 1000 px wide [PIXEL & iPod] */
-		  }													/* iPod: W=980; H=1678 √ */
+		@media screen and (min-width: 1070px) { /* < viewport = 1070 - 1359 px wide */					
+		  body background-color: orange; 					/* Google Pixel */
 		}
-		@media screen and (min-width: 1360px) { /*1000px*/	 /* iPad W = 1366! */
-		  body {
-		    background-color: slategray;        /* < viewport => 1360 px wide [iPad] 
-													iPad Pro viewport size: W=1426(1366); Ht=1024 PX √  */
-		  }
-	  }								    		/*  WorkingCopy Preview:    W=1051 X  H=964  √ */
+		@media screen and (min-width: 1360px) { /* < viewport => 1360 px wide */ 					
+		  body { background-color: slategray; } 			/* iPad Pro (TT) */						
+		  
+	    }								    					  
+	  							/*  ?? Google Pixel viewport size is 412 x 732 PX 
+										1080 x 1920	| 412 x 732 ??    W:1040; H:2080 √
+									800px	  ? Pixel W = 1080! 
+									iPod: W=980; H=1678 √ 
+									1000px	  iPad W = 1366! 
+									iPad Pro viewport size: W=1426(1366); Ht=1024 PX √ 
+									WorkingCopy Preview:    W=1051 X  H=964  √ 
+								*/
+								
 </style>
 
 <script src="gsJSpxl2c.js"></script>
