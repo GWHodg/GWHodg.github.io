@@ -87,15 +87,15 @@
 							- seems to work with Chrome but NOT Duck-Duck-Go */
 
 		/* Use mediaqueries to set the background-color to orange if the viewport is 1070 pixels wide or wider, to green if the viewport is between 400 and 1069 pixels wide. If the viewport is smaller than 400 pixels, the background-color is blue: (https://www.w3schools.com/cssref/css3_pr_mediaquery.php) */
-		body { background-color: blue; }  	    /* < viewport < 400 px | WorkingCopy Preview */
+		body { background-color: blue; }  	    /* < viewport < 400 px */
 		@media screen and (min-width: 400px) {	/* < viewport = 400-1069 px wide */
-		  body { background-color: green; } 					/* iPod */  		
+		  body { background-color: green; } 				/* iPod | WorkingCopy Preview | (?? Google Pixel ??) */  		
 		}
-		@media screen and (min-width: 1070px) { /* < viewport = 1070 - 1359 px wide */					
-		  body { background-color: orange; }					/* Google Pixel */
+		@media screen and (min-width: 1060px) { /* < viewport = 1070 - 1359 px wide */					
+		  body { background-color: orange; }				/* Google Pixel */
 		}
 		@media screen and (min-width: 1360px) { /* < viewport => 1360 px wide */ 					
-		  body { background-color: slategray; } 			/* iPad Pro (TT) */						
+		  body { background-color: slategray; } 			/* iPad Pro (TT & "PWA') */						
 		  
 	    }								    					  
 	  							/*  ?? Google Pixel viewport size is 412 x 732 PX 
