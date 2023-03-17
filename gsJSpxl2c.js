@@ -1386,7 +1386,7 @@
 	function changeZOOM() {
 		//In js you can change zoom by:
 		if ( document.getElementById("ZOOMbtn").innerText == "ZOOM +" ) {
-			document.body.style.zoom="200%";
+			document.body.style.zoom="250%";
 			//document.getElementById("TBLbody").style.height = "1200px";	//150%";	// 300px; '800px';
 			document.getElementById("ZOOMbtn").innerText = "ZOOM -";
 		}
