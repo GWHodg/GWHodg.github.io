@@ -1386,13 +1386,18 @@
 	function changeZOOM() {
 		//In js you can change zoom by:
 		if ( document.getElementById("ZOOMbtn").innerText == "ZOOM +" ) {
-			document.body.style.zoom="250%";
-			//document.getElementById("TBLbody").style.height = "1200px";	//150%";	// 300px; '800px';
-			document.getElementById("ZOOMbtn").innerText = "ZOOM -";
+			//document.body.style.zoom="250%";
+					//document.getElementById("TBLbody").style.height = "1200px";	//150%";	// 300px; '800px';
+			//document.getElementById("ZOOMbtn").innerText = "ZOOM -";
+			
+			//const width = window.innerwidth; alert("The viewport's width is "+ width);
+			const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+			const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+			alert("vw = "+ vw + "| vh = "+ vh);
 		}
 		else { 
-			document.body.style.zoom="100%";
-			document.getElementById("ZOOMbtn").innerText = "ZOOM +";
+			//document.body.style.zoom="100%";
+			//document.getElementById("ZOOMbtn").innerText = "ZOOM +";
 		}
 	
 		
