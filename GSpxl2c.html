@@ -87,18 +87,24 @@
 							- seems to work with Chrome but NOT Duck-Duck-Go */
 
 		/* Use mediaqueries to set the background-color to orange if the viewport is 800 pixels wide or wider, to green if the viewport is between 400 and 799 pixels wide. If the viewport is smaller than 400 pixels, the background-color is blue: */
-		body { background-color: blue; }  	/* < viewport < 400 px */
+		body { background-color: blue; }  	/* < viewport < 400 px [? iPod] */
 		@media screen and (min-width: 400px) {
 		  body {
 		    background-color: green; 		/* < viewport = 400-799 px wide */
-		  }									/* Google Pixel viewport size is 412 x 732 PX */
+		  }									/* Google Pixel viewport size is 412 x 732 PX 
+		                                                       1080 x 1920	| 412 x 732 */
 		}
 		@media screen and (min-width: 800px) {
 		  body {
-		    background-color: orange;       /* < viewport => 800 px wide [iPad] */
+		    background-color: orange;       /* < viewport = 800 - 1000 px wide */
 		  }
 		}
-	
+		@media screen and (min-width: 1000px) {
+		  body {
+		    background-color: slategray;       /* < viewport => 800 px wide [iPad] 
+														iPad Pro viewport size is 1024 x 1366 PX  */
+		  }
+	  }
 </style>
 
 <script src="gsJSpxl2c.js"></script>
