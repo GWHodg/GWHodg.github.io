@@ -98,9 +98,9 @@
 				  zoom: 250%;
 				  /* document.getElementById("ZOOMbtn").innerText = "ZOOM -"; */
 			  } 		
-		  	  .DROPdiv { visibility:hidden; }
-			  .ZOOMbtn { background:yellow; border:4px outset blue;  }
-			  .HOMEdiv {  font-size:20px; }
+		  	  div.DROPclass { visibility:hidden; }
+			  button.ZOOMclass { background:yellow; border:4px outset blue;  }
+			  div.HOMEclass { font-size:20px; }
 	  	}		
 		
 		@media screen and (min-width: 981px) and (max-width:1009px) {	
@@ -193,7 +193,7 @@
 								<button id='SAVEbtn' onclick="save()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><i>save</i></button>
 								<button id='RETRIEVEbtn' onclick="retrieve()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><i>retrieve</i></button>
 								<button id='REPLACEbtn' onclick="" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:gray; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><s>replace</s></button>
-								<button id='ZOOMbtn' onclick="changeZOOM()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><i>ZOOM +/-</i></button><br>
+								<button class="ZOOMclass" id='ZOOMbtn' onclick="changeZOOM()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><i>ZOOM +/-</i></button><br>
 								<br>
 						  </div>
 					</div>		
@@ -670,7 +670,7 @@
 	<!-- 	√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√ \/ DROP BOX \/ √√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√	  -->
 
 <!--<TABLE align=center><TR><TD>-->
-	<div id="DROPdiv" style= "border:3px inset slategray; border-radius:10px; width:200px; height:400px; overflow:scroll; margin:auto; visibility:visible; background:white; /*position:fixed; left:700px; top:100px;*/ zoom:100%;">
+	<div class="DROPclass" id="DROPdiv" style= "border:3px inset slategray; border-radius:10px; width:200px; height:400px; overflow:scroll; margin:auto; visibility:visible; background:white; /*position:fixed; left:700px; top:100px;*/ zoom:100%;">
 			<!-- position = 'fixed'; left = "700px"; top = "100px"; -->
 			
 		
@@ -784,7 +784,7 @@
 				<!--    ==================================================    -->
 				
 	<div id="HOMEdiv" style="border-radius:10px; padding:5px;border:3px slategray outset; background:black; 	color:white; position:fixed; left:1em; top:10px;">
-		<A href="index.html" style="color:moccasin; font-size:100px;"> &#x2302;<!--HOME symbol--></A>	
+		<A class="HOMEclass" href="index.html" style="color:moccasin; font-size:100px;"> &#x2302;<!--HOME symbol--></A>	
 	</div>
 
 				<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
