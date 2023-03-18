@@ -90,10 +90,15 @@
 		/*body { background-color: blue; }*/  	    /* < viewport < 400 px */
 		@media screen and (max-width:399px) { 
 		    body {
-		        background-color : 'red';
+		        background-color : 'blue';
 		    }
 		}
-		@media screen and (min-width: 400px)  and (max-width:1009px) {	/* < viewport = 400-974 px wide */
+
+		@media screen and (min-width: 400px)  and (max-width:980px) {
+		  body { background-color: 'red'; } 			
+	  }		
+		
+		@media screen and (min-width: 981px)  and (max-width:1009px) {	/* < viewport = 400-974 px wide */
 		  body { background-color: green; } 				/* ? WorkingCopy Preview */  		
 		}
 		@media screen and (min-width: 1010px)  and (max-width:1359px) { /* < viewport = 900 - 1359 px wide */					
