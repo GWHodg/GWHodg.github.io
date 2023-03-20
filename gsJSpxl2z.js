@@ -869,7 +869,8 @@
 		//if (document.getElementById("SLIDER").style.visibility=="hidden") {	
 			document.getElementById("SLIDER").style.visibility="visible";
 						/* document.getElementById("menu23").style.display="block"; */		 //inline 	
-		//}		
+		//}	
+			hideMENU();			
 	}	
 	
 	function focusNextElement() {
@@ -926,6 +927,21 @@
 		changeGLOBAL("p"+newPno+"h"+newHno);
   	}				
 
+	function hideMENU() {
+		//document.getElementById("miscCONTENT").style.visibility="hidden";
+		document.getElementById("menuCONTENT").style.visibility="hidden";
+	}
+	function showMENU(topic) {
+		if (topic=="tipMENU") {
+			document.getElementById("menuCONTENT").style.visibility="visible";
+		}
+		if (topic=="tipMENU") {
+			document.getElementById("menuCONTENT").style.visibility="visible";
+		}
+	}
+	
+						/* 	√√√√√√√√√√√√√√√√√  \/ SAVE \/  √√√√√√√√√√√√√√√√   */
+	
 	function save() {
 		alert("Just take a screenshot!\n\n" +
 			  "Will 'save' some selected input variables to 'localStorage' for later retrieval . . .");
@@ -960,20 +976,69 @@
 		var vGPh1pt = localStorage.getItem("grpH1pts");
 		var vGPf9pt = localStorage.getItem("grpF9pts");
 		
+		/* onchange: */
+		var vG2h3sc = localStorage.getItem("guy2H3scr"); /* < onchange test! */
+		var vG1h3s = localStorage.getItem("g1H3s");	
+			var vG3h3s = localStorage.getItem("g3H3s");
+			var vG4h3s = localStorage.getItem("g4H3s");
+			var vG5h3s = localStorage.getItem("g5H3s");			
+		
 		alert("'varNumber' variable to test 'localStorage' = "+varNumber+"\n"+
 			 "'guy1/varName' variable = "+varName+"\n"+
 			 "'guy2/varName2' variable = "+varName2+"\n\n"+
 			 "vGUY3: "+vGUY3+" | vG3hc: "+vG3hc+"\n"+
 			 "vG3h1sc: "+vG3h1sc+" | vG3h1pt: "+vG3h1pt+"\n"+
-			 "vGPh1pt: "+vGPh1pt+" | vGPf9pt: "+vGPf9pt);
-		
-		/*	 
-		alert("Will now try to put player3 H1 score (vG3h1sc="+vG3h1sc+") in it's input box (id='p3h1)!");
-		document.getElementById("p3h1").value = vG3h1sc;
-		*/	 
+			 "vGPh1pt: "+vGPh1pt+" | vGPf9pt: "+vGPf9pt+"\n\n"+
+			 	"vG2h3sc/guy2H3scr (onchange) = " + vG2h3sc+"\n"+
+				"vG1h3s/g1H3s (onchange) = " + vG1h3s+"\n"+
+				"\t\tvG3h3s (onchange) = " + vG3h3s+"\n"+
+				"\t\tvG4h3s (onchange) = " + vG4h3s+"\n"+
+				"\t\tvG5h3s (onchange) = " + vG5h3s);
 		
 	}	
 
+	function replace() {	 
+		/* onchange: */
+		var vG1h1s = localStorage.getItem("g1H1s");	var vG2h1s = localStorage.getItem("g2H1s");
+		var vG3h1s = localStorage.getItem("g3H1s"); var vG4h1s = localStorage.getItem("g4H1s");
+		var vG5h1s = localStorage.getItem("g5H1s");			
+		var vG1h2s = localStorage.getItem("g1H2s");	var vG2h2s = localStorage.getItem("g2H2s");
+		var vG3h2s = localStorage.getItem("g3H2s"); var vG4h2s = localStorage.getItem("g4H2s");
+		var vG5h2s = localStorage.getItem("g5H2s");			
+		var vG1h3s = localStorage.getItem("g1H3s");	var vG2h3sc = localStorage.getItem("guy2H3scr"); /* test! */
+		var vG3h3s = localStorage.getItem("g3H3s"); var vG4h3s = localStorage.getItem("g4H3s");
+		var vG5h3s = localStorage.getItem("g5H3s");			
+		/*var vG1h4s = localStorage.getItem("g1H4s");	var vG2h4s = localStorage.getItem("G2H4s");
+		var vG3h4s = localStorage.getItem("g3H4s"); var vG4h4s = localStorage.getItem("g4H4s");
+		var vG5h4s = localStorage.getItem("g5H4s");*/	
+		
+		alert("Will now try to put player3 H3 score (vG3h3s="+vG3h3s+") in it's input box (id='p3h3)!\n"+
+			  "\t\t\t + others . . .\n\n"+
+			  "vG2h1s = "+vG2h1s+" | vG2h2s = "+vG2h2s);
+		
+		document.getElementById("p1h1").value = vG1h1s; document.getElementById("p2h1").value = vG2h1s;
+		document.getElementById("p3h1").value = vG3h1s; document.getElementById("p4h1").value = vG4h1s;
+		document.getElementById("p5h1").value = vG5h1s;
+		document.getElementById("p1h2").value = vG1h2s; document.getElementById("p2h2").value = vG2h2s;
+		document.getElementById("p3h2").value = vG3h2s; document.getElementById("p4h2").value = vG4h2s;
+		document.getElementById("p5h2").value = vG5h2s;
+		document.getElementById("p1h3").value = vG1h3s; document.getElementById("p2h3").value = vG2h3sc; /* << */
+		document.getElementById("p3h3").value = vG3h3s; document.getElementById("p4h3").value = vG4h3s;
+		document.getElementById("p5h3").value = vG5h3s;
+		
+		document.getElementById("p1h4").value = localStorage.getItem("g1H4s");
+			document.getElementById("p2h4").value = localStorage.getItem("g2H4s");
+			document.getElementById("p3h4").value = localStorage.getItem("g3H4s");
+			document.getElementById("p4h4").value = localStorage.getItem("g4H4s");
+			document.getElementById("p5h4").value = localStorage.getItem("g5H4s");
+
+		
+		hideMENU();
+			 		
+	}
+	
+						/* 	√√√√√√√√√√√√√√√√√  ^ SAVE ^  √√√√√√√√√√√√√√√√   */
+	
 	function pHCcolors() {		//pHCcolors(player) {
 		let HCpl1 = document.getElementById("p1HC").value;
 		let HCpl2 = document.getElementById("p2HC").value;
@@ -1368,7 +1433,8 @@
 			document.getElementById("p4h18").disabled = false;
 		}
 		//alert("p5h1 tabIndex = " + document.getElementById("p5h1").style.tabIndex);
-		
+
+		hideMENU();		
 	}	
 	
 	function FULLdrop() {
