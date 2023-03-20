@@ -106,7 +106,7 @@
 		}
 
 		@media screen and (min-width: 400px) and (max-width:980px) and (min-height:1900px) { 
-								/*Pixel(w=1040) & iPod(w=980) are SAME!*/	
+								/* Pixel(w=1040) */	
 									/* 'min-height:1900px' excludes iPod */
 			  body { 
 				  background-color: orange; 
@@ -119,12 +119,10 @@
 			  .dropup-content { bottom: -510px; }
 			  .slidecontainer { left:5px; top:100px; width:60%;}
 			  button.CODEBTNclass { display:none; }
-			  textarea.NOTEclass { left:5em; top:500px; }
-			  
-			
+			  textarea.NOTEclass { left:5em; top:500px; height:200px; width:200px;}			
 	  	}		
 		@media screen and (min-width: 400px) and (max-width:980px) and (max-height:1900px) { 
-			body { background-color : yellow; } /* ? includes iPod */			
+			body { background-color:black; } /* includes iPod */			
 		}
 		
 		@media screen and (min-width: 981px) and (max-width:1009px) {	
@@ -750,9 +748,8 @@
 
 <TD valign=top>	-->
 	
-	<textarea class="NOTEclass" cols="50" rows="5" id='ROUNDnote' style="">
-	Hi there! This is where the user can enter text. If there's too much text, the textbox can develop scrollbars to accommodate the extra text...
-	</textarea>
+	<textarea class="NOTEclass" cols="50" rows="5" id='ROUNDnote' style="">NOTE: </textarea>
+						<!--Hi there! This is where the user can enter text. If there's too much text, the textbox can develop scrollbars to accommodate the extra text...-->
 
 <!--</TD></TR>
 </TABLE>-->
