@@ -92,6 +92,7 @@
 			color:moccasin; font-size:100px;
 		}
 		button.CODEBTNclass { FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%; }
+		textarea.NOTEclass { background:lightyellow;  border:2px solid black; height:100px; width:100px; visibility:hidden;  position:fixed; left:30em; top:200px; }
 		
 					/* CSS Hack: Disable Chrome’s Pull-to-Refresh on Android:
 							        https://w3bits.com/prevent-chrome-pull-to-refresh-css/ 
@@ -118,6 +119,7 @@
 			  .dropup-content { bottom: -510px; }
 			  .slidecontainer { left:5px; top:100px; width:60%;}
 			  button.CODEBTNclass { display:none; }
+			  textarea.NOTEclass { left:5em; top:500px; }
 			  
 			
 	  	}		
@@ -175,7 +177,7 @@
 <TABLE id="HEADtbl" border=1 align=center style='FONT-SIZE:large; color:maroon; visibility:visible;' bgcolor='ivory'>	
 <TR><TD>
 	<label style="FONT-WEIGHT: bold; FONT-SIZE:25px; COLOR:white; background:royalblue; /*position:relative; left:15%;*/ border:3px solid black; border-radius:10px; opacity:100%; padding:5px;">VGC blue <!--<font size=2 color=silver><i>(GS<b>pxl2c</b>)</i></font>--></label>
-</TD> <TD width=20><font size=1>4</font></TD>	
+</TD> <TD width=20><font size=1>4b</font></TD>	
 	<!--<span style="font-size:30px;cursor:pointer; color:blue; background:white; position:relative; left:38%;" onclick="openMENU()">&#9776;</span>-->	<!-- position:absolute; LEFT:750px; top:30px;  -->
 <TD>
 					<div class="dropup" style="cursor:pointer; color:black; background:white; /*position:relative; left:18%;*/">
@@ -209,7 +211,7 @@
 								<br>								
 								<button id='FULLbtnMNU' onclick="FULLtbl()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><b>DISPLAY +/-</b></button><br>
 								<br>
-								<button id='INFObtn' onclick="showINFO()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><b>Round Info +/-</b></button><br>
+								<button id='INFObtn' onclick="showINFO()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><b>Note +/-</b></button><br>
 								<br>
 								<button class="CODEBTNclass" id='NOTESbtn' onclick="showNOTES()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><i>coding notes</i></button><br>
 								<button id='SAVEbtn' onclick="save()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><i>save</i></button>
@@ -748,7 +750,7 @@
 
 <TD valign=top>	-->
 	
-	<textarea cols="50" rows="5" id='ROUNDnote' style="background:lightyellow;  border:2px solid black; height:100px; width:100px; visibility:hidden;  position:fixed; left:30em; top:200px;">
+	<textarea class="NOTEclass" cols="50" rows="5" id='ROUNDnote' style="">
 	Hi there! This is where the user can enter text. If there's too much text, the textbox can develop scrollbars to accommodate the extra text...
 	</textarea>
 

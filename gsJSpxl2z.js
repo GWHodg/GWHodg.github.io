@@ -1246,22 +1246,22 @@
 			document.getElementById("FULLbtn").innerText = "-";
 			document.getElementById("FULLbtn2").innerText = "-";
 			
-			document.getElementById("DROPdiv").style.position = 'fixed';	//"fixed";
+			/*document.getElementById("DROPdiv").style.position = 'fixed';	//"fixed";
 			document.getElementById("DROPdiv").style.left = "700px";	//"800px";
-			document.getElementById("DROPdiv").style.top = "100px";
-			//position:fixed; left:20em; top:300px;  	/*left:30em; top:40px;*/  
+			document.getElementById("DROPdiv").style.top = "100px";*/
+					//position:fixed; left:20em; top:300px;  	/*left:30em; top:40px;*/  
 		}
 		else { 
 			document.getElementById("TBLbody").style.height = "430px";	//300px';
 			document.getElementById("FULLbtn").innerText = "+";
 			document.getElementById("FULLbtn2").innerText = "+";
-			/*
-			document.getElementById("DROPdiv").style.position = "fixed";
-			document.getElementById("DROPdiv").style.left = '50%';
-			document.getElementById("DROPdiv").style.top = '42%';
-			*/		//document.getElementById("DROPdiv").style.height = "400px;";
-			
-			//document.getElementById("DROPdiv").style.top = "100px";
+					/*
+					document.getElementById("DROPdiv").style.position = "fixed";
+					document.getElementById("DROPdiv").style.left = '50%';
+					document.getElementById("DROPdiv").style.top = '42%';
+					*/		//document.getElementById("DROPdiv").style.height = "400px;";
+					
+					//document.getElementById("DROPdiv").style.top = "100px";
 		}
 		
 				//table.table2 tbody { height:300px; 		
