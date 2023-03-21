@@ -1014,9 +1014,9 @@
 		var vG3h4s = localStorage.getItem("g3H4s"); var vG4h4s = localStorage.getItem("g4H4s");
 		var vG5h4s = localStorage.getItem("g5H4s");*/	
 		
-		alert("Will now try to put player3 H3 score (vG3h3s="+vG3h3s+") in it's input box (id='p3h3)!\n"+
+		/*alert("Will now try to put player3 H3 score (vG3h3s="+vG3h3s+") in it's input box (id='p3h3)!\n"+
 			  "\t\t\t + others . . .\n\n"+
-			  "vG2h1s = "+vG2h1s+" | vG2h2s = "+vG2h2s);
+			  "vG2h1s = "+vG2h1s+" | vG2h2s = "+vG2h2s);*/
 		
 		document.getElementById("p1h1").value = vG1h1s; document.getElementById("p2h1").value = vG2h1s;
 		document.getElementById("p3h1").value = vG3h1s; document.getElementById("p4h1").value = vG4h1s;
@@ -1072,8 +1072,8 @@
 	}
 
 	function clearSAVED() {
-		alert("Will CLEAR 'saved' inputs here!\n\n"+
-			  "g1H1s PRE 'clear' = " + localStorage.getItem("g1H1s"));
+		/*alert("Will CLEAR 'saved' inputs here!\n\n"+
+			  "g1H1s PRE 'clear' = " + localStorage.getItem("g1H1s"));*/
 		  let reply;
 		  if (confirm("Are you SURE you want to CLEAR all 'saved' input?") == true) {
 		    reply = "YES!";
@@ -1083,14 +1083,14 @@
   		  alert(reply);
 			  
 		if ( reply=="YES!") {
-			for (var h = 1; h < 12; h++) {
+			for (var h = 1; h < 19; h++) {
 					for (var n = 1; n < 6; n++) {
 						localStorage.setItem('g'+n+'H'+h+'s',""); document.getElementById("p"+n+"h"+h).value = "";
 					}
 			}
 		}
 		
-		alert("g1H1s POST 'clear' = " +  localStorage.getItem("g1H1s"));
+		//alert("g1H1s POST 'clear' = " +  localStorage.getItem("g1H1s"));
 		
 		hideMENU();		
 	}
