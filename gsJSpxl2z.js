@@ -755,7 +755,9 @@
 		document.getElementById("SPgpH16").innerHTML = +p1h16sf + +p2h16sf + +p3h16sf + +p4h16sf + +p5h16sf; 
 		document.getElementById("SPgpH17").innerHTML = +p1h17sf + +p2h17sf + +p3h17sf + +p4h17sf + +p5h17sf; 
 		document.getElementById("SPgpH18").innerHTML = +p1h18sf + +p2h18sf + +p3h18sf + +p4h18sf + +p5h18sf;  		
-					
+
+		hideMENU();
+		
 	}	  
 
 	
@@ -1005,7 +1007,7 @@
 		var vG1h2s = localStorage.getItem("g1H2s");	var vG2h2s = localStorage.getItem("g2H2s");
 		var vG3h2s = localStorage.getItem("g3H2s"); var vG4h2s = localStorage.getItem("g4H2s");
 		var vG5h2s = localStorage.getItem("g5H2s");			
-		var vG1h3s = localStorage.getItem("g1H3s");	var vG2h3sc = localStorage.getItem("guy2H3scr"); /* test! */
+		var vG1h3s = localStorage.getItem("g1H3s");	var vG2h3s = localStorage.getItem("g2H3s"); /* test! */
 		var vG3h3s = localStorage.getItem("g3H3s"); var vG4h3s = localStorage.getItem("g4H3s");
 		var vG5h3s = localStorage.getItem("g5H3s");			
 		/*var vG1h4s = localStorage.getItem("g1H4s");	var vG2h4s = localStorage.getItem("G2H4s");
@@ -1022,7 +1024,7 @@
 		document.getElementById("p1h2").value = vG1h2s; document.getElementById("p2h2").value = vG2h2s;
 		document.getElementById("p3h2").value = vG3h2s; document.getElementById("p4h2").value = vG4h2s;
 		document.getElementById("p5h2").value = vG5h2s;
-		document.getElementById("p1h3").value = vG1h3s; document.getElementById("p2h3").value = vG2h3sc; /* << */
+		document.getElementById("p1h3").value = vG1h3s; document.getElementById("p2h3").value = vG2h3s; /* << */
 		document.getElementById("p3h3").value = vG3h3s; document.getElementById("p4h3").value = vG4h3s;
 		document.getElementById("p5h3").value = vG5h3s;
 		
@@ -1031,10 +1033,66 @@
 			document.getElementById("p3h4").value = localStorage.getItem("g3H4s");
 			document.getElementById("p4h4").value = localStorage.getItem("g4H4s");
 			document.getElementById("p5h4").value = localStorage.getItem("g5H4s");
-
-		
+		document.getElementById("p1h5").value = localStorage.getItem("g1H5s");
+			document.getElementById("p2h5").value = localStorage.getItem("g2H5s");
+			document.getElementById("p3h5").value = localStorage.getItem("g3H5s");
+			document.getElementById("p4h5").value = localStorage.getItem("g4H5s");
+			document.getElementById("p5h5").value = localStorage.getItem("g5H5s");			
+		document.getElementById("p1h6").value = localStorage.getItem("g1H6s");
+			document.getElementById("p2h6").value = localStorage.getItem("g2H6s");
+			document.getElementById("p3h6").value = localStorage.getItem("g3H6s");
+			document.getElementById("p4h6").value = localStorage.getItem("g4H6s");
+			document.getElementById("p5h6").value = localStorage.getItem("g5H6s");
+		document.getElementById("p1h7").value = localStorage.getItem("g1H7s");
+			document.getElementById("p2h7").value = localStorage.getItem("g2H7s");
+			document.getElementById("p3h7").value = localStorage.getItem("g3H7s");
+			document.getElementById("p4h7").value = localStorage.getItem("g4H7s");
+			document.getElementById("p5h7").value = localStorage.getItem("g5H7s");
+		document.getElementById("p1h8").value = localStorage.getItem("g1H8s");
+			document.getElementById("p2h8").value = localStorage.getItem("g2H8s");
+			document.getElementById("p3h8").value = localStorage.getItem("g3H8s");
+			document.getElementById("p4h8").value = localStorage.getItem("g4H8s");
+			document.getElementById("p5h8").value = localStorage.getItem("g5H8s");
+		document.getElementById("p1h9").value = localStorage.getItem("g1H9s");
+			document.getElementById("p2h9").value = localStorage.getItem("g2H9s");
+			document.getElementById("p3h9").value = localStorage.getItem("g3H9s");
+			document.getElementById("p4h9").value = localStorage.getItem("g4H9s");
+			document.getElementById("p5h9").value = localStorage.getItem("g5H9s");			
+		for (var h = 10; h < 19; h++) {
+				document.getElementById("p1h"+h).value = localStorage.getItem("g1H"+h+"s");
+				document.getElementById("p2h"+h).value = localStorage.getItem("g2H"+h+"s");
+				document.getElementById("p3h"+h).value = localStorage.getItem("g3H"+h+"s");
+				document.getElementById("p4h"+h).value = localStorage.getItem("g4H"+h+"s");
+				document.getElementById("p5h"+h).value = localStorage.getItem("g5H"+h+"s");						
+		}
+	
+			
 		hideMENU();
 			 		
+	}
+
+	function clearSAVED() {
+		alert("Will CLEAR 'saved' inputs here!\n\n"+
+			  "g1H1s PRE 'clear' = " + localStorage.getItem("g1H1s"));
+		  let reply;
+		  if (confirm("Are you SURE you want to CLEAR all 'saved' input?") == true) {
+		    reply = "YES!";
+		  } else {
+		    reply = "NO!";
+		  }
+  		  alert(reply);
+			  
+		if ( reply=="YES!") {
+			for (var h = 1; h < 12; h++) {
+					for (var n = 1; n < 6; n++) {
+						localStorage.setItem('g'+n+'H'+h+'s',""); document.getElementById("p"+n+"h"+h).value = "";
+					}
+			}
+		}
+		
+		alert("g1H1s POST 'clear' = " +  localStorage.getItem("g1H1s"));
+		
+		hideMENU();		
 	}
 	
 						/* 	√√√√√√√√√√√√√√√√√  ^ SAVE ^  √√√√√√√√√√√√√√√√   */
@@ -1101,6 +1159,8 @@
 		else {
 			document.getElementById("CODEnotes").style.visibility="visible"; //inline 	
 		}
+		
+		hideMENU();		
 	}	
 	
 	function showDROP() {
@@ -1113,6 +1173,8 @@
 		else {
 			document.getElementById("DROPdiv").style.visibility="visible";
 		}
+		
+		hideMENU();		
 	}		
 	
 	function DROP() {
@@ -1293,6 +1355,7 @@
 		else {
 			document.getElementById("ROUNDnote").style.visibility="visible";
 		}
+		hideMENU();		
 	}		
 	
 	function NEslide() {
@@ -1329,7 +1392,8 @@
 					//document.getElementById("DROPdiv").style.top = "100px";
 		}
 		
-				//table.table2 tbody { height:300px; 		
+				//table.table2 tbody { height:300px; 	
+		hideMENU();					
 	}
 	
 	

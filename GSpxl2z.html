@@ -189,8 +189,6 @@
 										<span style='background:white; color:black;'>&nbsp;0&nbsp;</span>
 								</button> <br>
 								<br>
-								<button id='SLIDEbtn' onclick="showSLIDE()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">Slider Input</button> <br>	
-								<br>
 								<button id='TABbtn' onclick="restrictTAB()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><b>Disable/Enable Inputs<!--Restrict Tabs--><!--bing--></b></button><br>
 								<br>
 								<button id='DROPbtn' onclick="showDROP()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:ivory; background:slategray; border:2px solid black; border-radius:10px; opacity:100%;"><b>Drop Box!</b></button><br>
@@ -199,10 +197,17 @@
 								<br>
 								<button id='INFObtn' onclick="showINFO()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><b>Note +/-</b></button><br>
 								<br>
+								<!--
 								<button id='SAVEbtn' onclick="save()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:gray; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><i>save</i></button>
 								<button id='RETRIEVEbtn' onclick="retrieve()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:gray; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><i>retrieve</i></button><br>
-								<button id='REPLACEbtn' onclick="replace()" style="FONT-WEIGHT:normal; FONT-SIZE:12px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">insert SAVED scores</button><br>
+								-->
+								<button id='REPLACEbtn' onclick="replace()" style="FONT-WEIGHT:normal; FONT-SIZE:12px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">insert SAVED scores</button>
 								<br>
+								<button id='CLEARbtn' onclick="clearSAVED()" style="FONT-WEIGHT:normal; FONT-SIZE:12px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">CLEAR 'saved' scores</button><br>
+								<br>
+								<button id='SLIDEbtn' onclick="showSLIDE()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">Slider Input</button> <br>	
+								<!--<br>-->
+								
 								<button class="CODEBTNclass" id='NOTESbtn' onclick="showNOTES()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><i>coding notes</i></button>
 								<button class="ZOOMclass" id='ZOOMbtn' onclick="changeZOOM()" style="display:none;"><i>ZOOM +/-</i></button><br>
 								<br>
@@ -304,8 +309,8 @@
 			<tr> <TH>3</TH> 
 				<td> <input type="number" id="p1h3" onclick="changeGLOBAL('p1h3')" tabindex="11" onchange="localStorage.setItem('g1H3s',this.value);"><span id='SPp1h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
 <!-- onchange test ^ : -->
-				<td style='background:slategray;'> <input type="number" id="p2h3" onclick="changeGLOBAL('p2h3')" tabindex="12" 
-						onchange="localStorage.setItem('guy2H3scr',this.value);"><span id='SPp2h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td style='background:black;'> <input type="number" id="p2h3" onclick="changeGLOBAL('p2h3')" tabindex="12" 
+						onchange="localStorage.setItem('g2H3s',this.value);"><span id='SPp2h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
 
 				<td> <input class='' type="number" id="p3h3" onclick="changeGLOBAL('p3h3')" tabindex="13" onchange="localStorage.setItem('g3H3s',this.value);"><span id='SPp3h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<td> <input class='' type="number" id="p4h3" onclick="changeGLOBAL('p4h3')" tabindex="14" onchange="localStorage.setItem('g4H3s',this.value);"><span id='SPp4h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
@@ -338,11 +343,12 @@
 				</TD>								
 			</tr>	
 			<tr> <TH>5</TH> 
-				<td> <input class='' type="number" id="p1h5" onclick="changeGLOBAL('p1h5')" tabindex="21"><span id='SPp1h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
-				<td> <input class='' type="number" id="p2h5" onclick="changeGLOBAL('p2h5')" tabindex="22"><span id='SPp2h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
-				<td> <input class='' type="number" id="p3h5" onclick="changeGLOBAL('p3h5')" tabindex="23"><span id='SPp3h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
-				<td> <input class='' type="number" id="p4h5" onclick="changeGLOBAL('p4h5')" tabindex="24"><span id='SPp4h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
-				<td> <input class='' type="number" id="p5h5" onclick="changeGLOBAL('p5h5')" tabindex="25"><span id='SPp5h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p1h5" onclick="changeGLOBAL('p1h5')" tabindex="21" onchange="localStorage.setItem('g1H5s',this.value);"><span id='SPp1h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td> <input class='' type="number" id="p2h5" onclick="changeGLOBAL('p2h5')" tabindex="22" onchange="localStorage.setItem('g2H5s',this.value);"><span id='SPp2h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td> <input class='' type="number" id="p3h5" onclick="changeGLOBAL('p3h5')" tabindex="23" onchange="localStorage.setItem('g3H5s',this.value);"><span id='SPp3h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p4h5" onclick="changeGLOBAL('p4h5')" tabindex="24" onchange="localStorage.setItem('g4H5s',this.value);"><span id='SPp4h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p5h5" onclick="changeGLOBAL('p5h5')" tabindex="25"
+					 onchange="localStorage.setItem('g5H5s',this.value);"><span id='SPp5h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<TH>5 <span id='SPgpH5' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
 				<TD style='background:white; color:black;'>
 					<input type="number" id="PARh5" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
@@ -352,11 +358,11 @@
 				</TD>								
 			</tr>	
 			<tr> <TH>6</TH> 
-				<td> <input class='' type="number" id="p1h6" onclick="changeGLOBAL('p1h6')" tabindex="26"><span id='SPp1h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
-				<td> <input class='' type="number" id="p2h6" onclick="changeGLOBAL('p2h6')" tabindex="27"><span id='SPp2h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
-				<td> <input class='' type="number" id="p3h6" onclick="changeGLOBAL('p3h6')" tabindex="28"><span id='SPp3h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
-				<td> <input class='' type="number" id="p4h6" onclick="changeGLOBAL('p4h6')" tabindex="29"><span id='SPp4h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
-				<td> <input class='' type="number" id="p5h6" onclick="changeGLOBAL('p5h6')" tabindex="30"><span id='SPp5h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p1h6" onclick="changeGLOBAL('p1h6')" tabindex="26" onchange="localStorage.setItem('g1H6s',this.value);"><span id='SPp1h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td> <input class='' type="number" id="p2h6" onclick="changeGLOBAL('p2h6')" tabindex="27" onchange="localStorage.setItem('g2H6s',this.value);"><span id='SPp2h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td> <input class='' type="number" id="p3h6" onclick="changeGLOBAL('p3h6')" tabindex="28" onchange="localStorage.setItem('g3H6s',this.value);"><span id='SPp3h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p4h6" onclick="changeGLOBAL('p4h6')" tabindex="29" onchange="localStorage.setItem('g4H6s',this.value);"><span id='SPp4h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p5h6" onclick="changeGLOBAL('p5h6')" tabindex="30" onchange="localStorage.setItem('g5H6s',this.value);"><span id='SPp5h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<TH>6 <span id='SPgpH6' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
 				<TD style='background:white; color:black;'>
 					<input type="number" id="PARh6" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
@@ -366,11 +372,11 @@
 				</TD>										
 			</tr>	
 			<tr> <TH>7</TH> 
-				<td> <input class='' type="number" id="p1h7" onclick="changeGLOBAL('p1h7')" tabindex="31"><span id='SPp1h7' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
-				<td> <input class='' type="number" id="p2h7" onclick="changeGLOBAL('p2h7')" tabindex="32"><span id='SPp2h7' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
-				<td> <input class='' type="number" id="p3h7" onclick="changeGLOBAL('p3h7')" tabindex="33"><span id='SPp3h7' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
-				<td> <input class='' type="number" id="p4h7" onclick="changeGLOBAL('p4h7')" tabindex="34"><span id='SPp4h7' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
-				<td> <input class='' type="number" id="p5h7" onclick="changeGLOBAL('p5h7')" tabindex="35"><span id='SPp5h7' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p1h7" onclick="changeGLOBAL('p1h7')" tabindex="31" onchange="localStorage.setItem('g1H7s',this.value);"><span id='SPp1h7' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td> <input class='' type="number" id="p2h7" onclick="changeGLOBAL('p2h7')" tabindex="32" onchange="localStorage.setItem('g2H7s',this.value);"><span id='SPp2h7' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td> <input class='' type="number" id="p3h7" onclick="changeGLOBAL('p3h7')" tabindex="33" onchange="localStorage.setItem('g3H7s',this.value);"><span id='SPp3h7' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p4h7" onclick="changeGLOBAL('p4h7')" tabindex="34" onchange="localStorage.setItem('g4H7s',this.value);"><span id='SPp4h7' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p5h7" onclick="changeGLOBAL('p5h7')" tabindex="35" onchange="localStorage.setItem('g5H7s',this.value);"><span id='SPp5h7' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<TH>7 <span id='SPgpH7' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
 				<TD style='background:white; color:black;'>
 					<input type="number" id="PARh7" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
@@ -380,11 +386,11 @@
 				</TD>										
 			</tr>
 			<tr> <TH>8</TH> 
-				<td> <input class='' type="number" id="p1h8" onclick="changeGLOBAL('p1h8')" tabindex="36"><span id='SPp1h8' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
-				<td> <input class='' type="number" id="p2h8" onclick="changeGLOBAL('p2h8')" tabindex="37"><span id='SPp2h8' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
-				<td> <input class='' type="number" id="p3h8" onclick="changeGLOBAL('p3h8')" tabindex="38"><span id='SPp3h8' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
-				<td> <input class='' type="number" id="p4h8" onclick="changeGLOBAL('p4h8')" tabindex="39"><span id='SPp4h8' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
-				<td> <input class='' type="number" id="p5h8" onclick="changeGLOBAL('p5h8')" tabindex="40"><span id='SPp5h8' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p1h8" onclick="changeGLOBAL('p1h8')" tabindex="36" onchange="localStorage.setItem('g1H8s',this.value);"><span id='SPp1h8' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td> <input class='' type="number" id="p2h8" onclick="changeGLOBAL('p2h8')" tabindex="37" onchange="localStorage.setItem('g2H8s',this.value);"><span id='SPp2h8' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td> <input class='' type="number" id="p3h8" onclick="changeGLOBAL('p3h8')" tabindex="38" onchange="localStorage.setItem('g3H8s',this.value);"><span id='SPp3h8' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p4h8" onclick="changeGLOBAL('p4h8')" tabindex="39" onchange="localStorage.setItem('g4H8s',this.value);"><span id='SPp4h8' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p5h8" onclick="changeGLOBAL('p5h8')" tabindex="40" onchange="localStorage.setItem('g5H8s',this.value);"><span id='SPp5h8' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<TH>8 <span id='SPgpH8' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
 				<TD style='background:white; color:black;'>
 					<input type="number" id="PARh8" style="background:white; color:black; width:60%;" placeholder=3 value=3 readonly>
@@ -394,11 +400,11 @@
 				</TD>										
 			</tr>
 			<tr> <TH>9</TH> 
-				<td> <input class='' type="number" id="p1h9" onclick="changeGLOBAL('p1h9')" tabindex="41"><span id='SPp1h9' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
-				<td> <input class='' type="number" id="p2h9" onclick="changeGLOBAL('p2h9')" tabindex="42"><span id='SPp2h9' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
-				<td> <input class='' type="number" id="p3h9" onclick="changeGLOBAL('p3h9')" tabindex="43"><span id='SPp3h9' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
-				<td> <input class='' type="number" id="p4h9" onclick="changeGLOBAL('p4h9')" tabindex="44"><span id='SPp4h9' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
-				<td> <input class='' type="number" id="p5h9" onclick="changeGLOBAL('p5h9')" tabindex="45"><span id='SPp5h9' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p1h9" onclick="changeGLOBAL('p1h9')" tabindex="41" onchange="localStorage.setItem('g1H9s',this.value);"><span id='SPp1h9' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td> <input class='' type="number" id="p2h9" onclick="changeGLOBAL('p2h9')" tabindex="42" onchange="localStorage.setItem('g2H9s',this.value);"><span id='SPp2h9' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td> <input class='' type="number" id="p3h9" onclick="changeGLOBAL('p3h9')" tabindex="43" onchange="localStorage.setItem('g3H9s',this.value);"><span id='SPp3h9' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p4h9" onclick="changeGLOBAL('p4h9')" tabindex="44" onchange="localStorage.setItem('g4H9s',this.value);"><span id='SPp4h9' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+				<td> <input class='' type="number" id="p5h9" onclick="changeGLOBAL('p5h9')" tabindex="45" onchange="localStorage.setItem('g5H9s',this.value);"><span id='SPp5h9' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<TH>9 <span id='SPgpH9' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
 				<TD style='background:white; color:black;'>
 					<input type="number" id="PARh9" style="background:white; color:black; width:60%;" placeholder=3 value=3 readonly>
@@ -445,11 +451,11 @@
 						
 			<tr>
 				<TH>10</TH>
-				<td> <input class='' type="number" id="p1h10"  onclick="changeGLOBAL('p1h10')" tabindex="46"><span id='SPp1h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
-				<td> <input class='' type="number" id="p2h10" onclick="changeGLOBAL('p2h10')"  tabindex="47"><span id='SPp2h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	
-				<td> <input class='' type="number" id="p3h10" onclick="changeGLOBAL('p3h10')" tabindex="48"><span id='SPp3h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
-				<td> <input class='' type="number" id="p4h10" onclick="changeGLOBAL('p4h10')" tabindex="49" ><span id='SPp4h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	
-				<td> <input class='' type="number" id="p5h10" onclick="changeGLOBAL('p5h10')"  tabindex="50"><span id='SPp5h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
+				<td> <input class='' type="number" id="p1h10"  onclick="changeGLOBAL('p1h10')" tabindex="46" onchange="localStorage.setItem('g1H10s',this.value);"><span id='SPp1h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
+				<td> <input class='' type="number" id="p2h10" onclick="changeGLOBAL('p2h10')"  tabindex="47" onchange="localStorage.setItem('g2H10s',this.value);"><span id='SPp2h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	
+				<td> <input class='' type="number" id="p3h10" onclick="changeGLOBAL('p3h10')" tabindex="48" onchange="localStorage.setItem('g3H10s',this.value);"><span id='SPp3h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
+				<td> <input class='' type="number" id="p4h10" onclick="changeGLOBAL('p4h10')" tabindex="49"  onchange="localStorage.setItem('g4H10s',this.value);"><span id='SPp4h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	
+				<td> <input class='' type="number" id="p5h10" onclick="changeGLOBAL('p5h10')"  tabindex="50" onchange="localStorage.setItem('g5H10s',this.value);"><span id='SPp5h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
 				<TH>10<span id='SPgpH10' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
 				<TD style='background:white; color:black;'>
 					<input type="number" id="PARh10" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
@@ -460,12 +466,12 @@
 			</tr>
 			<tr>
 				<TH>11</TH>
-				<td> <input class='' type="number" id="p1h11" onclick="changeGLOBAL('p1h11')" tabindex="51"><span id='SPp1h11' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
+				<td> <input class='' type="number" id="p1h11" onclick="changeGLOBAL('p1h11')" tabindex="51" onchange="localStorage.setItem('g1H11s',this.value);"><span id='SPp1h11' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
 				<td>	<!-- style='background:orange;' --> 
-					<input class='' type="number" id="p2h11" onclick="changeGLOBAL('p2h11')" tabindex="52"><span id='SPp2h11' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
-				<td> <input class='' type="number" id="p3h11" onclick="changeGLOBAL('p3h11')" tabindex="53"><span id='SPp3h11' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
-				<td> <input class='' type="number" id="p4h11" onclick="changeGLOBAL('p4h11')" tabindex="54"><span id='SPp4h11' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
-				<td> <input class='' type="number" id="p5h11" onclick="changeGLOBAL('p5h11')" tabindex="55"><span id='SPp5h11' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>
+					<input class='' type="number" id="p2h11" onclick="changeGLOBAL('p2h11')" tabindex="52" onchange="localStorage.setItem('g2H11s',this.value);"><span id='SPp2h11' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
+				<td> <input class='' type="number" id="p3h11" onclick="changeGLOBAL('p3h11')" tabindex="53" onchange="localStorage.setItem('g3H11s',this.value);"><span id='SPp3h11' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
+				<td> <input class='' type="number" id="p4h11" onclick="changeGLOBAL('p4h11')" tabindex="54" onchange="localStorage.setItem('g4H11s',this.value);"><span id='SPp4h11' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
+				<td> <input class='' type="number" id="p5h11" onclick="changeGLOBAL('p5h11')" tabindex="55" onchange="localStorage.setItem('g5H11s',this.value);"><span id='SPp5h11' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>
 				<TH>11<span id='SPgpH11' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
 				<TD style='background:white; color:black;'>
 					<input type="number" id="PARh11" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
