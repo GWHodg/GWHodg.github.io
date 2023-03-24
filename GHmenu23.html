@@ -1,0 +1,515 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ws23</title>
+<link rel="manifest" href="WaltStuff.webmanifest">
+<!--Changed href = "manifest.json" To <link rel="manifest" href="WaltStuff.webmanifest">  -->
+
+<link rel="stylesheet" href="styles.css">
+
+<style>
+		table.table2 thead { display:block; }
+		table.table2 tbody { height:150px; overflow-y:scroll; display:block; } /* height:300px; was 200 ht */
+		/* table.table2 td { width: 80px; }
+		table.table2 th { width: 80px; } */
+</style>
+
+<script src="myscripts.js"></script>
+
+<script>
+	function showJAN23() {
+		//alert("Trying to show 'JAN23div'!");	
+		document.getElementById("JAN23div").style.display="block"; 	 //inline 
+		document.getElementById("golfBNRdiv").style.display="block"; 	 //inline 
+	}		
+	function hideJAN23() {
+		//alert("Trying to HIDE 'JAN23div'!");	
+		document.getElementById("JAN23div").style.display="none"; 	 //inline 	
+		document.getElementById("golfBNRdiv").style.display="none"; 			
+	}		
+	
+	function showDPlive() {
+		alert("Will try to distlay 'DPlive'!");	
+	}
+	
+</script>	
+	
+</head>
+
+<body>
+
+<div id="titleDiv" name="chooseDiv" title="" align="center"
+	style="background-color:black;
+	font-family: Helvetica; font-size: 12pt; border: 0px solid black;
+	margin:0 auto; padding:0px;">
+	
+	<font style="font-size:100px;" color=yellow face="papyrus">WaltStuff '23</font>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<span style="font-size:80px;cursor:pointer; color:white;" 
+	onclick="showMENU23()">&#9776;</span><br>
+	<font style="font-size:50px;" color=lime face="papyrus">by E. Fudd</font>
+	<IMG style="border: 2px black solid; width:50px;" 
+    alt="elmer" src="fudd4.jpg" onclick="elmerEGG()">	
+	&emsp;
+	<font color=silver size=6><i>Feb 6, 2023</i></font> <!-- Textastic  -->	
+</div>
+
+
+<div id="ACDNdiv" style="display:none;  font-size:15px; cursor:pointer; background:blue; color:slategray; border:2px orange inset; border-radius:5%; padding:10px; width:700px; position:absolute; left:50px; top:1500px; text-align:center; height:400px; overflow:scroll;">	<!--    onclick="readXPT2()"    left:-999em; or 300px; top:250px;    width:370px;  -->
+
+	<button class="accordion"><b>GOLF SWING</b> <i><font style="opacity:.6" size=1>(Nov 23/21)</font></i></button>
+	<div class="panel" style="background:black; color:white;">
+		<font style="font-size:35px;" color=lime face="papyrus">Golf Swing</font>
+		<!--
+		<span style="float:right; text-align:right; padding-right: 10px;">
+				<a onclick="hideGOLF()"><font size=7><b>&times;</b></font></a>
+				&emsp;
+				<a onclick="frontDIV('GOLFdiv')"><font size=7><b>&plus;</b></font></a>
+		</span>
+		-->	
+		<br>
+				<font size=5>3+ Simple Keys</font>
+				<font size=1><i>(Oct 13/21)</i></font>
+						<font size=2>
+						<ol style="text-align:left;">	
+							 <li>
+								<font color=yellow><b>Erect ('horizontal mode') 3-hinge drill</b></font> <i>(club head @ eye level)</i>:<br>	
+							 	<div style='margin-left:10px;'>
+								<span style='background:yellow; color:red; cursor:progress;' 
+										title="PASSIVE ARMS > cntrifugal force!"><b>connected</b> 1-piece 
+								<i>(arms + trunk)</i> ROTATION w/ R elbow in</span> vs 
+							    chest w/o > fwd or up @ impact.&nbsp;
+								<br>
+							    &emsp;&emsp;&emsp;
+								<span style='background:orange; color:black; '><u> <span style='border:4px inset red; border-radius:20px;'>PASSIVE ARMS (+ loose wrists)</span></u> > <i>centrifugal force</i>!
+								</span>
+								</div>
+							 </li>
+				   			 <li>
+				   			 	<b>Bend @ hips, <font color=yellow><b>turn w/ SHOULDERS/ribs <i>(spine straight)</i></b></font> & keep R arm vs side</b>
+				   			 	<div style="margin-left:10px;">- add a little legs on dwnswg > <u>full F/T</u> <i>('pose')</i>
+				   			 </li>
+							 <li><font color=yellow><u>Stop/slow fwd body/<b>hand</b> 'action' @ impact</u></font> > allows/forces R wrist to UN-extend/flex > clubhead-hands '<font color=orange>catch-up</font>' (lag) <font color=yellow size=3>*</font>
+							 </li>		
+						
+							<li type="circle">	<!-- <li type="1|a|A|i|I|disc|circle|square"> -->
+								? Conscious R wist straighten @ impact
+							</li>		
+						</ol>
+						</font>
+							
+
+	</div>
+	
+	<button class="accordion" id="btnBJO" style="visibility:visible; display:block;">Banjo HELP
+		<!--&emsp;<font size=2><b>&times;</b></font>-->
+	</button>
+	<div class="panel" id="pnlBJO">
+		<font style="font-size:35px;" color=purple face="papyrus">Banjo HELP '21</font>
+		<!--<span style="float:right; text-align:right; padding-right: 10px;">
+				<a onclick="hideBJO()"><font size=7><b>&times;</b></font></a>
+				&emsp;
+				<a onclick="frontDIV('BJOdiv')"><font size=7><b>&plus;</b></font></a>
+		</span>-->
+		<br>
+		<IMG alt="BANJO notes" src="bjoCchrtH2.png" height="350" width="700" 
+		style="border: 1px brown outset; border-radius:20px; background-color:lightyellow;">	
+	</div>			
+
+	<button class="accordion">SWIM</button>
+	<div id="pnlSWIM"  class="panel">	
+	
+				<!--<script>
+					document.getElementById("pnlBJO").textContent = " GWH added <span style='background:yellow;'>this</span>!";
+				</script>-->				 		
+	
+	
+			<font style="font-size:35px;" color=purple face="papyrus">FREESTYLE SWIMMING</font> <font size=2 color=silver>(Feb 6/23)</font>
+				<!--<span style="float:right; text-align:right; padding-right: 10px;">
+						<a onclick="hideSWIM()"><font size=7><b>&times;</b></font></a>
+						&emsp;
+						<a onclick="frontDIV('SWIMdiv')"><font size=7><b>&plus;</b></font></a>
+					</span>-->	
+					<br>
+					<A style="FONT-WEIGHT: normal; COLOR: blue" onclick="" href="http://www.swimsmooth.com/">Mr. Smooth</A>  
+				
+				  <div id="myDIV" align=left style="padding-top:15px; width:600px;
+				  		margin: auto;  border: 3px solid green; padding: 10px;">
+					<font color=orange size=6><u>Front QUADRANT</u> Catch-Up:</font><br>	
+					<A style="FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: "
+							onclick="return popupINDEX(this, 'index')" 
+							href="https://www.thoughtco.com/catch-up-swimming-3168752">
+							https://www.thoughtco.com/catch-up-swimming-3168752</A><br>
+					<!-- 'Front Quadrant Catch-Up' div ("myDIV") ADDENDUM (after header) js stuff here! -->
+				  </div>
+				  <br>
+				
+						<!--    _____________________________________________________________________________ -->	
+							<!--<div id="test">
+							   Warning: This element contains <code>code</code> and <strong>strong language</strong>.
+							</div>-->
+						<!--    _____________________________________________________________________________ -->	
+				
+				  <div id="myDIV2" align=left style="padding-top:15px; width:600px;
+				  				margin: auto; border: 3px solid green; padding: 10px;">   	
+					<!-- 'Leg Kick' div ("myDIV2") REPLACEMENT js stuff! -->
+				  </div>
+				  <br>
+				  <div id="myDIV3" align=left style="padding-top:15px; width:600px;
+				  				margin: auto; border: 3px solid green; padding: 10px;">   	
+					<!-- 'Catch & Pull' div ("myDIV3") REPLACEMENT fr 'wSjavaSWM.js' -->
+				  </div>
+				
+				<!--    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+				<br>
+				
+				  <br><br>
+				<!--    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+				
+				  <div id="myDIV4" align=left style="padding-top:15px; width:600px;
+				  				margin: auto; border: 2px solid maroon; padding: 10px;">   	
+						<!-- 'Bend Like Becky' div ("myDIV4") js REPLACEMENT -->				
+				  </div>
+				  <br><br>
+				<!--    _____________________________________________________________________________ -->  
+				
+				  <div id="myDIV5" align=left style="padding-top:15px; width:600px;
+				  				margin: auto; border: 2px solid maroon; padding: 10px;">   	
+						<!-- 'Kick Timing' div ("myDIV5') REPLACEMENT js -->
+				 </div>
+  
+  	</div>
+
+	<button class="accordion">SSI Well</button>
+	<div id="pnlWELL"  class="panel">
+			<div id="WELLdiv" style="font-size:15px; cursor:pointer; background:green; color:slategray; border:2px orange inset; border-radius:5%; padding:5px; text-align:center; overflow:scroll;">
+					<iframe id='WELLiframe' src="ssiWELL.html" title="iframe of 'ssiWELL.html'" style="width:95%; height:250px;">
+					</iframe>
+			</div>
+	</div>
+
+<script src="wSjavaSWM.js"></script>
+
+</div>	
+	
+	<br>
+	<IMG style="background-color:yellow; border: 2px black solid;
+	display:block; margin-left:auto; margin-right:auto; width:95%;" 
+    alt="elmer" src="DPcondo.jpeg" onclick="elmerEGG()">	
+	<!-- changed fudd4.jpg to fudd4.jpeg -->	
+	<br>
+	<IMG style="background-color:mocassin; border: 5px white inset;
+	display:block; margin-left:auto; margin-right:auto; width:50%; border-radius:10%; padding:0px; opacity:100%;" 
+    alt="signature" src="GWHsig2.jpeg" onclick="elmerEGG()">	
+	
+	
+		
+	<!--
+	<div style='border:3px inset green; width:500px; background:black; margin:auto; padding:5px;'>
+		<u>Make edits to all the files in the workingCopy GWHodg.github.io repository listing in TEXTASTIC</u>. The textastic editor then sends these changes to WorkingCopy, and <b>in WorkingCopy you go through the process of 'COMMIT' and your changes will be seen in the file in the github repository</b>. Now when you run the PWA the app reflects the edits you made way back in Textastic. 
+	</div>
+	-->
+
+<script>	/* js must be HERE (after body html) */
+	var acc = document.getElementsByClassName("accordion");
+	var i;
+	
+	for (i = 0; i < acc.length; i++) {
+	  acc[i].addEventListener("click", function() {
+		this.classList.toggle("active");
+		var panel = this.nextElementSibling;
+		if (panel.style.maxHeight){
+		  panel.style.maxHeight = null;
+		} else {
+		  panel.style.maxHeight = panel.scrollHeight + "px";
+		} 
+	  });
+	}
+</script>
+
+</body>
+
+
+	
+	<!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
+	
+	<!--
+	<div id="EEYOREdiv" style="font-size:15px; cursor:pointer; background:yellow; color:slategray; border:2px orange inset; border-radius:5%; padding:10px; position:absolute; left:850px; top:700px; text-align:center; overflow:scroll;">.   
+		<font style="font-size:35px;" color=purple face="papyrus">Eeyore rules!</font>
+		<span style="float:right; text-align:right; padding-right: 10px;">
+				<a onclick="hideEEYORE()">&times;</a>
+			</span>	
+		<br>
+		<IMG alt="EEYORE pic" src="EeyoreX.jpg"
+		style="border: 1px brown outset; border-radius:20px; background-color:lightyellow;">
+	</div>
+	-->
+
+	<div id="PIANOdiv" style="font-size:15px; cursor:pointer; background:yellow; color:slategray; border:2px orange inset; border-radius:5%; padding:10px; position:absolute; left:100px; top:1200px; display:none; text-align:center; overflow:scroll;">   <!-- width:500px; height:400px; width:370px;  left:-999em; -->
+			<iframe id='PIANOiframe' src="ttPIANO.html" title="iframe of 'PIANO.html'" style=" width:500px; height:500px; " onclick="frontPIANO()">
+			</iframe>	<!-- left:-999em; top:300px; -->
+	</div>									
+
+	
+				<!--    ==============================================    -->
+				
+		<div id="menu23" style="width:500px; height:625px; position:fixed;  left:5em; top:250px;  opacity:100%; background:transparent; border-radius:10%; padding:10px; border:5px inset orange; overflow:scroll; font-size:60px; color:white; visibility:visible;" > <!-- z-index:20; -->
+			<TABLE id="tableMNU" border=1 style="width:100%;">
+			<thead bgcolor='gray' style="color:white;">
+			<TR><TH>
+			<font face="CooperBlack" color=orange style='font-size:70px; text-shadow: 2px 2px silver;'>MENU '23</font>
+				&emsp;
+				<span style="float:right; text-align:right; padding-right: 10px; cursor:pointer; color:white;">
+					<a onclick=" hideMENU23()" style="font-size:70px;"><b>&times;</b></a>
+				</span>	
+			</TH></TR>
+			<thead>
+			<tbody>
+			<TR><TD>
+			<A href="Brandon21.html" style="color:moccasin;">GwF '21</A>
+			</TD></TR><TR><TD>
+			<A href="THUgp.html" style="color:moccasin;">VGC Thu</A>
+			</TD></TR><TR><TD>
+			<A id="fall22mnuitm" style="cursor:pointer; border:2px outset yellow; width:60%;"
+			onclick="showJAN23()" title=''><font><u><b>Fall '22</b></u></font></A>&emsp; &#128512;	<!-- grinning emoji -->
+			
+			</TD></TR><TR><TD>
+				<A href="GSsplash.html" style="color:moccasin; font-size:80px;"><b>GS<font color=ivory>pxl2z</font></b></A>&emsp; &#9971; <!-- flag-in-hole -->
+		
+			</TD></TR><TR><TD>
+				<A href="ttSIM.html" style="color:moccasin;"">SIM</A>
+			</TD></TR><TR><TD>
+			<A id="MENUpianoIFRAME" style="cursor:pointer; border:2px outset yellow; width:60%;"
+						onclick="showPIANO()" title=''>
+						<font><u><b>Show PIANO</b></u></font>
+			    </A>  
+			</TD></TR><TR><TD>
+  			<A id="MENUtopics" style="cursor:pointer; FONT-SIZE:60px; border:2px outset yellow; width:60%;"
+			onclick="showTOPICS()" title=''>
+			<font><u><b>Show TOPICS</b></u></font></A>
+			</TD></TR><TR><TD>
+			<a href=""><font size=7 color=orange>Update&nbsp;Available</font></a>
+				<!--
+				<div class="dropup">
+				  <button class="dropbtn" id='miscBTN' onclick="showTIP('tipMISC')"
+				  style="background:white; font-size:60px;">Miscellaneous</button>
+				  <div class="dropup-content" style="border:3px solid red; border-radius:10px;"
+				  id="miscCONTENT">				
+							<span style="float:right; text-align:right; padding-right: 5px;">
+								<button id="OKbtn" onclick="hideTIP()" style="FONT-WEIGHT: bold; 
+								FONT-SIZE:10px; COLOR:black">close</button>
+							</span>					
+					<a> </a>
+					<a> </a>		
+					<a> </a>
+					<a> </a>		
+					<A href="">&nbsp;</A>
+					<a href=""><font size=7>Update&nbsp;Available</font></a>
+				  </div>
+				</div>
+				-->
+			</TD></TR><TR><TD>
+			<A style='Font-size:60px; background:antiquewhite; color:blue; border-radius:10%; padding:5px; border:2px inset purple;' onclick="showDPlive()" href="DPlive.html">DP Live '23</A>
+			</TD></TR><TR><TD>
+				<button id="_BTNdevon" style='cursor:pointer; background-color:aqua; padding:10px; color:black; border:2px solid navy; border-radius:8px; Font-size:60px;'><a href="Devon22.html"><b>Devon '22</a></button>
+			</TD></TR><TR><TD>					
+			<A href="ttPS19.html"  style="color:moccasin;"">PS '19</A>  <!--<i><font size=1>(Spanish; Folks; Batteries)</font></i>-->
+			</TD></TR><TR><TD>
+			<a href="ttSWIM.html"  style="color:moccasin;"><m>Swim</m></a>
+			</TD></TR><TR><TD>
+			<a href="ttBIKE.html" style="color:moccasin;"">BIKE</a><br>
+			</TD></TR>
+			
+			<TR><TD>
+				<a href="VACUUMS.html" style="color:moccasin;"">VACUUMS</a><br>
+			</TD></TR>
+			
+			</tbody>
+			</TABLE>
+		</div>
+				
+	<!--
+	<div id="JAN23div" style="font-size:15px; cursor:pointer; background:black; color:lime; border:2px orange inset; border-radius:5%; padding:10px; position:absolute; left:50px; top:1400px; display:none; text-align:center; overflow:scroll;">	
+	-->
+	<div id="JAN23div" style="width:90%; height:650px; border-radius:10px; padding:10px; 
+	position:absolute; top:900px; margin:20px; display:none; text-align:left; border:3px orange outset; 
+	background:black; color:lime; overflow: scroll; z-index:100;">
+	<!-- /* left:200px;  */
+							  /* position:fixed; left:630px; top:1300px;*/  /* margin:auto; */ -->
+			
+			<!--<span style="display:block; margin:0 auto; width:300px; padding: 2px; text-align:center;">-->
+				
+			<font size=5 color=red>Jan '23 Keys</font><br>		
+			<span style="float:right; text-align:right; padding-right: 10px; cursor:pointer; color:white;">
+						<a onclick="hideJAN23()"><font size=10>&times;</font></a>
+			</span>	
+			<br>
+			<font size=5 color=red><span style="background:yellow">STRONG <i>(light)</i> GRIP</span></font>	</b>
+				&emsp;<a href="https://golfworkoutprogram.com/strong-golf-grip/" style="color:dodgerblue; font-size:14px;" title="">golfworkoutprogram.com</i></a>
+				&emsp; &#128512;<!-- grinning emoji --><br>	
+			Switching to a strong golf grip puts the hands in a <font color=silver>more powerful</font> position. This could lead to <font color=silver>more yardage</font> off the tee with the <u>driver</u>.<br>
+			&emsp;<font size=2>"GRIP ADJUSTMENT": L hand > more to R (neutral posn) -> club face less open @ top</font>
+			<br><br>
+			<span style='background:yellow; color:black;'>L arm <b>PRIME</b> <i>(slight tension/stiffening/pull)</i> @ top</span><br>
+			<br>
+			
+			<div style="border:2px inset white; border-radius:20px; width:60%; padding:5px;">
+			<u>sidearm curve</u> ball <font size=2>(R strong grip)</font> throw</b><br>
+				&emsp; -  <i>swing under water noodle ('under plane')</i><br>				
+				<br>
+				trunk down/low & back <font size=4>(behind ball)</font><br>
+			</div>
+			<br>
+			<br>
+			<span style='background:yellow; border:0px inset blue; border-radius:20px;'>
+				<font color=red><b><u><span style='border:2px inset blue; border-radius:20px;'>DELAY EFFORT</span></u> till bottom of swing when > R wrist snap/'<u>hammer</u>' @ impact</b></font>
+			</span><br>
+
+			<br>&emsp;<font color=white>+++++++++++++++++++++++++++</font><br><br>
+			
+			<div style="float:right; color:silver;">- most NB is 'EFFORT DELAY' b/t 'prime' & 'hammer'<br>
+					<br>
+					> swing under the water noodle (inside-out/'under plane')
+						 <font size=2>- I tend > sl 'over'</font><br>
+						&emsp;&emsp; - "Allows body to go more to target" *<br>
+						&emsp;&emsp;&emsp;&emsp; - <b>easy to '<u>roll club face over early</u>' if body stalls out</b><br>
+						<div style="margin-left:85px;">- if hips & torso start '<u>unwinding</u> sooner' can '<u>time</u> that <u>club face</u>' <i>(later rollover)</i> so it's easier to get it to start out on target <i>(rather than to L). + 'club face awareness'.<br>
+						<!-- </div> -->
+						<!--
+						<div class="image">
+				      		<img src="BrdnLsn2.jpg"  width=400px height=350px style="border:4px outset orange; border-radius:5%;"alt="Brandon's Swing" />	
+				      		<h2>&emsp;NO ><br><br><br><br>&nbsp;YES! ></h2>
+				    	</div>
+						-->
+			</div>
+			<br>			
+					<span style="background:yellow; color:blue;">Get CHEST turning before impact</span>. *<br>
+					&emsp;- w/o that > wrist ‘flips’ @ impact. Want GRADUAL closing of face (?).<br>
+					&emsp;- <font color=yellow><b>THROW CLUB w/ 2 hands * (chest leads)</b></font><br>
+					&emsp;&emsp;&emsp;<i> - feels a bit like old 1-piece 'arms-move-w/-body' key<br>
+					<!--
+					<video style="border:2px outset blue; width:75%; border-radius:10px;" controls>
+					  <source src="vidBRDNchest.mov" type="video/mp4">
+					  <source src="vidBRDNchest.mov" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>
+					-->			
+				     
+			<!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
+			<br>&emsp;&emsp;&emsp;&emsp;$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$<br><br>
+		
+			<font size=6 color=white>Bonus Keys</font>&emsp;&emsp;
+									<font size=4 color=yellow>(Jan/23)</font>
+			<span style="float:right; text-align:right; padding-right: 10px; cursor:pointer; color:white;">
+						<a onclick="showBONUS()">&times;</a>
+			</span>	
+			<br>
+			  <ul>
+				<li><l><u>effortless</u></l> > <span style="background:yellow; color:black;">HIP BUMP/<u><b><i>rotation</i></b></u></span> <l>> hammer w/ head back</l>/down <l>> FULL</l> 'EASY' <l>F/T</l> w/ <span style="background:yellow; color:black;">club bounce on shoulder</span><br>
+			   <li>straighten both <span style="background:lightyellow; color:black;">ELBOWS</span> @ impact <i>(w/ 'hammer')</i><br>
+			   <li><div style="border:1px black outset; background:red; color:white; margin-left:0px;">
+			    	Loose <u>hip rotation</u> <i>(c.f. swimming)</i> + arms/wrist 'structure'
+			    	&emsp;<a href="https://www.golfaiapp.com/post/hip-rotation-what-you-need-to-know-golfai" style="padding:2px; background:white; font-size:14px;" title="">golf ai</a> <br>
+			    	&emsp;&emsp;&emsp;<font size=2>Ensuring hips maintain connection to upper body vital for consistency</font><br>
+			    	&emsp;&emsp;&emsp;<A onclick="return rotateHIPS()" style="color:lightblue;"><b>Don't rush!</b></A><br>
+			    		<div style="margin-left:100px;">
+			    			Don't get 'handsy': keep club face closed <font size=1>(Maude; 8:15)</font></i>
+			    		</div>
+					Add <u>a LITTLE hip <b>rotation</b></u> <i>(> ^ dist)</i> to 'strong/prime/sidearm/hammer'!
+			      </div>
+			   </li>				  
+			   <li>
+			   		<div style="border:1px black outset; background:blue; color:white; padding:5px; margin-left:0px; width:60%;">
+						<font size=7>Stay calm & 'swing easy'!</font><br>
+					</div>
+			   </li> 
+			   <li>
+				   <l>Hit vs firm <i>(planted)</i> L leg</l>/<i>hip</i> [> ^ distance]<br>
+				   &emsp;<i>- also helps <> fwd 'slide'</i><br>
+			   </li>
+			   <li>
+				   Could TRY more erect <i>(gravity)</i> swing + <b>STRONG GRIP</b> w/ woods. MAY > ^ distance?
+			   </li>
+			   <li>
+					IRONS: Club head = <b><u>pendulum</u></b> * &emsp;
+					<a href="https://www.espn.com/golf/story?id=1522969" style="padding:2px; background:white; font-size:14px;" title=""><u>Flick '03</u></a>
+				</li> 			   
+				
+			   <li>
+			   		<div style="border:1px black outset; background:gray; margin-left:0px;">
+			    	<s>"turn BACK; step FWD": ? straighten R leg (& bend L knee) as wt shifts & rotate BACK (relative to body, not target); step FWD (rel to body) as straighten L leg in dwnswg [may help w/ inside-out path]
+			    	&emsp;<a href="https://youtu.be/7SyUxVaQcHU" style="padding:2px; background:white; font-size:14px;" title=""><u>Clay Balard *</u></a>
+			    	&emsp;<a href="https://youtu.be/T6CTbpuYAxA" style="padding:2px; background:white; font-size:14px;" title="">'secret'</a></s> <br>
+			    	
+			    	</div>
+				</li>	
+			   <li>
+				  <div style="border:1px black outset; background:gray; margin-left:0px;">
+				   <s><l>Waist/L elbow</l> <A onclick="return waistFWD()" style='color:blue; background:white;'> thrusts fwd</A> while chest/head stays back > '<b>hammer</b>' (club head passing hands) @ impact > full EASY F/T [?]</s>
+				   			<!--&emsp; <A onclick="return waistFWD()" href=""><b>note</b></A>-->
+				  </div>
+			  </li>				
+			  </ul>     			
+			  
+			
+			
+	</div>	
+		</div>		
+		
+
+		
+	<div id="golfBNRdiv" style="height:70px; border-radius:10px; padding:0px; 
+	position:absolute; top:300px;
+	margin-left:100px; 
+  	width: 80%; display:none; text-align:left; border:0px blue dotted; 
+	background:transparent; color:orange; overflow: scroll; z-index:100;">	<!--margin:20px;/auto; margin-right: auto;--> <!-- display:none; display:block; -->
+		<!--<font size=5 color=blue>Fall '22 GOLF Banner</font><br>-->	
+		
+			<marquee bgcolor=transparent scrolldelay=50 onmousedown="this.stop();" onmouseup="this.start();" loop=3
+			style="" width=100% height=300 behavior="slide" >	<!-- style="border: 3px skyblue solid;" -->
+			  <!--
+			  <table bgColor="black">	
+				<tr>	
+					<td colspan=1 style="COLOR:yellow" align="center" vAlign="center" borderColor="green">
+						<font style="font-size:30px;" face="papyrus">Palm Springs Nov 1, 2019 - Mar/22</font>
+					</td>
+				</tr>	
+			  </table>
+			  -->
+			  	<button style='background-color:red; color:white; border:2px solid white; border-radius:8px; font-size:40px;'><b>STRONG</b></button>
+				&nbsp;
+				<button style='background-color:gray; color:white; border:2px solid white; border-radius:8px; font-size:24px;'><i>prime</i></button>
+				&nbsp;
+				<button style='background-color:black; color:white; border:2px solid white; border-radius:8px; font-size:34px;'><b>hip rotation</b></button>
+				<!--<br>&emsp;-->&emsp;
+				<button style='background-color:black; color:white; border:2px solid white; border-radius:8px; font-size:24px;'><i>sidearm</i></button>
+				&nbsp;
+				<button style='background-color:green; color:white; border:2px solid white; border-radius:8px; font-size:40px;'><b>Hammer</b></button>
+				&nbsp;
+				
+			  
+		  </marquee>		
+		  
+				
+	</div>
+	
+		
+		
+		
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
