@@ -12,6 +12,7 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			zoom:200%;
 		}
 
 		.main {
@@ -57,13 +58,15 @@
 			border-radius: 100px;
 			border: none;
 			outline: none;
-			background-color: rgb(0, 179, 95);
+			background-color: green;	/* rgb(0, 179, 95);  */
+				color: silver;
+				font-size:20px;
 			margin-top: 15px;
 		}
 
 		.submit_btn:hover {
 			background-color: rgba(0, 179, 95, 0.596);
-			color: rgb(14, 14, 14);
+			color: white;	/* rgb(14, 14, 14); */
 			cursor: pointer;
 		}
 </style>
@@ -74,25 +77,27 @@
 		<div class="image">
 			<!--<h2>Elmer Fudd</h2>-->
 			<IMG style="WIDTH:60px; HEIGHT:60px; background-color:black; border: 2px orange outset; border-radius:10%; 
-			cursor:pointer;" alt="pwdLogo" src="fudd4.jpg" title='Elmer' onclick=""><br>
+			cursor:pointer;" alt="pwdLogo" src="fudd4.jpeg" title='Elmer' onclick=""><br>
 		</div><br>
+		<!--
 		<div class="username">
 			<input type="text"
 				name="username"
-				placeholder="Username">	<!-- Dummyuser"> -->
+				placeholder="Username">	
 		</div>
+		-->
 		<div class="pass">
 			<input id="pass"
 				type="password"
 				name="pass"
 				placeholder="Enter Password"
 				required"">
-			<input id="confirm_pass"
+			<!--<input id="confirm_pass"
 				type="password"
 				name="confirm_pass"
 				placeholder="Confirm Password"
 				required
-				onkeyup="validate_password()">
+				onkeyup="validate_password()">-->
 		</div>
 		<span id="wrong_pass_alert"></span>
 		<div class="buttons">
@@ -107,6 +112,7 @@
 		function validate_password() {
 
 			var pass = document.getElementById('pass').value;
+			/*
 			var confirm_pass = document.getElementById('confirm_pass').value;
 			if (pass != confirm_pass) {
 				document.getElementById('wrong_pass_alert').style.color = 'red';
@@ -121,11 +127,13 @@
 				document.getElementById('create').disabled = false;
 				document.getElementById('create').style.opacity = (1);
 				
-				//if ( pass=="Derham#1897" ) { alert("You're in!"); }
+								//if ( pass=="Derham#1897" ) { alert("You're in!"); }
 				
 			}
+			*/
 		}
-
+		
+		/*
 		function wrong_pass_alert() {
 			if (document.getElementById('pass').value != "" &&
 				document.getElementById('confirm_pass').value != "") {
@@ -138,6 +146,21 @@
 				
 			} else {
 				alert("Please fill all the fields");
+			}
+		}
+		*/
+		
+		function wrong_pass_alert() {
+			if (document.getElementById('pass').value != "") {
+				alert("Your response is submitted");
+				
+				if ( document.getElementById('pass').value=="Durham" ) { 
+					alert("You're in!"); 
+					location.href='GHmenu23.html';
+				}
+				
+			} else {
+				alert("Please fill 'password' field");
 			}
 		}
 	</script>
