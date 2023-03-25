@@ -26,7 +26,8 @@
 			document.getElementById("PIANOdiv").style.display="block"; //inline 	
 			document.getElementById("MENUpianoIFRAME").textContent="Hide Piano";
 		}
-
+	}
+	
 	function showBJO() {
 		//alert("MENUtopics textContent = "+document.getElementById("MENUtopics").textContent);
 		if (document.getElementById("BJOmnu").textContent=="Hide Banjo") {
@@ -61,9 +62,11 @@
 				</TD></TR>
 				<TR><TD style="background:beige;">
 					<A id="fall22mnuitm" style="cursor:pointer; border:2px outset yellow; width:60%; font-size:30px;"
-					onclick="showJAN23()" title=''><font><u><b>Fall '22</b></u></font></A>&emsp; &#128512;	<!-- grinning emoji -->
+					onclick="showJAN23()" title=''>
+					<font><u><b>Fall '22</b></u></font></A>&emsp; &#128512;	<!-- grinning emoji -->
 				</TD></TR><TR><TD style="background:black;">
-					<A href="GSsplash.html" style="color:moccasin; font-size:40px;"><b>GS<font color=ivory>pxl2z</font></b></A>&emsp; &#9971; <!-- flag-in-hole -->
+					<A href="GSsplash.html" style="color:moccasin; font-size:40px;">
+					<b>GS<font color=ivory>pxl2z</font></b></A>&emsp; &#9971; <!-- flag-in-hole -->
 				</TD></TR><TR><TD  style="background:gray; font-size:30px;">
 					<A href="ttSIM.html" style="color:moccasin;"">SIM</A>
 				</TD></TR><TR><TD>
@@ -72,8 +75,15 @@
 						<font><u><b>Show PIANO</b></u></font>
 					</A>  
 				</TD></TR><TR><TD>
-					<A id="BJOmnu" style="cursor:pointer; border:2px outset yellow; width:60%; font-size:30px;"
-						onclick="showBJO()"><font><u><b>BANJO Help</b></u></font></A>
+					<A id="BJOmnu" style="cursor:pointer; border:2px outset yellow; font-size:30px;"
+						onclick="showBJO()">
+						<font><u><b>BANJO Help</b></u></font></A>
+				</TD></TR><TR><TD>
+					<a href=""><font size=6 color=orange>Update&nbsp;Available</font></a>
+				</TD></TR><TR><TD>
+					<A href="GHmenu23.html" style="color:orange; font-size:30px;">Original Menu</A> &#x2302;<!--HOME symbol-->	
+				</TD></TR>	<TR><TD>
+					<A style='Font-size:30px; background:antiquewhite; color:blue; border-radius:10%; padding:0px; border:2px inset purple;' href="DPlive.html">DP Live '23</A> <!-- onclick="showDPlive()" -->
 				</TD></TR>
 		</TABLE>
 	
