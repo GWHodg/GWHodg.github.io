@@ -14,14 +14,39 @@
 		//alert("Trying to HIDE 'JAN23div'!");	
 		document.getElementById("JAN23div").style.display="none"; 	 //inline 	
 		document.getElementById("golfBNRdiv").style.display="none"; 			
-	}		
+	}	
+
+	function showPIANO() {
+		//alert("MENUtopics textContent = "+document.getElementById("MENUtopics").textContent);
+		if (document.getElementById("MENUpianoIFRAME").textContent=="Hide Piano") {
+			document.getElementById("PIANOdiv").style.display="none"; //inline 	
+			document.getElementById("MENUpianoIFRAME").textContent="Show Piano";
+		}		
+		else {	//(document.getElementById("ACDNdiv").style.display="none") {
+			document.getElementById("PIANOdiv").style.display="block"; //inline 	
+			document.getElementById("MENUpianoIFRAME").textContent="Hide Piano";
+		}
+
+	function showBJOO() {
+		//alert("MENUtopics textContent = "+document.getElementById("MENUtopics").textContent);
+		if (document.getElementById("BJOmnu").textContent=="Hide Banjo") {
+			document.getElementById("BJOdiv").style.display="none"; //inline 	
+			document.getElementById("BJOmnu").textContent="Show Banjo";
+		}		
+		else {	//(document.getElementById("ACDNdiv").style.display="none") {
+			document.getElementById("BJOdiv").style.display="block"; //inline 	
+			document.getElementById("BJOmnu").textContent="Hide Banjo";
+		}
+		
+	}
+	
 </script>
 
 </head>
 
 <body style="background:ivory; padding-top:50px;">
 	
-		<TABLE id="tableMNU" border=1 align=center>
+		<TABLE id="tableMNU" border=1 align=center style="zoom:200%; border:3px inset red; border-radius:10px;">
 			<thead bgcolor='gray' style="color:white;">
 				<TR><TH style="padding:10px;">
 						<font face="CooperBlack" color=orange style='font-size:70px; text-shadow: 2px 2px silver;'>MENU '23</font>
@@ -41,8 +66,15 @@
 					<A href="GSsplash.html" style="color:moccasin; font-size:40px;"><b>GS<font color=ivory>pxl2z</font></b></A>&emsp; &#9971; <!-- flag-in-hole -->
 				</TD></TR><TR><TD  style="background:gray; font-size:30px;">
 					<A href="ttSIM.html" style="color:moccasin;"">SIM</A>
+				</TD></TR><TR><TD>
+					<A id="MENUpianoIFRAME" style="cursor:pointer; border:2px outset yellow; width:60%; font-size:30px;"
+						onclick="showPIANO()" title=''>
+						<font><u><b>Show PIANO</b></u></font>
+					</A>  
+				</TD></TR><TR><TD>
+					<A id="BJOmnu" style="cursor:pointer; border:2px outset yellow; width:60%; font-size:30px;"
+						onclick="showBJO()"><font><u><b>BANJO Help</b></u></font></A>
 				</TD></TR>
-	
 		</TABLE>
 	
 	
@@ -178,7 +210,7 @@
 
 		
 	<div id="golfBNRdiv" style="height:70px; border-radius:10px; padding:0px; 
-	position:absolute; top:300px;
+	position:absolute; top:700px;
 	margin-left:100px; 
   	width: 80%; display:none; text-align:left; border:0px blue dotted; 
 	background:transparent; color:orange; overflow: scroll; z-index:100;">	<!--margin:20px;/auto; margin-right: auto;--> <!-- display:none; display:block; -->
@@ -204,12 +236,19 @@
 				<button style='background-color:black; color:white; border:2px solid white; border-radius:8px; font-size:24px;'><i>sidearm</i></button>
 				&nbsp;
 				<button style='background-color:green; color:white; border:2px solid white; border-radius:8px; font-size:40px;'><b>Hammer</b></button>
-				&nbsp;
-				
-			  
-		  </marquee>		
-		  
-				
+				&nbsp;		  
+		  </marquee>					
 	</div>			
 
+	<div id="PIANOdiv" style="font-size:15px; cursor:pointer; background:yellow; color:slategray; border:2px orange inset; border-radius:5%; padding:10px; position:absolute; left:100px; top:1200px; display:none; text-align:center; overflow:scroll;">   <!-- width:500px; height:400px; width:370px;  left:-999em; -->
+			<iframe id='PIANOiframe' src="ttPIANO.html" title="iframe of 'PIANO.html'" style=" width:500px; height:500px; " onclick="frontPIANO()">
+			</iframe>	<!-- left:-999em; top:300px; -->
+	</div>									
+
+	
+	<div id="BJOdiv" style="font-size:15px; cursor:pointer; background:yellow; color:slategray; border:2px orange inset; border-radius:5%; padding:10px; position:absolute; left:100px; top:1200px; display:none; text-align:center; overflow:scroll;"> 
+		<IMG alt="BANJO notes" src="bjoCchrtH2.png" height="350" width="700" 
+		style="border: 1px brown outset; border-radius:20px; background-color:lightyellow;">
+	</div>		
+	
 </html>
