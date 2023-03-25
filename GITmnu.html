@@ -4,6 +4,16 @@
 <meta charset="utf-8">
 <title>GITmnu</title>
 
+<style>
+	thead, tbody { display: block; }
+	
+	tbody {
+	    height: 200px;       /* Just for the demo          */
+	    overflow-y: auto;    /* Trigger vertical scroll    */
+	    overflow-x: hidden;  /* Hide the horizontal scroll */
+	}
+</style>
+
 <script>
 	function showJAN23() {
 		//alert("Trying to show 'JAN23div'!");	
@@ -47,9 +57,9 @@
 
 <body style="background:ivory; padding-top:50px;">
 	
-		<TABLE id="tableMNU" border=1 align=center style="zoom:200%; border:3px inset red; border-radius:10px;">
-			<thead bgcolor='gray' style="color:white;">
-				<TR><TH style="padding:10px;">
+		<TABLE id="tableMNU" border=1 align=center style="zoom:200%; border-radius:10px;">
+			<thead bgcolor='gray' style="color:white;">	<!-- border:0px inset red;  -->
+				<TR><TH style="padding:0px;">
 						<font face="CooperBlack" color=orange style='font-size:70px; text-shadow: 2px 2px silver;'>MENU '23</font>
 				</TH></TR>
 			<thead>
@@ -84,6 +94,20 @@
 					<A href="GHmenu23.html" style="color:orange; font-size:30px;">Original Menu</A> &#x2302;<!--HOME symbol-->	
 				</TD></TR>	<TR><TD>
 					<A style='Font-size:30px; background:antiquewhite; color:blue; border-radius:10%; padding:0px; border:2px inset purple;' href="DPlive.html">DP Live '23</A> <!-- onclick="showDPlive()" -->
+				</TD></TR>				
+				<TR><TD>
+					<button id="_BTNdevon" style='cursor:pointer; background-color:aqua; padding:0px; color:black; border:2px solid navy; border-radius:8px; Font-size:30px;'>
+						<a href="Devon22.html"><b>Devon '22</a></button>
+				</TD></TR><TR><TD>					
+					<A href="ttPS19.html"  style="background:black; color:moccasin; font-size:30px;">PS '19</A>  <!--<i><font size=1>(Spanish; Folks; Batteries)</font></i>-->
+				</TD></TR><TR><TD>
+					<a href="ttSWIM.html"  style="color:black; font-size:30px;">
+					<m>Swim</m></a>
+				</TD></TR><TR><TD>
+					<a href="ttBIKE.html" style="background:black; color:moccasin; font-size:30px;">BIKE</a><br>
+				</TD></TR>
+				<TR><TD>
+					<a href="VACUUMS.html" style="color:black; font-size:30px;">VACUUMS</a><br>
 				</TD></TR>
 		</TABLE>
 	
@@ -93,7 +117,7 @@
 			<!--    √√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√    -->
 			
 	<div id="JAN23div" style="width:90%; height:650px; border-radius:10px; padding:10px; 
-	position:absolute; top:900px; margin:20px; display:none; text-align:left; border:3px orange outset; 
+	position:absolute; top:1000px; margin:20px; display:none; text-align:left; border:3px orange outset; 
 	background:black; color:lime; overflow: scroll; z-index:100;">
 	<!-- /* left:200px;  */
 							  /* position:fixed; left:630px; top:1300px;*/  /* margin:auto; */ -->
@@ -220,7 +244,7 @@
 
 		
 	<div id="golfBNRdiv" style="height:70px; border-radius:10px; padding:0px; 
-	position:absolute; top:700px;
+	position:absolute; top:650px;
 	margin-left:100px; 
   	width: 80%; display:none; text-align:left; border:0px blue dotted; 
 	background:transparent; color:orange; overflow: scroll; z-index:100;">	<!--margin:20px;/auto; margin-right: auto;--> <!-- display:none; display:block; -->
