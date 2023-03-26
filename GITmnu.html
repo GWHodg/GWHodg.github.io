@@ -11,7 +11,11 @@
 	    height: 300px;       /* Just for the demo          */
 	    overflow-y: auto;    /* Trigger vertical scroll    */
 	    overflow-x: hidden;  /* Hide the horizontal scroll */
+		border:2px inset blue; border-radius:10px;
 	}
+	td { text-align: center; }
+	/* th { text-align:right; }    /* style="text-align:center !important" */
+	thead { border:2px inset orange; border-radius:10px; }
 </style>
 
 <script>
@@ -57,12 +61,12 @@
 
 <body style="background:ivory; padding-top:50px;">
 	
-		<TABLE id="tableMNU" border=1 align=center style="zoom:200%; border-radius:10px;">
+		<TABLE id="tableMNU" border=0 align=center style="zoom:200%;">
 			<thead bgcolor='gray' style="color:white;">	<!-- border:0px inset red;  -->
-				<TR><TH style="padding:0px;">
-						<font face="CooperBlack" color=orange style='font-size:70px; text-shadow: 2px 2px silver;'>MENU '23</font>
+				<TR><TH style="text-align:center !important">
+						<font face="CooperBlack" color=ivory style='font-size:30px; text-shadow: 2px 2px black;'>&emsp;&nbsp;MENU '23</font>
 				</TH></TR>
-			<thead>
+			</thead>
 			<tbody>
 				<TR><TD>
 					<A href="Brandon21.html" style="color:green; font-size:30px;">GwF '21</A>
@@ -71,7 +75,7 @@
 					<A href="THUgp.html" style="color:moccasin; font-size:30px;">VGC Thu</A>
 				</TD></TR>
 				<TR><TD style="background:beige;">
-					<A id="fall22mnuitm" style="cursor:pointer; border:2px outset yellow; width:60%; font-size:30px;"
+					<A id="fall22mnuitm" style="cursor:pointer; border:2px outset yellow; font-size:30px;"
 					onclick="showJAN23()" title=''>
 					<font><u><b>Fall '22</b></u></font></A>&emsp; &#128512;	<!-- grinning emoji -->
 				</TD></TR><TR><TD style="background:black;">
@@ -80,7 +84,7 @@
 				</TD></TR><TR><TD  style="background:gray; font-size:30px;">
 					<A href="ttSIM.html" style="color:moccasin;"">SIM</A>
 				</TD></TR><TR><TD>
-					<A id="MENUpianoIFRAME" style="cursor:pointer; border:2px outset yellow; width:60%; font-size:30px;"
+					<A id="MENUpianoIFRAME" style="cursor:pointer; border:2px outset yellow;  font-size:30px;"
 						onclick="showPIANO()" title=''>
 						<font><u><b>Show PIANO</b></u></font>
 					</A>  
@@ -109,6 +113,7 @@
 				<TR><TD>
 					<a href="VACUUMS.html" style="color:black; font-size:30px;">VACUUMS</a><br>
 				</TD></TR>
+			</tbody>				
 		</TABLE>
 	
 	
