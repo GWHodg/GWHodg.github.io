@@ -843,6 +843,10 @@
 	}
 
 	function changeGLOBAL(SCRinput) {		// < display slider! *
+
+		//document.getElementById(SCRinput).onfocus = function() { document.getElementById("TD"+SCRinput).style.background = "lime"; }
+
+
 		GLOBALinput = SCRinput;	//"ADD";
 		//document.getElementById("SLIDER").style.visibility="visible";
 			document.getElementById("check").style.visibility = "hidden";	//	**
@@ -857,11 +861,46 @@
 			if ( pNUM=="p5" ) { pNAME = document.getElementById("p5NAME").value; }
 			//alert("pNUM = "+pNUM+"\npNAME = "+pNAME);
 		document.getElementById("p&h").value = pNAME+" "+nameArray[1]; 		//GLOBALinput;
+			document.getElementById("focusIPT").value = pNAME+" "+nameArray[1]; 		//GLOBALinput;
 		
 		document.getElementById("myRange").value = 0;	//value="0";	// < **
 			document.getElementById("demo").innerHTML = 0;
 		
+		//alert("SCRinput =" +GLOBALinput);	
+		//document.getElementById(SCRinput).style.background = "yellow";	
+		//document.getElementById("TD"+GLOBALinput).style.background = "orange";	
+		//document.getElementById(SCRinput).onfocus = function() { document.getElementById(SCRinput).style.background = "lime"; }
+		//document.getElementById(SCRinput).blur = function() { document.getElementById(SCRinput).style.background = "orange"; }
+
+		
 	}
+
+	function FOCUSfn(x,SCRinput) {
+	  	//alert("'this' variable = "+x);
+		//x.style.background = "yellow";
+		//document.getElementById("TD"+x).background = "red";
+		x.style.border = "1px solid red";
+		
+		GLOBALinput = SCRinput;
+		const nameArray = GLOBALinput.split("h");
+			let pNUM = nameArray[0]; 
+			var pNAME;
+			if ( pNUM=="p1" ) { pNAME = document.getElementById("p1NAME").value; }
+			if ( pNUM=="p2" ) { pNAME = document.getElementById("p2NAME").value; }
+			if ( pNUM=="p3" ) { pNAME = document.getElementById("p3NAME").value; }
+			if ( pNUM=="p4" ) { pNAME = document.getElementById("p4NAME").value; }
+			if ( pNUM=="p5" ) { pNAME = document.getElementById("p5NAME").value; }
+			//alert("pNUM = "+pNUM+"\npNAME = "+pNAME);
+		document.getElementById("focusIPT").value = pNAME+" "+nameArray[1]; 		//GLOBALinput;
+		
+		//changeGLOBAL(x);
+	}
+	function BLURfn(x) {
+	  	//alert("'this' variable = "+x);
+		//x.style.background = "yellow";
+		//document.getElementById("TD"+x).background = "red";
+		x.style.border = "0px solid red";
+	}	
 	
 	function hideSLIDE() {
 		document.getElementById("SLIDER").style.visibility="hidden";

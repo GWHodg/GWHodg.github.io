@@ -189,9 +189,7 @@
 										<span style='background:white; color:black;'>&nbsp;0&nbsp;</span>
 								</button> <br>
 								<br>
-								<button id='TABbtn' onclick="restrictTAB()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><b>Disable/Enable Inputs<!--Restrict Tabs--><!--bing--></b></button><br>
-								<br>
-								<button id='DROPbtn' onclick="showDROP()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:ivory; background:slategray; border:2px solid black; border-radius:10px; opacity:100%;"><b>Drop Box!</b></button><br>
+								<button id='TABbtn' onclick="restrictTAB()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;"><b>Disable/Enable Inputs<!--Restrict Tabs--><!--bing--></b></button><br>
 								<br>								
 								<button id='FULLbtnMNU' onclick="FULLtbl()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><b>DISPLAY +/-</b></button><br>
 								<br>
@@ -207,17 +205,20 @@
 								<button id='CLEARbtn' onclick="clearSAVED()" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">CLEAR 'saved' scores</button><br>
 								</div>
 								<br>
-								<button id='SLIDEbtn' onclick="showSLIDE()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">Slider Input</button> <br>	
+								<button id='DROPbtn' onclick="showDROP()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:ivory; background:slategray; border:2px solid black; border-radius:10px; opacity:100%;"><b>Drop Box!</b></button><br>
+								<br>
+								<!--<button id='SLIDEbtn' onclick="showSLIDE()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">Slider Input</button> <br>-->	
 								<!--<br>-->
 								
-								<button class="CODEBTNclass" id='NOTESbtn' onclick="showNOTES()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><i>coding notes</i></button>
-								<button class="ZOOMclass" id='ZOOMbtn' onclick="changeZOOM()" style="display:none;"><i>ZOOM +/-</i></button><br>
-								<br>
+								<!--<button class="CODEBTNclass" id='NOTESbtn' onclick="showNOTES()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><i>coding notes</i></button>-->
+								<button class="ZOOMclass" id='ZOOMbtn' onclick="changeZOOM()" style="display:none;"><i>ZOOM +/-</i></button><!--<br>-->
+								<!--<br>-->
 						  </div>
 					</div>		
 </TD>	 <TD width=20></td>	 <TD>
 	<input type="text" id="DATE" tabindex="300" style="background:white; color:blue; width:100px; /*position:relative; left:20%;*/" placeholder="Apr 14/23" value="Apr 14/23" ><br>
-	<font size=2 color=gray><i>(GS<b>pxl2z</b>)</i></font>
+	<input type="text" id="focusIPT" style="height:10px; width:60px;" value="GSpxl2z"> 
+	<!--<font size=2 color=gray><i>(GS<b>pxl2z</b>)</i></font> -->
 </TD></TR>
 </TABLE>
 				<!--    ===================== SLIDER =================================    -->
@@ -278,11 +279,11 @@
 			</TR>
 			<tr>
 				<TH>1</TH>
-				<td> <input class='' type="number" id="p1h1"  onclick="changeGLOBAL('p1h1')" tabindex="1" onchange="localStorage.setItem('g1H1s',this.value);"><span id='SPp1h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
-				<td> <input class='' type="number" id="p2h1" onclick="changeGLOBAL('p2h1')"  tabindex="2" onchange="localStorage.setItem('g2H1s',this.value);"><span id='SPp2h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	
-				<td> <input class='' type="number" id="p3h1" onclick="changeGLOBAL('p3h1')" tabindex="3" onchange="localStorage.setItem('g3H1s',this.value);"><span id='SPp3h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
-				<td> <input class='' type="number" id="p4h1" onclick="changeGLOBAL('p4h1')" tabindex="4" onchange="localStorage.setItem('g4H1s',this.value);"><span id='SPp4h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	
-				<td> <input class='' type="number" id="p5h1" onclick="changeGLOBAL('p5h1')"  tabindex="5" onchange="localStorage.setItem('g5H1s',this.value);"><span id='SPp5h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
+				<td id="TDp1h1"> <input class='' type="number" id="p1h1"  onclick="changeGLOBAL('p1h1')" tabindex="1" onchange="localStorage.setItem('g1H1s',this.value);" onfocus="FOCUSfn(this,'p1h1')" onblur="BLURfn(this)"><span id='SPp1h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
+				<td id="TDp2h1"> <input class='' type="number" id="p2h1" onclick="changeGLOBAL('p2h1')"  tabindex="2" onchange="localStorage.setItem('g2H1s',this.value);" onfocus="FOCUSfn(this,'p2h1')" onblur="BLURfn(this)"><span id='SPp2h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	
+				<td> <input class='' type="number" id="p3h1" onclick="changeGLOBAL('p3h1')" tabindex="3" onchange="localStorage.setItem('g3H1s',this.value);" onfocus="FOCUSfn(this,'p3h1')" onblur="BLURfn(this)"><span id='SPp3h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
+				<td> <input class='' type="number" id="p4h1" onclick="changeGLOBAL('p4h1')" tabindex="4" onchange="localStorage.setItem('g4H1s',this.value);" onfocus="FOCUSfn(this,'p4h1')" onblur="BLURfn(this)""><span id='SPp4h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	
+				<td> <input class='' type="number" id="p5h1" onclick="changeGLOBAL('p5h1')"  tabindex="5" onchange="localStorage.setItem('g5H1s',this.value);" onfocus="FOCUSfn(this,'p5h1')" onblur="BLURfn(this)""><span id='SPp5h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
 				<TH>1 <span id='SPgpH1' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
 				<TD style='background:white; color:black;'>
 					<input type="number" id="PARh1" style="background:white; color:black; width:60%;" placeholder=5 value=5 readonly>
@@ -463,7 +464,7 @@
 					<input type="number" id="PARh10" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
-					<input type="number" id="HCPh10" style="background:white;  color:black; width:60%;" placeholder=6 value=6 readonly>
+					<input type="number" id="HCPh10" style="background:beige;  color:black; width:60%;" placeholder=6 value=6 readonly onclick="showSLIDE()">
 				</TD>
 			</tr>
 			<tr>
@@ -479,7 +480,7 @@
 					<input type="number" id="PARh11" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
-					<input type="number" id="HCPh11" style="background:white;  color:black; width:60%;" placeholder=2 value=2 readonly>
+					<input type="number" id="HCPh11" style="background:beige;  color:black; width:60%;" placeholder=2 value=2 readonly onclick="showNOTES()">
 				</TD>
 			</tr>				
 			<tr> <TH>12</TH> 
