@@ -876,10 +876,10 @@
 	}
 
 	function FOCUSfn(x,SCRinput) {
-	  	//alert("'this' variable = "+x);
-		//x.style.background = "yellow";
-		//document.getElementById("TD"+x).background = "red";
-		x.style.border = "1px solid red";
+		  	//alert("'this' variable = "+x);
+			//x.style.background = "yellow";
+			//document.getElementById("TD"+x).background = "red";
+		//x.style.border = "1px solid red";
 		
 		GLOBALinput = SCRinput;
 		const nameArray = GLOBALinput.split("h");
@@ -890,16 +890,20 @@
 			if ( pNUM=="p3" ) { pNAME = document.getElementById("p3NAME").value; }
 			if ( pNUM=="p4" ) { pNAME = document.getElementById("p4NAME").value; }
 			if ( pNUM=="p5" ) { pNAME = document.getElementById("p5NAME").value; }
-			//alert("pNUM = "+pNUM+"\npNAME = "+pNAME);
-		document.getElementById("focusIPT").value = pNAME+" "+nameArray[1]; 		//GLOBALinput;
+				//alert("pNUM = "+pNUM+"\npNAME = "+pNAME);
 		
-		//changeGLOBAL(x);
+		document.getElementById("focusIPT").style.background = "red";
+		document.getElementById("focusIPT").style.color = "white";
+		document.getElementById("focusIPT").value = pNAME+" "+nameArray[1]; 		//GLOBALinput;
+		document.getElementById("TD"+SCRinput).style.background = "red";   //TDp1h1
+			//changeGLOBAL(x);
 	}
-	function BLURfn(x) {
-	  	//alert("'this' variable = "+x);
-		//x.style.background = "yellow";
-		//document.getElementById("TD"+x).background = "red";
-		x.style.border = "0px solid red";
+	function BLURfn(x,SCRinput) {
+		  	//alert("'this' variable = "+x);
+			//x.style.background = "yellow";
+			//document.getElementById("TD"+x).background = "red";
+		//x.style.border = "0px solid red";
+		document.getElementById("TD"+SCRinput).style.background = "black";
 	}	
 	
 	function hideSLIDE() {
