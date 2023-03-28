@@ -890,11 +890,10 @@
 			if ( pNUM=="p3" ) { pNAME = document.getElementById("p3NAME").value; }
 			if ( pNUM=="p4" ) { pNAME = document.getElementById("p4NAME").value; }
 			if ( pNUM=="p5" ) { pNAME = document.getElementById("p5NAME").value; }
-				//alert("pNUM = "+pNUM+"\npNAME = "+pNAME);
-		
+				//alert("pNUM = "+pNUM+"\npNAME = "+pNAME);	
 		document.getElementById("focusIPT").style.background = "red";
-		document.getElementById("focusIPT").style.color = "white";
-		document.getElementById("focusIPT").value = pNAME+" "+nameArray[1]; 		//GLOBALinput;
+			document.getElementById("focusIPT").style.color = "white";
+			document.getElementById("focusIPT").value = pNAME+" "+nameArray[1]; 		//GLOBALinput;
 		document.getElementById("TD"+SCRinput).style.background = "red";   //TDp1h1
 			//changeGLOBAL(x);
 	}
@@ -904,6 +903,9 @@
 			//document.getElementById("TD"+x).background = "red";
 		//x.style.border = "0px solid red";
 		document.getElementById("TD"+SCRinput).style.background = "black";
+		document.getElementById("focusIPT").style.background = "white";
+			document.getElementById("focusIPT").style.color = "maroon";
+			document.getElementById("focusIPT").value = "GSpxl2z"; 		//GLOBALinput;
 	}	
 	
 	function hideSLIDE() {
