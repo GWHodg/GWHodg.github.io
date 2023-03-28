@@ -1,0 +1,137 @@
+	/* body { padding:20px; } */
+	.body,
+	.wrapper {
+	  /* Break the flow */
+		  position: absolute;
+		  top: 0px;	
+	  /* Give them all the available space */
+		  width: 100%;
+		  height: 100%;	
+	  /* Remove the margins if any */
+		  margin: 0;	
+	  /* Allow them to scroll down the document */
+		  overflow-y: hidden;
+	}
+	
+	.body {
+	  /* Sending body at the bottom of the stack */
+	  z-index: 1;
+	  /*background:gray;*/
+	  /*zoom:150%;*/	/*250%;*/
+	}
+	
+	.wrapper {
+	  /* Making the wrapper stack above the body */
+	  z-index: 2;
+	  padding:30px; /* < my add (Mar 14/23) */
+	  /*zoom:150%;*/
+	}
+
+	
+	table.table2 thead { display:block; }
+	table.table2 tbody { height:430px; overflow-y:scroll; display:block; } /* height:300px; */
+	table.table2 td { width: 40px; background:black; color:white; text-align:center;}
+	table.table2 th { width: 40px; background:yellow; color:maroon }
+	
+	input { width:11px; font-size:15px; text-align:center; }
+		input.uncoded { background:gray; } /* beige ivory linen */
+		input.inptTXT { background:gray; width:110px; } /* beige ivory linen */
+	span { color:white; background:black; font-size:12px; }
+		span.gTOT { color:black; background:white; font-size:12px; border:0px solid blue; border-radius:0px; padding:2px; font-weight:bold; }
+		span.sliderVAL { color:black; background:white; font-size:20px; border:1px solid blue; border-radius:0px; padding:5px; font-weight:bold; }  /* < slider */
+
+	.slidecontainer {
+	  width:25%;	/* 30%; /* Width of the outside container */
+	  border:3px solid red; border-radius:10px;
+	  margin:auto; padding:10px;
+	  position:fixed; left:20em; top:300px;  	/*left:30em; top:40px;*/  
+	  opacity:100%; background:white;	/*transparent;*/ 
+	  visibility:hidden;
+	  z-index:100;
+  	}	
+
+	table.DROPtbl, td, th { text-align: center; }
+
+		/* dropUP menu: */
+			.dropbtn { 
+				/* position:absolute; left:30px; */
+				margin-left: 0px;	/*125px;*/
+				border-radius:10px; cursor:grabbing; background:orange; color:black;
+				BORDER-RIGHT: outset; BORDER-TOP: outset;  
+				BORDER-LEFT: outset; BORDER-BOTTOM: outset
+			}	
+					  /* background-color: #3498DB; color: white;
+			           padding: 5px; font-size: 16px; border: none; */
+			.dropup { position: relative; display: inline-block; }			
+			.dropup-content { display: none; position:absolute; left:-100px; background-color: #f1f1f1;
+			  			      min-width:200px; bottom: -550px; z-index: 1; }	
+							  /*  bottom: -240px; left:55px;  bottom: 0px;  position: absolute; */	
+			.dropup-content a { color: black; padding: 5px 6px; text-decoration: none; display: block; }	
+										/* padding: 12px 16px;  */
+			.dropup-content a:hover {background-color:green;}	/* #ccc */		
+			.dropup:hover .dropup-content { display: block; }			
+			.dropup:hover .dropbtn { background-color: #2980B9; }
+
+
+		div.DROPclass {
+			border:3px inset slategray; border-radius:10px; width:200px; height:400px; overflow:scroll; margin:auto; visibility:visible; background:white; /*position:fixed; left:700px; top:100px;*/ zoom:100%;
+		}	
+		button.ZOOMclass {
+			FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;
+		}
+		a.HOMEclass {
+			color:moccasin; font-size:100px;
+		}
+		button.CODEBTNclass { FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%; }
+		textarea.NOTEclass { background:lightyellow;  border:2px solid black; height:100px; width:100px; visibility:hidden;  position:fixed; left:30em; top:200px; overflow:scroll; }
+		
+					/* CSS Hack: Disable Chrome’s Pull-to-Refresh on Android:
+							        https://w3bits.com/prevent-chrome-pull-to-refresh-css/ 
+							- trick lies in taking the body and it’s inside container division out of the document flow while maintaining the element stacking. 
+							- seems to work with Chrome but NOT Duck-Duck-Go */
+
+		/* Use mediaqueries to set the background-color to orange if the viewport is 1070 pixels wide or wider, to green if the viewport is between 400 and 1069 pixels wide. If the viewport is smaller than 400 pixels, the background-color is blue: (https://www.w3schools.com/cssref/css3_pr_mediaquery.php) */
+		/*body { background-color: blue; }*/  	    /* < viewport < 400 px */
+		@media screen and (max-width:399px) {	/* < viewport < 400 px */ 
+		    body { background-color : blue; }
+		}
+
+		@media screen and (min-width: 400px) and (max-width:980px) and (min-height:1900px) { 
+								/* Pixel(w=1040) */	
+									/* 'min-height:1900px' excludes iPod */
+			  body { 
+				  background-color: orange; 
+				  zoom: 250%;
+				  /* document.getElementById("ZOOMbtn").innerText = "ZOOM -"; */
+			  } 		
+		  	  div.DROPclass { position:fixed; left:50px; top:125px; visibility:hidden; }
+			  button.ZOOMclass { background:yellow; border:4px outset blue; visibility:hidden; }
+			  a.HOMEclass { font-size:20px; }
+			  .dropup-content { bottom: -510px; }
+			  .slidecontainer { left:5px; top:100px; width:60%;}
+			  button.CODEBTNclass { display:none; }
+			  textarea.NOTEclass { left:3em; top:600px; height:200px; width:300px;}	/* ? \/ font-size */	
+			  div.CODEclass { font-size:5px; } 
+	  	}		
+		@media screen and (min-width: 400px) and (max-width:980px) and (max-height:1900px) { 
+			body { background-color:black; } /* includes iPod */			
+		}
+		
+		@media screen and (min-width: 981px) and (max-width:1009px) {	
+		  body { background-color: green; } 				/* WorkingCopy Preview! */  		
+		}
+		@media screen and (min-width: 1010px) and (max-width:1359px) {			
+		  body { background-color: red; }			
+		}
+		@media screen and (min-width: 1360px) { /* < viewport => 1360 px wide */ 					
+		  body { background-color: slategray; } 			/* iPad Pro (TT & "PWA') */						
+		  button.ZOOMclass { background:yellow; border:4px outset blue; visibility:hidden; }
+	    }								    					  
+	  							/*  ?? Google Pixel viewport size is 412 x 732 PX 
+										1080 x 1920	| 412 x 732 ??    W:1040; H:2080 √
+									800px	  ? Pixel W = 1080! 
+									iPod: W=980; H=1678 √ 
+									1000px	  iPad W = 1366! 
+									iPad Pro viewport size: W=1426(1366); Ht=1024 PX √ 
+									WorkingCopy Preview:    W=1051 X  H=964  √ 
+									*/
