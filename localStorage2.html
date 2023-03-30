@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>localStorage2</title>
+
+<style>
+</style>
+
+<script>
+	function save() {
+		alert("Just take a screenshot!\n\n" +
+			  "Will 'save' some selected input variables to 'localStorage' for later retrieval . . .");
+		//https://stackoverflow.com/questions/21012580/is-it-possible-to-write-data-to-file-using-only-javascript
+		/* https://stackoverflow.com/questions/29357931/how-to-save-a-javascript-variable:
+					- can use localStorage on client side:						
+							  localStorage.setItem("mykey",99); // set a variable
+							  var varNumber = localStorage.getItem("mykey"); // retrieve variable */
+		localStorage.setItem("mykey",99); // set a variable
+		localStorage.setItem("guy3",document.getElementById("p3NAME").value); 
+		localStorage.setItem("guy3HC",document.getElementById("p3HC").value); 
+		localStorage.setItem("guy3H1scr",document.getElementById("p3h1").value); 
+		localStorage.setItem("guy3H1pts",document.getElementById("SPp3h1").innerText); 	
+	}
+	function retrieve() {
+		var varNumber = localStorage.getItem("mykey"); // retrieve variable
+		var varName = localStorage.getItem("guy1"); // retrieve variable
+		var varName2 = localStorage.getItem("guy2"); // retrieve variable	
+	}	
+	function replace() {	 
+		/* onchange: */
+		var vG1h1s = localStorage.getItem("g1H1s");	var vG2h1s = localStorage.getItem("g2H1s");
+		var vG3h1s = localStorage.getItem("g3H1s"); var vG4h1s = localStorage.getItem("g4H1s");
+		
+		document.getElementById("p1h1").value = vG1h1s; document.getElementById("p2h1").value = vG2h1s;
+		document.getElementById("p3h1").value = vG3h1s; document.getElementById("p4h1").value = vG4h1s;
+	}
+	
+	function clearSAVED() {
+		/*alert("Will CLEAR 'saved' inputs here!\n\n"+
+			  "g1H1s PRE 'clear' = " + localStorage.getItem("g1H1s"));*/
+		  let reply;
+		  if (confirm("Are you SURE you want to CLEAR all 'saved' input?") == true) {
+		    reply = "YES!";
+		  } else {
+		    reply = "NO!";
+		  }
+  		  alert(reply);
+			  
+			if ( reply=="YES!") {
+				for (var h = 1; h < 19; h++) {
+						for (var n = 1; n < 6; n++) {
+							localStorage.setItem('g'+n+'H'+h+'s',""); document.getElementById("p"+n+"h"+h).value = "";
+						}
+				}
+			}		
+			hideMENU();		
+		}	
+
+</script>		
+		
+</head>
+
+<body align=center>
+	<h1>localStorage File Write/Read Test</h1>
+	<!--<input type="number" id="p1h12" onclick="changeGLOBAL('p1h12')" tabindex="56" onchange="localStorage.setItem('g1H12s',this.value);" onfocus="FOCUSfn('p1h12')" onblur="BLURfn('p1h12')"><span id='SPp1h12' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">-->
+	
+	<div style="border:2px inset purple; width:40%; margin:auto;">	
+	    <h3>WRITE to File</h3>
+		<button id="b">export to CSV</button>
+	    <script type="text/javascript">
+	        function exportToCsv() {
+	            var vG1h1s = localStorage.getItem("g1H1s"); var vG2h1s = localStorage.getItem("g2H1s");
+				var vG3h1s = localStorage.getItem("g3H1s"); var vG4h1s = localStorage.getItem("g4H1s");
+				var vG5h1s = localStorage.getItem("g5H1s");			
+				var vG1h2s = localStorage.getItem("g1H2s");	var vG2h2s = localStorage.getItem("g2H2s");
+				var vG3h2s = localStorage.getItem("g3H2s"); var vG4h2s = localStorage.getItem("g4H2s");
+				var vG5h2s = localStorage.getItem("g5H2s");
+				var vG1h3s = localStorage.getItem("g1H3s");	var vG2h3s = localStorage.getItem("g2H3s"); /* test! */
+				var vG3h3s = localStorage.getItem("g3H3s"); var vG4h3s = localStorage.getItem("g4H3s");
+				var vG5h3s = localStorage.getItem("g5H3s");	
+				
+				var myCsv = "P1,P2,P3,P4\n" + vG1h1s + "," + vG2h1s + "," + vG3h1s + "," + vG4h1s + 
+							"\n"+vG1h2s+","+vG2h2s+","+vG3h2s+","+vG4h2s +
+							"\n"+vG1h3s+","+vG2h3s+","+vG3h3s+","+vG4h3s;
+	            window.open('data:text/csv;charset=utf-8,' + escape(myCsv));
+	        }
+	        var button = document.getElementById('b');
+	        button.addEventListener('click', exportToCsv);
+	    </script>		
+						<!-- myCsv ^ -> screen. 'Select All' > share > email to self > 
+							select on email > share > create csv file -->
+		<br>					
+		myCsv ^ -> screen. 'Select All' > share > email to self <i>(sends X 2)</i> ><br> 
+		select on email <i>(1/2)</i> > share > create csv (or <b>txt</b>) file<br>
+							
+	</div>
+							
+	<br><br>√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√<br><br>
+					
+	<div style="border:2px outset blue; width:40%; margin:auto;">	
+			<h3>READ file</h3>
+			<script>
+			var openFile = function(event) {
+			  var input = event.target;
+					//alert("'event' = "+event);
+			  var reader = new FileReader();
+			  reader.onload = function() {
+			    var text = reader.result;
+			    var node = document.getElementById('output');
+			    node.innerText = text;
+			    console.log(reader.result.substring(0, 200));
+			  };
+			  reader.readAsText(input.files[0]);
+			};
+			</script>
+			<input type='file' accept='text/plain' onchange='openFile(event)' style="border:1px solid orange;"><br>
+			<div id='output' style="border:2px dotted blue; width:80%; margin:auto;">
+			  ...
+			</div>
+						
+			<br>
+			<button id='DIVtoVARbtn' onclick="DIVtoVAR()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>DIVtoVAR</b></u></button><br>
+			Convert content of div ('output') to variable ('myDiv1').  Then split > array?
+			<script>
+				function DIVtoVAR() {
+						var MyDiv1 = document.getElementById('output').innerHTML;
+							//MyDiv2.innerHTML = MyDiv1.innerHTML; 
+						alert("MyDiv1 = "+MyDiv1);
+						
+						const readArray = MyDiv1.split(" ");
+						alert("'readArray' contents:\n"+
+							  "\t\treadArray[0]) ="+readArray[0]+
+							  "\n\t\treadArray[1]) ="+readArray[1]+
+							  "\n\t\treadArray[2]) ="+readArray[2]+
+							  "\n\t\treadArray[3]) ="+readArray[3]+
+							  "\n\t\treadArray[4]) ="+readArray[4]);
+						
+						//let p1h1 = readArray[4]; alert("p1h1 (readArray[4]) = "+p1h1);
+						
+						
+				}
+			</script>
+			<br>		
+			<i>[<b><u>File</u>:</b> <b>On My iPad/</b>GScsv.csv.<u>txt</u> > <b>GSwrite.txt</b>]</i><br>			
+	</div>
+
+</body>
+</html>
