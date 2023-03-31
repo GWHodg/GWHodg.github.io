@@ -70,7 +70,13 @@
 		<button id="b">export to CSV</button>
 	    <script type="text/javascript">
 	        function exportToCsv() {
-	            var vG1h1s = localStorage.getItem("g1H1s"); var vG2h1s = localStorage.getItem("g2H1s");
+		            /*var p1NAME = document.getElementById("p1NAME").value; (?? innerText/innerHTML)
+					var p2NAME = document.getElementById("p2NAME").value;
+					var p3NAME = document.getElementById("p3NAME").value; 
+					var p4NAME = document.getElementById("p4NAME").value;
+					var p5NAME = document.getElementById("p5NAME").value;*/
+				
+				var vG1h1s = localStorage.getItem("g1H1s"); var vG2h1s = localStorage.getItem("g2H1s");
 				var vG3h1s = localStorage.getItem("g3H1s"); var vG4h1s = localStorage.getItem("g4H1s");
 				var vG5h1s = localStorage.getItem("g5H1s");			
 				var vG1h2s = localStorage.getItem("g1H2s");	var vG2h2s = localStorage.getItem("g2H2s");
@@ -80,9 +86,11 @@
 				var vG3h3s = localStorage.getItem("g3H3s"); var vG4h3s = localStorage.getItem("g4H3s");
 				var vG5h3s = localStorage.getItem("g5H3s");	
 				
-				var myCsv = "P1,P2,P3,P4\n" + vG1h1s + "," + vG2h1s + "," + vG3h1s + "," + vG4h1s + 
-							"\n"+vG1h2s+","+vG2h2s+","+vG3h2s+","+vG4h2s +
-							"\n"+vG1h3s+","+vG2h3s+","+vG3h3s+","+vG4h3s;
+				var myCsv = "P1,P2,P3,P4,P5"+
+							//"\n"+p1NAME+","+p2NAME+","+p3NAME+","+p4NAME+","+p5NAME+ 
+							"\n"+vG1h1s+","+vG2h1s+","+vG3h1s+","+vG4h1s+","+vG5h1s+ 
+							"\n"+vG1h2s+","+vG2h2s+","+vG3h2s+","+vG4h2s+","+vG5h2s+
+							"\n"+vG1h3s+","+vG2h3s+","+vG3h3s+","+vG4h3s+","+vG5h3s;
 	            window.open('data:text/csv;charset=utf-8,' + escape(myCsv));
 	        }
 	        var button = document.getElementById('b');
@@ -91,14 +99,18 @@
 						<!-- myCsv ^ -> screen. 'Select All' > share > email to self > 
 							select on email > share > create csv file -->
 		<br>					
-		myCsv ^ -> screen. 'Select All' > share > email to self <i>(sends X 2)</i> ><br> 
-		select on email <i>(1/2)</i> > share > create csv (or <b>txt</b>) file<br>
-							
+		<p style="text-align:left;">
+		<b><u>iPad:</u></b> myCsv ^ -> screen. 'Select All' > share > email to self <i>(sends X 2)</i> >  
+		select on email <i>(1/2)</i> > share > create csv (or <b>txt</b>) file.<br>
+		<b><u>Pixel:</u></b> exports/writes to Google SHEETS (as csv file - <i>'download.csv'</i>).<br>
+		<b><u>iPod:</u></b> > screen (like iPad) > select all > email. Then ? how to create file <i>(? In Pixel email select it > save/share to 'HodgGW' Google 'Drive' (Textastic folder) > read it from there).</i><br>
+		</p>
+		
 	</div>
 							
 	<br><br>√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√<br><br>
 					
-	<div style="border:2px outset blue; width:40%; margin:auto;">	
+	<div style="border:2px outset blue; border-radius:5%; width:40%; margin:auto;">	
 			<h3>READ file</h3>
 			<script>
 			var openFile = function(event) {
@@ -118,17 +130,23 @@
 			<div id='output' style="border:2px dotted blue; width:80%; margin:auto;">
 			  ...
 			</div>
-						
+			
+			<p style="text-align:left;">
+			<b><u>iPad:</u></b> Download as txt file & 'splits' w/ ' ' > array!<br>
+			<b><u>Pixel:</u></b> Appears to download as csv file from SHEETS w/o spaces. Would need to split w/ commas > array!<br>
+			<b><u>iPod:</u></b>	NEED TO FIGURE OUT HOW TO GET EMAIL DATA FROM IPOD TO PIXEL FILE (? SHEETS). <i>?Looks like you MAY be able to <u>copy</u> it in email & <u>paste</u> in a SHEETS file (? 'download.csv')?? <b>In Pixel email select it > save/share to 'HodgGW' Google 'Drive' (Textastic folder) > read it from there.</b> <br>
+			</p>
+			
 			<br>
 			<button id='DIVtoVARbtn' onclick="DIVtoVAR()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>DIVtoVAR</b></u></button><br>
-			Convert content of div ('output') to variable ('myDiv1').  Then split > array?
+			
 			<script>
 				function DIVtoVAR() {
 						var MyDiv1 = document.getElementById('output').innerHTML;
 							//MyDiv2.innerHTML = MyDiv1.innerHTML; 
 						alert("MyDiv1 = "+MyDiv1);
 						
-						const readArray = MyDiv1.split(" ");
+						const readArray = MyDiv1.split("<br>");
 						alert("'readArray' contents:\n"+
 							  "\t\treadArray[0]) ="+readArray[0]+
 							  "\n\t\treadArray[1]) ="+readArray[1]+
@@ -141,9 +159,20 @@
 						
 				}
 			</script>
-			<br>		
-			<i>[<b><u>File</u>:</b> <b>On My iPad/</b>GScsv.csv.<u>txt</u> > <b>GSwrite.txt</b>]</i><br>			
+
+			<p style="text-align:left;">
+				<b><u>iPad:</u></b> Convert content of div ('output') to variable ('myDiv1').  Then split > array?<br>	
+				&emsp;<i>[<b><u>File</u>:</b> <b>On My iPad/</b>GScsv.csv.<u>txt</u> > <b>GSwrite.txt</b>]</i><br>	
+			</p>
 	</div>
 
+	
+	
+	<div id="HOMEdiv" style="border-radius:10px; padding:5px;border:3px slategray outset; background:black; 	color:white; position:fixed; left:1em; top:10px;">
+		<A class="" style="color:moccasin; font-size:50px;" href="GSsplash.html" style=""> &#x2302;<!--HOME symbol--></A>	
+			<!-- class="HOMEclass" -->
+	</div>	
+
+	
 </body>
 </html>
