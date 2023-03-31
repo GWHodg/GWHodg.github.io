@@ -61,11 +61,12 @@
 		
 </head>
 
-<body align=center>
-	<h1>localStorage File Write/Read Test</h1>
+<body align=center style="background:ivory;">
+	<h1><i>localStorage</i><br>File Write/Read</h1>
 	<!--<input type="number" id="p1h12" onclick="changeGLOBAL('p1h12')" tabindex="56" onchange="localStorage.setItem('g1H12s',this.value);" onfocus="FOCUSfn('p1h12')" onblur="BLURfn('p1h12')"><span id='SPp1h12' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">-->
-	
-	<div style="border:2px inset purple; width:40%; margin:auto;">	
+<!--<TABLE border=1>
+<TR><TD>-->	
+	<div style="border:2px inset purple; width:50%; margin:auto; padding:10px;">	
 	    <h3>WRITE to File</h3>
 		<button id="b">export to CSV</button>
 	    <script type="text/javascript">
@@ -107,10 +108,10 @@
 		</p>
 		
 	</div>
-							
-	<br><br>√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√<br><br>
-					
-	<div style="border:2px outset blue; border-radius:5%; width:40%; margin:auto;">	
+	<br>						
+								<!--   <br><br>√√√√√√√√√√√√√√√√√√√√√√√√<br><br>   -->
+<!--</TD><TD>-->
+	<div style="border:2px outset blue; border-radius:5%; width:50%; margin:auto; padding:10px;">	
 			<h3>READ file</h3>
 			<script>
 			var openFile = function(event) {
@@ -134,7 +135,7 @@
 			<p style="text-align:left;">
 			<b><u>iPad:</u></b> Download as txt file & 'splits' w/ ' ' > array!<br>
 			<b><u>Pixel:</u></b> Appears to download as csv file from SHEETS w/o spaces. Would need to split w/ commas > array!<br>
-			<b><u>iPod:</u></b>	NEED TO FIGURE OUT HOW TO GET EMAIL DATA FROM IPOD TO PIXEL FILE (? SHEETS). <i>?Looks like you MAY be able to <u>copy</u> it in email & <u>paste</u> in a SHEETS file (? 'download.csv')?? <b>In Pixel email select it > save/share to 'HodgGW' Google 'Drive' (Textastic folder) > read it from there.</b> <br>
+			<b><u>iPod:</u></b>	NEED TO FIGURE OUT HOW TO GET EMAIL DATA FROM IPOD TO PIXEL FILE (? SHEETS). <i>?Looks like you MAY be able to <u>copy</u> it in email & <u>paste</u> in a SHEETS file (? 'download.csv')??</i> <b>In Pixel email select it > save/share to 'HodgGW' Google 'Drive' (Textastic folder) > read it from there.</b> <br>
 			</p>
 			
 			<br>
@@ -165,7 +166,44 @@
 				&emsp;<i>[<b><u>File</u>:</b> <b>On My iPad/</b>GScsv.csv.<u>txt</u> > <b>GSwrite.txt</b>]</i><br>	
 			</p>
 	</div>
+	<br>
+<!--</TD></TR>
+<TR><TD colspan=2 valign=top>-->
+	<!--insert 'applied sequence' here . . -->
+<!--</TD></TR>
+</TABLE>-->
 
+							<!--	<br><br>√√√√√√√√√√√√√√√√√√√√√√√√<br><br>    --> 
+<!--</TD><TD>-->
+	<div style="border:3px dotted yellow; background:silver; border-radius:5%; width:40%; margin:auto; padding:10px; text-align:left;">	
+		<h3>'Applied Sequence'</h3>
+		<ul>
+			<li>During Round
+				<ul>
+					<li>Score on PIXEL</li>
+					<li>'export to CSV' > <i>download.csv</i> (? Google SHEETS) in 'Files'</li>
+					<li>In Files/Downloads tap 'download(#).csv' > : > 'share & export' > </li>
+					<li> > 'Send a copy' <i>(<u>CSV format</u>)</i> > email to self <i>(CH2@gm)</i> [e.g. 'frPXL31/856']</li>
+				</ul>
+			</li>
+			
+			
+			<li>Post Round <i>(if PXL > 'belly up')</i>
+				<ul>
+					<li>Open email <i>('frPXL..') . .</i></li>
+					<li> . . tap to download <i>('download (1).csv')</i> . . </li>
+					<li> . . -> 'save to files' > 'Add' in 'Textastic' folder <i>(in 'On My iPod')</i></li>
+					<li>Can then 'choose file' in READ portion of 'WaltStuff' localStorage.html</li>
+					<li> . . > convert read div to string <i>('DIVtoVAR' btn)</i> . .</li>
+					<li> . . > convert string to array <i>(> scores by hole)</i> . .</li>
+					<li> . . <b>THEN WILL HAVE TO BREAK DOWN EA H > INDIV SCORES!</b> . .</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	
+	
+	
 	
 	
 	<div id="HOMEdiv" style="border-radius:10px; padding:5px;border:3px slategray outset; background:black; 	color:white; position:fixed; left:1em; top:10px;">
