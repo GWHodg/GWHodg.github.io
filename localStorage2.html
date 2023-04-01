@@ -71,11 +71,12 @@
 		<button id="b">export to CSV</button>
 	    <script type="text/javascript">
 	        function exportToCsv() {
-		            /*var p1NAME = document.getElementById("p1NAME").value; (?? innerText/innerHTML)
-					var p2NAME = document.getElementById("p2NAME").value;
-					var p3NAME = document.getElementById("p3NAME").value; 
-					var p4NAME = document.getElementById("p4NAME").value;
-					var p5NAME = document.getElementById("p5NAME").value;*/
+				var p1NAME = localStorage.getItem("g1NAME"); var p2NAME = localStorage.getItem("g2NAME");
+				var p3NAME = localStorage.getItem("g3NAME"); var p4NAME = localStorage.getItem("g4NAME");
+				var p5NAME = localStorage.getItem("g5NAME");			
+				var p1HC = localStorage.getItem("g1HC"); var p2HC = localStorage.getItem("g2HC");
+				var p3HC = localStorage.getItem("g3HC"); var p4HC = localStorage.getItem("g4HC");
+				var p5HC = localStorage.getItem("g5HC");			
 				
 				var vG1h1s = localStorage.getItem("g1H1s"); var vG2h1s = localStorage.getItem("g2H1s");
 				var vG3h1s = localStorage.getItem("g3H1s"); var vG4h1s = localStorage.getItem("g4H1s");
@@ -88,7 +89,8 @@
 				var vG5h3s = localStorage.getItem("g5H3s");	
 				
 				var myCsv = "P1,P2,P3,P4,P5"+
-							//"\n"+p1NAME+","+p2NAME+","+p3NAME+","+p4NAME+","+p5NAME+ 
+							"\n"+p1HC+","+p2HC+","+p3HC+","+p4HC+","+p5HC+ 
+							"\n"+p1NAME+","+p2NAME+","+p3NAME+","+p4NAME+","+p5NAME+ 
 							"\n"+vG1h1s+","+vG2h1s+","+vG3h1s+","+vG4h1s+","+vG5h1s+ 
 							"\n"+vG1h2s+","+vG2h2s+","+vG3h2s+","+vG4h2s+","+vG5h2s+
 							"\n"+vG1h3s+","+vG2h3s+","+vG3h3s+","+vG4h3s+","+vG5h3s;
@@ -146,6 +148,23 @@
 						var MyDiv1 = document.getElementById('output').innerHTML;
 							//MyDiv2.innerHTML = MyDiv1.innerHTML; 
 						alert("MyDiv1 = "+MyDiv1);
+						var chr3 = MyDiv1.charAt(2);
+							alert("3rd chr in 'MyDiv1' string = '"+chr3+"'");
+						if ( chr3!="," ) {
+							/* convert a text file to CSV file:
+									1.split on line breaks
+									2. split on white space
+									3. join with commas
+									4. join with new lines */							
+								let txtTOcsv = MyDiv1.split('\n')                          // split lines
+								            .map(line => line.split(/\s+/).join(','))  // split spaces then join with ,
+								            .join('\n')                                // rejoin lines
+								
+											alert(".txt > .csv file conversion:\n"+
+												  txtTOcsv);
+											MyDiv1 = txtTOcsv;											  
+						}
+						
 						
 						const readArray = MyDiv1.split("<br>");
 						alert("'readArray' contents:\n"+
@@ -157,6 +176,12 @@
 						
 						//let p1h1 = readArray[4]; alert("p1h1 (readArray[4]) = "+p1h1);
 						
+						var pNMs = readArray[2]; var pHCs = readArray[1];
+						var h1 = readArray[3]; var h2 = readArray[4];
+							alert("pNMS array = "+pNMs+"\nh2 array = "+h2);
+						const H2arr = h2.split(",");
+								alert("H2arr[2] = "+H2arr[2]);
+										
 						
 				}
 			</script>
@@ -175,7 +200,7 @@
 
 							<!--	<br><br>√√√√√√√√√√√√√√√√√√√√√√√√<br><br>    --> 
 <!--</TD><TD>-->
-	<div style="border:3px dotted yellow; background:silver; border-radius:5%; width:40%; margin:auto; padding:10px; text-align:left;">	
+	<div style="border:3px dotted yellow; background:silver; border-radius:5%; width:60%; margin:auto; padding:10px; text-align:left;">	
 		<h3>'Applied Sequence'</h3>
 		<ul>
 			<li>During Round
@@ -188,8 +213,9 @@
 			</li>
 			
 			
-			<li>Post Round <i>(if PXL > 'belly up')</i>
+			<li>Post Round 
 				<ul>
+					<li>Calc on iPod <i>(if PXL > 'belly up')</i>
 					<li>Open email <i>('frPXL..') . .</i></li>
 					<li> . . tap to download <i>('download (1).csv')</i> . . </li>
 					<li> . . -> 'save to files' > 'Add' in 'Textastic' folder <i>(in 'On My iPod')</i></li>

@@ -12,7 +12,13 @@
 </script>	
 </head>
 
-<body class="body"> <!-- style="zoom:200%;" -->
+<body class="body"  onload="localStorage.setItem('g1NAME',document.getElementById('p1NAME').value); localStorage.setItem('g2NAME',document.getElementById('p2NAME').value); localStorage.setItem('g3NAME',document.getElementById('p3NAME').value); localStorage.setItem('g4NAME',document.getElementById('p4NAME').value); localStorage.setItem('g5NAME',document.getElementById('p5NAME').value); 
+	localStorage.setItem('g1HC',document.getElementById('p1HC').value);
+	localStorage.setItem('g2HC',document.getElementById('p2HC').value);	
+	localStorage.setItem('g3HC',document.getElementById('p3HC').value);
+	localStorage.setItem('g4HC',document.getElementById('p4HC').value);
+	localStorage.setItem('g5HC',document.getElementById('p5HC').value);" > 
+						<!-- style="zoom:200%;" -->
 <div class="wrapper"><!-- Put the page contents here -->
 
 <TABLE id="HEADtbl" border=1 align=center style='FONT-SIZE:large; color:maroon; visibility:visible;' bgcolor='ivory'>	
@@ -110,11 +116,11 @@
 	style='FONT-SIZE:large; color:maroon; visibility:visible; zoom:100%;' bgcolor='lightgreen'>
 		<thead> <!--  bgcolor='gray' style="color:white;" -->
 				<th>H</th>
-				<th><input type="text" id="p1NAME" tabindex="201" style="background:ivory; width:60%; font-weight:bold; font-size:14px;" maxlength=2 value="WH"></th>	<!-- P1 -->
-				<th><input type="text" id="p2NAME" tabindex="203" style="background:beige; width:60%;" maxlength=2 value="AB"></th> <!-- P2 -->
-				<th><input type="text" id="p3NAME" tabindex="205" style="background:linen; width:60%;" maxlength=2 value="DZ"></th> 
-				<th><input type="text" id="p4NAME" tabindex="207" style="background:whitesmoke; width:60%; maxlength=2" value="BP"></th>
-				<th><input type="text" id="p5NAME" tabindex="209" style="background:snow; width:60%; maxlength=2"></th>	
+				<th><input type="text" id="p1NAME" onchange="localStorage.setItem('g1NAME',this.value);"  tabindex="201" style="background:ivory; width:60%; font-weight:bold; font-size:14px;" maxlength=2 value="WH"></th>	<!-- P1 -->
+				<th><input type="text" id="p2NAME" onchange="localStorage.setItem('g2NAME',this.value);" tabindex="203" style="background:beige; width:60%;" maxlength=2 value="AB"></th> <!-- P2 -->
+				<th><input type="text" id="p3NAME" onchange="localStorage.setItem('g3NAME',this.value);" tabindex="205" style="background:linen; width:60%;" maxlength=2 value="DZ"></th> 
+				<th><input type="text" id="p4NAME" onchange="localStorage.setItem('g4NAME',this.value);" tabindex="207" style="background:whitesmoke; width:60%; maxlength=2" value="BP"></th>
+				<th><input type="text" id="p5NAME" onchange="localStorage.setItem('g5NAME',this.value);" tabindex="209" style="background:snow; width:60%; maxlength=2"></th>	
 				<th>H</th>
 				<th>par</th>
 				<th>hcp</th>	
@@ -122,11 +128,11 @@
 		<tbody id='TBLbody'> 							
 			<TR>
 				<TH style="background:lightgreen;"></TH>
-				<TH><input type="number" id="p1HC" name='NMp1hc' autofocus tabindex="202" style="background:ivory; width:60%; font-weight:bold;" value=24></TH> <!-- onchange="pHCcolors('p1')" -->
-				<TH><input type="number" id="p2HC" tabindex="204" style="background:beige; width:60%;" value=17></TH> <!-- P2 HC -->
-				<TH><input type="number" id="p3HC" tabindex="206" style="background:linen; width:60%;" value=10></TH>
-				<TH><input type="number" id="p4HC" tabindex="208" style="background:whitesmoke; width:60%;"  value=13></TH>
-				<TH><input type="number" id="p5HC" tabindex="210" style="background:snow; width:60%;"></TH>
+				<TH><input type="number" id="p1HC" onchange="localStorage.setItem('g1HC',this.value);" name='NMp1hc' autofocus tabindex="202" style="background:ivory; width:60%; font-weight:bold;" value=24></TH> <!-- onchange="pHCcolors('p1')" -->
+				<TH><input type="number" id="p2HC" onchange="localStorage.setItem('g2HC',this.value);" tabindex="204" style="background:beige; width:60%;" value=17></TH> <!-- P2 HC -->
+				<TH><input type="number" id="p3HC" onchange="localStorage.setItem('g3HC',this.value);" tabindex="206" style="background:linen; width:60%;" value=10></TH>
+				<TH><input type="number" id="p4HC" onchange="localStorage.setItem('g4HC',this.value);" tabindex="208" style="background:whitesmoke; width:60%;"  value=13></TH>
+				<TH><input type="number" id="p5HC" onchange="localStorage.setItem('g5HC',this.value);" tabindex="210" style="background:snow; width:60%;"></TH>
 				<TD  colspan=3 style="background:transparent;"> <!--  float:right; -->
 					<!--<button id='SLIDEbtn' onclick="showSLIDE()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">Slider Input</button>	-->
 					<button id='FULLbtn2' onclick="FULLtbl()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:blue; background:transparent; border:0px solid blue; border-radius:5px;">+</button>
