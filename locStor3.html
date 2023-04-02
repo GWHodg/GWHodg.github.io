@@ -5,22 +5,79 @@
 <title>locStor3</title> <!-- localStorage -->
 
 <style>
-	input[type=file] {
-	  display: block;
-	  color: white;
-	  padding:10px;
-	  font-style: oblique;
-	  background:black;
-	  font-size:18px;
+	input[type=file] {display:block; color:white; padding:10px; font-style:oblique; background:black; font-size:18px;}
+	
+	@media screen and (min-width: 400px) and (max-width:980px) and (min-height:1900px) { 
+							/* Pixel(w=1040) */		/* 'min-height:1900px' excludes iPod */
+		  body { 
+			  background-color: orange; 
+			  zoom: 250%;		/* document.getElementById("ZOOMbtn").innerText = "ZOOM -"; */
+		  }
 	}
+	
 </style>
 
 <script>
-		//https://stackoverflow.com/questions/21012580/is-it-possible-to-write-data-to-file-using-only-javascript
+	var MyDiv1; var readArray;
+	function DIVtoVAR() {
+			MyDiv1 = document.getElementById('output').innerHTML;	//MyDiv2.innerHTML = MyDiv1.innerHTML; 
+			alert("MyDiv1 = "+MyDiv1);
+			var chr3 = MyDiv1.charAt(2);
+				alert("3rd chr in 'MyDiv1' string = '"+chr3+"'");
+			if ( chr3!="," ) {
+				/* convert a text file to CSV file:
+						1.split on line breaks
+						2. split on white space
+						3. join with commas
+						4. join with new lines */							
+					let txtTOcsv = MyDiv1.split('\n')                      // split lines
+					            .map(line => line.split(/\s+/).join(','))  // split spaces then join with ,
+					            .join('\n')                                // rejoin lines
+					
+								alert(".txt > .csv file conversion:\n"+
+									  txtTOcsv);
+								MyDiv1 = txtTOcsv;											  
+			}
+						
+			readArray = MyDiv1.split("<br>");	//const readArray = MyDiv1.split("<br>");
+			alert("'readArray' contents:\n"+
+				  "\t\treadArray[0]) ="+readArray[0]+
+				  "\n\t\treadArray[1]) ="+readArray[1]+
+				  "\n\t\treadArray[2]) ="+readArray[2]+
+				  "\n\t\treadArray[3]) ="+readArray[3]+
+				  "\n\t\treadArray[4]) ="+readArray[4]);
+			
+			//let p1h1 = readArray[4]; alert("p1h1 (readArray[4]) = "+p1h1);			
+	}
+	
+	function changeLclStrg() {
+			var pNMs = readArray[2]; var pHCs = readArray[1];
+			var h1 = readArray[3]; var h2 = readArray[4];
+					alert("pNMS array = "+pNMs+"\nh2 array = "+h2);
+			const pNarr = pNMs.split(",");
+				localStorage.setItem('g1NAME', pNarr[0]); localStorage.setItem('g2NAME', pNarr[1]);
+				localStorage.setItem('g3NAME', pNarr[2]); localStorage.setItem('g4NAME', pNarr[3]);
+				localStorage.setItem('g5NAME', pNarr[4]);
+			const pHCarr = pHCs.split(",");
+				localStorage.setItem('g1HC', pHCarr[0]); localStorage.setItem('g2HC', pHCarr[1]);
+				localStorage.setItem('g3HC', pHCarr[2]); localStorage.setItem('g4HC', pHCarr[3]);
+				localStorage.setItem('g5HC', pHCarr[4]);				
+			const H1arr = h1.split(",");	alert("H1arr[2] = "+H1arr[2]);
+				localStorage.setItem('g1H1s', H1arr[0]); localStorage.setItem('g2H1s', H1arr[1]);
+				localStorage.setItem('g3H1s', H1arr[2]); localStorage.setItem('g4H1s', H1arr[3]);
+				localStorage.setItem('g5H1s', H1arr[4]);
+			const H2arr = h2.split(",");	alert("H2arr[2] = "+H2arr[2]);
+				localStorage.setItem('g1H2s', H2arr[0]); localStorage.setItem('g2H2s', H2arr[1]);
+				localStorage.setItem('g3H2s', H2arr[2]); localStorage.setItem('g4H2s', H2arr[3]);
+				localStorage.setItem('g5H2s', H2arr[4]);
+	}
+
+	//https://stackoverflow.com/questions/21012580/is-it-possible-to-write-data-to-file-using-only-javascript
 		/* https://stackoverflow.com/questions/29357931/how-to-save-a-javascript-variable:
 					- can use localStorage on client side:						
 							  localStorage.setItem("mykey",99); // set a variable
 							  var varNumber = localStorage.getItem("mykey"); // retrieve variable */
+							  
 	function EXPORTalert() {
 		alert("EXPORT HELP!\n\n"+
 			  "iPad: myCsv ^ -> screen. 'Select All' > share > email to self (sends X 2) > select on email (1/2) > share > create csv (or txt) file. In iPad WS/GitHub seems to write to iCloud/Numbers as 'Unknown.txt' w/o needing > email (for some reason).\n\n"+
@@ -53,42 +110,49 @@
 </head>
 
 <body align=center style="background:ivory;">
-	<h1><i>localStorage</i><br>File Write/Read <font size=3 color=silver>[3]</font></h1>
+	<h1><i>localStorage</i> File<br>Management <font size=3 color=silver>[3]</font></h1>
 <!--<TABLE border=1>
 <TR><TD>-->	
 	<div style="border:2px inset purple; width:50%; margin:auto; padding:10px;">	
 	    <h3>WRITE to File</h3>
 		<button id="b" style="background:black; color:white; font-size:20px; border:2px outset blue; border-radius:10%;">export to CSV</button>
-	    <script type="text/javascript">
-	        function exportToCsv() {
-				var p1NAME = localStorage.getItem("g1NAME"); var p2NAME = localStorage.getItem("g2NAME");
-				var p3NAME = localStorage.getItem("g3NAME"); var p4NAME = localStorage.getItem("g4NAME");
-				var p5NAME = localStorage.getItem("g5NAME");			
-				var p1HC = localStorage.getItem("g1HC"); var p2HC = localStorage.getItem("g2HC");
-				var p3HC = localStorage.getItem("g3HC"); var p4HC = localStorage.getItem("g4HC");
-				var p5HC = localStorage.getItem("g5HC");			
-				
-				var vG1h1s = localStorage.getItem("g1H1s"); var vG2h1s = localStorage.getItem("g2H1s");
-				var vG3h1s = localStorage.getItem("g3H1s"); var vG4h1s = localStorage.getItem("g4H1s");
-				var vG5h1s = localStorage.getItem("g5H1s");			
-				var vG1h2s = localStorage.getItem("g1H2s");	var vG2h2s = localStorage.getItem("g2H2s");
-				var vG3h2s = localStorage.getItem("g3H2s"); var vG4h2s = localStorage.getItem("g4H2s");
-				var vG5h2s = localStorage.getItem("g5H2s");
-				var vG1h3s = localStorage.getItem("g1H3s");	var vG2h3s = localStorage.getItem("g2H3s"); /* test! */
-				var vG3h3s = localStorage.getItem("g3H3s"); var vG4h3s = localStorage.getItem("g4H3s");
-				var vG5h3s = localStorage.getItem("g5H3s");	
-				
-				var myCsv = "P1,P2,P3,P4,P5"+
-							"\n"+p1HC+","+p2HC+","+p3HC+","+p4HC+","+p5HC+ 
-							"\n"+p1NAME+","+p2NAME+","+p3NAME+","+p4NAME+","+p5NAME+ 
-							"\n"+vG1h1s+","+vG2h1s+","+vG3h1s+","+vG4h1s+","+vG5h1s+ 
-							"\n"+vG1h2s+","+vG2h2s+","+vG3h2s+","+vG4h2s+","+vG5h2s+
-							"\n"+vG1h3s+","+vG2h3s+","+vG3h3s+","+vG4h3s+","+vG5h3s;
-	            window.open('data:text/csv;charset=utf-8,' + escape(myCsv));
-	        }
-	        var button = document.getElementById('b');
-	        button.addEventListener('click', exportToCsv);
-	    </script>		
+				    <script type="text/javascript">
+				        function exportToCsv() {
+							var p1NAME = localStorage.getItem("g1NAME"); var p2NAME = localStorage.getItem("g2NAME");
+							var p3NAME = localStorage.getItem("g3NAME"); var p4NAME = localStorage.getItem("g4NAME");
+							var p5NAME = localStorage.getItem("g5NAME");			
+							var p1HC = localStorage.getItem("g1HC"); var p2HC = localStorage.getItem("g2HC");
+							var p3HC = localStorage.getItem("g3HC"); var p4HC = localStorage.getItem("g4HC");
+							var p5HC = localStorage.getItem("g5HC");			
+							
+							var vG1h1s = localStorage.getItem("g1H1s"); var vG2h1s = localStorage.getItem("g2H1s");
+							var vG3h1s = localStorage.getItem("g3H1s"); var vG4h1s = localStorage.getItem("g4H1s");
+							var vG5h1s = localStorage.getItem("g5H1s");			
+							var vG1h2s = localStorage.getItem("g1H2s");	var vG2h2s = localStorage.getItem("g2H2s");
+							var vG3h2s = localStorage.getItem("g3H2s"); var vG4h2s = localStorage.getItem("g4H2s");
+							var vG5h2s = localStorage.getItem("g5H2s");
+							var vG1h3s = localStorage.getItem("g1H3s");	var vG2h3s = localStorage.getItem("g2H3s");
+							var vG3h3s = localStorage.getItem("g3H3s"); var vG4h3s = localStorage.getItem("g4H3s");
+							var vG5h3s = localStorage.getItem("g5H3s");								
+							/*
+							for (var h = 4; h < 19; h++) {
+									//document.getElementById("p1h"+h).value = localStorage.getItem("g1H"+h+"s");
+								for (var g = 1; h < 6; h++) {
+									var vG+g+h+h+s = localStorage.getItem("g"+g+"H"+h+"s");
+								}	
+							}
+							*/
+							var myCsv = "P1,P2,P3,P4,P5"+
+										"\n"+p1HC+","+p2HC+","+p3HC+","+p4HC+","+p5HC+ 
+										"\n"+p1NAME+","+p2NAME+","+p3NAME+","+p4NAME+","+p5NAME+ 
+										"\n"+vG1h1s+","+vG2h1s+","+vG3h1s+","+vG4h1s+","+vG5h1s+ 
+										"\n"+vG1h2s+","+vG2h2s+","+vG3h2s+","+vG4h2s+","+vG5h2s+
+										"\n"+vG1h3s+","+vG2h3s+","+vG3h3s+","+vG4h3s+","+vG5h3s;
+				            window.open('data:text/csv;charset=utf-8,' + escape(myCsv));
+				        }
+				        var button = document.getElementById('b');
+				        button.addEventListener('click', exportToCsv);
+				    </script>		
 		
 		<button style="" ondblclick="EXPORTalert()">Help</button>				
 	</div>
@@ -97,74 +161,36 @@
 <!--</TD><TD>-->
 	<div style="border:2px outset blue; border-radius:5%; width:50%; margin:auto; padding:10px;">	
 			<h3>READ file</h3>
-			<script>
-			var openFile = function(event) {
-			  var input = event.target;
-					//alert("'event' = "+event);
-			  var reader = new FileReader();
-			  reader.onload = function() {
-			    var text = reader.result;
-			    var node = document.getElementById('output');
-			    node.innerText = text;
-			    console.log(reader.result.substring(0, 200));
-			  };
-			  reader.readAsText(input.files[0]);
-			};
-			</script>
+					<script>
+						var openFile = function(event) {
+						  var input = event.target;
+								//alert("'event' = "+event);
+						  var reader = new FileReader();
+						  reader.onload = function() {
+						    var text = reader.result;
+						    var node = document.getElementById('output');
+						    node.innerText = text;
+						    console.log(reader.result.substring(0, 200));
+						  };
+						  reader.readAsText(input.files[0]);
+						};
+					</script>
 			<input type='file' accept='text/plain' onchange='openFile(event)' style="border:3px solid orange;"><br>
 			<div id='output' style="border:2px dotted blue; width:80%; margin:auto;">
 			  ...
 			</div>
-			
+			<br>
 			<button style="" ondblclick="CHOOSEalert()">Help</button>
 			
-			
 			<br>
-			<button id='DIVtoVARbtn' onclick="DIVtoVAR()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>DIVtoVAR</b></u></button><br>			
-			<script>
-				function DIVtoVAR() {
-						var MyDiv1 = document.getElementById('output').innerHTML;
-							//MyDiv2.innerHTML = MyDiv1.innerHTML; 
-						alert("MyDiv1 = "+MyDiv1);
-						var chr3 = MyDiv1.charAt(2);
-							alert("3rd chr in 'MyDiv1' string = '"+chr3+"'");
-						if ( chr3!="," ) {
-							/* convert a text file to CSV file:
-									1.split on line breaks
-									2. split on white space
-									3. join with commas
-									4. join with new lines */							
-								let txtTOcsv = MyDiv1.split('\n')                          // split lines
-								            .map(line => line.split(/\s+/).join(','))  // split spaces then join with ,
-								            .join('\n')                                // rejoin lines
-								
-											alert(".txt > .csv file conversion:\n"+
-												  txtTOcsv);
-											MyDiv1 = txtTOcsv;											  
-						}
+			<br>
+			<button id='DIVtoVARbtn' onclick="DIVtoVAR()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>DIVtoVAR</b></u></button>
+			&emsp;
+			<button id='DIVtoVARbtn' onclick="changeLclStrg()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>Change localStorage</b></u></button><br>			
 						
-						
-						const readArray = MyDiv1.split("<br>");
-						alert("'readArray' contents:\n"+
-							  "\t\treadArray[0]) ="+readArray[0]+
-							  "\n\t\treadArray[1]) ="+readArray[1]+
-							  "\n\t\treadArray[2]) ="+readArray[2]+
-							  "\n\t\treadArray[3]) ="+readArray[3]+
-							  "\n\t\treadArray[4]) ="+readArray[4]);
-						
-						//let p1h1 = readArray[4]; alert("p1h1 (readArray[4]) = "+p1h1);
-						
-						var pNMs = readArray[2]; var pHCs = readArray[1];
-						var h1 = readArray[3]; var h2 = readArray[4];
-							alert("pNMS array = "+pNMs+"\nh2 array = "+h2);
-						const H2arr = h2.split(",");
-								alert("H2arr[2] = "+H2arr[2]);
-								localStorage.setItem('g3H8s', H2arr[2]);
-										
-						
-				}
-			</script>
-
+			<br>			
+			<!--<script>	</script>-->			
+			<br>
 			<button style="" ondblclick="readNOTEalert()">NOTE</button>
 			
 	</div>
