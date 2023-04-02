@@ -5,14 +5,18 @@
 <title>locStor3</title> <!-- localStorage -->
 
 <style>
+	.body { background:ivory; }
 	input[type=file] {display:block; color:white; padding:10px; font-style:oblique; background:black; font-size:18px;}
 	
 	@media screen and (min-width: 400px) and (max-width:980px) and (min-height:1900px) { 
 							/* Pixel(w=1040) */		/* 'min-height:1900px' excludes iPod */
-		  body { 
-			  background-color: orange; 
+		  body { background-color:orange; }
 			  /* zoom: 250%; */		/* document.getElementById("ZOOMbtn").innerText = "ZOOM -"; */
-		  }
+		  
+	}
+	@media screen and (min-width: 1360px) { /* < viewport => 1360 px wide */ 					
+		  body { background-color:slategray; } 			/* iPad Pro (TT & "PWA') */						
+	  }								    					  		  
 	}
 	
 </style>
@@ -40,12 +44,14 @@
 			}
 						
 			readArray = MyDiv1.split("<br>");	//const readArray = MyDiv1.split("<br>");
-			alert("'readArray' contents:\n"+
-				  "\t\treadArray[0]) ="+readArray[0]+
-				  "\n\t\treadArray[1]) ="+readArray[1]+
-				  "\n\t\treadArray[2]) ="+readArray[2]+
-				  "\n\t\treadArray[3]) ="+readArray[3]+
-				  "\n\t\treadArray[4]) ="+readArray[4]);
+			alert("'readArray[n]' contents:\n"+
+				  "\t\t[0] ="+readArray[0]+
+				  "\n\t[1] ="+readArray[1]+
+				  "\n\t[2] ="+readArray[2]+
+				  "\n\t[3]/h1 ="+readArray[3]+
+				  "\n\t[4]/h2 ="+readArray[4]+"\n\t[5]/h3 ="+readArray[5]+"\n\t[6]/h4 ="+readArray[6]+
+				  "\n\t[7]/h5 ="+readArray[7]+"\n\t[8]/h6 ="+readArray[8]+"\n\t[9]/h7 ="+readArray[9]+
+				  "\n\t[10]/h8 ="+readArray[10]+"\n\t[11]/h9 ="+readArray[11]);
 			
 			//let p1h1 = readArray[4]; alert("p1h1 (readArray[4]) = "+p1h1);			
 	}
@@ -54,6 +60,8 @@
 			var pNMs = readArray[2]; var pHCs = readArray[1];
 			var h1 = readArray[3]; var h2 = readArray[4];
 					alert("pNMS array = "+pNMs+"\nh2 array = "+h2);
+			var h3 = readArray[5]; var h4 = readArray[6]; var h5 = readArray[7]; var h6 = readArray[8];
+			var h7 = readArray[9]; var h8 = readArray[10]; var h9 = readArray[11];
 			const pNarr = pNMs.split(",");
 				localStorage.setItem('g1NAME', pNarr[0]); localStorage.setItem('g2NAME', pNarr[1]);
 				localStorage.setItem('g3NAME', pNarr[2]); localStorage.setItem('g4NAME', pNarr[3]);
@@ -70,6 +78,34 @@
 				localStorage.setItem('g1H2s', H2arr[0]); localStorage.setItem('g2H2s', H2arr[1]);
 				localStorage.setItem('g3H2s', H2arr[2]); localStorage.setItem('g4H2s', H2arr[3]);
 				localStorage.setItem('g5H2s', H2arr[4]);
+			const H3arr = h3.split(",");
+				localStorage.setItem('g1H3s', H3arr[0]); localStorage.setItem('g2H3s', H3arr[1]);
+				localStorage.setItem('g3H3s', H3arr[2]); localStorage.setItem('g4H3s', H3arr[3]);
+				localStorage.setItem('g5H3s', H3arr[4]);
+			const H4arr = h4.split(",");	alert("H4arr[2] = "+H4arr[2]);
+				localStorage.setItem('g1H4s', H4arr[0]); localStorage.setItem('g2H4s', H4arr[1]);
+				localStorage.setItem('g3H4s', H4arr[2]); localStorage.setItem('g4H4s', H4arr[3]);
+				localStorage.setItem('g5H4s', H4arr[4]);
+			const H5arr = h5.split(",");
+				localStorage.setItem('g1H5s', H5arr[0]); localStorage.setItem('g2H5s', H5arr[1]);
+				localStorage.setItem('g3H5s', H5arr[2]); localStorage.setItem('g4H5s', H5arr[3]);
+				localStorage.setItem('g5H5s', H5arr[4]);
+			const H6arr = h6.split(",");
+				localStorage.setItem('g1H6s', H6arr[0]); localStorage.setItem('g2H6s', H6arr[1]);
+				localStorage.setItem('g3H6s', H6arr[2]); localStorage.setItem('g4H6s', H6arr[3]);
+				localStorage.setItem('g5H6s', H6arr[4]);
+			const H7arr = h7.split(",");
+				localStorage.setItem('g1H7s', H7arr[0]); localStorage.setItem('g2H7s', H7arr[1]);
+				localStorage.setItem('g3H7s', H7arr[2]); localStorage.setItem('g4H7s', H7arr[3]);
+				localStorage.setItem('g5H7s', H7arr[4]);
+			const H8arr = h8.split(",");
+				localStorage.setItem('g1H8s', H8arr[0]); localStorage.setItem('g2H8s', H8arr[1]);
+				localStorage.setItem('g3H8s', H8arr[2]); localStorage.setItem('g4H8s', H8arr[3]);
+				localStorage.setItem('g5H8s', H8arr[4]);
+			const H9arr = h9.split(",");
+				localStorage.setItem('g1H9s', H9arr[0]); localStorage.setItem('g2H9s', H9arr[1]);
+				localStorage.setItem('g3H9s', H9arr[2]); localStorage.setItem('g4H9s', H9arr[3]);
+				localStorage.setItem('g5H9s', H9arr[4]);
 	}
 
 	//https://stackoverflow.com/questions/21012580/is-it-possible-to-write-data-to-file-using-only-javascript
@@ -109,11 +145,11 @@
 		
 </head>
 
-<body align=center style="background:ivory;">
+<body align=center>
 	<h1><i>localStorage</i> File<br>Management <font size=3 color=silver>[3]</font></h1>
 <!--<TABLE border=1>
 <TR><TD>-->	
-	<div style="border:2px inset purple; width:50%; margin:auto; padding:10px;">	
+	<div style="border:2px inset purple; width:50%; margin:auto; padding:10px; background:ivory;">	
 	    <h3>WRITE to File</h3>
 		<button id="b" style="background:black; color:white; font-size:20px; border:2px outset blue; border-radius:10%;">export to CSV</button>
 				    <script type="text/javascript">
@@ -133,33 +169,57 @@
 							var vG5h2s = localStorage.getItem("g5H2s");
 							var vG1h3s = localStorage.getItem("g1H3s");	var vG2h3s = localStorage.getItem("g2H3s");
 							var vG3h3s = localStorage.getItem("g3H3s"); var vG4h3s = localStorage.getItem("g4H3s");
-							var vG5h3s = localStorage.getItem("g5H3s");								
-							/*
-							for (var h = 4; h < 19; h++) {
+							var vG5h3s = localStorage.getItem("g5H3s");
+							var vG1h4s = localStorage.getItem("g1H4s");	var vG2h4s = localStorage.getItem("g2H4s");
+							var vG3h4s = localStorage.getItem("g3H4s"); var vG4h4s = localStorage.getItem("g4H4s");
+							var vG5h4s = localStorage.getItem("g5H4s");	
+							var vG1h5s = localStorage.getItem("g1H5s");	var vG2h5s = localStorage.getItem("g2H5s");
+							var vG3h5s = localStorage.getItem("g3H5s"); var vG4h5s = localStorage.getItem("g4H5s");
+							var vG5h5s = localStorage.getItem("g5H5s");	
+							var vG1h6s = localStorage.getItem("g1H6s");	var vG2h6s = localStorage.getItem("g2H6s");
+							var vG3h6s = localStorage.getItem("g3H6s"); var vG4h6s = localStorage.getItem("g4H6s");
+							var vG5h6s = localStorage.getItem("g5H6s");	
+							var vG1h7s = localStorage.getItem("g1H7s");	var vG2h7s = localStorage.getItem("g2H7s");
+							var vG3h7s = localStorage.getItem("g3H7s"); var vG4h7s = localStorage.getItem("g4H7s");
+							var vG5h7s = localStorage.getItem("g5H7s");
+							var vG1h8s = localStorage.getItem("g1H8s");	var vG2h8s = localStorage.getItem("g2H8s");
+							var vG3h8s = localStorage.getItem("g3H8s"); var vG4h8s = localStorage.getItem("g4H8s");
+							var vG5h8s = localStorage.getItem("g5H8s");
+							var vG1h9s = localStorage.getItem("g1H9s");	var vG2h9s = localStorage.getItem("g2H9s");
+							var vG3h9s = localStorage.getItem("g3H9s"); var vG4h9s = localStorage.getItem("g4H9s");
+							var vG5h9s = localStorage.getItem("g5H9s");
+							
+							/*for (var h = 4; h < 19; h++) {
 									//document.getElementById("p1h"+h).value = localStorage.getItem("g1H"+h+"s");
 								for (var g = 1; h < 6; h++) {
 									var vG+g+h+h+s = localStorage.getItem("g"+g+"H"+h+"s");
 								}	
-							}
-							*/
+							}*/
+							
 							var myCsv = "P1,P2,P3,P4,P5"+
 										"\n"+p1HC+","+p2HC+","+p3HC+","+p4HC+","+p5HC+ 
 										"\n"+p1NAME+","+p2NAME+","+p3NAME+","+p4NAME+","+p5NAME+ 
 										"\n"+vG1h1s+","+vG2h1s+","+vG3h1s+","+vG4h1s+","+vG5h1s+ 
 										"\n"+vG1h2s+","+vG2h2s+","+vG3h2s+","+vG4h2s+","+vG5h2s+
-										"\n"+vG1h3s+","+vG2h3s+","+vG3h3s+","+vG4h3s+","+vG5h3s;
+										"\n"+vG1h3s+","+vG2h3s+","+vG3h3s+","+vG4h3s+","+vG5h3s+
+										"\n"+vG1h4s+","+vG2h4s+","+vG3h4s+","+vG4h4s+","+vG5h4s+
+										"\n"+vG1h5s+","+vG2h5s+","+vG3h5s+","+vG4h5s+","+vG5h5s+
+										"\n"+vG1h6s+","+vG2h6s+","+vG3h6s+","+vG4h6s+","+vG5h6s+
+										"\n"+vG1h7s+","+vG2h7s+","+vG3h7s+","+vG4h7s+","+vG5h7s+
+										"\n"+vG1h8s+","+vG2h8s+","+vG3h8s+","+vG4h8s+","+vG5h8s+
+										"\n"+vG1h9s+","+vG2h9s+","+vG3h9s+","+vG4h9s+","+vG5h9s;
 				            window.open('data:text/csv;charset=utf-8,' + escape(myCsv));
 				        }
 				        var button = document.getElementById('b');
 				        button.addEventListener('click', exportToCsv);
 				    </script>		
 		
-		<button style="" ondblclick="EXPORTalert()">Help</button>				
+		<button style="" onclick="EXPORTalert()">Help</button>				
 	</div>
 	<br>						
 
 <!--</TD><TD>-->
-	<div style="border:2px outset blue; border-radius:5%; width:50%; margin:auto; padding:10px;">	
+	<div style="border:2px outset blue; border-radius:5%; width:50%; margin:auto; padding:10px; background:ivory;">	
 			<h3>READ file</h3>
 					<script>
 						var openFile = function(event) {
@@ -180,7 +240,7 @@
 			  ...
 			</div>
 			<br>
-			<button style="" ondblclick="CHOOSEalert()">Help</button>
+			<button style="" onclick="CHOOSEalert()">Help</button>
 			
 			<br>
 			<br>
@@ -191,7 +251,7 @@
 			<br>			
 			<!--<script>	</script>-->			
 			<br>
-			<button style="" ondblclick="readNOTEalert()">NOTE</button>
+			<button style="" onclick="readNOTEalert()">NOTE</button>
 			
 	</div>
 	<br>
