@@ -54,6 +54,20 @@
 		}
 		
 	}
+
+	// Flashing a particular BUTTON:
+	var flag = true;
+	function changeColor () {
+	    if(flag==true){
+	        document.getElementById("rotnBTN").style.background="red";
+	        flag=false;
+	    }
+	    else if (flag==false){
+		    document.getElementById("rotnBTN").style.background="black";
+		    flag = true;
+	    }
+	}
+	setInterval("changeColor()", 2000); // Turn it yellow in 2 seconds		//timeinmillisec);		
 	
 </script>
 
@@ -270,12 +284,12 @@
 				&nbsp;
 				<button style='background-color:gray; color:white; border:2px solid white; border-radius:8px; font-size:24px;'><i>prime</i></button>
 				&nbsp;
-				<button style='background-color:black; color:white; border:2px solid white; border-radius:8px; font-size:34px;'><b>hip rotation</b></button>
+				<button id="rotnBTN" style='background-color:black; color:white; border:2px solid white; border-radius:8px; font-size:34px; padding:2px;'><b>hip rotation</b>&nbsp;<font size=1 color=ivory>(<u>reverse</u> twist)</font></button>
 				<!--<br>&emsp;-->&emsp;
 				<button style='background-color:black; color:white; border:2px solid white; border-radius:8px; font-size:24px;'><i>sidearm</i></button>
 				&nbsp;
 				<button style='background-color:green; color:white; border:2px solid white; border-radius:8px; font-size:40px;'><b>Hammer</b></button>
-				&nbsp;		  
+				&nbsp;<font color=blue size=5><b>&nbsp;> F/T!</b></font>		  
 		  </marquee>					
 	</div>			
 
