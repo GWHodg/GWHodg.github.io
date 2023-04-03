@@ -1051,6 +1051,17 @@
 
 	function replace() {	 
 		/* onchange: */
+		document.getElementById("p1NAME").value = localStorage.getItem("g1NAME");
+			document.getElementById("p2NAME").value = localStorage.getItem("g2NAME");
+			document.getElementById("p3NAME").value = localStorage.getItem("g3NAME");
+			document.getElementById("p4NAME").value = localStorage.getItem("g4NAME");
+			document.getElementById("p5NAME").value = localStorage.getItem("g5NAME");
+		document.getElementById("p1HC").value = localStorage.getItem("g1HC");
+			document.getElementById("p2HC").value = localStorage.getItem("g2HC");
+			document.getElementById("p3HC").value = localStorage.getItem("g3HC");
+			document.getElementById("p4HC").value = localStorage.getItem("g4HC");
+			document.getElementById("p5HC").value = localStorage.getItem("g5HC");			
+
 		var vG1h1s = localStorage.getItem("g1H1s");	var vG2h1s = localStorage.getItem("g2H1s");
 		var vG3h1s = localStorage.getItem("g3H1s"); var vG4h1s = localStorage.getItem("g4H1s");
 		var vG5h1s = localStorage.getItem("g5H1s");			
