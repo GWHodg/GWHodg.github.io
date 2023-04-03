@@ -265,11 +265,75 @@
 <!--</TD><TD>-->
 	<button style="" onclick="showAPPLIED()">'Applied Sequence'</button>
 	<div id="applied" style="border:3px dotted slategray; background:lightyellow; border-radius:5%; width:60%; margin:auto; padding:10px; text-align:left; visibility:hidden;">	
-		<h3>'Applied Sequence'
+		<h1 style="color:blue;">'Device Use Sequence'
 			<span style="float:right; text-align:right; padding-right:10px; cursor:pointer; color:black;">
 						<a onclick="hideAPPLIED()" style="font-size:40px;">&times;</a>
 			</span>	
-		</h3>
+		</h1>
+
+		<ul style="list-style-type:square;">
+			<li><font size=5><b>Score + Calc on Pixel</b></font>
+				<ul style="list-style-type:disc;">	<!-- circle -->
+					<li>Score on Pixel during round</li>
+					<li>Calc on Pixel post round <i>(if enough <u>battery life</u>)</i></li>
+				</ul>
+			</li>
+			<li><font size=5><b>Score on Pixel; Calc on iPod <i>(if necessary)</i></b></font>
+				<ul style="list-style-type:disc; border-left:5px solid blue; background-color:yellow; 
+					padding:5px 50px; width:70%"> <!-- square   background:#3399ff; padding:0px; -->
+					<li><u>On Pixel</u>:
+						<ul style="list-style-type:circle;">
+							<li>Enter scores on-course w/ <b>Pixel</b></li>
+							<li>'export to CSV' > <i>download.csv</i> ('Download again')</li>
+							<li>In Files/Downloads tap 'download(#).csv' > : > 'share & export' <i>(...)</i> > </li>
+							<li>&emsp; > 'Send a copy' <i>(<u>CSV format</u>)</i> > email to self <i>(CH2@gm)</i> [e.g. 'frPXLm31']</li>
+						</ul>
+					</li>
+					<li><u>On iPod <i>(if PXL > 'belly up')</i></u>:
+						<ul style="list-style-type:circle;">					
+							<li>Open email <i>('frPXL..')</i></li>
+							<li>tap to download <i>('download (1).csv')</i></li>
+							<li>tap & hold file -> 'save to files' > 'Add' in 'Textastic' folder <i>(in 'On My iPod')</i></li>
+							<li>> 'WaltStuff'/GS > 'choose file' in READ panel localStorage.html <i>[browse > On My iPod/Textastic -> 'download (4)']</i></li>
+							<li> . . > convert read div to string <i>('DIVtoVAR' btn)</i></li>
+							<li> &emsp;. . . . > convert string to array <i>(> scores by hole)</i> . .</li>
+							<li> > Change localStorage <i>(if desired)<br>
+									<div style="margin-left:40px;">
+										<b>NOTE: p5 name & HC don't appear to transfer</b> <i>(? coding problem Apr 3/23) <font size=2> < GSpxl3x body 'onload' problem</font><br>
+										<b>NOTE</b>: row entries NOT shifted to left w/ blank cells				
+									</div>								
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li><font size=5><b>Score on iPod; Calc on Pixel</b></font>
+				<ul style="list-style-type:disc; border-left:5px solid red; background-color:#f1f1f1; 
+					padding:5px 50px; width:70%"> <!-- square   background:#3399ff; padding:0px; -->
+					<li><u>On iPod</u>:
+						<ul style="list-style-type:circle;">
+							<li>Enter scores on-course w/ <b>iPod</b></li>
+							<li>Export > select all <i>(manually)</i> > <u>Share > 'Save to Files'</u> > 'On My iPod' Textastic folder > Add <i>(saves as '.txt' file)</i> > Done.</li>
+							<li>Open 'Files' app > 'On My iPod'/Textastic > 'text' file <i>(most recent)</i> > Rename (e.g. "GSpodA3c")</i> > open file > share <i>(...)</i> > <u>mail to self</u>.</li>
+						</ul>
+					</li>
+					<li><u>On Pixel</u>:
+						<ul style="list-style-type:circle;">					
+							<li>w/ <b>Pixel</b> > Gmail > me/'GSpodA3c' > tap download <i>(<u>\/</u>)</i> > 'Files' app > Downloads > check file <i>(GSpodA3c.txt)</i> present <i>(most recent)</i> <b>[not necessary to open here]</b>.</li>
+							<li>Open 'WaltStuff'/GS app > 'hcp5' <i>(localStorage)</i> 'Choose file' to read > 'Recent' or 'Downloads' > select file <i>(GSpodA3c.txt)</i></li>
+							<li>> 'DIVtoVAR' > Change localStorage <i>(if desired).<br>
+									<div style="margin-left:40px;">
+										<b>NOTE: row entries will all be shifted to left if spaces blank</b> <i>(enter '0' to 'placehold' unused boxes)</i><br>
+										<b>NOTE: p5 name & HC don't appear to transfer</b> <i>(? coding problem Apr 3/23)
+									</div>
+						</ul>
+					</li>
+				</ul>
+			</li>						
+		</ul>	
+		
+						<div style="text-align:center;">≈ ≈ ≈ ≈ ≈ ≈ ≈ ≈ ≈ ≈ ≈ ≈ ≈ ≈ ≈ ≈</div>		
+		<!--		
 		<ul>
 			<li>During Round
 				<ul>
@@ -279,8 +343,6 @@
 					<li> > 'Send a copy' <i>(<u>CSV format</u>)</i> > email to self <i>(CH2@gm)</i> [e.g. 'frPXL31/856']</li>
 				</ul>
 			</li>
-			
-			
 			<li>Post Round 
 				<ul>
 					<li>Calc on iPod <i>(if PXL > 'belly up')</i>
@@ -294,11 +356,10 @@
 				</ul>
 			</li>
 			<br>
-			<li>May prefer to record scores <u>during round</u> on <b>iPod</b> & calc on Pixel post
-				
-			</li>
-			
+			<li>May prefer to record scores <u>during round</u> on <b>iPod</b> & calc on Pixel post</li>			
 		</ul>
+	-->
+									
 	</div>
 	
 	
