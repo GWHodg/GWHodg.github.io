@@ -57,6 +57,8 @@
 	}
 	
 	function changeLclStrg() {
+			var dROW = readArray[0]; const dARR = dROW.split(","); localStorage.setItem('DATE', dARR[4]);	
+		
 			var pNMs = readArray[2]; var pHCs = readArray[1];
 			var h1 = readArray[3]; var h2 = readArray[4];
 					alert("pNMS array = "+pNMs+"\nh2 array = "+h2);
@@ -192,9 +194,13 @@
 <TR><TD>-->	
 	<div style="border:2px inset purple; width:50%; margin:auto; padding:10px; background:ivory;">	
 	    <h3>WRITE to File</h3>
+		<label for="today">Today:</label><input type="date" id="today" name="birthday">&emsp;
 		<button id="b" style="background:black; color:white; font-size:20px; border:2px outset blue; border-radius:10%;">export to CSV</button>
 			    <script type="text/javascript">
 			        function exportToCsv() {
+						var Today = document.getElementById('today').value;
+							alert("'Today' variable = "+Today);
+						
 						var p1NAME = localStorage.getItem("g1NAME"); var p2NAME = localStorage.getItem("g2NAME");
 						var p3NAME = localStorage.getItem("g3NAME"); var p4NAME = localStorage.getItem("g4NAME");
 						var p5NAME = localStorage.getItem("g5NAME");			
@@ -265,7 +271,7 @@
 								}	
 							}*/
 							
-							var myCsv = "P1,P2,P3,P4,P5"+
+							var myCsv = "P1,P2,P3,P4,"+Today+
 										"\n"+p1HC+","+p2HC+","+p3HC+","+p4HC+","+p5HC+ 
 										"\n"+p1NAME+","+p2NAME+","+p3NAME+","+p4NAME+","+p5NAME+ 
 										"\n"+vG1h1s+","+vG2h1s+","+vG3h1s+","+vG4h1s+","+vG5h1s+ 
@@ -409,7 +415,13 @@
 						</ul>
 					</li>
 				</ul>
-			</li>						
+			</li>
+			<br>
+			<li><font size=5><b>iPad</b></font>		
+				<ul style="list-style-type:disc; padding:5px 80px;">
+					<li>Write/save/download/<b>export</b> to Files/'On My iPad'/'<u><b>!GSrounds</b></u>' folder as .txt file</li>
+				</ul>			
+			</li>	
 		</ul>	
 		
 						<div style="text-align:center;">≈ ≈ ≈ ≈ ≈ ≈ ≈ ≈ ≈ ≈ ≈ ≈ ≈ ≈ ≈ ≈</div>		

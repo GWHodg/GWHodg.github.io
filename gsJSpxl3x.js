@@ -1051,6 +1051,8 @@
 
 	function replace() {	 
 		/* onchange: */
+		document.getElementById("DATE").value = localStorage.getItem("DATE");
+
 		document.getElementById("p1NAME").value = localStorage.getItem("g1NAME");
 			document.getElementById("p2NAME").value = localStorage.getItem("g2NAME");
 			document.getElementById("p3NAME").value = localStorage.getItem("g3NAME");
