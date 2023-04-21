@@ -1407,33 +1407,33 @@
 			document.getElementById("DROPcheck").style.visibility = "visible";			
 			document.getElementById("pDone").innerText = Dp;		
 			document.getElementById("pDone").style.visibility = "visible";
-			document.getElementById("pDROPPED").value = "";		
+			//document.getElementById("pDROPPED").value = "";		
 
 
 			
 						if (Dp == pl1) {	
 							for (var h = 1; h < 19; h++) {
-								document.getElementById('p1h'+h).style.background = "gray";
+								document.getElementById('TDp1h'+h).style.background = "gray";
 							}			
 						}
 						if (Dp == pl2) {	
 							for (var h = 1; h < 19; h++) {
-								document.getElementById('p2h'+h).style.background = "gray";
+								document.getElementById('TDp2h'+h).style.background = "gray";
 							}			
 						}		
 						if (Dp == pl3) {	
 							for (var h = 1; h < 19; h++) {
-								document.getElementById('p3h'+h).style.background = "gray";
+								document.getElementById('TDp3h'+h).style.background = "gray";
 							}			
 						}	
 						if (Dp == pl4) {	
 							for (var h = 1; h < 19; h++) {
-								document.getElementById('p4h'+h).style.background = "gray";
+								document.getElementById('TDp4h'+h).style.background = "gray";
 							}			
 						}	
 						if (Dp == pl5) {	
 							for (var h = 1; h < 19; h++) {
-								document.getElementById('p5h'+h).style.background = "gray";
+								document.getElementById('TDp5h'+h).style.background = "gray";
 							}			
 						}			
 
