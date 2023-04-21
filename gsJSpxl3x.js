@@ -1243,7 +1243,7 @@
 	function DROP() {
 						for (var p = 1; p < 6; p++) {
 							for (var h = 1; h < 19; h++) {
-								document.getElementById('TDp'+p+'h'+h).style.background = "gray";
+								document.getElementById('TDp'+p+'h'+h).style.background = "black";
 							}
 						}
 							
