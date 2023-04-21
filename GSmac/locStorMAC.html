@@ -1,0 +1,477 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>locStorMAC</title> <!-- localStorage -->
+
+<style>
+	.body { background:ivory; }
+	input[type=file] {display:block; color:white; padding:10px; font-style:oblique; background:black; font-size:18px;}
+	
+	@media screen and (min-width: 400px) and (max-width:980px) and (min-height:1900px) { 
+							/* Pixel(w=1040) */		/* 'min-height:1900px' excludes iPod */
+		  body { background-color:orange; }
+			  /* zoom: 250%; */		/* document.getElementById("ZOOMbtn").innerText = "ZOOM -"; */
+		  
+	}
+	@media screen and (min-width: 1360px) { /* < viewport => 1360 px wide */ 					
+		  body { background-color:slategray; } 			/* iPad Pro (TT & "PWA') */						
+	  }								    					  		  
+	}
+	
+</style>
+
+<script>
+	var MyDiv1; var readArray;
+	function DIVtoVAR() {
+			MyDiv1 = document.getElementById('output').innerHTML;	//MyDiv2.innerHTML = MyDiv1.innerHTML; 
+			alert("MyDiv1 = "+MyDiv1);
+			var chr3 = MyDiv1.charAt(2);
+				alert("3rd chr in 'MyDiv1' string = '"+chr3+"'");
+			if ( chr3!="," ) {
+				/* convert a text file to CSV file:
+						1.split on line breaks
+						2. split on white space
+						3. join with commas
+						4. join with new lines */							
+					let txtTOcsv = MyDiv1.split('\n')                      // split lines
+					            .map(line => line.split(/\s+/).join(','))  // split spaces then join with ,
+					            .join('\n')                                // rejoin lines
+					
+								alert(".txt > .csv file conversion:\n"+
+									  txtTOcsv);
+								MyDiv1 = txtTOcsv;											  
+			}
+						
+			readArray = MyDiv1.split("<br>");	//const readArray = MyDiv1.split("<br>");
+			alert("'readArray[n]' contents:\n"+
+				  "\t\t[0] ="+readArray[0]+
+				  "\n\t[1] ="+readArray[1]+
+				  "\n\t[2] ="+readArray[2]+
+				  "\n\t[3]/h1 ="+readArray[3]+
+				  "\n\t[4]/h2 ="+readArray[4]+"\n\t[5]/h3 ="+readArray[5]+"\n\t[6]/h4 ="+readArray[6]+
+				  "\n\t[7]/h5 ="+readArray[7]+"\n\t[8]/h6 ="+readArray[8]+"\n\t[9]/h7 ="+readArray[9]+
+				  "\n\t[10]/h8 ="+readArray[10]+"\n\t[11]/h9 ="+readArray[11]);
+			
+			//let p1h1 = readArray[4]; alert("p1h1 (readArray[4]) = "+p1h1);			
+	}
+	
+	function changeLclStrg() {
+			var dROW = readArray[0]; const dARR = dROW.split(","); localStorage.setItem('DATE', dARR[4]);	
+		
+			var pNMs = readArray[2]; var pHCs = readArray[1];
+			var h1 = readArray[3]; var h2 = readArray[4];
+					alert("pNMS array = "+pNMs+"\nh2 array = "+h2);
+			var h3 = readArray[5]; var h4 = readArray[6]; var h5 = readArray[7]; var h6 = readArray[8];
+			var h7 = readArray[9]; var h8 = readArray[10]; var h9 = readArray[11];
+			const pNarr = pNMs.split(",");
+				localStorage.setItem('g1NAME', pNarr[0]); localStorage.setItem('g2NAME', pNarr[1]);
+				localStorage.setItem('g3NAME', pNarr[2]); localStorage.setItem('g4NAME', pNarr[3]);
+				localStorage.setItem('g5NAME', pNarr[4]);
+			const pHCarr = pHCs.split(",");
+				localStorage.setItem('g1HC', pHCarr[0]); localStorage.setItem('g2HC', pHCarr[1]);
+				localStorage.setItem('g3HC', pHCarr[2]); localStorage.setItem('g4HC', pHCarr[3]);
+				localStorage.setItem('g5HC', pHCarr[4]);				
+			const H1arr = h1.split(",");	alert("H1arr[2] = "+H1arr[2]);
+				localStorage.setItem('g1H1s', H1arr[0]); localStorage.setItem('g2H1s', H1arr[1]);
+				localStorage.setItem('g3H1s', H1arr[2]); localStorage.setItem('g4H1s', H1arr[3]);
+				localStorage.setItem('g5H1s', H1arr[4]);
+			const H2arr = h2.split(",");	alert("H2arr[2] = "+H2arr[2]);
+				localStorage.setItem('g1H2s', H2arr[0]); localStorage.setItem('g2H2s', H2arr[1]);
+				localStorage.setItem('g3H2s', H2arr[2]); localStorage.setItem('g4H2s', H2arr[3]);
+				localStorage.setItem('g5H2s', H2arr[4]);
+			const H3arr = h3.split(",");
+				localStorage.setItem('g1H3s', H3arr[0]); localStorage.setItem('g2H3s', H3arr[1]);
+				localStorage.setItem('g3H3s', H3arr[2]); localStorage.setItem('g4H3s', H3arr[3]);
+				localStorage.setItem('g5H3s', H3arr[4]);
+			const H4arr = h4.split(",");	alert("H4arr[2] = "+H4arr[2]);
+				localStorage.setItem('g1H4s', H4arr[0]); localStorage.setItem('g2H4s', H4arr[1]);
+				localStorage.setItem('g3H4s', H4arr[2]); localStorage.setItem('g4H4s', H4arr[3]);
+				localStorage.setItem('g5H4s', H4arr[4]);
+			const H5arr = h5.split(",");
+				localStorage.setItem('g1H5s', H5arr[0]); localStorage.setItem('g2H5s', H5arr[1]);
+				localStorage.setItem('g3H5s', H5arr[2]); localStorage.setItem('g4H5s', H5arr[3]);
+				localStorage.setItem('g5H5s', H5arr[4]);
+			const H6arr = h6.split(",");
+				localStorage.setItem('g1H6s', H6arr[0]); localStorage.setItem('g2H6s', H6arr[1]);
+				localStorage.setItem('g3H6s', H6arr[2]); localStorage.setItem('g4H6s', H6arr[3]);
+				localStorage.setItem('g5H6s', H6arr[4]);
+			const H7arr = h7.split(",");
+				localStorage.setItem('g1H7s', H7arr[0]); localStorage.setItem('g2H7s', H7arr[1]);
+				localStorage.setItem('g3H7s', H7arr[2]); localStorage.setItem('g4H7s', H7arr[3]);
+				localStorage.setItem('g5H7s', H7arr[4]);
+			const H8arr = h8.split(",");
+				localStorage.setItem('g1H8s', H8arr[0]); localStorage.setItem('g2H8s', H8arr[1]);
+				localStorage.setItem('g3H8s', H8arr[2]); localStorage.setItem('g4H8s', H8arr[3]);
+				localStorage.setItem('g5H8s', H8arr[4]);
+			const H9arr = h9.split(",");
+				localStorage.setItem('g1H9s', H9arr[0]); localStorage.setItem('g2H9s', H9arr[1]);
+				localStorage.setItem('g3H9s', H9arr[2]); localStorage.setItem('g4H9s', H9arr[3]);
+				localStorage.setItem('g5H9s', H9arr[4]);
+				
+			var h10 = readArray[12]; var h11 = readArray[13]; ; var h12 = readArray[14]; 
+					alert("h10 array = "+h10);
+			var h13 = readArray[15]; var h14 = readArray[16]; var h15 = readArray[17]; var h16 = readArray[18];
+			var h17 = readArray[19]; var h18 = readArray[20]; 
+			const H10arr = h10.split(",");	alert("H10arr[2] = "+H10arr[2]);
+				localStorage.setItem('g1H10s', H10arr[0]); localStorage.setItem('g2H10s', H10arr[1]);
+				localStorage.setItem('g3H10s', H10arr[2]); localStorage.setItem('g4H10s', H10arr[3]);
+				localStorage.setItem('g5H10s', H10arr[4]);
+			const H11arr = h11.split(",");	
+				localStorage.setItem('g1H11s', H11arr[0]); localStorage.setItem('g2H11s', H11arr[1]);
+				localStorage.setItem('g3H11s', H11arr[2]); localStorage.setItem('g4H11s', H11arr[3]);
+				localStorage.setItem('g5H11s', H11arr[4]);
+			const H12arr = h12.split(",");	
+				localStorage.setItem('g1H12s', H12arr[0]); localStorage.setItem('g2H12s', H12arr[1]);
+				localStorage.setItem('g3H12s', H12arr[2]); localStorage.setItem('g4H12s', H12arr[3]);
+				localStorage.setItem('g5H12s', H12arr[4]);
+			const H13arr = h13.split(",");
+				localStorage.setItem('g1H13s', H13arr[0]); localStorage.setItem('g2H13s', H13arr[1]);
+				localStorage.setItem('g3H13s', H13arr[2]); localStorage.setItem('g4H13s', H13arr[3]);
+				localStorage.setItem('g5H13s', H13arr[4]);
+			const H14arr = h14.split(",");	
+				localStorage.setItem('g1H14s', H14arr[0]); localStorage.setItem('g2H14s', H14arr[1]);
+				localStorage.setItem('g3H14s', H14arr[2]); localStorage.setItem('g4H14s', H14arr[3]);
+				localStorage.setItem('g5H14s', H14arr[4]);
+			const H15arr = h15.split(",");
+				localStorage.setItem('g1H15s', H15arr[0]); localStorage.setItem('g2H15s', H15arr[1]);
+				localStorage.setItem('g3H15s', H15arr[2]); localStorage.setItem('g4H15s', H15arr[3]);
+				localStorage.setItem('g5H15s', H15arr[4]);
+			const H16arr = h16.split(",");
+				localStorage.setItem('g1H16s', H16arr[0]); localStorage.setItem('g2H16s', H16arr[1]);
+				localStorage.setItem('g3H16s', H16arr[2]); localStorage.setItem('g4H16s', H16arr[3]);
+				localStorage.setItem('g5H16s', H16arr[4]);
+			const H17arr = h17.split(",");
+				localStorage.setItem('g1H17s', H17arr[0]); localStorage.setItem('g2H17s', H17arr[1]);
+				localStorage.setItem('g3H17s', H17arr[2]); localStorage.setItem('g4H17s', H17arr[3]);
+				localStorage.setItem('g5H17s', H17arr[4]);
+			const H18arr = h18.split(",");
+				localStorage.setItem('g1H18s', H18arr[0]); localStorage.setItem('g2H18s', H18arr[1]);
+				localStorage.setItem('g3H18s', H18arr[2]); localStorage.setItem('g4H18s', H18arr[3]);
+				localStorage.setItem('g5H18s', H18arr[4]);
+	}
+
+	//https://stackoverflow.com/questions/21012580/is-it-possible-to-write-data-to-file-using-only-javascript
+		/* https://stackoverflow.com/questions/29357931/how-to-save-a-javascript-variable:
+					- can use localStorage on client side:						
+							  localStorage.setItem("mykey",99); // set a variable
+							  var varNumber = localStorage.getItem("mykey"); // retrieve variable */
+							  
+	function EXPORTalert() {
+		alert("EXPORT HELP!\n\n"+
+			  "iPad: myCsv ^ -> screen. 'Select All' > share > email to self (sends X 2) > select on email (1/2) > share > create csv (or txt) file. In iPad WS/GitHub seems to write to iCloud/Numbers as 'Unknown.txt' w/o needing > email (for some reason).\n\n"+
+			  "Pixel: exports/writes to Google SHEETS (as csv file - 'download.csv').\n\n"+
+			  "iPod: > screen (like iPad) > select all > email. Then ? how to create file (? In Pixel email select it > save/share to 'HodgGW' Google 'Drive' (Textastic folder) > read it from there).");
+		}							  
+	
+	function CHOOSEalert() {	
+		alert("CHOOSE/READ HELP!\n\n"+
+			  "iPad: Download as txt file & 'splits' w/ ' ' > array!\n\n"+
+			  "Pixel: Appears to download as csv file from SHEETS w/o spaces. Would need to split w/ commas > array\n\n"+
+			  "iPod: NEED TO FIGURE OUT HOW TO GET EMAIL DATA FROM IPOD TO PIXEL FILE (? SHEETS). ?Looks like you MAY be able to copy it in email & paste in a SHEETS file (? 'download.csv')?? \nIn Pixel email select it > save/share to 'HodgGW' Google 'Drive' (Textastic folder) > read it from there.");
+	}
+
+	function readNOTEalert() {
+		alert("READ NOTE!\n\n"+
+			  "iPad: Convert content of div ('output') to variable ('myDiv1').  Then split > array?\n"+	
+			  "\t\t[File: On My iPad/GScsv.csv.txt > GSwrite.txt]");
+	}
+
+	function showAPPLIED() {
+		document.getElementById('applied').style.visibility = "visible";	
+	}	
+	function hideAPPLIED() {
+		document.getElementById('applied').style.visibility = "hidden";	
+	}		
+	
+</script>		
+		
+</head>
+
+<body align=center>
+	<h1><i>localStorage</i> File<br>Management <font size=3 color=silver>[3]</font></h1>
+<!--<TABLE border=1>
+<TR><TD>-->	
+	<div style="border:2px inset purple; width:50%; margin:auto; padding:10px; background:ivory;">	
+	    <h3>WRITE to File</h3>
+		<label for="today">Today:</label><input type="date" id="today" name="birthday">&emsp;
+		<button id="b" style="background:black; color:white; font-size:20px; border:2px outset blue; border-radius:10%;">export to CSV</button>
+			    <script type="text/javascript">
+			        function exportToCsv() {
+						var Today = document.getElementById('today').value;
+							alert("'Today' variable = "+Today);
+						
+						var p1NAME = localStorage.getItem("g1NAME"); var p2NAME = localStorage.getItem("g2NAME");
+						var p3NAME = localStorage.getItem("g3NAME"); var p4NAME = localStorage.getItem("g4NAME");
+						var p5NAME = localStorage.getItem("g5NAME");			
+						var p1HC = localStorage.getItem("g1HC"); var p2HC = localStorage.getItem("g2HC");
+						var p3HC = localStorage.getItem("g3HC"); var p4HC = localStorage.getItem("g4HC");
+						var p5HC = localStorage.getItem("g5HC");			
+						
+						var vG1h1s = localStorage.getItem("g1H1s"); var vG2h1s = localStorage.getItem("g2H1s");
+						var vG3h1s = localStorage.getItem("g3H1s"); var vG4h1s = localStorage.getItem("g4H1s");
+						var vG5h1s = localStorage.getItem("g5H1s");			
+						var vG1h2s = localStorage.getItem("g1H2s");	var vG2h2s = localStorage.getItem("g2H2s");
+						var vG3h2s = localStorage.getItem("g3H2s"); var vG4h2s = localStorage.getItem("g4H2s");
+						var vG5h2s = localStorage.getItem("g5H2s");
+						var vG1h3s = localStorage.getItem("g1H3s");	var vG2h3s = localStorage.getItem("g2H3s");
+						var vG3h3s = localStorage.getItem("g3H3s"); var vG4h3s = localStorage.getItem("g4H3s");
+						var vG5h3s = localStorage.getItem("g5H3s");
+						var vG1h4s = localStorage.getItem("g1H4s");	var vG2h4s = localStorage.getItem("g2H4s");
+						var vG3h4s = localStorage.getItem("g3H4s"); var vG4h4s = localStorage.getItem("g4H4s");
+						var vG5h4s = localStorage.getItem("g5H4s");	
+						var vG1h5s = localStorage.getItem("g1H5s");	var vG2h5s = localStorage.getItem("g2H5s");
+						var vG3h5s = localStorage.getItem("g3H5s"); var vG4h5s = localStorage.getItem("g4H5s");
+						var vG5h5s = localStorage.getItem("g5H5s");	
+						var vG1h6s = localStorage.getItem("g1H6s");	var vG2h6s = localStorage.getItem("g2H6s");
+						var vG3h6s = localStorage.getItem("g3H6s"); var vG4h6s = localStorage.getItem("g4H6s");
+						var vG5h6s = localStorage.getItem("g5H6s");	
+						var vG1h7s = localStorage.getItem("g1H7s");	var vG2h7s = localStorage.getItem("g2H7s");
+						var vG3h7s = localStorage.getItem("g3H7s"); var vG4h7s = localStorage.getItem("g4H7s");
+						var vG5h7s = localStorage.getItem("g5H7s");
+						var vG1h8s = localStorage.getItem("g1H8s");	var vG2h8s = localStorage.getItem("g2H8s");
+						var vG3h8s = localStorage.getItem("g3H8s"); var vG4h8s = localStorage.getItem("g4H8s");
+						var vG5h8s = localStorage.getItem("g5H8s");
+						var vG1h9s = localStorage.getItem("g1H9s");	var vG2h9s = localStorage.getItem("g2H9s");
+						var vG3h9s = localStorage.getItem("g3H9s"); var vG4h9s = localStorage.getItem("g4H9s");
+						var vG5h9s = localStorage.getItem("g5H9s");
+							
+						var vG1h10s = localStorage.getItem("g1H10s"); var vG2h10s = localStorage.getItem("g2H10s");
+						var vG3h10s = localStorage.getItem("g3H10s"); var vG4h10s = localStorage.getItem("g4H10s");
+						var vG5h10s = localStorage.getItem("g5H10s");			
+						var vG1h11s = localStorage.getItem("g1H11s"); var vG2h11s = localStorage.getItem("g2H11s");
+						var vG3h11s = localStorage.getItem("g3H11s"); var vG4h11s = localStorage.getItem("g4H11s");
+						var vG5h11s = localStorage.getItem("g5H11s");			
+						var vG1h12s = localStorage.getItem("g1H12s"); var vG2h12s = localStorage.getItem("g2H12s");
+						var vG3h12s = localStorage.getItem("g3H12s"); var vG4h12s = localStorage.getItem("g4H12s");
+						var vG5h12s = localStorage.getItem("g5H12s");
+						var vG1h13s = localStorage.getItem("g1H13s"); var vG2h13s = localStorage.getItem("g2H13s");
+						var vG3h13s = localStorage.getItem("g3H13s"); var vG4h13s = localStorage.getItem("g4H13s");
+						var vG5h13s = localStorage.getItem("g5H13s");
+						var vG1h14s = localStorage.getItem("g1H14s"); var vG2h14s = localStorage.getItem("g2H14s");
+						var vG3h14s = localStorage.getItem("g3H14s"); var vG4h14s = localStorage.getItem("g4H14s");
+						var vG5h14s = localStorage.getItem("g5H14s");	
+						var vG1h15s = localStorage.getItem("g1H15s"); var vG2h15s = localStorage.getItem("g2H15s");
+						var vG3h15s = localStorage.getItem("g3H15s"); var vG4h15s = localStorage.getItem("g4H15s");
+						var vG5h15s = localStorage.getItem("g5H15s");	
+						var vG1h16s = localStorage.getItem("g1H16s"); var vG2h16s = localStorage.getItem("g2H16s");
+						var vG3h16s = localStorage.getItem("g3H16s"); var vG4h16s = localStorage.getItem("g4H16s");
+						var vG5h16s = localStorage.getItem("g5H16s");	
+						var vG1h17s = localStorage.getItem("g1H17s"); var vG2h17s = localStorage.getItem("g2H17s");
+						var vG3h17s = localStorage.getItem("g3H17s"); var vG4h17s = localStorage.getItem("g4H17s");
+						var vG5h17s = localStorage.getItem("g5H17s");
+						var vG1h18s = localStorage.getItem("g1H18s"); var vG2h18s = localStorage.getItem("g2H18s");
+						var vG3h18s = localStorage.getItem("g3H18s"); var vG4h18s = localStorage.getItem("g4H18s");
+						var vG5h18s = localStorage.getItem("g5H18s");
+							
+							/*for (var h = 4; h < 19; h++) {
+									//document.getElementById("p1h"+h).value = localStorage.getItem("g1H"+h+"s");
+								for (var g = 1; h < 6; h++) {
+									var vG+g+h+h+s = localStorage.getItem("g"+g+"H"+h+"s");
+								}	
+							}*/
+							
+							var myCsv = "P1,P2,P3,P4,"+Today+
+										"\n"+p1HC+","+p2HC+","+p3HC+","+p4HC+","+p5HC+ 
+										"\n"+p1NAME+","+p2NAME+","+p3NAME+","+p4NAME+","+p5NAME+ 
+										"\n"+vG1h1s+","+vG2h1s+","+vG3h1s+","+vG4h1s+","+vG5h1s+ 
+										"\n"+vG1h2s+","+vG2h2s+","+vG3h2s+","+vG4h2s+","+vG5h2s+
+										"\n"+vG1h3s+","+vG2h3s+","+vG3h3s+","+vG4h3s+","+vG5h3s+
+										"\n"+vG1h4s+","+vG2h4s+","+vG3h4s+","+vG4h4s+","+vG5h4s+
+										"\n"+vG1h5s+","+vG2h5s+","+vG3h5s+","+vG4h5s+","+vG5h5s+
+										"\n"+vG1h6s+","+vG2h6s+","+vG3h6s+","+vG4h6s+","+vG5h6s+
+										"\n"+vG1h7s+","+vG2h7s+","+vG3h7s+","+vG4h7s+","+vG5h7s+
+										"\n"+vG1h8s+","+vG2h8s+","+vG3h8s+","+vG4h8s+","+vG5h8s+
+										"\n"+vG1h9s+","+vG2h9s+","+vG3h9s+","+vG4h9s+","+vG5h9s+
+										"\n"+vG1h10s+","+vG2h10s+","+vG3h10s+","+vG4h10s+","+vG5h10s+ 
+										"\n"+vG1h11s+","+vG2h11s+","+vG3h11s+","+vG4h11s+","+vG5h11s+ 
+										"\n"+vG1h12s+","+vG2h12s+","+vG3h12s+","+vG4h12s+","+vG5h12s+
+										"\n"+vG1h13s+","+vG2h13s+","+vG3h13s+","+vG4h13s+","+vG5h13s+
+										"\n"+vG1h14s+","+vG2h14s+","+vG3h14s+","+vG4h14s+","+vG5h14s+
+										"\n"+vG1h15s+","+vG2h15s+","+vG3h15s+","+vG4h15s+","+vG5h15s+
+										"\n"+vG1h16s+","+vG2h16s+","+vG3h16s+","+vG4h16s+","+vG5h16s+
+										"\n"+vG1h17s+","+vG2h17s+","+vG3h17s+","+vG4h17s+","+vG5h17s+
+										"\n"+vG1h18s+","+vG2h18s+","+vG3h18s+","+vG4h18s+","+vG5h18s;
+				            window.open('data:text/csv;charset=utf-8,' + escape(myCsv));
+				        }
+				        var button = document.getElementById('b');
+				        button.addEventListener('click', exportToCsv);
+			    </script>		
+		
+		<button style="" onclick="EXPORTalert()">Help</button>				
+	</div>
+	<br>						
+
+<!--</TD><TD>-->
+	<div style="border:2px outset blue; border-radius:5%; width:50%; margin:auto; padding:10px; background:ivory;">	
+			<h3>READ file</h3>
+					<script>
+						var openFile = function(event) {
+						  var input = event.target;
+								//alert("'event' = "+event);
+						  var reader = new FileReader();
+						  reader.onload = function() {
+						    var text = reader.result;
+						    var node = document.getElementById('output');
+						    node.innerText = text;
+						    console.log(reader.result.substring(0, 200));
+						  };
+						  reader.readAsText(input.files[0]);
+						};
+					</script>
+			<input type='file' accept='text/plain' onchange='openFile(event)' style="border:3px solid orange;"><br>
+			<div id='output' style="border:2px dotted blue; width:80%; margin:auto;">
+			  ...
+			</div>
+			<br>
+			<button style="" onclick="CHOOSEalert()">Help</button>
+			
+			<br>
+			<br>
+			<button id='DIVtoVARbtn' onclick="DIVtoVAR()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>DIVtoVAR</b></u></button>
+			&emsp;
+			<button id='DIVtoVARbtn' onclick="changeLclStrg()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>Change localStorage</b></u></button><br>			
+						
+			<br>			
+			<!--<script>	</script>-->			
+			<br>
+			<button style="" onclick="readNOTEalert()">NOTE</button>
+			
+	</div>
+	<br>
+<!--</TD></TR>
+<TR><TD colspan=2 valign=top>-->
+	<!--insert 'applied sequence' here . . -->
+<!--</TD></TR>
+</TABLE>-->
+
+							<!--	<br><br>√√√√√√√√√√√√√√√√√√√√√√√√<br><br>    --> 
+<!--</TD><TD>-->
+	<button style="" onclick="showAPPLIED()">'Applied Sequence'</button>
+	<div id="applied" style="border:3px dotted slategray; background:lightyellow; border-radius:5%; width:60%; margin:auto; padding:10px; text-align:left; visibility:hidden;">	
+		<h1 style="color:blue;">'Device Use Sequence'
+			<span style="float:right; text-align:right; padding-right:10px; cursor:pointer; color:black;">
+						<a onclick="hideAPPLIED()" style="font-size:40px;">&times;</a>
+			</span>	
+		</h1>
+		
+		<span style="border:2px solid blue; padding:5px;">Clear saved scores before inputing new round <i>(or prior entries fill unused cells)</i></span><br>
+		
+		<ul style="list-style-type:square;">
+			<li><font size=5><b>Score + Calc on Pixel</b></font>
+				<ul style="list-style-type:disc;">	<!-- circle -->
+					<li>Score on Pixel during round</li>
+					<li>Calc on Pixel post round <i>(if enough <u>battery life</u>)</i></li>
+				</ul>
+			</li>
+			<li><font size=5><b>Score on Pixel; Calc on iPod <i>(if necessary)</i></b></font>
+				<ul style="list-style-type:disc; border-left:5px solid blue; background-color:yellow; 
+					padding:5px 50px; width:70%"> <!-- square   background:#3399ff; padding:0px; -->
+					<li><u>On Pixel</u>:
+						<ul style="list-style-type:circle;">
+							<li>Enter scores on-course w/ <b>Pixel</b></li>
+							<li><font color=red><b>'export to CSV' > <i>download.csv</i></b></font> ('Download again')</li>
+							<li>In Files/Downloads tap 'download(#).csv' > : > 'share & export' <i>(...)</i> > </li>
+							<li>&emsp; > 'Send a copy' <i>(<u>CSV format</u>)</i> > email to self <i>(CH2@gm)</i> [e.g. 'frPXLm31']</li>
+						</ul>
+					</li>
+					<li><u>On iPod</u>  <font size=2 color=gray>(or iPad?)</font> <i>(if PXL > 'belly up')</i>:
+						<ul style="list-style-type:circle;">					
+							<li>Open email <i>('frPXL..')</i></li>
+							<li>tap to download <i>('download (1).csv')</i></li>
+							<li>tap & hold file -> 'save to files' > 'Add' in 'Textastic' folder <i>(in 'On My iPod')</i></li>
+							<li>> 'WaltStuff'/GS > 'choose file' in READ panel localStorage.html <i>[browse > On My iPod/Textastic -> 'download (4)']</i></li>
+							<li> . . > convert read div to string <i>('DIVtoVAR' btn)</i></li>
+							<li> &emsp;. . . . > convert string to array <i>(> scores by hole)</i> . .</li>
+							<li> > Change localStorage <i>(if desired)</i> <br>
+									<div style="margin-left:40px;">
+										<b>NOTE: <s>p5 name & HC don't appear to transfer</s></b> <font size=2> < GSpxl3x body 'onload' problem <i>(commented out Ap 4/23)</i></font><br>
+										<b>NOTE</b>: row entries NOT shifted to left w/ blank cells				
+									</div>								
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li><font size=5><b>Score on iPod; Calc on Pixel</b></font>
+				<ul style="list-style-type:disc; border-left:5px solid red; background-color:#f1f1f1; 
+					padding:5px 50px; width:70%"> <!-- square   background:#3399ff; padding:0px; -->
+					<li><u>On iPod</u> <font size=2 color=gray>(or iPad)</font>:
+						<ul style="list-style-type:circle;">
+							<li>Enter scores on-course w/ <b>iPod</b></li>
+							<li><font color=red>Export > select all <i>(manually)</i> > <u>Share > 'Save to Files'</u></font> > 'On My iPod' Textastic folder > Add <i>(saves as '.txt' file)</i> > Done.</li>
+							<li>Open 'Files' app > 'On My iPod'/Textastic > 'text' file <i>(most recent)</i> > Rename (e.g. "GSpodA3c")</i> > open file > share <i>(...)</i> > <u>mail to self</u>.</li>
+						</ul>
+					</li>
+					<li><u>On Pixel</u>:
+						<ul style="list-style-type:circle;">					
+							<li>w/ <b>Pixel</b> > Gmail > me/'GSpodA3c' > tap download <i>(<u>\/</u>)</i> > 'Files' app > Downloads > check file <i>(GSpodA3c.txt)</i> present <i>(most recent)</i> <b>[not necessary to open here]</b>.</li>
+							<li>Open 'WaltStuff'/GS app > 'hcp5' <i>(localStorage)</i> 'Choose file' to read > 'Recent' or 'Downloads' > select file <i>(GSpodA3c.txt)</i></li>
+							<li>> 'DIVtoVAR' > Change localStorage <i>(if desired)</i>.<br>
+									<div style="margin-left:40px;">
+										<b>NOTE: <font color=red>row entries will all be shifted to left if spaces blank</font></b> <i>(enter '0' to 'placehold' unused boxes)</i><br>
+										<b>NOTE: <s>p5 name & HC don't appear to transfer</s></b> <font size=2> < GSpxl3x body 'onload' commented out <i>(Ap 4/23)</i></font>
+									</div>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<br>
+			<li><font size=5><b>iPad</b></font>		
+				<ul style="list-style-type:disc; padding:5px 80px;">
+					<li>Write/save/download/<b>export</b> to Files/'On My iPad'/'<u><b>!GSrounds</b></u>' folder as .txt file</li>
+				</ul>			
+			</li>	
+		</ul>	
+		
+						<div style="text-align:center;">≈ ≈ ≈ ≈ ≈ ≈ ≈ ≈ ≈ ≈ ≈ ≈ ≈ ≈ ≈ ≈</div>		
+		<!--		
+		<ul>
+			<li>During Round
+				<ul>
+					<li>Score on PIXEL</li>
+					<li>'export to CSV' > <i>download.csv</i> (? Google SHEETS) in 'Files'</li>
+					<li>In Files/Downloads tap 'download(#).csv' > : > 'share & export' > </li>
+					<li> > 'Send a copy' <i>(<u>CSV format</u>)</i> > email to self <i>(CH2@gm)</i> [e.g. 'frPXL31/856']</li>
+				</ul>
+			</li>
+			<li>Post Round 
+				<ul>
+					<li>Calc on iPod <i>(if PXL > 'belly up')</i>
+					<li>Open email <i>('frPXL..') . .</i></li>
+					<li> . . tap to download <i>('download (1).csv')</i> . . </li>
+					<li> . . -> 'save to files' > 'Add' in 'Textastic' folder <i>(in 'On My iPod')</i></li>
+					<li>Can then 'choose file' in READ portion of 'WaltStuff' localStorage.html</li>
+					<li> . . > convert read div to string <i>('DIVtoVAR' btn)</i> . .</li>
+					<li> . . > convert string to array <i>(> scores by hole)</i> . .</li>
+					<li> . . <b>THEN WILL HAVE TO BREAK DOWN EA H > INDIV SCORES!</b> . .</li>
+				</ul>
+			</li>
+			<br>
+			<li>May prefer to record scores <u>during round</u> on <b>iPod</b> & calc on Pixel post</li>			
+		</ul>
+	-->
+									
+	</div>
+	
+	
+	
+	
+	
+	<div id="HOMEdiv" style="border-radius:10px; padding:5px;border:3px slategray outset; background:black; 	color:white; position:fixed; left:1em; top:10px;">
+		<A class="" style="color:moccasin; font-size:50px;" href="GSmacSPLSH.html" style="">&#x2302;<!--HOME symbol--></A>	
+			<!-- class="HOMEclass" -->
+	</div>	
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!--
+	Get element by id from another page by JavaScript:
+		store the value of x to localStorage like so:
+			localStorage.setItem('someName', x);
+		And then access it from yout other page like so (provided that both pages are part of the same domain name):
+			x = localStorage.getItem('someName', x);
+-->
+	
+</body>
+</html>
