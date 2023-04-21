@@ -1241,6 +1241,12 @@
 	}		
 	
 	function DROP() {
+						for (var p = 1; p < 6; p++) {
+							for (var h = 1; h < 19; h++) {
+								document.getElementById('TDp'+p+'h'+h).style.background = "gray";
+							}
+						}
+							
 		//alert("Will insert code to 'drop' a player here.");
 
 		pl1 = document.getElementById("p1NAME").value;
