@@ -9,6 +9,15 @@
 <link rel="stylesheet" href="gsCSSx.css">
 <script src="gsJSpxl3x.js"></script>
 
+<script>
+		function showHCs() {
+			if (document.getElementById("pHCdiv").style.visibility=="visible") {
+				document.getElementById("pHCdiv").style.visibility="hidden"; //inline 	
+			}		
+			else {
+				document.getElementById("pHCdiv").style.visibility="visible"; //inline 	
+			}	
+		}	
 </script>	
 </head>
 
@@ -234,8 +243,8 @@
 					<input type="number" id="PARh6" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
-					<input type="number" id="HCPh6" style="background:white;  color:black; width:60%;" placeholder=11 value=11 readonly>
-				</TD>										
+					<input type="number" id="HCPh6" style="background:beige;  color:black; width:60%;" placeholder=11 value=11 readonly  onclick="showHCs()" title="Player Handicaps">
+				</TD>
 			</tr>	
 			<tr> <TH>7</TH> 
 				<td id="TDp1h7"> <input class='' type="number" id="p1h7" onclick="changeGLOBAL('p1h7')" tabindex="31" onchange="localStorage.setItem('g1H7s',this.value);" onfocus="FOCUSfn('p1h7')" onblur="BLURfn('p1h7')"><span id='SPp1h7' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
@@ -768,7 +777,7 @@
 			
 		}
 	</script>		
-	<div id="pHCdiv" style="border:3px inset slategray; border-radius:10px; overflow:scroll; margin:auto; visibility:visible; background:white; position:fixed; left:300px; top:300px; zoom:100%; padding:5px;">
+	<div id="pHCdiv" style="border:3px inset slategray; border-radius:10px; overflow:scroll; margin:auto; visibility:hidden; background:white; position:fixed; left:100px; top:300px; zoom:100%; padding:5px;">
 		Handicaps <font size=2><i>(Apr/23)</i></font><br>
 			<button id='fillHIs' onclick="fillHIs()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>H.I.</b></u></button>
 			<button id='calcCHC' onclick="calcCHC()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:white; background:blue; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>CHC</b></u></button>&nbsp;
