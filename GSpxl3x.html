@@ -680,11 +680,11 @@
 	</div>
 
 	
-	<div class="battery-info" style="border:0px inset white; width:15%; padding:0px; position:fixed; left:8em; top:5px;">
+	<div class="battery-info" style="border:0px inset white; width:25%; padding:0px; position:fixed; left:8em; top:5px;">
 					<!-- position:fixed; left:1em; top:200px; -->
             <b>Battery % = </b>
             <span id="battery-percentage" style="padding:2px;">0</span>
-			<!--<br>
+			<br>
             <b>Battery Charging?:</b>
             <span id="is-battery-charging">No</span>
 			<br>
@@ -692,7 +692,7 @@
             <span id="chargingtime"></span>
 			<br>
             <b>Discharging Time:</b>
-            <span id="dischargingtime"></span>-->
+            <span id="dischargingtime"></span>
 		</div> 
     <script>
         navigator.getBattery().then(function (battery) {
@@ -749,6 +749,60 @@
     </script>
 	
 				<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+				<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+	<script>
+		function calcCHC() {
+			let whHI = document.getElementById("whHI").value;								
+				let whCHC = +whHI * (131/113) + (68.9-70);	/* 21.8 X (131/113) + (68.9-70) */
+					/*alert("Trying to calc CHC!\n\twhHI = "+whHI+"\n"+
+						  "\twhCHC = "+whCHC.toFixed(1) );*/    /* numb = numb.toFixed(2); */
+				document.getElementById("whCHC").value = whCHC.toFixed(0);
+			let jsHI = document.getElementById("jsHI").value;								
+				let jsCHC = +jsHI * (131/113) + (68.9-70); 	//alert("jsCHC = "+jsCHC.toFixed(1) ); 
+				document.getElementById("jsCHC").value = jsCHC.toFixed(0);
+			let tcHI = document.getElementById("tcHI").value;								
+				let tcCHC = +tcHI * (131/113) + (68.9-70);
+					//alert("tcCHC = "+tcCHC.toFixed(1) ); 
+				document.getElementById("tcCHC").value = tcCHC.toFixed(0);
+			let bpHI = document.getElementById("bpHI").value;								
+				let bpCHC = +bpHI * (131/113) + (68.9-70); 	//alert("bpCHC = "+bpCHC.toFixed(1) ); 
+				document.getElementById("bpCHC").value = bpCHC.toFixed(0);
+			let brHI = document.getElementById("brHI").value;								
+				let brCHC = +brHI * (131/113) + (68.9-70); 	//alert("brCHC = "+brCHC.toFixed(1) ); 
+				document.getElementById("brCHC").value = brCHC.toFixed(0);
+			
+		}
+	</script>		
+	<div id="pHCdiv" style="border:3px inset slategray; border-radius:10px; overflow:scroll; margin:auto; visibility:visible; background:white; position:fixed; left:600px; top:500px; zoom:100%; padding:5px;">
+		Handicaps <font size=2><i>(Apr/23)</i></font><br>
+			<button id='fillHIs' onclick="fillHIs()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>H.I.</b></u></button>
+			<button id='calcCHC' onclick="calcCHC()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:white; background:blue; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>CHC</b></u></button>&nbsp;
+			<span style="float:right; padding-right:10px; cursor:pointer; background:white; color:black; font-size:20px;">
+						<a onclick="showHCs()"><b>&times;</b></a>
+			</span>
+		<TABLE id="pHCtbl" border=2>
+			<TR> <TH>p</TH>  <TH>H.I.</TH>  <TH style="cursor:help;" title="VGC blue">cHC</TH> </TR>
+			<TR> <TD>wH</TD> <TD><input id='whHI' style="width:35px;" onchange="localStorage.setItem('WHhi',this.value);"></TD> <TD><input type="" id="whCHC" onchange="localStorage.setItem('WHchc',this.value);"  style="background:ivory; width:35px; font-weight:bold;"></TD>  </TR> <!-- 21.1/23 -->
+			<TR> <TD>jS</TD> <TD><input id='jsHI' style="width:35px;" onchange="localStorage.setItem('JShi',this.value);"></TD> 
+				<TD><input type="" id="jsCHC" onchange="localStorage.setItem('JSchc',this.value);"  style="background:ivory; width:30px; font-weight:bold;"></TD>  </TR> <!-- 14.4/15 -->
+			<TR> <TD>tC</TD> <TD><input id='tcHI' style="width:35px;" onchange="localStorage.setItem('TChi',this.value);"></TD> 
+				<TD><input type="" id="tcCHC" onchange="localStorage.setItem('TCchc',this.value);"  style="background:ivory; width:30px; font-weight:bold;"></TD>  </TR> <!-- 17.6/19 -->
+			<TR> <TD>bP</TD> <TD><input id='bpHI' style="width:35px;" onchange="localStorage.setItem('BPhi',this.value);"></TD> 
+				<TD><input type="" id="bpCHC" onchange="localStorage.setItem('BPchc',this.value);"  style="background:ivory; width:30px; font-weight:bold;"></TD>  </TR> <!-- 15.2/17 -->
+			<TR> <TD>bR</TD> <TD><input id='brHI' style="width:35px;" onchange="localStorage.setItem('BRhi',this.value);"></TD> 
+				<TD><input type="" id="brCHC" onchange="localStorage.setItem('BRchc',this.value);"  style="background:ivory; width:30px; font-weight:bold;"></TD>  </TR> <!-- 16.1/18 -->
+		</TABLE>
+		
+		<button onclick="CHChelp()">help</button>
+		
+	</div>
+
+	
+				<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+				
+				
+				
 </div>				
 </body>
 </html>
