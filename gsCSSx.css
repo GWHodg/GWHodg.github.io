@@ -84,6 +84,7 @@
 		}
 		button.CODEBTNclass { FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%; }
 		textarea.NOTEclass { background:lightyellow;  border:2px solid black; height:100px; width:100px; visibility:hidden;  position:fixed; left:30em; top:200px; overflow:scroll; }
+		div.pHCloc { position:fixed; left:600px; top:500px; }
 		
 					/* CSS Hack: Disable Chrome’s Pull-to-Refresh on Android:
 							        https://w3bits.com/prevent-chrome-pull-to-refresh-css/ 
@@ -112,6 +113,7 @@
 			  button.CODEBTNclass { display:none; }
 			  textarea.NOTEclass { left:3em; top:600px; height:200px; width:300px;}	/* ? \/ font-size */	
 			  div.CODEclass { font-size:5px; } 
+			  div.pHCloc { position:fixed; left:70px; top:70px; }
 	  	}		
 		@media screen and (min-width: 400px) and (max-width:980px) and (max-height:1900px) { 
 			body { background-color:black; } /* includes iPod */			
