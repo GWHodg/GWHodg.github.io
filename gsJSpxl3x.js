@@ -1151,6 +1151,14 @@
 						localStorage.setItem('g'+n+'H'+h+'s',""); document.getElementById("p"+n+"h"+h).value = "";
 					}
 			}
+			//clear player NAMES & CHCs:	[id="p1NAME"/g1NAME  +  id="p1HC"/g1HC]
+			for (var x = 1; x < 6; x++) {
+					//alert(" . . in 'clearSAVED' fn > 'for (var x =)' . .");
+					localStorage.setItem('g'+x+'NAME',""); 
+						document.getElementById('p'+x+'NAME').value = "";
+					localStorage.setItem('g'+x+'HC',""); 
+						document.getElementById('p'+x+'HC').value = "";
+			}
 		}
 		
 		//alert("g1H1s POST 'clear' = " +  localStorage.getItem("g1H1s"));
