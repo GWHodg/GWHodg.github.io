@@ -215,11 +215,11 @@
 	style='FONT-SIZE:large; color:maroon; visibility:visible; zoom:100%;' bgcolor='lightgreen'>
 		<thead> <!--  bgcolor='gray' style="color:white;" -->
 				<th>H</th>
-				<th><input type="text" id="p1NAME" onchange="localStorage.setItem('g1NAME',this.value);"  tabindex="201" style="background:ivory; width:60%; font-weight:bold; font-size:14px;" maxlength=2 value=""></th>	<!-- P1 -->
-				<th><input type="text" id="p2NAME" onchange="localStorage.setItem('g2NAME',this.value);" tabindex="203" style="background:beige; width:60%;" maxlength=2 value=""></th> <!-- P2 -->
-				<th><input type="text" id="p3NAME" onchange="localStorage.setItem('g3NAME',this.value);" tabindex="205" style="background:linen; width:60%;" maxlength=2 value=""></th> 
-				<th><input type="text" id="p4NAME" onchange="localStorage.setItem('g4NAME',this.value);" tabindex="207" style="background:whitesmoke; width:60%; maxlength=2" value=""></th>
-				<th><input type="text" id="p5NAME" onchange="localStorage.setItem('g5NAME',this.value);" tabindex="209" style="background:snow; width:60%; maxlength=2"></th>	
+				<th><input type="text" id="p1NAME" onchange="localStorage.setItem('g1NAME',this.value);"  onblur="setHC('p1',this.value)" tabindex="201" style="background:ivory; width:60%; font-weight:bold; font-size:14px;" maxlength=2 value=""></th>	<!-- P1 -->
+				<th><input type="text" id="p2NAME" onchange="localStorage.setItem('g2NAME',this.value);"  onblur="setHC('p2',this.value)" tabindex="203" style="background:beige; width:60%;" maxlength=2 value=""></th> <!-- P2 -->
+				<th><input type="text" id="p3NAME" onchange="localStorage.setItem('g3NAME',this.value);"  onblur="setHC('p3',this.value)" tabindex="205" style="background:linen; width:60%;" maxlength=2 value=""></th> 
+				<th><input type="text" id="p4NAME" onchange="localStorage.setItem('g4NAME',this.value);"  onblur="setHC('p4',this.value)" tabindex="207" style="background:whitesmoke; width:60%; maxlength=2" value=""></th>
+				<th><input type="text" id="p5NAME" onchange="localStorage.setItem('g5NAME',this.value);"  onblur="setHC('p5',this.value)" tabindex="209" style="background:snow; width:60%; maxlength=2"></th>	
 				<th>H</th>
 				<th>par</th>
 				<th>hcp</th>	
