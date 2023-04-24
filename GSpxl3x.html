@@ -18,6 +18,94 @@
 				document.getElementById("pHCdiv").style.visibility="visible"; //inline 	
 			}	
 		}	
+		
+		function setHC(pNO,pNM) {
+			var number = pNO[1];
+			    var whCHC = Math.round(localStorage.getItem('WHchc') * 100/100); 
+			 			alert("whCHC (fr locStor) = "+whCHC);	//.toFixed(0)
+						/* Math.round(x * 100) / 100; is the easiest, simplest way to round to two decimal places. */
+				var jsCHC = Math.round(localStorage.getItem('JSchc') * 100/100); 
+				var tcCHC = Math.round(localStorage.getItem('TCchc') * 100/100); 
+				var bpCHC = Math.round(localStorage.getItem('BPchc') * 100/100); 
+				var brCHC = Math.round(localStorage.getItem('BRchc') * 100/100); 
+				var dpCHC = Math.round(localStorage.getItem('DPchc') * 100/100); 
+				var dzCHC = Math.round(localStorage.getItem('DZchc') * 100/100); 
+				var abCHC = Math.round(localStorage.getItem('ABchc') * 100/100); 
+				var pkCHC = Math.round(localStorage.getItem('PKchc') * 100/100); 
+				var wrCHC = Math.round(localStorage.getItem('WRchc') * 100/100); 
+				var gfCHC = Math.round(localStorage.getItem('GFchc') * 100/100);
+				var pdCHC = Math.round(localStorage.getItem('PDchc') * 100/100); 
+				var sjCHC = Math.round(localStorage.getItem('SJchc') * 100/100); 
+				var gnCHC = Math.round(localStorage.getItem('GNchc') * 100/100); 
+				var cmCHC = Math.round(localStorage.getItem('CMchc') * 100/100); 
+				var jdCHC = Math.round(localStorage.getItem('JDchc') * 100/100); 
+					var u1CHC = Math.round(localStorage.getItem('U1chc') * 100/100);
+					var u2CHC = Math.round(localStorage.getItem('U2chc') * 100/100);		
+			alert("Will try to auto set player HC here!\n\t\tpNO = "+pNO+" | 'number' var = "+number+"\n\n"+
+				  "jsCHC (fr locStor) = "+jsCHC+"\n\n"+
+				  "PL \t            RAWchc                   \t\t   ROUNDEDchc\n"+
+				  "wh \t "+ localStorage.getItem('WHchc') + " \t\t " + whCHC + "\n"+
+				  "pk \t "+ localStorage.getItem('PKchc') + " \t\t " + pkCHC + "\n"+
+				  "dz \t "+ localStorage.getItem('DZchc') + " \t\t " + dzCHC + "\n"+
+				  "sj \t "+ localStorage.getItem('SJchc') + " \t\t " + sjCHC + "\n"+
+				  "js \t "+ localStorage.getItem('JSchc') + " \t\t " + jsCHC + "\n"+
+				  "gf \t "+ localStorage.getItem('GFchc') + " \t\t " + gfCHC + "\n"+
+				  "br \t "+ localStorage.getItem('BRchc') + " \t\t " + brCHC + "\n"+
+				  "pd \t "+ localStorage.getItem('PDchc') + " \t\t " + pdCHC + "\n"+
+				  "bp \t "+ localStorage.getItem('BPchc') + " \t\t " + bpCHC + "\n");
+			if (pNM=="wH") {document.getElementById(pNO+"HC").value = whCHC; localStorage.setItem('g'+number+'HC',whCHC);}  //23
+			if (pNM=="jS") {document.getElementById(pNO+"HC").value = jsCHC; localStorage.setItem('g'+number+'HC',jsCHC);} //16
+			if (pNM=="tC") {document.getElementById(pNO+"HC").value = tcCHC; localStorage.setItem('g'+number+'HC',tcCHC);}
+			if (pNM=="bP") {document.getElementById(pNO+"HC").value = bpCHC; localStorage.setItem('g'+number+'HC',bpCHC);}
+			if (pNM=="bR") {document.getElementById(pNO+"HC").value = brCHC; localStorage.setItem('g'+number+'HC',brCHC);}
+				//if (pNM=="jS") {document.getElementById(pNO+"HC").value = jsCHC; localStorage.setItem('g'+number+'HC',jsCHC);} 
+				/*JSchc/15 */
+			if (pNM=="dP") {document.getElementById(pNO+"HC").value = dpCHC; localStorage.setItem('g'+number+'HC',dpCHC);}
+			if (pNM=="dZ") {document.getElementById(pNO+"HC").value = dzCHC; localStorage.setItem('g'+number+'HC',dzCHC);}
+			if (pNM=="aB") {document.getElementById(pNO+"HC").value = abCHC; localStorage.setItem('g'+number+'HC',abCHC);}
+			if (pNM=="pK") {document.getElementById(pNO+"HC").value = pkCHC; localStorage.setItem('g'+number+'HC',pkCHC);}
+			if (pNM=="wR") {document.getElementById(pNO+"HC").value = wrCHC; localStorage.setItem('g'+number+'HC',wrCHC);}
+			if (pNM=="gF") {document.getElementById(pNO+"HC").value = gfCHC; localStorage.setItem('g'+number+'HC',gfCHC);}
+			if (pNM=="Pd") {document.getElementById(pNO+"HC").value = pdCHC; localStorage.setItem('g'+number+'HC',pdCHC);}
+			if (pNM=="sJ") {document.getElementById(pNO+"HC").value = sjCHC; localStorage.setItem('g'+number+'HC',sjCHC);}
+			if (pNM=="gN") {document.getElementById(pNO+"HC").value = gnCHC; localStorage.setItem('g'+number+'HC',gnCHC);}
+			if (pNM=="cM") {document.getElementById(pNO+"HC").value = cmCHC; localStorage.setItem('g'+number+'HC',cmCHC);}
+			if (pNM=="jD") {document.getElementById(pNO+"HC").value = jdCHC; localStorage.setItem('g'+number+'HC',jdCHC);}
+				if (pNM=="u1") {document.getElementById(pNO+"HC").value = u1CHC; localStorage.setItem('g'+number+'HC',u1CHC);}
+				if (pNM=="u2") {document.getElementById(pNO+"HC").value = u2CHC; localStorage.setItem('g'+number+'HC',u2CHC);}
+		}	
+		
+		function CHChelp() {
+			alert("CALCULATING COURSE HANDICAP:\n\n"+
+				  "Blue Tees Slope & Course Ratings: 131/68.9\n"+
+				  "Course Handicap = Handicap Index x (Slope Rating ÷ 113) + (Course Rating – par)\n\n"+
+				  "21.8 X (131/113 = 1.159) + (68.9-70 = -1.1) SHOULD EQUAL 24 = 24(.17)!\n"+
+				  "IF HI = 19.9 CH = 21.96 = 22 *");
+		}
+
+		function fillHIs () {
+			//alert("Trying to FILL HIs!");										  //Apr/23:
+			document.getElementById("whHI").value = localStorage.getItem("WHhi"); // 21.1
+			document.getElementById("jsHI").value = localStorage.getItem("JShi"); // 14.4
+			document.getElementById("tcHI").value = localStorage.getItem("TChi"); // 17.6
+			document.getElementById("bpHI").value = localStorage.getItem("BPhi"); // 15.2
+			document.getElementById("brHI").value = localStorage.getItem("BRhi"); // 16.1
+					/* whCHC" onchange="localStorage.setItem('WHchc */
+			document.getElementById("dpHI").value = localStorage.getItem("DPhi"); // 12.8
+			document.getElementById("dzHI").value = localStorage.getItem("DZhi"); // 18.5
+			document.getElementById("abHI").value = localStorage.getItem("ABhi"); // 17.7
+			document.getElementById("pkHI").value = localStorage.getItem("PKhi"); // 10.5
+			document.getElementById("wrHI").value = localStorage.getItem("WRhi"); // 13.7
+			document.getElementById("gfHI").value = localStorage.getItem("GFhi"); // 16.1
+			document.getElementById("pdHI").value = localStorage.getItem("PDhi"); // 17.2
+			document.getElementById("sjHI").value = localStorage.getItem("SJhi"); // 18.4
+			document.getElementById("gnHI").value = localStorage.getItem("GNhi"); // 14.1
+			document.getElementById("cmHI").value = localStorage.getItem("CMhi"); // 14.0
+			document.getElementById("jdHI").value = localStorage.getItem("JDhi"); // 16.3
+			document.getElementById("u1HI").value = localStorage.getItem("U1hi"); // 
+			document.getElementById("u2HI").value = localStorage.getItem("U2hi"); // 
+		}	
+				
 </script>	
 </head>
 
@@ -754,55 +842,143 @@
 				<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 				<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
-	<script>
+<script>
 		function calcCHC() {
+					/* VGC Golf Canada Course Rating  68.9 / 131 (Apr/23) */
 			let whHI = document.getElementById("whHI").value;								
 				let whCHC = +whHI * (131/113) + (68.9-70);	/* 21.8 X (131/113) + (68.9-70) */
-					/*alert("Trying to calc CHC!\n\twhHI = "+whHI+"\n"+
-						  "\twhCHC = "+whCHC.toFixed(1) );*/    /* numb = numb.toFixed(2); */
+					alert("Trying to calc CHC!\n\twhHI = "+whHI+"\n"+
+					"\twhCHC = "+whCHC.toFixed(1) );    /* numb = numb.toFixed(2); */
+				localStorage.setItem('WHchc',whCHC);	// < **!
 				document.getElementById("whCHC").value = whCHC.toFixed(0);
 			let jsHI = document.getElementById("jsHI").value;								
 				let jsCHC = +jsHI * (131/113) + (68.9-70); 	//alert("jsCHC = "+jsCHC.toFixed(1) ); 
+				localStorage.setItem('JSchc',jsCHC);
 				document.getElementById("jsCHC").value = jsCHC.toFixed(0);
 			let tcHI = document.getElementById("tcHI").value;								
 				let tcCHC = +tcHI * (131/113) + (68.9-70);
 					//alert("tcCHC = "+tcCHC.toFixed(1) ); 
+				localStorage.setItem('TCchc',tcCHC);
 				document.getElementById("tcCHC").value = tcCHC.toFixed(0);
 			let bpHI = document.getElementById("bpHI").value;								
 				let bpCHC = +bpHI * (131/113) + (68.9-70); 	//alert("bpCHC = "+bpCHC.toFixed(1) ); 
 				document.getElementById("bpCHC").value = bpCHC.toFixed(0);
+				localStorage.setItem('BPchc',bpCHC);
 			let brHI = document.getElementById("brHI").value;								
 				let brCHC = +brHI * (131/113) + (68.9-70); 	//alert("brCHC = "+brCHC.toFixed(1) ); 
+				localStorage.setItem('BRchc',brCHC);
 				document.getElementById("brCHC").value = brCHC.toFixed(0);
+				
+			let dpHI = document.getElementById("dpHI").value; let dpCHC = +dpHI * (131/113) + (68.9-70); 
+				localStorage.setItem('DPchc',dpCHC);
+				document.getElementById("dpCHC").value = dpCHC.toFixed(0);
+			let dzHI = document.getElementById("dzHI").value; let dzCHC = +dzHI * (131/113) + (68.9-70); 
+				localStorage.setItem('DZchc',dzCHC);
+				document.getElementById("dzCHC").value = dzCHC.toFixed(0);
+			let abHI = document.getElementById("abHI").value; let abCHC = +abHI * (131/113) + (68.9-70); 
+				localStorage.setItem('ABchc',abCHC);
+				document.getElementById("abCHC").value = abCHC.toFixed(0);	
+			let pkHI = document.getElementById("pkHI").value; let pkCHC = +pkHI * (131/113) + (68.9-70); 
+				localStorage.setItem('PKchc',pkCHC);
+				document.getElementById("pkCHC").value = pkCHC.toFixed(0);
+			let wrHI = document.getElementById("wrHI").value; let wrCHC = +wrHI * (131/113) + (68.9-70); 
+				localStorage.setItem('WRchc',wrCHC);
+				document.getElementById("wrCHC").value = wrCHC.toFixed(0);
+			let gfHI = document.getElementById("gfHI").value; let gfCHC = +gfHI * (131/113) + (68.9-70); 
+				localStorage.setItem('GFchc',gfCHC);
+				document.getElementById("gfCHC").value = gfCHC.toFixed(0);	
+			
+			let pdHI = document.getElementById("pdHI").value; let pdCHC = +pdHI * (131/113) + (68.9-70); 
+				localStorage.setItem('PDchc',pdCHC);
+				document.getElementById("pdCHC").value = pdCHC.toFixed(0);
+			let sjHI = document.getElementById("sjHI").value; let sjCHC = +sjHI * (131/113) + (68.9-70); 
+				localStorage.setItem('SJchc',sjCHC);
+				document.getElementById("sjCHC").value = sjCHC.toFixed(0);
+			let gnHI = document.getElementById("gnHI").value; let gnCHC = +gnHI * (131/113) + (68.9-70); 
+				localStorage.setItem('GNchc',gnCHC);
+				document.getElementById("gnCHC").value = gnCHC.toFixed(0);
+			let cmHI = document.getElementById("cmHI").value; let cmCHC = +cmHI * (131/113) + (68.9-70); 
+				localStorage.setItem('CMchc',cmCHC);
+				document.getElementById("cmCHC").value = cmCHC.toFixed(0);
+			let jdHI = document.getElementById("jdHI").value; let jdCHC = +jdHI * (131/113) + (68.9-70); 
+				localStorage.setItem('JDchc',jdCHC);
+				document.getElementById("jdCHC").value = jdCHC.toFixed(0);
+
+			let u1HI = document.getElementById("u1HI").value; let u1CHC = +u1HI * (131/113) + (68.9-70); 
+				localStorage.setItem('U1chc',u1CHC);
+				document.getElementById("u1CHC").value = u1CHC.toFixed(0);
+			let u2HI = document.getElementById("u2HI").value; let u2CHC = +u2HI * (131/113) + (68.9-70); 
+				localStorage.setItem('U2chc',u2CHC);
+				document.getElementById("u2CHC").value = u2CHC.toFixed(0);				
 			
 		}
 	</script>		
-	<div id="pHCdiv" style="border:3px inset slategray; border-radius:10px; overflow:scroll; margin:auto; visibility:hidden; background:white; color:black; position:fixed; left:100px; top:300px; zoom:100%; padding:5px;">
+	<div id="pHCdiv" style="border:3px inset slategray; border-radius:10px; overflow:scroll; margin:auto; visibility:hidden; background:white; position:fixed; left:600px; top:500px; zoom:100%; padding:5px; height:250px;">
 		Handicaps <font size=2><i>(Apr/23)</i></font><br>
 			<button id='fillHIs' onclick="fillHIs()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>H.I.</b></u></button>
 			<button id='calcCHC' onclick="calcCHC()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:white; background:blue; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>CHC</b></u></button>&nbsp;
 			<span style="float:right; padding-right:10px; cursor:pointer; background:white; color:black; font-size:20px;">
 						<a onclick="showHCs()"><b>&times;</b></a>
 			</span>
-		<TABLE id="pHCtbl" border=2>
+		<TABLE id="pHCtbl" border=2 style="font-size:10px;" align=center>
 			<TR> <TH>p</TH>  <TH>H.I.</TH>  <TH style="cursor:help;" title="VGC blue">cHC</TH> </TR>
-			<TR> <TD>wH</TD> <TD><input id='whHI' style="width:35px;" onchange="localStorage.setItem('WHhi',this.value);"></TD> <TD><input type="" id="whCHC" onchange="localStorage.setItem('WHchc',this.value);"  style="background:ivory; width:35px; font-weight:bold;"></TD>  </TR> <!-- 21.1/23 -->
-			<TR> <TD>jS</TD> <TD><input id='jsHI' style="width:35px;" onchange="localStorage.setItem('JShi',this.value);"></TD> 
-				<TD><input type="" id="jsCHC" onchange="localStorage.setItem('JSchc',this.value);"  style="background:ivory; width:30px; font-weight:bold;"></TD>  </TR> <!-- 14.4/15 -->
-			<TR> <TD>tC</TD> <TD><input id='tcHI' style="width:35px;" onchange="localStorage.setItem('TChi',this.value);"></TD> 
-				<TD><input type="" id="tcCHC" onchange="localStorage.setItem('TCchc',this.value);"  style="background:ivory; width:30px; font-weight:bold;"></TD>  </TR> <!-- 17.6/19 -->
-			<TR> <TD>bP</TD> <TD><input id='bpHI' style="width:35px;" onchange="localStorage.setItem('BPhi',this.value);"></TD> 
-				<TD><input type="" id="bpCHC" onchange="localStorage.setItem('BPchc',this.value);"  style="background:ivory; width:30px; font-weight:bold;"></TD>  </TR> <!-- 15.2/17 -->
-			<TR> <TD>bR</TD> <TD><input id='brHI' style="width:35px;" onchange="localStorage.setItem('BRhi',this.value);"></TD> 
-				<TD><input type="" id="brCHC" onchange="localStorage.setItem('BRchc',this.value);"  style="background:ivory; width:30px; font-weight:bold;"></TD>  </TR> <!-- 16.1/18 -->
+			<TR> <TD>wH</TD> <TD><input id='whHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('WHhi',this.value);"></TD> <TD><input type="" id="whCHC" onchange="localStorage.setItem('WHchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR> <!-- 21.1/23 -->
+			<TR> <TD>jS</TD> <TD><input id='jsHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('JShi',this.value);"></TD> 
+				<TD><input type="" id="jsCHC" onchange="localStorage.setItem('JSchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR> <!-- 14.4/15 -->
+			<TR> <TD>tC</TD> <TD><input id='tcHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('TChi',this.value);"></TD> 
+				<TD><input type="" id="tcCHC" onchange="localStorage.setItem('TCchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR> <!-- 17.6/19 -->
+			<TR> <TD>bP</TD> <TD><input id='bpHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('BPhi',this.value);"></TD> 
+				<TD><input type="" id="bpCHC" onchange="localStorage.setItem('BPchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR> <!-- 15.2/17 -->
+			<TR> <TD>bR</TD> <TD><input id='brHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('BRhi',this.value);"></TD> 
+				<TD><input type="" id="brCHC" onchange="localStorage.setItem('BRchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR> <!-- 16.1/18 -->
+				
+			<TR><TD>dP</TD>
+				<TD><input id='dpHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('DPhi',this.value);"></TD> 
+				<TD><input type="" id="dpCHC" onchange="localStorage.setItem('DPchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR>	
+			<TR><TD>dZ</TD>
+				<TD><input id='dzHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('DZhi',this.value);"></TD> 
+				<TD><input type="" id="dzCHC" onchange="localStorage.setItem('DZchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR>	
+			<TR><TD>aB</TD>
+				<TD><input id='abHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('ABhi',this.value);"></TD> 
+				<TD><input type="" id="abCHC" onchange="localStorage.setItem('ABchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR>	
+			<TR><TD>pK</TD>
+				<TD><input id='pkHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('PKhi',this.value);"></TD> 
+				<TD><input type="" id="pkCHC" onchange="localStorage.setItem('PKchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR>	
+			<TR><TD>wR</TD>
+				<TD><input id='wrHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('WRhi',this.value);"></TD> 
+				<TD><input type="" id="wrCHC" onchange="localStorage.setItem('WRchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR>	
+			<TR><TD>gF</TD>
+				<TD><input id='gfHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('GFhi',this.value);"></TD> 
+				<TD><input type="" id="gfCHC" onchange="localStorage.setItem('GFchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR>	
+			<TR><TD>Pd</TD>
+				<TD><input id='pdHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('PDhi',this.value);"></TD> 
+				<TD><input type="" id="pdCHC" onchange="localStorage.setItem('PDchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR>	
+			<TR><TD>sJ</TD>
+				<TD><input id='sjHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('SJhi',this.value);"></TD> 
+				<TD><input type="" id="sjCHC" onchange="localStorage.setItem('SJchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR>	
+			<TR><TD>gN</TD>
+				<TD><input id='gnHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('GNhi',this.value);"></TD> 
+				<TD><input type="" id="gnCHC" onchange="localStorage.setItem('GNchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR>		
+			<TR><TD>cM</TD>
+				<TD><input id='cmHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('CMhi',this.value);"></TD> 
+				<TD><input type="" id="cmCHC" onchange="localStorage.setItem('CMchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR>	
+			<TR><TD>jD</TD>
+				<TD><input id='jdHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('JDhi',this.value);"></TD> 
+				<TD><input type="" id="jdCHC" onchange="localStorage.setItem('JDchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR>	
+			<TR><TD>u1</TD>
+				<TD><input id='u1HI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('U1hi',this.value);"></TD> 
+				<TD><input type="" id="u1CHC" onchange="localStorage.setItem('U1chc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR>	
+			<TR><TD>u2</TD>
+				<TD><input id='u2HI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('U2hi',this.value);"></TD> 
+				<TD><input type="" id="u2CHC" onchange="localStorage.setItem('U2chc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR>						
+				
 		</TABLE>
 		
 		<button onclick="CHChelp()">help</button>
 		
 	</div>
 
-	
-				<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 				
 				
 				
