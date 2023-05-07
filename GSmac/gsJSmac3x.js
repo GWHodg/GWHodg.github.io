@@ -1645,3 +1645,121 @@
 	
 		
 	}
+	
+				/*    ++++++++++++++++++++++ May/23 ++++++++++++++++++++++++++++++++    */
+				
+		function showHCs() {
+			if (document.getElementById("pHCdiv").style.visibility=="visible") {
+				document.getElementById("pHCdiv").style.visibility="hidden"; //inline 	
+			}		
+			else {
+				document.getElementById("pHCdiv").style.visibility="visible"; //inline 	
+			}	
+		}
+	
+		function setHC(pNO,pNM) {
+			var number = pNO[1];
+			    var whCHC = Math.round(localStorage.getItem('WHchc') * 100/100); 
+			 			alert("whCHC (fr locStor) = "+whCHC);	//.toFixed(0)
+						/* Math.round(x * 100) / 100; is the easiest, simplest way to round to two decimal places. */
+				var jsCHC = Math.round(localStorage.getItem('JSchc') * 100/100); 
+				var tcCHC = Math.round(localStorage.getItem('TCchc') * 100/100); 
+				var bpCHC = Math.round(localStorage.getItem('BPchc') * 100/100); 
+				var brCHC = Math.round(localStorage.getItem('BRchc') * 100/100); 
+				var dpCHC = Math.round(localStorage.getItem('DPchc') * 100/100); 
+				var dzCHC = Math.round(localStorage.getItem('DZchc') * 100/100); 
+				var abCHC = Math.round(localStorage.getItem('ABchc') * 100/100); 
+				var pkCHC = Math.round(localStorage.getItem('PKchc') * 100/100); 
+				var wrCHC = Math.round(localStorage.getItem('WRchc') * 100/100); 
+				var gfCHC = Math.round(localStorage.getItem('GFchc') * 100/100);
+				var pdCHC = Math.round(localStorage.getItem('PDchc') * 100/100); 
+				var sjCHC = Math.round(localStorage.getItem('SJchc') * 100/100); 
+				var gnCHC = Math.round(localStorage.getItem('GNchc') * 100/100); 
+				var cmCHC = Math.round(localStorage.getItem('CMchc') * 100/100); 
+				var jdCHC = Math.round(localStorage.getItem('JDchc') * 100/100); 
+					var u1CHC = Math.round(localStorage.getItem('U1chc') * 100/100);
+					var u2CHC = Math.round(localStorage.getItem('U2chc') * 100/100);		
+			alert("Will try to auto set player HC here!\n\t\tpNO = "+pNO+" | 'number' var = "+number+"\n\n"+
+				  "jsCHC (fr locStor) = "+jsCHC+"\n\n"+
+				  "PL \t            RAWchc                   \t\t   ROUNDEDchc\n"+
+				  "wh \t "+ localStorage.getItem('WHchc') + " \t\t " + whCHC + "\n"+
+				  "pk \t "+ localStorage.getItem('PKchc') + " \t\t " + pkCHC + "\n"+
+				  "dz \t "+ localStorage.getItem('DZchc') + " \t\t " + dzCHC + "\n"+
+				  "sj \t "+ localStorage.getItem('SJchc') + " \t\t " + sjCHC + "\n"+
+				  "js \t "+ localStorage.getItem('JSchc') + " \t\t " + jsCHC + "\n"+
+				  "gf \t "+ localStorage.getItem('GFchc') + " \t\t " + gfCHC + "\n"+
+				  "br \t "+ localStorage.getItem('BRchc') + " \t\t " + brCHC + "\n"+
+				  "pd \t "+ localStorage.getItem('PDchc') + " \t\t " + pdCHC + "\n"+
+				  "bp \t "+ localStorage.getItem('BPchc') + " \t\t " + bpCHC + "\n");
+			if (pNM=="wH") {document.getElementById(pNO+"HC").value = whCHC; localStorage.setItem('g'+number+'HC',whCHC);}  //23
+			if (pNM=="jS") {document.getElementById(pNO+"HC").value = jsCHC; localStorage.setItem('g'+number+'HC',jsCHC);} //16
+			if (pNM=="tC") {document.getElementById(pNO+"HC").value = tcCHC; localStorage.setItem('g'+number+'HC',tcCHC);}
+			if (pNM=="bP") {document.getElementById(pNO+"HC").value = bpCHC; localStorage.setItem('g'+number+'HC',bpCHC);}
+			if (pNM=="bR") {document.getElementById(pNO+"HC").value = brCHC; localStorage.setItem('g'+number+'HC',brCHC);}
+				//if (pNM=="jS") {document.getElementById(pNO+"HC").value = jsCHC; localStorage.setItem('g'+number+'HC',jsCHC);} 
+				/*JSchc/15 */
+			if (pNM=="dP") {document.getElementById(pNO+"HC").value = dpCHC; localStorage.setItem('g'+number+'HC',dpCHC);}
+			if (pNM=="dZ") {document.getElementById(pNO+"HC").value = dzCHC; localStorage.setItem('g'+number+'HC',dzCHC);}
+			if (pNM=="aB") {document.getElementById(pNO+"HC").value = abCHC; localStorage.setItem('g'+number+'HC',abCHC);}
+			if (pNM=="pK") {document.getElementById(pNO+"HC").value = pkCHC; localStorage.setItem('g'+number+'HC',pkCHC);}
+			if (pNM=="wR") {document.getElementById(pNO+"HC").value = wrCHC; localStorage.setItem('g'+number+'HC',wrCHC);}
+			if (pNM=="gF") {document.getElementById(pNO+"HC").value = gfCHC; localStorage.setItem('g'+number+'HC',gfCHC);}
+			if (pNM=="Pd") {document.getElementById(pNO+"HC").value = pdCHC; localStorage.setItem('g'+number+'HC',pdCHC);}
+			if (pNM=="sJ") {document.getElementById(pNO+"HC").value = sjCHC; localStorage.setItem('g'+number+'HC',sjCHC);}
+			if (pNM=="gN") {document.getElementById(pNO+"HC").value = gnCHC; localStorage.setItem('g'+number+'HC',gnCHC);}
+			if (pNM=="cM") {document.getElementById(pNO+"HC").value = cmCHC; localStorage.setItem('g'+number+'HC',cmCHC);}
+			if (pNM=="jD") {document.getElementById(pNO+"HC").value = jdCHC; localStorage.setItem('g'+number+'HC',jdCHC);}
+				if (pNM=="u1") {document.getElementById(pNO+"HC").value = u1CHC; localStorage.setItem('g'+number+'HC',u1CHC);}
+				if (pNM=="u2") {document.getElementById(pNO+"HC").value = u2CHC; localStorage.setItem('g'+number+'HC',u2CHC);}
+		}	
+		
+		function CHChelp() {
+			alert("CALCULATING COURSE HANDICAP:\n\n"+
+				  "Blue Tees Slope & Course Ratings: 131/68.9\n"+
+				  "Course Handicap = Handicap Index x (Slope Rating ÷ 113) + (Course Rating – par)\n\n"+
+				  "21.8 X (131/113 = 1.159) + (68.9-70 = -1.1) SHOULD EQUAL 24 = 24(.17)!\n"+
+				  "IF HI = 19.9 CH = 21.96 = 22 *");
+		}
+
+		function fillHIs () {
+			//alert("Trying to FILL HIs!");										  //Apr/23:
+			document.getElementById("whHI").value = localStorage.getItem("WHhi"); // 21.1
+			document.getElementById("jsHI").value = localStorage.getItem("JShi"); // 14.4
+			document.getElementById("tcHI").value = localStorage.getItem("TChi"); // 17.6
+			document.getElementById("bpHI").value = localStorage.getItem("BPhi"); // 15.2
+			document.getElementById("brHI").value = localStorage.getItem("BRhi"); // 16.1
+					/* whCHC" onchange="localStorage.setItem('WHchc */
+			document.getElementById("dpHI").value = localStorage.getItem("DPhi"); // 12.8
+			document.getElementById("dzHI").value = localStorage.getItem("DZhi"); // 18.5
+			document.getElementById("abHI").value = localStorage.getItem("ABhi"); // 17.7
+			document.getElementById("pkHI").value = localStorage.getItem("PKhi"); // 10.5
+			document.getElementById("wrHI").value = localStorage.getItem("WRhi"); // 13.7
+			document.getElementById("gfHI").value = localStorage.getItem("GFhi"); // 16.1
+			document.getElementById("pdHI").value = localStorage.getItem("PDhi"); // 17.2
+			document.getElementById("sjHI").value = localStorage.getItem("SJhi"); // 18.4
+			document.getElementById("gnHI").value = localStorage.getItem("GNhi"); // 14.1
+			document.getElementById("cmHI").value = localStorage.getItem("CMhi"); // 14.0
+			document.getElementById("jdHI").value = localStorage.getItem("JDhi"); // 16.3
+			document.getElementById("u1HI").value = localStorage.getItem("U1hi"); // 
+			document.getElementById("u2HI").value = localStorage.getItem("U2hi"); // 
+		}					
+		
+		function freeze() {
+			alert("Will FREEZE player course handicap input!");
+			//document.getElementById("th").style.background = "white";			
+			document.getElementById("p1HC").disabled = true;	//"disabled";
+				//document.getElementById("p1HC").style.background = "orange";
+				document.getElementById("p1NAME").disabled = true;	
+			document.getElementById("p2HC").disabled = true;	//"disabled";
+				//document.getElementById("p2HC").style.background = "orange";
+				document.getElementById("p2NAME").disabled = true;
+			document.getElementById("p3HC").disabled = true;	//"disabled";
+				//document.getElementById("p3HC").style.background = "orange";	
+				document.getElementById("p3NAME").disabled = true;			
+			document.getElementById("p4HC").disabled = true;	//"disabled";
+				//document.getElementById("p4HC").style.background = "orange";
+				document.getElementById("p4NAME").disabled = true;
+			document.getElementById("p5HC").disabled = true;	//"disabled";
+				//document.getElementById("p5HC").style.background = "orange";	
+				document.getElementById("p5NAME").disabled = true;		
+		}
