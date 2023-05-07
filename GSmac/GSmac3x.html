@@ -84,7 +84,7 @@
 						  </div>
 					</div>		
 </TD>	 <TD width=20></td>	 <TD>
-	<input type="date" id="DATE" tabindex="300" style="background:beige; border:1px solid slategray; color:blue; width:100px;" value="date" >
+	<input type="date" id="DATE" tabindex="300" style="background:beige; border:1px solid slategray; color:blue; width:120px;" value="date" >
 				<!-- /*position:relative; left:20%;*/ placeholder="Apr 14/23" -->
 	<br>
 				<!-- <input type="date" id="today" name="birthday"> -->
@@ -690,19 +690,14 @@
 	</div>
 
 	
-	<div class="battery-info" style="border:0px inset ivory; color:white; width:15%; padding:0px; position:fixed; left:30em; top:5px;">
+	<div class="battery-info" style="border:0px inset white; width:35%; padding:0px; position:fixed; left:8em; top:5px;">
+					<!-- position:fixed; left:1em; top:200px; -->
             <b>Battery % = </b>
             <span id="battery-percentage" style="padding:2px;">0</span>
-			<!--<br>
-            <b>Battery Charging? :</b>
-            <span id="is-battery-charging">No</span>
-			<br>
-            <b>Charging Time:</b>
-            <span id="chargingtime"></span>
-			<br>
-            <b>Discharging Time:</b>
-            <span id="dischargingtime"></span>-->
-    </div>
+	            <span id="is-battery-charging" style="visibility:hidden;">No</span>
+	            <span id="chargingtime" style="visibility:hidden;"></span>
+	            <span id="dischargingtime" style="visibility:hidden;"></span>
+		</div> 
     <script>
         navigator.getBattery().then(function (battery) {
             function showAllBatteryInfo() {
