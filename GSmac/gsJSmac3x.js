@@ -1745,21 +1745,37 @@
 		}					
 		
 		function freeze() {
-			alert("Will FREEZE player course handicap input!");
+			alert("Will FREEZE/UNFREEZE player course handicap input!");
 			//document.getElementById("th").style.background = "white";			
-			document.getElementById("p1HC").disabled = true;	//"disabled";
-				//document.getElementById("p1HC").style.background = "orange";
-				document.getElementById("p1NAME").disabled = true;	
-			document.getElementById("p2HC").disabled = true;	//"disabled";
-				//document.getElementById("p2HC").style.background = "orange";
-				document.getElementById("p2NAME").disabled = true;
-			document.getElementById("p3HC").disabled = true;	//"disabled";
-				//document.getElementById("p3HC").style.background = "orange";	
-				document.getElementById("p3NAME").disabled = true;			
-			document.getElementById("p4HC").disabled = true;	//"disabled";
-				//document.getElementById("p4HC").style.background = "orange";
-				document.getElementById("p4NAME").disabled = true;
-			document.getElementById("p5HC").disabled = true;	//"disabled";
-				//document.getElementById("p5HC").style.background = "orange";	
-				document.getElementById("p5NAME").disabled = true;		
+			
+			if ( document.getElementById("p1HC").disabled == false ) {
+				document.getElementById("p1HC").disabled = true;	//"disabled";
+					//document.getElementById("p1HC").style.background = "orange";
+					document.getElementById("p1NAME").disabled = true;	
+				document.getElementById("p2HC").disabled = true;	//"disabled";
+					//document.getElementById("p2HC").style.background = "orange";
+					document.getElementById("p2NAME").disabled = true;
+				document.getElementById("p3HC").disabled = true;	//"disabled";
+					//document.getElementById("p3HC").style.background = "orange";	
+					document.getElementById("p3NAME").disabled = true;			
+				document.getElementById("p4HC").disabled = true;	//"disabled";
+					//document.getElementById("p4HC").style.background = "orange";
+					document.getElementById("p4NAME").disabled = true;
+				document.getElementById("p5HC").disabled = true;	//"disabled";
+					//document.getElementById("p5HC").style.background = "orange";	
+					document.getElementById("p5NAME").disabled = true;	
+			}
+			else {
+				document.getElementById("p1HC").disabled = false;
+					document.getElementById("p1NAME").disabled = false;	
+				document.getElementById("p2HC").disabled = false;
+					document.getElementById("p2NAME").disabled = false;
+				document.getElementById("p3HC").disabled = false;
+					document.getElementById("p3NAME").disabled = false;			
+				document.getElementById("p4HC").disabled = false;
+					document.getElementById("p4NAME").disabled = false;
+				document.getElementById("p5HC").disabled = false;
+					document.getElementById("p5NAME").disabled = false;					
+			}
+				
 		}
