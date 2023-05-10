@@ -1053,6 +1053,7 @@
 		/* onchange: */
 		document.getElementById("DATE").value = localStorage.getItem("DATE");
 
+		
 		document.getElementById("p1NAME").value = localStorage.getItem("g1NAME");
 			document.getElementById("p2NAME").value = localStorage.getItem("g2NAME");
 			document.getElementById("p3NAME").value = localStorage.getItem("g3NAME");
@@ -1062,7 +1063,8 @@
 			document.getElementById("p2HC").value = localStorage.getItem("g2HC");
 			document.getElementById("p3HC").value = localStorage.getItem("g3HC");
 			document.getElementById("p4HC").value = localStorage.getItem("g4HC");
-			document.getElementById("p5HC").value = localStorage.getItem("g5HC");			
+			document.getElementById("p5HC").value = localStorage.getItem("g5HC");	
+			
 
 		var vG1h1s = localStorage.getItem("g1H1s");	var vG2h1s = localStorage.getItem("g2H1s");
 		var vG3h1s = localStorage.getItem("g3H1s"); var vG4h1s = localStorage.getItem("g4H1s");
@@ -1151,6 +1153,19 @@
 						localStorage.setItem('g'+n+'H'+h+'s',""); document.getElementById("p"+n+"h"+h).value = "";
 					}
 			}
+			
+			localStorage.setItem("DATE",""); document.getElementById("DATE").value = ""; 
+			localStorage.setItem("g1NAME",""); document.getElementById("p1NAME").value = ""; 
+				localStorage.setItem("g2NAME",""); document.getElementById("p2NAME").value = ""; 
+				localStorage.setItem("g3NAME",""); document.getElementById("p3NAME").value = ""; 
+				localStorage.setItem("g4NAME",""); document.getElementById("p4NAME").value = ""; 
+				localStorage.setItem("g5NAME",""); document.getElementById("p5NAME").value = ""; 
+			localStorage.setItem("g1HC",""); document.getElementById("p1HC").value = ""; 
+				localStorage.setItem("g2HC",""); document.getElementById("p2HC").value = ""; 
+				localStorage.setItem("g3HC",""); document.getElementById("p3HC").value = ""; 
+				localStorage.setItem("g4HC",""); document.getElementById("p4HC").value = ""; 
+				localStorage.setItem("g5HC",""); document.getElementById("p5HC").value = ""; 
+			
 		}
 		
 		//alert("g1H1s POST 'clear' = " +  localStorage.getItem("g1H1s"));
@@ -1175,46 +1190,75 @@
 		/*alert("Will try to change input box colors based on player HC!\n"+
 			  "\nhisHC (p1HC) = "+HCpl1);*.		//+"\nHOLE1hc = "+HOLE1hc);       player =  "+player
 			//document.getElementById("p1h1").style.background = "pink";
-/*		if ( (hisHC-18) > HOLE1hc) {
-			document.getElementById("p1h3").style.background = "slategray";
-			document.getElementById("p1h3").style.color = "white";
-		}
-		else if ( hisHC > HOLE1hc ) { 
-			document.getElementById("p1h1").style.background = "lightgray";
-		}
-*/		
-		for (var h = 1; h < 19; h++) {
-			//alert("hole = "+h);
-			HOLEhc = document.getElementById("HCPh"+h).value;
-			//if (h==5) {alert("h==5 & HOLEhc = "+HOLEhc); }
-			if ( (HCpl1-18) >= +HOLEhc) {
-				document.getElementById("p1h"+h).style.background = "green";	//"slategray";
-				document.getElementById("p1h"+h).style.color = "white";
-			}
-			else if ( +HCpl1 >= +HOLEhc ) { 
-				//if (h=5) {alert("h = 5 & HOLEhc = "+HOLEhc); }
-				document.getElementById("p1h"+h).style.background = "lime";
-			}
-			
-			if ( (HCpl2-18) >= +HOLEhc) { document.getElementById("p2h"+h).style.background = "green"; document.getElementById("p2h"+h).style.color = "white"; }
-			else if ( +HCpl2 >= +HOLEhc ) { document.getElementById("p2h"+h).style.background = "lime"; }			
-			
-			if ( (HCpl3-18) >= +HOLEhc) { document.getElementById("p3h"+h).style.background = "green"; document.getElementById("p3h"+h).style.color = "white"; }
-			else if ( +HCpl3 >= +HOLEhc ) { document.getElementById("p3h"+h).style.background = "lime"; }
-
-			if ( (HCpl4-18) >= +HOLEhc) { document.getElementById("p4h"+h).style.background = "green"; document.getElementById("p4h"+h).style.color = "white"; }
-			else if ( +HCpl4 >= +HOLEhc ) { document.getElementById("p4h"+h).style.background = "lime"; }
-
-			if ( (HCpl5-18) >= +HOLEhc) { document.getElementById("p5h"+h).style.background = "green"; document.getElementById("p5h"+h).style.color = "white"; }
-			else if ( +HCpl5 >= +HOLEhc ) { document.getElementById("p5h"+h).style.background = "lime"; }			
+		/*		if ( (hisHC-18) > HOLE1hc) {
+					document.getElementById("p1h3").style.background = "slategray";
+					document.getElementById("p1h3").style.color = "white";
+				}
+				else if ( hisHC > HOLE1hc ) { 
+					document.getElementById("p1h1").style.background = "lightgray";
+				}
+		*/		
+		var STKbtnLBL = document.getElementById("STROKESbtn").innerHTML;
+		var shtSTKbtn = STKbtnLBL.substr(0,7);
+		//alert("In 'pHCcolors()'' fn!\nshtSTKbtn = "+shtSTKbtn);
+			//alert("In 'pHCcolors()'' fn!\nSTKbtnLBL = "+STKbtnLBL+"\tshtSTKbtn = "+shtSTKbtn);
+		if ( shtSTKbtn=="Display" ) {
+				for (var h = 1; h < 19; h++) {
+					//alert("hole = "+h);
+					HOLEhc = document.getElementById("HCPh"+h).value;
+					//if (h==5) {alert("h==5 & HOLEhc = "+HOLEhc); }
+					if ( (HCpl1-18) >= +HOLEhc) {
+						document.getElementById("p1h"+h).style.background = "green";	//"slategray";
+						document.getElementById("p1h"+h).style.color = "white";
+					}
+					else if ( +HCpl1 >= +HOLEhc ) { 
+						//if (h=5) {alert("h = 5 & HOLEhc = "+HOLEhc); }
+						document.getElementById("p1h"+h).style.background = "lime";
+					}
+					
+					if ( (HCpl2-18) >= +HOLEhc) { document.getElementById("p2h"+h).style.background = "green"; document.getElementById("p2h"+h).style.color = "white"; }
+					else if ( +HCpl2 >= +HOLEhc ) { document.getElementById("p2h"+h).style.background = "lime"; }			
+					
+					if ( (HCpl3-18) >= +HOLEhc) { document.getElementById("p3h"+h).style.background = "green"; document.getElementById("p3h"+h).style.color = "white"; }
+					else if ( +HCpl3 >= +HOLEhc ) { document.getElementById("p3h"+h).style.background = "lime"; }
 		
-		}
-							/* for loop:
-							for (let i = 0; i < 5; i++) {
-							  text += "The number is " + i + "<br>";
-							} */
+					if ( (HCpl4-18) >= +HOLEhc) { document.getElementById("p4h"+h).style.background = "green"; document.getElementById("p4h"+h).style.color = "white"; }
+					else if ( +HCpl4 >= +HOLEhc ) { document.getElementById("p4h"+h).style.background = "lime"; }
+		
+					if ( (HCpl5-18) >= +HOLEhc) { document.getElementById("p5h"+h).style.background = "green"; document.getElementById("p5h"+h).style.color = "white"; }
+					else if ( +HCpl5 >= +HOLEhc ) { document.getElementById("p5h"+h).style.background = "lime"; }			
+				
+				}
+									/* for loop:
+									for (let i = 0; i < 5; i++) {
+									  text += "The number is " + i + "<br>";
+									} */
+				document.getElementById("STROKESbtn").innerHTML = "HIDE Stroke Holes";
+					//document.getElementById("STROKESbtn").innerText = "HIDE Stroke Holes";
+		}			
+		else { 
+			remCOLORS(); 
+			document.getElementById("STROKESbtn").innerHTML = "Display Stroke Holes";
+		}			
+			
 	}	
 
+	function remCOLORS() {
+		alert("Will try to REMOVE hole stroke colors!");
+		for (var h = 1; h < 19; h++) {
+			document.getElementById("p1h"+h).style.background = "linen";
+				document.getElementById("p1h"+h).style.color = "black";
+			document.getElementById("p2h"+h).style.background = "linen";
+				document.getElementById("p2h"+h).style.color = "black";			
+			document.getElementById("p3h"+h).style.background = "linen";
+				document.getElementById("p3h"+h).style.color = "black";			
+			document.getElementById("p4h"+h).style.background = "linen";
+				document.getElementById("p4h"+h).style.color = "black";			
+			document.getElementById("p5h"+h).style.background = "linen";
+				document.getElementById("p5h"+h).style.color = "black";			
+		}
+	}
+	
 	function showNOTES() {
 		if (document.getElementById("CODEnotes").style.visibility=="visible") {
 			document.getElementById("CODEnotes").style.visibility="hidden"; //inline 	
@@ -1501,114 +1545,49 @@
 						https://stackoverflow.com/questions/5192859/how-to-ignore-html-element-from-tabindex 
 					- just add the attribute disabled to the element 
 					- element.tabIndex = -1	*/
-		//alert("in 'restrictTAB' fn!");	
-		if ( document.getElementById("p5NAME").value == "" ) {
-			//alert("p5NAME element is empty! Will disable it's inputs.");
-				//document.getElementById("p5h1").style.tabIndex = '-1';		// p1h1')" tabindex="1"
-				//document.getElementById("p5h2").style.tabIndex = '-1';
-				//document.getElementById("p5h3").style.tabIndex = '-1';
-			document.getElementById('p5h1').setAttribute('disabled', '');
-			document.getElementById('p5h2').setAttribute('disabled', '');
-			document.getElementById('p5h3').setAttribute('disabled', '');
-			document.getElementById('p5h4').setAttribute('disabled', '');
-			document.getElementById('p5h5').setAttribute('disabled', '');
-			document.getElementById('p5h6').setAttribute('disabled', '');
-			document.getElementById('p5h7').setAttribute('disabled', '');
-			document.getElementById('p5h8').setAttribute('disabled', '');
-			document.getElementById('p5h9').setAttribute('disabled', '');
-			document.getElementById('p5h10').setAttribute('disabled', '');
-			document.getElementById('p5h11').setAttribute('disabled', '');
-			document.getElementById('p5h12').setAttribute('disabled', '');
-			document.getElementById('p5h13').setAttribute('disabled', '');
-			document.getElementById('p5h14').setAttribute('disabled', '');
-			document.getElementById('p5h15').setAttribute('disabled', '');
-			document.getElementById('p5h16').setAttribute('disabled', '');
-			document.getElementById('p5h17').setAttribute('disabled', '');
-			document.getElementById('p5h18').setAttribute('disabled', '');			
-					//document.getElementById('gTf9p5').setAttribute('disabled', '');
-					//document.getElementById('sTf9p5').setAttribute('disabled', '');	
-			for (var h = 1; h < 19; h++) {
-				document.getElementById('p5h'+h).style.background = "slategray";
-			}										
-		} 					
-		else { 
-			//alert("p5NAME element is NOT empty! How do you ENABLE a 'disabled' input?");
-			//document.getElementById('p5h1').setAttribute('disabled', false); 
-			document.getElementById("p5h1").disabled = false;
-			document.getElementById("p5h2").disabled = false;
-			document.getElementById("p5h3").disabled = false;
-			document.getElementById("p5h4").disabled = false;
-			document.getElementById("p5h5").disabled = false;
-			document.getElementById("p5h6").disabled = false;
-			document.getElementById("p5h7").disabled = false;
-			document.getElementById("p5h8").disabled = false;
-			document.getElementById("p5h9").disabled = false;
-			document.getElementById("p5h10").disabled = false;
-			document.getElementById("p5h11").disabled = false;
-			document.getElementById("p5h12").disabled = false;
-			document.getElementById("p5h13").disabled = false;
-			document.getElementById("p5h14").disabled = false;
-			document.getElementById("p5h15").disabled = false;
-			document.getElementById("p5h16").disabled = false;
-			document.getElementById("p5h17").disabled = false;
-			document.getElementById("p5h18").disabled = false;
-			for (var h = 1; h < 19; h++) {
-				document.getElementById('p5h'+h).style.background = "ivory";
-			}	
-		}
-		
-		if ( document.getElementById("p4NAME").value == "" ) {
-			//alert("p4NAME element is empty! Will disable it's inputs.");			
-			let get = document.getElementById('p4h1');
-				get.setAttribute('disabled', '');
-			document.getElementById('p4h2').setAttribute('disabled', '');
-			document.getElementById('p4h3').setAttribute('disabled', '');
-			document.getElementById('p4h4').setAttribute('disabled', '');
-			document.getElementById('p4h5').setAttribute('disabled', '');
-			document.getElementById('p4h6').setAttribute('disabled', '');
-			document.getElementById('p4h7').setAttribute('disabled', '');
-			document.getElementById('p4h8').setAttribute('disabled', '');
-			document.getElementById('p4h9').setAttribute('disabled', '');
-			document.getElementById('p4h10').setAttribute('disabled', '');
-			document.getElementById('p4h11').setAttribute('disabled', '');
-			document.getElementById('p4h12').setAttribute('disabled', '');
-			document.getElementById('p4h13').setAttribute('disabled', '');
-			document.getElementById('p4h14').setAttribute('disabled', '');
-			document.getElementById('p4h15').setAttribute('disabled', '');
-			document.getElementById('p4h16').setAttribute('disabled', '');
-			document.getElementById('p4h17').setAttribute('disabled', '');
-			document.getElementById('p4h18').setAttribute('disabled', '');	
-			for (var h = 1; h < 19; h++) {
-				document.getElementById('p4h'+h).style.background = "slategray";
-			}			
-		} 							
-		else { 
-			//alert("p4NAME element is NOT empty! Will ENABLE it's 'disabled' inputs.");
-			//document.getElementById('p5h1').setAttribute('disabled', false); 
-			document.getElementById("p4h1").disabled = false;
-			document.getElementById("p4h2").disabled = false;
-			document.getElementById("p4h3").disabled = false;
-			document.getElementById("p4h4").disabled = false;
-			document.getElementById("p4h5").disabled = false;
-			document.getElementById("p4h6").disabled = false;
-			document.getElementById("p4h7").disabled = false;
-			document.getElementById("p4h8").disabled = false;
-			document.getElementById("p4h9").disabled = false;
-			document.getElementById("p4h10").disabled = false;
-			document.getElementById("p4h11").disabled = false;
-			document.getElementById("p4h12").disabled = false;
-			document.getElementById("p4h13").disabled = false;
-			document.getElementById("p4h14").disabled = false;
-			document.getElementById("p4h15").disabled = false;
-			document.getElementById("p4h16").disabled = false;
-			document.getElementById("p4h17").disabled = false;
-			document.getElementById("p4h18").disabled = false;
-			for (var h = 1; h < 19; h++) {
-				document.getElementById('p4h'+h).style.background = "ivory";
+		if ( document.getElementById("p5NAME").style.background!="slategray" ) {
+				for (var p = 2; p < 6; p++) {
+						if ( document.getElementById("p"+p+"NAME").value == "" ) {
+							//alert("p5NAME element is empty! Will disable it's inputs.");
+							for (var h = 1; h < 19; h++) {
+								document.getElementById('p'+p+'h'+h).setAttribute('disabled', '');
+							}		
+							for (var h = 1; h < 19; h++) {
+								document.getElementById('p'+p+'h'+h).style.background = "slategray";
+							}	
+							document.getElementById("p"+p+"NAME").style.background = "slategray";	
+							document.getElementById("p"+p+"HC").style.background = "slategray";				
+						} 					
+						/*
+						else { 
+							//alert("p5NAME element is NOT empty! How do you ENABLE a 'disabled' input?");
+							//document.getElementById('p5h1').setAttribute('disabled', false); 
+							for (var h = 1; h < 19; h++) {
+								document.getElementById("p"+p+"h"+h).disabled = false;
+							}
+							for (var h = 1; h < 19; h++) {
+								document.getElementById('p'+p+'h'+h).style.background = "ivory"; //ivory";
+							}	
+							document.getElementById("p"+p+"NAME").style.background = "ivory"; //"ivory";	
+							document.getElementById("p"+p+"HC").style.background = "ivory"; //"ivory";		
+						}
+						*/
+				}	
+		}	
+		else {
+			alert("Will try to re-enable P4 & P5 inputs . . .");			
+			for (var p = 2; p < 6; p++) {
+				if ( document.getElementById("p"+p+"NAME").value == "" ) {
+					for (var h = 1; h < 19; h++) {
+						document.getElementById("p"+p+"h"+h).disabled = false;
+						document.getElementById('p'+p+'h'+h).style.background = "beige";
+					}	
+					document.getElementById("p"+p+"NAME").style.background = "beige";	
+					document.getElementById("p"+p+"HC").style.background = "beige";		
+				}					
 			}			
 		}
 		//alert("p5h1 tabIndex = " + document.getElementById("p5h1").style.tabIndex);
-
 		hideMENU();		
 	}	
 	
@@ -1721,7 +1700,7 @@
 				  "IF HI = 19.9 CH = 21.96 = 22 *");
 		}
 
-		function fillHIs () {
+		function fillHIs() {
 			//alert("Trying to FILL HIs!");										  //Apr/23:
 			document.getElementById("whHI").value = localStorage.getItem("WHhi"); // 21.1
 			document.getElementById("jsHI").value = localStorage.getItem("JShi"); // 14.4

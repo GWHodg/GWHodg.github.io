@@ -9,25 +9,30 @@
 <link rel="stylesheet" href="gsCSSmac.css">
 <script src="gsJSmac3x.js"></script>
 
-	<script>		
+	<script>
+
+		function showHOMEsel() {
+			//alert("Will try to code for pix or mac GS selection!");
+			if (document.getElementById("macHOMEdiv").style.visibility=="visible") {
+				document.getElementById("macHOMEdiv").style.visibility="hidden"; //inline 	
+			}		
+			else {
+				document.getElementById("macHOMEdiv").style.visibility="visible"; //inline 	
+			}	
+		}
+		
 	</script>	
 	
 </head>
 
 <body class="body">
-	<!--onload="localStorage.setItem('g1NAME',document.getElementById('p1NAME').value); localStorage.setItem('g2NAME',document.getElementById('p2NAME').value); localStorage.setItem('g3NAME',document.getElementById('p3NAME').value); localStorage.setItem('g4NAME',document.getElementById('p4NAME').value); localStorage.setItem('g5NAME',document.getElementById('p5NAME').value); 
-	localStorage.setItem('g1HC',document.getElementById('p1HC').value);
-	localStorage.setItem('g2HC',document.getElementById('p2HC').value);	
-	localStorage.setItem('g3HC',document.getElementById('p3HC').value);
-	localStorage.setItem('g4HC',document.getElementById('p4HC').value);
-	localStorage.setItem('g5HC',document.getElementById('p5HC').value);" > -->
-						<!-- style="zoom:200%;" -->
+	
 <div class="wrapper"><!-- Put the page contents here -->
 
 <TABLE id="HEADtbl" border=1 align=center style='FONT-SIZE:large; color:maroon; visibility:visible;' bgcolor='ivory'>	
 <TR><TD>
 	<label style="FONT-WEIGHT: bold; FONT-SIZE:25px; COLOR:white; background:royalblue; /*position:relative; left:15%;*/ border:3px solid black; border-radius:10px; opacity:100%; padding:5px;">VGC blue <!--<font size=2 color=silver><i>(GS<b>pxl2c</b>)</i></font>--></label>
-</TD> <TD width=20><font size=1>1a</font></TD>	
+</TD> <TD width=20><font size=1>mac</font></TD>	
 	<!--<span style="font-size:30px;cursor:pointer; color:blue; background:white; position:relative; left:38%;" onclick="openMENU()">&#9776;</span>-->	<!-- position:absolute; LEFT:750px; top:30px;  -->
 <TD>
 					<div class="dropup" style="cursor:pointer; color:black; background:white; /*position:relative; left:18%;*/">
@@ -47,11 +52,16 @@
 								<br>
 								<button id='calcTOTbtn' onclick="calcTOTALS()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>TOTALS</b></u></button><br>
 								<br> 
-								<button id='STROKESbtn' onclick="pHCcolors()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;">Display Stroke Holes<br>
+								<button id='STROKESbtn' onclick="pHCcolors()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;">Display Stroke Holes<br>
 										<span style='background:lime; color:black;'>&nbsp;1&nbsp;</span>&emsp;
 										<span style='background:green;'>&nbsp;2&nbsp;</span>&emsp;
 										<span style='background:white; color:black;'>&nbsp;0&nbsp;</span>
-								</button> <br>
+								</button> 
+										<!--
+										<button id='remSTROKESbtn' onclick="remCOLORS()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;">-<br>
+										</button>
+										-->	
+								<br>
 								<br>
 								<button id='TABbtn' onclick="restrictTAB()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;"><b>Disable/Enable Inputs<!--Restrict Tabs--><!--bing--></b></button><br>
 								<br>								
@@ -84,7 +94,7 @@
 						  </div>
 					</div>		
 </TD>	 <TD width=20></td>	 <TD>
-	<input type="date" id="DATE" tabindex="300" style="background:beige; border:1px solid slategray; color:blue; width:120px;" value="date" >
+	<input type="date" id="DATE" tabindex="300" style="background:beige; border:1px solid slategray; color:blue; width:120px;" value="date"     onchange="localStorage.setItem('DATE',this.value);" >
 				<!-- /*position:relative; left:20%;*/ placeholder="Apr 14/23" -->
 	<br>
 				<!-- <input type="date" id="today" name="birthday"> -->
@@ -154,7 +164,7 @@
 				<td id="TDp2h1"> <input class='' type="tel" maxlength=1 id="p2h1"  onclick="changeGLOBAL('p2h1')"  tabindex="2" onchange="localStorage.setItem('g2H1s',this.value);" onfocus="FOCUSfn('p2h1')" onblur="BLURfn('p2h1')"><span id='SPp2h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>					
 				<td id="TDp3h1"> <input class='' type="tel" id="p3h1" maxlength=1 onclick="changeGLOBAL('p3h1')" tabindex="3" onchange="localStorage.setItem('g3H1s',this.value);" onfocus="FOCUSfn('p3h1')" onblur="BLURfn('p3h1')"><span id='SPp3h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> <!-- WORKS! * -->				
 				<td id="TDp4h1"> <input class='' type="tel" maxlength=1 id="p4h1"  onclick="changeGLOBAL('p4h1')" tabindex="4" onchange="localStorage.setItem('g4H1s',this.value);" onfocus="FOCUSfn('p4h1')" onblur="BLURfn('p4h1')""><span id='SPp4h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>					
-				<td id="TDp5h1"> <input class='' type="tel" id="p5h1" onclick="changeGLOBAL('p5h1')"  tabindex="5" onchange="localStorage.setItem('g5H1s',this.value);" onfocus="FOCUSfn('p5h1')" onblur="BLURfn('p5h1')""><span id='SPp5h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 				
+				<td id="TDp5h1"> <input class='' type="tel" maxlength=1 id="p5h1" onclick="changeGLOBAL('p5h1')"  tabindex="5" onchange="localStorage.setItem('g5H1s',this.value);" onfocus="FOCUSfn('p5h1')" onblur="BLURfn('p5h1')""><span id='SPp5h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 				
 				<TH>1 <span id='SPgpH1' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
 				<TD style='background:white; color:black;'>
 					<input type="" id="PARh1" style="background:white; color:black; width:60%;" placeholder=5 value=5 readonly>
@@ -684,7 +694,7 @@
 
 				<!--    ==================================================    -->
 				
-	<div id="HOMEdiv" style="border-radius:10px; padding:5px;border:3px slategray outset; background:black; color:white; position:fixed; left:1em; top:10px;">
+	<div id="HOMEdiv" style="border-radius:10px; padding:5px;border:3px slategray outset; background:black; color:white; position:fixed; left:100px; top:200px; visibility:hidden;">
 		<A class="HOMEclass" href="../index.html" style=""> &#x2302;<!--HOME symbol--></A>	
 					<!-- file is in folder ONE LEVEL UP from current folder -->
 	</div>
@@ -760,7 +770,7 @@
             <script>
 					// Use of Date.now() method
 					var d = Date(Date.now());					  
-					// Converting the number of millisecond 
+					// Converting the number of millisecond  
 					// in date string
 					a = d.toString().substr(16,8);
 					// Printing the current date                    
@@ -768,7 +778,11 @@
 						//console.log("TIME: " + a)				
 			</script>
 	</div>				
-				
+
+
+	<div class="" style="border:2px inset white; color:white; padding:0px; border-radius:5px; position:fixed; left:20em; top:5px;">
+		&emsp;GSmac&emsp;
+	</div>	
 				<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 	
 	<script>
@@ -906,7 +920,51 @@
 		<button onclick="CHChelp()">help</button>
 		
 	</div>
-				
+
+							<!-- 	^^^^^^^^^^^^^ Home Selection ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 	-->
+
+	<div id="HOMEdivB" style="border-radius:10px; padding:5px;border:3px slategray outset; background:black; color:white; position:fixed; left:1em; top:10px;" onclick="showHOMEsel()">
+		<span style="color:red; font-size:50px;"> &#x2302; </span>
+		<!--<A  href="../index.html" style="color:red; font-size:50px;"> &#x2302;-->
+			<!--HOME symbol   class="HOMEclass" --> <!--</A>-->
+	</div>
+	<div id="macHOMEdiv" style="border:3px inset slategray; border-radius:10px; overflow:scroll; margin:auto; visibility:hidden; background:white; position:fixed; left:50px; top:80px; zoom:100%; padding:5px; height:150px;">
+		SELECT:<br>&emsp;1. GSpxl <i>(start page)</i> <b>or</b><br>
+				   &emsp;2. GSmac <i>(<u>this</u> page)</i><br>
+		<div>
+			<input id="sel" style="width:100px;"
+				type="text"
+				name="sel"
+				placeholder="Enter 1 or 2"
+				required"">		<!-- type="password" -->
+		</div>
+		<br>
+		<div>
+			<button style="background:yellow; border:2px solid blue; font-size:20px; float:right;" id="create" onclick="wrong_sel_alert()">Submit</button>
+		</div>									
+	</div>
+	<script>
+		function wrong_sel_alert() {
+			if (document.getElementById('sel').value != "") {
+				alert("Your response is submitted");				
+				if ( document.getElementById('sel').value=="1" ) { 
+					alert("You're in!\n\tWill load 'GSpxl'."); 
+					location.href='../GSsplash.html';
+						//location.href='GITmnu.html';
+				}
+				if ( document.getElementById('sel').value=="2" ) { 
+					alert("You selected 'GSmac'. Will RELOAD this page."); 
+					location.href='GSmacSPLSH.html';
+						//location.href='GITmnu.html';
+					}				
+			} else {
+				alert("Please fill selection field");
+			}
+		}
+	</script>
+	
+							<!-- 	^^^^^^^^^^^^^ ^ Home Selection ^ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 	-->	
+	
 </div>				
 </body>
 </html>
