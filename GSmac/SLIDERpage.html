@@ -1,0 +1,273 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>SLIDERpage</title>
+
+<style>
+	input {
+		  width:5px;
+		  border:3px solid blue; border-radius:10px;
+		  text-align:center;
+	}
+	
+	span.sliderVAL { color:black; background:white; font-size:20px; border:1px solid blue; border-radius:0px; padding:5px; font-weight:bold; }  /* < slider */	
+	
+	.slidecontainer {
+	  width:25%;	/* 30%; /* Width of the outside container */
+	  border:3px solid red; border-radius:10px;
+	  margin:auto; padding:10px;
+	  position:fixed; left:20em; top:300px;  	/*left:30em; top:40px;*/  
+	  opacity:100%; background:white;	/*transparent;*/ 
+	  /*visibility:hidden;*/
+	  z-index:100;
+  }		
+</style>
+
+<script>
+	function NextInput() {
+		var currentInput = document.getElementById('p&h').value;
+		//alert("Will try to > next input!\n\tcurrentInput = "+currentInput);
+		
+		var P1 = localStorage.getItem('g1NAME');
+		var P2 = localStorage.getItem('g2NAME');
+		var P3 = localStorage.getItem('g3NAME');
+		var P4 = localStorage.getItem('g4NAME');
+		var P5 = localStorage.getItem('g5NAME');
+		
+		/* To get the last N characters of a string in JavaScript, call the slice() method on the string, passing -N as an argument. For example, str. slice(-3) returns a new string containing the last 3 characters of str */
+		const cH = currentInput.slice(-1); // < current hole
+		var nH = +cH + 1; // < next hole
+		const iptARY = currentInput.split(" ");
+		var cP = iptARY[0]; // < current player
+		/*alert("Current Hole = "+cH+"\tNext Hole = "+nH+"\nCurrent Player = "+cP+"\n\n"+
+			  "P1 = "+P1+"\tP2 = '"+P2+"'\tP3 = '"+P3+"'");*/
+			  
+		if ( cP==P4 && P5!="" ) { 
+			//alert("next input = "+P5+" "+cH); 
+			document.getElementById('p&h').value = P5+" "+cH;		
+		}
+		else if ( cP==P3 && P4!="" ) { 
+			//alert("next input = "+P4+" "+cH); 
+			document.getElementById('p&h').value = P4+" "+cH;		
+		}
+		else if ( cP==P2 && P3!="" ) { 
+			//alert("next input = "+P3+" "+cH); 
+			document.getElementById('p&h').value = P3+" "+cH;		
+		}
+		else if ( cP==P1 && P2!="" ) { 
+			//alert("next input = "+P2+" "+cH); 
+			document.getElementById('p&h').value = P2+" "+cH;		
+		}
+		else { 
+			alert("All players entered for hole "+cH+"! Go to hole "+nH+"."); 
+			document.getElementById('p&h').value = P1+" "+nH;				
+		}
+
+		document.getElementById('check').style.visibility = 'hidden';	
+		
+	}	
+
+
+	function EnterInput() {
+		var currentInput = document.getElementById('p&h').value;
+		alert("Will try to ENTER input to 'localStorage'!\n\tcurrentInput = "+currentInput);
+		
+		var P1 = localStorage.getItem('g1NAME');
+		var P2 = localStorage.getItem('g2NAME');
+		var P3 = localStorage.getItem('g3NAME');
+		var P4 = localStorage.getItem('g4NAME');
+		var P5 = localStorage.getItem('g5NAME');
+		
+		const cH = currentInput.slice(-1); // < current hole
+		var nH = +cH + 1; // < next hole
+		const iptARY = currentInput.split(" ");
+		var cP = iptARY[0]; // < current player	
+			var cPno;
+			if (cP==P1) {cPno='1'};  if (cP==P2) {cPno='2'};  if (cP==P3) {cPno='3'};
+			if (cP==P4) {cPno='4'};  if (cP==P5) {cPno='5'}; 
+			alert("cPno = "+cPno);
+		
+		const slideVAL = document.getElementById('myRange').value;
+		alert("Entered slider value = "+slideVAL);
+		localStorage.setItem('g'+cPno+'H'+cH+'s',slideVAL);
+			//localStorage.setItem('g3H4s',slideVAL);	
+			alert("g"+cPno+"H"+cH+"s 'localStorage' value = "+localStorage.getItem('g'+cPno+'H'+cH+'s'));	
+			
+		document.getElementById('check').style.visibility = 'visible';	
+		
+		
+		document.getElementById('h'+cH+'p'+cPno).innerHTML = slideVAL;
+	
+		
+	}
+		
+	function PrevInput() {
+		var currentInput = document.getElementById('p&h').value;
+		//alert("Will try to > PREVIOUS input!\n\tcurrentInput = "+currentInput);
+		
+		var P1 = localStorage.getItem('g1NAME');
+		var P2 = localStorage.getItem('g2NAME');
+		var P3 = localStorage.getItem('g3NAME');
+		var P4 = localStorage.getItem('g4NAME');
+		var P5 = localStorage.getItem('g5NAME');
+		
+		const cH = currentInput.slice(-1); // < current hole
+		var nH = +cH + 1; // < next hole
+		var pH = +cH - 1; // < PREVIOUS hole
+		const iptARY = currentInput.split(" ");
+		var cP = iptARY[0]; // < current player
+		/*alert("Current Hole = "+cH+"\tPrevious/last Hole = "+pH+"\nCurrent Player = "+cP+"\n\n"+
+			  "P1 = "+P1+"\tP2 = '"+P2+"'\tP4 = '"+P4+"'");*/
+
+		if ( cP==P5 ) { 
+			//alert("last input = "+P4+" "+cH); 
+			document.getElementById('p&h').value = P4+" "+cH;		
+		}
+		else if ( cP==P4 ) { 
+			//alert("last input = "+P3+" "+cH); 
+			document.getElementById('p&h').value = P3+" "+cH;		
+		}
+		else if ( cP==P3 ) { 
+			//alert("last input = "+P2+" "+cH); 
+			document.getElementById('p&h').value = P2+" "+cH;		
+		}	
+		else if ( cP==P2 ) { 
+			//alert("last input = "+P1+" "+cH); 
+			document.getElementById('p&h').value = P1+" "+cH;		
+		}	
+		else { 
+			//alert("?? last input prior to "+P1+" "+cH); 
+			alert("Will go back to FIRST listed player of last hole!");
+			document.getElementById('p&h').value = P1+" "+pH;	
+			
+		}
+		
+		/*	  
+		if ( cP==P4 && P5!="" ) { 
+			//alert("next input = "+P5+" "+cH); 
+			document.getElementById('p&h').value = P5+" "+cH;		
+		}
+		*/	
+		
+		document.getElementById('check').style.visibility = 'hidden';
+	}	
+
+	function loadFN() {
+		  document.getElementById('p1N').value = localStorage.getItem('g1NAME');
+				document.getElementById('1p').innerHTML = localStorage.getItem('g1NAME');
+		  //document.getElementById('p1cap').value = localStorage.getItem('g1HC');
+		  document.getElementById('p2N').value = localStorage.getItem('g2NAME');
+		  		document.getElementById('2p').innerHTML = localStorage.getItem('g2NAME');
+		  //document.getElementById('p2cap').value = localStorage.getItem('g2HC');
+		  document.getElementById('p3N').value = localStorage.getItem('g3NAME');
+		  		document.getElementById('3p').innerHTML = localStorage.getItem('g3NAME');
+		  //document.getElementById('p3cap').value = localStorage.getItem('g3HC');	
+		  document.getElementById('p4N').value = localStorage.getItem('g4NAME');
+		  		document.getElementById('4p').innerHTML = localStorage.getItem('g4NAME');
+		  document.getElementById('p5N').value = localStorage.getItem('g5NAME');
+		  		document.getElementById('5p').innerHTML = localStorage.getItem('g5NAME');
+		  
+		  document.getElementById('p&h').value = localStorage.getItem('g1NAME') + ' 2';
+		  
+		  		document.getElementById('h1p1').innerHTML = localStorage.getItem('g1H1s');
+				document.getElementById('h1p2').innerHTML = localStorage.getItem('g2H1s');
+				document.getElementById('h1p3').innerHTML = localStorage.getItem('g3H1s');
+				document.getElementById('h1p4').innerHTML = localStorage.getItem('g4H1s');
+				document.getElementById('h1p5').innerHTML = localStorage.getItem('g5H1s');
+		  		document.getElementById('h2p1').innerHTML = localStorage.getItem('g1H2s');
+				document.getElementById('h2p2').innerHTML = localStorage.getItem('g2H2s');
+				document.getElementById('h2p3').innerHTML = localStorage.getItem('g3H2s');
+				document.getElementById('h2p4').innerHTML = localStorage.getItem('g4H2s');
+				document.getElementById('h2p5').innerHTML = localStorage.getItem('g5H2s');	
+	}	
+	
+</script>	
+	
+</head>
+
+<body onload="loadFN();"
+
+	<div align=center><font face=CooperBlack size=6>Slider Score Entry</font></div>
+	
+				<!--    ===================== SLIDER =================================    -->
+
+	<table class="table2" id="SCOREStbl" border='3'   align=center 
+	style='FONT-SIZE:large; color:maroon; visibility:visible; zoom:100%; width:30%; margin:auto;' bgcolor='lightgreen'>
+		<thead> <!--  bgcolor='gray' style="color:white;" -->
+				<th><input type="text" id="p1N" tabindex="201" style="background:ivory; width:60%; font-weight:normal;" maxlength=2></th>	<!-- P1 -->
+				<th><input type="text" id="p2N"  tabindex="203" style="background:beige; width:60%;" maxlength=2 value=""></th> <!-- P2 -->
+				<th><input type="text" id="p3N" tabindex="205" style="background:linen; width:60%;" maxlength=2 value=""></th> 
+				<th><input type="text" id="p4N" tabindex="207" style="background:whitesmoke; width:60%; maxlength=2" value=""></th>
+				<th><input type="text" id="p5N" tabindex="209" style="background:snow; width:60%; maxlength=2"></th>		
+		</thead>
+		<!--
+		<tbody id='TBLbody'> 							
+			<TR>
+				<TH><input type="" id="p1cap" maxlength=2 autofocus tabindex="202" style="background:ivory; width:60%; font-weight:bold;" ></TH> 
+				<TH><input type="" id="p2cap" maxlength=2 a style="background:beige; width:60%;" ></TH> 
+				<TH><input type="" id="p3cap" maxlength=2  style="background:linen; width:60%;" ></TH>
+				<TH><input type="" id="p4HC" maxlength=2 onchange="localStorage.setItem('g4HC',this.value);" tabindex="208" style="background:whitesmoke; width:60%;"  ></TH>
+				<TH><input type="" id="p5HC" maxlength=2 onchange="localStorage.setItem('g5HC',this.value);" tabindex="210" style="background:snow; width:60%;"></TH>
+			</TR>
+		</tbody>
+		-->
+	</table>			
+	
+	<br>
+	
+	<div class="" style="border:3px inset orange; border-radius:5px; width:35%; margin:auto; padding:10px;" id='SLIDER'> <!--style="zoom:200%;"--> 
+  		<input type="range" min="0" max="9" value="0" class="slider" id="myRange" style="width:200px;">&emsp;
+		<!--Strokes:--> <span id="demo" class="sliderVAL"></span><!--&emsp;-->
+			
+		<br>
+		<br>
+		
+			<!--<a onclick=" hideSLIDE()" style="float:right; cursor:pointer; font-size:30px;"><b>&times;</b></a>-->
+		&emsp;
+		<button id='ENTERbtn' onclick="EnterInput()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:white; background:black; border:3px solid orange; border-radius:10px; cursor:pointer;">Enter</button>
+		&emsp;
+		<input type="text" id="p&h" style="background:blue; color:white; width:45px; border:2px solid green; border-radius:10px; font-size:20px; 
+		padding:2px;"  placeholder=""><br>
+		
+		<span id='check' class='gTOT' style="position:relative; left:25%; font-size:20px; visibility:hidden;"><b>√</b></span>
+		
+		<button id='+btn' onclick="NextInput()" style="FONT-WEIGHT:bold; FONT-SIZE:10px; COLOR:blue; background:ivory; border:1px solid blue; border-radius:0px; position:relative; left:40%; cursor:pointer;">+</button>
+		&emsp;
+		<button id='-btn' onclick="PrevInput()" style="FONT-WEIGHT:bold; FONT-SIZE:10px; COLOR:blue; background:ivory; border:1px solid blue; border-radius:0px; position:relative; left:40%; cursor:pointer;">-</button>
+						
+							<!-- ⇕	8661	21D5	 	UP DOWN DOUBLE ARROW
+								 ⇖	8662	21D6	 	NORTH WEST DOUBLE ARROW
+								 ⇗	8663	21D7	 	NORTH EAST DOUBLE ARROW   &#8663;
+								 ⇘	8664	21D8	 	SOUTH EAST DOUBLE ARROW
+								 ⇙	8665	21D9	 	SOUTH WEST DOUBLE ARROW       -->		
+	</div>	
+	
+	<!--    ===============================================================    -->	
+	
+<script>
+	//SLIDER stuff:
+	var slider = document.getElementById("myRange");
+	var output = document.getElementById("demo");
+	output.innerHTML = slider.value;	
+	slider.oninput = function() {
+	  output.innerHTML = this.value;
+  }	
+</script>	
+
+
+	<TABLE border=1 align=center style="font-size:12px;">
+		<TR>
+			<TH>H</TH> <TH id="1p">P1</TH> <TH id="2p">P2</TH> <TH id="3p">P3</TH> <TH id="4p">P4</TH> <TH id="5p">P5</TH>
+		</TR>
+		<TR>
+			<TH>1</TH> <TD id="h1p1"></TD> <TD id="h1p2"></TD> <TD id="h1p3"></TD> <TD id="h1p4"></TD> <TD id="h1p5"></TD> 
+		</TR>
+		<TR>
+			<TH>2</TH> <TD id="h2p1"></TD> <TD id="h2p2"></TD> <TD id="h2p3"></TD> <TD id="h2p4"></TD> <TD id="h2p5"></TD> 
+		</TR>
+	</TABLE>	
+			
+
+</body>
+</html>
