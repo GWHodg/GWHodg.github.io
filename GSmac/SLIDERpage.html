@@ -85,7 +85,7 @@
 
 	function EnterInput() {
 		var currentInput = document.getElementById('p&h').value;
-		alert("Will try to ENTER input to 'localStorage'!\n\tcurrentInput = "+currentInput);
+		//alert("Will try to ENTER input to 'localStorage'!\n\tcurrentInput = "+currentInput);
 		
 		var P1 = localStorage.getItem('g1NAME');
 		var P2 = localStorage.getItem('g2NAME');
@@ -103,13 +103,13 @@
 			var cPno;
 			if (cP==P1) {cPno='1'};  if (cP==P2) {cPno='2'};  if (cP==P3) {cPno='3'};
 			if (cP==P4) {cPno='4'};  if (cP==P5) {cPno='5'}; 
-			alert("cPno = "+cPno);
+			//alert("cPno = "+cPno);
 		
 		const slideVAL = document.getElementById('myRange').value;
-		alert("Entered slider value = "+slideVAL);
+		//alert("Entered slider value = "+slideVAL);
 		localStorage.setItem('g'+cPno+'H'+cH+'s',slideVAL);
 			//localStorage.setItem('g3H4s',slideVAL);	
-			alert("g"+cPno+"H"+cH+"s 'localStorage' value = "+localStorage.getItem('g'+cPno+'H'+cH+'s'));	
+			//alert("g"+cPno+"H"+cH+"s 'localStorage' value = "+localStorage.getItem('g'+cPno+'H'+cH+'s'));	
 			
 		document.getElementById('check').style.visibility = 'visible';	
 		
