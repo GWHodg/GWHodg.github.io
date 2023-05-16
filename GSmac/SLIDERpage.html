@@ -21,7 +21,16 @@
 	  opacity:100%; background:white;	/*transparent;*/ 
 	  /*visibility:hidden;*/
 	  z-index:100;
-  }		
+  	}
+
+	th {
+	  border: 2px solid;
+	  background:black;
+	  color:ivory;	/*orange;*/
+	}
+	td {
+		text-align:center;
+	}
 </style>
 
 <script>
@@ -36,9 +45,12 @@
 		var P5 = localStorage.getItem('g5NAME');
 		
 		/* To get the last N characters of a string in JavaScript, call the slice() method on the string, passing -N as an argument. For example, str. slice(-3) returns a new string containing the last 3 characters of str */
-		const cH = currentInput.slice(-1); // < current hole
-		var nH = +cH + 1; // < next hole
 		const iptARY = currentInput.split(" ");
+		var cH = iptARY[1]; // < current hole	
+		//const cH = currentInput.slice(-1); // < current hole
+		
+		var nH = +cH + 1; // < next hole
+		//const iptARY = currentInput.split(" ");
 		var cP = iptARY[0]; // < current player
 		/*alert("Current Hole = "+cH+"\tNext Hole = "+nH+"\nCurrent Player = "+cP+"\n\n"+
 			  "P1 = "+P1+"\tP2 = '"+P2+"'\tP3 = '"+P3+"'");*/
@@ -81,9 +93,12 @@
 		var P4 = localStorage.getItem('g4NAME');
 		var P5 = localStorage.getItem('g5NAME');
 		
-		const cH = currentInput.slice(-1); // < current hole
-		var nH = +cH + 1; // < next hole
 		const iptARY = currentInput.split(" ");
+		var cH = iptARY[1]; // < current hole	
+			//const cH = currentInput.slice(-1); // < current hole
+			
+		var nH = +cH + 1; // < next hole
+		//const iptARY = currentInput.split(" ");
 		var cP = iptARY[0]; // < current player	
 			var cPno;
 			if (cP==P1) {cPno='1'};  if (cP==P2) {cPno='2'};  if (cP==P3) {cPno='3'};
@@ -114,10 +129,13 @@
 		var P4 = localStorage.getItem('g4NAME');
 		var P5 = localStorage.getItem('g5NAME');
 		
-		const cH = currentInput.slice(-1); // < current hole
+		const iptARY = currentInput.split(" ");
+		var cH = iptARY[1]; // < current hole			
+			//const cH = currentInput.slice(-1); // < current hole
+			
 		var nH = +cH + 1; // < next hole
 		var pH = +cH - 1; // < PREVIOUS hole
-		const iptARY = currentInput.split(" ");
+		//const iptARY = currentInput.split(" ");
 		var cP = iptARY[0]; // < current player
 		/*alert("Current Hole = "+cH+"\tPrevious/last Hole = "+pH+"\nCurrent Player = "+cP+"\n\n"+
 			  "P1 = "+P1+"\tP2 = '"+P2+"'\tP4 = '"+P4+"'");*/
@@ -160,17 +178,22 @@
 	function loadFN() {
 		  document.getElementById('p1N').value = localStorage.getItem('g1NAME');
 				document.getElementById('1p').innerHTML = localStorage.getItem('g1NAME');
+				document.getElementById('1pB').innerHTML = localStorage.getItem('g1NAME');
 		  //document.getElementById('p1cap').value = localStorage.getItem('g1HC');
 		  document.getElementById('p2N').value = localStorage.getItem('g2NAME');
 		  		document.getElementById('2p').innerHTML = localStorage.getItem('g2NAME');
+				document.getElementById('2pB').innerHTML = localStorage.getItem('g2NAME');
 		  //document.getElementById('p2cap').value = localStorage.getItem('g2HC');
 		  document.getElementById('p3N').value = localStorage.getItem('g3NAME');
 		  		document.getElementById('3p').innerHTML = localStorage.getItem('g3NAME');
+				document.getElementById('3pB').innerHTML = localStorage.getItem('g3NAME');
 		  //document.getElementById('p3cap').value = localStorage.getItem('g3HC');	
 		  document.getElementById('p4N').value = localStorage.getItem('g4NAME');
 		  		document.getElementById('4p').innerHTML = localStorage.getItem('g4NAME');
+				document.getElementById('4pB').innerHTML = localStorage.getItem('g4NAME');
 		  document.getElementById('p5N').value = localStorage.getItem('g5NAME');
 		  		document.getElementById('5p').innerHTML = localStorage.getItem('g5NAME');
+				document.getElementById('5pB').innerHTML = localStorage.getItem('g5NAME');
 		  
 		  document.getElementById('p&h').value = localStorage.getItem('g1NAME') + ' 2';
 		  
@@ -179,18 +202,48 @@
 				document.getElementById('h1p3').innerHTML = localStorage.getItem('g3H1s');
 				document.getElementById('h1p4').innerHTML = localStorage.getItem('g4H1s');
 				document.getElementById('h1p5').innerHTML = localStorage.getItem('g5H1s');
-		  		document.getElementById('h2p1').innerHTML = localStorage.getItem('g1H2s');
-				document.getElementById('h2p2').innerHTML = localStorage.getItem('g2H2s');
-				document.getElementById('h2p3').innerHTML = localStorage.getItem('g3H2s');
-				document.getElementById('h2p4').innerHTML = localStorage.getItem('g4H2s');
-				document.getElementById('h2p5').innerHTML = localStorage.getItem('g5H2s');	
+			  		document.getElementById('h2p1').innerHTML = localStorage.getItem('g1H2s');
+					document.getElementById('h2p2').innerHTML = localStorage.getItem('g2H2s');
+					document.getElementById('h2p3').innerHTML = localStorage.getItem('g3H2s');
+					document.getElementById('h2p4').innerHTML = localStorage.getItem('g4H2s');
+					document.getElementById('h2p5').innerHTML = localStorage.getItem('g5H2s');	
+				document.getElementById('h3p1').innerHTML = localStorage.getItem('g1H3s');
+				document.getElementById('h3p2').innerHTML = localStorage.getItem('g2H3s');
+				document.getElementById('h3p3').innerHTML = localStorage.getItem('g3H3s');
+				document.getElementById('h3p4').innerHTML = localStorage.getItem('g4H3s');
+				document.getElementById('h3p5').innerHTML = localStorage.getItem('g5H3s');	
+			  		document.getElementById('h4p1').innerHTML = localStorage.getItem('g1H4s');
+					document.getElementById('h4p2').innerHTML = localStorage.getItem('g2H4s');
+					document.getElementById('h4p3').innerHTML = localStorage.getItem('g3H4s');
+					document.getElementById('h4p4').innerHTML = localStorage.getItem('g4H4s');
+					document.getElementById('h4p5').innerHTML = localStorage.getItem('g5H4s');	
+				document.getElementById('h5p1').innerHTML = localStorage.getItem('g1H5s');
+				document.getElementById('h5p2').innerHTML = localStorage.getItem('g2H5s');
+				document.getElementById('h5p3').innerHTML = localStorage.getItem('g3H5s');
+				document.getElementById('h5p4').innerHTML = localStorage.getItem('g4H5s');
+				document.getElementById('h5p5').innerHTML = localStorage.getItem('g5H5s');	
+				for (var h=6; h<10; h++) {
+			  		document.getElementById('h'+h+'p1').innerHTML = localStorage.getItem('g1H'+h+'s');
+					document.getElementById('h'+h+'p2').innerHTML = localStorage.getItem('g2H'+h+'s');
+					document.getElementById('h'+h+'p3').innerHTML = localStorage.getItem('g3H'+h+'s');
+					document.getElementById('h'+h+'p4').innerHTML = localStorage.getItem('g4H'+h+'s');
+					document.getElementById('h'+h+'p5').innerHTML = localStorage.getItem('g5H'+h+'s');	
+				}
+				for (var h=10; h<19; h++) {  //BACK 9:
+			  		document.getElementById('h'+h+'p1').innerHTML = localStorage.getItem('g1H'+h+'s');
+					document.getElementById('h'+h+'p2').innerHTML = localStorage.getItem('g2H'+h+'s');
+					document.getElementById('h'+h+'p3').innerHTML = localStorage.getItem('g3H'+h+'s');
+					document.getElementById('h'+h+'p4').innerHTML = localStorage.getItem('g4H'+h+'s');
+					document.getElementById('h'+h+'p5').innerHTML = localStorage.getItem('g5H'+h+'s');	
+				}				
+				
 	}	
 	
 </script>	
 	
 </head>
 
-<body onload="loadFN();"
+<body onload="loadFN()" style="background:beige;">
 
 	<div align=center><font face=CooperBlack size=6>Slider Score Entry</font></div>
 	
@@ -199,11 +252,11 @@
 	<table class="table2" id="SCOREStbl" border='3'   align=center 
 	style='FONT-SIZE:large; color:maroon; visibility:visible; zoom:100%; width:30%; margin:auto;' bgcolor='lightgreen'>
 		<thead> <!--  bgcolor='gray' style="color:white;" -->
-				<th><input type="text" id="p1N" tabindex="201" style="background:ivory; width:60%; font-weight:normal;" maxlength=2></th>	<!-- P1 -->
-				<th><input type="text" id="p2N"  tabindex="203" style="background:beige; width:60%;" maxlength=2 value=""></th> <!-- P2 -->
-				<th><input type="text" id="p3N" tabindex="205" style="background:linen; width:60%;" maxlength=2 value=""></th> 
-				<th><input type="text" id="p4N" tabindex="207" style="background:whitesmoke; width:60%; maxlength=2" value=""></th>
-				<th><input type="text" id="p5N" tabindex="209" style="background:snow; width:60%; maxlength=2"></th>		
+				<th><input type="text" id="p1N" tabindex="201" style="background:ivory; width:60%; font-weight:normal; font-size:15px;" maxlength=2></th>	<!-- P1 -->
+				<th><input type="text" id="p2N"  tabindex="203" style="background:beige; width:60%; font-size:15px;" maxlength=2 value=""></th> <!-- P2 -->
+				<th><input type="text" id="p3N" tabindex="205" style="background:linen; width:60%; font-size:15px;" maxlength=2 value=""></th> 
+				<th><input type="text" id="p4N" tabindex="207" style="background:whitesmoke; width:60%; font-size:15px;" maxlength=2 value=""></th>
+				<th><input type="text" id="p5N" tabindex="209" style="background:snow; width:60%; font-size:15px;" maxlength=2></th>		
 		</thead>
 		<!--
 		<tbody id='TBLbody'> 							
@@ -220,7 +273,7 @@
 	
 	<!--<br>-->
 	
-	<div class="" style="border:3px inset orange; border-radius:5px; width:35%; margin:auto; padding:10px;" id='SLIDER'> <!--style="zoom:200%;"--> 
+	<div class="" style="border:3px inset orange; border-radius:5px; width:35%; margin:auto; text-align:center; padding:10px; background:white;" id='SLIDER'> <!--style="zoom:200%;"--> 
   		<!--Strokes:--> <span id="demo" class="sliderVAL"></span>&emsp;
 		<input type="range" min="0" max="9" value="0" class="slider" id="myRange" style="width:200px;">&emsp;
 		
@@ -232,7 +285,7 @@
 		<!--&emsp;-->
 		<button id='ENTERbtn' onclick="EnterInput()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:white; background:black; border:3px solid orange; border-radius:10px; cursor:pointer;">Enter</button>
 		&emsp;
-		<input type="text" id="p&h" style="background:blue; color:white; width:45px; border:2px solid green; border-radius:10px; font-size:20px; 
+		<input type="text" id="p&h" style="background:blue; color:white; width:60px; border:2px solid green; border-radius:10px; font-size:20px; 
 		padding:2px;"  placeholder=""><br>
 		
 		<span id='check' class='gTOT' style="position:relative; font-size:20px; visibility:hidden;"><b>√</b></span>
@@ -245,7 +298,16 @@
 								 ⇖	8662	21D6	 	NORTH WEST DOUBLE ARROW
 								 ⇗	8663	21D7	 	NORTH EAST DOUBLE ARROW   &#8663;
 								 ⇘	8664	21D8	 	SOUTH EAST DOUBLE ARROW
-								 ⇙	8665	21D9	 	SOUTH WEST DOUBLE ARROW       -->		
+								 ⇙	8665	21D9	 	SOUTH WEST DOUBLE ARROW       -->	
+		<div class="battery-info" style="border:0px inset white; width:35%; padding:0px; FONT-SIZE:10px;">
+					<!-- position:fixed; left:1em; top:200px;  position:fixed; left:8em; top:5px; -->
+            <b>Battery % = </b>
+            <span id="battery-percentage" style="padding:2px;">0</span>
+	            <span id="is-battery-charging" style="visibility:hidden;">No</span>
+	            <span id="chargingtime" style="visibility:hidden;"></span>
+	            <span id="dischargingtime" style="visibility:hidden;"></span>
+		</div> 		
+		
 	</div>	
 	
 	<!--    ===============================================================    -->	
@@ -261,6 +323,7 @@
 </script>	
 
 
+<TABLE align=center border=0><TR><TD>
 	<TABLE border=1 align=center style="font-size:12px;">
 		<TR>
 			<TH></TH> <TH id="1p">P1</TH> <TH id="2p">P2</TH> <TH id="3p">P3</TH> <TH id="4p">P4</TH> <TH id="5p">P5</TH>
@@ -269,10 +332,130 @@
 			<TH>1</TH> <TD id="h1p1"></TD> <TD id="h1p2"></TD> <TD id="h1p3"></TD> <TD id="h1p4"></TD> <TD id="h1p5"></TD> 
 		</TR>
 		<TR>
-			<TH>2</TH> <TD id="h2p1"></TD> <TD id="h2p2"></TD> <TD id="h2p3"></TD> <TD id="h2p4"></TD> <TD id="h2p5"></TD> 
+			<TH>2</TH> <TD id="h2p1"></TD> <TD id="h2p2" onclick="alert('Try to enter THIS cell > p&h')"></TD> <TD id="h2p3"></TD> <TD id="h2p4"></TD> <TD id="h2p5"></TD> 
 		</TR>
+		<TR>
+			<TH>3</TH> <TD id="h3p1"></TD> <TD id="h3p2"></TD> <TD id="h3p3"></TD> <TD id="h3p4"></TD> <TD id="h3p5"></TD> 
+		</TR>
+		<TR>
+			<TH>4</TH> <TD id="h4p1"></TD> <TD id="h4p2"></TD> <TD id="h4p3"></TD> <TD id="h4p4"></TD> <TD id="h4p5"></TD> 
+		</TR>
+		<TR>
+			<TH>5</TH> <TD id="h5p1"></TD> <TD id="h5p2"></TD> <TD id="h5p3"></TD> <TD id="h5p4"></TD> <TD id="h5p5"></TD> 
+		</TR>
+		<TR>
+			<TH>6</TH> <TD id="h6p1"></TD> <TD id="h6p2"></TD> <TD id="h6p3"></TD> <TD id="h6p4"></TD> <TD id="h6p5"></TD> 
+		</TR>
+		<TR>
+			<TH>7</TH> <TD id="h7p1"></TD> <TD id="h7p2"></TD> <TD id="h7p3"></TD> <TD id="h7p4"></TD> <TD id="h7p5"></TD> 
+		</TR>
+		<TR>
+			<TH>8</TH> <TD id="h8p1"></TD> <TD id="h8p2"></TD> <TD id="h8p3"></TD> <TD id="h8p4"></TD> <TD id="h8p5"></TD> 
+		</TR>
+		<TR>
+			<TH>9</TH> <TD id="h9p1"></TD> <TD id="h9p2"></TD> <TD id="h9p3"></TD> <TD id="h9p4"></TD> <TD id="h9p5"></TD> 
+		</TR>		
 	</TABLE>	
-			
+</TD> <TD width=20></TD><TD valign=top>
+	<TABLE border=1 align=center style="font-size:12px;">
+		<TR>
+			<TH></TH> <TH id="1pB">P1</TH> <TH id="2pB">P2</TH> <TH id="3pB">P3</TH> <TH id="4pB">P4</TH> <TH id="5pB">P5</TH>
+		</TR>
+		<TR>
+			<TH>10</TH> <TD id="h10p1"></TD> <TD id="h10p2"></TD> <TD id="h10p3"></TD> <TD id="h10p4"></TD> <TD id="h10p5"></TD> 
+		</TR>
+		<TR>
+			<TH>11</TH> <TD id="h11p1"></TD> <TD id="h11p2"></TD> <TD id="h11p3"></TD> <TD id="h11p4"></TD> <TD id="h11p5"></TD> 
+		</TR>
+		<TR>
+			<TH>12</TH> <TD id="h12p1"></TD> <TD id="h12p2"></TD> <TD id="h12p3"></TD> <TD id="h12p4"></TD> <TD id="h12p5"></TD> 
+		</TR>
+		<TR>
+			<TH>13</TH> <TD id="h13p1"></TD> <TD id="h13p2"></TD> <TD id="h13p3"></TD> <TD id="h13p4"></TD> <TD id="h13p5"></TD> 
+		</TR>
+		<TR>
+			<TH>14</TH> <TD id="h14p1"></TD> <TD id="h14p2"></TD> <TD id="h14p3"></TD> <TD id="h14p4"></TD> <TD id="h14p5"></TD> 
+		</TR>
+		<TR>
+			<TH>15</TH> <TD id="h15p1"></TD> <TD id="h15p2"></TD> <TD id="h15p3"></TD> <TD id="h15p4"></TD> <TD id="h15p5"></TD> 
+		</TR>
+		<TR>
+			<TH>16</TH> <TD id="h16p1"></TD> <TD id="h16p2"></TD> <TD id="h16p3"></TD> <TD id="h16p4"></TD> <TD id="h16p5"></TD> 
+		</TR>
+		<TR>
+			<TH>17</TH> <TD id="h17p1"></TD> <TD id="h17p2"></TD> <TD id="h17p3"></TD> <TD id="h17p4"></TD> <TD id="h17p5"></TD> 
+		</TR>
+		<TR>
+			<TH>18</TH> <TD id="h18p1"></TD> <TD id="h18p2"></TD> <TD id="h18p3"></TD> <TD id="h18p4"></TD> <TD id="h18p5"></TD> 
+		</TR>		
+	</TABLE>
+</TD></TR>
+</TABLE>
+
+					<!--    ******************************************    -->
+
+	<div id="HOMEdiv" style="border-radius:10px; padding:5px;border:3px slategray outset; background:black; 	color:white; position:fixed; left:1em; top:10px;">
+		<A class="" style="color:moccasin; font-size:50px;" href="GSmac3x.html" style=""> &#x2302;<!--HOME symbol--></A>	
+			<!-- class="HOMEclass" -->
+	</div>				
+	
+	
+	<!-- BATTERY script: -->
+    <script>
+        navigator.getBattery().then(function (battery) {
+            function showAllBatteryInfo() {
+                editChargeInfo();
+                editLevelInfo();
+                editChargingInfo();
+                editDischargingInfo();
+            }
+            showAllBatteryInfo();
+ 
+            battery.addEventListener('chargingchange',
+                function () {
+                    editChargeInfo();
+                });
+            function editChargeInfo() {
+ 
+                /* Test with the charger and without
+                charger by unplugging*/
+                var isBatteryCharging = (battery.charging ? "Yes" : "No")
+                document.getElementById('is-battery-charging')
+                    .innerText = isBatteryCharging
+            }
+ 
+            battery.addEventListener('levelchange', function () {
+                editLevelInfo();
+            });
+            function editLevelInfo() {
+                /* Shows the battery level*/
+                var batteryLevel = battery.level * 100
+                document.getElementById('battery-percentage')
+                    .innerText = batteryLevel
+            }
+ 
+            battery.addEventListener('chargingtimechange', function () {
+                editChargingInfo();
+            });
+            function editChargingInfo() {
+ 
+                /* Test with the charger and without charger by unplugging*/
+                var charge = battery.chargingTime
+                document.getElementById('chargingtime').innerText = charge
+            }
+ 
+            battery.addEventListener('dischargingtimechange', function () {
+                editDischargingInfo();
+            });
+            function editDischargingInfo() {
+                var disCharge = battery.dischargingTime
+                document.getElementById('dischargingtime')
+                    .innerText = disCharge
+            }
+        });
+    </script>
+		
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++ -->	
 
 </body>
 </html>
