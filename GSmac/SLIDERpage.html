@@ -5,7 +5,7 @@
 <title>SLIDERpage</title>
 		<!--<link rel="stylesheet" href="gsCSSmac.css">-->
 <style>
-	.body,
+	/*.body,*/
 	.wrapperS {
 	  /* Break the flow */
 		  position: absolute;
@@ -17,21 +17,11 @@
 		  margin: 0;	
 	  /* Allow them to scroll down the document */
 		  overflow-y: hidden;
+		  	  
+		  z-index: 2;
+		  padding:30px; /* < my add (Mar 14/23) */
 	}
-	
-	.body {
-	  /* Sending body at the bottom of the stack */
-	  z-index: 1;
-	  /*background:gray;*/
-	  /*zoom:150%;*/	/*250%;*/
-	}
-	
-	.wrapperS {
-	  /* Making the wrapper stack above the body */
-	  z-index: 2;
-	  padding:30px; /* < my add (Mar 14/23) */
-	  /*zoom:150%;*/
-    }
+		
 					/*    +++++++++++++++++++++++++++++++++    */
 
 	input {
