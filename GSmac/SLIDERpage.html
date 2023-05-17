@@ -283,10 +283,12 @@
 		
 			<!--<a onclick=" hideSLIDE()" style="float:right; cursor:pointer; font-size:30px;"><b>&times;</b></a>-->
 		<!--&emsp;-->
-		<button id='ENTERbtn' onclick="EnterInput()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:white; background:black; border:3px solid orange; border-radius:10px; cursor:pointer;">Enter</button>
-		&emsp;
 		<input type="text" id="p&h" style="background:blue; color:white; width:60px; border:2px solid green; border-radius:10px; font-size:20px; 
-		padding:2px;"  placeholder=""><br>
+		padding:2px;"  placeholder="">
+		&emsp;
+		<button id='ENTERbtn' onclick="EnterInput()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:white; background:black; border:3px solid orange; border-radius:10px; cursor:pointer;">Enter</button>
+	
+		<br>
 		
 		<span id='check' class='gTOT' style="position:relative; font-size:20px; visibility:hidden;"><b>√</b></span>
 						<!-- left:25%; -->
@@ -323,7 +325,10 @@
 </script>	
 
 
-<TABLE align=center border=0><TR><TD>
+<TABLE align=center border=0>
+<TR><TD valign=bottom>
+	<button onclick="history.back()" style="border:2px inset orange; border-radius:10%"><font size=5><</font></button>
+</TD><TD>
 	<TABLE border=1 align=center style="font-size:12px;">
 		<TR>
 			<TH></TH> <TH id="1p">P1</TH> <TH id="2p">P2</TH> <TH id="3p">P3</TH> <TH id="4p">P4</TH> <TH id="5p">P5</TH>
