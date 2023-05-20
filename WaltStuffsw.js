@@ -29,21 +29,22 @@ const PRECACHE_URLS = [
        '/index.html',//directory path to project folder/app name.html file
 	   //walt note that github pages requires the main html file to be named index.html
 	   
-       '/HighElbowCatch.jpeg',//directory path to project folder/app name.js file
-       '/bjoCchrtH2.png',////directory path to project folder/app name.css file
-	   '/3-HingeDrill2.png',
-	   '/Notes21.xml',
-	   '/WaltStuff.webmanifest',////directory path to project folder/app name.trainmanifest file
+      // '/GSmac/GSmacSPLSH.html',
+          '/GSmac/GSmac3x.html',
+          '/GSmac/gsCSSmac.css',
+          '/GSmac/gsJSmac3x.js',
+          '/GSmac/locstorMAC.html',
+          '/GSmac/SLIDERpage.html',
+          '/GSmac/4a.jpg'
+	   
+       // '/HighElbowCatch.jpeg',//directory path to project folder/app name.js file
+       // '/bjoCchrtH2.png',////directory path to project folder/app name.css file
+	   // '/3-HingeDrill2.png',
+	   // '/Notes21.xml',
+	   // '/WaltStuff.webmanifest',////directory path to project folder/app name.trainmanifest file
 	  // '/jquery-3.6.0.min.js',////directory path to project folder/app name.jQuery file
-	    '/eeyore.JPG',//add this file to github repository
-		'/fudd4.jpeg',
-      '/GSmac/GSmacSPLSH.html',
-          '/GSmac3x.html',
-          '/gsCSSmac.css',
-          '/gsJSmac3x.js',
-          '/locstorMAC.html',
-          '/SLIDERpage.html',
-          '/4a.jpg'
+	    // '/eeyore.JPG',//add this file to github repository
+		// '/fudd4.jpeg'
 ];
 
 // The install handler takes care of precaching the resources we always need.
