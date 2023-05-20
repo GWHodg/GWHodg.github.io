@@ -38,12 +38,12 @@ const PRECACHE_URLS = [
 	    '/eeyore.JPG',//add this file to github repository
 		'/fudd4.jpeg',
       '/GSmac/GSmacSPLSH.html',
-      '/GSmac/GSmac3x.html',
-      '/GSmac/gsCSSmac.css',
-      '/GSmac/gsJSmac3x.js',
-      '/GSmac/locstorMAC.html',
-      '/GSmac/SLIDERpage.html',
-      '/GSmac/4a.jpg'
+          '/GSmac3x.html',
+          '/gsCSSmac.css',
+          '/gsJSmac3x.js',
+          '/locstorMAC.html',
+          '/SLIDERpage.html',
+          '/4a.jpg'
 ];
 
 // The install handler takes care of precaching the resources we always need.
