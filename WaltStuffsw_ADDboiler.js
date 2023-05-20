@@ -36,14 +36,8 @@ const PRECACHE_URLS = [
 	   '/WaltStuff.webmanifest',////directory path to project folder/app name.trainmanifest file
 	  // '/jquery-3.6.0.min.js',////directory path to project folder/app name.jQuery file
 	    '/eeyore.JPG',//add this file to github repository
-		'/fudd4.jpeg',
-      '/GSmac/GSmacSPLSH.html',
-      '/GSmac/GSmac3x.html',
-      '/GSmac/gsCSSmac.css',
-      '/GSmac/gsJSmac3x.js',
-      '/GSmac/locstorMAC.html',
-      '/GSmac/SLIDERpage.html',
-      '/GSmac/4a.jpg'
+		'/fudd4.jpeg'
+
 ];
 
 // The install handler takes care of precaching the resources we always need.
