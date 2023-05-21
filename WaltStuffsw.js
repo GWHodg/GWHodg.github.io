@@ -31,6 +31,7 @@ const PRECACHE_URLS = [
 	   
           '/gsCSSidx.css',
           '/gsJSidx.js'
+          '/GSmac/SLIDERpage.html',
       // '/GSmac/GSmacSPLSH.html',
       //    '/GSmac/GSmac3x.html',
       //    '/GSmac/gsCSSmac.css',
