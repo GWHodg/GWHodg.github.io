@@ -72,9 +72,9 @@
 								
 								<button id='FreezeHCbtn' onclick="freeze()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:gray; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">+/- freeze HC input</button><br>
 								<br>
-								<!--
-								<A  href="SLIDERpage.html" style="color:red; text-shadow:1px 1px white; background:black; cursor:pointer;" title="> SLIDERpage.html">&#9873;&emsp;Slider&emsp;&#9873;</A>
-								-->
+								
+								<A  href="GSmac/SLIDERpage.html" style="color:red; text-shadow:1px 1px white; background:black; cursor:pointer;" title="> GSmac/SLIDERpage.html">&#9873;&emsp;Slider&emsp;&#9873;</A>
+								
 								<!--<button id='SLIDEbtn' onclick="showSLIDE()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">Slider Input</button> <br>-->	
 								<!--<br>-->
 								
@@ -214,7 +214,7 @@
 					<input type="" id="PARh4" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
-					<input type="" id="HCPh4" style="background:beige;  color:black; width:60%; cursor:help;" placeholder=5 value=5 readonly> <!-- onclick="location.href='locStorMAC.html'" title="locStorMAC.html" -->
+					<input type="" id="HCPh4" style="background:beige;  color:black; width:60%; cursor:help;" placeholder=5 value=5 readonly onclick="alert('> locStorIDX.html');"> <!-- onclick="location.href='locStorMAC.html'" title="locStorMAC.html" -->
 				</TD>								
 			</tr>	
 			<tr> <TH>5</TH> 
@@ -271,7 +271,7 @@
 					<input type="" id="PARh8" style="background:white; color:black; width:60%;" placeholder=3 value=3 readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
-					<input type="" id="HCPh8" style="background:beige;  color:black; width:60%; cursor:help;" placeholder=15 value=15 readonly > <!-- onclick="location.href='../JSpwd2.html'" title="JSpwd2.html" -->
+					<input type="" id="HCPh8" style="background:beige;  color:black; width:60%; cursor:help;" placeholder=15 value=15 readonly onclick="showSLIDE()" title="showSLIDE()"> <!-- onclick="location.href='../JSpwd2.html'" title="JSpwd2.html" -->
 									<!--onclick="alert('You clicked on H8 HC input!');"-->
 				</TD>										
 			</tr>
@@ -337,7 +337,7 @@
 					<input type="" id="PARh10" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
-					<input type="" id="HCPh10" style="background:beige;  color:black; width:60%; cursor:help;" placeholder=6 value=6 readonly onclick="showSLIDE()" title="showSLIDE()">
+					<input type="" id="HCPh10" style="background:white;  color:black; width:60%; cursor:help;" placeholder=6 value=6 readonly > <!-- onclick="showSLIDE()" title="showSLIDE()" -->
 				</TD>
 			</tr>
 			<tr>
@@ -353,7 +353,7 @@
 					<input type="" id="PARh11" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
-					<input type="" id="HCPh11" style="background:beige;  color:black; width:60%; cursor:help;" placeholder=2 value=2 readonly onclick="showNOTES()" title="Coding Notes">
+					<input type="" id="HCPh11" style="background:white;  color:black; width:60%; cursor:help;" placeholder=2 value=2 readonly> <!--  onclick="showNOTES()" title="Coding Notes" -->
 				</TD>
 			</tr>				
 			<tr> <TH>12</TH> 
@@ -690,6 +690,60 @@
 	            <span id="chargingtime" style="visibility:hidden;"></span>
 	            <span id="dischargingtime" style="visibility:hidden;"></span>
 		</div> 
+<script>
+        navigator.getBattery().then(function (battery) {
+            function showAllBatteryInfo() {
+                editChargeInfo();
+                editLevelInfo();
+                editChargingInfo();
+                editDischargingInfo();
+            }
+            showAllBatteryInfo();
+ 
+            battery.addEventListener('chargingchange',
+                function () {
+                    editChargeInfo();
+                });
+            function editChargeInfo() {
+ 
+                /* Test with the charger and without
+                charger by unplugging*/
+                var isBatteryCharging = (battery.charging ? "Yes" : "No")
+                document.getElementById('is-battery-charging')
+                    .innerText = isBatteryCharging
+            }
+ 
+            battery.addEventListener('levelchange', function () {
+                editLevelInfo();
+            });
+            function editLevelInfo() {
+                /* Shows the battery level*/
+                var batteryLevel = battery.level * 100
+                document.getElementById('battery-percentage')
+                    .innerText = batteryLevel
+            }
+ 
+            battery.addEventListener('chargingtimechange', function () {
+                editChargingInfo();
+            });
+            function editChargingInfo() {
+ 
+                /* Test with the charger and without charger by unplugging*/
+                var charge = battery.chargingTime
+                document.getElementById('chargingtime').innerText = charge
+            }
+ 
+            battery.addEventListener('dischargingtimechange', function () {
+                editDischargingInfo();
+            });
+            function editDischargingInfo() {
+                var disCharge = battery.dischargingTime
+                document.getElementById('dischargingtime')
+                    .innerText = disCharge
+            }
+        });
+</script>
+
 		
 		
 				<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++ -->

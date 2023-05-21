@@ -1798,61 +1798,7 @@
 	  output.innerHTML = this.value;
   	}	
 	
-    	//BATTERY STUFF:
-        navigator.getBattery().then(function (battery) {
-            function showAllBatteryInfo() {
-                editChargeInfo();
-                editLevelInfo();
-                editChargingInfo();
-                editDischargingInfo();
-            }
-            showAllBatteryInfo();
- 
-            battery.addEventListener('chargingchange',
-                function () {
-                    editChargeInfo();
-                });
-            function editChargeInfo() {
- 
-                /* Test with the charger and without
-                charger by unplugging*/
-                var isBatteryCharging = (battery.charging ? "Yes" : "No")
-                document.getElementById('is-battery-charging')
-                    .innerText = isBatteryCharging
-            }
- 
-            battery.addEventListener('levelchange', function () {
-                editLevelInfo();
-            });
-            function editLevelInfo() {
-                /* Shows the battery level*/
-                var batteryLevel = battery.level * 100
-                document.getElementById('battery-percentage')
-                    .innerText = batteryLevel
-            }
- 
-            battery.addEventListener('chargingtimechange', function () {
-                editChargingInfo();
-            });
-            function editChargingInfo() {
- 
-                /* Test with the charger and without charger by unplugging*/
-                var charge = battery.chargingTime
-                document.getElementById('chargingtime').innerText = charge
-            }
- 
-            battery.addEventListener('dischargingtimechange', function () {
-                editDischargingInfo();
-            });
-            function editDischargingInfo() {
-                var disCharge = battery.dischargingTime
-                document.getElementById('dischargingtime')
-                    .innerText = disCharge
-            }
-        });
-
-
-
+	
 		function calcCHC() {
 					/* VGC Golf Canada Course Rating  68.9 / 131 (Apr/23) */
 			let whHI = document.getElementById("whHI").value;								
