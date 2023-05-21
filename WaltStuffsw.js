@@ -29,13 +29,15 @@ const PRECACHE_URLS = [
        '/index.html',//directory path to project folder/app name.html file
 	   //walt note that github pages requires the main html file to be named index.html
 	   
+          '/gsCSSidx.css',
+          '/gsJSidx.js'
       // '/GSmac/GSmacSPLSH.html',
-          '/GSmac/GSmac3x.html',
-          '/GSmac/gsCSSmac.css',
-          '/GSmac/gsJSmac3x.js',
-          '/GSmac/locstorMAC.html',
-          '/GSmac/SLIDERpage.html',
-          '/GSmac/4a.jpg'
+      //    '/GSmac/GSmac3x.html',
+      //    '/GSmac/gsCSSmac.css',
+      //    '/GSmac/gsJSmac3x.js',
+      //    '/GSmac/locstorMAC.html',
+      //    '/GSmac/SLIDERpage.html',
+      //    '/GSmac/4a.jpg'
 	   
        // '/HighElbowCatch.jpeg',//directory path to project folder/app name.js file
        // '/bjoCchrtH2.png',////directory path to project folder/app name.css file
