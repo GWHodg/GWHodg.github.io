@@ -2,25 +2,18 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>GSidx3_M4</title>
+<title>GSidxM4</title>
 <link rel="manifest" href="WaltStuff.webmanifest">
 	<!--Changed href = "manifest.json" To <link rel="manifest" href="WaltStuff.webmanifest">  -->
 	<!-- https://www.w3schools.com/jsref/jsref_split.asp -->
 	<!-- Using whichever browser you choose, Tap this link below to install 'WaltStuff': https://GWHodg.github.io -->
 
-<link rel="stylesheet" href="gsCSSidx3.css">
-<script src="gsJSidx3.js"></script>
-
-
-<style>
-</style>
-
-<script>			
-</script>
-
+<link rel="stylesheet" href="gsCSSidx.css">
+<script src="gsJSidx.js"></script>
+	
 </head>
 
-<body class="body"  onload="loadFN()">
+<body class="body">
 	
 <div class="wrapper"><!-- Put the page contents here -->
 
@@ -79,9 +72,9 @@
 								
 								<button id='FreezeHCbtn' onclick="freeze()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:gray; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">+/- freeze HC input</button><br>
 								<br>
-								<!--
-								<A  href="SLIDERpage.html" style="color:red; text-shadow:1px 1px white; background:black; cursor:pointer;" title="> GSmac/SLIDERpage.html">&#9873;&emsp;Slider&emsp;&#9873;</A>
-								-->
+								
+								<A  href="GSmac/SLIDERpage.html" style="color:red; text-shadow:1px 1px white; background:black; cursor:pointer;" title="> GSmac/SLIDERpage.html">&#9873;&emsp;Slider&emsp;&#9873;</A>
+								
 								<!--<button id='SLIDEbtn' onclick="showSLIDE()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">Slider Input</button> <br>-->	
 								<!--<br>-->
 								
@@ -90,16 +83,44 @@
 								<!--<br>-->
 						  </div>
 					</div>		
-</TD>	 <TD id="postMNUtd" width=20></td>	 <TD>
+</TD>	 <TD width=20></td>	 <TD>
 	<input type="date" id="DATE" tabindex="300" style="background:beige; border:1px solid slategray; color:blue; width:120px;" value="date"     onchange="localStorage.setItem('DATE',this.value);" >
 				<!-- /*position:relative; left:20%;*/ placeholder="Apr 14/23" -->
 	<br>
 				<!-- <input type="date" id="today" name="birthday"> -->
-	<input type="text" id="focusIPT" style="height:12px; width:85px; background:black; color:yellow;" value="GSidx3 (M4)"> 
+	<input type="text" id="focusIPT" style="height:12px; width:75px; background:black; color:yellow;" value="GSidxM4"> 
 	<!--<font size=2 color=gray><i>(GS<b>pxl2z</b>)</i></font> -->
 </TD></TR>
 </TABLE>
+				<!--    ===================== SLIDER =================================    -->
+	
+	<div class="slidecontainer" id='SLIDER'> <!--style="zoom:200%;"--> 
+  		<input type="range" min="0" max="10" value="0" class="slider" id="myRange" 
+			style="width:200px;"><br>
+		<br>
+		<!--Strokes:--> <span id="demo" class="sliderVAL"></span><!--&emsp;-->
+		<a onclick=" hideSLIDE()" style="float:right; cursor:pointer; font-size:30px;"><b>&times;</b></a>
+			<button id='ENTERbtn' onclick="enterHscr()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:white; background:black; border:3px solid orange; border-radius:10px;">Enter</button>
+			<input type="text" id="p&h" style="background:white; width:45px; border:1px solid blue; border-radius:10px;" placeholder="p3h7"><br>
 
+		<span id='NEarw' onclick="NEslide()" style='display:inline-block; color:black; background:white; FONT-SIZE:30px;'>&#8663;</span>
+						<!--NE arrow   &#8599;   display:inline-block; or none; -->
+		&emsp;
+		<span id='NEarw' onclick="SWslide()" style='display:inline-block; color:black; background:white; FONT-SIZE:30px;'>&#8665;</span><!--SW arrow &#8601; -->
+			
+						<span id='check' class='gTOT' style="position:relative; left:30%; font-size:20px; visibility:hidden;"><b>√</b></span>			
+						<button id='+btn' onclick="focusNextElement()" style="FONT-WEIGHT:bold; FONT-SIZE:10px; COLOR:blue; background:ivory; border:1px solid blue; border-radius:0px; position:relative; left:40%;">+</button>
+						&emsp;
+						<button id='-btn' onclick="focusPreviousElement()" style="FONT-WEIGHT:bold; FONT-SIZE:10px; COLOR:blue; background:ivory; border:1px solid blue; border-radius:0px; position:relative; left:40%;">-</button>
+						
+							<!-- ⇕	8661	21D5	 	UP DOWN DOUBLE ARROW
+								 ⇖	8662	21D6	 	NORTH WEST DOUBLE ARROW
+								 ⇗	8663	21D7	 	NORTH EAST DOUBLE ARROW   &#8663;
+								 ⇘	8664	21D8	 	SOUTH EAST DOUBLE ARROW
+								 ⇙	8665	21D9	 	SOUTH WEST DOUBLE ARROW       -->		
+	</div>	
+	
+				<!--    ===============================================================    -->
 	
 	<table class="table2" id="SCOREStbl" border='3'   align=center 
 	style='FONT-SIZE:large; color:maroon; visibility:visible; zoom:100%;' bgcolor='lightgreen'>
@@ -128,7 +149,7 @@
 				</TD>
 			</TR>
 			<tr>
-				<TH id="H1" style="cursor:pointer;" onclick="cellTOslide(1,1)">1</TH>
+				<TH>1</TH>
 				<td id="TDp1h1"> <input class='' type="tel" id="p1h1" maxlength=1 onclick="changeGLOBAL('p1h1')" tabindex="1" onchange="localStorage.setItem('g1H1s',this.value);" onfocus="FOCUSfn('p1h1')" onblur="BLURfn('p1h1')"><span id='SPp1h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	<!-- WORKS! -->				
 				<td id="TDp2h1"> <input class='' type="tel" maxlength=1 id="p2h1"  onclick="changeGLOBAL('p2h1')"  tabindex="2" onchange="localStorage.setItem('g2H1s',this.value);" onfocus="FOCUSfn('p2h1')" onblur="BLURfn('p2h1')"><span id='SPp2h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>					
 				<td id="TDp3h1"> <input class='' type="tel" id="p3h1" maxlength=1 onclick="changeGLOBAL('p3h1')" tabindex="3" onchange="localStorage.setItem('g3H1s',this.value);" onfocus="FOCUSfn('p3h1')" onblur="BLURfn('p3h1')"><span id='SPp3h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> <!-- WORKS! * -->				
@@ -143,7 +164,7 @@
 				</TD>
 			</tr>
 			<tr>
-				<TH id="H2" style="cursor:pointer;" onclick="cellTOslide(1,2)">2</TH>
+				<TH>2</TH>
 				<td id="TDp1h2"> <input class='' id="p1h2" type="tel" maxlength=1 onclick="changeGLOBAL('p1h2')" tabindex="6" onchange="localStorage.setItem('g1H2s',this.value);" onfocus="FOCUSfn('p1h2')" onblur="BLURfn('p1h2')"><span id='SPp1h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
 				<td id="TDp2h2">	<!-- style='background:orange;' --> 
 					<input class=''  id="p2h2" type="tel" maxlength=1 onclick="changeGLOBAL('p2h2')" tabindex="7" onchange="localStorage.setItem('g2H2s',this.value);" onfocus="FOCUSfn('p2h2')" onblur="BLURfn('p2h2')"><span id='SPp2h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
@@ -160,7 +181,7 @@
 								<!-- onclick="location.href='GSmacSPLSH.html'" title="> GSmacSPLSH.html " -->
 				</TD>
 			</tr>				
-			<tr> <TH id="H3" style="cursor:pointer;" onclick="cellTOslide(1,3)">3</TH> 
+			<tr> <TH>3</TH> 
 				<td id="TDp1h3"> <input id="p1h3" type="tel" maxlength=1 onclick="changeGLOBAL('p1h3')" tabindex="11" onchange="localStorage.setItem('g1H3s',this.value);" onfocus="FOCUSfn('p1h3')" onblur="BLURfn('p1h3')"><span id='SPp1h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
 <!-- onchange test ^ : -->
 				<td id="TDp2h3" style='background:black;'> <input id="p2h3" type="tel" maxlength=1 onclick="changeGLOBAL('p2h3')" tabindex="12" 
@@ -178,7 +199,7 @@
 				</TD>				
 				<!--<TD style='background:white; color:black;'>4</TD> <TD style='background:white; color:black;'>1</TD>-->
 			</tr>	
-			<tr> <TH id="H4" style="cursor:pointer;" onclick="cellTOslide(1,4)">4</TH> 
+			<tr> <TH>4</TH> 
 				<td id="TDp1h4"> <input class='' type="tel" id="p1h4" maxlength=1 onclick="changeGLOBAL('p1h4')" tabindex="16"  onchange="localStorage.setItem('g1H4s',this.value);" onfocus="FOCUSfn('p1h4')" onblur="BLURfn('p1h4')"><span id='SPp1h4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
 				<td id="TDp2h4"> <input class='' type="tel" id="p2h4" maxlength=1 onclick="changeGLOBAL('p2h4')" tabindex="17" 
 					onchange="localStorage.setItem('g2H4s',this.value);" onfocus="FOCUSfn('p2h4')" onblur="BLURfn('p2h4')"><span id='SPp2h4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
@@ -193,10 +214,10 @@
 					<input type="" id="PARh4" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
-					<input type="" id="HCPh4" style="background:beige;  color:black; width:60%; cursor:help;" placeholder=5 value=5 readonly onclick="alert('Need code to > locStorIDX3 popup!');"> <!-- onclick="location.href='locStorMAC.html'" title="locStorMAC.html" -->
+					<input type="" id="HCPh4" style="background:beige;  color:black; width:60%; cursor:help;" placeholder=5 value=5 readonly onclick="alert('> locStorIDX.html');"> <!-- onclick="location.href='locStorMAC.html'" title="locStorMAC.html" -->
 				</TD>								
 			</tr>	
-			<tr> <TH id="H5" style="cursor:pointer;" onclick="cellTOslide(1,5)">5</TH> 
+			<tr> <TH>5</TH> 
 				<td id="TDp1h5"> <input class='' type="tel" id="p1h5" maxlength=1 onclick="changeGLOBAL('p1h5')" tabindex="21" onchange="localStorage.setItem('g1H5s',this.value);" onfocus="FOCUSfn('p1h5')" onblur="BLURfn('p1h5')"><span id='SPp1h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
 				<td id="TDp2h5"> <input class='' type="tel" id="p2h5" maxlength=1 onclick="changeGLOBAL('p2h5')" tabindex="22" onchange="localStorage.setItem('g2H5s',this.value);" onfocus="FOCUSfn('p2h5')" onblur="BLURfn('p2h5')"><span id='SPp2h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
 				<td id="TDp3h5"> <input class='' type="tel" id="p3h5" maxlength=1 onclick="changeGLOBAL('p3h5')" tabindex="23" onchange="localStorage.setItem('g3H5s',this.value);" onfocus="FOCUSfn('p3h5')" onblur="BLURfn('p3h5')"><span id='SPp3h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
@@ -211,7 +232,7 @@
 					<input type="" id="HCPh5" style="background:white;  color:black; width:60%;" placeholder=7 value=7 readonly>
 				</TD>								
 			</tr>	
-			<tr> <TH id="H6" style="cursor:pointer;" onclick="cellTOslide(1,6)" >6</TH> 
+			<tr> <TH>6</TH> 
 				<td id="TDp1h6"> <input class='' type="tel" id="p1h6" maxlength=1 onclick="changeGLOBAL('p1h6')" tabindex="26" onchange="localStorage.setItem('g1H6s',this.value);" onfocus="FOCUSfn('p1h6')" onblur="BLURfn('p1h6')"><span id='SPp1h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
 				<td id="TDp2h6"> <input class='' type="tel" id="p2h6" maxlength=1 onclick="changeGLOBAL('p2h6')" tabindex="27" onchange="localStorage.setItem('g2H6s',this.value);" onfocus="FOCUSfn('p2h6')" onblur="BLURfn('p2h6')"><span id='SPp2h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
 				<td id="TDp3h6"> <input class='' type="tel" id="p3h6" maxlength=1 onclick="changeGLOBAL('p3h6')" tabindex="28" onchange="localStorage.setItem('g3H6s',this.value);" onfocus="FOCUSfn('p3h6')" onblur="BLURfn('p3h6')"><span id='SPp3h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
@@ -225,7 +246,7 @@
 					<input type="" id="HCPh6" style="background:beige;  color:black; width:60%; cursor:help;" placeholder=11 value=11 readonly onclick="showHCs()" title="Player Handicaps">
 				</TD>										
 			</tr>	
-			<tr> <TH id="H7" style="cursor:pointer;" onclick="cellTOslide(1,7)" >7</TH> 
+			<tr> <TH>7</TH> 
 				<td id="TDp1h7"> <input class='' type="tel" id="p1h7" maxlength=1 onclick="changeGLOBAL('p1h7')" tabindex="31" onchange="localStorage.setItem('g1H7s',this.value);" onfocus="FOCUSfn('p1h7')" onblur="BLURfn('p1h7')"><span id='SPp1h7' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
 				<td id="TDp2h7"> <input class='' type="tel" id="p2h7" maxlength=1 onclick="changeGLOBAL('p2h7')" tabindex="32" onchange="localStorage.setItem('g2H7s',this.value);" onfocus="FOCUSfn('p2h7')" onblur="BLURfn('p2h7')"><span id='SPp2h7' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
 				<td id="TDp3h7"> <input class='' type="tel" id="p3h7" maxlength=1 onclick="changeGLOBAL('p3h7')" tabindex="33" onchange="localStorage.setItem('g3H7s',this.value);" onfocus="FOCUSfn('p3h7')" onblur="BLURfn('p3h7')"><span id='SPp3h7' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
@@ -239,7 +260,7 @@
 					<input type="" id="HCPh7" style="background:white;  color:black; width:60%;" placeholder=3 value=3 readonly>
 				</TD>										
 			</tr>
-			<tr> <TH id="H8" style="cursor:pointer;" onclick="cellTOslide(1,8)" >8</TH> 
+			<tr> <TH>8</TH> 
 				<td id="TDp1h8"> <input class='' type="tel" id="p1h8" maxlength=1 onclick="changeGLOBAL('p1h8')" tabindex="36" onchange="localStorage.setItem('g1H8s',this.value);" onfocus="FOCUSfn('p1h8')" onblur="BLURfn('p1h8')"><span id='SPp1h8' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
 				<td id="TDp2h8"> <input class='' type="tel" id="p2h8" maxlength=1 onclick="changeGLOBAL('p2h8')" tabindex="37" onchange="localStorage.setItem('g2H8s',this.value);" onfocus="FOCUSfn('p2h8')" onblur="BLURfn('p2h8')"><span id='SPp2h8' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
 				<td id="TDp3h8"> <input class='' type="tel" id="p3h8" maxlength=1 onclick="changeGLOBAL('p3h8')" tabindex="38" onchange="localStorage.setItem('g3H8s',this.value);" onfocus="FOCUSfn('p3h8')" onblur="BLURfn('p3h8')"><span id='SPp3h8' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
@@ -250,12 +271,11 @@
 					<input type="" id="PARh8" style="background:white; color:black; width:60%;" placeholder=3 value=3 readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
-					<input type="" id="HCPh8" style="background:white;  color:black; width:60%; cursor:help;" placeholder=15 value=15 readonly> <!-- onclick="location.href='../JSpwd2.html'" title="JSpwd2.html" -->
-									<!--onclick="alert('You clicked on H8 HC input!');"
-										 onclick="showSLIDE()" title="showSLIDE()"  -->
+					<input type="" id="HCPh8" style="background:beige;  color:black; width:60%; cursor:help;" placeholder=15 value=15 readonly onclick="showSLIDE()" title="showSLIDE()"> <!-- onclick="location.href='../JSpwd2.html'" title="JSpwd2.html" -->
+									<!--onclick="alert('You clicked on H8 HC input!');"-->
 				</TD>										
 			</tr>
-			<tr> <TH id="H9" style="cursor:pointer;" onclick="cellTOslide(1,9)" >9</TH> 
+			<tr> <TH>9</TH> 
 				<td id="TDp1h9"> <input class='' type="tel" id="p1h9" maxlength=1 onclick="changeGLOBAL('p1h9')" tabindex="41" onchange="localStorage.setItem('g1H9s',this.value);" onfocus="FOCUSfn('p1h9')" onblur="BLURfn('p1h9')"><span id='SPp1h9' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
 				<td id="TDp2h9"> <input class='' type="tel" id="p2h9" maxlength=1 onclick="changeGLOBAL('p2h9')" tabindex="42" onchange="localStorage.setItem('g2H9s',this.value);" onfocus="FOCUSfn('p2h9')" onblur="BLURfn('p2h9')"><span id='SPp2h9' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
 				<td id="TDp3h9"> <input class='' type="tel" id="p3h9" maxlength=1 onclick="changeGLOBAL('p3h9')" tabindex="43" onchange="localStorage.setItem('g3H9s',this.value);" onfocus="FOCUSfn('p3h9')" onblur="BLURfn('p3h9')"><span id='SPp3h9' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
@@ -306,7 +326,7 @@
 						<!--    √√√√√√√√√√√√ \/ BACK NINE \/ √√√√√√√√√√√√√√√√√√     -->
 						
 			<tr>
-				<TH id="H10" style="cursor:pointer;" onclick="cellTOslide(1,10)">10</TH>
+				<TH>10</TH>
 				<td id="TDp1h10"> <input class='' type="tel" id="p1h10" maxlength=1 onclick="changeGLOBAL('p1h10')" tabindex="46" onchange="localStorage.setItem('g1H10s',this.value);" onfocus="FOCUSfn('p1h10')" onblur="BLURfn('p1h10')"><span id='SPp1h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
 				<td id="TDp2h10"> <input class='' type="tel" id="p2h10" maxlength=1 onclick="changeGLOBAL('p2h10')"  tabindex="47" onchange="localStorage.setItem('g2H10s',this.value);" onfocus="FOCUSfn('p2h10')" onblur="BLURfn('p2h10')"><span id='SPp2h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	
 				<td id="TDp3h10"> <input class='' type="tel" id="p3h10" maxlength=1 onclick="changeGLOBAL('p3h10')" tabindex="48" onchange="localStorage.setItem('g3H10s',this.value);" onfocus="FOCUSfn('p3h10')" onblur="BLURfn('p3h10')"><span id='SPp3h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
@@ -321,7 +341,7 @@
 				</TD>
 			</tr>
 			<tr>
-				<TH id="H11" style="cursor:pointer;" onclick="cellTOslide(1,11)">11</TH>
+				<TH>11</TH>
 				<td id="TDp1h11"> <input class='' type="tel" id="p1h11" maxlength=1 onclick="changeGLOBAL('p1h11')" tabindex="51" onchange="localStorage.setItem('g1H11s',this.value);" onfocus="FOCUSfn('p1h11')" onblur="BLURfn('p1h11')"><span id='SPp1h11' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
 				<td id="TDp2h11">	<!-- style='background:orange;' --> 
 					<input class='' type="tel" id="p2h11" maxlength=1 onclick="changeGLOBAL('p2h11')" tabindex="52" onchange="localStorage.setItem('g2H11s',this.value);" onfocus="FOCUSfn('p2h11')" onblur="BLURfn('p2h11')"><span id='SPp2h11' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
@@ -336,7 +356,7 @@
 					<input type="" id="HCPh11" style="background:white;  color:black; width:60%; cursor:help;" placeholder=2 value=2 readonly> <!--  onclick="showNOTES()" title="Coding Notes" -->
 				</TD>
 			</tr>				
-			<tr> <TH id="H12" style="cursor:pointer;" onclick="cellTOslide(1,12)">12</TH> 
+			<tr> <TH>12</TH> 
 				<td id="TDp1h12"> <input type="tel" id="p1h12" maxlength=1 onclick="changeGLOBAL('p1h12')" tabindex="56" onchange="localStorage.setItem('g1H12s',this.value);" onfocus="FOCUSfn('p1h12')" onblur="BLURfn('p1h12')"><span id='SPp1h12' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
 				<td id="TDp2h12"> <input type="tel" id="p2h12" maxlength=1 onclick="changeGLOBAL('p2h12')" tabindex="57" onchange="localStorage.setItem('g2H12s',this.value);" onfocus="FOCUSfn('p2h12')" onblur="BLURfn('p2h12')"><span id='SPp2h12' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
 				<td id="TDp3h12"> <input class='' type="tel" id="p3h12" maxlength=1 onclick="changeGLOBAL('p3h12')" tabindex="58" onchange="localStorage.setItem('g3H12s',this.value);" onfocus="FOCUSfn('p3h12')" onblur="BLURfn('p3h12')"><span id='SPp3h12' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
@@ -352,7 +372,7 @@
 				</TD>				
 				<!--<TD style='background:white; color:black;'>4</TD> <TD style='background:white; color:black;'>1</TD>-->
 			</tr>							
-			<tr> <TH id="H13" style="cursor:pointer;" onclick="cellTOslide(1,13)">13</TH> 
+			<tr> <TH>13</TH> 
 				<td id="TDp1h13"> <input type="tel" id="p1h13" maxlength=1 onclick="changeGLOBAL('p1h13')" tabindex="61" onchange="localStorage.setItem('g1H13s',this.value);" onfocus="FOCUSfn('p1h13')" onblur="BLURfn('p1h13')"><span id='SPp1h13' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
 				<td id="TDp2h13"> <input type="tel" id="p2h13" maxlength=1 onclick="changeGLOBAL('p2h13')" tabindex="62" onchange="localStorage.setItem('g2H13s',this.value);" onfocus="FOCUSfn('p2h13')" onblur="BLURfn('p2h13')"><span id='SPp2h13' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
 				<td id="TDp3h13"> <input class='' type="tel" id="p3h13" maxlength=1 onclick="changeGLOBAL('p3h13')" tabindex="63" onchange="localStorage.setItem('g3H13s',this.value);" onfocus="FOCUSfn('p3h13')" onblur="BLURfn('p3h13')"><span id='SPp3h13' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
@@ -367,7 +387,7 @@
 				</TD>				
 			</tr>
 			<tr>
-				<TH id="H14" style="cursor:pointer;" onclick="cellTOslide(1,14)">14</TH>
+				<TH>14</TH>
 				<td id="TDp1h14"> <input class='' type="tel" id="p1h14" maxlength=1 onclick="changeGLOBAL('p1h14')" tabindex="66" onchange="localStorage.setItem('g1H14s',this.value);" onfocus="FOCUSfn('p1h14')" onblur="BLURfn('p1h14')"><span id='SPp1h14' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
 				<td id="TDp2h14">	<!-- style='background:orange;' --> 
 					<input class='' type="tel" id="p2h14" maxlength=1 onclick="changeGLOBAL('p2h14')" tabindex="67" onchange="localStorage.setItem('g2H14s',this.value);" onfocus="FOCUSfn('p2h14')" onblur="BLURfn('p2h14')"><span id='SPp2h14' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
@@ -383,7 +403,7 @@
 				</TD>
 			</tr>
 			<tr>
-				<TH id="H15" style="cursor:pointer;" onclick="cellTOslide(1,15)">15</TH>
+				<TH>15</TH>
 				<td id="TDp1h15"> <input class='' type="tel" id="p1h15" maxlength=1 onclick="changeGLOBAL('p1h15')" tabindex="71" onchange="localStorage.setItem('g1H15s',this.value);" onfocus="FOCUSfn('p1h15')" onblur="BLURfn('p1h15')"><span id='SPp1h15' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
 				<td id="TDp2h15">	<!-- style='background:orange;' --> 
 					<input class='' type="tel" id="p2h15" maxlength=1 onclick="changeGLOBAL('p2h15')" tabindex="72" onchange="localStorage.setItem('g2H15s',this.value);" onfocus="FOCUSfn('p2h15')" onblur="BLURfn('p2h15')"><span id='SPp2h15' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
@@ -399,7 +419,7 @@
 				</TD>
 			</tr>
 			<tr>
-				<TH id="H16" style="cursor:pointer;" onclick="cellTOslide(1,16)">16</TH>
+				<TH>16</TH>
 				<td id="TDp1h16"> <input class='' type="tel" id="p1h16" maxlength=1 onclick="changeGLOBAL('p1h16')" tabindex="76" onchange="localStorage.setItem('g1H16s',this.value);" onfocus="FOCUSfn('p1h16')" onblur="BLURfn('p1h16')"><span id='SPp1h16' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
 				<td id="TDp2h16">	<!-- style='background:orange;' --> 
 					<input class='' type="tel" id="p2h16" maxlength=1 onclick="changeGLOBAL('p2h16')" tabindex="77" onchange="localStorage.setItem('g2H16s',this.value);" onfocus="FOCUSfn('p2h16')" onblur="BLURfn('p2h16')"><span id='SPp2h16' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
@@ -415,7 +435,7 @@
 				</TD>
 			</tr>
 			<tr>
-				<TH id="H17" style="cursor:pointer;" onclick="cellTOslide(1,17)">17</TH>
+				<TH>17</TH>
 				<td id="TDp1h17"> <input class='' type="tel" id="p1h17" maxlength=1 onclick="changeGLOBAL('p1h17')" tabindex="81" onchange="localStorage.setItem('g1H17s',this.value);" onfocus="FOCUSfn('p1h17')" onblur="BLURfn('p1h17')"><span id='SPp1h17' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
 				<td id="TDp2h17">	<!-- style='background:orange;' --> 
 					<input class='' type="tel" id="p2h17" maxlength=1 onclick="changeGLOBAL('p2h17')" tabindex="82" onchange="localStorage.setItem('g2H17s',this.value);" onfocus="FOCUSfn('p2h17')" onblur="BLURfn('p2h17')"><span id='SPp2h17' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
@@ -431,7 +451,7 @@
 				</TD>
 			</tr>
 			<tr>
-				<TH id="H18" style="cursor:pointer;" onclick="cellTOslide(1,18)">18</TH>
+				<TH>18</TH>
 				<td id="TDp1h18"> <input class='' type="tel" id="p1h18" maxlength=1 onclick="changeGLOBAL('p1h18')" tabindex="86" onchange="localStorage.setItem('g1H18s',this.value);" onfocus="FOCUSfn('p1h18')" onblur="BLURfn('p1h18')"><span id='SPp1h18' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
 				<td id="TDp2h18">	<!-- style='background:orange;' --> 
 					<input class='' type="tel" id="p2h18" maxlength=1 onclick="changeGLOBAL('p2h18')" tabindex="87" onchange="localStorage.setItem('g2H18s',this.value);" onfocus="FOCUSfn('p2h18')" onblur="BLURfn('p2h18')"><span id='SPp2h18' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
@@ -510,51 +530,44 @@
 		</tbody>
 	</table>		
 
-
-	<br>
 	
-<!-- ########################################################################################### -->
-<!-- ################################### SLIDER PAGE ########################################### -->	
+	<!--<table border=0 class="" id="MENUtbl" border='3'  align=center  style='FONT-SIZE:large; background:white; color:yellow; visibility:visible;'>-->
+		<!--
+		<tr>
+			<td>
+				<button id='STROKESbtn' onclick="pHCcolors()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;">Display Stroke Holes<br>
+					<span style='background:lime; color:black;'>&nbsp;1&nbsp;</span>&emsp;
+					<span style='background:green;'>&nbsp;2&nbsp;</span>&emsp;
+					<span style='background:white; color:black;'>&nbsp;0&nbsp;</span>
+				</button>
+			</td>
+			<td>
+				<button id='calcALLbtn' onclick="calcALL()" style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:white; background:blue; border:3px solid black; border-radius:10px; opacity:95%;">Calc <u><b>STABLEFORD Points</b></u></button>
+			</td>
+		</tr>
+		<tr>	
+			<td>
+				<button id='SLIDEbtn' onclick="showSLIDE()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">Slider Input</button>		
+			</td>
+			<td>
+				<button id='calcTOTbtn' onclick="calcTOTALS()" style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;">Calc <u><b>TOTALS</b></u></button>
+			</td>
+		</tr>
 
-	<div class="" style="border:3px inset orange; border-radius:5px; width:35%; margin:auto; text-align:center; padding:10px; background:beige;" id='SLIDER'> <!--style="zoom:200%;"--> 
-  		<!--Strokes:--> <span id="demo" class="sliderVAL"></span>&emsp;
-		<input type="range" min="0" max="9" value="0" class="slider" id="myRange" style="width:200px;">&emsp;
-		
-			
-		<br>
-		<br>
-		
-			<!--<a onclick=" hideSLIDE()" style="float:right; cursor:pointer; font-size:30px;"><b>&times;</b></a>-->
-		<!--&emsp;-->
-		
-		<input type="text" id="p&h" style="background:blue; color:white; width:60px; border:2px solid green; border-radius:10px; font-size:20px; 
-		padding:2px;"  placeholder="">
-		&emsp;
-		<button id='ENTERbtn' onclick="EnterInput()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:white; background:black; border:3px solid orange; border-radius:10px; cursor:pointer;">Enter</button>
-		
-		<br>
-		
-		<span id='check' class='gTOT' style="position:relative;  font-size:20px; visibility:hidden;"><b>√</b></span>
-											<!-- left:20%; -->
-		<button id='+btn' onclick="NextInput()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:blue; background:ivory; border:1px solid blue; border-radius:0px; position:relative; left:30%; cursor:pointer;">+</button>
-		&emsp;
-		<button id='-btn' onclick="PrevInput()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:blue; background:ivory; border:1px solid blue; border-radius:0px; position:relative; left:30%; cursor:pointer;">-</button>
-	</div>	
-<script>
-	//SLIDER stuff:
-	var slider = document.getElementById("myRange");
-	var output = document.getElementById("demo");
-	output.innerHTML = slider.value;	
-	slider.oninput = function() {
-	  output.innerHTML = this.value;
-  }	
-</script>		
-
-
-<!-- ################################### ^ SLIDER PAGE ^ ########################################### -->
-<!-- ############################################################################################### -->
-
-
+		<tr>
+			<td>
+				<button id='SAVEbtn' onclick="save()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:50%;"><i>save</i></button>
+				<button id='DROPbtn' onclick="showINFO()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><b>Round Info +/-</b></button>
+			</td>
+			<td>
+				<button id='NOTESbtn' onclick="showNOTES()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><i>coding notes</i></button>
+				<button id='DROPbtn' onclick="showDROP()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><b>Drop Box!</b></button>
+			</td>
+		</tr>
+		-->
+	<!--</table>-->
+	
+<br>
 
 	<!-- 	√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√ \/ DROP BOX \/ √√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√	  -->
 
@@ -623,8 +636,44 @@
 	
 		
 <br>
-
 <!-- 	√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√	  -->
+
+<div class="CODEclass" id="CODEnotes" style="position:fixed; top:300px; z-index:100; left:5%; background:lightyellow; color:black; border:3px dotted black; border-radius:10px; width:400px; height:300px; overflow:scroll; padding:5px; opacity:100%; visibility:hidden;">
+		<b>CODING NOTES:</b>&emsp;&emsp;&emsp;<!--<input class="inptTXT" type="text" id="ref" style='background:gray; color:white;' value="uncoded inputs">-->	
+					<span style="float:right; text-align:right; padding-right:20px; cursor:pointer; background:white; color:black; font-size:40px;">
+						<a onclick="showNOTES()"><b>&times;</b></a>
+					</span>
+					<ul>
+						<li>?? Add 'totals' (SFpts + scores) to 'clear' fn! <i>(Mar 21/23)</i></li>
+						<li><s><b>DROP NOT WORKING</b> <i>(Mar 12/23)</i> [DZ h3&4] *<br>
+							- DROP() function not coded yet</s> . . .</li>
+						<li><s>H2 > 5 pts p3-p5 w/ 0 stroke entry!<br>
+							- all 3 have <b>no strokes</s></b></li>
+						<li><font color=red><s><b>p1 <> calcing pts if score = par or less <i>(& only getting 1 stroke)</i>. Other p's seem to be OK.</b></s></font></li>
+						<li><font color=blue><b><u>Back 9</u> Problems <i>(Mar 9/23)</i>:</b></font><br>
+							&emsp;- <s>slider +/- not working</s> √<br>
+							&emsp;- <s>stoke hole display N/A</s> √<br>
+						</li>
+						<li><font color=blue><s>Need coding for 3 < par (? <u>albatross/dbl eagle</u>) in Phc < 19!</s></font> <font color=red>*</font></li>
+						<li style="border:1px solid black;"><font color=blue><b>if Phc > 18 but Hhcp > (Phc-18) <> work <i>(=0)</i>!</b></font>
+							<br>
+							- looks like it gets to correct slot (>18 else) but ? error in code there<br>
+							- also - P2H2 > incorrect pts!
+						</li>
+						<li><s><> correct Mar 4: <b>if Phc > 18 but < 2XHhcp still > 2 strokes!</b></s> 
+								<font color=red>  < corrected!</font>
+						</li>
+						<li><b>if Phc < 19 & Hhcp > Phc still --> 1 stroke!</b> <i>(Mar 4)</i><br>
+							<font color=red>- prob fixed! < but 'calcSFpts_P2H2()' not fixed & still works??</font>
+						<li><s>var not picked up from 'span': use .innerText (not '.value')</s></li>
+						<li>H2 > 4 pts w/o any entry (& w entry = '0') <u>IF Phc > 18</u> (Mar 5)<br>
+							- ? problem in 'else' statement of 'Phc > 18'<br>
+							- <font color=red><b>may</b> have fixed (used original/<i>upper</i> code)</font>
+						</li>
+					</ul>	
+</div>
+
+
 				<!--    ==================================================    -->
 				
 	<div id="HOMEdiv" style="border-radius:10px; padding:5px;border:3px slategray outset; background:black; color:white; position:fixed; left:100px; top:200px; visibility:hidden;">
@@ -694,11 +743,29 @@
             }
         });
 </script>
+
+		
 		
 				<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
+<!--				
+	<div id="TIMEdiv" style="border:0px inset ivory; color:white; width:25%; padding:0px; position:fixed; left:40em; top:0px;">
+			<span id="time"></span>
+            <script>
+					// Use of Date.now() method
+					var d = Date(Date.now());					  
+					// Converting the number of millisecond  
+					// in date string
+					a = d.toString().substr(16,8);
+					// Printing the current date                    
+					document.getElementById("time").innerHTML = a;
+						//console.log("TIME: " + a)				
+			</script>
+	</div>				
+-->
+
 	<div class="" style="border:2px inset white; color:white; padding:0px; border-radius:5px; position:fixed; left:20em; top:5px;">
-		&emsp;<font color=blue>GSidx3</font>&emsp;
+		&emsp;<font color=blue>GSidx</font>&emsp;
 	</div>	
 				<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 	
@@ -769,9 +836,11 @@
 	</div>
 
 							<!-- 	^^^^^^^^^^^^^ Home Selection ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 	-->
-<!--
+
 	<div id="HOMEdivB" style="border-radius:10px; padding:5px;border:3px slategray outset; background:black; color:white; position:fixed; left:1px; top:5px;">
 		<span style="color:red; font-size:50px;" onclick="showHOMEsel()"> &#x2302; </span>
+		<!--<A  href="../index.html" style="color:red; font-size:50px;"> &#x2302;-->
+			<!--HOME symbol   class="HOMEclass" --> <!--</A>-->
 		<br>
 		<button onclick="history.forward()" style="border:2px inset orange; border-radius:10%"><font size=5>></font></button>
 	</div>
@@ -783,14 +852,14 @@
 				type="text"
 				name="sel"
 				placeholder="Enter 1 or 2"
-				required"">		
+				required"">		<!-- type="password" -->
 		</div>
 		<br>
 		<div>
 			<button style="background:yellow; border:2px solid blue; font-size:20px; float:right;" id="create" onclick="wrong_sel_alert()">Submit</button>
 		</div>									
 	</div>
--->	
+	
 	
 							<!-- 	^^^^^^^^^^^^^ ^ Home Selection ^ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 	-->	
 	
