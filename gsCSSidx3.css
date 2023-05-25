@@ -115,7 +115,7 @@
 			  button.CODEBTNclass { display:none; }
 			  textarea.NOTEclass { left:3em; top:600px; height:200px; width:300px;}	/* ? \/ font-size */	
 			  div.CODEclass { font-size:5px; }
-			  div.SLIDERdiv { width:70%; background:yellow; zoom:150%; }
+			  div.SLIDERdiv { width:100%; background:yellow; zoom:150%; }
 	}
 	  	}		
 		@media screen and (min-width: 400px) and (max-width:980px) and (max-height:1900px) { 
