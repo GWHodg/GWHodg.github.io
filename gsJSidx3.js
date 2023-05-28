@@ -1902,19 +1902,19 @@
 		/*alert("Current Hole = "+cH+"\t\t Next Hole = "+nH+"\nCurrent Player = "+cP+"\n\n"+
 			  "P1 = "+P1+"\tP2 = '"+P2+"'\tP3 = '"+P3+"'");*/
 			  
-		if ( cP==P4 && P5!=null ) { 		/* P5!="" ) { */
+		if ( cP==P4 && P5!="" ) { 		/* P5!="" ) { */
 			//alert("next input = "+P5+" "+cH); 
 			document.getElementById('p&h').value = P5+" "+cH;		
 		}
-		else if ( cP==P3 && P4!=null ) { 
+		else if ( cP==P3 && P4!="" ) { 
 			//alert("next input = "+P4+" "+cH); 
 			document.getElementById('p&h').value = P4+" "+cH;		
 		}
-		else if ( cP==P2 && P3!=null ) { 
+		else if ( cP==P2 && P3!="" ) { 
 			//alert("next input = "+P3+" "+cH); 
 			document.getElementById('p&h').value = P3+" "+cH;		
 		}
-		else if ( cP==P1 && P2!=null ) { 
+		else if ( cP==P1 && P2!="" ) { 
 			//alert("next input = "+P2+" "+cH); 
 			document.getElementById('p&h').value = P2+" "+cH;		
 		}
