@@ -1902,19 +1902,19 @@
 		/*alert("Current Hole = "+cH+"\t\t Next Hole = "+nH+"\nCurrent Player = "+cP+"\n\n"+
 			  "P1 = "+P1+"\tP2 = '"+P2+"'\tP3 = '"+P3+"'");*/
 			  
-		if ( cP==P4 && P5!="" ) { 
+		if ( cP==P4 && P5!=null ) { 		/* P5!="" ) { */
 			//alert("next input = "+P5+" "+cH); 
 			document.getElementById('p&h').value = P5+" "+cH;		
 		}
-		else if ( cP==P3 && P4!="" ) { 
+		else if ( cP==P3 && P4!=null ) { 
 			//alert("next input = "+P4+" "+cH); 
 			document.getElementById('p&h').value = P4+" "+cH;		
 		}
-		else if ( cP==P2 && P3!="" ) { 
+		else if ( cP==P2 && P3!=null ) { 
 			//alert("next input = "+P3+" "+cH); 
 			document.getElementById('p&h').value = P3+" "+cH;		
 		}
-		else if ( cP==P1 && P2!="" ) { 
+		else if ( cP==P1 && P2!=null ) { 
 			//alert("next input = "+P2+" "+cH); 
 			document.getElementById('p&h').value = P2+" "+cH;		
 		}
@@ -1956,7 +1956,7 @@
 		//alert("Entered slider value = "+slideVAL);
 		localStorage.setItem('g'+cPno+'H'+cH+'s',slideVAL);
 			//localStorage.setItem('g3H4s',slideVAL);	
-			alert("g"+cPno+"H"+cH+"s 'localStorage' value = "+localStorage.getItem('g'+cPno+'H'+cH+'s'));	
+			//alert("g"+cPno+"H"+cH+"s 'localStorage' value = "+localStorage.getItem('g'+cPno+'H'+cH+'s'));	
 			
 		document.getElementById('check').style.visibility = 'visible';	
 		
