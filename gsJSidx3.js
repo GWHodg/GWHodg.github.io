@@ -1643,7 +1643,7 @@
 		function setHC(pNO,pNM) {
 			var number = pNO[1];
 			    var whCHC = Math.round(localStorage.getItem('WHchc') * 100/100); 
-			 			alert("whCHC (fr locStor) = "+whCHC);	//.toFixed(0)
+			 			//alert("whCHC (fr locStor) = "+whCHC);	//.toFixed(0)
 						/* Math.round(x * 100) / 100; is the easiest, simplest way to round to two decimal places. */
 				var jsCHC = Math.round(localStorage.getItem('JSchc') * 100/100); 
 				var tcCHC = Math.round(localStorage.getItem('TCchc') * 100/100); 
@@ -1662,6 +1662,7 @@
 				var jdCHC = Math.round(localStorage.getItem('JDchc') * 100/100); 
 					var u1CHC = Math.round(localStorage.getItem('U1chc') * 100/100);
 					var u2CHC = Math.round(localStorage.getItem('U2chc') * 100/100);		
+			/*
 			alert("Will try to auto set player HC here!\n\t\tpNO = "+pNO+" | 'number' var = "+number+"\n\n"+
 				  "jsCHC (fr locStor) = "+jsCHC+"\n\n"+
 				  "PL \t            RAWchc                   \t\t   ROUNDEDchc\n"+
@@ -1674,6 +1675,7 @@
 				  "br \t "+ localStorage.getItem('BRchc') + " \t\t " + brCHC + "\n"+
 				  "pd \t "+ localStorage.getItem('PDchc') + " \t\t " + pdCHC + "\n"+
 				  "bp \t "+ localStorage.getItem('BPchc') + " \t\t " + bpCHC + "\n");
+			*/
 			if (pNM=="wH") {document.getElementById(pNO+"HC").value = whCHC; localStorage.setItem('g'+number+'HC',whCHC);}  //23
 			if (pNM=="jS") {document.getElementById(pNO+"HC").value = jsCHC; localStorage.setItem('g'+number+'HC',jsCHC);} //16
 			if (pNM=="tC") {document.getElementById(pNO+"HC").value = tcCHC; localStorage.setItem('g'+number+'HC',tcCHC);}
