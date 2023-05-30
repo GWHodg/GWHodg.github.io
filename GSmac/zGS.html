@@ -36,7 +36,27 @@
 		background-color:white;
 		margin:6px 0;
 	}
-	
+
+		/* dropUP menu: */
+			.dropbtn { 
+				/* position:absolute; left:30px; */
+				margin-left: 0px;	/*125px;*/
+				border-radius:10px; cursor:grabbing; background:orange; color:black;
+				BORDER-RIGHT: outset; BORDER-TOP: outset;  
+				BORDER-LEFT: outset; BORDER-BOTTOM: outset
+			}	
+					  /* background-color: #3498DB; color: white;
+			           padding: 5px; font-size: 16px; border: none; */
+			.dropup { position: relative; display: inline-block; }			
+			.dropup-content { display: none; position:absolute; left:-100px; background-color: #f1f1f1;
+			  			      min-width:200px; bottom:-170px; z-index: 1; }	
+							  /*  bottom: -540px; left:55px;  bottom: 0px;  position: absolute; */	
+			.dropup-content a { color: black; padding: 5px 6px; text-decoration: none; display: block; }	
+										/* padding: 12px 16px;  */
+			.dropup-content a:hover {background-color:green;}	/* #ccc */		
+			.dropup:hover .dropup-content { display: block; }			
+			.dropup:hover .dropbtn { background-color: #2980B9; }
+			
 </style>
 
 <script>
@@ -44,6 +64,31 @@
 		alert("Will enter PLAYERS & HANDICAPS here . . .");
 		document.getElementById('p1').innerHTML = "wH";
 	}
+	
+	function hideMENU() {
+		//document.getElementById("miscCONTENT").style.visibility="hidden";
+		document.getElementById("menuCONTENT").style.visibility="hidden";
+	}
+	function showMENU(topic) {
+		if (topic=="tipMENU") {
+			document.getElementById("menuCONTENT").style.visibility="visible";
+		}
+		if (topic=="tipMENU") {
+			document.getElementById("menuCONTENT").style.visibility="visible";
+		}
+	}
+
+	function editPLAYERS() {
+		//alert("Will dry to display player edit row . . .");
+		if ( document.getElementById('PLAYERedit').style.display=="none" ) {
+			document.getElementById('PLAYERedit').style.display=""; //shows the row!
+			document.getElementById('HCedit').style.display=""; //shows the row!
+		}
+		else {
+			document.getElementById('PLAYERedit').style.display="none"; //hides the row!
+			document.getElementById('HCedit').style.display="none"; //hides the row!			
+		}
+	}	
 </script>
 
 </head>
@@ -60,15 +105,76 @@
 				<div class="mnu"></div>
 				<div class="mnu"></div>
 			</TD>
-			<TD colspan=1 style="background:black; color:white;"></TD>
+			<TD colspan=1 style="background:black; color:white;">
+					<div class="dropup" style="cursor:pointer; color:black; background:white; /*position:relative; left:18%;*/">
+						  <button class="dropbtn" id='menuBTN' onclick="showMENU('tipMENU')" style="background:white;">
+						  	  	<span style="font-size:30px;cursor:pointer; color:blue;" 
+								onclick="">&#9776;</span>
+						  </button>
+						  <div class="dropup-content" style="border:3px solid red; border-radius:10px;"
+						  id="menuCONTENT">		
+									<span style="float:right; text-align:right; padding-right: 5px;">
+										<button id="OKbtn" onclick="hideMENU()" style="FONT-WEIGHT: bold; 
+										FONT-SIZE:15px; COLOR:black">close</button>
+									</span>	<br>		
+								<a> </a>
+								<a> </a>										
+								<button id='EDITbtn' onclick="editPLAYERS()" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">Edit Players +/-</button><br>
+								<br>
+								<button id='calcALLbtn' onclick="calcALL()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:white; background:blue; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>STABLEFORD Points</b></u></button> <br>
+								<br>
+								<button id='calcTOTbtn' onclick="calcTOTALS()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>TOTALS</b></u></button><br>
+								<br> 
+						  </div>
+					</div>
+			</TD>
 		</TR>
 		<TR>
-			<TD colspan=3 style="background:darkgreen; color:dodgerblue;">05-30-b</TD> <TD colspan=5 style="background:darkgreen; color:skyblue;" align=center><b>Front</b>/<i>Back</i></TD> 
+			<TD colspan=3 style="background:darkgreen; color:dodgerblue;">05-30-c</TD> <TD colspan=5 style="background:darkgreen; color:skyblue;" align=center><b>Front</b>/<i>Back</i></TD> 
 		</TR>
 		
 		<TR>
 			<TH>H</TH> <TH>P</TH> <TH>HC</TH> <TH id="p1">P1</TH> <TH id="p2">P2</TH> <TH id="p3">P3</TH> <TH id="p4">P4</TH> <TH id="p5">P5</TH> 
 		<TR>
+
+		<!-- Player NAMES & HC input: -->
+		<TR id="PLAYERedit" style="display:none;">	<!-- display:none; display:inline block;  |  visibility:collapse; -->
+			<TD  align=center colspan=3 class="">Player</TD> 
+			<TD align=center>
+				<input id="p1NAME" class="name" type="text" maxlength=2 style="" onblur="document.getElementById('p1').innerHTML=document.getElementById('p1NAME').value">	
+			</TD> 
+			<TD align=center>
+				<input id="p2NAME" class="name" type="text" maxlength=2 style="" onblur="document.getElementById('p2').innerHTML=document.getElementById('p2NAME').value">				
+			</TD> 
+			<TD align=center>
+				<input id="p3NAME" class="name" type="text" maxlength=2 style="" onblur="document.getElementById('p3').innerHTML=document.getElementById('p3NAME').value">				
+			</TD> 
+			<TD align=center>
+				<input id="p4NAME" class="name" type="text" maxlength=2 style="" onblur="document.getElementById('p4').innerHTML=document.getElementById('p4NAME').value">				
+			</TD> 
+			<TD align=center>
+				<input id="p5NAME" class="name" type="text" maxlength=2 style=""
+				 onblur="document.getElementById('p5').innerHTML=document.getElementById('p5NAME').value">				
+			</TD>
+		</TR>
+		<TR id="HCedit" style="display:none;">     <!-- display:inline block; | visibility:visible; -->
+			<TD  align=center colspan=3 class="">cHC</TD> 
+			<TD align=center>
+				<input id="p1HC" class="name" type="tel" maxlength=2 style="">				
+			</TD> 
+			<TD align=center>
+				<input id="p2HC" class="name" type="tel" maxlength=2 style="">				
+			</TD> 
+			<TD align=center>
+				<input id="p3HC" class="name" type="tel" maxlength=2 style="">				
+			</TD> 
+			<TD align=center>
+				<input id="p4HC" class="name" type="tel" maxlength=2 style="">				
+			</TD> 
+			<TD align=center>
+				<input id="p5HC" class="name" type="tel" maxlength=2 style="">				
+			</TD>
+		</TR>			
 			
 		<TR>
 			<TD style="background:silver; text-align:center;">1</TD> <TD class="holes">5</TD> <TD class="holes">13</TD> 
@@ -111,12 +217,20 @@
 				<TD style="font-size:1em;" align=center>
 					5
 					<!--<label id="p1h3" type="tel" maxlength=1 style="">-->
-					<span id='SPp1h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;  font-size:0.2em;">0</span>					
+					<span id='SPp1h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;  font-size:0.5em;">0</span>					
 				</TD> 
-				<TD></TD> 
-				<TD></TD> 
-				<TD></TD> 
-				<TD></TD>
+				<TD>
+					<input id="p2h3" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'"><span id='SPp2h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>										
+				</TD> 
+				<TD>
+					<input id="p3h3" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'"><span id='SPp3h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>						
+				</TD> 
+				<TD>
+					<input id="p4h3" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'"><span id='SPp4h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>						
+				</TD> 
+				<TD>
+					<input id="p5h3" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'"><span id='SPp5h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>					
+				</TD>
 		</TR>	
 		<TR>
 			<TD class="holes">4</TD> <TD class="holes">4</TD> <TD class="holes">5</TD> 
@@ -160,44 +274,7 @@
 			<TD align=center colspan=8 style="background:black; color:yellow; height:30px;"><i>? slider input here</i></TD>
 		</TR>	
 	
-		<!-- Player NAMES & HC input: -->
-		<TR style="display:inline block;">	<!-- display:none; | visibility:collapse; -->
-			<TD  align=center colspan=3 class="">Player</TD> 
-			<TD align=center>
-				<input id="p1NAME" class="name" type="text" maxlength=2 style="" onblur="document.getElementById('p1').innerHTML=document.getElementById('p1NAME').value">	
-			</TD> 
-			<TD align=center>
-				<input id="p2NAME" class="name" type="text" maxlength=2 style="" onblur="document.getElementById('p2').innerHTML=document.getElementById('p2NAME').value">				
-			</TD> 
-			<TD align=center>
-				<input id="p3NAME" class="name" type="text" maxlength=2 style="" onblur="document.getElementById('p3').innerHTML=document.getElementById('p3NAME').value">				
-			</TD> 
-			<TD align=center>
-				<input id="p4NAME" class="name" type="text" maxlength=2 style="" onblur="document.getElementById('p4').innerHTML=document.getElementById('p4NAME').value">				
-			</TD> 
-			<TD align=center>
-				<input id="p5NAME" class="name" type="text" maxlength=2 style=""
-				 onblur="document.getElementById('p5').innerHTML=document.getElementById('p5NAME').value">				
-			</TD>
-		</TR>
-		<TR style="visibility:visible;">
-			<TD  align=center colspan=3 class="">cHC</TD> 
-			<TD align=center>
-				<input id="p1HC" class="name" type="tel" maxlength=2 style="">				
-			</TD> 
-			<TD align=center>
-				<input id="p2HC" class="name" type="tel" maxlength=2 style="">				
-			</TD> 
-			<TD align=center>
-				<input id="p3HC" class="name" type="tel" maxlength=2 style="">				
-			</TD> 
-			<TD align=center>
-				<input id="p4HC" class="name" type="tel" maxlength=2 style="">				
-			</TD> 
-			<TD align=center>
-				<input id="p5HC" class="name" type="tel" maxlength=2 style="">				
-			</TD>
-		</TR>			
+		
 		
 	</TABLE>		
 	
