@@ -17,6 +17,9 @@
 	  border: 1px solid black;
 	  border-collapse: collapse;
 	}
+	/* table tfoot { position:sticky; } */
+	table thead { display:block; }
+	/* table tbody { height:330px; overflow-y:scroll; display:block; } */    /* height:300px; */
 	
 	/*table { width:100%; font-size:2em; }*/     /*  zoom:200%; */
 	
@@ -86,7 +89,14 @@
 		}
 		else {
 			document.getElementById('PLAYERedit').style.display="none"; //hides the row!
-			document.getElementById('HCedit').style.display="none"; //hides the row!			
+			document.getElementById('HCedit').style.display="none"; //hides the row!	
+			if ( document.getElementById('p5').innerHTML=="-" )  {
+				document.getElementById('p5h1').style.background='gray'; 
+				document.getElementById('td5.2').style.background='gray'; 
+				document.getElementById('td5.3').style.background='gray';
+					document.getElementById('p5h3').style.background='gray'; 	
+				
+			} 		
 		}
 	}	
 </script>
@@ -96,6 +106,7 @@
 <body>
 	
 	<TABLE border=1>
+		<!--<tbody>-->
 		<TR>
 			<TD colspan=1 style="background:black; color:white;"></TD>
 			<TD colspan=4 style="background:blue; color:white;" align=center><i>menu items</i></TD>
@@ -206,7 +217,7 @@
 				<TD>
 					<input id="p4h2" type="tel" maxlength=1 style=""><span id='SPp4h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>										
 				</TD> 
-				<TD>
+				<TD id="td5.2">
 					<input id="p5h2" type="tel" maxlength=1 style=""><span id='SPp5h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>										
 				</TD>
 		</TR>
@@ -227,7 +238,7 @@
 				<TD>
 					<input id="p4h3" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'"><span id='SPp4h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>						
 				</TD> 
-				<TD>
+				<TD id="td5.3">
 					<input id="p5h3" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'"><span id='SPp5h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>					
 				</TD>
 		</TR>	
@@ -285,14 +296,17 @@
 		<TR>
 			<TD colspan=8 style="background:green; height:10px;"></TD>
 		</TR>
+		<!--</tbody>-->
+		
+		<!--<tfoot>-->
 		<TR style="background:black; color:white; text-align:center;">
 			<!--<TD align=center colspan=8 style="background:black; color:yellow; height:30px;"><i>? slider input here</i></TD>-->
-			<TD style="border:1px solid silver;"></TD> <TD style="border:1px solid silver;">0</TD> <TD style="border:1px solid silver;">1</TD> <TD style="border:1px solid silver;">2</TD> <TD style="border:1px solid silver;">3</TD> <TD style="border:1px solid silver;">4</TD> <TD></TD> <TD></TD>
+			<TH style="border:1px solid silver;"></TH> <TD style="border:1px solid silver;">0</TD> <TD style="border:1px solid silver;">1</TD> <TD style="border:1px solid silver;">2</TD> <TD style="border:1px solid silver;">3</TD> <TD style="border:1px solid silver;">4</TD> <TD></TD> <TD></TD>
 		</TR>	
 		<TR style="background:black; color:white; text-align:center;">
 			<TD style="border:1px solid silver;">-</TD> <TD style="border:1px solid silver;">5</TD> <TD style="border:1px solid silver;">6</TD> <TD style="border:1px solid silver;">7</TD> <TD style="border:1px solid silver;">8</TD> <TD style="border:1px solid silver;">9</TD> <TD></TD> <TD></TD>
 		</TR>			
-	
+		<!--</tfoot>-->
 		
 		
 	</TABLE>		
