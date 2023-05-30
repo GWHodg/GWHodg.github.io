@@ -23,10 +23,14 @@
 	th { background:black; color:white; }
 	
 	td.holes { background:silver; text-align:center;}
+
 	input { /*font-size:18px;*/ border:none; font-size:1em; width:20px; } /* border:none | border-color:transparent */
 	span { color:gray; vertical-align:sub; font-size:0.5em; } /* font-size:13px;  */
+	/* label { border:none; font-size:1em; width:20px; } */
 	
-	div {
+	input.name { border:dotted; font-size:0.5em; width:25px; }
+	
+	div.mnu {	/* menu icon */
 		width:35px;
 		height:5px;
 		background-color:white;
@@ -34,6 +38,13 @@
 	}
 	
 </style>
+
+<script>
+	function PLAYERentry() {
+		alert("Will enter PLAYERS & HANDICAPS here . . .");
+		document.getElementById('p1').innerHTML = "wH";
+	}
+</script>
 
 </head>
 
@@ -43,18 +54,20 @@
 		<TR>
 			<TD colspan=1 style="background:black; color:white;"></TD>
 			<TD colspan=4 style="background:blue; color:white;" align=center><i>menu items</i></TD>
-			<TD colspan=3 style="background:black; color:white;">
-				<div></div>
-				<div></div>
-				<div></div>
+			<TD colspan=1 style="background:black; color:white;"></TD>
+			<TD colspan=1 style="background:black; color:white;" onclick="PLAYERentry()">
+				<div class="mnu"></div>
+				<div class="mnu"></div>
+				<div class="mnu"></div>
 			</TD>
+			<TD colspan=1 style="background:black; color:white;"></TD>
 		</TR>
 		<TR>
-			<TD colspan=3 style="background:darkgreen; color:dodgerblue;">May 30</TD> <TD colspan=5 style="background:darkgreen; color:skyblue;" align=center><b>Front</b>/<i>Back</i></TD> 
+			<TD colspan=3 style="background:darkgreen; color:dodgerblue;">05-30-b</TD> <TD colspan=5 style="background:darkgreen; color:skyblue;" align=center><b>Front</b>/<i>Back</i></TD> 
 		</TR>
 		
 		<TR>
-			<TH>H</TH> <TH>P</TH> <TH>HC</TH> <TH>P1</TH> <TH>P2</TH> <TH>P3</TH> <TH>P4</TH> <TH>P5</TH> 
+			<TH>H</TH> <TH>P</TH> <TH>HC</TH> <TH id="p1">P1</TH> <TH id="p2">P2</TH> <TH id="p3">P3</TH> <TH id="p4">P4</TH> <TH id="p5">P5</TH> 
 		<TR>
 			
 		<TR>
@@ -65,18 +78,45 @@
 				<TD>
 					<input id="p2h1" type="tel" maxlength=1 style=""><span id='SPp2h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">3</span>
 				</TD> 
-				<TD></TD> <TD></TD> <TD></TD>
+				<TD>
+					<input id="p3h1" type="tel" maxlength=1 style=""><span id='SPp3h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>					
+				</TD> 
+				<TD>
+					<input id="p4h1" type="tel" maxlength=1 style=""><span id='SPp4h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>					
+				</TD> 
+				<TD>
+					<input id="p5h1" type="tel" maxlength=1 style=""><span id='SPp5h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>					
+				</TD>
 		</TR>
 		<TR>
 			<TD class="holes">2</TD> <TD class="holes">3</TD> <TD class="holes">17</TD> 
 				<TD>
-					<input id="p1h2" type="tel" maxlength=1 style=""><span id='SPp1h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;"> </span>					
+					<input id="p1h2" type="tel" maxlength=1 style=""><span id='SPp1h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>					
 				</TD> 
-				<TD></TD> <TD></TD> <TD></TD> <TD></TD>
+				<TD>
+					<input id="p2h2" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'"><span id='SPp2h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>										
+				</TD> 
+				<TD>
+					<input id="p3h2" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'"><span id='SPp3h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>										
+				</TD> 
+				<TD>
+					<input id="p4h2" type="tel" maxlength=1 style=""><span id='SPp4h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>										
+				</TD> 
+				<TD>
+					<input id="p5h2" type="tel" maxlength=1 style=""><span id='SPp5h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>										
+				</TD>
 		</TR>
 		<TR>
 			<TD class="holes">3</TD> <TD class="holes">4</TD> <TD class="holes">1</TD> 
-				<TD></TD> <TD></TD> <TD></TD> <TD></TD> <TD></TD>
+				<TD style="font-size:3em;" align=center>
+					5
+					<!--<label id="p1h3" type="tel" maxlength=1 style="">-->
+					<span id='SPp1h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;  font-size:0.2em;">0</span>					
+				</TD> 
+				<TD></TD> 
+				<TD></TD> 
+				<TD></TD> 
+				<TD></TD>
 		</TR>	
 		<TR>
 			<TD class="holes">4</TD> <TD class="holes">4</TD> <TD class="holes">5</TD> 
@@ -118,7 +158,46 @@
 		</TR>
 		<TR>
 			<TD align=center colspan=8 style="background:black; color:yellow; height:30px;"><i>? slider input here</i></TD>
-		</TR>		
+		</TR>	
+	
+		<!-- Player NAMES & HC input: -->
+		<TR style="display:inline block;">	<!-- display:none; | visibility:collapse; -->
+			<TD  align=center colspan=3 class="">Player</TD> 
+			<TD align=center>
+				<input id="p1NAME" class="name" type="text" maxlength=2 style="" onblur="document.getElementById('p1').innerHTML=document.getElementById('p1NAME').value">	
+			</TD> 
+			<TD align=center>
+				<input id="p2NAME" class="name" type="text" maxlength=2 style="" onblur="document.getElementById('p2').innerHTML=document.getElementById('p2NAME').value">				
+			</TD> 
+			<TD align=center>
+				<input id="p3NAME" class="name" type="text" maxlength=2 style="" onblur="document.getElementById('p3').innerHTML=document.getElementById('p3NAME').value">				
+			</TD> 
+			<TD align=center>
+				<input id="p4NAME" class="name" type="text" maxlength=2 style="" onblur="document.getElementById('p4').innerHTML=document.getElementById('p4NAME').value">				
+			</TD> 
+			<TD align=center>
+				<input id="p5NAME" class="name" type="text" maxlength=2 style=""
+				 onblur="document.getElementById('p5').innerHTML=document.getElementById('p5NAME').value">				
+			</TD>
+		</TR>
+		<TR style="visibility:visible;">
+			<TD  align=center colspan=3 class="">cHC</TD> 
+			<TD align=center>
+				<input id="p1HC" class="name" type="tel" maxlength=2 style="">				
+			</TD> 
+			<TD align=center>
+				<input id="p2HC" class="name" type="tel" maxlength=2 style="">				
+			</TD> 
+			<TD align=center>
+				<input id="p3HC" class="name" type="tel" maxlength=2 style="">				
+			</TD> 
+			<TD align=center>
+				<input id="p4HC" class="name" type="tel" maxlength=2 style="">				
+			</TD> 
+			<TD align=center>
+				<input id="p5HC" class="name" type="tel" maxlength=2 style="">				
+			</TD>
+		</TR>			
 		
 	</TABLE>		
 	
