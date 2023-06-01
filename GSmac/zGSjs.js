@@ -59,10 +59,23 @@
 				}
 			}
 						
-			alert("Hpts (post-calc) = "+Hpts);
-			document.getElementById('SPp'+p+'h'+h).innerHTML = Hpts;	
+			//alert("Hpts (post-calc) = "+Hpts);
+			
 					//document.getElementById(PTSid).innerHTML = Hpts;	
-					//holePTtots();					
+					//holePTtots();	
+			// z2H1s | SPp2h1:
+			//alert("Hello . . ");
+			localStorage.setItem('zSFp'+p+'h'+h, Hpts);
+			//alert("Hi!");
+			//alert("localStorage 'zSFp"+p+"h"+h+"'  = "+localStorage.getItem('zSFp'+p+'h'+h));
+			
+			alert("POINTS localStorage = "+localStorage.getItem('zSFp'+p+'h'+h));
+	
+			document.getElementById('SPp'+p+'h'+h).innerHTML = Hpts;	
+
+			document.getElementById('SPp5h1').innerHTML = +document.getElementById('SPp5h1').innerHTML + +Hpts;  
+									/* ^^ * */
+								//+document.getElementById('SPp'+p+'h5').innerHTML +    +Hpts;				
 		}	
 		  
 	}
@@ -83,7 +96,7 @@
 				document.getElementById('p2').innerHTML=localStorage.getItem("z2NAME"); document.getElementById('p2').style.color='red';
 				document.getElementById('p3').innerHTML=localStorage.getItem("z3NAME"); document.getElementById('p3').style.color='lime';
 				document.getElementById('p4').innerHTML=localStorage.getItem("z4NAME"); document.getElementById('p4').style.color='orange';
-				//document.getElementById('p5').innerHTML=localStorage.getItem("z5NAME"); document.getElementById('p5').style.color='orange';				
+				document.getElementById('p5').innerHTML=localStorage.getItem("z5NAME"); document.getElementById('p5').style.color='silver';				
 				
 		document.getElementById("p1HC").value = localStorage.getItem("z1HC");
 			document.getElementById("p2HC").value = localStorage.getItem("z2HC");
@@ -95,10 +108,19 @@
 				document.getElementById("p1h"+h).value = localStorage.getItem("z1H"+h+"s");
 				document.getElementById("p2h"+h).value = localStorage.getItem("z2H"+h+"s");
 				document.getElementById("p3h"+h).value = localStorage.getItem("z3H"+h+"s");
+				document.getElementById("p4h"+h).value = localStorage.getItem("z4H"+h+"s");
 				//document.getElementById("p4h"+h).value = localStorage.getItem("z4H"+h+"s");
 				//document.getElementById("p5h"+h).value = localStorage.getItem("z5H"+h+"s");
 				
-				// z2H1s | SPp2h1
+				// z2H1s | SPp2h1 | 'zSFp'+p+'h'+h:
+				/*document.getElementById("SPp1h"+h).innerHTML = localStorage.getItem('zSFp1h'+h:);
+				document.getElementById("SPp2h"+h).innerHTML = localStorage.getItem('zSFp2h'+h:);
+				document.getElementById("SPp3h"+h).innerHTML = localStorage.getItem('zSFp3h'+h:);*/
+				document.getElementById("SPp1h1").innerHTML = localStorage.getItem('zSFp1h1'); /* <<\/ * */
+				document.getElementById("SPp2h1").innerHTML = localStorage.getItem('zSFp2h1');
+				document.getElementById("SPp3h1").innerHTML = localStorage.getItem('zSFp3h1');
+				document.getElementById("SPp4h1").innerHTML = localStorage.getItem('zSFp4h1');
+				document.getElementById("SPp5h1").innerHTML = localStorage.getItem('zSFp5h1');
 		}			
 		
 		//var VALz1H1s = localStorage.getItem("z1H1s");
