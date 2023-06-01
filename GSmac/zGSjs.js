@@ -73,7 +73,7 @@
 	
 			document.getElementById('SPp'+p+'h'+h).innerHTML = Hpts;	
 
-			document.getElementById('SPp5h1').innerHTML = +document.getElementById('SPp5h1').innerHTML + +Hpts;  
+			//document.getElementById('SPp5h1').innerHTML = +document.getElementById('SPp5h1').innerHTML + +Hpts;  
 									/* ^^ * */
 								//+document.getElementById('SPp'+p+'h5').innerHTML +    +Hpts;				
 		}	
@@ -116,11 +116,19 @@
 				/*document.getElementById("SPp1h"+h).innerHTML = localStorage.getItem('zSFp1h'+h:);
 				document.getElementById("SPp2h"+h).innerHTML = localStorage.getItem('zSFp2h'+h:);
 				document.getElementById("SPp3h"+h).innerHTML = localStorage.getItem('zSFp3h'+h:);*/
-				document.getElementById("SPp1h1").innerHTML = localStorage.getItem('zSFp1h1'); /* <<\/ * */
+				
+				/*
+				document.getElementById("SPp1h1").innerHTML = localStorage.getItem('zSFp1h1'); 
 				document.getElementById("SPp2h1").innerHTML = localStorage.getItem('zSFp2h1');
 				document.getElementById("SPp3h1").innerHTML = localStorage.getItem('zSFp3h1');
 				document.getElementById("SPp4h1").innerHTML = localStorage.getItem('zSFp4h1');
 				document.getElementById("SPp5h1").innerHTML = localStorage.getItem('zSFp5h1');
+				*/
+				document.getElementById("SPp1h"+h).innerHTML = localStorage.getItem('zSFp1h'+h); /* <<\/ * */
+				document.getElementById("SPp2h"+h).innerHTML = localStorage.getItem('zSFp2h'+h);
+				document.getElementById("SPp3h"+h).innerHTML = localStorage.getItem('zSFp3h'+h);
+				document.getElementById("SPp4h"+h).innerHTML = localStorage.getItem('zSFp4h'+h);
+				document.getElementById("SPp5h"+h).innerHTML = localStorage.getItem('zSFp5h'+h);
 		}			
 		
 		//var VALz1H1s = localStorage.getItem("z1H1s");
