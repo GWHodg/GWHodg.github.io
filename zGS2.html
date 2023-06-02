@@ -1,0 +1,395 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>zGS2</title>
+
+<link rel="stylesheet" href="zGScss2.css">
+<script src="zGSjs2.js"></script>
+
+<style>	</style>
+<script> 
+	function p5T() {
+	     alert('p5 name = '+document.getElementById('p5').innerHTML); 
+		 if(document.getElementById('p5').innerHTML=='-' || document.getElementById('p5').innerHTML=='T' ||document.getElementById('p5').innerHTML=='t' || document.getElementById('p5').innerHTML=='p5') {
+				 document.getElementById('p5').innerHTML='T';
+				 /*
+				 document.getElementById('SPp5h1').innerHTML = +document.getElementById('SPp1h1').innerHTML + +document.getElementById('SPp2h1').innerHTML + +document.getElementById('SPp3h1').innerHTML + +document.getElementById('SPp4h1').innerHTML; 
+				*/
+				for (var h = 1; h < 6; h++) {
+					document.getElementById('SPp5h'+h).innerHTML = +document.getElementById('SPp1h'+h).innerHTML + +document.getElementById('SPp2h'+h).innerHTML + +document.getElementById('SPp3h'+h).innerHTML + +document.getElementById('SPp4h'+h).innerHTML;  
+					document.getElementById('p5h'+h).setAttribute('disabled', '');
+				}
+				
+				//document.getElementById('p5h1').setAttribute('disabled', '');
+				 	//document.getElementById('p5h1').style.background = 'slategray';
+		 }
+	}
+	
+	function SHOWpHCs() {
+		alert(localStorage.getItem('z1HC') + " | " + localStorage.getItem('z2HC') + " | " + localStorage.getItem('z3HC') + " | " + localStorage.getItem('z4HC') + " | " + 
+			localStorage.getItem('z5HC') );	
+								//localStorage.setItem('z1HC'
+	}
+	
+</script>
+
+</head>
+
+<body onload="loadFN()">
+	
+	<TABLE border=1>
+		<!--<tbody>-->
+		<TR>
+			<TD colspan=1 style="background:black; color:white;"></TD>
+			<TD colspan=4 style="background:blue; color:white;" align=center><i>VGC</i> <font size=4>blue</font></TD>
+			<TD colspan=1 style="background:black; color:white;"><font size=2 color=silver>zGS2</font></TD>
+			<TD colspan=1 style="background:black; color:white;">	<!--onclick="PLAYERentry()"-->
+				<!-- <div class="mnu"></div> <div class="mnu"></div> <div class="mnu"></div> -->
+			</TD>
+			<TD colspan=1 style="background:black; color:white;">
+					<div class="dropup" style="cursor:pointer; color:black; background:green; /*position:relative; left:18%;*/">
+						  <button class="dropbtn" id='menuBTN' onclick="showMENU('tipMENU')" style="background:white;">
+						  	  	<span style="font-size:30px;cursor:pointer; color:blue;" 
+								onclick="">&#9776;</span>
+						  </button>
+						  <div class="dropup-content" style="border:3px solid red; border-radius:10px;"
+						  id="menuCONTENT">		
+									<span style="float:right; text-align:right; padding-right: 5px;">
+										<button id="OKbtn" onclick="hideMENU()" style="FONT-WEIGHT: bold; 
+										FONT-SIZE:15px; COLOR:black">close</button>
+									</span>	<br>		
+								<a> </a>
+								<a> </a>										
+								<button id='EDITbtn' onclick="editPLAYERS()" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">Edit Players +/-</button><br>
+								<br>
+								<button id='SLIDERbtn' onclick="displaySLIDER()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:white; background:blue; border:3px solid black; border-radius:10px; opacity:100%;">Slider Input +/-</button> <br>
+								<!--<br>-->
+								<div style="border:2px inset black; border-radius:0px; background:beige; width:90%; margin:auto;">
+									<button id='REPLACEbtn' onclick="replace()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">insert SAVED scores</button>
+									<br>
+									<button id='CLEARbtn' onclick="clearSAVED()" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><s>CLEAR 'saved' scores</s></button><br>
+								</div>
+						  </div>
+					</div>
+			</TD>
+		</TR>
+		<TR>
+			<TD colspan=3 style="background:darkgreen; color:skyblue;" align=center><font size=4>06-01-a</font></TD> <TD colspan=5 style="background:darkgreen; color:skyblue;" align=center>
+				<!--<b>Front</b>/<i>Back</i>-->
+				<button id='FRONTbtn' onclick="front9()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:white; background:black; border:2px solid orange; border-radius:10px; cursor:pointer;">FRONT</button>
+				<button id='BACKbtn' onclick="back9()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:white; background:black; border:2px solid orange; border-radius:10px; cursor:pointer;">BACK</button>
+			</TD> 
+		</TR>
+		
+		<TR>
+			<TH>H</TH> <TH>P</TH> <TH>HC</TH> <TH id="p1" onclick="SHOWpHCs()">p1</TH> <TH id="p2">p2</TH> <TH id="p3">p3</TH> <TH id="p4">p4</TH> 
+			<TH id="p5" style="color:silver;" onclick="p5T()">p5</TH> 
+					<!-- onclick="alert('p5 name = '+this.innerHTML); 
+						 if(this.innerHTML=='-') {
+							 this.innerHTML='T';
+							 document.getElementById('SPp5h1').innerHTML = +document.getElementById('SPp1h1').innerHTML + +document.getElementById('SPp2h1').innerHTML;  
+							 document.getElementById('p5h1').setAttribute('disabled', '');
+							 	//document.getElementById('p5h1').style.background = 'slategray';
+							};" -->
+		<TR>
+
+		<!-- Player NAMES & HC input: -->
+		<TR id="PLAYERedit" style="display:none;">	<!-- display:none; display:inline block;  |  visibility:collapse; -->
+			<TD  align=center colspan=3 class="">Player</TD> 
+			<TD align=center>
+				<input id="p1NAME" class="name" onchange="localStorage.setItem('z1NAME',this.value);" type="text" maxlength=2 style="" onblur="document.getElementById('p1').innerHTML=document.getElementById('p1NAME').value; document.getElementById('p1').style.color='yellow'">	
+			</TD> 
+			<TD align=center>
+				<input id="p2NAME" class="name" onchange="localStorage.setItem('z2NAME',this.value);" type="text" maxlength=2 style="" onblur="document.getElementById('p2').innerHTML=document.getElementById('p2NAME').value; document.getElementById('p2').style.color='red'">				
+			</TD> 
+			<TD align=center>
+				<input id="p3NAME" class="name" onchange="localStorage.setItem('z3NAME',this.value);" type="text" maxlength=2 style="" onblur="document.getElementById('p3').innerHTML=document.getElementById('p3NAME').value; document.getElementById('p3').style.color='lime'">				
+			</TD> 
+			<TD align=center>
+				<input id="p4NAME" class="name" onchange="localStorage.setItem('z4NAME',this.value);" type="text" maxlength=2 style="" onblur="document.getElementById('p4').innerHTML=document.getElementById('p4NAME').value; document.getElementById('p4').style.color='orange'">				
+			</TD> 
+			<TD align=center>
+				<input id="p5NAME" class="name" onchange="localStorage.setItem('z5NAME',this.value);" type="text" maxlength=2 style=""
+				 onblur="document.getElementById('p5').innerHTML=document.getElementById('p5NAME').value">				
+			</TD>
+		</TR>
+		<TR id="HCedit" style="display:none;">     <!-- display:inline block; | visibility:visible; -->
+			<TD  align=center colspan=3 class="">cHC</TD> 
+			<TD align=center>
+				<input id="p1HC" class="name" type="tel" maxlength=2 onchange="localStorage.setItem('z1HC',this.value);">				
+			</TD> 
+						<!--  onblur="document.getElementById('p1').innerHTML=localStorage.getItem('z1NAME') + ' ' +  localStorage.getItem('z1HC');" -->
+			<TD align=center>
+				<input id="p2HC" class="name" type="tel" maxlength=2 onchange="localStorage.setItem('z2HC',this.value);" >				
+			</TD> 
+			<TD align=center>
+				<input id="p3HC" class="name" type="tel" maxlength=2 onchange="localStorage.setItem('z3HC',this.value);" >				
+			</TD> 
+			<TD align=center>
+				<input id="p4HC" class="name" type="tel" maxlength=2 onchange="localStorage.setItem('z4HC',this.value);" >				
+			</TD> 
+			<TD align=center>
+				<input id="p5HC" class="name" type="tel" maxlength=2 onchange="localStorage.setItem('z5HC',this.value);" >				
+			</TD>
+		</TR>			
+			
+		<TR>
+			<TD style="background:silver; text-align:center;">1</TD> 
+				<TD id="PARh1" class="holes">5</TD> <TD id="HCPh1" class="holes">13</TD> 
+				<TD>
+					<input id="p1h1" type="tel" maxlength=1 style="" onblur="calcSF(this.value,1,1); this.style.background='white'" onfocus="this.style.background='dodgerblue'"  onchange="localStorage.setItem('z1H1s',this.value);" ><span id='SPp1h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>
+				</TD> 
+				<TD>
+					<input id="p2h1" type="tel" maxlength=1 style="" onblur="calcSF(this.value,2,1); this.style.background='white'" onfocus="this.style.background='dodgerblue'"  onchange="localStorage.setItem('z2H1s',this.value);" ><span id='SPp2h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>
+				</TD> 
+				<TD>
+					<input id="p3h1" type="tel" maxlength=1 style="" onblur="calcSF(this.value,3,1); this.style.background='white'" onfocus="this.style.background='dodgerblue'"  onchange="localStorage.setItem('z3H1s',this.value);" ><span id='SPp3h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>					
+				</TD> 
+				<TD>
+					<input id="p4h1" type="tel" maxlength=1 style="" onblur="calcSF(this.value,4,1); this.style.background='white'" onfocus="this.style.background='dodgerblue'"  onchange="localStorage.setItem('z4H1s',this.value);"><span id='SPp4h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>					
+				</TD> 
+				<TD class="p5TD">
+					<input id="p5h1" type="tel" maxlength=1 style="" onblur="calcSF(this.value,5,1); this.style.background='white'" onfocus="this.style.background='dodgerblue'" onchange="localStorage.setItem('z5H1s',this.value);"><span id='SPp5h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>					
+				</TD>
+				<!--
+				<td>
+					<script>
+						//alert("SPp1h1 = "+document.getElementById('SPp1h1').innerHTML);
+						//document.getElementById('SPp1h1').innerHTML + document.getElementById('SPp2h1').innerHTML; 
+						//2 + 3;
+					</script>
+				</td>
+				-->
+		</TR>
+		<TR>
+			<TD class="holes">2</TD> 
+				<TD id="PARh2" class="holes">3</TD> <TD id="HCPh2" class="holes">17</TD> 
+				<TD>
+					<input id="p1h2" type="tel" maxlength=1 style="" onblur="calcSF(this.value,1,2); this.style.background='white'" onfocus="this.style.background='dodgerblue'"  onchange="localStorage.setItem('z1H2s',this.value);" ><span id='SPp1h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>					
+				</TD> 
+				<TD>
+					<input id="p2h2" type="tel" maxlength=1 style="" onchange="localStorage.setItem('z2H2s',this.value);" onblur="calcSF(this.value,2,2); this.style.background='white'" onfocus="this.style.background='dodgerblue'"><span id='SPp2h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>										
+				</TD> 
+				<TD>
+					<input id="p3h2" type="tel" maxlength=1 style="" onchange="localStorage.setItem('z3H2s',this.value);" onfocus="this.style.background='dodgerblue'"  onblur="calcSF(this.value,3,2); this.style.background='white'" ><span id='SPp3h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>										
+				</TD> 
+				<TD>
+					<input id="p4h2" type="tel" maxlength=1 style="" onchange="localStorage.setItem('z4H2s',this.value);" onfocus="this.style.background='dodgerblue'"  onblur="calcSF(this.value,4,2); this.style.background='white'" ><span id='SPp4h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>										
+				</TD> 
+				<TD id="td5.2" class="p5TD">
+					<input id="p5h2" type="tel" maxlength=1 style="" onchange="localStorage.setItem('z5H2s',this.value);" onfocus="this.style.background='dodgerblue'"  onblur="calcSF(this.value,5,2); this.style.background='white'" ><span id='SPp5h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>	
+				</TD>
+				<!--<td>5</td>-->
+		</TR>
+		<TR>
+			<TD class="holes">3</TD> 
+				<TD id="PARh3" class="holes">4</TD> <TD id="HCPh3" class="holes">1</TD> 
+				<TD style="font-size:1em;" align=center>
+					<input id="p1h3" type="tel" maxlength=1 style="" 
+						onchange="localStorage.setItem('z1H3s',this.value);" 
+						onfocus="this.style.background='dodgerblue'" 
+						onblur="calcSF(this.value,1,3); this.style.background='white'"><span id='SPp1h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>										
+					<!--5-->
+					<!--<label id="p1h3" type="tel" maxlength=1 style="">-->
+					<!--<span id='SPp1h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;  font-size:0.5em;">0</span>-->
+				</TD> 
+				<TD>
+					<input id="p2h3" type="tel" maxlength=1 style=""  onchange="localStorage.setItem('z2H3s',this.value);"  onfocus="this.style.background='dodgerblue'" onblur="calcSF(this.value,2,3); this.style.background='white'"><span id='SPp2h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>										
+				</TD> 
+				<TD>
+					<input id="p3h3" type="tel" maxlength=1 style=""  onchange="localStorage.setItem('z3H3s',this.value);" onfocus="this.style.background='dodgerblue'" onblur="calcSF(this.value,3,3); this.style.background='white'"><span id='SPp3h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>						
+				</TD> 
+				<TD>
+					<input id="p4h3" type="tel" maxlength=1 style=""  onchange="localStorage.setItem('z4H3s',this.value);"  onfocus="this.style.background='dodgerblue'" onblur="calcSF(this.value,4,3); this.style.background='white'"><span id='SPp4h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>						
+				</TD> 
+				<TD id="td5.3" class="p5TD">
+					<input id="p5h3" type="tel" maxlength=1 style=""  onchange="localStorage.setItem('z5H3s',this.value);"  onfocus="this.style.background='dodgerblue'" onblur="calcSF(this.value,5,3); this.style.background='white'"><span id='SPp5h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>					
+				</TD>
+				<!--<td>3</td>-->
+		</TR>	
+		<TR>
+			<TD class="holes">4</TD> 
+			<TD id="PARh4"  class="holes">4</TD> 
+			<TD id="HCPh4"  class="holes">5</TD> 
+			<TD>
+				<input id="p1h4" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,1,4);" onchange="localStorage.setItem('z1H4s',this.value);"><span id='SPp1h4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>				
+			</TD> 
+			<TD>
+				<input id="p2h4" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,2,4);" onchange="localStorage.setItem('z2H4s',this.value);"><span id='SPp2h4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>				
+			</TD> 
+			<TD>
+				<input id="p3h4" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,3,4);" onchange="localStorage.setItem('z3H4s',this.value);"><span id='SPp3h4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>				
+			</TD> 
+			<TD>
+				<input id="p4h4" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,4,4);" onchange="localStorage.setItem('z4H4s',this.value);"><span id='SPp4h4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>				
+			</TD> 
+			<TD class="p5TD">
+				<input id="p5h4" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,5,4);" onchange="localStorage.setItem('z5H4s',this.value);"><span id='SPp5h4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>				
+			</TD>
+		</TR>
+		<TR>
+			<TD class="holes">5</TD> 
+				<TD id="PARh5" class="holes">4</TD> <TD id="HCPh5" class="holes">7</TD> 
+				<TD>
+				<input id="p1h5" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,1,5);" onchange="localStorage.setItem('z1H5s',this.value);"><span id='SPp1h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>					
+				</TD> 
+			<TD>
+				<input id="p2h5" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,2,5);" onchange="localStorage.setItem('z2H5s',this.value);"><span id='SPp2h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>				
+			</TD> 
+			<TD>
+				<input id="p3h5" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,3,5);" onchange="localStorage.setItem('z3H5s',this.value);"><span id='SPp3h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>				
+			</TD> 
+			<TD>
+				<input id="p4h5" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,4,5);" onchange="localStorage.setItem('z4H5s',this.value);"><span id='SPp4h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>				
+			</TD> 
+			<TD class="p5TD">
+				<input id="p5h5" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,5,5);" onchange="localStorage.setItem('z5H5s',this.value);"><span id='SPp5h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>				
+			</TD>
+		</TR>
+		<TR>
+			<TD class="holes">6</TD> <TD class="holes">4</TD> <TD class="holes">11</TD> 
+			<TD>
+				<input id="p1h6" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'"><span id='SPp1h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>				
+			</TD> 
+			<TD>
+				<input id="p2h6" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'"><span id='SPp2h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>				
+			</TD> 
+			<TD>
+				<input id="p3h6" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'"><span id='SPp3h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>				
+			</TD> 
+			<TD>
+				<input id="p4h6" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'"><span id='SPp4h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>				
+			</TD> 
+			<TD class="p5TD">
+				<input id="p5h6" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'"><span id='SPp5h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>				
+			</TD>
+		</TR>		
+		<TR>
+			<TD class="holes">7</TD> <TD class="holes">4</TD> <TD class="holes">3</TD> 
+				<TD>
+					<input id="p1h7" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'"><span id='SPp1h7' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>									
+				</TD> 
+				<TD></TD> <TD></TD> <TD></TD> <TD class="p5TD"></TD>
+		</TR>	
+		<TR>
+			<TD class="holes">8</TD> <TD class="holes">3</TD> <TD class="holes">15</TD> 
+				<TD>
+					<input id="p1h8" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'"><span id='SPp1h8' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>									
+				</TD> 
+				<TD></TD> <TD></TD> <TD></TD> <TD class="p5TD"></TD>
+		</TR>	
+		<TR>
+			<TD class="holes">9</TD> <TD class="holes">3</TD> <TD class="holes">9</TD> 
+				<TD>
+					<input id="p1h9" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'"><span id='SPp1h9' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>									
+				</TD> 
+				<TD></TD> <TD></TD> <TD></TD> <TD class="p5TD"></TD>
+		</TR>		
+
+		
+		
+		<!-- BACK 9: -->
+		<TR id="backNINE1" style="display:none;">	
+			<!-- display:none; display:inline block;  |  visibility:collapse; -->
+			<TD class="b9">10</TD> <TD class="b9">4</TD> <TD class="b9">6</TD> 
+				<TD>
+					<input id="p1h10" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'"><span id='SPp1h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>									
+				</TD> 
+				<TD></TD> <TD></TD> <TD></TD> <TD></TD>
+		</TR>
+		<TR id="backNINE2" style="display:none;">	
+			<!-- display:none; display:inline block;  |  visibility:collapse; -->
+			<TD class="b9">11</TD> <TD class="b9">4</TD> <TD class="b9">2</TD> 
+				<TD>
+					<input id="p1h11" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'"><span id='SPp1h11' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>									
+				</TD> 
+				<TD></TD> <TD></TD> <TD></TD> <TD></TD>
+		</TR>		
+	
+		
+			
+
+		<TR id="SLIDERinput" style="display:none;">	<!-- display:none; display:inline block;  |  visibility:collapse; -->
+			<TD colspan=8>
+				<!-- ########################################################################################### -->
+				<!-- ################################### SLIDER PAGE ########################################### -->	
+				
+					<div class="SLIDERdiv" style="" id='SLIDER'> <!--style="zoom:200%;"--> 
+				  		<!--Strokes:--> <span id="demo" class="sliderVAL"></span>&emsp;
+						<input type="range" min="0" max="9" value="0" class="slider" id="myRange" style="width:200px;"><!--&emsp;-->
+						<br><!--<br>-->
+							<!--<a onclick=" hideSLIDE()" style="float:right; cursor:pointer; font-size:30px;"><b>&times;</b></a>-->
+						<!--&emsp;-->
+						<input type="text" id="p&h" style="background:blue; color:white; width:60px; border:2px solid green; border-radius:10px; font-size:20px; 
+						padding:2px;"  placeholder="">
+						&emsp;
+						<button id='ENTERbtn' onclick="EnterInput()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:white; background:black; border:3px solid orange; border-radius:10px; cursor:pointer;">Enter</button>					
+						<br>					
+						
+						<span style="position:relative; left:-100px;"><script type="text/javascript" src="//rf.revolvermaps.com/0/0/3.js?i=5zm8eoty1bs&amp;b=0&amp;s=40&amp;m=2&amp;cl=ffffff&amp;co=010020&amp;cd=aa0000&amp;v0=60&amp;v1=60&amp;r=1" async="async"></script>
+						</span>
+						
+						<span id='check' class='gTOT' style="position:relative;  font-size:20px; visibility:hidden;"><b>√</b></span>
+															<!-- left:20%; -->
+						<button id='+btn' onclick="NextInput()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:blue; background:ivory; border:1px solid blue; border-radius:0px; position:relative; left:30%; cursor:pointer;">+</button>
+						&emsp;
+						<button id='-btn' onclick="PrevInput()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:blue; background:ivory; border:1px solid blue; border-radius:0px; position:relative; left:30%; cursor:pointer;">-</button>
+					</div>	
+				<script>
+					//SLIDER stuff:
+					var slider = document.getElementById("myRange");
+					var output = document.getElementById("demo");
+					output.innerHTML = slider.value;	
+					slider.oninput = function() {
+					  output.innerHTML = this.value;
+				  }	
+				</script>		
+				
+				
+				<!-- ################################### ^ SLIDER PAGE ^ ########################################### -->
+				<!-- ############################################################################################### -->
+				
+				
+			
+			</TD>
+		
+		</TR>
+			
+			
+		<TR>
+			<TH>F</TH> <TH>34</TH> <TH></TH> <TH>0</TH> <TH>0</TH> <TH>0</TH> <TH>0</TH> <TH>0</TH> 
+		<TR>
+		<TR>
+			<TH>T</TH> <TH>70</TH> <TH></TH> <TH>0</TH> <TH>0</TH> <TH>0</TH> <TH>0</TH> <TH>0</TH> 
+		<TR>
+		<TR>
+			<TH>P</TH> <TH></TH> <TH></TH> <TH>0</TH> <TH>0</TH> <TH>0</TH> <TH>0</TH> <TH>0</TH> 
+		<TR>
+
+		<TR>
+			<TD colspan=8 style="background:green; height:10px;"></TD>
+		</TR>
+		<!--</tbody>-->
+		
+		<!--<tfoot>-->
+		<TR style="background:black; color:white; text-align:center;">
+			<!--<TD align=center colspan=8 style="background:black; color:yellow; height:30px;"><i>? slider input here</i></TD>-->
+			<TH style="border:1px solid silver;"></TH> <TD style="border:1px solid silver;">0</TD> <TD style="border:1px solid silver;">1</TD> <TD style="border:1px solid silver;">2</TD> <TD style="border:1px solid silver;">3</TD> <TD style="border:1px solid silver;">4</TD> 
+			<TD rowspan=2 colspan=2> 
+				<!--<script type="text/javascript" src="//rf.revolvermaps.com/0/0/3.js?i=5zm8eoty1bs&amp;b=0&amp;s=40&amp;m=2&amp;cl=ffffff&amp;co=010020&amp;cd=aa0000&amp;v0=60&amp;v1=60&amp;r=1" async="async"></script>-->
+				<!--<a href="https://www.revolvermaps.com/livestats/56o6a4aupjl/"><img src="//rf.revolvermaps.com/w/3/s/a/0/40/2/ffffff/010020/aa0000/56o6a4aupjl.png" alt="Stats" style="border:0;"></a>-->
+			</TD> <!--<TD></TD>-->
+		</TR>	
+		<TR style="background:black; color:white; text-align:center;">
+			<TD style="border:1px solid silver;">-</TD> <TD style="border:1px solid silver;">5</TD> <TD style="border:1px solid silver;">6</TD> <TD style="border:1px solid silver;">7</TD> <TD style="border:1px solid silver;">8</TD> <TD style="border:1px solid silver;">9</TD> 
+			<!--<TD></TD> <TD></TD>-->
+		</TR>			
+		<!--</tfoot>-->
+		
+		
+		
+	</TABLE>		
+	
+</body>
+</html>

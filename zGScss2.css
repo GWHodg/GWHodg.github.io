@@ -1,0 +1,61 @@
+	
+	body { 
+		background-color: white; 
+		zoom: 250%;
+		font-size:2em;
+				  /* document.getElementById("ZOOMbtn").innerText = "ZOOM -"; */
+	} 		
+
+	table, th, td {
+	  border: 1px solid black;
+	  border-collapse: collapse;
+	}
+	/* table tfoot { position:sticky; } */
+	table thead { display:block; }
+	/* table tbody { height:330px; overflow-y:scroll; display:block; } */    /* height:300px; */
+	
+	/*table { width:100%; font-size:2em; }*/     /*  zoom:200%; */
+	
+	th { background:black; color:white; }
+	
+	td.holes { background:silver; text-align:center; }
+	td.b9 { background:gray; color:white; text-align:center; }
+	td.p5TD { background:silver; border-left-width:3px; }
+	
+	input { /*font-size:18px;*/ border:none; font-size:1em; width:20px; } /* border:none | border-color:transparent */
+	span { color:gray; vertical-align:sub; font-size:0.5em; } /* font-size:13px;  */
+	/* label { border:none; font-size:1em; width:20px; } */
+	
+	input.name { border:dotted; font-size:0.5em; width:25px; }
+	
+	div.mnu {	/* menu icon */
+		width:35px;
+		height:5px;
+		background-color:white;
+		margin:6px 0;
+	}
+
+		/* dropUP menu: */
+			.dropbtn { 
+				/* position:absolute; left:30px; */
+				margin-left: 0px;	/*125px;*/
+				border-radius:10px; cursor:grabbing; background:orange; color:black;
+				BORDER-RIGHT: outset; BORDER-TOP: outset;  
+				BORDER-LEFT: outset; BORDER-BOTTOM: outset
+			}	
+					  /* background-color: #3498DB; color: white;
+			           padding: 5px; font-size: 16px; border: none; */
+			.dropup { position: relative; display: inline-block; }			
+			.dropup-content { display: none; position:absolute; left:-200px; background-color: #f1f1f1;
+			  			      min-width:200px; bottom:-270px; z-index: 1; }	
+							  /*  bottom: -540px; left:55px;  bottom: 0px;  position: absolute; */	
+			.dropup-content a { color: black; padding: 5px 6px; text-decoration: none; display: block; }	
+										/* padding: 12px 16px;  */
+			.dropup-content a:hover {background-color:green;}	/* #ccc */		
+			.dropup:hover .dropup-content { display: block; }			
+			.dropup:hover .dropbtn { background-color: #2980B9; }
+
+	div.SLIDERdiv {
+		border:3px inset orange; border-radius:5px; width:95%; margin:auto; text-align:center; padding:5px; background:beige;
+	}
+	span.sliderVAL { color:black; background:white; font-size:20px; border:1px solid blue; border-radius:0px; padding:5px; font-weight:bold; }  /* < slider */	
