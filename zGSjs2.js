@@ -1,7 +1,7 @@
 
 	function calcSF(s,p,h) {
-		/* alert("Calculating Stableford points . . .\n"+
-			  "score (s) = "+s+" | player (p) = "+p+" \n hole (h) = "+h); */			  
+		 /*alert("Calculating Stableford points . . .\n"+
+			  "score (s) = "+s+" | player (p) = "+p+" \n hole (h) = "+h);*/
 					// H1/p1:
 					/* UNIVcalc( document.getElementById("p1NAME").value, document.getElementById("p1HC").value, 
 							  document.getElementById("HCPh1").value, document.getElementById("p1h1").value,
@@ -104,7 +104,7 @@
 			document.getElementById("p4HC").value = localStorage.getItem("z4HC");
 			document.getElementById("p5HC").value = localStorage.getItem("z5HC");	
 			
-		for (var h = 1; h < 6; h++) {
+		for (var h = 1; h < 10; h++) {
 				document.getElementById("p1h"+h).value = localStorage.getItem("z1H"+h+"s");
 				document.getElementById("p2h"+h).value = localStorage.getItem("z2H"+h+"s");
 				document.getElementById("p3h"+h).value = localStorage.getItem("z3H"+h+"s");
