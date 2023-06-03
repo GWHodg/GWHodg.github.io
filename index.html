@@ -175,7 +175,7 @@
 <TABLE id="HEADtbl" border=1 align=center style='FONT-SIZE:large; color:maroon; visibility:visible;' bgcolor='ivory'>	
 <TR><TD>
 	<label style="FONT-WEIGHT: bold; FONT-SIZE:25px; COLOR:white; background:royalblue; /*position:relative; left:15%;*/ border:3px solid black; border-radius:10px; opacity:100%; padding:5px;">VGC blue <!--<font size=2 color=silver><i>(GS<b>pxl2c</b>)</i></font>--></label>
-</TD> <TD width=20><font size=1>J1</font></TD>	
+</TD> <TD width=20><font size=1>J3</font></TD>	
 	<!--<span style="font-size:30px;cursor:pointer; color:blue; background:white; position:relative; left:38%;" onclick="openMENU()">&#9776;</span>-->	<!-- position:absolute; LEFT:750px; top:30px;  -->
 <TD>
 					<div class="dropup" style="cursor:pointer; color:black; background:white; /*position:relative; left:18%;*/">
@@ -230,9 +230,15 @@
 								<!--
 								<A  href="SLIDERpage.html" style="color:red; text-shadow:1px 1px white; background:black; cursor:pointer;" title="> GSmac/SLIDERpage.html">&#9873;&emsp;Slider&emsp;&#9873;</A>
 								-->
-								<!--<button id='SLIDEbtn' onclick="showSLIDE()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">Slider Input</button> <br>-->	
-								<!--<br>-->
-								
+								<button id='SLIDEbtn' onclick="showSLIDER()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">Slider Input +/-</button> <br>
+								<br>
+								<div style="border:2px inset black; border-radius:0px; background:beige; width:90%; margin:auto;">
+								<!--FILE:-->
+								<button id='REPLACEbtn'  onclick="showLSwrite()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">WRITE scores to file</button>
+								<br>
+								<button id='CLEARbtn' onclick="showLSread()" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">READ file</button><br>
+								</div>	
+								<br>
 								<!--<button class="CODEBTNclass" id='NOTESbtn' onclick="showNOTES()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><i>coding notes</i></button>-->
 								<button class="ZOOMclass" id='ZOOMbtn' onclick="changeZOOM()" style="display:none;"><i>ZOOM +/-</i></button><!--<br>-->
 								<!--<br>-->
@@ -253,11 +259,16 @@
 	style='FONT-SIZE:large; color:maroon; visibility:visible; zoom:100%;' bgcolor='lightgreen'>
 		<thead> <!--  bgcolor='gray' style="color:white;" -->
 				<th>H</th>
-				<th><input type="text" id="p1NAME" onchange="localStorage.setItem('g1NAME',this.value);" onblur="setHC('p1',this.value)" tabindex="201" style="background:ivory; width:60%; font-weight:bold; font-size:14px;" maxlength=2 value=""></th>	<!-- P1 -->
-				<th><input type="text" id="p2NAME" onchange="localStorage.setItem('g2NAME',this.value);" onblur="setHC('p2',this.value)" tabindex="203" style="background:beige; width:60%;" maxlength=2 value=""></th> <!-- P2 -->
-				<th><input type="text" id="p3NAME" onchange="localStorage.setItem('g3NAME',this.value);" onblur="setHC('p3',this.value)" tabindex="205" style="background:linen; width:60%;" maxlength=2 value=""></th> 
-				<th><input type="text" id="p4NAME" onchange="localStorage.setItem('g4NAME',this.value);" onblur="setHC('p4',this.value)" tabindex="207" style="background:whitesmoke; width:60%; maxlength=2" value=""></th>
-				<th><input type="text" id="p5NAME" onchange="localStorage.setItem('g5NAME',this.value);" onblur="setHC('p5',this.value)" tabindex="209" style="background:snow; width:60%; maxlength=2"></th>	
+				<th><input type="text" id="p1NAME" onchange="localStorage.setItem('g1NAME',this.value);"  tabindex="201" style="background:ivory; width:60%; font-weight:bold; font-size:14px;" maxlength=2 value=""></th>	<!-- P1 -->
+				<th><input type="text" id="p2NAME" onchange="localStorage.setItem('g2NAME',this.value);"  tabindex="203" style="background:beige; width:60%;" maxlength=2 value=""></th> <!-- P2 -->
+				<th><input type="text" id="p3NAME" onchange="localStorage.setItem('g3NAME',this.value);"  tabindex="205" style="background:linen; width:60%;" maxlength=2 value=""></th> 
+				<th><input type="text" id="p4NAME" onchange="localStorage.setItem('g4NAME',this.value);"  tabindex="207" style="background:whitesmoke; width:60%; maxlength=2" value=""></th>
+				<th><input type="text" id="p5NAME" onchange="localStorage.setItem('g5NAME',this.value);"  tabindex="209" style="background:snow; width:60%; maxlength=2"></th>	
+							<!-- <onblur="setHC('p1',this.value)"
+								 onblur="setHC('p2',this.value)"
+								 onblur="setHC('p3',this.value)"
+								 onblur="setHC('p4',this.value)"
+								 onblur="setHC('p5',this.value)" -->
 				<th>H</th>
 				<th>par</th>
 				<th>hcp</th>	
@@ -341,7 +352,9 @@
 					<input type="" id="PARh4" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
-					<input type="" id="HCPh4" style="background:beige;  color:black; width:60%; cursor:help;" placeholder=5 value=5 readonly title="WRITE localStorage to file!" onclick="showLSwrite()"> <!-- onclick="location.href='locStorMAC.html'" title="locStorMAC.html" -->
+					<input type="" id="HCPh4" style="background:white;  color:black; width:60%; cursor:help;" placeholder=5 value=5 readonly> 
+						<!-- title="WRITE localStorage to file!" onclick="showLSwrite()" -->
+						<!-- onclick="location.href='locStorMAC.html'" title="locStorMAC.html" -->
 				</TD>
 				
 			</tr>	
@@ -402,7 +415,8 @@
 				</TD>
 				<TD style='background:white; color:black;'>
 					<!--<input type="" id="HCPh5" style="background:white;  color:black; width:60%;" placeholder=7 value=7 readonly>-->
-					<input type="" id="HCPh8" style="background:beige;  color:black; width:60%; cursor:help;" placeholder=15 value=15 readonly title="READ localStorage from file!" onclick="showLSread()">
+					<input type="" id="HCPh8" style="background:white;  color:black; width:60%; cursor:help;" placeholder=15 value=15 readonly>
+								<!-- title="READ localStorage from file!" onclick="showLSread()" -->
 				</TD>	
 							<!-- onclick="location.href='../JSpwd2.html'" title="JSpwd2.html" -->
 									<!--onclick="alert('You clicked on H8 HC input!');"
@@ -670,7 +684,7 @@
 <!-- ########################################################################################### -->
 <!-- ################################### SLIDER PAGE ########################################### -->	
 
-	<div class="SLIDERdiv" style="" id='SLIDER'> <!--style="zoom:200%;"--> 
+	<div class="SLIDERdiv" style="" id='SLIDER' style="visibility:hidden;"> <!--style="zoom:200%;"--> 
   		<!--Strokes:--> <span id="demo" class="sliderVAL"></span>&emsp;
 		<input type="range" min="0" max="9" value="0" class="slider" id="myRange" style="width:200px;">&emsp;
 		

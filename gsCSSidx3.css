@@ -50,7 +50,7 @@
 	  z-index:100;
   	}	
 	div.SLIDERdiv {
-		border:3px inset orange; border-radius:5px; width:35%; margin:auto; text-align:center; padding:10px; background:beige;
+		border:3px inset orange; border-radius:5px; width:35%; margin:auto; text-align:center; padding:10px; background:beige; visibility:hidden;
 	}
 	div.classLSwrite { position:fixed; left:50px; top:200px; background:pink; padding:10px; border:2px inset gray; border-radius:10px; visibility:hidden; }
 	
@@ -68,8 +68,8 @@
 			           padding: 5px; font-size: 16px; border: none; */
 			.dropup { position: relative; display: inline-block; }			
 			.dropup-content { display: none; position:absolute; left:-100px; background-color: #f1f1f1;
-			  			      min-width:200px; bottom:-580px; z-index: 1; }	
-							  /*  bottom: -540px; left:55px;  bottom: 0px;  position: absolute; */	
+			  			      min-width:200px; bottom:-700px; z-index: 1; }	
+							  /*  bottom: -580px; left:55px;  bottom: 0px;  position: absolute; */	
 			.dropup-content a { color: black; padding: 5px 6px; text-decoration: none; display: block; }	
 										/* padding: 12px 16px;  */
 			.dropup-content a:hover {background-color:green;}	/* #ccc */		

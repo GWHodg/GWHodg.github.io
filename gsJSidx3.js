@@ -912,7 +912,18 @@
 			document.getElementById("focusIPT").style.color = "maroon";
 			document.getElementById("focusIPT").value = "GSmac3x"; 		//GLOBALinput;
 	}	
-	
+
+	function showSLIDER() {
+		if (document.getElementById("SLIDER").style.visibility=="hidden") {	
+			document.getElementById("SLIDER").style.visibility="visible";
+			document.getElementById("TBLbody").style.height = "430px";	//300px';
+			document.getElementById("FULLbtn").innerText = "+";
+			document.getElementById("FULLbtn2").innerText = "+";	
+		}
+		else {
+			document.getElementById("SLIDER").style.visibility="hidden";
+		}
+	}	
 	function hideSLIDE() {
 		document.getElementById("SLIDER").style.visibility="hidden";
 			document.getElementById("check").style.visibility="hidden";
