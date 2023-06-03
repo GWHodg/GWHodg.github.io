@@ -60,8 +60,8 @@
 										FONT-SIZE:15px; COLOR:black">close</button>
 									</span>	<br>		
 								<a> </a>
-								<a> </a>										
-								<button id='EDITbtn' onclick="editPLAYERS()" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">Edit Players +/-</button><br>
+								<!--<a> </a>-->
+								<button id='EDITbtn' onclick="editPLAYERS()" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">Edit Players +/-</button>
 								<br>
 								<button id='SLIDERbtn' onclick="displaySLIDER()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:white; background:blue; border:3px solid black; border-radius:10px; opacity:100%;">Slider Input +/-</button> <br>
 								<!--<br>-->
@@ -70,8 +70,8 @@
 									<br>
 									<button id='CLEARbtn' onclick="clearSAVED()" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><s>CLEAR 'saved' scores</s></button><br>
 								</div>
-								<br>
-								<button id='TOTbtn' onclick="calcFRONTtots()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>TOTALS</b></u></button><br>
+								
+								<button id='TOTbtn' onclick="calcFRONTtots()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;">TOTALS</button><br>
 						  </div>
 					</div>
 			</TD>
@@ -79,7 +79,7 @@
 		<TR>
 			<TD colspan=3 style="background:darkgreen; color:skyblue;" align=center><font size=4>06-01-b</font></TD> <TD colspan=5 style="background:darkgreen; color:skyblue;" align=center>
 				<!--<b>Front</b>/<i>Back</i>-->
-				<button id='FRONTbtn' onclick="front9()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:white; background:black; border:2px solid orange; border-radius:10px; cursor:pointer;">FRONT</button>
+				<button id='FRONTbtn' onclick="front9()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:black; background:yellow; border:2px solid orange; border-radius:10px; cursor:pointer;">FRONT</button>
 				<button id='BACKbtn' onclick="back9()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:white; background:black; border:2px solid orange; border-radius:10px; cursor:pointer;">BACK</button>
 			</TD> 
 		</TR>
@@ -136,7 +136,7 @@
 			</TD>
 		</TR>			
 			
-		<TR>
+		<TR id="frontNINE1">
 			<TD style="background:silver; text-align:center;">1</TD> 
 				<TD id="PARh1" class="holes">5</TD> <TD id="HCPh1" class="holes">13</TD> 
 				<TD>
@@ -164,7 +164,7 @@
 				</td>
 				-->
 		</TR>
-		<TR>
+		<TR id="frontNINE2">
 			<TD class="holes">2</TD> 
 				<TD id="PARh2" class="holes">3</TD> <TD id="HCPh2" class="holes">17</TD> 
 				<TD>
@@ -184,7 +184,7 @@
 				</TD>
 				<!--<td>5</td>-->
 		</TR>
-		<TR>
+		<TR id="frontNINE3">
 			<TD class="holes">3</TD> 
 				<TD id="PARh3" class="holes">4</TD> <TD id="HCPh3" class="holes">1</TD> 
 				<TD style="font-size:1em;" align=center>
@@ -210,7 +210,7 @@
 				</TD>
 				<!--<td>3</td>-->
 		</TR>	
-		<TR>
+		<TR id="frontNINE4">
 			<TD class="holes">4</TD> 
 			<TD id="PARh4"  class="holes">4</TD> 
 			<TD id="HCPh4"  class="holes">5</TD> 
@@ -230,7 +230,7 @@
 				<input id="p5h4" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,5,4);" onchange="localStorage.setItem('z5H4s',this.value);"><span id='SPp5h4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>				
 			</TD>
 		</TR>
-		<TR>
+		<TR id="frontNINE5">
 			<TD class="holes">5</TD> 
 				<TD id="PARh5" class="holes">4</TD> <TD id="HCPh5" class="holes">7</TD> 
 				<TD>
@@ -249,7 +249,7 @@
 				<input id="p5h5" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,5,5);" onchange="localStorage.setItem('z5H5s',this.value);"><span id='SPp5h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>				
 			</TD>
 		</TR>
-		<TR>
+		<TR id="frontNINE6">
 			<TD class="holes">6</TD> <TD  id="PARh6" class="holes">4</TD> <TD  id="HCPh6" class="holes">11</TD> 
 			<TD>
 				<input id="p1h6" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,1,6);" onchange="localStorage.setItem('z1H6s',this.value);"><span id='SPp1h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>				
@@ -267,7 +267,7 @@
 				<input id="p5h6" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,5,6);" onchange="localStorage.setItem('z5H6s',this.value);"><span id='SPp5h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>				
 			</TD>
 		</TR>		
-		<TR>
+		<TR id="frontNINE7">
 			<TD class="holes">7</TD> <TD  id="PARh7" class="holes">4</TD> <TD  id="HCPh7" class="holes">3</TD> 
 				<TD>
 					<input id="p1h7" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,1,7);" onchange="localStorage.setItem('z1H7s',this.value);"><span id='SPp1h7' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>									
@@ -285,7 +285,7 @@
 					<input id="p5h7" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,5,7);" onchange="localStorage.setItem('z5H7s',this.value);"><span id='SPp5h7' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>			
 				</TD>
 		</TR>	
-		<TR>
+		<TR id="frontNINE8">
 			<TD class="holes">8</TD> <TD  id="PARh8" class="holes">3</TD> <TD  id="HCPh8" class="holes">15</TD> 
 				<TD>
 					<input id="p1h8" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,1,8);" onchange="localStorage.setItem('z1H8s',this.value);"><span id='SPp1h8' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>								
@@ -303,7 +303,7 @@
 					<input id="p5h8" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,5,8);" onchange="localStorage.setItem('z5H8s',this.value);"><span id='SPp5h8' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>			
 				</TD>
 		</TR>	
-		<TR>
+		<TR id="frontNINE9">
 			<TD class="holes">9</TD> <TD  id="PARh9" class="holes">3</TD> <TD  id="HCPh9" class="holes">9</TD> 
 				<TD>
 					<input id="p1h9" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,1,9);" onchange="localStorage.setItem('z1H9s',this.value);"><span id='SPp1h9' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>								
@@ -329,20 +329,45 @@
 			<!-- display:none; display:inline block;  |  visibility:collapse; -->
 			<TD class="b9">10</TD> <TD class="b9">4</TD> <TD class="b9">6</TD> 
 				<TD>
-					<input id="p1h10" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'"><span id='SPp1h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>									
+					<input id="p1h10" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,1,10);" onchange="localStorage.setItem('z1H10s',this.value);""><span id='SPp1h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>		
 				</TD> 
-				<TD></TD> <TD></TD> <TD></TD> <TD></TD>
+				<TD>
+					<input id="p2h10" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,2,10);" onchange="localStorage.setItem('z2H10s',this.value);""><span id='SPp2h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>					
+				</TD> 
+				<TD>
+					<input id="p3h10" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,3,10);" onchange="localStorage.setItem('z3H10s',this.value);""><span id='SPp3h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>					
+				</TD> 
+				<TD>
+					<input id="p4h10" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,4,10);" onchange="localStorage.setItem('z4H10s',this.value);""><span id='SPp4h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>					
+				</TD> 
+				<TD>
+					<input id="p5h10" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,5,10);" onchange="localStorage.setItem('z5H10s',this.value);""><span id='SPp5h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>					
+				</TD>
 		</TR>
 		<TR id="backNINE2" style="display:none;">	
 			<!-- display:none; display:inline block;  |  visibility:collapse; -->
 			<TD class="b9">11</TD> <TD class="b9">4</TD> <TD class="b9">2</TD> 
 				<TD>
-					<input id="p1h11" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'"><span id='SPp1h11' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>									
+					<input id="p1h11" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,1,11);" onchange="localStorage.setItem('z1H11s',this.value);""><span id='SPp1h11' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>									
 				</TD> 
 				<TD></TD> <TD></TD> <TD></TD> <TD></TD>
 		</TR>		
-	
-		
+		<TR id="backNINE3" style="display:none;">	
+			<!-- display:none; display:inline block;  |  visibility:collapse; -->
+			<TD class="b9">12</TD> <TD class="b9">5</TD> <TD class="b9">14</TD> 
+				<TD>
+					<input id="p1h12" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,1,12);" onchange="localStorage.setItem('z1H12s',this.value);""><span id='SPp1h12' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>									
+				</TD> 
+				<TD></TD> <TD></TD> <TD></TD> <TD></TD>
+		</TR>			
+		<TR id="backNINE4" style="display:none;">	
+			<!-- display:none; display:inline block;  |  visibility:collapse; -->
+			<TD class="b9">13</TD> <TD class="b9">3</TD> <TD class="b9">16</TD> 
+				<TD>
+					<input id="p1h13" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,1,13);" onchange="localStorage.setItem('z1H13s',this.value);""><span id='SPp1h13' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>									
+				</TD> 
+				<TD></TD> <TD></TD> <TD></TD> <TD></TD>
+		</TR>					
 			
 
 		<TR id="SLIDERinput" style="display:none;">	<!-- display:none; display:inline block;  |  visibility:collapse; -->
@@ -394,19 +419,61 @@
 		</TR>
 			
 			
-		<TR>
-			<TH>F</TH> <TH>34</TH> <TH></TH> <TH>0</TH> 
-			<TH id="Tf"><!--0-->
-				<input id="p2fT" type="tel" maxlength=1 style="" onchange="localStorage.setItem('z2fT',this.value);" onblur="calcTf(this.value,'fT',2); this.style.background='white'" onfocus="this.style.background='dodgerblue'"><span id='SPp2fT' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>				
+		<TR id="front9tS">
+			<TH>F</TH> <TH style="color:silver;">34</TH> <TH></TH> 
+			<TH id="p1fT">0</TH> 
+			<TH id="p2fT">0
+				<!--
+				<input id="p2fT" type="tel" maxlength=1 style="" onchange="localStorage.setItem('z2fT',this.value);" onblur="calcTf(this.value,'fT',2); this.style.background='white'" onfocus="this.style.background='dodgerblue'"><span id='SPp2fT' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>		
+				-->		
 			</TH> 
-			<TH>0</TH> <TH>0</TH> <TH>0</TH> 
+			<TH id="p3fT">0</TH> 
+			<TH id="p4fT">0</TH> 
+			<TH id="p5fT"></TH> 
+		</TR>
+		<TR id="front9tP">
+			<TH></TH> <TH></TH> <TH>P</TH> 
+			<TH id='SPp1fT'>0</TH> 
+			<TH id='SPp2fT'>0</TH> 
+			<TH id='SPp3fT'>0</TH> 
+			<TH id='SPp4fT'>0</TH> 
+			<TH id='SPp5fT'>0</TH> 
+		</TR>
+		
+		<TR id="back9tS" style="display:none;">
+			<TH>B</TH> <TH style="color:silver;">36</TH> <TH></TH> 
+			<TH id="p1bT">0</TH> 
+			<TH id="p2bT">0</TH> 
+			<TH id="p3bT">0</TH> 
+			<TH id="p4bT">0</TH> 
+			<TH id="p5bT"></TH> 
+		</TR>
+		<TR id="back9tP" style="display:none;">
+			<TH></TH> <TH></TH> <TH>P</TH> 
+			<TH id='SPp1bT'>0</TH> 
+			<TH id='SPp2bT'>0</TH> 
+			<TH id='SPp3bT'>0</TH> 
+			<TH id='SPp4bT'>0</TH> 
+			<TH id='SPp5bT'>0</TH> 
+		</TR>		
+		
 		<TR>
+			<TH style="border-top:3px inset white;">T</TH> <TH style="border-top:3px inset white; COLOR:SILVER;">70</TH> 
+					<TH style="border-top:3px inset white;"></TH> 
+			<TH id="p1T18" style="border-top:3px inset white;">0</TH> 
+			<TH id="p2T18" style="border-top:3px inset white;">0</TH> 
+			<TH id="p3T18" style="border-top:3px inset white;">0</TH> 
+			<TH id="p4T18" style="border-top:3px inset white;">0</TH> 
+			<TH id="p5T18" style="border-top:3px inset white;"></TH> 
+		</TR>
 		<TR>
-			<TH>T</TH> <TH>70</TH> <TH></TH> <TH>0</TH> <TH>0</TH> <TH>0</TH> <TH>0</TH> <TH>0</TH> 
-		<TR>
-		<TR>
-			<TH>P</TH> <TH></TH> <TH></TH> <TH>0</TH> <TH>0</TH> <TH>0</TH> <TH>0</TH> <TH>0</TH> 
-		<TR>
+			<TH></TH> <TH></TH> <TH>P</TH> 
+			<TH id='SPp1T18'>0</TH> 
+			<TH id='SPp2T18'>0</TH> 
+			<TH id='SPp3T18'>0</TH> 
+			<TH id='SPp4T18'>0</TH> 
+			<TH id='SPp5T18'>0</TH> 
+		</TR>			
 <!--
 		<TR>
 			<TD colspan=8 style="background:green; height:10px;"></TD>
