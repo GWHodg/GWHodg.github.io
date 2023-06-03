@@ -446,3 +446,17 @@
 				*/
 	}
 	
+					/* ################################################################ */
+					
+	function calcFRONTtots() {
+				alert("Will now try to calculate TOTAL gross scores & Stableford points!");
+		//P2 F9:			
+		let p2fTscr = +localStorage.getItem('z2H1s') + +localStorage.getItem('z2H2s') + +localStorage.getItem('z2H3s');
+		let p2fTsfp = +localStorage.getItem('zSFp2h1') + +localStorage.getItem('zSFp2h2') + +localStorage.getItem('zSFp2h3'); 
+		
+		alert("p2fTscr = "+p2fTscr+"\np2fTsfp = "+p2fTsfp);
+		
+		document.getElementById("p2fT").value = p2fTscr;	
+		document.getElementById("SPp2fT").innerHTML = p2fTsfp;				
+		
+	}

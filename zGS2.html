@@ -70,6 +70,8 @@
 									<br>
 									<button id='CLEARbtn' onclick="clearSAVED()" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><s>CLEAR 'saved' scores</s></button><br>
 								</div>
+								<br>
+								<button id='TOTbtn' onclick="calcFRONTtots()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>TOTALS</b></u></button><br>
 						  </div>
 					</div>
 			</TD>
@@ -393,7 +395,11 @@
 			
 			
 		<TR>
-			<TH>F</TH> <TH>34</TH> <TH></TH> <TH>0</TH> <TH>0</TH> <TH>0</TH> <TH>0</TH> <TH>0</TH> 
+			<TH>F</TH> <TH>34</TH> <TH></TH> <TH>0</TH> 
+			<TH id="Tf"><!--0-->
+				<input id="p2fT" type="tel" maxlength=1 style="" onchange="localStorage.setItem('z2fT',this.value);" onblur="calcTf(this.value,'fT',2); this.style.background='white'" onfocus="this.style.background='dodgerblue'"><span id='SPp2fT' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>				
+			</TH> 
+			<TH>0</TH> <TH>0</TH> <TH>0</TH> 
 		<TR>
 		<TR>
 			<TH>T</TH> <TH>70</TH> <TH></TH> <TH>0</TH> <TH>0</TH> <TH>0</TH> <TH>0</TH> <TH>0</TH> 
