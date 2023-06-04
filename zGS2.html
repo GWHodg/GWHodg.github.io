@@ -34,6 +34,13 @@
 			localStorage.getItem('z1HC') + " \t" + localStorage.getItem('z2HC') + "\t" + localStorage.getItem('z3HC') + "\t" + localStorage.getItem('z4HC') + "\t\t" + localStorage.getItem('z5HC') );	
 								//localStorage.setItem('z1HC'
 	}
+
+	function addP5col() {
+		document.getElementById('5Plbl').style.display="";
+		document.getElementById('5Ph1').style.display="";
+		document.getElementById('5Ph2').style.display="";
+		
+	}	
 	
 </script>
 
@@ -76,6 +83,9 @@
 								</div>
 								
 								<button id='TOTbtn' onclick="calcFRONTtots()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;">TOTALS</button><br>
+								
+								<button id='addP5btn' onclick="addP5col()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">Add 5th Player</button>
+								<br>
 						  </div>
 					</div>
 			</TD>
@@ -91,7 +101,7 @@
 		<TR>
 			<TH>H</TH> <TH>P</TH> <TH style="font-size:20px;">HC</TH> <TH id="p1" onclick="SHOWpHCs()">p1</TH> <TH id="p2">p2</TH> <TH id="p3">p3</TH> <TH id="p4">p4</TH> 
 			<TH id="p5" style="color:silver;" onclick="p5T()">T</TH> 
-			<TH id="p6" style="color:silver;" onclick="">p6</TH> 
+			<TD id="5Plbl" style="color:silver; display:none; background:black;" align=center>5P</TD> 
 					<!-- onclick="alert('p5 name = '+this.innerHTML); 
 						 if(this.innerHTML=='-') {
 							 this.innerHTML='T';
@@ -160,8 +170,8 @@
 					<input id="p5h1" type="tel" maxlength=1 style="" onblur="calcSF(this.value,5,1); this.style.background='white'" onfocus="this.style.background='dodgerblue'" onchange="localStorage.setItem('z5H1s',this.value);"><span id='SPp5h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>					
 				</TD>
 
-				<td width=60px align=center style="display:none;">
-					p5h1
+				<td id="5Ph1" width=60px align=center style="display:none;">
+					p5<font size=3 color=gray>h1</font>
 				</td> <!-- document.getElementById('frontNINE2').style.display="none" (ot ""); -->
 				<!--
 				<td>
@@ -192,8 +202,8 @@
 					<input id="p5h2" type="tel" maxlength=1 style="" onchange="localStorage.setItem('z5H2s',this.value);" onfocus="this.style.background='dodgerblue'"  onblur="calcSF(this.value,5,2); this.style.background='white'" ><span id='SPp5h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>	
 				</TD>
 				<!--<td>5</td>-->
-				<td width=60px align=center>
-					p5h2
+				<td id="5Ph2" width=60px align=center  style="display:none;">
+					p5<font size=3 color=gray>h2</font>
 				</td>
 		</TR>
 		<TR id="frontNINE3">
