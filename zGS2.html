@@ -90,7 +90,8 @@
 		
 		<TR>
 			<TH>H</TH> <TH>P</TH> <TH style="font-size:20px;">HC</TH> <TH id="p1" onclick="SHOWpHCs()">p1</TH> <TH id="p2">p2</TH> <TH id="p3">p3</TH> <TH id="p4">p4</TH> 
-			<TH id="p5" style="color:silver;" onclick="p5T()">p5</TH> 
+			<TH id="p5" style="color:silver;" onclick="p5T()">T</TH> 
+			<TH id="p6" style="color:silver;" onclick="">p6</TH> 
 					<!-- onclick="alert('p5 name = '+this.innerHTML); 
 						 if(this.innerHTML=='-') {
 							 this.innerHTML='T';
@@ -141,7 +142,7 @@
 		</TR>			
 			
 		<TR id="frontNINE1">
-			<TD style="background:silver; text-align:center;">1</TD> 
+			<TD  class="holes" style="background:silver; text-align:center;">1</TD> 
 				<TD id="PARh1" class="holes">5</TD> <TD id="HCPh1" class="holes2">13</TD> 
 				<TD>
 					<input id="p1h1" type="tel" maxlength=1 style="" onblur="calcSF(this.value,1,1); this.style.background='white'" onfocus="this.style.background='dodgerblue'"  onchange="localStorage.setItem('z1H1s',this.value);" ><span id='SPp1h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>
@@ -158,6 +159,10 @@
 				<TD class="p5TD">
 					<input id="p5h1" type="tel" maxlength=1 style="" onblur="calcSF(this.value,5,1); this.style.background='white'" onfocus="this.style.background='dodgerblue'" onchange="localStorage.setItem('z5H1s',this.value);"><span id='SPp5h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>					
 				</TD>
+
+				<td width=60px align=center style="display:none;">
+					p5h1
+				</td> <!-- document.getElementById('frontNINE2').style.display="none" (ot ""); -->
 				<!--
 				<td>
 					<script>
@@ -187,6 +192,9 @@
 					<input id="p5h2" type="tel" maxlength=1 style="" onchange="localStorage.setItem('z5H2s',this.value);" onfocus="this.style.background='dodgerblue'"  onblur="calcSF(this.value,5,2); this.style.background='white'" ><span id='SPp5h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>	
 				</TD>
 				<!--<td>5</td>-->
+				<td width=60px align=center>
+					p5h2
+				</td>
 		</TR>
 		<TR id="frontNINE3">
 			<TD class="holes">3</TD> 
@@ -551,7 +559,7 @@
 			
 			
 		<TR id="front9tS">
-			<TH>F</TH> <TH style="color:silver;">34</TH> <TH></TH> 
+			<TH>F</TH> <TH style="color:silver; font-size:20px;">34</TH> <TH></TH> 
 			<TH id="p1fT">0</TH> 
 			<TH id="p2fT">0
 				<!--
@@ -572,7 +580,7 @@
 		</TR>
 		
 		<TR id="back9tS" style="display:none;">
-			<TH>B</TH> <TH style="color:silver;">36</TH> <TH></TH> 
+			<TH>B</TH> <TH style="color:silver; font-size:20px;">36</TH> <TH></TH> 
 			<TH id="p1bT">0</TH> 
 			<TH id="p2bT">0</TH> 
 			<TH id="p3bT">0</TH> 
@@ -589,7 +597,7 @@
 		</TR>		
 		
 		<TR>
-			<TH style="border-top:3px inset white;">T</TH> <TH style="border-top:3px inset white; COLOR:SILVER;">70</TH> 
+			<TH style="border-top:3px inset white;">T</TH> <TH style="border-top:3px inset white; COLOR:SILVER; font-size:20px;">70</TH> 
 					<TH style="border-top:3px inset white;"></TH> 
 			<TH id="p1T18" style="border-top:3px inset white;">0</TH> 
 			<TH id="p2T18" style="border-top:3px inset white;">0</TH> 
