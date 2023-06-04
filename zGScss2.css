@@ -6,6 +6,23 @@
 				  /* document.getElementById("ZOOMbtn").innerText = "ZOOM -"; */
 	} 		
 
+	.wrapper {
+	  /* Break the flow */
+		  position: absolute;
+		  top: 0px;	
+	  /* Give them all the available space */
+		  width: 100%;
+		  height: 100%;	
+	  /* Remove the margins if any */
+		  margin: 0;	
+	  /* Allow them to scroll down the document */
+		  /*overflow-y: hidden;*/
+	  /* Making the wrapper stack above the body */
+	  	z-index: 2;
+	  /*padding:30px;*/	 /* < my add (Mar 14/23) */
+	  /*zoom:150%;*/		  
+	}
+	
 	table, th, td {
 	  border: 1px solid black;
 	  border-collapse: collapse;
@@ -19,7 +36,9 @@
 	th { background:black; color:white; }
 	
 	td.holes { background:silver; text-align:center; }
+		td.holes2 { background:silver; text-align:center; font-size:20px; }
 	td.b9 { background:gray; color:white; text-align:center; }
+		td.b92 { background:gray; color:white; text-align:center; font-size:20px; }
 	td.p5TD { background:silver; border-left-width:3px; }
 	
 	input { /*font-size:18px;*/ border:none; font-size:1em; width:20px; } /* border:none | border-color:transparent */

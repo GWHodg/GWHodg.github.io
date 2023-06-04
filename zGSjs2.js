@@ -104,7 +104,7 @@
 			document.getElementById("p4HC").value = localStorage.getItem("z4HC");
 			document.getElementById("p5HC").value = localStorage.getItem("z5HC");	
 			
-		for (var h = 1; h < 14; h++) {
+		for (var h = 1; h < 19; h++) {
 				document.getElementById("p1h"+h).value = localStorage.getItem("z1H"+h+"s");
 				document.getElementById("p2h"+h).value = localStorage.getItem("z2H"+h+"s");
 				document.getElementById("p3h"+h).value = localStorage.getItem("z3H"+h+"s");
@@ -249,11 +249,11 @@
 				document.getElementById('backNINE2').style.display="";
 				document.getElementById('backNINE3').style.display="";
 				document.getElementById('backNINE4').style.display="";
-				/*document.getElementById('backNINE5').style.display="";
+				document.getElementById('backNINE5').style.display="";
 				document.getElementById('backNINE6').style.display="";
 				document.getElementById('backNINE7').style.display="";
 				document.getElementById('backNINE8').style.display="";
-				document.getElementById('backNINE9').style.display="";*/	
+				document.getElementById('backNINE9').style.display="";	
 					document.getElementById('back9tS').style.display="";
 					document.getElementById('back9tP').style.display="";						
 			document.getElementById('BACKbtn').style.background="yellow";
@@ -312,11 +312,11 @@
 				document.getElementById('backNINE2').style.display="none";
 				document.getElementById('backNINE3').style.display="none";
 				document.getElementById('backNINE4').style.display="none";
-				/*document.getElementById('backNINE5').style.display="none";			
+				document.getElementById('backNINE5').style.display="none";			
 				document.getElementById('backNINE6').style.display="none";			
 				document.getElementById('backNINE7').style.display="none";			
 				document.getElementById('backNINE8').style.display="none";			
-				document.getElementById('backNINE9').style.display="none";*/	
+				document.getElementById('backNINE9').style.display="none";	
 					document.getElementById('back9tS').style.display="none";
 					document.getElementById('back9tP').style.display="none";						
 		}
