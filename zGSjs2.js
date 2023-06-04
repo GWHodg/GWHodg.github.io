@@ -104,7 +104,7 @@
 			document.getElementById("p4HC").value = localStorage.getItem("z4HC");
 			document.getElementById("p5HC").value = localStorage.getItem("z5HC");	
 			
-		for (var h = 1; h < 10; h++) {
+		for (var h = 1; h < 14; h++) {
 				document.getElementById("p1h"+h).value = localStorage.getItem("z1H"+h+"s");
 				document.getElementById("p2h"+h).value = localStorage.getItem("z2H"+h+"s");
 				document.getElementById("p3h"+h).value = localStorage.getItem("z3H"+h+"s");
