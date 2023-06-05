@@ -6,6 +6,7 @@
 				  /* document.getElementById("ZOOMbtn").innerText = "ZOOM -"; */
 	} 		
 
+	.body,
 	.wrapper {
 	  /* Break the flow */
 		  position: absolute;
