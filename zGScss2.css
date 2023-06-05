@@ -40,7 +40,7 @@
 		td.holes2 { background:silver; text-align:center; font-size:20px; }
 	td.b9 { background:gray; color:white; text-align:center; font-size:20px; }
 		td.b92 { background:gray; color:white; text-align:center; font-size:20px; }
-	td.p5TD { background:silver; border-left-width:3px; }
+	td.HptsTD { background:silver; border-left-width:3px; }    /* td.p5TD */
 	
 	input { /*font-size:18px;*/ border:none; font-size:1em; width:20px; } /* border:none | border-color:transparent */
 	span { color:gray; vertical-align:sub; font-size:0.5em; } /* font-size:13px;  */

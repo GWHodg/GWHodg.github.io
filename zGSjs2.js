@@ -75,7 +75,8 @@
 
 				//document.getElementById('SPp5h1').innerHTML = +document.getElementById('SPp5h1').innerHTML + +Hpts;  
 										/* ^^ * */
-									//+document.getElementById('SPp'+p+'h5').innerHTML +    +Hpts;				
+									//+document.getElementById('SPp'+p+'h5').innerHTML +    +Hpts;		
+			//ptTperH();		
 		}	
 		  
 	}
@@ -109,6 +110,7 @@
 				document.getElementById("p2h"+h).value = localStorage.getItem("z2H"+h+"s");
 				document.getElementById("p3h"+h).value = localStorage.getItem("z3H"+h+"s");
 				document.getElementById("p4h"+h).value = localStorage.getItem("z4H"+h+"s");
+					document.getElementById("p5h"+h).value = localStorage.getItem("z5H"+h+"s");
 				//document.getElementById("p4h"+h).value = localStorage.getItem("z4H"+h+"s");
 				//document.getElementById("p5h"+h).value = localStorage.getItem("z5H"+h+"s");
 				
@@ -560,11 +562,11 @@
 			}	
 
 		//P5 F9:			
-		let p5fTscr = +localStorage.getItem('z5H1s') + +localStorage.getItem('z5H2s') + +localStorage.getItem('z5H3s');
+/*		let p5fTscr = +localStorage.getItem('z5H1s') + +localStorage.getItem('z5H2s') + +localStorage.getItem('z5H3s');
 		let p5fTsfp = +localStorage.getItem('zSFp5h1') + +localStorage.getItem('zSFp5h2') + +localStorage.getItem('zSFp5h3'); 
-				//alert("p2fTscr = "+p2fTscr+"\np2fTsfp = "+p2fTsfp);
+
 		if ( p5fTscr > 0 ) {
-				document.getElementById("p5fT").innerHTML = p5fTscr;	// < *
+				document.getElementById("p5fT").innerHTML = p5fTscr;	
 		}
 		if ( p5fTsfp > 0 ) {
 				document.getElementById("SPp5fT").innerHTML = p5fTsfp;						
@@ -574,5 +576,38 @@
 			document.getElementById("SPp5fT").innerHTML =  +document.getElementById("SPp5h1").innerHTML + +document.getElementById("SPp5h2").innerHTML + +document.getElementById("SPp5h3").innerHTML;
 			document.getElementById("SPp5fT").style.color = 'RED';									
 		}		
-			
+*/
+		
+		document.getElementById("f9ptT").innerHTML =  p4fTsfp + p3fTsfp + p2fTsfp + p1fTsfp; //p5fTsfp + 
+		document.getElementById("f9ptT").style.color = 'RED';									
+										//f9ptT
+		
+		ptTperH();
+		
 	}
+						/*	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@	 */
+						
+	function p5T() {	// < UNUSED! (June5/23)
+	     alert('p5 name = '+document.getElementById('p5').innerHTML); 
+		 if(document.getElementById('p5').innerHTML=='-' || document.getElementById('p5').innerHTML=='T' ||document.getElementById('p5').innerHTML=='t' || document.getElementById('p5').innerHTML=='p5') {
+				 document.getElementById('p5').innerHTML='T';
+				 /*
+				 document.getElementById('SPp5h1').innerHTML = +document.getElementById('SPp1h1').innerHTML + +document.getElementById('SPp2h1').innerHTML + +document.getElementById('SPp3h1').innerHTML + +document.getElementById('SPp4h1').innerHTML; 
+				*/
+				for (var h = 1; h < 10; h++) {
+					document.getElementById('SPp5h'+h).innerHTML = +document.getElementById('SPp1h'+h).innerHTML + +document.getElementById('SPp2h'+h).innerHTML + +document.getElementById('SPp3h'+h).innerHTML + +document.getElementById('SPp4h'+h).innerHTML;  
+					document.getElementById('p5h'+h).setAttribute('disabled', '');
+				}
+				
+				//document.getElementById('p5h1').setAttribute('disabled', '');
+				 	//document.getElementById('p5h1').style.background = 'slategray';
+		 }
+	 }
+	
+	function ptTperH() {
+		for (var h = 1; h < 19; h++) {
+			document.getElementById('SPtH'+h).innerHTML = +document.getElementById('SPp1h'+h).innerHTML + +document.getElementById('SPp2h'+h).innerHTML + +document.getElementById('SPp3h'+h).innerHTML + +document.getElementById('SPp4h'+h).innerHTML;  //SPtH3
+			//document.getElementById('p5h'+h).setAttribute('disabled', '');
+		}
+				
+	}	 
