@@ -111,7 +111,7 @@
 		  	  div.DROPclass { position:fixed; left:50px; top:125px; visibility:hidden; }
 			  button.ZOOMclass { background:yellow; border:4px outset blue; visibility:hidden; }
 			  a.HOMEclass { font-size:20px; }
-			  .dropup-content { bottom:-600px; } /* -540px pre Jne 4/23 */
+			  .dropup-content { bottom:-650px; } /* -540px pre Jne 4/23 */
 			  .slidecontainer { left:5px; top:100px; width:60%;}
 			  button.CODEBTNclass { display:none; }
 			  textarea.NOTEclass { left:3em; top:600px; height:200px; width:300px;}	/* ? \/ font-size */	
