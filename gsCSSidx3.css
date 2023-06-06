@@ -80,6 +80,9 @@
 		div.DROPclass {
 			border:3px inset slategray; border-radius:10px; width:200px; height:400px; overflow:scroll; margin:auto; visibility:hidden; background:white; position:fixed; left:750px; top:100px; zoom:100%;
 		}	
+		div.ADDclass {
+			border:3px inset slategray; border-radius:10px; width:200px; height:50%; overflow:scroll; margin:auto; visibility:hidden; background:white; position:fixed; left:700px; top:80px; zoom:100%;
+			}	/* height:400px; */					
 		button.ZOOMclass {
 			FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;
 		}
@@ -109,6 +112,7 @@
 				  /* document.getElementById("ZOOMbtn").innerText = "ZOOM -"; */
 			  } 		
 		  	  div.DROPclass { position:fixed; left:50px; top:125px; visibility:hidden; }
+			  div.ADDclass  { position:fixed; left:40px; top:110px; visibility:hidden; } /* << NB! */
 			  button.ZOOMclass { background:yellow; border:4px outset blue; visibility:hidden; }
 			  a.HOMEclass { font-size:20px; }
 			  .dropup-content { bottom:-630px; } /* -540px pre Jne 4/23 */
@@ -182,8 +186,5 @@
 		  cursor: pointer;
 		}
 
-					/* $$$$$$$$$$$$$$$$$$$$ \/ June/23 \/ $$$$$$$$$$$$$$$$$$$$$$$ */
 					
-		div.ADDclass {
-			border:3px inset slategray; border-radius:10px; width:200px; height:50%; overflow:scroll; margin:auto; visibility:hidden; background:white; position:fixed; left:700px; top:80px; zoom:100%;
-			}	/* height:400px; */					
+					

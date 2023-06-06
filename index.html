@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>GSidx3_M4</title>
+<title>GSidx3</title> <!-- _M4 -->
 <link rel="manifest" href="WaltStuff.webmanifest">
 	<!--Changed href = "manifest.json" To <link rel="manifest" href="WaltStuff.webmanifest">  -->
 	<!-- https://www.w3schools.com/jsref/jsref_split.asp -->
@@ -175,7 +175,7 @@
 <TABLE id="HEADtbl" border=1 align=center style='FONT-SIZE:large; color:maroon; visibility:visible;' bgcolor='ivory'>	
 <TR><TD>
 	<label style="FONT-WEIGHT: bold; FONT-SIZE:25px; COLOR:white; background:royalblue; /*position:relative; left:15%;*/ border:3px solid black; border-radius:10px; opacity:100%; padding:5px;">VGC blue <!--<font size=2 color=silver><i>(GS<b>pxl2c</b>)</i></font>--></label>
-</TD> <TD width=20><font size=1>J6a</font></TD>	
+</TD> <TD width=20><font size=1>J6b</font></TD>	
 	<!--<span style="font-size:30px;cursor:pointer; color:blue; background:white; position:relative; left:38%;" onclick="openMENU()">&#9776;</span>-->	<!-- position:absolute; LEFT:750px; top:30px;  -->
 <TD>
 					<div class="dropup" style="cursor:pointer; color:black; background:white; /*position:relative; left:18%;*/">
@@ -223,6 +223,7 @@
 								</div>
 								<br>
 								<button id='DROPbtn' onclick="showDROP()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:ivory; background:slategray; border:2px solid black; border-radius:10px; opacity:100%;"><b>Drop Box!</b></button><br>
+								<br>
 								<button id='ADDbtn' onclick="showADDIN()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:ivory; background:slategray; border:2px solid black; border-radius:10px; opacity:100%;"><b>Add-in!</b></button><br>
 								<br>
 								
@@ -250,7 +251,7 @@
 				<!-- /*position:relative; left:20%;*/ placeholder="Apr 14/23" -->
 	<br>
 				<!-- <input type="date" id="today" name="birthday"> -->
-	<input type="text" id="focusIPT" style="height:12px; width:85px; background:black; color:yellow;" value="GSidx3 (M4)"> 
+	<input type="text" id="focusIPT" style="height:12px; width:85px; background:black; color:yellow;" value="GSidx3"> 																<!-- GSidx3 -->
 	<!--<font size=2 color=gray><i>(GS<b>pxl2z</b>)</i></font> -->
 </TD></TR>
 </TABLE>
@@ -276,7 +277,9 @@
 		</thead>
 		<tbody id='TBLbody'> 							
 			<TR>
-				<TH style="background:lightgreen;"></TH>
+				<TH style="background:lightgreen;">     
+					<span id="battery-percentage" style="padding:2px; background:lightgreen; color:black;">0</span><font size=2 color=black>%</font>
+				</TH> <!-- << put battery % here ^ -->
 				<TH><input type="" id="p1HC" maxlength=2 onchange="localStorage.setItem('g1HC',this.value);" name='NMp1hc' autofocus tabindex="202" style="background:ivory; width:60%; font-weight:bold;" ></TH> <!-- value=24  onchange="pHCcolors('p1')" -->
 				<TH><input type="" id="p2HC" maxlength=2 onchange="localStorage.setItem('g2HC',this.value);" tabindex="204" style="background:beige; width:60%;" ></TH> <!-- P2 HC -->
 				<TH><input type="" id="p3HC" maxlength=2 onchange="localStorage.setItem('g3HC',this.value);" tabindex="206" style="background:linen; width:60%;" ></TH>
@@ -680,7 +683,7 @@
 	</table>		
 
 
-	<br>
+	<!--<br>-->
 	
 <!-- ########################################################################################### -->
 <!-- ################################### SLIDER PAGE ########################################### -->	
@@ -811,8 +814,8 @@
 	
 	<div class="battery-info" style="border:0px inset white; width:35%; padding:0px; position:fixed; left:8em; top:5px;">
 					<!-- position:fixed; left:1em; top:200px; -->
-            <b>Battery % = </b>
-            <span id="battery-percentage" style="padding:2px;">0</span>
+            <!--<b>Battery % = </b>-->
+            <span id="battery-percentage" style="padding:2px; visibility:hidden;">0</span>
 	            <span id="is-battery-charging" style="visibility:hidden;">No</span>
 	            <span id="chargingtime" style="visibility:hidden;"></span>
 	            <span id="dischargingtime" style="visibility:hidden;"></span>
@@ -873,9 +876,11 @@
 		
 				<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
+	<!--
 	<div class="" style="border:2px inset white; color:white; padding:0px; border-radius:5px; position:fixed; left:20em; top:5px;">
 		&emsp;<font color=blue>GSidx3</font>&emsp;
 	</div>	
+	-->
 				<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 	
 				
