@@ -2058,3 +2058,83 @@
 				*/
 	}
 				
+				/*	$$$$$$$$$$$$$$$$$$ \/ ADD-IN (June/23) \/ $$$$$$$$$$$$$$$$$$$$$$$$  */
+				
+	function FULLaddin() {
+		//alert("in 'FULLdrop' fn! Will try to ^ div height.");
+		if ( document.getElementById("fullADDbtn").innerText == "+" ) {
+			document.getElementById("ADDINdiv").style.height = "100%";	//'650px';	//"100%";	//'800px';
+			document.getElementById("fullADDbtn").innerText = "-";
+		}
+		else { 
+			document.getElementById("ADDINdiv").style.height = "50%";	//"400px";	//'300px';
+			document.getElementById("fullADDbtn").innerText = "+";
+		}
+	}
+
+	function showADDIN() {
+		if (document.getElementById("ADDINdiv").style.visibility=="visible") {
+			document.getElementById("ADDINdiv").style.visibility="hidden"; 
+			document.getElementById("ADDcheck").style.visibility="hidden";
+			
+			document.getElementById("pDone").style.visibility = "hidden";
+		}		
+		else {
+			document.getElementById("ADDINdiv").style.visibility="visible";
+			//alert("Enter added players POINTS by hole\nthen touch/click 'ADD-IN'");
+			document.getElementById('ptsADDh1').focus();
+		}
+		
+		hideMENU();		
+	}			
+	
+	function ADD() {
+		//alert("Enter added players POINTS by hole\nthen touch/click 'ADD-IN'");
+		var GROUPh1PTS = +document.getElementById("SPgpH1").innerText;
+		//alert("Group T pts for H1 = "+GROUPh1PTS);		//document.getElementById('SPgpH1').innerText);
+		/*document.getElementById('newH1ptT').innerHTML = +document.getElementById("SPgpH1").innerHTML + +document.getElementById('ptsADDh1').value;*/ 
+		for (var h = 1; h < 19; h++) {
+			document.getElementById('newH'+h+'ptT').innerHTML = +document.getElementById("SPgpH"+h).innerHTML + +document.getElementById('ptsADDh'+h).value; 
+		}
+		/*alert("document.getElementById('newH1ptT').innerHTML = "+document.getElementById('newH1ptT').innerHTML+"\n"+
+			  "document.getElementById('SPgpH1').innerHTML = "+document.getElementById('SPgpH1').innerHTML+"\n"+
+			  "document.getElementById('ptsADDh1').value = "+document.getElementById('ptsADDh1').value);*/
+		//SPp1h1
+		// ptsADDh1 + [our h1 T pts] >> H1ptT
+		
+		var ptsADDf9 = 0;
+		for (var h = 1; h < 10; h++) {
+			ptsADDf9 = ptsADDf9 + +document.getElementById('ptsADDh'+h).value; 
+		}
+		document.getElementById('ptsADDf9').value = ptsADDf9;
+		
+		var ptsADDb9 = 0;
+		for (var h = 10; h < 19; h++) {
+			ptsADDb9 = ptsADDb9 + +document.getElementById('ptsADDh'+h).value; 
+		}
+		document.getElementById('ptsADDb9').value = ptsADDb9;
+		//ptsADDf9 | f9ptT | 
+		//ptsADDb9 | b9ptT | 
+		//ptsADD18 | 18ptT |
+		var f9ptT = 0;
+		for (var h = 1; h < 10; h++) {
+			f9ptT = f9ptT + +document.getElementById('newH'+h+'ptT').innerHTML; 
+		}
+		//alert("f9ptT = "+f9ptT);
+		document.getElementById('newf9ptT').innerHTML = f9ptT;
+		
+		var b9ptT = 0;
+		for (var h = 10; h < 19; h++) {
+			b9ptT = b9ptT + +document.getElementById('newH'+h+'ptT').innerHTML; 
+		}
+		//alert("f9ptT = "+f9ptT);
+		document.getElementById('newb9ptT').innerHTML = b9ptT;
+		
+		document.getElementById('new18ptT').innerHTML = +document.getElementById('newb9ptT').innerHTML + +document.getElementById('newb9ptT').innerHTML;
+		//document.getElementById('ptsADD18').value = ptsADDf9;
+		
+		//ptsADD18 | new18ptT :
+		document.getElementById('ptsADD18').value = +document.getElementById('ptsADDf9').value + +document.getElementById('ptsADDb9').value;		
+		document.getElementById('new18ptT').innerHTML = +document.getElementById('newf9ptT').innerHTML + +document.getElementById('newb9ptT').innerHTML;		
+		
+	}
