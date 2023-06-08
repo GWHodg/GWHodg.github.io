@@ -44,7 +44,7 @@ const PRECACHE_URLS = [
        // '/bjoCchrtH2.png',////directory path to project folder/app name.css file
 	   // '/3-HingeDrill2.png',
 	   // '/Notes21.xml',
-	   // '/WaltStuff.webmanifest',////directory path to project folder/app name.trainmanifest file
+	   '/WaltStuff.webmanifest',////directory path to project folder/app name.trainmanifest file
 	  // '/jquery-3.6.0.min.js',////directory path to project folder/app name.jQuery file
 	    // '/eeyore.JPG',//add this file to github repository
 		// '/fudd4.jpeg'
