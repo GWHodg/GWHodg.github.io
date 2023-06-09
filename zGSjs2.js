@@ -76,7 +76,11 @@
 				//document.getElementById('SPp5h1').innerHTML = +document.getElementById('SPp5h1').innerHTML + +Hpts;  
 										/* ^^ * */
 									//+document.getElementById('SPp'+p+'h5').innerHTML +    +Hpts;		
-			//ptTperH();		
+			//ptTperH();	
+		
+		
+			//document.getElementById('p'+p+'h'+h).setAttribute('disabled', '');	
+			
 		}	
 		  
 	}
@@ -782,7 +786,7 @@
 						/*alert("HOLEhc (H1) ="+document.getElementById("HCPh1").innerHTML+"\n"+
 							  "PLAYERhc (p1HC) = " + +document.getElementById("p1HC").value);*/
 		//if (  )
-			for (var h = 1; h < 10; h++) {			  
+			for (var h = 1; h < 19; h++) {			  
 				for (var p = 1; p < 5; p++) {
 					if (+document.getElementById("p"+p+"HC").value-18 >= +document.getElementById("HCPh"+h).innerHTML) {
 						document.getElementById(p+"Ph"+h+"td").style.background = "green";	//"slategray";
