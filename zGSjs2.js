@@ -80,6 +80,7 @@
 		
 		
 			//document.getElementById('p'+p+'h'+h).setAttribute('disabled', '');	
+			document.getElementById('p'+p+'h'+h).setAttribute('readonly', 'true');	
 			
 		}	
 		  
@@ -811,3 +812,40 @@
 			
 			
 	}
+	
+	function clearSAVED() {
+		/*alert("Will CLEAR 'saved' inputs here!\n\n"+
+			  "g1H1s PRE 'clear' = " + localStorage.getItem("g1H1s"));*/
+		  let reply;
+		  if (confirm("Are you SURE you want to CLEAR all 'saved' input?") == true) {
+		    reply = "YES!";
+		  } else {
+		    reply = "NO!";
+		  }
+  		  alert(reply);
+			  
+		if ( reply=="YES!") {
+			for (var h = 1; h < 19; h++) {
+					for (var n = 1; n < 6; n++) {
+						localStorage.setItem('z'+n+'H'+h+'s',""); document.getElementById("p"+n+"h"+h).value = "";
+					}
+			}
+			
+			localStorage.setItem("DATE",""); document.getElementById("DATE").value = ""; 
+			localStorage.setItem("z1NAME",""); document.getElementById("z1NAME").value = ""; 
+				localStorage.setItem("z2NAME",""); document.getElementById("z2NAME").value = ""; 
+				localStorage.setItem("z3NAME",""); document.getElementById("z3NAME").value = ""; 
+				localStorage.setItem("z4NAME",""); document.getElementById("z4NAME").value = ""; 
+				localStorage.setItem("z5NAME",""); document.getElementById("z5NAME").value = ""; 
+			localStorage.setItem("z1HC",""); document.getElementById("z1HC").value = ""; 
+				localStorage.setItem("z2HC",""); document.getElementById("z2HC").value = ""; 
+				localStorage.setItem("z3HC",""); document.getElementById("z3HC").value = ""; 
+				localStorage.setItem("z4HC",""); document.getElementById("z4HC").value = ""; 
+				localStorage.setItem("z5HC",""); document.getElementById("z5HC").value = ""; 
+			
+		}
+		
+		//alert("g1H1s POST 'clear' = " +  localStorage.getItem("g1H1s"));
+		
+		//hideMENU();		
+	}	

@@ -77,8 +77,10 @@
 	<TABLE border=1>
 		<!--<tbody>-->
 		<TR>
-			<TD colspan=1 style="background:black; color:white;"></TD>
-			<TD colspan=4 style="background:blue; color:white;" align=center><i>VGC</i> <font size=4>blue</font></TD>
+			<TD colspan=2 style="background:black; color:white;" align=center>
+				<span id="battery-percentage" style="padding:2px; background:black; color:white;">0</span><font size=2 color=white>%</font>
+			</TD>
+			<TD colspan=3 style="background:blue; color:white;" align=center><i>VGC</i> <font size=4>blue</font></TD>
 			<TD colspan=1 style="background:black; color:white;"><font size=2 color=silver>zGS2</font></TD>
 			<!--<TD colspan=1 style="background:black; color:white;"></TD>-->   	<!--onclick="PLAYERentry()"-->
 				<!-- <div class="mnu"></div> <div class="mnu"></div> <div class="mnu"></div> -->
@@ -120,6 +122,9 @@
 										<span style='background:white; color:black;'>&nbsp;0&nbsp;</span>
 									-->
 								</button> 
+								<br>
+								<a onclick="remREADONLY()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Enable Input Edits</a>
+								
 						  </div>
 					</div>
 			</TD>
@@ -749,7 +754,75 @@
 
 		</TR>			
 -->
+
+
+					<!-- ################# \/ BATTERY \/ ######################## -->
+					
+	<div class="battery-info" style="border:0px inset white; width:35%; padding:0px; position:fixed; left:8em; top:5px;">
+					<!-- position:fixed; left:1em; top:200px; -->
+            <!--<b>Battery % = </b>-->
+            <span id="battery-percentage" style="padding:2px; visibility:hidden;">0</span>
+	            <span id="is-battery-charging" style="visibility:hidden;">No</span>
+	            <span id="chargingtime" style="visibility:hidden;"></span>
+	            <span id="dischargingtime" style="visibility:hidden;"></span>
+		</div> 
+<script>
+        navigator.getBattery().then(function (battery) {
+            function showAllBatteryInfo() {
+                editChargeInfo();
+                editLevelInfo();
+                editChargingInfo();
+                editDischargingInfo();
+            }
+            showAllBatteryInfo();
+ 
+            battery.addEventListener('chargingchange',
+                function () {
+                    editChargeInfo();
+                });
+            function editChargeInfo() {
+ 
+                /* Test with the charger and without
+                charger by unplugging*/
+                var isBatteryCharging = (battery.charging ? "Yes" : "No")
+                document.getElementById('is-battery-charging')
+                    .innerText = isBatteryCharging
+            }
+ 
+            battery.addEventListener('levelchange', function () {
+                editLevelInfo();
+            });
+            function editLevelInfo() {
+                /* Shows the battery level*/
+                var batteryLevel = battery.level * 100
+                document.getElementById('battery-percentage')
+                    .innerText = batteryLevel
+            }
+ 
+            battery.addEventListener('chargingtimechange', function () {
+                editChargingInfo();
+            });
+            function editChargingInfo() {
+ 
+                /* Test with the charger and without charger by unplugging*/
+                var charge = battery.chargingTime
+                document.getElementById('chargingtime').innerText = charge
+            }
+ 
+            battery.addEventListener('dischargingtimechange', function () {
+                editDischargingInfo();
+            });
+            function editDischargingInfo() {
+                var disCharge = battery.dischargingTime
+                document.getElementById('dischargingtime')
+                    .innerText = disCharge
+            }
+        });
+</script>
 		
+				<!-- ++++++++++++++++++ ^ BATTERY ^ +++++++++++++++++++++++++++++++++++ -->
+
+				
 		
 		
 	</TABLE>		

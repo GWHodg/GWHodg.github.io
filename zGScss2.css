@@ -67,7 +67,7 @@
 			           padding: 5px; font-size: 16px; border: none; */
 			.dropup { position: relative; display: inline-block; }			
 			.dropup-content { display: none; position:absolute; left:-200px; background-color: #f1f1f1;
-			  			      min-width:200px; bottom:-320px; 			z-index: 1; }	
+			  			      min-width:200px; bottom:-350px; 			z-index: 1; }	
 							  				/*  bottom: -270px;         
 							  					left:55px;  bottom: 0px;  position: absolute; */	
 			.dropup-content a { color: black; padding: 5px 6px; text-decoration: none; display: block; }	
