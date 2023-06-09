@@ -97,7 +97,7 @@
 				document.getElementById('p2').innerHTML=localStorage.getItem("z2NAME"); document.getElementById('p2').style.color='red';
 				document.getElementById('p3').innerHTML=localStorage.getItem("z3NAME"); document.getElementById('p3').style.color='lime';
 				document.getElementById('p4').innerHTML=localStorage.getItem("z4NAME"); document.getElementById('p4').style.color='orange';
-				document.getElementById('p5').innerHTML=localStorage.getItem("z5NAME"); document.getElementById('p5').style.color='silver';				
+				document.getElementById('5Plbl').innerHTML=localStorage.getItem("z5NAME"); document.getElementById('5Plbl').style.color='beige';				
 				
 		document.getElementById("p1HC").value = localStorage.getItem("z1HC");
 			document.getElementById("p2HC").value = localStorage.getItem("z2HC");
@@ -526,35 +526,61 @@
 				//alert("Will now try to calculate TOTAL gross scores & Stableford points!");
 
 		//P1 F9:			
-		let p1fTscr = +localStorage.getItem('z1H1s') + +localStorage.getItem('z1H2s') + +localStorage.getItem('z1H3s');
-		let p1fTsfp = +localStorage.getItem('zSFp1h1') + +localStorage.getItem('zSFp1h2') + +localStorage.getItem('zSFp1h3'); 
+		//let p1fTscr = +localStorage.getItem('z1H1s') + +localStorage.getItem('z1H2s') + +localStorage.getItem('z1H3s');
+		//let p1fTsfp = +localStorage.getItem('zSFp1h1') + +localStorage.getItem('zSFp1h2') + +localStorage.getItem('zSFp1h3'); 
 				//alert("p2fTscr = "+p2fTscr+"\np2fTsfp = "+p2fTsfp);
+		let p1fTscr=0; let p1fTsfp=0;
+		for (var h = 1; h < 10; h++) {
+			p1fTscr = p1fTscr + +localStorage.getItem('z1H'+h+'s');
+		}
+		for (var h = 1; h < 10; h++) {
+			p1fTsfp = p1fTsfp + +localStorage.getItem('zSFp1h'+h);
+		}
 		document.getElementById("p1fT").innerHTML = p1fTscr;	// < *
 		document.getElementById("SPp1fT").innerHTML = p1fTsfp;	
 			if ( p1fTsfp > 0 ) {
 				document.getElementById("SPp1fT").style.color = 'lime';						
-			}				
+			}	
+			
 		//P2 F9:			
-		let p2fTscr = +localStorage.getItem('z2H1s') + +localStorage.getItem('z2H2s') + +localStorage.getItem('z2H3s');
-		let p2fTsfp = +localStorage.getItem('zSFp2h1') + +localStorage.getItem('zSFp2h2') + +localStorage.getItem('zSFp2h3'); 
-		//alert("p2fTscr = "+p2fTscr+"\np2fTsfp = "+p2fTsfp);		
+		let p2fTscr = 0;
+		let p2fTsfp = 0; 
+		for (var h = 1; h < 10; h++) {
+			p2fTscr = p2fTscr + +localStorage.getItem('z2H'+h+'s');
+		}
+		for (var h = 1; h < 10; h++) {
+			p2fTsfp = p2fTsfp + +localStorage.getItem('zSFp2h'+h);
+		}
 		document.getElementById("p2fT").innerHTML = p2fTscr;	
 		document.getElementById("SPp2fT").innerHTML = p2fTsfp;	
 			if ( p2fTsfp > 0 ) {
 				document.getElementById("SPp2fT").style.color = 'lime';	
 			}
+			
 		//P3 F9:			
-		let p3fTscr = +localStorage.getItem('z3H1s') + +localStorage.getItem('z3H2s') + +localStorage.getItem('z3H3s');
-		let p3fTsfp = +localStorage.getItem('zSFp3h1') + +localStorage.getItem('zSFp3h2') + +localStorage.getItem('zSFp3h3'); 
-				//alert("p2fTscr = "+p2fTscr+"\np2fTsfp = "+p2fTsfp);
+		let p3fTscr = 0;
+		let p3fTsfp = 0; 
+		for (var h = 1; h < 10; h++) {
+			p3fTscr = p3fTscr + +localStorage.getItem('z3H'+h+'s');
+		}
+		for (var h = 1; h < 10; h++) {
+			p3fTsfp = p3fTsfp + +localStorage.getItem('zSFp3h'+h);
+		}
 		document.getElementById("p3fT").innerHTML = p3fTscr;	// < *
 		document.getElementById("SPp3fT").innerHTML = p3fTsfp;						
 			if ( p3fTsfp > 0 ) {
 				document.getElementById("SPp3fT").style.color = 'lime';						
-			}				
+			}
+			
 		//P4 F9:			
-		let p4fTscr = +localStorage.getItem('z4H1s') + +localStorage.getItem('z4H2s') + +localStorage.getItem('z4H3s');
-		let p4fTsfp = +localStorage.getItem('zSFp4h1') + +localStorage.getItem('zSFp4h2') + +localStorage.getItem('zSFp4h3'); 
+		let p4fTscr = 0;
+		let p4fTsfp = 0; 
+		for (var h = 1; h < 10; h++) {
+			p4fTscr = p4fTscr + +localStorage.getItem('z4H'+h+'s');
+		}
+		for (var h = 1; h < 10; h++) {
+			p4fTsfp = p4fTsfp + +localStorage.getItem('zSFp4h'+h);
+		}		
 		document.getElementById("p4fT").innerHTML = p4fTscr;	// < *
 		document.getElementById("SPp4fT").innerHTML = p4fTsfp;
 			if ( p4fTsfp > 0 ) {
@@ -562,23 +588,22 @@
 			}	
 
 		//P5 F9:			
-/*		let p5fTscr = +localStorage.getItem('z5H1s') + +localStorage.getItem('z5H2s') + +localStorage.getItem('z5H3s');
-		let p5fTsfp = +localStorage.getItem('zSFp5h1') + +localStorage.getItem('zSFp5h2') + +localStorage.getItem('zSFp5h3'); 
-
-		if ( p5fTscr > 0 ) {
-				document.getElementById("p5fT").innerHTML = p5fTscr;	
+		let p5fTscr = 0;
+		let p5fTsfp = 0; 
+		for (var h = 1; h < 10; h++) {
+			p5fTscr = p5fTscr + +localStorage.getItem('z5H'+h+'s');
 		}
-		if ( p5fTsfp > 0 ) {
-				document.getElementById("SPp5fT").innerHTML = p5fTsfp;						
-				document.getElementById("SPp5fT").style.color = 'lime';						
-		}
-		else {
-			document.getElementById("SPp5fT").innerHTML =  +document.getElementById("SPp5h1").innerHTML + +document.getElementById("SPp5h2").innerHTML + +document.getElementById("SPp5h3").innerHTML;
-			document.getElementById("SPp5fT").style.color = 'RED';									
+		for (var h = 1; h < 10; h++) {
+			p5fTsfp = p5fTsfp + +localStorage.getItem('zSFp5h'+h);
 		}		
-*/
-		
-		document.getElementById("f9ptT").innerHTML =  p4fTsfp + p3fTsfp + p2fTsfp + p1fTsfp; //p5fTsfp + 
+		document.getElementById("p5fT").innerHTML = p5fTscr;	
+		document.getElementById("SPp5fT").innerHTML = p5fTsfp;
+			if ( p4fTsfp > 0 ) {
+				document.getElementById("SPp5fT").style.color = 'lime';						
+			}	
+
+			
+		document.getElementById("f9ptT").innerHTML =  p4fTsfp + p3fTsfp + p2fTsfp + p1fTsfp + p5fTsfp; //p5fTsfp + 
 		document.getElementById("f9ptT").style.color = 'RED';									
 										//f9ptT
 		
@@ -606,8 +631,145 @@
 	
 	function ptTperH() {
 		for (var h = 1; h < 19; h++) {
-			document.getElementById('SPtH'+h).innerHTML = +document.getElementById('SPp1h'+h).innerHTML + +document.getElementById('SPp2h'+h).innerHTML + +document.getElementById('SPp3h'+h).innerHTML + +document.getElementById('SPp4h'+h).innerHTML;  //SPtH3
+			document.getElementById('SPtH'+h).innerHTML = +document.getElementById('SPp1h'+h).innerHTML + +document.getElementById('SPp2h'+h).innerHTML + +document.getElementById('SPp3h'+h).innerHTML + +document.getElementById('SPp4h'+h).innerHTML + +document.getElementById('SPp5h'+h).innerHTML;  //SPtH3
 			//document.getElementById('p5h'+h).setAttribute('disabled', '');
 		}
 				
 	}	 
+	
+	function restrictINPUT() {
+		alert("Will try to restrict input columns for P4 &/or P3 when < 4 players.");
+		//<input id="p4h1"
+		//document.getElementById('TDp4h1').style.display = "none";
+		
+		//BLOCK P4:			//document.getElementById('p4h1').setAttribute('disabled', '');
+		if ( document.getElementById('p4').innerText=="-" ) {
+			for (var h = 1; h < 19; h++) {	
+				document.getElementById('p4h'+h).setAttribute('disabled', '');	
+				document.getElementById('p4h'+h).style.background = "slategray";
+				document.getElementById('SPp4h'+h).style.background = "slategray";		//p4h1 | SPp4h1
+			}
+		}
+		
+		//BLOCK P3:	
+		if ( document.getElementById('p3').innerHTML=="-" ) {
+			for (var h = 1; h < 19; h++) {	
+				document.getElementById('p3h'+h).setAttribute('disabled', '');	
+				document.getElementById('p3h'+h).style.background = "slategray";
+				document.getElementById('SPp3h'+h).style.background = "slategray";		//p4h1 | SPp4h1
+			}		
+		}
+		
+	}
+	
+	function calcBACKtots() {
+				//alert("Will now try to calculate BACK 9 total gross scores & Stableford points!");
+		//P1 B9:			
+		let p1bTscr=0; let p1bTsfp=0;
+		for (var h = 10; h < 19; h++) {
+			p1bTscr = p1bTscr + +localStorage.getItem('z1H'+h+'s');
+		}
+		for (var h = 10; h < 19; h++) {
+			p1bTsfp = p1bTsfp + +localStorage.getItem('zSFp1h'+h);
+		}
+		document.getElementById("p1bT").innerHTML = p1bTscr;	// < *
+		document.getElementById("SPp1bT").innerHTML = p1bTsfp;	
+			if ( p1bTsfp > 0 ) {
+				document.getElementById("SPp1bT").style.color = 'lime';						
+			}	
+
+		//P2 B9:			
+		let p2bTscr=0; let p2bTsfp=0;
+		for (var h = 10; h < 19; h++) {
+			p2bTscr = p2bTscr + +localStorage.getItem('z2H'+h+'s');
+		}
+		for (var h = 10; h < 19; h++) {
+			p2bTsfp = p2bTsfp + +localStorage.getItem('zSFp2h'+h);
+		}
+		document.getElementById("p2bT").innerHTML = p2bTscr;	// < *
+		document.getElementById("SPp2bT").innerHTML = p2bTsfp;	
+			if ( p2bTsfp > 0 ) {
+				document.getElementById("SPp2bT").style.color = 'lime';						
+			}		
+
+		//P3 B9:			
+		let p3bTscr=0; let p3bTsfp=0;
+		for (var h = 10; h < 19; h++) {
+			p3bTscr = p3bTscr + +localStorage.getItem('z3H'+h+'s');
+		}
+		for (var h = 10; h < 19; h++) {
+			p3bTsfp = p3bTsfp + +localStorage.getItem('zSFp3h'+h);
+		}
+		document.getElementById("p3bT").innerHTML = p3bTscr;	// < *
+		document.getElementById("SPp3bT").innerHTML = p3bTsfp;	
+			if ( p3bTsfp > 0 ) {
+				document.getElementById("SPp3bT").style.color = 'lime';						
+			}				
+
+		//P4 B9:			
+		let p4bTscr=0; let p4bTsfp=0;
+		for (var h = 10; h < 19; h++) {
+			p4bTscr = p4bTscr + +localStorage.getItem('z4H'+h+'s');
+		}
+		for (var h = 10; h < 19; h++) {
+			p4bTsfp = p4bTsfp + +localStorage.getItem('zSFp4h'+h);
+		}
+		document.getElementById("p4bT").innerHTML = p4bTscr;	// < *
+		document.getElementById("SPp4bT").innerHTML = p4bTsfp;	
+			if ( p4bTsfp > 0 ) {
+				document.getElementById("SPp4bT").style.color = 'lime';						
+			}				
+			
+		//P5 B9:			
+		let p5bTscr=0; let p5bTsfp=0;
+		for (var h = 10; h < 19; h++) {
+			p5bTscr = p5bTscr + +localStorage.getItem('z5H'+h+'s');
+		}
+		for (var h = 10; h < 19; h++) {
+			p5bTsfp = p5bTsfp + +localStorage.getItem('zSFp5h'+h);
+		}
+		document.getElementById("p5bT").innerHTML = p5bTscr;	// < *
+		document.getElementById("SPp5bT").innerHTML = p5bTsfp;	
+			if ( p5bTsfp > 0 ) {
+				document.getElementById("SPp5bT").style.color = 'lime';						
+			}				
+			
+		document.getElementById("b9ptT").innerHTML =  p4bTsfp + p3bTsfp + p2bTsfp + p1bTsfp + p5bTsfp; //p5fTsfp + 
+		document.getElementById("b9ptT").style.color = 'RED';									
+										//f9ptT
+		//ptTperH();
+		/* p4T18 18scrT p5T18
+		SPp1T18 18ptT SPp5T18 */
+		document.getElementById("p1T18").innerHTML =  +document.getElementById("p1fT").innerHTML + +document.getElementById("p1bT").innerHTML;
+		document.getElementById("SPp1T18").innerHTML =  +document.getElementById("SPp1fT").innerHTML + +document.getElementById("SPp1bT").innerHTML;
+				document.getElementById("SPp1T18").style.color = 'lime';						
+		
+		document.getElementById("p2T18").innerHTML =  +document.getElementById("p2fT").innerHTML + +document.getElementById("p2bT").innerHTML;
+		document.getElementById("SPp2T18").innerHTML =  +document.getElementById("SPp2fT").innerHTML + +document.getElementById("SPp2bT").innerHTML;
+				document.getElementById("SPp2T18").style.color = 'lime';	
+		
+		document.getElementById("p3T18").innerHTML =  +document.getElementById("p3fT").innerHTML + +document.getElementById("p3bT").innerHTML;
+		document.getElementById("SPp3T18").innerHTML =  +document.getElementById("SPp3fT").innerHTML + +document.getElementById("SPp3bT").innerHTML;
+				document.getElementById("SPp3T18").style.color = 'lime';	
+		
+		document.getElementById("p4T18").innerHTML =  +document.getElementById("p4fT").innerHTML + +document.getElementById("p4bT").innerHTML;
+		document.getElementById("SPp4T18").innerHTML =  +document.getElementById("SPp4fT").innerHTML + +document.getElementById("SPp4bT").innerHTML;
+			document.getElementById("SPp4T18").style.color = 'lime';	
+		
+		document.getElementById("p5T18").innerHTML =  +document.getElementById("p5fT").innerHTML + +document.getElementById("p5bT").innerHTML;
+		document.getElementById("SPp5T18").innerHTML =  +document.getElementById("SPp5fT").innerHTML + +document.getElementById("SPp5bT").innerHTML;
+			document.getElementById("SPp5T18").style.color = 'lime';									
+		
+		document.getElementById("18ptT").innerHTML =  +document.getElementById("f9ptT").innerHTML +
+		+document.getElementById("b9ptT").innerHTML;
+		document.getElementById("18ptT").style.color = 'RED';									
+		
+			
+	}	
+	
+	
+	function showF9totals() {
+		alert("Will try to display F9 totals above B9!");
+		document.getElementById('front9tS').style.display="";
+		document.getElementById('front9tP').style.display="";				
+	}
