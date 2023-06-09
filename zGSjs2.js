@@ -773,3 +773,23 @@
 		document.getElementById('front9tS').style.display="";
 		document.getElementById('front9tP').style.display="";				
 	}
+	
+	
+	function strokeHoles() {
+		alert("Will try to change TD colors re strokes player gets . . ");
+		
+					HOLEhc = document.getElementById("HCPh1").innerHTML;
+						alert("HOLEhc (H1) ="+HOLEhc);
+					//if (h==5) {alert("h==5 & HOLEhc = "+HOLEhc); }
+					//if ( (HCpl1-18) >= +HOLEhc) {
+						document.getElementById("1Ph1td").style.background = "green";	//"slategray";
+							document.getElementById("SPp1h1").style.color = "white";
+						document.getElementById("2Ph1td").style.background = "lime";
+						document.getElementById("3Ph1td").style.background = "ivory";
+					//}
+					/*else if ( +HCpl1 >= +HOLEhc ) { 
+						//if (h=5) {alert("h = 5 & HOLEhc = "+HOLEhc); }
+						document.getElementById("p1h"+h).style.background = "lime";
+					}*/		
+		
+	}
