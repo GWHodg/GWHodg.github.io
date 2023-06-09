@@ -778,18 +778,32 @@
 	function strokeHoles() {
 		alert("Will try to change TD colors re strokes player gets . . ");
 		
-					HOLEhc = document.getElementById("HCPh1").innerHTML;
-						alert("HOLEhc (H1) ="+HOLEhc);
-					//if (h==5) {alert("h==5 & HOLEhc = "+HOLEhc); }
-					//if ( (HCpl1-18) >= +HOLEhc) {
-						document.getElementById("1Ph1td").style.background = "green";	//"slategray";
-							document.getElementById("SPp1h1").style.color = "white";
-						document.getElementById("2Ph1td").style.background = "lime";
-						document.getElementById("3Ph1td").style.background = "ivory";
-					//}
-					/*else if ( +HCpl1 >= +HOLEhc ) { 
+					//HOLEhc = document.getElementById("HCPh1").innerHTML;
+						/*alert("HOLEhc (H1) ="+document.getElementById("HCPh1").innerHTML+"\n"+
+							  "PLAYERhc (p1HC) = " + +document.getElementById("p1HC").value);*/
+		//if (  )
+			for (var h = 1; h < 10; h++) {			  
+				for (var p = 1; p < 5; p++) {
+					if (+document.getElementById("p"+p+"HC").value-18 >= +document.getElementById("HCPh"+h).innerHTML) {
+						document.getElementById(p+"Ph"+h+"td").style.background = "green";	//"slategray";
+							document.getElementById("SPp"+p+"h"+h).style.color = "white";
+					}
+					else if (+document.getElementById("p"+p+"HC").value >= +document.getElementById("HCPh"+h).innerHTML) { 
 						//if (h=5) {alert("h = 5 & HOLEhc = "+HOLEhc); }
-						document.getElementById("p1h"+h).style.background = "lime";
-					}*/		
+						document.getElementById(p+"Ph"+h+"td").style.background = "lime";
+					}
+				}
+			}	
 		
+			/* if (+document.getElementById("p1HC").value-18 >= +document.getElementById("HCPh"+h).innerHTML) {
+						document.getElementById("1Ph"+h+"td").style.background = "green";	//"slategray";
+							document.getElementById("SPp1h"+h).style.color = "white";
+					}
+					else if (+document.getElementById("p1HC").value >= +document.getElementById("HCPh"+h).innerHTML) { 
+						//if (h=5) {alert("h = 5 & HOLEhc = "+HOLEhc); }
+						document.getElementById("1Ph"+h+"td").style.background = "lime";
+					}
+			*/
+			
+			
 	}
