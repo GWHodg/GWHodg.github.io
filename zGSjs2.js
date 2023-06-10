@@ -830,11 +830,13 @@
 			for (var h = 1; h < 19; h++) {
 					for (var n = 1; n < 6; n++) {
 						localStorage.setItem('z'+n+'H'+h+'s',""); document.getElementById("p"+n+"h"+h).value = "";
-						document.getElementById('SPp'+n+'h'+h).innerHTML = "";	
+						
+						document.getElementById('SPp'+n+'h'+h).innerHTML = 0;	
+						localStorage.setItem('zSFp'+n+'h'+h, 0);
 					}
 			}
 			
-			localStorage.setItem("DATE",""); document.getElementById("DATE").value = ""; 
+			//localStorage.setItem("DATE",""); document.getElementById("DATE").value = ""; 
 			localStorage.setItem("z1NAME",""); document.getElementById("z1NAME").value = ""; 
 				localStorage.setItem("z2NAME",""); document.getElementById("z2NAME").value = ""; 
 				localStorage.setItem("z3NAME",""); document.getElementById("z3NAME").value = ""; 
@@ -861,3 +863,16 @@
 		
 		//hideMENU();		
 	}	
+	
+	function remREADONLY() {
+		alert("Will TRY to re-enable ALL inputs . . .");
+		
+				for (var h = 1; h < 19; h++) {
+					for (var n = 1; n < 6; n++) {
+						//document.getElementById('p'+n+'h'+h).setAttribute('readonly', 'false');
+						document.getElementById('p'+n+'h'+h).readOnly = false;
+					}
+				}
+		//document.getElementById('p'+p+'h'+h).setAttribute('readonly', 'true');
+		
+	}

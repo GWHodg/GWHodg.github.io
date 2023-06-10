@@ -1,9 +1,11 @@
-	
+
+
 	body { 
 		background-color: white; 
 		zoom: 250%;
 		font-size:2em;
 				  /* document.getElementById("ZOOMbtn").innerText = "ZOOM -"; */
+		overscroll-behavior-y: contain;
 	} 		
 
 	.body,
