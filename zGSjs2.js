@@ -360,11 +360,11 @@
 		var currentInput = document.getElementById('p&h').value;
 		//alert("Will try to > next input!\n\tcurrentInput = "+currentInput);
 		
-		var P1 = localStorage.getItem('g1NAME');
-		var P2 = localStorage.getItem('g2NAME');
-		var P3 = localStorage.getItem('g3NAME');
-		var P4 = localStorage.getItem('g4NAME');
-		var P5 = localStorage.getItem('g5NAME');
+		var P1 = localStorage.getItem('z1NAME');
+		var P2 = localStorage.getItem('z2NAME');
+		var P3 = localStorage.getItem('z3NAME');
+		var P4 = localStorage.getItem('z4NAME');
+		var P5 = localStorage.getItem('z5NAME');
 		
 		/* To get the last N characters of a string in JavaScript, call the slice() method on the string, passing -N as an argument. For example, str. slice(-3) returns a new string containing the last 3 characters of str */
 		//const cH = currentInput.slice(-1); // < current hole
@@ -415,11 +415,11 @@
 		var currentInput = document.getElementById('p&h').value;
 		//alert("Will try to ENTER input to 'localStorage'!\n\tcurrentInput = "+currentInput);
 		
-		var P1 = localStorage.getItem('g1NAME');
-		var P2 = localStorage.getItem('g2NAME');
-		var P3 = localStorage.getItem('g3NAME');
-		var P4 = localStorage.getItem('g4NAME');
-		var P5 = localStorage.getItem('g5NAME');
+		var P1 = localStorage.getItem('z1NAME');
+		var P2 = localStorage.getItem('z2NAME');
+		var P3 = localStorage.getItem('z3NAME');
+		var P4 = localStorage.getItem('z4NAME');
+		var P5 = localStorage.getItem('z5NAME');
 		
 		const iptARY = currentInput.split(" ");
 		var cH = iptARY[1]; // <  // < current hole	
@@ -435,15 +435,18 @@
 		
 		const slideVAL = document.getElementById('myRange').value;
 		//alert("Entered slider value = "+slideVAL);
-		localStorage.setItem('g'+cPno+'H'+cH+'s',slideVAL);
+		localStorage.setItem('z'+cPno+'H'+cH+'s',slideVAL);
 			//localStorage.setItem('g3H4s',slideVAL);	
-			//alert("g"+cPno+"H"+cH+"s 'localStorage' value = "+localStorage.getItem('g'+cPno+'H'+cH+'s'));	
+			alert("z"+cPno+"H"+cH+"s 'localStorage' value = "+localStorage.getItem('z'+cPno+'H'+cH+'s'));	
 			
 		document.getElementById('check').style.visibility = 'visible';	
-		
-		
+				
 		//document.getElementById('h'+cH+'p'+cPno).innerHTML = slideVAL;
-		replace();
+		alert("slideVAL = "+slideVAL+"\n cP = "+cPno+"\ncH = "+cH);
+		calcSF(slideVAL,cPno,cH);
+				replace();
+		//localStorage.getItem('zSFp1h'+h); /* <<\/ * */
+		//calcSF(s,p,h)
 		
 	}
 		
@@ -451,11 +454,11 @@
 		var currentInput = document.getElementById('p&h').value;
 		//alert("Will try to > PREVIOUS input!\n\tcurrentInput = "+currentInput);
 		
-		var P1 = localStorage.getItem('g1NAME');
-		var P2 = localStorage.getItem('g2NAME');
-		var P3 = localStorage.getItem('g3NAME');
-		var P4 = localStorage.getItem('g4NAME');
-		var P5 = localStorage.getItem('g5NAME');
+		var P1 = localStorage.getItem('z1NAME');
+		var P2 = localStorage.getItem('z2NAME');
+		var P3 = localStorage.getItem('z3NAME');
+		var P4 = localStorage.getItem('z4NAME');
+		var P5 = localStorage.getItem('z5NAME');
 		
 		const iptARY = currentInput.split(" ");
 		var cH = iptARY[1]; // <  // < current hole		
