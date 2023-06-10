@@ -113,8 +113,8 @@
 								
 								<button id='addP5btn' onclick="addP5col()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">5th Player +/-</button>
 								<br>
-								<a onclick="restrictINPUT()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Disable Inputs +/-</a>
-								<!--<br>-->
+								<button onclick="restrictINPUT()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Disable Inputs +/-</button>
+								<br>
 								<button id='STROKESbtn' onclick="strokeHoles()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;">Display Stroke Holes<br>
 										<!--!
 										<span style='background:lime; color:black;'>&nbsp;1&nbsp;</span>&emsp;
@@ -123,15 +123,25 @@
 									-->
 								</button> 
 								<br>
-								<a onclick="remREADONLY()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Enable Input Edits</a>
-								
+								<!--<a onclick="remREADONLY()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Enable Input Edits</a>-->
+								<button onclick="remREADONLY()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Enable Input Edits</button>
+								<br>
+								<button id='FreezeHCbtn' onclick="freeze()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">+/- freeze HC input</button>
+								<br>
+								<button id='DROPbtn' onclick="showDROP()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:ivory; background:slategray; border:2px solid black; border-radius:10px; opacity:50%;">Drop Box!</button><!--&nbsp;-->
+								<button id='ADDbtn' onclick="showADDIN()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:ivory; background:slategray; border:2px solid black; border-radius:10px; opacity:50%;">Add-in!</button>
+								<br>
+								<!--FILE:-->
+								<button id='REPLACEbtn'  onclick="showLSwrite()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:50%;">WRITE scores to file</button>
+								<br>
+								&emsp;<button id='CLEARbtn' onclick="showLSread()" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:50%;">READ file</button><br>
 						  </div>
 					</div>
 			</TD>
 			<TD id="5Phead1" style="color:silver; display:none; background:black;" align=center> </TD> 			
 		</TR>
 		<TR>
-			<TD colspan=3 style="background:darkgreen; color:skyblue;" align=center><font size=4>06-10-d</font></TD> <TD colspan=5 style="background:darkgreen; color:skyblue;" align=center>
+			<TD colspan=3 style="background:darkgreen; color:skyblue;" align=center><font size=4>06-10-e</font></TD> <TD colspan=5 style="background:darkgreen; color:skyblue;" align=center>
 				<!--<b>Front</b>/<i>Back</i>-->
 				<button id='FRONTbtn' onclick="front9()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:black; background:yellow; border:2px solid orange; border-radius:10px; cursor:pointer;">FRONT</button>
 				<button id='BACKbtn' onclick="back9()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:white; background:black; border:2px solid orange; border-radius:10px; cursor:pointer;">BACK</button>

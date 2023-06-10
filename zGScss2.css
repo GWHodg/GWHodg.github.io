@@ -4,7 +4,7 @@
 		zoom: 250%;
 		font-size:2em;
 				  /* document.getElementById("ZOOMbtn").innerText = "ZOOM -"; */
-		/*overscroll-behavior-y: contain;*/
+		overscroll-behavior-y: contain; /* < prevents 'pull-to-refresh' in CHROME (not DDG) */
 	} 		
 	
 	table, th, td {
