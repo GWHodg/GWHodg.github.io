@@ -71,3 +71,11 @@
 		  	body { background-color:ivory; } 			/* iPad Pro (TT & "PWA') */						
 		  	.dropup-content { bottom:-300px; }
 	  	}						
+		
+		
+		div.DROPclass {
+			border:3px inset slategray; border-radius:10px; height:400px; overflow:scroll; margin:auto; background:white; 
+		}	
+		div.ADDclass {
+			border:3px inset slategray; border-radius:10px; height:400px; overflow:scroll; margin:auto; background:white;
+			}	/* height:400px; */							

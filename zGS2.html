@@ -213,8 +213,9 @@
 		</TR>			
 			
 		<TR id="frontNINE1">
-			<TD  class="holes" style="background:silver; text-align:center;">1</TD> 
-				<TD id="PARh1" class="holes">5</TD> <TD id="HCPh1" class="holes2">13</TD> 
+			<TD class="holes" style="background:silver; text-align:center;" id="H1" onclick="cellTOslide(1,1)">1</TD> 
+				<TD id="PARh1" class="holes">5</TD> 
+				<TD id="HCPh1" class="holes2">13</TD> 
 				<TD id="1Ph1td">
 					<input id="p1h1" type="tel" maxlength=1 style="" onblur="calcSF(this.value,1,1); this.style.background='white'" onfocus="this.style.background='dodgerblue'"  onchange="localStorage.setItem('z1H1s',this.value);" ><span id='SPp1h1' style="border:0px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>
 				</TD> 
@@ -246,7 +247,7 @@
 				-->
 		</TR>
 		<TR id="frontNINE2">
-			<TD class="holes">2</TD> 
+			<TD class="holes" id="H2" onclick="cellTOslide(1,2)">2</TD> 
 				<TD id="PARh2" class="holes">3</TD> <TD id="HCPh2" class="holes2">17</TD> 
 				<TD id="1Ph2td">
 					<input id="p1h2" type="tel" maxlength=1 style="" onblur="calcSF(this.value,1,2); this.style.background='white'" onfocus="this.style.background='dodgerblue'"  onchange="localStorage.setItem('z1H2s',this.value);" ><span id='SPp1h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>					
@@ -270,7 +271,7 @@
 				</td>
 		</TR>
 		<TR id="frontNINE3">
-			<TD class="holes">3</TD> 
+			<TD class="holes" id="H3" onclick="cellTOslide(1,3)">3</TD> 
 				<TD id="PARh3" class="holes">4</TD> <TD id="HCPh3" class="holes2">1</TD> 
 				<TD id="1Ph3td" style="font-size:1em;" align=center>
 					<input id="p1h3" type="tel" maxlength=1 style="" 
@@ -299,7 +300,7 @@
 				</td>				
 		</TR>	
 		<TR id="frontNINE4">
-			<TD class="holes">4</TD> 
+			<TD class="holes" id="H4" style="cursor:pointer;" onclick="cellTOslide(1,4)">4</TD> 
 			<TD id="PARh4"  class="holes">4</TD> 
 			<TD id="HCPh4"  class="holes2">5</TD> 
 			<TD id="1Ph4td">
@@ -322,7 +323,7 @@
 			</td>
 		</TR>
 		<TR id="frontNINE5">
-			<TD class="holes">5</TD> 
+			<TD class="holes" id="H5" onclick="cellTOslide(1,5)">5</TD> 
 				<TD id="PARh5" class="holes">4</TD> <TD id="HCPh5" class="holes2">7</TD> 
 			<TD id="1Ph5td">
 				<input id="p1h5" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,1,5);" onchange="localStorage.setItem('z1H5s',this.value);"><span id='SPp1h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>					
@@ -344,7 +345,8 @@
 			</td>
 		</TR>
 		<TR id="frontNINE6">
-			<TD class="holes">6</TD> <TD  id="PARh6" class="holes">4</TD> <TD  id="HCPh6" class="holes2">11</TD> 
+			<TD class="holes" id="H6" onclick="cellTOslide(1,6)">6</TD> 
+			<TD id="PARh6" class="holes">4</TD> <TD  id="HCPh6" class="holes2">11</TD> 
 			<TD id="1Ph6td">
 				<input id="p1h6" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,1,6);" onchange="localStorage.setItem('z1H6s',this.value);"><span id='SPp1h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>				
 			</TD> 
@@ -365,7 +367,8 @@
 			</td>	
 		</TR>		
 		<TR id="frontNINE7">
-			<TD class="holes">7</TD> <TD  id="PARh7" class="holes">4</TD> <TD  id="HCPh7" class="holes2">3</TD> 
+			<TD class="holes" id="H7" onclick="cellTOslide(1,7)">7</TD> 
+			<TD  id="PARh7" class="holes">4</TD> <TD  id="HCPh7" class="holes2">3</TD> 
 				<TD id="1Ph7td">
 					<input id="p1h7" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,1,7);" onchange="localStorage.setItem('z1H7s',this.value);"><span id='SPp1h7' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>									
 				</TD> 
@@ -386,7 +389,8 @@
 				</td>				
 		</TR>	
 		<TR id="frontNINE8">
-			<TD class="holes">8</TD> <TD  id="PARh8" class="holes">3</TD> <TD  id="HCPh8" class="holes2">15</TD> 
+			<TD class="holes" id="H8" onclick="cellTOslide(1,8)">8</TD> 
+			<TD  id="PARh8" class="holes">3</TD> <TD  id="HCPh8" class="holes2">15</TD> 
 				<TD id="1Ph8td">
 					<input id="p1h8" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,1,8);" onchange="localStorage.setItem('z1H8s',this.value);"><span id='SPp1h8' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>								
 				</TD> 
@@ -407,7 +411,8 @@
 				</td>				
 		</TR>	
 		<TR id="frontNINE9">
-			<TD class="holes">9</TD> <TD  id="PARh9" class="holes">3</TD> <TD  id="HCPh9" class="holes2">9</TD> 
+			<TD class="holes" id="H9" onclick="cellTOslide(1,9)">9</TD> 
+			<TD  id="PARh9" class="holes">3</TD> <TD  id="HCPh9" class="holes2">9</TD> 
 				<TD id="1Ph9td">
 					<input id="p1h9" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,1,9);" onchange="localStorage.setItem('z1H9s',this.value);"><span id='SPp1h9' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>								
 				</TD> 
@@ -433,7 +438,8 @@
 		<!-- BACK 9: -->
 		<TR id="backNINE1" style="display:none;">	
 			<!-- display:none; display:inline block;  |  visibility:collapse; -->
-			<TD class="b9">10</TD> <TD id="PARh10" class="b9">4</TD> <TD id="HCPh10" class="b92">6</TD> 
+			<TD class="b9" id="H10" onclick="cellTOslide(1,10)">10</TD> 
+			<TD id="PARh10" class="b9">4</TD> <TD id="HCPh10" class="b92">6</TD> 
 				<TD id="1Ph10td">
 					<input id="p1h10" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,1,10);" onchange="localStorage.setItem('z1H10s',this.value);""><span id='SPp1h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>		
 				</TD> 
@@ -455,7 +461,8 @@
 		</TR>
 		<TR id="backNINE2" style="display:none;">	
 			<!-- display:none; display:inline block;  |  visibility:collapse; -->
-			<TD class="b9">11</TD> <TD id="PARh11" class="b9">4</TD> <TD id="HCPh11" class="b92">2</TD> 
+			<TD class="b9" id="H11" onclick="cellTOslide(1,11)">11</TD> 
+			<TD id="PARh11" class="b9">4</TD> <TD id="HCPh11" class="b92">2</TD> 
 				<TD id="1Ph11td">
 					<input id="p1h11" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,1,11);" onchange="localStorage.setItem('z1H11s',this.value);""><span id='SPp1h11' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>						
 				</TD> 
@@ -477,7 +484,8 @@
 		</TR>		
 		<TR id="backNINE3" style="display:none;">	
 			<!-- display:none; display:inline block;  |  visibility:collapse; -->
-			<TD class="b9">12</TD> <TD id="PARh12" class="b9">5</TD> <TD id="HCPh12" class="b92">14</TD> 
+			<TD class="b9" id="H12" onclick="cellTOslide(1,12)">12</TD> 
+			<TD id="PARh12" class="b9">5</TD> <TD id="HCPh12" class="b92">14</TD> 
 				<TD id="1Ph12td">
 					<input id="p1h12" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,1,12);" onchange="localStorage.setItem('z1H12s',this.value);""><span id='SPp1h12' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>									
 				</TD> 
@@ -499,7 +507,8 @@
 		</TR>			
 		<TR id="backNINE4" style="display:none;">	
 			<!-- display:none; display:inline block;  |  visibility:collapse; -->
-			<TD class="b9">13</TD> <TD id="PARh13" class="b9">3</TD> <TD id="HCPh13" class="b92">16</TD> 
+			<TD class="b9" id="H13" onclick="cellTOslide(1,13)">13</TD> 
+			<TD id="PARh13" class="b9">3</TD> <TD id="HCPh13" class="b92">16</TD> 
 				<TD id="1Ph13td">
 					<input id="p1h13" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,1,13);" onchange="localStorage.setItem('z1H13s',this.value);""><span id='SPp1h13' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>									
 				</TD> 
@@ -521,7 +530,8 @@
 		</TR>					
 		<TR id="backNINE5" style="display:none;">	
 			<!-- display:none; display:inline block;  |  visibility:collapse; -->
-			<TD class="b9">14</TD> <TD id="PARh14" class="b9">3</TD> <TD id="HCPh14" class="b92">10</TD> 
+			<TD class="b9" id="H14" onclick="cellTOslide(1,14)">14</TD> 
+			<TD id="PARh14" class="b9">3</TD> <TD id="HCPh14" class="b92">10</TD> 
 				<TD id="1Ph14td">
 					<input id="p1h14" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,1,14);" onchange="localStorage.setItem('z1H14s',this.value);""><span id='SPp1h14' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>									
 				</TD> 
@@ -543,7 +553,8 @@
 			</TR>			
 		<TR id="backNINE6" style="display:none;">	
 			<!-- display:none; display:inline block;  |  visibility:collapse; -->
-			<TD class="b9">15</TD> <TD id="PARh15" class="b9">4</TD> <TD id="HCPh15" class="b92">4</TD> 
+			<TD class="b9" id="H15" onclick="cellTOslide(1,15)">15</TD> 
+			<TD id="PARh15" class="b9">4</TD> <TD id="HCPh15" class="b92">4</TD> 
 				<TD id="1Ph15td">
 					<input id="p1h15" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,1,15);" onchange="localStorage.setItem('z1H15s',this.value);""><span id='SPp1h15' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>									
 				</TD> 
@@ -565,7 +576,8 @@
 		</TR>
 		<TR id="backNINE7" style="display:none;">	
 			<!-- display:none; display:inline block;  |  visibility:collapse; -->
-			<TD class="b9">16</TD> <TD id="PARh16" class="b9">4</TD> <TD id="HCPh16" class="b92">12</TD> 
+			<TD class="b9" id="H16" onclick="cellTOslide(1,16)">16</TD> 
+			<TD id="PARh16" class="b9">4</TD> <TD id="HCPh16" class="b92">12</TD> 
 				<TD id="1Ph16td">
 					<input id="p1h16" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,1,16);" onchange="localStorage.setItem('z1H16s',this.value);""><span id='SPp1h16' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>									
 				</TD> 
@@ -587,7 +599,8 @@
 		</TR>		
 		<TR id="backNINE8" style="display:none;">	
 			<!-- display:none; display:inline block;  |  visibility:collapse; -->
-			<TD class="b9">17</TD> <TD id="PARh17" class="b9">5</TD> <TD id="HCPh17" class="b92">18</TD> 
+			<TD class="b9" id="H17" onclick="cellTOslide(1,17)">17</TD> 
+			<TD id="PARh17" class="b9">5</TD> <TD id="HCPh17" class="b92">18</TD> 
 				<TD id="1Ph17td">
 					<input id="p1h17" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,1,17);" onchange="localStorage.setItem('z1H17s',this.value);""><span id='SPp1h17' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>									
 				</TD> 
@@ -609,7 +622,8 @@
 		</TR>
 		<TR id="backNINE9" style="display:none;">	
 			<!-- display:none; display:inline block;  |  visibility:collapse; -->
-			<TD class="b9">18</TD> <TD id="PARh18" class="b9">4</TD> <TD id="HCPh18" class="b92">8</TD> 
+			<TD class="b9" id="H18" onclick="cellTOslide(1,18)">18</TD> 
+			<TD id="PARh18" class="b9">4</TD> <TD id="HCPh18" class="b92">8</TD> 
 				<TD id="1Ph18td">
 					<input id="p1h18" type="tel" maxlength=1 style="" onfocus="this.style.background='dodgerblue'" onblur="this.style.background='white'; calcSF(this.value,1,18);" onchange="localStorage.setItem('z1H18s',this.value);""><span id='SPp1h18' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>									
 				</TD> 
@@ -765,7 +779,205 @@
 		</TR>			
 -->
 
-
+		<TR>
+			<TD colspan=5 valign=top>
+				<!-- 	√√√√√√√√√√√√√√√√√√√√√√√ \/ DROP BOX \/ √√√√√√√√√√√√√√√√√√√√	  -->
+			<!--<TABLE align=center><TR><TD>-->
+				<div class="DROPclass" id="DROPdiv" style= "">
+						<!-- position = 'fixed'; left = "700px"; top = "100px"; -->
+											
+					<font size=5><b>Drop Box</b></font>
+									<button id='fullDRPbtn' onclick="FULLdrop()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:blue; background:transparent; border:1px solid blue; border-radius:5px;">+</button>
+							<span style="float:right; padding-right:10px; cursor:pointer; background:white; color:black; font-size:30px;">
+									<a onclick="showDROP()"><b>&times;</b></a>
+							</span><br>
+					<!--<br>-->
+					
+					<button id='drpPLbtn' onclick="DROP()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><b>DROP:</b></button>
+					<input type="text" id="pDROPPED" tabindex="" style="background:silver; width:20px;" placeholder="DZ" value="DZ">	
+					<!--&nbsp;-->
+					<span id='DROPcheck' class='gTOT' style="font-size:20px; visibility:hidden;"><b>√</b></span> 		<!-- hidden    class='gTOT' -->
+					<span id="pDone"  style="background:ivory; color:black; font-size:15px; visibility:hidden;">__</span>			
+					
+					<table id="DROPtbl" border=1 align=center>
+						<tr>
+							<th>HOLE</th> <th>SF pts</th> <!--  p drop -->
+						</tr>
+						
+						<tr> <td>1</td> 
+							 <td id="H1ptT"></td> 
+						</tr>
+						<tr> <td>2</td> <td id="H2ptT"></td> </tr> 
+						<tr> <td>3</td> <td id="H3ptT"></td> </tr>
+						<tr> <td>4</td> <td id="H4ptT"></td> </tr>
+						<tr> <td>5</td> <td id="H5ptT"></td> </tr>
+						<tr> <td>6</td> <td id="H6ptT"></td> </tr>
+						<tr> <td>7</td> <td id="H7ptT"></td> </tr>
+						<tr> <td>8</td> <td id="H8ptT"></td> </tr>
+						<tr> <td>9</td> <td id="H9ptT"></td> </tr>
+						<tr> <td><b>F9</b></td> <td id="f9ptT"></td> </tr>
+						
+						<tr> <td>10</td> <td id="H10ptT"></td> </tr>
+						<tr> <td>11</td> <td id="H11ptT"></td> </tr>
+						<tr> <td>12</td> <td id="H12ptT"></td> </tr>
+						<tr> <td>13</td> <td id="H13ptT"></td> </tr>
+						<tr> <td>14</td> <td id="H14ptT"></td> </tr>
+						<tr> <td>15</td> <td id="H15ptT"></td> </tr>
+						<tr> <td>16</td> <td id="H16ptT"></td> </tr>
+						<tr> <td>17</td> <td id="H17ptT"></td> </tr>
+						<tr> <td>18</td> <td id="H18ptT"></td> </tr>
+						
+						<tr> <td><b>B9</b></td> <td id="b9ptT"></td> </tr>
+						<tr> <td><b>T</b></td> <td id="18ptT"></td> </tr>
+						
+					</table>
+							
+				</div>
+			</TD>				
+				<!-- 	√√√√√√√√√√√√√√√√√√√√√√√ ^ DROP BOX ^ √√√√√√√√√√√√√√√√√√√√	  -->	
+		
+			<TD colspan=3>
+				<!-- 	√√√√√√√√√√√√√√√√√√√√√√√ \/ ADD-IN BOX \/ √√√√√√√√√√√√√√√√√√√√√√√√√	  -->
+			<!--<TABLE align=center><TR><TD>-->
+				<div class="ADDclass" id="ADDINdiv" style= "">
+						<!-- position = 'fixed'; left = "700px"; top = "100px"; -->
+						
+					
+					<font size=5><b>Add-in</b></font>
+						<button id='fullADDbtn' onclick="FULLaddin()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:blue; background:transparent; border:1px solid blue; border-radius:5px;">+</button>
+						<span style="float:right; padding-right:10px; cursor:pointer; background:white; color:black; font-size:30px;">
+								<a onclick="showADDIN()"><b>&times;</b></a>
+						</span><br>
+					<!--<br>-->
+					&emsp;<button id='addPLbtn' onclick="ADD()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%; "><b>ADD-IN</b></button>
+					&emsp;
+					<input type="text" id="pADDED" tabindex="" style="background:silver; width:20px;" placeholder="" value="">
+					<!--&nbsp;-->
+					<!--<span id='ADDcheck' class='gTOT' style="font-size:20px; visibility:hidden;"><b>√</b></span>-->		
+										<!-- hidden    class='gTOT' -->
+					<!--<span id="aDone" style="background:ivory; color:black; font-size:15px; visibility:hidden;">__</span>-->			
+					
+					<table id="ADDtbl" border=1 align=center>
+						<tr style="background:orange;">
+							<th>HOLE</th> <TH>ADD<br>pts</TH> <th>new<br>SF pts</th> <!--  p drop -->
+						</tr>
+						
+						<tr> <td>1</td> 
+							<TD>
+								<input class='' type="tel" style="width:20px;" id="ptsADDh1" maxlength=2 onfocus="alert('Enter added players POINTS by hole\nthen touch/click ADD-IN');">
+							</TD> 
+							<td style="background:ivory; color:black; font-size:25px;" id="newH1ptT"></td> 
+						</tr>
+						<tr> <td>2</td> 
+							<TD>
+								<input class='' type="tel" style="width:20px;" id="ptsADDh2" maxlength=2>
+							</TD> 
+							<td style="background:ivory; color:black; font-size:25px;" id="newH2ptT"></td> </tr> 
+						<tr> <td>3</td> 
+							<TD>
+								<input class='' type="tel" style="width:20px;" id="ptsADDh3" maxlength=2>
+							</TD> 
+							<td style="background:ivory; color:black; font-size:25px;" id="newH3ptT"></td> </tr>
+						<tr> <td>4</td> 
+							<TD>
+								<input class='' type="tel" style="width:20px;" id="ptsADDh4" maxlength=2>
+							</TD> 
+							<td style="background:ivory; color:black; font-size:25px;" id="newH4ptT"></td> </tr>
+						<tr> <td>5</td> 
+							<TD>
+								<input class='' type="tel" style="width:20px;" id="ptsADDh5" maxlength=2>
+							</TD> 
+							<td style="background:ivory; color:black; font-size:25px;" id="newH5ptT"></td> </tr>
+						<tr> <td>6</td> 
+							<TD>
+								<input class='' type="tel" style="width:20px;" id="ptsADDh6" maxlength=2>
+							</TD> 
+							<td style="background:ivory; color:black; font-size:25px;" id="newH6ptT"></td> </tr>
+						<tr> <td>7</td> 
+							<TD>
+								<input class='' type="tel" style="width:20px;" id="ptsADDh7" maxlength=2>
+							</TD> 
+							<td style="background:ivory; color:black; font-size:25px;" id="newH7ptT"></td> </tr>
+						<tr> <td>8</td> 
+							<TD>
+								<input class='' type="tel" style="width:20px;" id="ptsADDh8" maxlength=2>
+							</TD> 
+							<td style="background:ivory; color:black; font-size:25px;" id="newH8ptT"></td> </tr>
+						<tr> <td>9</td> 
+							<TD>
+								<input class='' type="tel" style="width:20px;" id="ptsADDh9" maxlength=2>
+							</TD> 
+							<td  style="background:ivory; color:black; font-size:25px;" id="newH9ptT"></td> </tr>
+						<tr style="background:silver;"> <td><b>F9</b></td> 
+							<TD>
+								<input class='' type="tel" style="width:20px; background:silver;" id="ptsADDf9" maxlength=2>
+							</TD> 
+							<td id="newf9ptT" style="font-size:25px;"></td> </tr>
+						
+						<tr> <td>10</td> 
+							<TD>
+								<input class='' type="tel" style="width:20px;" id="ptsADDh10" maxlength=2>
+							</TD> 
+							<td style="background:ivory; color:black; font-size:25px;" id="newH10ptT"></td> </tr>
+						<tr> <td>11</td> 
+							<TD>
+								<input class='' type="tel" style="width:20px;" id="ptsADDh11" maxlength=2>
+							</TD> 
+							<td style="background:ivory; color:black; font-size:25px;" id="newH11ptT"></td> </tr>
+						<tr> <td>12</td> 
+							<TD>
+								<input class='' type="tel" style="width:20px;" id="ptsADDh12" maxlength=2>
+							</TD> 
+							<td style="background:ivory; color:black; font-size:25px;" id="newH12ptT"></td> </tr>
+						<tr> <td>13</td> 
+							<TD>
+								<input class='' type="tel" style="width:20px;" id="ptsADDh13" maxlength=2>
+							</TD> 
+							<td style="background:ivory; color:black; font-size:25px;" id="newH13ptT"></td> </tr>
+						<tr> <td>14</td> 
+							<TD>
+								<input class='' type="tel" style="width:20px;" id="ptsADDh14" maxlength=2>
+							</TD> 
+							<td style="background:ivory; color:black; font-size:25px;" id="newH14ptT"></td> </tr>
+						<tr> <td>15</td> 
+							<TD>
+								<input class='' type="tel" style="width:20px;" id="ptsADDh15" maxlength=2>
+							</TD> 
+							<td style="background:ivory; color:black; font-size:25px;" id="newH15ptT"></td> </tr>
+						<tr> <td>16</td> 
+							<TD>
+								<input class='' type="tel" style="width:20px;" id="ptsADDh16" maxlength=2>
+							</TD> 
+							<td style="background:ivory; color:black; font-size:25px;" id="newH16ptT"></td> </tr>
+						<tr> <td>17</td> 
+							<TD>
+								<input class='' type="tel" style="width:20px;" id="ptsADDh17" maxlength=2>
+							</TD> 
+							<td style="background:ivory; color:black; font-size:25px;" id="newH17ptT"></td> </tr>
+						<tr> <td>18</td> 
+							<TD>
+								<input class='' type="tel" style="width:20px;" id="ptsADDh18" maxlength=2>
+							</TD> 
+							<td style="background:ivory; color:black; font-size:25px;" id="newH18ptT"></td> </tr>
+						
+						<tr style="background:silver;"> <td><b>B9</b></td> 
+							<TD>
+								<input class='' type="tel" style="width:20px; background:silver;" id="ptsADDb9" maxlength=2>
+							</TD> 
+							<td id="newb9ptT" style="font-size:25px;"></td> </tr>
+						<tr style="background:silver;"> <td><b>T</b></td> 
+							<TD>
+								<input class='' type="tel" style="width:25px; background:silver;" id="ptsADD18" maxlength=3>
+							</TD> 
+							<td id="new18ptT" style="font-size:25px;"></td> </tr>
+						
+					</table>				
+				</div>	
+								<!-- 	√√√√√√√√√√√√√√√√√√√√ ^ ADD-IN BOX ^ √√√√√√√√√√√√√√√√√√√√√√√√	  -->								
+			</TD>
+		
+				
+		</TR>	
 				
 		
 	</TABLE>		

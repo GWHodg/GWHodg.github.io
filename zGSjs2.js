@@ -449,7 +449,16 @@
 		//calcSF(s,p,h)
 		
 	}
-		
+
+	function cellTOslide(P,H) {
+		/*alert("Will try to get clicked cell P & H to display on slider frame!\n"+
+			  "P = "+P+" | H = "+H);*/		
+		var Pn;  // < Player NAME
+		Pn = localStorage.getItem('z1NAME');
+		//alert("Pn = "+Pn);			
+		document.getElementById('p&h').value = Pn+" "+H;
+	}
+	
 	function PrevInput() {
 		var currentInput = document.getElementById('p&h').value;
 		//alert("Will try to > PREVIOUS input!\n\tcurrentInput = "+currentInput);
