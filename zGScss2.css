@@ -1,37 +1,11 @@
 
-	.body,
-	.wrapper {
-	  /* Break the flow */
-		  position: absolute;
-		  top: 0px;	
-	  /* Give them all the available space */
-		  width: 100%;
-		  height: 100%;	
-	  /* Remove the margins if any */
-		  margin: 0;	
-	  /* Allow them to scroll down the document */
-		  /*overflow-y: hidden;*/
-	  /* Making the wrapper stack above the body */
-	  	z-index: 2;
-	  /*padding:30px;*/	 /* < my add (Mar 14/23) */
-	  /*zoom:150%;*/		  
-	}
-
-
-	.body { 
+	body { 
 		background-color: white; 
 		zoom: 250%;
 		font-size:2em;
 				  /* document.getElementById("ZOOMbtn").innerText = "ZOOM -"; */
 		overscroll-behavior-y: contain;
 	} 		
-	
-	.wrapper {
-	  /* Making the wrapper stack above the body */
-	  z-index: 2;
-	  padding:5px; /* < my add (Mar 14/23) [dec to 5 px June 6/23] */
-	  /*zoom:150%;*/		
-	}
 	
 	table, th, td {
 	  border: 1px solid black;
