@@ -80,7 +80,9 @@
 		
 		
 			//document.getElementById('p'+p+'h'+h).setAttribute('disabled', '');	
-			document.getElementById('p'+p+'h'+h).setAttribute('readonly', 'true');	
+			if ( s > 0 ) {
+				document.getElementById('p'+p+'h'+h).setAttribute('readonly', 'true');
+			}	
 			
 		}	
 		  
@@ -828,6 +830,7 @@
 			for (var h = 1; h < 19; h++) {
 					for (var n = 1; n < 6; n++) {
 						localStorage.setItem('z'+n+'H'+h+'s',""); document.getElementById("p"+n+"h"+h).value = "";
+						document.getElementById('SPp'+n+'h'+h).innerHTML = "";	
 					}
 			}
 			
@@ -842,6 +845,15 @@
 				localStorage.setItem("z3HC",""); document.getElementById("z3HC").value = ""; 
 				localStorage.setItem("z4HC",""); document.getElementById("z4HC").value = ""; 
 				localStorage.setItem("z5HC",""); document.getElementById("z5HC").value = ""; 
+				
+			//for (var h = 1; h < 19; h++) {
+			//	for (var p = 1; p < 6; p++) {
+			//		alert("In 'clearSAVED' fn to try to clear ea hole's SF pts . .");
+					//document.getElementById('SPp'+p+'h'+h).style.display = "none";
+					//document.getElementById('SPp'+p+'h'+h).innerText = "";	
+					//document.getElementById('SPp'+p+'h'+h).innerHTML = Hpts;	
+			//	}
+			//}
 			
 		}
 		
