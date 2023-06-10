@@ -63,3 +63,11 @@
 		border:3px inset orange; border-radius:5px; width:95%; margin:auto; text-align:center; padding:5px; background:beige;
 	}
 	span.sliderVAL { color:black; background:white; font-size:20px; border:1px solid blue; border-radius:0px; padding:5px; font-weight:bold; }  /* < slider */	
+	
+	
+					/*	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@   */
+					
+		@media screen and (min-width: 1360px) { /* < viewport => 1360 px wide */ 					
+		  	body { background-color:ivory; } 			/* iPad Pro (TT & "PWA') */						
+		  	.dropup-content { bottom:-300px; }
+	  	}						
