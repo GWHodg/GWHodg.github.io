@@ -103,7 +103,7 @@
 		    body { background-color : blue; }
 		}
 
-		@media screen and (min-width: 400px) and (max-width:980px) and (min-height:1900px) { 
+		@media screen and (min-width: 400px) and (max-width:980px) and (max-height:1900px) { 
 								/* Pixel(w=1040) */	
 									/* 'min-height:1900px' excludes iPod */
 			  body { 
@@ -124,7 +124,7 @@
 			  div.classLSwrite { left:10px; top:100px;
 	}
 	  	}		
-		@media screen and (min-width: 400px) and (max-width:980px) and (max-height:1900px) { 
+		@media screen and (min-width: 400px) and (max-width:980px) and (min-height:1900px) { 
 			body { background-color:black; } /* includes iPod */			
 		}
 		

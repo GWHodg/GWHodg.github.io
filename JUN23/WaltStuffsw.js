@@ -15,7 +15,7 @@
 // Change to 'precache-v2', etc. when you update any of the local resources, which will
 // in turn trigger the install event again.
 //Walt note that after you change the precache name each time you want to make and launch  a program edit you won't see the changes on the web until the service worker runs a second time!
-const PRECACHE = 'precache-v5';
+const PRECACHE = 'precache-v6';
 const RUNTIME = 'runtime';
 
 // A list of local resources we always want to be cached.

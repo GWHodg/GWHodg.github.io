@@ -2,7 +2,8 @@
   localStorage.setItem("mykey",99); // set a variable
   var varNumber = localStorage.getItem("mykey"); // retrieve variable
   
-
+/* window.onload=function() { */
+  
 	function calcALL() {
 		/*alert("UNIVERSAL Stableford Point Calculation\n\n"+". . .");*/
 		// H1/p1:
@@ -2163,3 +2164,5 @@ The service worker registration code is:*/
  }//end if else service worker
 
  //ORIGINAL SERVICE WORKER ABOVE ^					
+ 
+ /* }; */	//end window.onload function
