@@ -6,68 +6,10 @@
 
 <link rel="stylesheet" href="zGScss2.css">
 <script src="zGSjs2.js"></script>
+<script src="zGS2jsB.js"></script>
 
 <style>	</style>
-<script> 
-	
-	function SHOWpHCs() {
-		alert(""+
-			localStorage.getItem('z1NAME') + "\t" + localStorage.getItem('z2NAME') + "\t" + localStorage.getItem('z3NAME') + " \t" + localStorage.getItem('z4NAME') + "\t\t" + 
-			localStorage.getItem('z5NAME') +
-			"\n"+
-			localStorage.getItem('z1HC') + " \t" + localStorage.getItem('z2HC') + "\t" + localStorage.getItem('z3HC') + "\t" + localStorage.getItem('z4HC') + "\t\t" + localStorage.getItem('z5HC') );	
-								//localStorage.setItem('z1HC'
-								
-			document.getElementById('HCedit').style.display="";
-					//id="HCedit" style="display:none;"
-	}
-
-	function addP5col() {
-		if ( document.getElementById('5Ph1').style.display=="none" ) {
-			document.getElementById('5Plbl').style.display="";
-			document.getElementById('5Phead1').style.display="";	//5Phead1
-			document.getElementById('5Phead2').style.display="";
-			document.getElementById('TDp5NAME').style.display="";	
-			document.getElementById('TDp5HC').style.display="";
-			for (var h = 1; h < 19; h++) {
-				document.getElementById('5Ph'+h).style.display="";
-					//document.getElementById('5Ph2').style.display="";
-			}
-			document.getElementById('p5fT').style.display="";
-				document.getElementById('SPp5fT').style.display="";
-			document.getElementById('p5bT').style.display=""; //p5bT
-				document.getElementById('SPp5bT').style.display="";
-			document.getElementById('p5T18').style.display=""; //p5T18
-				document.getElementById('SPp5T18').style.display="";
-		}
-		else { 
-			document.getElementById('5Plbl').style.display="none";
-			for (var h = 1; h < 19; h++) {
-				document.getElementById('5Ph'+h).style.display="none";
-					//document.getElementById('5Ph2').style.display="";
-				document.getElementById('5Phead1').style.display="none";	//5Phead1
-				document.getElementById('5Phead2').style.display="none";
-				document.getElementById('TDp5NAME').style.display="none";	
-				document.getElementById('TDp5HC').style.display="none";
-			}
-			document.getElementById('p5fT').style.display="none";
-				document.getElementById('SPp5fT').style.display="none";
-			document.getElementById('p5bT').style.display="none";
-				document.getElementById('SPp5bT').style.display="none";
-			document.getElementById('p5T18').style.display="none";
-				document.getElementById('SPp5T18').style.display="none";
-		}
-		
-		
-					/* id="p5fT" style="display:none;" <!-- inline block -->
-					   		id='SPpfT' style="display:none;
-					   id='SPpbT' style="display:none;"
-					   		id='SPp5bT
-					   id="p5T18" style="display:none;"> <!-- display:inline block; --> 
-					   id='SPp5T18' style="display:none;" */
-	}	
-	
-</script>
+<script> </script>
 
 </head>
 
@@ -795,7 +737,7 @@
 					<!--<br>-->
 					
 					<button id='drpPLbtn' onclick="DROP()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">DROP</button>
-					<input type="text" id="pDROPPED" tabindex="" style="background:silver; FONT-SIZE:15px;" placeholder="DZ" value="DZ">	<!-- width:20px; -->
+					<input type="text" id="pDROPPED" tabindex="" style="background:silver; FONT-SIZE:15px;" placeholder="wH" value="">	<!-- width:20px; -->
 					<!--&nbsp;-->
 					<span id='DROPcheck' class='gTOT' style="font-size:20px; visibility:hidden;"><b>√</b></span> 		<!-- hidden    class='gTOT' -->
 					<span id="pDone"  style="background:ivory; color:black; font-size:15px; visibility:hidden;">__</span>			
@@ -814,9 +756,9 @@
 						<tr> <td>5</td> <td id="H5ptT"></td> </tr>
 						<tr> <td>6</td> <td id="H6ptT"></td> </tr>
 						<tr> <td>7</td> <td id="H7ptT"></td> </tr>
-						<tr> <td>8</td> <td id="H8ptT"></td> </tr>
+						<tr> <td>8</td> <td id="H8ptT"></td> </tr> 
 						<tr> <td>9</td> <td id="H9ptT"></td> </tr>
-						<tr style="background:silver;"> <td><b>F9</b></td> <td id="f9ptT"></td> </tr>
+						<tr style="background:silver;"> <td><b>F9</b></td> <td id="Df9ptT"></td> </tr>
 						
 						<tr> <td>10</td> <td id="H10ptT"></td> </tr>
 						<tr> <td>11</td> <td id="H11ptT"></td> </tr>
@@ -828,8 +770,8 @@
 						<tr> <td>17</td> <td id="H17ptT"></td> </tr>
 						<tr> <td>18</td> <td id="H18ptT"></td> </tr>
 						
-						<tr style="background:silver;"> <td><b>B9</b></td> <td id="b9ptT"></td> </tr>
-						<tr style="background:silver;"> <td><b>T</b></td> <td id="18ptT"></td> </tr>
+						<tr style="background:silver;"> <td><b>B9</b></td> <td id="Db9ptT"></td> </tr>
+						<tr style="background:silver;"> <td><b>T</b></td> <td id="D18ptT"></td> </tr>
 						
 					</table>
 							
@@ -837,7 +779,7 @@
 			</TD>				
 				<!-- 	√√√√√√√√√√√√√√√√√√√√√√√ ^ DROP BOX ^ √√√√√√√√√√√√√√√√√√√√	  -->	
 		
-			<TD colspan=3>
+			<TD colspan=4>
 				<!-- 	√√√√√√√√√√√√√√√√√√√√√√√ \/ ADD-IN BOX \/ √√√√√√√√√√√√√√√√√√√√√√√√√	  -->
 			<!--<TABLE align=center><TR><TD>-->
 				<div class="ADDclass" id="ADDINdiv" style= "">
@@ -853,7 +795,7 @@
 					<!--<br>-->
 					<button id='addPLbtn' onclick="ADD()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%; ">ADD-IN</button>
 					&nbsp;
-					<input type="text" id="pADDED" tabindex="" style="background:silver; FONT-SIZE:15px;" placeholder="" value="">
+					<!--<input type="text" id="pADDED" tabindex="" style="background:silver; FONT-SIZE:15px;" placeholder="" value="">-->
 					<!--&nbsp;-->
 					<!--<span id='ADDcheck' class='gTOT' style="font-size:20px; visibility:hidden;"><b>√</b></span>-->		
 										<!-- hidden    class='gTOT' -->
@@ -866,7 +808,8 @@
 						
 						<tr> <td>1</td> 
 							<TD>
-								<input class='' type="tel" id="ptsADDh1" maxlength=2 onfocus="alert('Enter added players POINTS by hole\nthen touch/click ADD-IN');">
+								<input class='' type="tel" id="ptsADDh1" maxlength=2 >
+										<!-- onfocus="alert('Enter added players POINTS by hole\nthen touch/click ADD-IN');" -->
 							</TD> <!-- style="width:20px;" -->
 							<td style="background:ivory; color:black; font-size:25px;" id="newH1ptT"></td> 
 						</tr>
@@ -977,7 +920,7 @@
 				</div>	
 								<!-- 	√√√√√√√√√√√√√√√√√√√√ ^ ADD-IN BOX ^ √√√√√√√√√√√√√√√√√√√√√√√√	  -->								
 			</TD>
-			<TD></TD>
+
 				
 		</TR>	
 				
