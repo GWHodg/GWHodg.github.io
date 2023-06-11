@@ -785,23 +785,24 @@
 			<!--<TABLE align=center><TR><TD>-->
 				<div class="DROPclass" id="DROPdiv" style= "">
 						<!-- position = 'fixed'; left = "700px"; top = "100px"; -->
-											
+					<!--						
 					<font size=5><b>Drop Box</b></font>
 									<button id='fullDRPbtn' onclick="FULLdrop()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:blue; background:transparent; border:1px solid blue; border-radius:5px;">+</button>
-							<span style="float:right; padding-right:10px; cursor:pointer; background:white; color:black; font-size:30px;">
+					-->
+							<!--<span style="float:right; padding-right:10px; cursor:pointer; background:white; color:black; font-size:30px;">
 									<a onclick="showDROP()"><b>&times;</b></a>
-							</span><br>
+							</span>-->
 					<!--<br>-->
 					
-					<button id='drpPLbtn' onclick="DROP()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><b>DROP:</b></button>
-					<input type="text" id="pDROPPED" tabindex="" style="background:silver; width:20px;" placeholder="DZ" value="DZ">	
+					<button id='drpPLbtn' onclick="DROP()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">DROP</button>
+					<input type="text" id="pDROPPED" tabindex="" style="background:silver; FONT-SIZE:15px;" placeholder="DZ" value="DZ">	<!-- width:20px; -->
 					<!--&nbsp;-->
 					<span id='DROPcheck' class='gTOT' style="font-size:20px; visibility:hidden;"><b>√</b></span> 		<!-- hidden    class='gTOT' -->
 					<span id="pDone"  style="background:ivory; color:black; font-size:15px; visibility:hidden;">__</span>			
 					
 					<table id="DROPtbl" border=1 align=center>
 						<tr>
-							<th>HOLE</th> <th>SF pts</th> <!--  p drop -->
+							<th>H</th> <th>pts</th> <!--  p drop -->
 						</tr>
 						
 						<tr> <td>1</td> 
@@ -815,7 +816,7 @@
 						<tr> <td>7</td> <td id="H7ptT"></td> </tr>
 						<tr> <td>8</td> <td id="H8ptT"></td> </tr>
 						<tr> <td>9</td> <td id="H9ptT"></td> </tr>
-						<tr> <td><b>F9</b></td> <td id="f9ptT"></td> </tr>
+						<tr style="background:silver;"> <td><b>F9</b></td> <td id="f9ptT"></td> </tr>
 						
 						<tr> <td>10</td> <td id="H10ptT"></td> </tr>
 						<tr> <td>11</td> <td id="H11ptT"></td> </tr>
@@ -827,8 +828,8 @@
 						<tr> <td>17</td> <td id="H17ptT"></td> </tr>
 						<tr> <td>18</td> <td id="H18ptT"></td> </tr>
 						
-						<tr> <td><b>B9</b></td> <td id="b9ptT"></td> </tr>
-						<tr> <td><b>T</b></td> <td id="18ptT"></td> </tr>
+						<tr style="background:silver;"> <td><b>B9</b></td> <td id="b9ptT"></td> </tr>
+						<tr style="background:silver;"> <td><b>T</b></td> <td id="18ptT"></td> </tr>
 						
 					</table>
 							
@@ -842,16 +843,17 @@
 				<div class="ADDclass" id="ADDINdiv" style= "">
 						<!-- position = 'fixed'; left = "700px"; top = "100px"; -->
 						
-					
+					<!--
 					<font size=5><b>Add-in</b></font>
 						<button id='fullADDbtn' onclick="FULLaddin()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:blue; background:transparent; border:1px solid blue; border-radius:5px;">+</button>
-						<span style="float:right; padding-right:10px; cursor:pointer; background:white; color:black; font-size:30px;">
+					-->
+						<!--<span style="float:right; padding-right:10px; cursor:pointer; background:white; color:black; font-size:30px;">
 								<a onclick="showADDIN()"><b>&times;</b></a>
-						</span><br>
+						</span>-->
 					<!--<br>-->
-					&emsp;<button id='addPLbtn' onclick="ADD()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%; "><b>ADD-IN</b></button>
-					&emsp;
-					<input type="text" id="pADDED" tabindex="" style="background:silver; width:20px;" placeholder="" value="">
+					<button id='addPLbtn' onclick="ADD()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%; ">ADD-IN</button>
+					&nbsp;
+					<input type="text" id="pADDED" tabindex="" style="background:silver; FONT-SIZE:15px;" placeholder="" value="">
 					<!--&nbsp;-->
 					<!--<span id='ADDcheck' class='gTOT' style="font-size:20px; visibility:hidden;"><b>√</b></span>-->		
 										<!-- hidden    class='gTOT' -->
@@ -859,115 +861,115 @@
 					
 					<table id="ADDtbl" border=1 align=center>
 						<tr style="background:orange;">
-							<th>HOLE</th> <TH>ADD<br>pts</TH> <th>new<br>SF pts</th> <!--  p drop -->
+							<th>H</th> <TH>+p</TH> <th>Tp</th> <!--  p drop -->
 						</tr>
 						
 						<tr> <td>1</td> 
 							<TD>
-								<input class='' type="tel" style="width:20px;" id="ptsADDh1" maxlength=2 onfocus="alert('Enter added players POINTS by hole\nthen touch/click ADD-IN');">
-							</TD> 
+								<input class='' type="tel" id="ptsADDh1" maxlength=2 onfocus="alert('Enter added players POINTS by hole\nthen touch/click ADD-IN');">
+							</TD> <!-- style="width:20px;" -->
 							<td style="background:ivory; color:black; font-size:25px;" id="newH1ptT"></td> 
 						</tr>
 						<tr> <td>2</td> 
 							<TD>
-								<input class='' type="tel" style="width:20px;" id="ptsADDh2" maxlength=2>
+								<input class='' type="tel" id="ptsADDh2" maxlength=2>
 							</TD> 
 							<td style="background:ivory; color:black; font-size:25px;" id="newH2ptT"></td> </tr> 
 						<tr> <td>3</td> 
 							<TD>
-								<input class='' type="tel" style="width:20px;" id="ptsADDh3" maxlength=2>
+								<input class='' type="tel" id="ptsADDh3" maxlength=2>
 							</TD> 
 							<td style="background:ivory; color:black; font-size:25px;" id="newH3ptT"></td> </tr>
 						<tr> <td>4</td> 
 							<TD>
-								<input class='' type="tel" style="width:20px;" id="ptsADDh4" maxlength=2>
+								<input class='' type="tel" id="ptsADDh4" maxlength=2>
 							</TD> 
 							<td style="background:ivory; color:black; font-size:25px;" id="newH4ptT"></td> </tr>
 						<tr> <td>5</td> 
 							<TD>
-								<input class='' type="tel" style="width:20px;" id="ptsADDh5" maxlength=2>
+								<input class='' type="tel" id="ptsADDh5" maxlength=2>
 							</TD> 
 							<td style="background:ivory; color:black; font-size:25px;" id="newH5ptT"></td> </tr>
 						<tr> <td>6</td> 
 							<TD>
-								<input class='' type="tel" style="width:20px;" id="ptsADDh6" maxlength=2>
+								<input class='' type="tel" id="ptsADDh6" maxlength=2>
 							</TD> 
 							<td style="background:ivory; color:black; font-size:25px;" id="newH6ptT"></td> </tr>
 						<tr> <td>7</td> 
 							<TD>
-								<input class='' type="tel" style="width:20px;" id="ptsADDh7" maxlength=2>
+								<input class='' type="tel" id="ptsADDh7" maxlength=2>
 							</TD> 
 							<td style="background:ivory; color:black; font-size:25px;" id="newH7ptT"></td> </tr>
 						<tr> <td>8</td> 
 							<TD>
-								<input class='' type="tel" style="width:20px;" id="ptsADDh8" maxlength=2>
+								<input class='' type="tel" id="ptsADDh8" maxlength=2>
 							</TD> 
 							<td style="background:ivory; color:black; font-size:25px;" id="newH8ptT"></td> </tr>
 						<tr> <td>9</td> 
 							<TD>
-								<input class='' type="tel" style="width:20px;" id="ptsADDh9" maxlength=2>
+								<input class='' type="tel" id="ptsADDh9" maxlength=2>
 							</TD> 
 							<td  style="background:ivory; color:black; font-size:25px;" id="newH9ptT"></td> </tr>
 						<tr style="background:silver;"> <td><b>F9</b></td> 
 							<TD>
-								<input class='' type="tel" style="width:20px; background:silver;" id="ptsADDf9" maxlength=2>
+								<input class='' type="tel" style="background:silver;" id="ptsADDf9" maxlength=2>
 							</TD> 
 							<td id="newf9ptT" style="font-size:25px;"></td> </tr>
 						
 						<tr> <td>10</td> 
 							<TD>
-								<input class='' type="tel" style="width:20px;" id="ptsADDh10" maxlength=2>
+								<input class='' type="tel" id="ptsADDh10" maxlength=2>
 							</TD> 
 							<td style="background:ivory; color:black; font-size:25px;" id="newH10ptT"></td> </tr>
 						<tr> <td>11</td> 
 							<TD>
-								<input class='' type="tel" style="width:20px;" id="ptsADDh11" maxlength=2>
+								<input class='' type="tel" id="ptsADDh11" maxlength=2>
 							</TD> 
 							<td style="background:ivory; color:black; font-size:25px;" id="newH11ptT"></td> </tr>
 						<tr> <td>12</td> 
 							<TD>
-								<input class='' type="tel" style="width:20px;" id="ptsADDh12" maxlength=2>
+								<input class='' type="tel" id="ptsADDh12" maxlength=2>
 							</TD> 
 							<td style="background:ivory; color:black; font-size:25px;" id="newH12ptT"></td> </tr>
 						<tr> <td>13</td> 
 							<TD>
-								<input class='' type="tel" style="width:20px;" id="ptsADDh13" maxlength=2>
+								<input class='' type="tel" id="ptsADDh13" maxlength=2>
 							</TD> 
 							<td style="background:ivory; color:black; font-size:25px;" id="newH13ptT"></td> </tr>
 						<tr> <td>14</td> 
 							<TD>
-								<input class='' type="tel" style="width:20px;" id="ptsADDh14" maxlength=2>
+								<input class='' type="tel" id="ptsADDh14" maxlength=2>
 							</TD> 
 							<td style="background:ivory; color:black; font-size:25px;" id="newH14ptT"></td> </tr>
 						<tr> <td>15</td> 
 							<TD>
-								<input class='' type="tel" style="width:20px;" id="ptsADDh15" maxlength=2>
+								<input class='' type="tel" id="ptsADDh15" maxlength=2>
 							</TD> 
 							<td style="background:ivory; color:black; font-size:25px;" id="newH15ptT"></td> </tr>
 						<tr> <td>16</td> 
 							<TD>
-								<input class='' type="tel" style="width:20px;" id="ptsADDh16" maxlength=2>
+								<input class='' type="tel" id="ptsADDh16" maxlength=2>
 							</TD> 
 							<td style="background:ivory; color:black; font-size:25px;" id="newH16ptT"></td> </tr>
 						<tr> <td>17</td> 
 							<TD>
-								<input class='' type="tel" style="width:20px;" id="ptsADDh17" maxlength=2>
+								<input class='' type="tel" id="ptsADDh17" maxlength=2>
 							</TD> 
 							<td style="background:ivory; color:black; font-size:25px;" id="newH17ptT"></td> </tr>
 						<tr> <td>18</td> 
 							<TD>
-								<input class='' type="tel" style="width:20px;" id="ptsADDh18" maxlength=2>
+								<input class='' type="tel" id="ptsADDh18" maxlength=2>
 							</TD> 
 							<td style="background:ivory; color:black; font-size:25px;" id="newH18ptT"></td> </tr>
 						
 						<tr style="background:silver;"> <td><b>B9</b></td> 
 							<TD>
-								<input class='' type="tel" style="width:20px; background:silver;" id="ptsADDb9" maxlength=2>
+								<input class='' type="tel" style="background:silver;" id="ptsADDb9" maxlength=2>
 							</TD> 
 							<td id="newb9ptT" style="font-size:25px;"></td> </tr>
 						<tr style="background:silver;"> <td><b>T</b></td> 
 							<TD>
-								<input class='' type="tel" style="width:25px; background:silver;" id="ptsADD18" maxlength=3>
+								<input class='' type="tel" style="background:silver;" id="ptsADD18" maxlength=3>
 							</TD> 
 							<td id="new18ptT" style="font-size:25px;"></td> </tr>
 						
