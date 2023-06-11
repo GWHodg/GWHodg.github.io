@@ -108,14 +108,14 @@
 									/* 'min-height:1900px' excludes iPod */
 			  body { 
 				  background-color: orange; 
-				  zoom: 150%;	/* 250%; */
+				  zoom: 175%;	/* 250%; */
 				  /* document.getElementById("ZOOMbtn").innerText = "ZOOM -"; */
 			  } 		
 		  	  div.DROPclass { position:fixed; left:50px; top:125px; visibility:hidden; }
 			  div.ADDclass  { position:fixed; left:40px; top:110px; visibility:hidden; } /* << NB! */
 			  button.ZOOMclass { background:yellow; border:4px outset blue; visibility:hidden; }
 			  a.HOMEclass { font-size:20px; }
-			  .dropup-content { bottom:-630px; } /* -540px pre Jne 4/23 */
+			  .dropup-content { bottom:-700px; } /* -540px pre Jne 4/23 > 630 Jun 11 */
 			  .slidecontainer { left:5px; top:100px; width:60%;}
 			  button.CODEBTNclass { display:none; }
 			  textarea.NOTEclass { left:3em; top:600px; height:200px; width:300px;}	/* ? \/ font-size */	
