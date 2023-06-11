@@ -108,7 +108,7 @@
 									/* 'min-height:1900px' excludes iPod */
 			  body { 
 				  background-color: orange; 
-				  zoom: 200%;	/* 250%; */
+				  zoom: 150%;	/* 250%; */
 				  /* document.getElementById("ZOOMbtn").innerText = "ZOOM -"; */
 			  } 		
 		  	  div.DROPclass { position:fixed; left:50px; top:125px; visibility:hidden; }
