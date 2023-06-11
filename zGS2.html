@@ -70,13 +70,14 @@
 								<br>
 								<button id='FreezeHCbtn' onclick="freeze()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">+/- freeze HC input</button>
 								<br>
-								<button id='DROPbtn' onclick="showDROP()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:ivory; background:slategray; border:2px solid black; border-radius:10px; opacity:50%;">Drop Box!</button><!--&nbsp;-->
-								<button id='ADDbtn' onclick="showADDIN()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:ivory; background:slategray; border:2px solid black; border-radius:10px; opacity:50%;">Add-in!</button>
+								<button id='DROPbtn' onclick="showDROP()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:ivory; background:slategray; border:2px solid black; border-radius:10px; opacity:100%;">DROP <i>or</i> ADD-IN +/-</button><!--&nbsp;-->
+								<!--<button id='ADDbtn' onclick="showADDIN()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:ivory; background:slategray; border:2px solid black; border-radius:10px; opacity:50%;">Add-in!</button>-->
 								<br>
 								<!--FILE:-->
-								<button id='REPLACEbtn'  onclick="showLSwrite()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:50%;">WRITE scores to file</button>
+								<button id='REPLACEbtn'  onclick="showLSwrite()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:50%;">WRITE/READ file +/-</button>
 								<br>
-								&emsp;<button id='CLEARbtn' onclick="showLSread()" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:50%;">READ file</button><br>
+								<!--
+								&emsp;<button id='CLEARbtn' onclick="showLSread()" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:50%;">READ file</button><br>-->
 						  </div>
 					</div>
 			</TD>
@@ -721,7 +722,7 @@
 		</TR>			
 -->
 
-		<TR>
+		<TR id="DROP/ADDrow" style="display:none;">    <!-- DROP/ADD row -->
 			<TD colspan=4 valign=top>
 				<!-- 	√√√√√√√√√√√√√√√√√√√√√√√ \/ DROP BOX \/ √√√√√√√√√√√√√√√√√√√√	  -->
 			<!--<TABLE align=center><TR><TD>-->

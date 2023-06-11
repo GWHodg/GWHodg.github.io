@@ -1,4 +1,4 @@
-	function DROP() {		alert("Working on 'DROP' function . . .");
+	function DROP() {		//alert("Working on 'DROP' function . . .");
 							/*						
 							for (var p = 1; p < 6; p++) {
 								for (var h = 1; h < 19; h++) {
@@ -234,7 +234,7 @@
 		
 		//var GROUPh1PTS = +document.getElementById("SPgpH1").innerText;		
 		var GROUPh1PTS = +document.getElementById("SPtH1").innerHTML; 
-		alert("Group T pts for H1 = "+GROUPh1PTS);		//document.getElementById('SPgpH1').innerText);
+		//alert("Group T pts for H1 = "+GROUPh1PTS);		//document.getElementById('SPgpH1').innerText);
 		
 		/*document.getElementById('newH1ptT').innerHTML = +document.getElementById("SPgpH1").innerHTML + +document.getElementById('ptsADDh1').value;*/ 
 		
@@ -256,7 +256,7 @@
 		for (var h = 1; h < 10; h++) {
 			ptsADDf9 = ptsADDf9 + +document.getElementById('ptsADDh'+h).value; 
 		}
-		document.getElementById('ptsADDf9').value = ptsADDf9; 			alert("ptsADDf9 = "+ptsADDf9);
+		document.getElementById('ptsADDf9').value = ptsADDf9; 			//alert("ptsADDf9 = "+ptsADDf9);
 		
 		var ptsADDb9 = 0;
 		for (var h = 10; h < 19; h++) {
@@ -348,3 +348,13 @@
 					   id="p5T18" style="display:none;"> <!-- display:inline block; --> 
 					   id='SPp5T18' style="display:none;" */
 	}		
+	
+	function showDROP() {
+		//alert("Will try to display DROP & ADD-IN row . . .");
+		if ( document.getElementById('DROP/ADDrow').style.display=="none" ) {
+			document.getElementById('DROP/ADDrow').style.display=""; //shows the row!
+		}
+		else {
+			document.getElementById('DROP/ADDrow').style.display="none"; //hides the row!			
+		}
+	}
