@@ -236,3 +236,18 @@
 				/* document.getElementById("menu23").style.display="block"; */		 //inline 	
 		}		
 	}
+	
+						/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+						
+	function showGS() {
+		//alert("MENUtopics textContent = "+document.getElementById("MENUtopics").textContent);
+		if (document.getElementById("GScard").textContent=="Hide GS") {
+			document.getElementById("GSdiv").style.display="none"; //inline 	
+			document.getElementById("GScard").textContent="Show GS";
+		}		
+		else {	//(document.getElementById("ACDNdiv").style.display="none") {
+			document.getElementById("GSdiv").style.display="block"; //inline 	
+			document.getElementById("GScard").textContent="Hide GS";
+		}
+		
+	}						
