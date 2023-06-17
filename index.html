@@ -8,6 +8,11 @@
 
 <link rel="stylesheet" href="styles.css">
 
+<style>
+	input { width:11px; font-size:15px; text-align:center; }
+	span { color:white; background:black; font-size:12px; }
+</style>
+
 <script src="myscripts.js"></script>
 <!--
 <script type="text/javascript">
@@ -471,7 +476,62 @@
 						<input type="" id="HCPh3" style="background:white;  color:black; width:60%;" placeholder=1 value=1 readonly>
 					</TD>				
 					<!--<TD style='background:white; color:black;'>4</TD> <TD style='background:white; color:black;'>1</TD>-->
+				</tr>
+				<tr> <TH id="H4" style="cursor:pointer;" onclick="cellTOslide(1,4)">4</TH> 
+					<td id="TDp1h4"> <input class='' type="tel" id="p1h4" maxlength=1 onclick="changeGLOBAL('p1h4')" tabindex="16"  onchange="localStorage.setItem('g1H4s',this.value);" onfocus="FOCUSfn('p1h4')" onblur="BLURfn('p1h4')"><span id='SPp1h4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+					<td id="TDp2h4"> <input class='' type="tel" id="p2h4" maxlength=1 onclick="changeGLOBAL('p2h4')" tabindex="17" 
+						onchange="localStorage.setItem('g2H4s',this.value);" onfocus="FOCUSfn('p2h4')" onblur="BLURfn('p2h4')"><span id='SPp2h4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+					<td id="TDp3h4"> <input class='' type="tel" id="p3h4" maxlength=1 onclick="changeGLOBAL('p3h4')" tabindex="18" 
+						onchange="localStorage.setItem('g3H4s',this.value);" onfocus="FOCUSfn('p3h4')" onblur="BLURfn('p3h4')"><span id='SPp3h4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+					<td id="TDp4h4"> <input class='' type="tel" id="p4h4" maxlength=1 onclick="changeGLOBAL('p4h4')" tabindex="19" 
+						 onchange="localStorage.setItem('g4H4s',this.value);" onfocus="FOCUSfn('p4h4')" onblur="BLURfn('p4h4')"><span id='SPp4h4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+					<td id="TDp5h4"> <input class='' type="tel" id="p5h4" maxlength=1 onclick="changeGLOBAL('p5h4')" tabindex="20" 
+						onchange="localStorage.setItem('g5H4s',this.value);" onfocus="FOCUSfn('p5h4')" onblur="BLURfn('p5h4')"><span id='SPp5h4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+					<TH>4 <span id='SPgpH4' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
+					<TD style='background:white; color:black;'>
+						<input type="" id="PARh4" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
+					</TD>
+					<TD style='background:white; color:black;'>
+						<input type="" id="HCPh4" style="background:white;  color:black; width:60%; cursor:help;" placeholder=5 value=5 readonly> 
+							<!-- title="WRITE localStorage to file!" onclick="showLSwrite()" -->
+							<!-- onclick="location.href='locStorMAC.html'" title="locStorMAC.html" -->
+					</TD>
+					
 				</tr>	
+				<tr> <TH id="H5" style="cursor:pointer;" onclick="cellTOslide(1,5)">5</TH> 
+					<td id="TDp1h5"> <input class='' type="tel" id="p1h5" maxlength=1 onclick="changeGLOBAL('p1h5')" tabindex="21" onchange="localStorage.setItem('g1H5s',this.value);" onfocus="FOCUSfn('p1h5')" onblur="BLURfn('p1h5')"><span id='SPp1h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+					<td id="TDp2h5"> <input class='' type="tel" id="p2h5" maxlength=1 onclick="changeGLOBAL('p2h5')" tabindex="22" onchange="localStorage.setItem('g2H5s',this.value);" onfocus="FOCUSfn('p2h5')" onblur="BLURfn('p2h5')"><span id='SPp2h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+					<td id="TDp3h5"> <input class='' type="tel" id="p3h5" maxlength=1 onclick="changeGLOBAL('p3h5')" tabindex="23" onchange="localStorage.setItem('g3H5s',this.value);" onfocus="FOCUSfn('p3h5')" onblur="BLURfn('p3h5')"><span id='SPp3h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+					<td id="TDp4h5"> <input class='' type="tel" id="p4h5" maxlength=1 onclick="changeGLOBAL('p4h5')" tabindex="24" onchange="localStorage.setItem('g4H5s',this.value);" onfocus="FOCUSfn('p4h5')" onblur="BLURfn('p4h5')"><span id='SPp4h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+					<td id="TDp5h5"> <input class='' type="tel" id="p5h5" maxlength=1 onclick="changeGLOBAL('p5h5')" tabindex="25"
+						 onchange="localStorage.setItem('g5H5s',this.value);" onfocus="FOCUSfn('p5h5')" onblur="BLURfn('p5h5')"><span id='SPp5h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+					<TH>5 <span id='SPgpH5' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
+					<TD style='background:white; color:black;'>
+						<input type="" id="PARh5" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
+					</TD>
+					<TD style='background:white; color:black;'>
+						<!--<input type="" id="HCPh5" style="background:white;  color:black; width:60%;" placeholder=7 value=7 readonly>-->
+						<input type="" id="HCPh5" style="background:white;  color:black; width:60%; cursor:help;" placeholder=7 value=7 readonly> <!--  title="READ localStorage from file!" onclick="showLSread()" -->
+					</TD>	
+					
+				</tr>	
+				<tr> <TH id="H6" style="cursor:pointer;" onclick="cellTOslide(1,6)" >6</TH> 
+					<td id="TDp1h6"> <input class='' type="tel" id="p1h6" maxlength=1 onclick="changeGLOBAL('p1h6')" tabindex="26" onchange="localStorage.setItem('g1H6s',this.value);" onfocus="FOCUSfn('p1h6')" onblur="BLURfn('p1h6')"><span id='SPp1h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+					<td id="TDp2h6"> <input class='' type="tel" id="p2h6" maxlength=1 onclick="changeGLOBAL('p2h6')" tabindex="27" onchange="localStorage.setItem('g2H6s',this.value);" onfocus="FOCUSfn('p2h6')" onblur="BLURfn('p2h6')"><span id='SPp2h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+					<td id="TDp3h6"> <input class='' type="tel" id="p3h6" maxlength=1 onclick="changeGLOBAL('p3h6')" tabindex="28" onchange="localStorage.setItem('g3H6s',this.value);" onfocus="FOCUSfn('p3h6')" onblur="BLURfn('p3h6')"><span id='SPp3h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+					<td id="TDp4h6"> <input class='' type="tel" id="p4h6" maxlength=1 onclick="changeGLOBAL('p4h6')" tabindex="29" onchange="localStorage.setItem('g4H6s',this.value);" onfocus="FOCUSfn('p4h6')" onblur="BLURfn('p4h6')"><span id='SPp4h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+					<td id="TDp5h6"> <input class='' type="tel" id="p5h6" maxlength=1 onclick="changeGLOBAL('p5h6')" tabindex="30" onchange="localStorage.setItem('g5H6s',this.value);" onfocus="FOCUSfn('p5h6')" onblur="BLURfn('p5h6')"><span id='SPp5h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
+					<TH>6 <span id='SPgpH6' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
+					<TD style='background:white; color:black;'>
+						<input type="" id="PARh6" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
+					</TD>
+					<TD style='background:white; color:black;'>
+						<input type="" id="HCPh6" style="background:beige;  color:black; width:60%; cursor:help;" placeholder=11 value=11 readonly onclick="showHCs()" title="Player Handicaps">
+					</TD>										
+				</tr>				
+			
+			
+				
 			</TABLE>
 			
 	</div>		
