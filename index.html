@@ -8,10 +8,12 @@
 
 <link rel="stylesheet" href="styles.css">
 
+<!--
 <style>
 	input { width:11px; font-size:15px; text-align:center; }
 	span { color:white; background:black; font-size:12px; }
 </style>
+-->
 
 <script src="myscripts.js"></script>
 <!--
@@ -44,8 +46,8 @@
   <br>
 
 
-	<A id="GScard" style="cursor:pointer; FONT-SIZE:20px; border:2px outset yellow; width:60%;"
-			onclick="showGS()">
+	<A id="GScard" style="cursor:pointer; FONT-SIZE:20px; border:2px outset yellow; width:60%; opacity:50%;"
+			onclick=""> <!-- showGS() -->
 			<u><b>Scorecard '23</b></u><br>
 			&emsp;&emsp;<font size=2 color=white>(GSpxl3x.html)</font>
 	</A>		<!-- onclick="" href="GSpxl3x.html" | onclick="alert('? display GSidx here');" -->
@@ -382,12 +384,12 @@
 
 
 					<!--  %%%%%%%%%%%%%%%%%%  \/ GSidx3 (Jun/23) \/ %%%%%%%%%%%%%%%%%%%%  -->
-
+<!--
 	<div id="GSdiv" style="display:none;  font-size:15px; cursor:pointer; background:blue; color:slategray; border:2px orange inset; border-radius:5%; padding:10px; width:700px; position:absolute; left:250px; top:200px; text-align:center; height:400px; overflow:scroll;">	
 
 			<TABLE id="HEADtbl" border=1 align=center style='FONT-SIZE:large; color:maroon; visibility:visible;' bgcolor='ivory'>	
 				<TR><TD colspan=3>
-						<label style="FONT-WEIGHT: bold; FONT-SIZE:25px; COLOR:white; background:royalblue; /*position:relative; left:15%;*/ border:3px solid black; border-radius:10px; opacity:100%; padding:5px;">VGC blue <!--<font size=2 color=silver><i>(GS<b>pxl2c</b>)</i></font>--></label>
+						<label style="FONT-WEIGHT: bold; FONT-SIZE:25px; COLOR:white; background:royalblue; /*position:relative; left:15%;*/ border:3px solid black; border-radius:10px; opacity:100%; padding:5px;">VGC blue </label>
 					</TD> 
 					<TD colspan=1 ><font size=1>GSidx3</font></TD>
 				</TR>
@@ -396,8 +398,8 @@
 				
 				<TR>	
 					<th>H</th>
-					<th><input type="text" id="p1NAME"   tabindex="201" style="background:ivory; width:60%; font-weight:bold; font-size:14px;" maxlength=2 value=""></th>	<!-- P1 -->
-					<th><input type="text" id="p2NAME" onchange=""  tabindex="203" style="background:beige; width:60%;" maxlength=2 value=""></th> <!-- P2 -->
+					<th><input type="text" id="p1NAME"   tabindex="201" style="background:ivory; width:60%; font-weight:bold; font-size:14px;" maxlength=2 value=""></th>	
+					<th><input type="text" id="p2NAME" onchange=""  tabindex="203" style="background:beige; width:60%;" maxlength=2 value=""></th> 
 					<th><input type="text" id="p3NAME" onchange=""  tabindex="205" style="background:linen; width:60%;" maxlength=2 value=""></th> 
 					<th><input type="text" id="p4NAME" onchange=""  tabindex="207" style="background:whitesmoke; width:60%; maxlength=2" value=""></th>
 					<th><input type="text" id="p5NAME" onchange=""  tabindex="209" style="background:snow; width:60%; maxlength=2"></th>	
@@ -409,8 +411,8 @@
 					<TH style="background:lightgreen;">     
 
 					</TH>
-					<TH><input type="" id="p1HC" maxlength=2 onchange="" name='NMp1hc' autofocus tabindex="202" style="background:ivory; width:60%; font-weight:bold;" ></TH> <!-- value=24  onchange="pHCcolors('p1')" -->
-					<TH><input type="" id="p2HC" maxlength=2 onchange="" tabindex="204" style="background:beige; width:60%;" ></TH> <!-- P2 HC -->
+					<TH><input type="" id="p1HC" maxlength=2 onchange="" name='NMp1hc' autofocus tabindex="202" style="background:ivory; width:60%; font-weight:bold;" ></TH> 
+					<TH><input type="" id="p2HC" maxlength=2 onchange="" tabindex="204" style="background:beige; width:60%;" ></TH>
 					<TH><input type="" id="p3HC" maxlength=2 onchange="" tabindex="206" style="background:linen; width:60%;" ></TH>
 					<TH><input type="" id="p4HC" maxlength=2 onchange="" tabindex="208" style="background:whitesmoke; width:60%;"  ></TH>
 					<TH><input type="" id="p5HC" maxlength=2 onchange="" tabindex="210" style="background:snow; width:60%;"></TH>
@@ -433,7 +435,7 @@
 						<input type="" id="HCPh1" style="background:white;  color:black; width:60%;" placeholder=13 value=13 readonly>
 					</TD>
 				</tr>	
-				<!--			
+
 				<tr>
 					<TH id="H2" style="cursor:pointer;" onclick="cellTOslide(1,2)">2</TH>
 					<td id="TDp1h2"> <input class='' id="p1h2" type="tel" maxlength=1 onclick="changeGLOBAL('p1h2')" tabindex="6" onchange="localStorage.setItem('g1H2s',this.value);" onfocus="FOCUSfn('p1h2')" onblur="BLURfn('p1h2')"><span id='SPp1h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
@@ -517,12 +519,12 @@
 						<input type="" id="HCPh6" style="background:beige;  color:black; width:60%; cursor:help;" placeholder=11 value=11 readonly onclick="showHCs()" title="Player Handicaps">
 					</TD>										
 				</tr>							
-				-->
+
 				
 			</TABLE>
 			
 	</div>		
-
+-->
 	
 </html>
 

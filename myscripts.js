@@ -238,7 +238,7 @@
 	}
 	
 						/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
-						
+/*						
 	function showGS() {
 		//alert("MENUtopics textContent = "+document.getElementById("MENUtopics").textContent);
 		if (document.getElementById("GScard").textContent=="Hide GS") {
@@ -251,3 +251,4 @@
 		}
 		
 	}						
+*/
