@@ -93,42 +93,10 @@
 
 		/* Use mediaqueries to set the background-color to orange if the viewport is 1070 pixels wide or wider, to green if the viewport is between 400 and 1069 pixels wide. If the viewport is smaller than 400 pixels, the background-color is blue: (https://www.w3schools.com/cssref/css3_pr_mediaquery.php) */
 		/*body { background-color: blue; }*/  	    /* < viewport < 400 px */
-		@media screen and (max-width:399px) {	/* < viewport < 400 px */ 
-		    body { background-color : blue; }
-		}
-
-		@media screen and (min-width: 400px) and (max-width:980px) and (min-height:1900px) { 
+		/*@media screen and (min-width: 400px) and (max-width:980px) and (min-height:1900px) {  */
 								/* Pixel(w=1040) */	
 									/* 'min-height:1900px' excludes iPod */
-			  body { 
-				  background-color: orange; 
-				  zoom: 250%;
-				  /* document.getElementById("ZOOMbtn").innerText = "ZOOM -"; */
-			  } 		
-		  	  div.DROPclass { position:fixed; left:50px; top:125px; visibility:hidden; }
-			  button.ZOOMclass { background:yellow; border:4px outset blue; visibility:hidden; }
-			  a.HOMEclass { font-size:20px; }
-			  .dropup-content { bottom: -510px; }
-			  .slidecontainer { left:5px; top:100px; width:60%;}
-			  button.CODEBTNclass { display:none; }
-			  textarea.NOTEclass { left:3em; top:600px; height:200px; width:300px;}	/* ? \/ font-size */	
-			  div.CODEclass { font-size:5px; } 
-			  div.pHCloc { position:fixed; left:70px; top:70px; }
-	  	}		
-		@media screen and (min-width: 400px) and (max-width:980px) and (max-height:1900px) { 
-			body { background-color:black; } /* includes iPod */			
-		}
-		
-		@media screen and (min-width: 981px) and (max-width:1009px) {	
-		  body { background-color: green; } 				/* WorkingCopy Preview! */  		
-		}
-		@media screen and (min-width: 1010px) and (max-width:1359px) {			
-		  body { background-color: red; }			
-		}
-		@media screen and (min-width: 1360px) { /* < viewport => 1360 px wide */ 					
-		  body { background-color: slategray; } 			/* iPad Pro (TT & "PWA') */						
-		  button.ZOOMclass { background:yellow; border:4px outset blue; visibility:hidden; }
-	    }								    					  
+									
 	  							/*  ?? Google Pixel viewport size is 412 x 732 PX 
 										1080 x 1920	| 412 x 732 ??    W:1040; H:2080 √
 									800px	  ? Pixel W = 1080! 

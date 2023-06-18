@@ -122,7 +122,7 @@
 <TABLE id="HEADtbl" border=1 align=center style='FONT-SIZE:large; color:maroon; visibility:visible;' bgcolor='ivory'>	
 <TR><TD>
 	<label style="FONT-WEIGHT: bold; FONT-SIZE:25px; COLOR:white; background:royalblue; /*position:relative; left:15%;*/ border:3px solid black; border-radius:10px; opacity:100%; padding:5px;">VGC blue <!--<font size=2 color=silver><i>(GS<b>pxl2c</b>)</i></font>--></label>
-</TD> <TD width=20><font size=1>1a</font></TD>	
+</TD> <TD width=20><font size=1>Lmr</font></TD>	
 	<!--<span style="font-size:30px;cursor:pointer; color:blue; background:white; position:relative; left:38%;" onclick="openMENU()">&#9776;</span>-->	<!-- position:absolute; LEFT:750px; top:30px;  -->
 <TD>
 					<div class="dropup" style="cursor:pointer; color:black; background:white; /*position:relative; left:18%;*/">
@@ -770,75 +770,6 @@
   }	
 </script>	
 
-				<!--    ==================================================    -->
-				
-	<div id="HOMEdiv" style="border-radius:10px; padding:5px;border:3px slategray outset; background:black; 	color:white; position:fixed; left:1em; top:10px;">
-		<A class="HOMEclass" href="index.html" style=""> &#x2302;<!--HOME symbol--></A>	
-	</div>
-
-	
-	<div class="battery-info" style="border:0px inset white; width:35%; padding:0px; position:fixed; left:8em; top:5px;">
-					<!-- position:fixed; left:1em; top:200px; -->
-            <b>Battery % = </b>
-            <span id="battery-percentage" style="padding:2px;">0</span>
-	            <span id="is-battery-charging" style="visibility:hidden;">No</span>
-	            <span id="chargingtime" style="visibility:hidden;"></span>
-	            <span id="dischargingtime" style="visibility:hidden;"></span>
-		</div> 
-    <script>
-        navigator.getBattery().then(function (battery) {
-            function showAllBatteryInfo() {
-                editChargeInfo();
-                editLevelInfo();
-                editChargingInfo();
-                editDischargingInfo();
-            }
-            showAllBatteryInfo();
- 
-            battery.addEventListener('chargingchange',
-                function () {
-                    editChargeInfo();
-                });
-            function editChargeInfo() {
- 
-                /* Test with the charger and without
-                charger by unplugging*/
-                var isBatteryCharging = (battery.charging ? "Yes" : "No")
-                document.getElementById('is-battery-charging')
-                    .innerText = isBatteryCharging
-            }
- 
-            battery.addEventListener('levelchange', function () {
-                editLevelInfo();
-            });
-            function editLevelInfo() {
-                /* Shows the battery level*/
-                var batteryLevel = battery.level * 100
-                document.getElementById('battery-percentage')
-                    .innerText = batteryLevel
-            }
- 
-            battery.addEventListener('chargingtimechange', function () {
-                editChargingInfo();
-            });
-            function editChargingInfo() {
- 
-                /* Test with the charger and without charger by unplugging*/
-                var charge = battery.chargingTime
-                document.getElementById('chargingtime').innerText = charge
-            }
- 
-            battery.addEventListener('dischargingtimechange', function () {
-                editDischargingInfo();
-            });
-            function editDischargingInfo() {
-                var disCharge = battery.dischargingTime
-                document.getElementById('dischargingtime')
-                    .innerText = disCharge
-            }
-        });
-    </script>
-	
 				<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 				<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
