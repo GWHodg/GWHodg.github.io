@@ -1,6 +1,6 @@
 //DougieBaseVer34sw.js added eyeore bkgrd image file O Nov 10, 2021. Messing arround!
 //from … TableNotesVer30sw.js
-var cacheName = 'WaltStuff-v3'
+var cacheName = 'WaltStuff-v2'
 self.addEventListener('install', function(e) {
  e.waitUntil(
 //was 'video-store're'In the install listener, we can initialize the cache and add files to it for offline use. The service worker does not install until the code inside waitUntil is executed. It returns a promise — this approach is needed because installing may take some time, so we have to wait for it to finish. we open a cache with a given name, then add all the files our app uses to the cache, so they are available next time it loads (identified by request URL).
@@ -15,8 +15,8 @@ self.addEventListener('install', function(e) {
 				//'/3-HingeDrill2.png',
 				//'/Notes21.xml',
 				//.xml might be seen by service worker and browser as another html file which might crash the PWA?
-		'/gsJSpxl3x.js',
-		'/gsCSSx.css',		
+		'/myscripts.js',
+		'/styles.css',		
 				// '/DougieBaseVer34.js',//directory path to project folder/app name.js file
 		     //  '/DougieBaseVer34.css',////directory path to project folder/app name.css file
 	    '/WaltStuff.webmanifest',////directory path to project folder/app name.trainmanifest file
