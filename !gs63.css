@@ -54,7 +54,7 @@
 	div.SLIDERdiv {
 		border:3px inset orange; border-radius:5px; width:35%; margin:auto; text-align:center; padding:10px; background:beige; visibility:hidden;
 	}
-	div.classLSwrite { position:fixed; left:50px; top:200px; background:pink; padding:10px; border:2px inset gray; border-radius:10px; visibility:hidden; }
+	div.classLSwrite { position:fixed;  left:30em; top:200px;  background:pink; padding:10px; border:2px inset gray; border-radius:10px; visibility:hidden; } /*    left:50px; top:200px;  */
 	
 	table.DROPtbl, td, th { text-align: center; }
 
@@ -80,18 +80,18 @@
 
 
 		div.DROPclass {
-			border:3px inset slategray; border-radius:10px; width:200px; height:400px; overflow:scroll; margin:auto; visibility:hidden; background:white; position:fixed; left:750px; top:100px; zoom:100%;
-		}	
+			border:3px inset slategray; border-radius:10px; width:200px; height:400px; overflow:scroll; margin:auto; visibility:hidden; background:white; position:fixed;  left:30em; top:200px;  zoom:100%;
+		}								/* left:750px; top:100px; */
 		div.ADDclass {
-			border:3px inset slategray; border-radius:10px; width:200px; height:50%; overflow:scroll; margin:auto; visibility:hidden; background:white; position:fixed; left:700px; top:80px; zoom:100%;
-			}	/* height:400px; */					
-		button.ZOOMclass {
-			FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;
-		}
-		a.HOMEclass {
-			color:moccasin; font-size:100px;
-		}
-		button.CODEBTNclass { FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%; }
+			border:3px inset slategray; border-radius:10px; width:200px; height:50%; overflow:scroll; margin:auto; visibility:hidden; background:white; position:fixed;  left:30em; top:200px;  zoom:100%;
+			}	/* height:400px; */		/* left:700px; top:80px; */			
+				/*	button.ZOOMclass {
+						FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;
+					}
+					a.HOMEclass {
+						color:moccasin; font-size:100px;
+					}
+					button.CODEBTNclass { FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%; } */
 		textarea.NOTEclass { background:lightyellow;  border:2px solid black; height:100px; width:100px; visibility:hidden;  position:fixed; left:30em; top:200px; overflow:scroll; }
 		
 					/* CSS Hack: Disable Chrome’s Pull-to-Refresh on Android:
