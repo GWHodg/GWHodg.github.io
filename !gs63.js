@@ -2021,6 +2021,12 @@
 			
 		document.getElementById('check').style.visibility = 'visible';	
 		
+
+		
+		document.getElementById('p'+cPno+'h'+cH).setAttribute('readonly', 'true');
+		document.getElementById('TDp'+cPno+'h'+cH).style.background='aqua';
+		document.getElementById('lastFOCUS').value = 'p'+cPno+'h'+cH;
+		
 		
 		//document.getElementById('h'+cH+'p'+cPno).innerHTML = slideVAL;
 		replace();
