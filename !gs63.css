@@ -53,7 +53,7 @@
 	  z-index:100;
   	}	
 	div.SLIDERdiv {
-		border:3px inset orange; border-radius:5px; width:95%; margin:auto; text-align:center; padding:10px; background:beige; visibility:hidden; 
+		border:3px inset orange; border-radius:5px; width:90%; margin:auto; text-align:center; padding:10px; background:beige; visibility:hidden; 
 					/* position:fixed; left:50%; transform:translate(-50%,0); top:10%; */
 	}
 	div.classLSwrite { position:fixed; left:50%; transform:translate(-50%,0); top:10%;

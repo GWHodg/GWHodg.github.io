@@ -951,8 +951,8 @@
 			   "Content of "+SCRinput+" element = "+entry);			
 		if ( +entry > 0 ) {
 			document.getElementById(SCRinput).setAttribute('readonly', 'true');
-			document.getElementById(SCRinput).style.background='aqua';
-		}
+			document.getElementById('TD'+SCRinput).style.background='aqua';
+		}		//TDp3h5
 		/*if ( s > 0 ) {
 			document.getElementById('p'+p+'h'+h).setAttribute('readonly', 'true');
 		}*/	
@@ -2189,24 +2189,3 @@
 	
 					/*		#################### \/ sw registration code \/ ################	*/
 					
-/*Hi Walt. The service worker registration (sw) code has to be included in your javascript file in order to register the service worker. If the sw registration code is not there your service worker will not do its job and thus explains why the app not running without internet is an issue.
-The service worker registration code is:*/
-
-//ORIGINAL SERVICE WORKER BELOW insert correct name of your service worker file v
-
-   if('serviceWorker' in navigator) {
-     navigator.serviceWorker
-              .register('/WaltStuffsw.js')
-              .then(function() { console.log('Service Worker Registered'); });
-             alert('Service Worker Registered!');
-        
-  
-          } else {//end if service worker
-//     //StorageManager.estimate()..https://developer.mozilla.org/en-US/docs/Web/API/StorageManager/estimate
-    
-     console.log('No Service worker installed!');
-     alert("No Service worker installed!");
-//     document.getElementById("percent").value = '(No Service Worker installed! )';
- }//end if else service worker
-
- //ORIGINAL SERVICE WORKER ABOVE ^					
