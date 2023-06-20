@@ -164,7 +164,9 @@
 	}
 	
 	function remREADONLY() {
-		alert("Will TRY to re-enable ALL current player inputs . . .");		
+		var lastFOCUS = document.getElementById('lastFOCUS').value;
+		alert("Will TRY to re-enable SELECTED player input for editing . . .\n"+
+		      "Last focussed element/input = "+lastFOCUS);		
 		//var focused = document.activeElement;  alert(focussed + " has focus");
 				/*for (var h = 1; h < 19; h++) {
 					for (var n = 1; n < 6; n++) {
@@ -172,6 +174,8 @@
 					}
 				}*/
 		//document.getElementById('p'+p+'h'+h).setAttribute('readonly', 'true');		
+		//document.getElementById('p'+p+'h'+h).readOnly = false;		
+		document.getElementById(lastFOCUS).removeAttribute('readOnly');
 	}
 	
 </script>
@@ -244,6 +248,8 @@
 								<!--
 								<A  href="SLIDERpage.html" style="color:red; text-shadow:1px 1px white; background:black; cursor:pointer;" title="> GSmac/SLIDERpage.html">&#9873;&emsp;Slider&emsp;&#9873;</A>
 								-->
+								<button onclick="remREADONLY()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Enable Input Edit</button><br>
+								<br>
 								<button id='SLIDEbtn' onclick="showSLIDER()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">Slider Input +/-</button> <br>
 								<br>
 								<div style="border:2px inset black; border-radius:0px; background:beige; width:90%; margin:auto;">
@@ -253,8 +259,7 @@
 								<button id='CLEARbtn' onclick="showLSread()" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">READ file</button><br>
 								</div>	
 								<br>
-								<button onclick="remREADONLY()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Enable Input Edits</button>
-								<br> <br>
+								<br>
 								<!--<button class="CODEBTNclass" id='NOTESbtn' onclick="showNOTES()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><i>coding notes</i></button>-->
 								<!--<button class="ZOOMclass" id='ZOOMbtn' onclick="changeZOOM()" style="display:none;"><i>ZOOM +/-</i></button>--><!--<br>-->
 								<!--<br>-->
@@ -302,6 +307,7 @@
 				<TD  colspan=3 style="background:transparent;"> <!--  float:right; -->
 					<!--<button id='SLIDEbtn' onclick="showSLIDE()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">Slider Input</button>	-->
 					<button id='FULLbtn2' onclick="FULLtbl()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:blue; background:transparent; border:0px solid blue; border-radius:5px;">+</button>
+					<input id='lastFOCUS' style='background:gray; font-size:8px; width:20px; display:;' placeholder='p2h4'>
 				</TD>
 			</TR>
 			<tr>

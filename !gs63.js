@@ -956,7 +956,8 @@
 		/*if ( s > 0 ) {
 			document.getElementById('p'+p+'h'+h).setAttribute('readonly', 'true');
 		}*/	
-		
+		//LAST FOCUSED ELEMENT:
+		document.getElementById('lastFOCUS').value = SCRinput;
 			
 	}	
 
