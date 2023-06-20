@@ -176,6 +176,8 @@
 		//document.getElementById('p'+p+'h'+h).setAttribute('readonly', 'true');		
 		//document.getElementById('p'+p+'h'+h).readOnly = false;		
 		document.getElementById(lastFOCUS).removeAttribute('readOnly');
+		document.getElementById(lastFOCUS).focus();
+		hideMENU();
 	}
 	
 </script>
@@ -189,7 +191,7 @@
 <TABLE id="HEADtbl" border=1 align=center style='FONT-SIZE:large; color:maroon; visibility:visible;' bgcolor='ivory'>	
 <TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:white; background:royalblue; FONT-WEIGHT:bold;" >VGC blue
 	<!--<label style="FONT-WEIGHT: bold; FONT-SIZE:25px; COLOR:white; background:royalblue; border:3px solid black; border-radius:10px; opacity:100%; padding:5px;">VGC blue </label>-->
-</TD> <TD width=20><font size=1>63c</font></TD>	
+</TD> <TD width=20><font size=1>63d</font></TD>	
 	<!--<span style="font-size:30px;cursor:pointer; color:blue; background:white; position:relative; left:38%;" onclick="openMENU()">&#9776;</span>-->	<!-- position:absolute; LEFT:750px; top:30px;  -->
 <TD>
 					<div class="dropup" style="cursor:pointer; color:black; background:white; /*position:relative; left:18%;*/">
@@ -291,8 +293,8 @@
 								 onblur="setHC('p4',this.value)"
 								 onblur="setHC('p5',this.value)" -->
 				<th>H</th>
-				<th>par</th>
-				<th>hcp</th>	
+				<th>p</th>
+				<th>hc</th>	
 		</thead>
 		<tbody id='TBLbody'> 							
 			<TR>
@@ -307,7 +309,7 @@
 				<TD  colspan=3 style="background:transparent;"> <!--  float:right; -->
 					<!--<button id='SLIDEbtn' onclick="showSLIDE()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">Slider Input</button>	-->
 					<button id='FULLbtn2' onclick="FULLtbl()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:blue; background:transparent; border:0px solid blue; border-radius:5px;">+</button>
-					<input id='lastFOCUS' style='background:gray; font-size:8px; width:20px; display:;' placeholder='p2h4'>
+					<input id='lastFOCUS' style='background:gray; font-size:8px; width:20px; display:none;' placeholder='p2h4'>
 				</TD>
 			</TR>
 			<tr>
