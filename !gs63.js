@@ -473,6 +473,10 @@
 					  IFnote);*/
 			}
 			document.getElementById(PTSid).innerHTML = Hpts;	
+
+			/*if ( s > 0 ) {
+				document.getElementById('p'+p+'h'+h).setAttribute('readonly', 'true');
+			}*/	
 			
 			holePTtots();		
 			/*document.getElementById("H1ptT").innerText = +document.getElementById("SPp1h1").innerText + +document.getElementById("SPp2h1").innerText + +document.getElementById("SPp3h1").innerText + +document.getElementById("SPp4h1").innerText + +document.getElementById("SPp5h1").innerText;*/
