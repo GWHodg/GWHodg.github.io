@@ -947,8 +947,8 @@
 			
 		
 		var entry = +document.getElementById(SCRinput).value;
-		alert ("In 'BLURfn' function! \n'SCRinput' variable = "+SCRinput+"\n"+
-			   "Content of "+SCRinput+" element = "+entry);			
+		//alert ("In 'BLURfn' function! \n'SCRinput' variable = "+SCRinput+"\n"+
+		//	   "Content of "+SCRinput+" element = "+entry);			
 		if ( +entry > 0 ) {
 			document.getElementById(SCRinput).setAttribute('readonly', 'true');
 			document.getElementById('TD'+SCRinput).style.background='aqua';
