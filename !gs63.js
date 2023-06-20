@@ -944,6 +944,20 @@
 		document.getElementById("focusIPT").style.background = "white";
 			document.getElementById("focusIPT").style.color = "maroon";
 			document.getElementById("focusIPT").value = "GSmac3x"; 		//GLOBALinput;
+			
+		
+		var entry = +document.getElementById(SCRinput).value;
+		alert ("In 'BLURfn' function! \n'SCRinput' variable = "+SCRinput+"\n"+
+			   "Content of "+SCRinput+" element = "+entry);			
+		if ( +entry > 0 ) {
+			document.getElementById(SCRinput).setAttribute('readonly', 'true');
+			document.getElementById(SCRinput).style.background='aqua';
+		}
+		/*if ( s > 0 ) {
+			document.getElementById('p'+p+'h'+h).setAttribute('readonly', 'true');
+		}*/	
+		
+			
 	}	
 
 	function showSLIDER() {
