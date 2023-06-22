@@ -15,12 +15,18 @@
 		  /* overflow-y: hidden; */
 		  overflow-y:scroll;
 	}
+
 	
 	.body {
 	  /* Sending body at the bottom of the stack */
 	  z-index: 1;
 	  /*background:gray;*/
 	  /*zoom:150%;*/	/*250%;*/
+	  overscroll-behavior-y: contain; /* < prevents 'pull-to-refresh' in CHROME (not DDG) */
+	  zoom:250%;	/* 135%; */
+	}
+	@media screen and (min-width: 400px) and (max-width:980px) and (min-height:1900px) { 			
+			body { background-color: orange; zoom: 250%; } 			
 	}
 	
 	.wrapper {
