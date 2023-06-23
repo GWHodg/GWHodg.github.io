@@ -19,9 +19,20 @@
 	.body {
 	  /* Sending body at the bottom of the stack */
 	  z-index: 1;
+	   zoom:250%;
 	  /*background:gray;*/
 	  /*zoom:150%;*/	/*250%;*/
 	}
+	@media screen and (min-width:1300px) and (max-width:1500px)  { 			
+			.body { zoom: 135%; } 			/* iPad (√) */
+			.wrapper { background:ivory; }
+	}	/* and (min-height:900px) */
+	/* iPad Pro viewport size: W=1426(1366); Ht=1024 PX √ */
+
+	
+	table.table2 tr td:nth-child(+6){ display:none }
+	table.table2 tr th:nth-child(+6){ display:none }
+	
 	
 	.wrapper {
 	  /* Making the wrapper stack above the body */
@@ -34,7 +45,7 @@
 	table.table2 thead { display:block; }
 	table.table2 tbody { height:430px; overflow-y:scroll; display:block; } /* height:300px; */
 	table.table2 td { width: 40px; background:black; color:white; text-align:center;}
-	table.table2 th { width: 40px; background:yellow; color:maroon }
+	table.table2 th { width: 40px; background:beige; color:maroon }
 	
 	input { width:11px; font-size:15px; text-align:center; }
 		input.uncoded { background:gray; } /* beige ivory linen */

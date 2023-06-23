@@ -2192,7 +2192,154 @@
 		document.getElementById('new18ptT').innerHTML = +document.getElementById('newf9ptT').innerHTML + +document.getElementById('newb9ptT').innerHTML;		
 		
 	}
-	
+
+			/* &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& */
+		
+	function showLSwrite() {
+		if (document.getElementById("divLSwrite").style.visibility=="visible") {
+			document.getElementById("divLSwrite").style.visibility="hidden"; 	
+		}		
+		else {
+			document.getElementById("divLSwrite").style.visibility="visible"; 
+		}						
+	}
+	function showLSread() {
+		if (document.getElementById("divLSread").style.visibility=="visible") {
+			document.getElementById("divLSread").style.visibility="hidden"; 	
+		}		
+		else {
+			document.getElementById("divLSread").style.visibility="visible"; 
+		}						
+	}	
+
+	var MyDiv1; var readArray;
+	function DIVtoVAR() {
+			MyDiv1 = document.getElementById('output').innerHTML;	//MyDiv2.innerHTML = MyDiv1.innerHTML; 
+			alert("MyDiv1 = "+MyDiv1);
+			var chr3 = MyDiv1.charAt(2);
+				alert("3rd chr in 'MyDiv1' string = '"+chr3+"'");
+			if ( chr3!="," ) {
+				/* convert a text file to CSV file:
+						1.split on line breaks
+						2. split on white space
+						3. join with commas
+						4. join with new lines */							
+					let txtTOcsv = MyDiv1.split('\n')                      // split lines
+					            .map(line => line.split(/\s+/).join(','))  // split spaces then join with ,
+					            .join('\n')                                // rejoin lines
+					
+								alert(".txt > .csv file conversion:\n"+
+									  txtTOcsv);
+								MyDiv1 = txtTOcsv;											  
+			}
+						
+			readArray = MyDiv1.split("<br>");	//const readArray = MyDiv1.split("<br>");
+			alert("'readArray[n]' contents:\n"+
+				  "\t\t[0] ="+readArray[0]+
+				  "\n\t[1] ="+readArray[1]+
+				  "\n\t[2] ="+readArray[2]+
+				  "\n\t[3]/h1 ="+readArray[3]+
+				  "\n\t[4]/h2 ="+readArray[4]+"\n\t[5]/h3 ="+readArray[5]+"\n\t[6]/h4 ="+readArray[6]+
+				  "\n\t[7]/h5 ="+readArray[7]+"\n\t[8]/h6 ="+readArray[8]+"\n\t[9]/h7 ="+readArray[9]+
+				  "\n\t[10]/h8 ="+readArray[10]+"\n\t[11]/h9 ="+readArray[11]);
+			
+			//let p1h1 = readArray[4]; alert("p1h1 (readArray[4]) = "+p1h1);			
+		}
+
+	function changeLclStrg() {
+			var dROW = readArray[0]; const dARR = dROW.split(","); localStorage.setItem('DATE', dARR[4]);	
+		
+			var pNMs = readArray[2]; var pHCs = readArray[1];
+			var h1 = readArray[3]; var h2 = readArray[4];
+					alert("pNMS array = "+pNMs+"\nh2 array = "+h2);
+			var h3 = readArray[5]; var h4 = readArray[6]; var h5 = readArray[7]; var h6 = readArray[8];
+			var h7 = readArray[9]; var h8 = readArray[10]; var h9 = readArray[11];
+			const pNarr = pNMs.split(",");
+				localStorage.setItem('g1NAME', pNarr[0]); localStorage.setItem('g2NAME', pNarr[1]);
+				localStorage.setItem('g3NAME', pNarr[2]); localStorage.setItem('g4NAME', pNarr[3]);
+				localStorage.setItem('g5NAME', pNarr[4]);
+			const pHCarr = pHCs.split(",");
+				localStorage.setItem('g1HC', pHCarr[0]); localStorage.setItem('g2HC', pHCarr[1]);
+				localStorage.setItem('g3HC', pHCarr[2]); localStorage.setItem('g4HC', pHCarr[3]);
+				localStorage.setItem('g5HC', pHCarr[4]);				
+			const H1arr = h1.split(",");	alert("H1arr[2] = "+H1arr[2]);
+				localStorage.setItem('g1H1s', H1arr[0]); localStorage.setItem('g2H1s', H1arr[1]);
+				localStorage.setItem('g3H1s', H1arr[2]); localStorage.setItem('g4H1s', H1arr[3]);
+				localStorage.setItem('g5H1s', H1arr[4]);
+			const H2arr = h2.split(",");	alert("H2arr[2] = "+H2arr[2]);
+				localStorage.setItem('g1H2s', H2arr[0]); localStorage.setItem('g2H2s', H2arr[1]);
+				localStorage.setItem('g3H2s', H2arr[2]); localStorage.setItem('g4H2s', H2arr[3]);
+				localStorage.setItem('g5H2s', H2arr[4]);
+			const H3arr = h3.split(",");
+				localStorage.setItem('g1H3s', H3arr[0]); localStorage.setItem('g2H3s', H3arr[1]);
+				localStorage.setItem('g3H3s', H3arr[2]); localStorage.setItem('g4H3s', H3arr[3]);
+				localStorage.setItem('g5H3s', H3arr[4]);
+			const H4arr = h4.split(",");	alert("H4arr[2] = "+H4arr[2]);
+				localStorage.setItem('g1H4s', H4arr[0]); localStorage.setItem('g2H4s', H4arr[1]);
+				localStorage.setItem('g3H4s', H4arr[2]); localStorage.setItem('g4H4s', H4arr[3]);
+				localStorage.setItem('g5H4s', H4arr[4]);
+			const H5arr = h5.split(",");
+				localStorage.setItem('g1H5s', H5arr[0]); localStorage.setItem('g2H5s', H5arr[1]);
+				localStorage.setItem('g3H5s', H5arr[2]); localStorage.setItem('g4H5s', H5arr[3]);
+				localStorage.setItem('g5H5s', H5arr[4]);
+			const H6arr = h6.split(",");
+				localStorage.setItem('g1H6s', H6arr[0]); localStorage.setItem('g2H6s', H6arr[1]);
+				localStorage.setItem('g3H6s', H6arr[2]); localStorage.setItem('g4H6s', H6arr[3]);
+				localStorage.setItem('g5H6s', H6arr[4]);
+			const H7arr = h7.split(",");
+				localStorage.setItem('g1H7s', H7arr[0]); localStorage.setItem('g2H7s', H7arr[1]);
+				localStorage.setItem('g3H7s', H7arr[2]); localStorage.setItem('g4H7s', H7arr[3]);
+				localStorage.setItem('g5H7s', H7arr[4]);
+			const H8arr = h8.split(",");
+				localStorage.setItem('g1H8s', H8arr[0]); localStorage.setItem('g2H8s', H8arr[1]);
+				localStorage.setItem('g3H8s', H8arr[2]); localStorage.setItem('g4H8s', H8arr[3]);
+				localStorage.setItem('g5H8s', H8arr[4]);
+			const H9arr = h9.split(",");
+				localStorage.setItem('g1H9s', H9arr[0]); localStorage.setItem('g2H9s', H9arr[1]);
+				localStorage.setItem('g3H9s', H9arr[2]); localStorage.setItem('g4H9s', H9arr[3]);
+				localStorage.setItem('g5H9s', H9arr[4]);
+				
+			var h10 = readArray[12]; var h11 = readArray[13]; ; var h12 = readArray[14]; 
+					alert("h10 array = "+h10);
+			var h13 = readArray[15]; var h14 = readArray[16]; var h15 = readArray[17]; var h16 = readArray[18];
+			var h17 = readArray[19]; var h18 = readArray[20]; 
+			const H10arr = h10.split(",");	alert("H10arr[2] = "+H10arr[2]);
+				localStorage.setItem('g1H10s', H10arr[0]); localStorage.setItem('g2H10s', H10arr[1]);
+				localStorage.setItem('g3H10s', H10arr[2]); localStorage.setItem('g4H10s', H10arr[3]);
+				localStorage.setItem('g5H10s', H10arr[4]);
+			const H11arr = h11.split(",");	
+				localStorage.setItem('g1H11s', H11arr[0]); localStorage.setItem('g2H11s', H11arr[1]);
+				localStorage.setItem('g3H11s', H11arr[2]); localStorage.setItem('g4H11s', H11arr[3]);
+				localStorage.setItem('g5H11s', H11arr[4]);
+			const H12arr = h12.split(",");	
+				localStorage.setItem('g1H12s', H12arr[0]); localStorage.setItem('g2H12s', H12arr[1]);
+				localStorage.setItem('g3H12s', H12arr[2]); localStorage.setItem('g4H12s', H12arr[3]);
+				localStorage.setItem('g5H12s', H12arr[4]);
+			const H13arr = h13.split(",");
+				localStorage.setItem('g1H13s', H13arr[0]); localStorage.setItem('g2H13s', H13arr[1]);
+				localStorage.setItem('g3H13s', H13arr[2]); localStorage.setItem('g4H13s', H13arr[3]);
+				localStorage.setItem('g5H13s', H13arr[4]);
+			const H14arr = h14.split(",");	
+				localStorage.setItem('g1H14s', H14arr[0]); localStorage.setItem('g2H14s', H14arr[1]);
+				localStorage.setItem('g3H14s', H14arr[2]); localStorage.setItem('g4H14s', H14arr[3]);
+				localStorage.setItem('g5H14s', H14arr[4]);
+			const H15arr = h15.split(",");
+				localStorage.setItem('g1H15s', H15arr[0]); localStorage.setItem('g2H15s', H15arr[1]);
+				localStorage.setItem('g3H15s', H15arr[2]); localStorage.setItem('g4H15s', H15arr[3]);
+				localStorage.setItem('g5H15s', H15arr[4]);
+			const H16arr = h16.split(",");
+				localStorage.setItem('g1H16s', H16arr[0]); localStorage.setItem('g2H16s', H16arr[1]);
+				localStorage.setItem('g3H16s', H16arr[2]); localStorage.setItem('g4H16s', H16arr[3]);
+				localStorage.setItem('g5H16s', H16arr[4]);
+			const H17arr = h17.split(",");
+				localStorage.setItem('g1H17s', H17arr[0]); localStorage.setItem('g2H17s', H17arr[1]);
+				localStorage.setItem('g3H17s', H17arr[2]); localStorage.setItem('g4H17s', H17arr[3]);
+				localStorage.setItem('g5H17s', H17arr[4]);
+			const H18arr = h18.split(",");
+				localStorage.setItem('g1H18s', H18arr[0]); localStorage.setItem('g2H18s', H18arr[1]);
+				localStorage.setItem('g3H18s', H18arr[2]); localStorage.setItem('g4H18s', H18arr[3]);
+				localStorage.setItem('g5H18s', H18arr[4]);
+	}			
 	
 					/*		#################### \/ sw registration code \/ ################	*/
 					
