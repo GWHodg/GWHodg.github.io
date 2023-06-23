@@ -13,6 +13,8 @@
 
 
 <style>
+	table.table2 tr td:nth-child(+6){ display:none }
+	table.table2 tr th:nth-child(+6){ display:none }
 </style>
 
 <script>			
@@ -179,7 +181,33 @@
 		document.getElementById(lastFOCUS).focus();
 		hideMENU();
 	}
-	
+
+	function displayP5() {
+		alert("Will try to display P5 . . .");
+		//document.getElementById('table2 tr td:nth-child(+6)').style.display = "";
+
+		/*var newsA = document.getElementById('table2');
+		var myCol = newsA.getElementsByTagName('nth-child')[0];
+		alert("myCol = "+myCol);*/
+
+
+
+		for (i=1; i<19; i++) {
+			document.getElementById('TDp5h'+i).style.display="block";
+		}
+		document.getElementById('TDp5NAME').style.display="block";
+		document.getElementById('TDp5HC').style.display="block";		
+		document.getElementById('TDp5fT').style.display="block";
+		document.getElementById('TDp5bT').style.display="block";
+			//alert("TDp5bt display ="+document.getElementById('TDp5bT').style.display);
+		document.getElementById('TDp5T18').style.display="block";		 
+		
+		/*var elems = document.getElementsByClassName('table2');
+		for (i=0; i<elems.length; i++) {
+			alert("elems["+i+"] = "+elems[i]);	
+		}*/
+						//table.table2 tr th:nth-child(+6){ display:none }	
+					}		
 </script>
 
 </head>
@@ -191,7 +219,7 @@
 <TABLE id="HEADtbl" border=1 align=center style='FONT-SIZE:large; color:maroon; visibility:visible;' bgcolor='ivory'>	
 <TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:white; background:royalblue; FONT-WEIGHT:bold;" >VGC blue
 	<!--<label style="FONT-WEIGHT: bold; FONT-SIZE:25px; COLOR:white; background:royalblue; border:3px solid black; border-radius:10px; opacity:100%; padding:5px;">VGC blue </label>-->
-</TD> <TD width=20><font size=1>63d</font></TD>	
+</TD> <TD width=20><font size=1>63e</font></TD>	
 	<!--<span style="font-size:30px;cursor:pointer; color:blue; background:white; position:relative; left:38%;" onclick="openMENU()">&#9776;</span>-->	<!-- position:absolute; LEFT:750px; top:30px;  -->
 <TD>
 					<div class="dropup" style="cursor:pointer; color:black; background:white; /*position:relative; left:18%;*/">
@@ -262,6 +290,8 @@
 								</div>	
 								<br>
 								<br>
+								<button onclick="displayP5()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>5th Player</button><br>								
+								<br>
 								<!--<button class="CODEBTNclass" id='NOTESbtn' onclick="showNOTES()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><i>coding notes</i></button>-->
 								<!--<button class="ZOOMclass" id='ZOOMbtn' onclick="changeZOOM()" style="display:none;"><i>ZOOM +/-</i></button>--><!--<br>-->
 								<!--<br>-->
@@ -286,7 +316,7 @@
 				<th><input type="text" id="p2NAME" onchange="localStorage.setItem('g2NAME',this.value);"  tabindex="203" style="background:beige; width:60%;" maxlength=2 value=""></th> <!-- P2 -->
 				<th><input type="text" id="p3NAME" onchange="localStorage.setItem('g3NAME',this.value);"  tabindex="205" style="background:linen; width:60%;" maxlength=2 value=""></th> 
 				<th><input type="text" id="p4NAME" onchange="localStorage.setItem('g4NAME',this.value);"  tabindex="207" style="background:whitesmoke; width:60%; maxlength=2" value=""></th>
-				<th><input type="text" id="p5NAME" onchange="localStorage.setItem('g5NAME',this.value);"  tabindex="209" style="background:snow; width:60%; maxlength=2"></th>	
+				<th id="TDp5NAME"><input type="text" id="p5NAME" onchange="localStorage.setItem('g5NAME',this.value);"  tabindex="209" style="background:snow; width:60%; maxlength=2"></th>	
 							<!-- <onblur="setHC('p1',this.value)"
 								 onblur="setHC('p2',this.value)"
 								 onblur="setHC('p3',this.value)"
@@ -305,7 +335,7 @@
 				<TH><input type="" id="p2HC" maxlength=2 onchange="localStorage.setItem('g2HC',this.value);" tabindex="204" style="background:beige; width:60%;" ></TH> <!-- P2 HC -->
 				<TH><input type="" id="p3HC" maxlength=2 onchange="localStorage.setItem('g3HC',this.value);" tabindex="206" style="background:linen; width:60%;" ></TH>
 				<TH><input type="" id="p4HC" maxlength=2 onchange="localStorage.setItem('g4HC',this.value);" tabindex="208" style="background:whitesmoke; width:60%;"  ></TH>
-				<TH><input type="" id="p5HC" maxlength=2 onchange="localStorage.setItem('g5HC',this.value);" tabindex="210" style="background:snow; width:60%;"></TH>
+				<TH id="TDp5HC"><input type="" id="p5HC" maxlength=2 onchange="localStorage.setItem('g5HC',this.value);" tabindex="210" style="background:snow; width:60%;"></TH>
 				<TD  colspan=3 style="background:transparent;"> <!--  float:right; -->
 					<!--<button id='SLIDEbtn' onclick="showSLIDE()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">Slider Input</button>	-->
 					<button id='FULLbtn2' onclick="FULLtbl()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:blue; background:transparent; border:0px solid blue; border-radius:5px;">+</button>
@@ -482,7 +512,7 @@
 					<span class="gTOT" id='gTf9p4'>00</span>
 					<span id='sTf9p4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">00</span>
 				</TD>								
-				<TD style='background:white; color:black;'>
+				<TD id="TDp5fT" style='background:white; color:black;'>
 					<span class="gTOT" id='gTf9p5'>00</span>
 					<span id='sTf9p5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">00</span>
 				</TD>
@@ -659,7 +689,7 @@
 					<span class="gTOT" id='gTb9p4'>00</span>
 					<span id='sTb9p4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">00</span>
 				</TD>								
-				<TD style='background:white; color:black;'>
+				<TD id="TDp5bT" style='background:white; color:black;'>
 					<span class="gTOT" id='gTb9p5'>00</span>
 					<span id='sTb9p5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">00</span>
 				</TD>
@@ -689,7 +719,7 @@
 					<span class="gTOT" id='gT18p4'>00</span>
 					<span id='sT18p4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">00</span>
 				</TD>								
-				<TD style='background:white; color:black;'>
+				<TD id="TDp5T18" style='background:white; color:black;'>
 					<span class="gTOT" id='gT18p5'>00</span>
 					<span id='sT18p5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">00</span>
 				</TD>
