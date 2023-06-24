@@ -794,6 +794,22 @@
 		document.getElementById("SPgpH17").innerHTML = +p1h17sf + +p2h17sf + +p3h17sf + +p4h17sf + +p5h17sf; 
 		document.getElementById("SPgpH18").innerHTML = +p1h18sf + +p2h18sf + +p3h18sf + +p4h18sf + +p5h18sf;  		
 
+		
+		
+		for (p=2; p<6; p++) {
+			if (document.getElementById('p'+p+'NAME').value=="") {
+				document.getElementById('gTf9p'+p).innerHTML="";
+				document.getElementById('gTb9p'+p).innerHTML="";
+				document.getElementById('gT18p'+p).innerHTML="";
+				document.getElementById('sTf9p'+p).innerHTML="";
+				document.getElementById('sTb9p'+p).innerHTML="";
+				document.getElementById('sT18p'+p).innerHTML="";
+				// gTb9p2 | sTb9p2 
+			}		
+		}
+		
+		
+		
 		hideMENU();
 		
 	}	  
@@ -958,7 +974,9 @@
 		}*/	
 		//LAST FOCUSED ELEMENT:
 		document.getElementById('lastFOCUS').value = SCRinput;
-			
+
+		calcALL();
+		calcTOTALS();		
 	}	
 
 	function showSLIDER() {
@@ -1619,7 +1637,22 @@
 								document.getElementById('p'+p+'h'+h).style.background = "slategray";
 							}	
 							document.getElementById("p"+p+"NAME").style.background = "slategray";	
-							document.getElementById("p"+p+"HC").style.background = "slategray";				
+							document.getElementById("p"+p+"HC").style.background = "slategray";	
+								document.getElementById("gTf9p"+p).style.background = "slategray";	
+									document.getElementById("gTf9p"+p).innerHTML = "";	
+								document.getElementById("sTf9p"+p).style.background = "slategray";
+									document.getElementById("sTf9p"+p).innerHTML = "";
+								//document.getElementById("tdTf"+p).style.background = "slategray";
+										//gTf9p1 | sTf9p1 | tdTf4	
+								document.getElementById("gTb9p"+p).style.background = "slategray";	
+									document.getElementById("gTb9p"+p).innerHTML = "";	
+								document.getElementById("sTb9p"+p).style.background = "slategray";
+									document.getElementById("sTb9p"+p).innerHTML = "";	
+									// gT18p4 | sT18p4:
+								document.getElementById("gT18p"+p).style.background = "slategray";	
+									document.getElementById("gT18p"+p).innerHTML = "";	
+								document.getElementById("sT18p"+p).style.background = "slategray";
+									document.getElementById("sT18p"+p).innerHTML = "";									
 						} 					
 						/*
 						else { 
@@ -1646,9 +1679,27 @@
 						document.getElementById('p'+p+'h'+h).style.background = "beige";
 					}	
 					document.getElementById("p"+p+"NAME").style.background = "beige";	
-					document.getElementById("p"+p+"HC").style.background = "beige";		
+					document.getElementById("p"+p+"HC").style.background = "beige";	
+				
+					document.getElementById("gTf9p"+p).style.background = "beige";	
+						document.getElementById("gTf9p"+p).innerHTML = "00";	
+					document.getElementById("sTf9p"+p).style.background = "black";
+						document.getElementById("sTf9p"+p).innerHTML = "00";
+					//document.getElementById("tdTf"+p).style.background = "slategray";
+							//gTf9p1 | sTf9p1 | tdTf4	
+					document.getElementById("gTb9p"+p).style.background = "beige";	
+						document.getElementById("gTb9p"+p).innerHTML = "00";	
+					document.getElementById("sTb9p"+p).style.background = "black";
+						document.getElementById("sTb9p"+p).innerHTML = "00";	
+						// gT18p4 | sT18p4:
+					document.getElementById("gT18p"+p).style.background = "beige";	
+						document.getElementById("gT18p"+p).innerHTML = "00";	
+					document.getElementById("sT18p"+p).style.background = "black";
+					document.getElementById("sT18p"+p).innerHTML = "00";																
+					
 				}					
-			}			
+			}
+			
 		}
 		//alert("p5h1 tabIndex = " + document.getElementById("p5h1").style.tabIndex);
 		hideMENU();		
