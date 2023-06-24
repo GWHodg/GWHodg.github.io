@@ -2394,3 +2394,69 @@
 	
 					/*		#################### \/ sw registration code \/ ################	*/
 					
+	
+	
+	function remREADONLY() {
+		var lastFOCUS = document.getElementById('lastFOCUS').value;
+		alert("Will TRY to re-enable SELECTED player input for editing . . .\n"+
+		      "Last focussed element/input = "+lastFOCUS);		
+		//var focused = document.activeElement;  alert(focussed + " has focus");
+				/*for (var h = 1; h < 19; h++) {
+					for (var n = 1; n < 6; n++) {
+						document.getElementById('p'+n+'h'+h).readOnly = false;
+					}
+				}*/
+		//document.getElementById('p'+p+'h'+h).setAttribute('readonly', 'true');		
+		//document.getElementById('p'+p+'h'+h).readOnly = false;		
+		document.getElementById(lastFOCUS).removeAttribute('readOnly');
+		document.getElementById(lastFOCUS).focus();
+		hideMENU();
+	}
+
+	function displayP5() {
+		alert("Will try to display/hide P5 . . .\n"+
+			  "document.getElementById('TDp5h1').style.display = '"+document.getElementById('TDp5h1').style.display+"'");
+		//document.getElementById('table2 tr td:nth-child(+6)').style.display = "";
+
+		/*var newsA = document.getElementById('table2');
+		var myCol = newsA.getElementsByTagName('nth-child')[0];
+		alert("myCol = "+myCol);*/
+
+
+		if ( (document.getElementById('TDp5h1').style.display=="") || (document.getElementById('TDp5h1').style.display=="none") ) {    //=="none"
+				//document.body.style.zoom="100%";
+				for (i=1; i<19; i++) {
+					document.getElementById('TDp5h'+i).style.display="block";
+				}
+				document.getElementById('TDp5NAME').style.display="block";
+				document.getElementById('TDp5HC').style.display="block";		
+				document.getElementById('TDp5fT').style.display="block";
+					//document.getElementById('TDp5fT').style.height="250%";
+					//document.getElementById('gTf9p5').style.height="500px";	//100%";
+					//document.getElementById('sTf9p5').style.height="100%";
+							//gTf9p5 | sTf9p5
+				document.getElementById('TDp5bT').style.display="block";
+					//alert("TDp5bt display ="+document.getElementById('TDp5bT').style.display);
+				document.getElementById('TDp5T18').style.display="block";		 
+				
+				/*var elems = document.getElementsByClassName('table2');
+				for (i=0; i<elems.length; i++) {
+					alert("elems["+i+"] = "+elems[i]);	
+				}*/
+						//table.table2 tr th:nth-child(+6){ display:none }	
+				//}		
+		}
+		
+		else { 
+				for (i=1; i<19; i++) {
+					document.getElementById('TDp5h'+i).style.display="none";
+				}
+				document.getElementById('TDp5NAME').style.display="none";
+				document.getElementById('TDp5HC').style.display="none";		
+				document.getElementById('TDp5fT').style.display="none";
+				document.getElementById('TDp5bT').style.display="none";
+					alert("TDp5bt display ="+document.getElementById('TDp5bT').style.display);
+				document.getElementById('TDp5T18').style.display="none";		 		
+		}
+		
+	}							
