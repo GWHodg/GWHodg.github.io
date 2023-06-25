@@ -1207,7 +1207,20 @@
 				document.getElementById("p4h"+h).value = localStorage.getItem("g4H"+h+"s");
 				document.getElementById("p5h"+h).value = localStorage.getItem("g5H"+h+"s");						
 		}
-	
+
+
+		for (var h = 1; h < 19; h++) {	
+			for (var p = 1; p<6; p++) {	
+				var entry = +document.getElementById("p"+p+"h"+h).value;
+						//alert ("In 'replace' function! \n'SCRinput' variable = "+SCRinput+"\n"+
+						//	   "Content of "+SCRinput+" element = "+entry);			
+				if ( +entry > 0 ) {
+					document.getElementById("p"+p+"h"+h).setAttribute('readonly', 'true');
+					document.getElementById('TD'+"p"+p+"h"+h).style.background='aqua';
+				}		//TDp3h5
+			}	
+		}
+		
 			
 		hideMENU();
 			 		
