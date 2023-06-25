@@ -43,7 +43,7 @@
 	}
 
 	
-	table.table2 thead { display:block;} /* display:unset; */ 
+	table.table2 thead { display:block;} /* display:block; | display:unset; */ 
 	table.table2 tbody { height:430px; overflow-y:scroll; display:block; } /* height:300px; */
 	table.table2 td { width: 40px; background:black; color:white; text-align:center;}
 	table.table2 th { width: 40px; background:beige; color:maroon;  }
