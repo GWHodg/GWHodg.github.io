@@ -3,7 +3,7 @@
 //How to save a javascript variable:
   localStorage.setItem("mykey",99); // set a variable
   var varNumber = localStorage.getItem("mykey"); // retrieve variable
-  
+  let prevIPT = "TDp1h1";   
  
 //SERVICE WORKER
 	 /* DISABLED/ENABLED SERVICE WORKER CODE FOR TESTING NEW CODE IN THIS VERSION !!!!*/
@@ -1999,8 +1999,14 @@
 		}
 			
  /*        &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& May/23 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&     */
- 
+
+
+	
  	function NextInput() {
+		
+		//alert("'prevIPT' variable = "+prevIPT);	//varNumber);	//prevIPT);
+		document.getElementById(prevIPT).style.border="0px solid orange";	
+		
 		var currentInput = document.getElementById('p&h').value;
 		//alert("Will try to > next input!\n\tcurrentInput = "+currentInput);
 		
@@ -2029,23 +2035,33 @@
 			  
 		if ( cP==P4 && P5!="" ) { 		/* P5!="" ) { */
 			//alert("next input = "+P5+" "+cH); 
-			document.getElementById('p&h').value = P5+" "+cH;		
+			document.getElementById('p&h').value = P5+" "+cH;	
+				document.getElementById("TDp5"+"h"+cH).style.border="2px solid orange";	
+				prevIPT = "TDp5h"+cH;		
 		}
 		else if ( cP==P3 && P4!="" ) { 
 			//alert("next input = "+P4+" "+cH); 
-			document.getElementById('p&h').value = P4+" "+cH;		
+			document.getElementById('p&h').value = P4+" "+cH;	
+				document.getElementById("TDp4"+"h"+cH).style.border="2px solid orange";	
+				prevIPT = "TDp4h"+cH;		
 		}
 		else if ( cP==P2 && P3!="" ) { 
 			//alert("next input = "+P3+" "+cH); 
-			document.getElementById('p&h').value = P3+" "+cH;		
+			document.getElementById('p&h').value = P3+" "+cH;	
+				document.getElementById("TDp3"+"h"+cH).style.border="2px solid orange";	
+				prevIPT = "TDp3h"+cH;		
 		}
 		else if ( cP==P1 && P2!="" ) { 
 			//alert("next input = "+P2+" "+cH); 
-			document.getElementById('p&h').value = P2+" "+cH;		
+			document.getElementById('p&h').value = P2+" "+cH;	
+				document.getElementById("TDp2"+"h"+cH).style.border="2px solid orange";	
+				prevIPT = "TDp2h"+cH;		
 		}
 		else { 
 			alert("All players entered for hole "+cH+"! Go to hole "+nH+"."); 
-			document.getElementById('p&h').value = P1+" "+nH;				
+			document.getElementById('p&h').value = P1+" "+nH;	
+				document.getElementById("TDp1"+"h"+nH).style.border="2px solid orange";	
+				prevIPT = "TDp1h"+nH;		
 		}
 
 		document.getElementById('check').style.visibility = 'hidden';	
@@ -2098,6 +2114,8 @@
 	}
 		
 	function PrevInput() {
+		document.getElementById(prevIPT).style.border="0px solid orange";	
+
 		var currentInput = document.getElementById('p&h').value;
 		//alert("Will try to > PREVIOUS input!\n\tcurrentInput = "+currentInput);
 		
@@ -2120,24 +2138,34 @@
 
 		if ( cP==P5 ) { 
 			//alert("last input = "+P4+" "+cH); 
-			document.getElementById('p&h').value = P4+" "+cH;		
+			document.getElementById('p&h').value = P4+" "+cH;	
+				document.getElementById("TDp4"+"h"+cH).style.border="2px solid orange";	
+				prevIPT = "TDp4h"+cH;					
 		}
 		else if ( cP==P4 ) { 
 			//alert("last input = "+P3+" "+cH); 
-			document.getElementById('p&h').value = P3+" "+cH;		
+			document.getElementById('p&h').value = P3+" "+cH;	
+				document.getElementById("TDp3"+"h"+cH).style.border="2px solid orange";	
+				prevIPT = "TDp3h"+cH;								
 		}
 		else if ( cP==P3 ) { 
 			//alert("last input = "+P2+" "+cH); 
-			document.getElementById('p&h').value = P2+" "+cH;		
+			document.getElementById('p&h').value = P2+" "+cH;	
+				document.getElementById("TDp2"+"h"+cH).style.border="2px solid orange";	
+				prevIPT = "TDp2h"+cH;								
 		}	
 		else if ( cP==P2 ) { 
 			//alert("last input = "+P1+" "+cH); 
-			document.getElementById('p&h').value = P1+" "+cH;		
+			document.getElementById('p&h').value = P1+" "+cH;	
+				document.getElementById("TDp1"+"h"+cH).style.border="2px solid orange";	
+				prevIPT = "TDp1h"+cH;								
 		}	
 		else { 
 			//alert("?? last input prior to "+P1+" "+cH); 
 			alert("Will go back to FIRST listed player of last hole!");
 			document.getElementById('p&h').value = P1+" "+pH;	
+				document.getElementById("TDp1"+"h"+pH).style.border="2px solid orange";	
+				prevIPT = "TDp1h"+pH;								
 			
 		}
 		
@@ -2158,6 +2186,7 @@
 	}	
 
 	function cellTOslide(P,H) {
+		document.getElementById(prevIPT).style.border="0px solid orange";	
 		/*alert("Will try to get clicked cell P & H to display on slider frame!\n"+
 			  "P = "+P+" | H = "+H);*/
 		
@@ -2165,15 +2194,15 @@
 		Pn = localStorage.getItem('g1NAME');
 		//alert("Pn = "+Pn);		
 		
-
-		document.getElementById('p&h').value = Pn+" "+H;
-		
+		document.getElementById('p&h').value = Pn+" "+H;	
 				/*
 				alert("localStorage:\n"+
 					  "\tH6/p1 = "+localStorage.getItem('g1H6s')+"\n"+
 					  "\tH6/p2 = "+localStorage.getItem('g2H6s')+"\n"+
 					  "\tH3/p1 = "+localStorage.getItem('g1H3s'));
 				*/
+		document.getElementById("TDp1"+"h"+H).style.border="2px solid orange";	
+		prevIPT = "TDp1h"+H;						
 	}
 				
 				/*	$$$$$$$$$$$$$$$$$$ \/ ADD-IN (June/23) \/ $$$$$$$$$$$$$$$$$$$$$$$$  */

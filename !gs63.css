@@ -109,7 +109,10 @@
 					button.CODEBTNclass { FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%; } */
 		textarea.NOTEclass { background:lightyellow;  border:2px solid black; height:100px; width:100px; visibility:hidden;   position:fixed; left:50%; transform:translate(-50%,0); top:10%;
 			overflow:scroll; }
-		
+
+		div.SCclass {
+			border:3px inset slategray; border-radius:10px; width:380px; height:20%; overflow:scroll; margin:auto; visibility:visible; background:white;  position:fixed; left:50%; transform:translate(-50%,0); top:70%;  zoom:100%; padding:5px;
+		}			
 					/* CSS Hack: Disable Chrome’s Pull-to-Refresh on Android:
 							        https://w3bits.com/prevent-chrome-pull-to-refresh-css/ 
 							- trick lies in taking the body and it’s inside container division out of the document flow while maintaining the element stacking. 

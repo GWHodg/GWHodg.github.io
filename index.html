@@ -15,7 +15,15 @@
 <style>
 </style>
 
-<script>				
+<script>
+
+	function USplus() {
+		document.getElementById("up/dwn").value = +document.getElementById("up/dwn").value + 1;
+	}
+	function THEMplus() {
+		document.getElementById("up/dwn").value = +document.getElementById("up/dwn").value - 1;
+	}
+	
 </script>
 
 </head>
@@ -27,7 +35,7 @@
 <TABLE id="HEADtbl" border=1 align=center style='FONT-SIZE:large; color:maroon; visibility:visible;' bgcolor='lightgray'>	
 <TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:white; background:royalblue; FONT-WEIGHT:bold;" >VGC blue
 	<!--<label style="FONT-WEIGHT: bold; FONT-SIZE:25px; COLOR:white; background:royalblue; border:3px solid black; border-radius:10px; opacity:100%; padding:5px;">VGC blue </label>-->
-</TD> <TD width=20><font size=1>63g</font></TD>	
+</TD> <TD width=20><font size=1>63h</font></TD>	
 	<!--<span style="font-size:30px;cursor:pointer; color:blue; background:white; position:relative; left:38%;" onclick="openMENU()">&#9776;</span>-->	<!-- position:absolute; LEFT:750px; top:30px;  -->
 <TD>
 					<div class="dropup" style="cursor:pointer; color:black; background:lightgray; /*position:relative; left:18%;*/">
@@ -44,7 +52,7 @@
 								<a> </a>
 								<a> </a>										
 								<button id='calcALLbtn' onclick="calcALL()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:white; background:blue; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>STABLEFORD Points</b></u></button> <br>
-								<br>
+								<!--<br>-->
 								<button id='calcTOTbtn' onclick="calcTOTALS()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>TOTALS</b></u></button><br>
 								<br> 
 								<button id='STROKESbtn' onclick="pHCcolors()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;">Display Stroke Holes<br>
@@ -52,24 +60,10 @@
 										<span style='background:green;'>&nbsp;2&nbsp;</span>&emsp;
 										<span style='background:white; color:black;'>&nbsp;0&nbsp;</span>
 								</button> 
-										<!--
-										<button id='remSTROKESbtn' onclick="remCOLORS()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;">-<br>
-										</button>
-										-->	
 								<br>
-								<br>
+								<!--<br>-->
 								<button id='TABbtn' onclick="restrictTAB()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;"><b>Disable/Enable Inputs<!--Restrict Tabs--><!--bing--></b></button><br>
 								<br>								
-								<!--
-								<button id='FULLbtnMNU' onclick="FULLtbl()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><b>DISPLAY +/-</b></button><br>
-								<br>
-								<button id='INFObtn' onclick="showINFO()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><b>Note +/-</b></button><br>
-								<br>
-								-->
-								<!--
-								<button id='SAVEbtn' onclick="save()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:gray; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><i>save</i></button>
-								<button id='RETRIEVEbtn' onclick="retrieve()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:gray; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><i>retrieve</i></button><br>
-								-->
 								<div style="border:2px inset black; border-radius:0px; background:beige; width:90%; margin:auto;">
 								<button id='REPLACEbtn' onclick="replace()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">insert SAVED scores</button><br>
 								<br>
@@ -80,9 +74,7 @@
 								<br>
 								<button id='ADDbtn' onclick="showADDIN()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:ivory; background:slategray; border:2px solid black; border-radius:10px; opacity:100%;"><b>Add-in!</b></button><br>
 								<br>								
-								<!--
-								<A  href="SLIDERpage.html" style="color:red; text-shadow:1px 1px white; background:black; cursor:pointer;" title="> GSmac/SLIDERpage.html">&#9873;&emsp;Slider&emsp;&#9873;</A>
-								-->
+								
 								<button onclick="remREADONLY()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Enable Input Edit</button><br>
 								<br>
 								<button id='FreezeHCbtn' onclick="freeze()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:gray; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">+/- freeze HC input</button><br>
@@ -96,7 +88,8 @@
 								</div>	
 								<br>
 								<button onclick="displayP5()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>5th Player +/-</button><br>	
-								<button onclick="showHCs()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Player Handicaps</button><br>						
+								<button onclick="showHCs()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Player Handicaps</button><br>	
+								<button onclick="scoreCENTER()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Score Center</button><br>						
 								<br>
 								<!--<button class="CODEBTNclass" id='NOTESbtn' onclick="showNOTES()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><i>coding notes</i></button>-->
 								<!--<button class="ZOOMclass" id='ZOOMbtn' onclick="changeZOOM()" style="display:none;"><i>ZOOM +/-</i></button>--><!--<br>-->
@@ -167,7 +160,7 @@
 			<tr>
 				<TH id="H2" style="cursor:pointer;" onclick="cellTOslide(1,2)">2</TH>
 				<td id="TDp1h2"> <input class='' id="p1h2" type="tel" maxlength=1 onclick="changeGLOBAL('p1h2')" tabindex="6" onchange="localStorage.setItem('g1H2s',this.value);" onfocus="FOCUSfn('p1h2')" onblur="BLURfn('p1h2')"><span id='SPp1h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
-				<td id="TDp2h2">	<!-- style='background:orange;' --> 
+				<td id="TDp2h2">	<!-- style='border:2px solid orange; background:orange;' --> 
 					<input class=''  id="p2h2" type="tel" maxlength=1 onclick="changeGLOBAL('p2h2')" tabindex="7" onchange="localStorage.setItem('g2H2s',this.value);" onfocus="FOCUSfn('p2h2')" onblur="BLURfn('p2h2')"><span id='SPp2h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
 				<td id="TDp3h2"> <input class=''  id="p3h2" type="tel" maxlength=1 onclick="changeGLOBAL('p3h2')" tabindex="8" onchange="localStorage.setItem('g3H2s',this.value);" onfocus="FOCUSfn('p3h2')" onblur="BLURfn('p3h2')"><span id='SPp3h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
 				<td id="TDp4h2"> <input class=''  id="p4h2" type="tel" maxlength=1 onclick="changeGLOBAL('p4h2')" tabindex="9" onchange="localStorage.setItem('g4H2s',this.value);" onfocus="FOCUSfn('p4h2')" onblur="BLURfn('p4h2')"><span id='SPp4h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
@@ -1075,7 +1068,51 @@
 
 	<!-- 	√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√ ^ ADD-IN BOX ^ √√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√	  -->
 
+	
+	
+	<!-- 	√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√ \/ SCORE CENTER! ['SC'] \/ √√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√	  -->
 
+
+	<div class="SCclass" id="SCdiv" style= "">
+			<!-- position = 'fixed'; left = "700px"; top = "100px"; -->		
+		<font size=5><b>SCORE CENTER</b></font>
+			<span style="float:right; padding-right:10px; cursor:pointer; background:white; color:black; font-size:30px;">
+					<a onclick="showSC()"><b>&times;</b></a>
+			</span><br>
+		<TABLE border=1><TR><TD>
+			<button id="THEMbtn" onclick="THEMplus()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black">THEM</button>
+			<input id="up/dwn" maxlength="1" value=0 style="width:30px;">
+			<button id="USbtn" onclick="USplus()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:black">US</button>	
+		</TD><TD>
+			SKINS:<br>
+			POT = # X $2 = ?<br>
+			# skins = ?<br>
+			$/skin = ?<br>
+		</TD></TR>
+		<TR><TD colspan=2>
+			group compet:<br>
+			FRONT:
+			<button id="Fgp1" onclick="bkgdCLR('Fgp1')" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black">Group 1</button>
+			<button id="Fgp2" onclick="bkgdCLR('Fgp2')" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black">Group 2</button>
+			<button id="Fgp3" onclick="bkgdCLR('Fgp3')" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black">Group 3</button>$1<br>		
+			BACK:
+			<button id="Bgp1" onclick="bkgdCLR()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black">Group 1</button>
+			<button id="Bgp2" onclick="bkgdCLR()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black">Group 2</button>
+			<button id="Bgp3" onclick="bkgdCLR()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black">Group 3</button>$1<br>	
+			GAME:
+			<button id="Ggp1" onclick="bkgdCLR('Ggp1')" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black">Group 1</button>
+			<button id="Ggp2" onclick="bkgdCLR('Ggp2')" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black">Group 2</button>
+			<button id="Ggp3" onclick="bkgdCLR('Ggp3')" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black">Group 3</button>$2<br>						
+		</TD></TR>	
+		</TABLE>		
+		
+	</div>
+
+	<!-- 	√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√ ^ SCORE CENTER! ^ √√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√	  -->		
+		
+		
+		
+		
 </div>				
 </body>
 </html>
