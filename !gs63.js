@@ -2502,3 +2502,15 @@
 		}
 		
 	}							
+	
+	
+	function scoreCENTER() {
+		if (document.getElementById("SCdiv").style.visibility=="visible") {
+			document.getElementById("SCdiv").style.visibility="hidden"; 
+		}		
+		else {
+			document.getElementById("SCdiv").style.visibility="visible";
+		}
+		
+		hideMENU();		
+	}				

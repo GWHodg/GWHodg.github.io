@@ -111,7 +111,7 @@
 			overflow:scroll; }
 
 		div.SCclass {
-			border:3px inset slategray; border-radius:10px; width:380px; height:20%; overflow:scroll; margin:auto; visibility:visible; background:white;  position:fixed; left:50%; transform:translate(-50%,0); top:70%;  zoom:100%; padding:5px;
+			border:3px inset slategray; border-radius:10px; width:360px; height:20%; overflow:scroll; margin:auto; visibility:visible; background:white;  position:fixed; left:50%; transform:translate(-50%,0); top:75%;  zoom:100%; padding:5px;
 		}			
 					/* CSS Hack: Disable Chrome’s Pull-to-Refresh on Android:
 							        https://w3bits.com/prevent-chrome-pull-to-refresh-css/ 
