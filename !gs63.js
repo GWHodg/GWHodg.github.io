@@ -989,18 +989,19 @@
 		else {
 			document.getElementById("SLIDER").style.visibility="hidden";
 		}
+		hideMENU();
 	}	
 	function hideSLIDE() {
 		document.getElementById("SLIDER").style.visibility="hidden";
 			document.getElementById("check").style.visibility="hidden";
 	}
-	function showSLIDE() {
+	/*function showSLIDE() {
 		//if (document.getElementById("SLIDER").style.visibility=="hidden") {	
 			document.getElementById("SLIDER").style.visibility="visible";
 						/* document.getElementById("menu23").style.display="block"; */		 //inline 	
 		//}	
-			hideMENU();			
-	}	
+			//hideMENU();			
+	//}	
 	
 	function focusNextElement() {
 		//alert("Trying to go UP 1 'tabindex' in 'focus'!");		
@@ -1761,6 +1762,9 @@
 			else {
 				document.getElementById("pHCdiv").style.visibility="visible"; //inline 	
 			}	
+			
+			hideMENU();			
+			
 		}
 	
 		function setHC(pNO,pNM) {
@@ -1850,6 +1854,8 @@
 			document.getElementById("jdHI").value = localStorage.getItem("JDhi"); // 16.3
 			document.getElementById("u1HI").value = localStorage.getItem("U1hi"); // 
 			document.getElementById("u2HI").value = localStorage.getItem("U2hi"); // 
+			
+			document.getElementById("HCdate").value = localStorage.getItem("HCdate"); // 
 		}					
 		
 		function freeze() {
@@ -1885,7 +1891,7 @@
 				document.getElementById("p5HC").disabled = false;
 					document.getElementById("p5NAME").disabled = false;					
 			}
-				
+			hideMENU();				
 		}
 		
 
@@ -2183,6 +2189,7 @@
 	
 	function loadFN() {  
 		document.getElementById('p&h').value = localStorage.getItem('g1NAME') + ' 2';
+		document.getElementById("SLIDER").style.visibility="hidden";
 	}	
 
 	function cellTOslide(P,H) {
@@ -2294,7 +2301,8 @@
 		}		
 		else {
 			document.getElementById("divLSwrite").style.visibility="visible"; 
-		}						
+		}
+		hideMENU();		
 	}
 	function showLSread() {
 		if (document.getElementById("divLSread").style.visibility=="visible") {
@@ -2302,7 +2310,8 @@
 		}		
 		else {
 			document.getElementById("divLSread").style.visibility="visible"; 
-		}						
+		}
+		hideMENU();		
 	}	
 
 	var MyDiv1; var readArray;
@@ -2500,7 +2509,7 @@
 					alert("TDp5bt display ="+document.getElementById('TDp5bT').style.display);
 				document.getElementById('TDp5T18').style.display="none";		 		
 		}
-		
+		hideMENU();		
 	}							
 	
 	
@@ -2514,3 +2523,16 @@
 		
 		hideMENU();		
 	}				
+	
+	function pHCylo(name) {
+		//alert("'pHCylo' fn 'name' var = "+name);
+		if (document.getElementById(name+'HI').style.background!='yellow') {		
+			document.getElementById(name+'HI').style.background='yellow';
+				document.getElementById(name+'CHC').style.background='yellow';
+		}
+		else {
+			document.getElementById(name+'HI').style.background='white';
+			document.getElementById(name+'CHC').style.background='white';			
+		}
+	}	
+	

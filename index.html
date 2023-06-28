@@ -47,7 +47,7 @@
 		document.getElementById("Ggp2").style.background="white";
 		document.getElementById("Ggp3").style.background="white";
 	}		//Bgp3
-	
+
 </script>
 
 </head>
@@ -57,9 +57,9 @@
 <div class="wrapper"><!-- Put the page contents here -->
 
 <TABLE id="HEADtbl" border=1 align=center style='FONT-SIZE:large; color:maroon; visibility:visible;' bgcolor='lightgray'>	
-<TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:white; background:royalblue; FONT-WEIGHT:bold;" >VGC blue
+<TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:white; background:royalblue; FONT-WEIGHT:bold;" >VGC blue<br><font size=1 color=lightgray>Jun 28, 2023</font>
 	<!--<label style="FONT-WEIGHT: bold; FONT-SIZE:25px; COLOR:white; background:royalblue; border:3px solid black; border-radius:10px; opacity:100%; padding:5px;">VGC blue </label>-->
-</TD> <TD width=20><font size=1>63h</font></TD>	
+</TD> <TD width=20><font size=1>63i</font></TD>	
 	<!--<span style="font-size:30px;cursor:pointer; color:blue; background:white; position:relative; left:38%;" onclick="openMENU()">&#9776;</span>-->	<!-- position:absolute; LEFT:750px; top:30px;  -->
 <TD>
 					<div class="dropup" style="cursor:pointer; color:black; background:lightgray; /*position:relative; left:18%;*/">
@@ -113,7 +113,7 @@
 								<br>
 								<button onclick="displayP5()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>5th Player +/-</button><br>	
 								<button onclick="showHCs()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Player Handicaps</button><br>	
-								<button onclick="scoreCENTER()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Score Center</button><br>						
+								<button onclick="" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px; display:none;'><s>Score Center</s></button>	<!-- onclick="scoreCENTER()" -->					
 								<br>
 								<!--<button class="CODEBTNclass" id='NOTESbtn' onclick="showNOTES()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><i>coding notes</i></button>-->
 								<!--<button class="ZOOMclass" id='ZOOMbtn' onclick="changeZOOM()" style="display:none;"><i>ZOOM +/-</i></button>--><!--<br>-->
@@ -692,56 +692,56 @@
 				<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 	
 				
-	<div id="pHCdiv" style="border:3px inset slategray; border-radius:10px; overflow:scroll; margin:auto; visibility:hidden; background:white;  position:fixed; left:50%; transform:translate(-50%,0); top:10%; zoom:100%; padding:5px; height:250px;">
+	<div id="pHCdiv" style="border:3px inset slategray; border-radius:10px; overflow:scroll; margin:auto; visibility:hidden; background:white;  position:fixed; left:50%; transform:translate(-50%,0); top:10%; zoom:100%; padding:5px; height:350px;">
 		Handicaps <font size=2><i>(Apr/23)</i></font><br>
 			<button id='fillHIs' onclick="fillHIs()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>H.I.</b></u></button>
-			<button id='calcCHC' onclick="calcCHC()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:white; background:blue; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>CHC</b></u></button>&nbsp;
+			<button id='calcCHC' onclick="calcCHC()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:white; background:blue; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>cHC</b></u></button>&nbsp;
 			<span style="float:right; padding-right:10px; cursor:pointer; background:white; color:black; font-size:20px;">
 						<a onclick="showHCs()"><b>&times;</b></a>
 			</span>
 		<TABLE id="pHCtbl" border=2 style="font-size:10px;" align=center>
 			<TR> <TH>p</TH>  <TH>H.I.</TH>  <TH style="cursor:help;" title="VGC blue">cHC</TH> </TR>
-			<TR> <TD>wH</TD> <TD><input id='whHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('WHhi',this.value);"></TD> <TD><input type="" id="whCHC" onchange="localStorage.setItem('WHchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR> <!-- 21.1/23 -->
-			<TR> <TD>jS</TD> <TD><input id='jsHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('JShi',this.value);"></TD> 
+			<TR> <TD onclick="pHCylo('wh')">wH</TD> <TD><input id='whHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('WHhi',this.value);"></TD> <TD><input type="" id="whCHC" onchange="localStorage.setItem('WHchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR> <!-- 21.1/23 -->
+			<TR> <TD onclick="pHCylo('js')">jS</TD> <TD><input id='jsHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('JShi',this.value);"></TD> 
 				<TD><input type="" id="jsCHC" onchange="localStorage.setItem('JSchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR> <!-- 14.4/15 -->
-			<TR> <TD>tC</TD> <TD><input id='tcHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('TChi',this.value);"></TD> 
+			<TR> <TD onclick="pHCylo('tc')">tC</TD> <TD><input id='tcHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('TChi',this.value);"></TD> 
 				<TD><input type="" id="tcCHC" onchange="localStorage.setItem('TCchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR> <!-- 17.6/19 -->
-			<TR> <TD>bP</TD> <TD><input id='bpHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('BPhi',this.value);"></TD> 
+			<TR> <TD onclick="pHCylo('bp')">bP</TD> <TD><input id='bpHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('BPhi',this.value);"></TD> 
 				<TD><input type="" id="bpCHC" onchange="localStorage.setItem('BPchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR> <!-- 15.2/17 -->
-			<TR> <TD>bR</TD> <TD><input id='brHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('BRhi',this.value);"></TD> 
+			<TR> <TD onclick="pHCylo('br')">bR</TD> <TD><input id='brHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('BRhi',this.value);"></TD> 
 				<TD><input type="" id="brCHC" onchange="localStorage.setItem('BRchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR> <!-- 16.1/18 -->
 				
-			<TR><TD>dP</TD>
+			<TR><TD onclick="pHCylo('dp')">dP</TD>
 				<TD><input id='dpHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('DPhi',this.value);"></TD> 
 				<TD><input type="" id="dpCHC" onchange="localStorage.setItem('DPchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR>	
-			<TR><TD>dZ</TD>
+			<TR><TD onclick="pHCylo('dz')">dZ</TD>
 				<TD><input id='dzHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('DZhi',this.value);"></TD> 
 				<TD><input type="" id="dzCHC" onchange="localStorage.setItem('DZchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR>	
-			<TR><TD>aB</TD>
+			<TR><TD onclick="pHCylo('ab')">aB</TD>
 				<TD><input id='abHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('ABhi',this.value);"></TD> 
 				<TD><input type="" id="abCHC" onchange="localStorage.setItem('ABchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR>	
-			<TR><TD>pK</TD>
+			<TR><TD onclick="pHCylo('pk')">pK</TD>
 				<TD><input id='pkHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('PKhi',this.value);"></TD> 
 				<TD><input type="" id="pkCHC" onchange="localStorage.setItem('PKchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR>	
-			<TR><TD>wR</TD>
+			<TR><TD onclick="pHCylo('wr')">wR</TD>
 				<TD><input id='wrHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('WRhi',this.value);"></TD> 
 				<TD><input type="" id="wrCHC" onchange="localStorage.setItem('WRchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR>	
-			<TR><TD>gF</TD>
+			<TR><TD onclick="pHCylo('gf')">gF</TD>
 				<TD><input id='gfHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('GFhi',this.value);"></TD> 
 				<TD><input type="" id="gfCHC" onchange="localStorage.setItem('GFchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR>	
-			<TR><TD>Pd</TD>
+			<TR><TD onclick="pHCylo('pd')">Pd</TD>
 				<TD><input id='pdHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('PDhi',this.value);"></TD> 
 				<TD><input type="" id="pdCHC" onchange="localStorage.setItem('PDchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR>	
-			<TR><TD>sJ</TD>
+			<TR><TD onclick="pHCylo('sj')">sJ</TD>
 				<TD><input id='sjHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('SJhi',this.value);"></TD> 
 				<TD><input type="" id="sjCHC" onchange="localStorage.setItem('SJchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR>	
-			<TR><TD>gN</TD>
+			<TR><TD onclick="pHCylo('gn')">gN</TD>
 				<TD><input id='gnHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('GNhi',this.value);"></TD> 
 				<TD><input type="" id="gnCHC" onchange="localStorage.setItem('GNchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR>		
-			<TR><TD>cM</TD>
+			<TR><TD onclick="pHCylo('cm')">cM</TD>
 				<TD><input id='cmHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('CMhi',this.value);"></TD> 
 				<TD><input type="" id="cmCHC" onchange="localStorage.setItem('CMchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR>	
-			<TR><TD>jD</TD>
+			<TR><TD onclick="pHCylo('jd')">jD</TD>
 				<TD><input id='jdHI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('JDhi',this.value);"></TD> 
 				<TD><input type="" id="jdCHC" onchange="localStorage.setItem('JDchc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR>	
 			<TR><TD>u1</TD>
@@ -749,7 +749,12 @@
 				<TD><input type="" id="u1CHC" onchange="localStorage.setItem('U1chc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR>	
 			<TR><TD>u2</TD>
 				<TD><input id='u2HI' style="width:25px; font-size:10px;" onchange="localStorage.setItem('U2hi',this.value);"></TD> 
-				<TD><input type="" id="u2CHC" onchange="localStorage.setItem('U2chc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR>						
+				<TD><input type="" id="u2CHC" onchange="localStorage.setItem('U2chc',this.value);"  style="background:ivory; width:25px; font-weight:bold; font-size:10px;"></TD>  </TR>			
+			<TR>
+				<TD colspan=3>
+					<input type="date" id="HCdate" tabindex="300" style="background:beige; border:1px solid slategray; color:blue; width:120px;" value="date"     onchange="localStorage.setItem('HCdate',this.value);" >
+				</TD>
+			</TR>		
 				
 		</TABLE>
 		
