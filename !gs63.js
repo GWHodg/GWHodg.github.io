@@ -472,6 +472,15 @@
 					  "\t\t[PTSid: "+PTSid+"]\n\n"+
 					  IFnote);*/
 			}
+			
+			
+			//alert("at 'if (+Hscr==0 . .' in 'UNIVcalc' fn!");
+			/*if ( +Hscr==0 ) {
+				Hpts = 0;
+			}*/
+			
+			
+			
 			document.getElementById(PTSid).innerHTML = Hpts;	
 
 			/*if ( s > 0 ) {
@@ -976,7 +985,19 @@
 		document.getElementById('lastFOCUS').value = SCRinput;
 
 		calcALL();
-		calcTOTALS();		
+
+		if ( +document.getElementById(SCRinput).value == 0) {
+			document.getElementById('SP'+SCRinput).innerHTML = 0;	
+		}
+		
+
+
+
+		calcTOTALS();				
+		
+		
+		
+		
 	}	
 
 	function showSLIDER() {
@@ -2449,8 +2470,8 @@
 	
 	function remREADONLY() {
 		var lastFOCUS = document.getElementById('lastFOCUS').value;
-		alert("Will TRY to re-enable SELECTED player input for editing . . .\n"+
-		      "Last focussed element/input = "+lastFOCUS);		
+		/*alert("Will TRY to re-enable SELECTED player input for editing . . .\n"+
+		      "Last focussed element/input = "+lastFOCUS);*/
 		//var focused = document.activeElement;  alert(focussed + " has focus");
 				/*for (var h = 1; h < 19; h++) {
 					for (var n = 1; n < 6; n++) {
