@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>!gs63</title> <!-- 6 = 6th month (June); 3 = '(2)3; formerly 'GSidx3' (_M4) -->
+
+
+<style>
+		div.SCclass {
+			border:3px inset slategray; border-radius:10px; width:360px; height:20%; overflow:scroll; margin:auto; visibility:visible; background:white; zoom:100%; padding:5px;
+		}	/*   position:relative; left:50%; transform:translate(-50%,0); top:75%; */		
+</style>
+
+<script>
+
+	function USplus() {
+		document.getElementById("up/dwn").value = +document.getElementById("up/dwn").value + 1;
+	}
+	function THEMplus() {
+		document.getElementById("up/dwn").value = +document.getElementById("up/dwn").value - 1;
+	}
+
+	function bkgdCLR(crs,gp) {
+		if ( (document.getElementById(crs+"gp1").style.background!="lime") && (document.getElementById(crs+"gp2").style.background!="lime") && (document.getElementById(crs+"gp3").style.background!="lime") ) {
+				document.getElementById(crs+"gp"+gp).style.background="lime";
+		}	
+		else { document.getElementById(crs+"gp"+gp).style.background="silver"; }
+	} 
+	
+	function getSUM() {
+		document.getElementById('g+/-').value = +document.getElementById('f+/-').value + +document.getElementById('b+/-').value;
+		//f+/-
+	}	
+
+	function resetSC() {
+		document.getElementById("Fgp1").style.background="white";
+		document.getElementById("Fgp2").style.background="white";
+		document.getElementById("Fgp3").style.background="white";
+		document.getElementById("Bgp1").style.background="white";
+		document.getElementById("Bgp2").style.background="white";
+		document.getElementById("Bgp3").style.background="white";
+		document.getElementById("Ggp1").style.background="white";
+		document.getElementById("Ggp2").style.background="white";
+		document.getElementById("Ggp3").style.background="white";
+	}		//Bgp3
+
+</script>
+
+</head>
+
+<body class="body" style="background-color:white; zoom:200%;"  onload=""> <!--  zoom:250%; -->
+
+	<!-- 	√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√ \/ SCORE CENTER! ['SC'] \/ √√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√	  -->
+
+
+	<div class="SCclass" id="SCdiv">
+			<!-- position = 'fixed'; left = "700px"; top = "100px"; -->		
+		<!--<font size=5><b>SCORE CENTER</b></font>-->
+		
+		<TABLE border=1 align=center><TR><TD>
+			<button id="THEMbtn" onclick="THEMplus()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black">THEM</button>
+			<input id="up/dwn" maxlength="1" value=0 style="width:30px; text-align:center;" readonly>
+			<button id="USbtn" onclick="USplus()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:black">US</button>	
+			<br>
+			f: <input id="f+/-" onclick="this.value=document.getElementById('up/dwn').value" maxlength="2" value=0 style="width:20px; font-size:10px; text-align:center;" readonly> &emsp;
+			b: <input id="b+/-" onclick="this.value=document.getElementById('up/dwn').value" maxlength="2" value=0 style="width:20px; font-size:10px; text-align:center;" readonly>&emsp;
+			g: <input id="g+/-" onclick="getSUM()" maxlength="2" value=0 style="width:20px; font-size:10px; text-align:center;" readonly>&emsp;
+		</TD><TD align=center>
+			<!--SKINS:<br>-->
+			<input id="noPs" maxlength="2" value=0 style="width:20px; font-size:10px; background:silver; text-align:center;"> X $2 = 
+			$<input id="$" maxlength="2" onfocus="this.value=2*+document.getElementById('noPs').value" value=0 style="width:20px; font-size:10px; text-align:center;"  readonly><br>
+			# = <input id="#skins" maxlength="2" value=0 style="width:20px; font-size:10px; background:silver; text-align:center;"><br>
+			$/skin = <input id="$/s" maxlength="4" onfocus="this.value=(+document.getElementById('$').value/+document.getElementById('#skins').value).toFixed(2)" value=0 style="width:30px; font-size:10px; text-align:center;" type="number" readonly><br>
+		</TD>
+		<TD valign=top rowspan=2>
+			<span style="cursor:pointer; background:white; color:black; font-size:30px;">
+						<!-- float:right; padding-right:10px;  -->
+					<a onclick="scoreCENTER()"><b>&times;</b></a><br>
+					<br>
+					<font size=3>$<br>G<br>S<br>$</font>
+
+			</span>			
+		</TD>
+		</TR>
+		<TR><TD colspan=2 style="text-align:left;">
+			<!--group compet:<br>-->
+			FRONT:
+			<input id="Fgp1" onclick="bkgdCLR('F',1)" style="width:25px; font-size:10px; COLOR:black" 
+			value="Gp 1" readonly>
+			<input id="Fgp2" onclick="bkgdCLR('F',2)" style="width:25px; font-size:10px; COLOR:black" 
+			value="Gp 2" readonly>
+			<input id="Fgp3" onclick="bkgdCLR('F',3)" style="width:25px; font-size:10px; COLOR:black" 
+			value="Gp 3" readonly>&emsp;$1<br>		
+			BACK:
+			<input id="Bgp1" onclick="bkgdCLR('B',1)" style="width:25px; font-size:10px; COLOR:black" 
+				value="Gp 1" readonly>
+			<input id="Bgp2" onclick="bkgdCLR('B',2)" style="width:25px; font-size:10px; COLOR:black" 
+			value="Gp 2" readonly>
+			<input id="Bgp3" onclick="bkgdCLR('B',3)" style="width:25px; font-size:10px; COLOR:black" 
+			value="Gp 3" readonly>&emsp;$1
+			<span style="float:right;"><button id="resetSC" onclick="resetSC()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:black">reset</button></span>
+			<br>	
+			GAME:
+			<input id="Ggp1" onclick="bkgdCLR('G',1)" style="width:25px; font-size:10px; COLOR:black" 
+			value="Gp 1" readonly>
+			<input id="Ggp2" onclick="bkgdCLR('G',2)" style="width:25px; font-size:10px; COLOR:black" 
+			value="Gp 2" readonly>
+			<input id="Ggp3" onclick="bkgdCLR('G',3)" style="width:25px; font-size:10px; COLOR:black" 
+			value="Gp 3" readonly>&emsp;$2<br>
+
+		</TD>
+		</TR>	
+		</TABLE>		
+		
+	</div>
+
+	<!-- 	√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√ ^ SCORE CENTER! ^ √√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√	  -->		
+		
+	
+	
+</body>
+</html>
