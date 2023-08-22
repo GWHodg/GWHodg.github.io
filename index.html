@@ -16,7 +16,12 @@
 </style>
 
 <script>
-
+	function HELP() {
+		alert("HELP!\n\n"+
+			  "'GSidx3' files (Aug/23): !gs63.html (= index.html); !gs63.css; !gs63.js; WaltStuff.webmanifest; WaltStuffsw.js\n\n"+
+			  "PIXEL reload/refresh: Hold icon > App info > Storage & cache > Manage space > MANAGE (Site storage) > 'gwhodg.github.io' > Clear & reset");	
+	}
+	
 	function USplus() {
 		document.getElementById("up/dwn").value = +document.getElementById("up/dwn").value + 1;
 	}
@@ -103,7 +108,7 @@
 								<br>
 								<button id='FreezeHCbtn' onclick="freeze()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:gray; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">+/- freeze HC input</button><br>
 								<button id='SLIDEbtn' onclick="showSLIDER()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">Slider Input +/-</button> <br>
-								<br>
+								<button onclick="HELP()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Help</button><br>
 								<div style="border:2px inset black; border-radius:0px; background:beige; width:90%; margin:auto;">
 								<!--FILE:-->
 								<button id='REPLACEbtn'  onclick="showLSwrite()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">WRITE scores to file</button>
