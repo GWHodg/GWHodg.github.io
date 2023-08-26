@@ -53,6 +53,53 @@
 		document.getElementById("Ggp3").style.background="white";
 	}		//Bgp3
 
+	function editHOLES() {
+		if (document.getElementById('HOLEbtn').innerHTML=="Edit Holes +") {
+	    	  let reply;
+			  if (confirm("Are you SURE you want to edit hole pars &/or handicaps?") == true) {
+			    reply = "YES!";
+			  } else {
+			    reply = "NO!";
+			  }
+	  		  //alert(reply);
+				  
+			  if ( reply=="YES!") {
+					alert("Can now edit hole pars & handicaps!");
+					//localStorage.setItem('DROPstr', "Medhurst,Dutton,Hodgins");
+					//id="PARh1" placeholder=5 value=5 readonly
+					//id="HCPh1"
+					for (let i = 1; i < 19; i++) {
+						  //document.getElementById("PARh1").setAttribute('readonly', 'false'); 
+						  document.getElementById('PARh'+i).readOnly = false;
+						  document.getElementById('HCPh'+i).readOnly = false;
+					}		
+					document.getElementById('HOLEbtn').innerHTML = "Edit Holes -";
+				}	
+		}
+		else {
+			for (let i = 1; i < 19; i++) {
+				  document.getElementById('PARh'+i).readOnly = true;
+				  document.getElementById('HCPh'+i).readOnly = true;
+			}	
+			document.getElementById('HOLEbtn').innerHTML = "Edit Holes +";
+			alert("Hole editing disabled!");	
+		}	
+	}
+
+	function note() {
+		if (document.getElementById("ROUNDnote").style.visibility=="visible") {
+			document.getElementById("ROUNDnote").style.visibility="hidden";
+			//var noteTEXT = localStorage.setItem('roundNOTE',document.getElementById("ROUNDnote").value);
+			localStorage.setItem('roundNOTE',document.getElementById("ROUNDnote").value);
+			//localStorage.setItem('roundNOTE',document.getElementById("ROUNDnote").innerText);"	
+		}		
+		else {
+			document.getElementById("ROUNDnote").style.visibility="visible";
+			document.getElementById("ROUNDnote").innerHTML = localStorage.getItem("roundNOTE");
+		}
+		hideMENU();		
+	}		
+	
 </script>
 
 </head>
@@ -62,7 +109,7 @@
 <div class="wrapper"><!-- Put the page contents here -->
 
 <TABLE id="HEADtbl" border=1 align=center style='FONT-SIZE:large; color:maroon; visibility:visible;' bgcolor='lightgray'>	
-<TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:white; background:royalblue; FONT-WEIGHT:bold;" >VGC blue<br><font size=1 color=lightgray>Aug 20, 2023</font>
+<TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:white; background:royalblue; FONT-WEIGHT:bold;" >VGC blue<br><font size=1 color=lightgray>Aug 26, 2023</font>
 	<!--<label style="FONT-WEIGHT: bold; FONT-SIZE:25px; COLOR:white; background:royalblue; border:3px solid black; border-radius:10px; opacity:100%; padding:5px;">VGC blue </label>-->
 </TD> <TD width=20><font size=1>63i</font></TD>	
 	<!--<span style="font-size:30px;cursor:pointer; color:blue; background:white; position:relative; left:38%;" onclick="openMENU()">&#9776;</span>-->	<!-- position:absolute; LEFT:750px; top:30px;  -->
@@ -105,7 +152,8 @@
 								<br>								
 								
 								<button onclick="remREADONLY()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Enable Input Edit</button><br>
-								<br>
+								<button id='NOTEbtn' onclick="note()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:gray; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">+/- note</button><br>
+							
 								<button id='FreezeHCbtn' onclick="freeze()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:gray; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">+/- freeze HC input</button><br>
 								<button id='SLIDEbtn' onclick="showSLIDER()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">Slider Input +/-</button> <br>
 								<button onclick="HELP()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Help</button><br>
@@ -115,7 +163,9 @@
 								<br>
 								<button id='CLEARbtn' onclick="showLSread()" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">READ file</button><br>
 								</div>	
-								<br>
+								
+								<button id='HOLEbtn' onclick="editHOLES()" style="FONT-WEIGHT:bold; FONT-SIZE:12px; COLOR:white; background:red; border:1px solid black; border-radius:10px;">Edit Holes +</button> <br>
+
 								<button onclick="displayP5()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>5th Player +/-</button><br>	
 								<button onclick="showHCs()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Player Handicaps</button><br>	
 								<button onclick="" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px; display:none;'><s>Score Center</s></button>	<!-- onclick="scoreCENTER()" -->					
@@ -1170,7 +1220,9 @@
 
 	<!-- 	√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√ ^ SCORE CENTER! ^ √√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√	  -->		
 		
-		
+	<textarea class="NOTEclass" cols="50" rows="5" id='ROUNDnote' >NOTE: 
+	</textarea>		
+				<!-- onchange="localStorage.setItem('roundNOTE',this.value);"  class="NOTEclass"  -->
 		
 		
 </div>				

@@ -95,10 +95,10 @@
 
 
 		div.DROPclass {
-			border:3px inset slategray; border-radius:10px; width:200px; height:400px; overflow:scroll; margin:auto; visibility:hidden; background:white;  position:fixed; left:40%; transform:translate(-50%,0); top:10%;  zoom:100%;
+			border:3px inset slategray; border-radius:10px; width:200px; height:400px; overflow:scroll; margin:auto; visibility:hidden; background:white;  position:fixed; left:35%; transform:translate(-50%,0); top:10%;  zoom:100%;
 		}								/* left:750px; top:100px; */
 		div.ADDclass {
-			border:3px inset slategray; border-radius:10px; width:200px; height:50%; overflow:scroll; margin:auto; visibility:hidden; background:white;  position:fixed; left:40%; transform:translate(-50%,0); top:10%;  zoom:100%;
+			border:3px inset slategray; border-radius:10px; width:200px; height:50%; overflow:scroll; margin:auto; visibility:hidden; background:white;  position:fixed; left:35%; transform:translate(-50%,0); top:10%;  zoom:100%;
 			}	/* height:400px; */		/* left:700px; top:80px; */			
 				/*	button.ZOOMclass {
 						FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;
@@ -107,8 +107,8 @@
 						color:moccasin; font-size:100px;
 					}
 					button.CODEBTNclass { FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%; } */
-		textarea.NOTEclass { background:lightyellow;  border:2px solid black; height:100px; width:100px; visibility:hidden;   position:fixed; left:50%; transform:translate(-50%,0); top:10%;
-			overflow:scroll; }
+		textarea.NOTEclass { background:lightyellow;  border:2px solid black; height:300px; width:200px; visibility:hidden;   position:fixed; left:50%; transform:translate(-50%,0); top:10%;
+			overflow:scroll; font-size:16px;}
 
 		div.SCclass {
 			border:3px inset slategray; border-radius:10px; width:360px; height:20%; overflow:scroll; margin:auto; visibility:hidden; background:white;  position:fixed; left:50%; transform:translate(-50%,0); top:75%;  zoom:100%; padding:5px;

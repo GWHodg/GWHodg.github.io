@@ -413,6 +413,7 @@
 					  document.getElementById("HCPh18").value, document.getElementById("p5h18").value,
 					  document.getElementById("PARh18").value, 0, 18, 'SPp5h18' );					  
         		  			  
+		alert("Stableford points have been calculated!");
 					  
 	}
 	function UNIVcalc(name,Phc,Hhcp,Hscr,Hpar,Hpts,hole,PTSid) {
