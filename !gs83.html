@@ -184,7 +184,8 @@
 						<div class="grid-container">
 							  <div><a><button style="color:blue; cursor:pointer;" onclick="calcALL()"><!--STABLEFORD -->Points</button></a></div>
 							  <div><button id='calcTOTbtn' onclick="calcTOTALS()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>TOTALS</b></u></button></div>
-							  <div><A onclick="pHCcolors()" style='cursor:pointer;'><b>Strokes<!-- Holes--></b></A></div>  
+							  <!--<div><A onclick="pHCcolors()" style='cursor:pointer;'><b>Stroke Holes</b></A></div>-->
+							  <div><button id='STROKESbtn' onclick="pHCcolors()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;">Strokes +</button></div>
 							  <!--
 							  <div style="background:white;"><button style="FONT-WEIGHT: bold; FONT-SIZE:30px; COLOR:black; background:ivory; border:3px solid black; border-radius:10px;" onclick="closeNav()">&times;</button></div>
 							  -->
@@ -196,9 +197,8 @@
 							  <div><A onclick="remREADONLY()" style='cursor:pointer;'><b><!--Input -->Edit</b></A></div>
 							  <div><A onclick="freeze()" style='cursor:pointer;'><b>freeze<!-- headings--></b></A></div>
 							  <div><button onclick="showHCs()" style='background:gray; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'><!--Player --> Handicaps</button><br></div>
-					  		  <div><A style="FONT-SIZE:small; cursor:pointer; color:yellow" title="Mix playing order"
-					  				onclick="clearSAVED()"><b>CLEAR<!-- 'saved'--></b></A></div>
-									
+							  <div><A onclick="restrictTAB()" style='cursor:pointer;'><b>Disable</b></A></div>
+								  
 							  <div><button id='HOLEbtn' onclick="editHOLES()" style="FONT-WEIGHT:bold; FONT-SIZE:12px; COLOR:white; background:red; border:1px solid black; border-radius:10px;">Edit Holes</button></div>
 							  <div><button onclick="displayP5()" style='background:gray; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>5th Player</button></div>
 							  <div><a><button id='REPLACEbtn'  onclick="showLSwrite()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%; cursor:pointer;"><b>WRITE to file</b></button></a></div>
@@ -206,8 +206,9 @@
 							  
 					  		  <div><A onclick="showSLIDER()" style='cursor:pointer;'><b>Slider<!-- Input--></b></a></div>
 					  		  <div><button id='NOTEbtn' onclick="note()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">note +/-</button></div>
-							  <div><A onclick="restrictTAB()" style='cursor:pointer;'><b>Disable<!-- Inputs--></b></A></div>
-					  		   
+							  <div><A style="FONT-SIZE:small; cursor:pointer; color:yellow" title="Mix playing order"
+								  onclick="clearSAVED()"><b>CLEAR<!-- 'saved'--></b></A></div>
+								  
 							   
 					  		  
 					  

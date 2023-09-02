@@ -413,7 +413,7 @@
 					  document.getElementById("HCPh18").value, document.getElementById("p5h18").value,
 					  document.getElementById("PARh18").value, 0, 18, 'SPp5h18' );					  
         		  			  
-		alert("Stableford points have been calculated!");
+		//alert("Stableford points have been calculated!");
 					  
 	}
 	function UNIVcalc(name,Phc,Hhcp,Hscr,Hpar,Hpts,hole,PTSid) {
@@ -1081,7 +1081,7 @@
 
 	function hideMENU() {
 		//document.getElementById("miscCONTENT").style.visibility="hidden";
-		document.getElementById("menuCONTENT").style.visibility="hidden";
+		//document.getElementById("menuCONTENT").style.visibility="hidden";
 	}
 	function showMENU(topic) {
 		if (topic=="tipMENU") {
@@ -1312,10 +1312,10 @@
 				}
 		*/		
 		var STKbtnLBL = document.getElementById("STROKESbtn").innerHTML;
-		var shtSTKbtn = STKbtnLBL.substr(0,7);
+		var shtSTKbtn = STKbtnLBL.substr(8,1);		//(0,7);
 		//alert("In 'pHCcolors()'' fn!\nshtSTKbtn = "+shtSTKbtn);
 			//alert("In 'pHCcolors()'' fn!\nSTKbtnLBL = "+STKbtnLBL+"\tshtSTKbtn = "+shtSTKbtn);
-		if ( shtSTKbtn=="Display" ) {
+		if ( shtSTKbtn=="+") {			//} "Display" ) {
 				for (var h = 1; h < 19; h++) {
 					//alert("hole = "+h);
 					HOLEhc = document.getElementById("HCPh"+h).value;
@@ -1346,7 +1346,7 @@
 									for (let i = 0; i < 5; i++) {
 									  text += "The number is " + i + "<br>";
 									} */
-				document.getElementById("STROKESbtn").innerHTML = "HIDE Stroke Holes";
+				document.getElementById("STROKESbtn").innerHTML = "Strokes -";	//HIDE Stroke Holes";
 					//document.getElementById("STROKESbtn").innerText = "HIDE Stroke Holes";
 				document.getElementById("postMNUtd").innerHTML =
 										"<span style='font-size:10px; background:lime; border:1px solid black; color:black;'>&nbsp;1&nbsp;</span>"+
@@ -1355,7 +1355,7 @@
 		}			
 		else { 
 			remCOLORS(); 
-			document.getElementById("STROKESbtn").innerHTML = "Display Stroke Holes";
+			document.getElementById("STROKESbtn").innerHTML = "Strokes +";	//Display Stroke Holes";
 		}			
 			
 	}	
@@ -2251,7 +2251,7 @@
 	function showADDIN() {
 		if (document.getElementById("ADDINdiv").style.visibility=="visible") {
 			document.getElementById("ADDINdiv").style.visibility="hidden"; 
-			document.getElementById("ADDcheck").style.visibility="hidden";
+			//document.getElementById("ADDcheck").style.visibility="hidden";
 			
 			document.getElementById("pDone").style.visibility = "hidden";
 		}		
@@ -2471,8 +2471,8 @@
 	
 	function remREADONLY() {
 		var lastFOCUS = document.getElementById('lastFOCUS').value;
-		/*alert("Will TRY to re-enable SELECTED player input for editing . . .\n"+
-		      "Last focussed element/input = "+lastFOCUS);*/
+		alert("Will TRY to re-enable SELECTED player input for editing . . .\n"+
+		      "Last focussed element/input = "+lastFOCUS);
 		//var focused = document.activeElement;  alert(focussed + " has focus");
 				/*for (var h = 1; h < 19; h++) {
 					for (var n = 1; n < 6; n++) {
@@ -2482,8 +2482,8 @@
 		//document.getElementById('p'+p+'h'+h).setAttribute('readonly', 'true');		
 		//document.getElementById('p'+p+'h'+h).readOnly = false;		
 		document.getElementById(lastFOCUS).removeAttribute('readOnly');
-		document.getElementById(lastFOCUS).focus();
-		hideMENU();
+		//document.getElementById(lastFOCUS).focus();
+		//hideMENU();
 	}
 
 	function displayP5() {
