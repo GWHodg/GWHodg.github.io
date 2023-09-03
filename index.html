@@ -13,6 +13,53 @@
 
 
 <style>
+
+	/*Animated Sidenav (Menu):
+		create an animated, closable side navigation menu
+	  	https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sidenav*/
+			.sidenav {
+			  height: 30%; width: 0;   /* height: 100%; */
+			  position: fixed;z-index: 1;
+			  top: 545px; left: 0; /* top: 0; */
+			  background-color:black;	/*blue;	  #111;*/
+			  overflow:scroll; transition: 0.5s; padding-top:0px;	/* 30px; */
+			  /* overflow-x: hidden; overflow-y:scroll; */
+			  /*vertical-align: top;*/
+			}		
+			.sidenav a {
+			  /* padding: 8px 8px 8px 32px; text-decoration: none; */
+			  padding: 3px 3px 3px 0px; text-decoration: none; 
+			  font-size: 20px;	/* 25px; */ color: #818181; display: block; transition: 0.3s;
+			}		
+			.sidenav a:hover { color: #f1f1f1; }		
+			.sidenav .closebtn {
+			  position: absolute; top: 0; right: 25px;
+			  font-size: 36px; margin-left: 50px;
+			}	
+			/* @media screen and (max-height: 450px) {
+				  .sidenav {padding-top: 15px;}
+				  .sidenav a {font-size: 18px;}
+		  	  } */
+			  
+			  
+	.grid-container {
+	  display: grid;
+	  grid-template-columns: auto auto auto auto;
+	  gap: 2px;
+	  background-color:slategray; /* dodgerblue; */	/* #2196F3; */
+	  padding: 5px;
+	  /*vertical-align:top;*/
+	  /*align-content:space-evenly;*/
+	}	
+	.grid-container > div {
+	  background-color: maroon;	/* rgba(255, 255, 255, 0.8); */
+	  	color:white;
+	  border: 1px solid black;
+	  text-align: center;
+	  font-size: 20px;
+	  
+    }		
+  
 </style>
 
 <script>
@@ -99,7 +146,21 @@
 		}
 		hideMENU();		
 	}		
-	
+
+		function openNav() {
+			  if (document.getElementById("mySidenav").style.width<"200px") {
+					document.getElementById("mySidenav").style.width = "400px";
+					//document.getElementById("mySidenav").style.overflow = "scroll";
+			  }
+			  else {
+				 	document.getElementById("mySidenav").style.width = "0px"; 
+			  }
+		}
+		
+		function closeNav() {
+			document.getElementById("mySidenav").style.width = "0px";
+		}		
+		
 </script>
 
 </head>
@@ -108,6 +169,37 @@
 	
 <div class="wrapper"><!-- Put the page contents here -->
 
+	
+				<div id="mySidenav" class="sidenav"  style='opacity:0.8; border-right: 5px solid red;'>
+							<!--
+							&nbsp;&nbsp; &#127948;
+							<font size=2 face="papyrus" color=lime>Golf Score</font>
+					  		<font size=3 face="papyrus" color=lime> Menu</font>
+							<span style="float:right;"><button class="" onclick="closeNav()">&times;</button></span><br>
+						    -->
+						<div class="grid-container">
+							  <!--<div><a><button style="color:blue; cursor:pointer;" onclick="calcALL()">Points</button></a></div>
+							  <div><button id='calcTOTbtn' onclick="calcTOTALS()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>TOTALS</b></u></button></div>-->
+							  <div><button id='calcALLbtn' onclick="calcALL()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:white; background:blue; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>STABLEFORD Points</b></u></button></div>
+							  <div><button id='calcTOTbtn' onclick="calcTOTALS()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>TOTALS</b></u></button></div>
+							  <div><button id='STROKESbtn' onclick="pHCcolors()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;">Display Stroke Holes</button></div>
+							  <div><button id='TABbtn' onclick="restrictTAB()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;"><b>Disable/Enable Inputs</b></button></div>
+							  
+							  <div><button id='REPLACEbtn' onclick="replace()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">insert SAVED scores</button></div>
+							  <div></div>
+							  <div></div>
+							  <div></div>
+							  
+							  <div><button onclick="remREADONLY()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Enable Input Edit</button></div>
+							  
+						</div> 
+				</div>
+	
+	
+	
+	
+	
+	
 <TABLE id="HEADtbl" border=1 align=center style='FONT-SIZE:large; color:maroon; visibility:visible;' bgcolor='lightgray'>	
 <TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:white; background:royalblue; FONT-WEIGHT:bold;" >VGC blue<br><font size=1 color=lightgray>Aug 26, 2023</font>
 	<!--<label style="FONT-WEIGHT: bold; FONT-SIZE:25px; COLOR:white; background:royalblue; border:3px solid black; border-radius:10px; opacity:100%; padding:5px;">VGC blue </label>-->
@@ -115,7 +207,7 @@
 	<!--<span style="font-size:30px;cursor:pointer; color:blue; background:white; position:relative; left:38%;" onclick="openMENU()">&#9776;</span>-->	<!-- position:absolute; LEFT:750px; top:30px;  -->
 <TD>
 					<div class="dropup" style="cursor:pointer; color:black; background:lightgray; /*position:relative; left:18%;*/">
-						  <button class="dropbtn" id='menuBTN' onclick="showMENU('tipMENU')" style="background:white;">
+						  <button class="dropbtn" id='menuBTN' onclick="showMENU('tipMENU'); openNav()" style="background:white;"> <!--  onclick="openNav()" -->
 						  	  	<span style="font-size:30px;cursor:pointer; color:white;" 
 								onclick="">&#9776;</span>
 						  </button>
@@ -152,6 +244,7 @@
 								<br>								
 								
 								<button onclick="remREADONLY()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Enable Input Edit</button><br>
+							
 								<button id='NOTEbtn' onclick="note()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:gray; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">+/- note</button><br>
 							
 								<button id='FreezeHCbtn' onclick="freeze()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:gray; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">+/- freeze HC input</button><br>
