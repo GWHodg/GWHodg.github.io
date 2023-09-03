@@ -20,7 +20,7 @@
 			.sidenav {
 			  height: 30%; width: 0;   /* height: 100%; */
 			  position: fixed;z-index: 1;
-			  top: 543px; left: 0; /* top: 545; */
+			  top: 540px; left: 0; /* top: 545; */
 			  background-color:black;	/*blue;	  #111;*/
 			  overflow:scroll; transition: 0.5s; padding-top:0px;	/* 30px; */
 			  /* overflow-x: hidden; overflow-y:scroll; */
@@ -52,7 +52,7 @@
 	  /*align-content:space-evenly;*/
 	}	
 	.grid-container > div {
-	  background-color: maroon;	/* rgba(255, 255, 255, 0.8); */
+	  background-color: lightgray;	/* maroon; */	/* rgba(255, 255, 255, 0.8); */
 	  	color:white;
 	  border: 1px solid black;
 	  text-align: center;
@@ -169,8 +169,9 @@
 	
 <div class="wrapper"><!-- Put the page contents here -->
 
-	
-				<div id="mySidenav" class="sidenav"  style='opacity:0.8; border-right: 5px solid red;'>
+	''
+				<div id="mySidenav" class="sidenav"  style='opacity:0.8; border-right:5px solid brown;'>
+																						<!-- red; -->
 							<!--
 							&nbsp;&nbsp; &#127948;
 							<font size=2 face="papyrus" color=lime>Golf Score</font>
@@ -217,10 +218,11 @@
 	<!--<span style="font-size:30px;cursor:pointer; color:blue; background:white; position:relative; left:38%;" onclick="openMENU()">&#9776;</span>-->	<!-- position:absolute; LEFT:750px; top:30px;  -->
 <TD>
 					<div class="dropup" style="cursor:pointer; color:black; background:lightgray; /*position:relative; left:18%;*/">
-						  <button class="dropbtn" id='menuBTN' onclick="showMENU('tipMENU'); openNav()" style="background:white;"> <!--  onclick="openNav()" -->
+						  <button class="dropbtn" id='menuBTN' onclick="openNav()" style="background:white;"> <!--  onclick="showMENU('tipMENU'); openNav()" -->
 						  	  	<span style="font-size:30px;cursor:pointer; color:white;" 
 								onclick="">&#9776;</span>
 						  </button>
+						  <!--
 						  <div class="dropup-content" style="border:3px solid red; border-radius:10px; background:beige;"
 						  id="menuCONTENT">		
 									<span style="float:right; text-align:right; padding-right: 5px;">
@@ -230,7 +232,7 @@
 								<a> </a>
 								<a> </a>										
 								<button id='calcALLbtn' onclick="calcALL()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:white; background:blue; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>STABLEFORD Points</b></u></button> <br>
-								<!--<br>-->
+								
 								<button id='calcTOTbtn' onclick="calcTOTALS()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>TOTALS</b></u></button><br>
 								<br> 
 								<button id='STROKESbtn' onclick="pHCcolors()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;">Display Stroke Holes<br>
@@ -239,8 +241,8 @@
 										<span style='background:white; color:black;'>&nbsp;0&nbsp;</span>
 								</button> 
 								<br>
-								<!--<br>-->
-								<button id='TABbtn' onclick="restrictTAB()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;"><b>Disable/Enable Inputs<!--Restrict Tabs--><!--bing--></b></button><br>
+								
+								<button id='TABbtn' onclick="restrictTAB()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;"><b>Disable/Enable Inputs</b></button><br>
 								<br>								
 								<div style="border:2px inset black; border-radius:0px; background:beige; width:90%; margin:auto;">
 								<button id='REPLACEbtn' onclick="replace()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">insert SAVED scores</button><br>
@@ -261,7 +263,7 @@
 								<button id='SLIDEbtn' onclick="showSLIDER()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">Slider Input +/-</button> <br>
 								<button onclick="HELP()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Help</button><br>
 								<div style="border:2px inset black; border-radius:0px; background:beige; width:90%; margin:auto;">
-								<!--FILE:-->
+								
 								<button id='REPLACEbtn'  onclick="showLSwrite()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">WRITE scores to file</button>
 								<br>
 								<button id='CLEARbtn' onclick="showLSread()" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">READ file</button><br>
@@ -271,12 +273,10 @@
 
 								<button onclick="displayP5()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>5th Player +/-</button><br>	
 								<button onclick="showHCs()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Player Handicaps</button><br>	
-								<button onclick="" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px; display:none;'><s>Score Center</s></button>	<!-- onclick="scoreCENTER()" -->					
+								<button onclick="" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px; display:none;'><s>Score Center</s></button>	
 								<br>
-								<!--<button class="CODEBTNclass" id='NOTESbtn' onclick="showNOTES()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><i>coding notes</i></button>-->
-								<!--<button class="ZOOMclass" id='ZOOMbtn' onclick="changeZOOM()" style="display:none;"><i>ZOOM +/-</i></button>--><!--<br>-->
-								<!--<br>-->
 						  </div>
+					  	  -->
 					</div>		
 </TD>	 <TD id="postMNUtd" width=20></td>	 <TD>
 	<input type="date" id="DATE" tabindex="300" style="background:beige; border:1px solid slategray; color:blue; width:120px;" value="date"     onchange="localStorage.setItem('DATE',this.value);" >
