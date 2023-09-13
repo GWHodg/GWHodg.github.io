@@ -1,0 +1,591 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>!chd1</title> 
+
+<style>
+	
+	/*Animated Sidenav (Menu):
+		create an animated, closable side navigation menu
+	  	https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sidenav*/
+			.sidenav {
+			  height: 23%; width: 0;   /* height: 100%;   30%*/
+			  position: fixed;z-index: 1;
+			  top: 545px; left: 0; /* top: 0; */
+			  background-color:black;	/*blue;	  #111;*/
+			  overflow:scroll; transition: 0.5s; padding-top:0px;	/* 30px; */
+			  /* overflow-x: hidden; overflow-y:scroll; */
+			  /*vertical-align: top;*/
+			}		
+			.sidenav a {
+			  /* padding: 8px 8px 8px 32px; text-decoration: none; */
+			  padding: 3px 3px 3px 0px; text-decoration: none; 
+			  font-size: 20px;	/* 25px; */ color: #818181; display: block; transition: 0.3s;
+			}		
+			.sidenav a:hover { color: #f1f1f1; }		
+			.sidenav .closebtn {
+			  position: absolute; top: 0; right: 25px;
+			  font-size: 36px; margin-left: 50px;
+			}	
+			
+	.grid-container {
+	  display: grid;
+	  grid-template-columns: auto auto auto;	/* auto; */
+	  gap: 2px;
+	  background-color:dodgerblue; 	/* #2196F3; */
+	  padding: 5px;
+	  /*vertical-align:top;*/
+	  /*align-content:space-evenly;*/
+	}	
+	.grid-container > div {
+	  background-color: ivory;	/* rgba(255, 255, 255, 0.8); */
+	  	color:white;
+	  border: 1px solid black;
+	  text-align: center;
+	  font-size: 20px;	  
+    }	
+	
+	div.classLSwrite { position:fixed; left:50%; transform:translate(-50%,0); top:10%;
+		background:pink; padding:10px; border:2px inset gray; border-radius:10px; visibility:hidden; } 	
+		  
+</style>
+
+<script>
+
+		function openNav() {
+			  if (document.getElementById("mySidenav").style.width<"200px") {
+					document.getElementById("mySidenav").style.width = "400px";
+					//document.getElementById("mySidenav").style.overflow = "scroll";
+			  }
+			  else {
+				 	document.getElementById("mySidenav").style.width = "0px"; 
+			  }
+		}
+		
+		function closeNav() {
+			document.getElementById("mySidenav").style.width = "0px";
+		}		
+
+		function transpose() {
+			var Okey = document.getElementById("sKEY").value;
+			var Nchords;
+			/* alert("Will try to CHANGE CHORDS now!\n"+
+				  "\tOriginal KEY = "+ Okey); */
+				  
+			if ( Okey == 'E' ) {
+				Nchords = 'C'; document.getElementById("CHORDS").value = Nchords;
+				document.getElementById("fret").value = '+4';				
+				for (L=1; L<6; L++) {
+					//alert("in for loop! b1 value = "+document.getElementById("L"+ L +"b1").value);
+					for (B=1; B<5; B++) {
+						if ( document.getElementById("L"+L+"b"+B).value == 'E' ) { 
+							document.getElementById("L"+L+"b"+B).value = 'C'; document.getElementById("L"+L+"b"+B).style.color = "red"; 
+						};
+						if ( document.getElementById("L"+L+"b"+B+"z").value == 'E' ) { 
+							document.getElementById("L"+L+"b"+B+"z").value = 'C'; document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 			
+						};
+						if ( document.getElementById("L"+L+"b"+B).value == 'A' ) { 
+							document.getElementById("L"+L+"b"+B).value = 'F';  document.getElementById("L"+L+"b"+B).style.color = "red";
+						};
+						if ( document.getElementById("L"+L+"b"+B+"z").value == 'A' ) { 
+							document.getElementById("L"+L+"b"+B+"z").value = 'F'; document.getElementById("L"+L+"b"+B+"z").style.color = "red";  
+						};
+						if ( document.getElementById("L"+L+"b"+B).value == 'B' ) { 
+							document.getElementById("L"+L+"b"+B).value = 'G'; document.getElementById("L"+L+"b"+B).style.color = "red";
+						};	
+						if ( document.getElementById("L"+L+"b"+B+"z").value == 'B' ) { 
+							document.getElementById("L"+L+"b"+B+"z").value = 'G'; document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						};
+						if ( document.getElementById("L"+L+"b"+B).value == 'C#m' ) { 
+							document.getElementById("L"+L+"b"+B).value = 'Am'; document.getElementById("L"+L+"b"+B).style.color = "red";
+						};	
+						if ( document.getElementById("L"+L+"b"+B+"z").value == 'C#m' ) { 
+							document.getElementById("L"+L+"b"+B+"z").value = 'Am'; document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						};
+						if ( document.getElementById("L"+L+"b"+B).value == 'G#m' ) { 
+							document.getElementById("L"+L+"b"+B).value = 'Em'; document.getElementById("L"+L+"b"+B).style.color = "red";
+						};	
+						if ( document.getElementById("L"+L+"b"+B+"z").value == 'G#m' ) { 
+							document.getElementById("L"+L+"b"+B+"z").value = 'Em'; document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						};
+						if ( document.getElementById("L"+L+"b"+B).value == 'F#m' ) { 
+							document.getElementById("L"+L+"b"+B).value = 'Dm'; document.getElementById("L"+L+"b"+B).style.color = "red";
+						};	
+						if ( document.getElementById("L"+L+"b"+B+"z").value == 'F#m' ) { 
+							document.getElementById("L"+L+"b"+B+"z").value = 'Dm'; document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						};
+					}
+				}
+			}
+			//document.getElementById("L2b1").style.color = "red";		
+			if ( Okey == 'F' ) {
+				Nchords = 'G'; document.getElementById("CHORDS").value = Nchords;
+				document.getElementById("fret").value = '-2';				
+				for (L=1; L<6; L++) {
+					//alert("in for loop! b1 value = "+document.getElementById("L"+ L +"b1").value);
+					for (B=1; B<5; B++) {
+						if ( document.getElementById("L"+L+"b"+B).value == 'F' ) { 
+							document.getElementById("L"+L+"b"+B).value = 'G'; document.getElementById("L"+L+"b"+B).style.color = "red"; 
+						};
+						if ( document.getElementById("L"+L+"b"+B+"z").value == 'F' ) { 
+							document.getElementById("L"+L+"b"+B+"z").value = 'G'; document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 			
+						};
+						
+						if ( document.getElementById("L"+L+"b"+B).value == 'C' ) { 
+							document.getElementById("L"+L+"b"+B).value = 'D'; document.getElementById("L"+L+"b"+B).style.color = "red";
+						};	
+						if ( document.getElementById("L"+L+"b"+B+"z").value == 'C' ) { 
+							document.getElementById("L"+L+"b"+B+"z").value = 'D'; document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						};
+						if ( document.getElementById("L"+L+"b"+B).value == 'Dm' ) { 
+							document.getElementById("L"+L+"b"+B).value = 'Em'; document.getElementById("L"+L+"b"+B).style.color = "red";
+						};	
+						if ( document.getElementById("L"+L+"b"+B+"z").value == 'Dm' ) { 
+							document.getElementById("L"+L+"b"+B+"z").value = 'Em'; document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						};
+						if ( document.getElementById("L"+L+"b"+B).value == 'Am' ) { 
+							document.getElementById("L"+L+"b"+B).value = 'Bm'; document.getElementById("L"+L+"b"+B).style.color = "red";
+						};	
+						if ( document.getElementById("L"+L+"b"+B+"z").value == 'Am' ) { 
+							document.getElementById("L"+L+"b"+B+"z").value = 'Bm'; document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						};
+						if ( document.getElementById("L"+L+"b"+B).value == 'Gm' ) { 
+							document.getElementById("L"+L+"b"+B).value = 'Am'; document.getElementById("L"+L+"b"+B).style.color = "red";
+						};	
+						if ( document.getElementById("L"+L+"b"+B+"z").value == 'Gm' ) { 
+							document.getElementById("L"+L+"b"+B+"z").value = 'Am'; document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						};
+						if ( document.getElementById("L"+L+"b"+B).value == 'Bb' ) { 
+							document.getElementById("L"+L+"b"+B).value = 'C';  document.getElementById("L"+L+"b"+B).style.color = "red";
+						};
+						if ( document.getElementById("L"+L+"b"+B+"z").value == 'Bb' ) { 
+							document.getElementById("L"+L+"b"+B+"z").value = 'C'; document.getElementById("L"+L+"b"+B+"z").style.color = "red";  
+						};
+						//else { alert("HELP!"); };
+					}
+				}
+			}		
+		
+			if ( Okey == 'D' ) {
+				Nchords = 'C'; document.getElementById("CHORDS").value = Nchords;
+				document.getElementById("fret").value = '+2';				
+				for (L=1; L<6; L++) {
+					//alert("in for loop! b1 value = "+document.getElementById("L"+ L +"b1").value);
+					for (B=1; B<5; B++) {
+						if ( document.getElementById("L"+L+"b"+B).value == 'D' ) { 
+							document.getElementById("L"+L+"b"+B).value = 'C'; document.getElementById("L"+L+"b"+B).style.color = "red"; 
+						};
+						if ( document.getElementById("L"+L+"b"+B+"z").value == 'D' ) { 
+							document.getElementById("L"+L+"b"+B+"z").value = 'C'; document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 			
+						};
+						if ( document.getElementById("L"+L+"b"+B).value == 'G' ) { 
+							document.getElementById("L"+L+"b"+B).value = 'F';  document.getElementById("L"+L+"b"+B).style.color = "red";
+						};
+						if ( document.getElementById("L"+L+"b"+B+"z").value == 'G' ) { 
+							document.getElementById("L"+L+"b"+B+"z").value = 'F'; document.getElementById("L"+L+"b"+B+"z").style.color = "red";  
+						};
+						if ( document.getElementById("L"+L+"b"+B).value == 'A' ) { 
+							document.getElementById("L"+L+"b"+B).value = 'G'; document.getElementById("L"+L+"b"+B).style.color = "red";
+						};	
+						if ( document.getElementById("L"+L+"b"+B+"z").value == 'A' ) { 
+							document.getElementById("L"+L+"b"+B+"z").value = 'G'; document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						};
+						if ( document.getElementById("L"+L+"b"+B).value == 'Bm' ) { 
+							document.getElementById("L"+L+"b"+B).value = 'Am'; document.getElementById("L"+L+"b"+B).style.color = "red";
+						};	
+						if ( document.getElementById("L"+L+"b"+B+"z").value == 'Bm' ) { 
+							document.getElementById("L"+L+"b"+B+"z").value = 'Am'; document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						};
+						if ( document.getElementById("L"+L+"b"+B).value == 'F#m' ) { 
+							document.getElementById("L"+L+"b"+B).value = 'Em'; document.getElementById("L"+L+"b"+B).style.color = "red";
+						};	
+						if ( document.getElementById("L"+L+"b"+B+"z").value == 'F#m' ) { 
+							document.getElementById("L"+L+"b"+B+"z").value = 'Em'; document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						};
+						if ( document.getElementById("L"+L+"b"+B).value == 'Em' ) { 
+							document.getElementById("L"+L+"b"+B).value = 'Dm'; document.getElementById("L"+L+"b"+B).style.color = "red";
+						};	
+						if ( document.getElementById("L"+L+"b"+B+"z").value == 'Em' ) { 
+							document.getElementById("L"+L+"b"+B+"z").value = 'Dm'; document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						};
+					}
+				}
+			}				
+		
+		
+			
+		}
+
+		function stored() {
+				//alert("Will try to REPLACE chords w/ stored data . . .");
+				document.getElementById("sNAME").value = localStorage.getItem("sNAME");
+				document.getElementById("sKEY").value = localStorage.getItem("sKEY");			
+				for (var h = 1; h < 5; h++) {		//L1g1
+						document.getElementById("L1b"+h).value = localStorage.getItem("L1g"+h);  
+										document.getElementById("L1b"+h).style.color = "black"; 
+							document.getElementById("L1b"+h+"z").value = localStorage.getItem("L1g"+h+"z");
+										document.getElementById("L1b"+h+"z").style.color = "black"; 							
+						document.getElementById("L2b"+h).value = localStorage.getItem("L2g"+h);
+										document.getElementById("L2b"+h).style.color = "black"; 						
+							document.getElementById("L2b"+h+"z").value = localStorage.getItem("L2g"+h+"z");
+										document.getElementById("L2b"+h+"z").style.color = "black"; 							
+						//document.getElementById("p3h"+h).value = localStorage.getItem("g3H"+h+"s");	
+						document.getElementById("L3b"+h).value = localStorage.getItem("L3g"+h);
+										document.getElementById("L3b"+h).style.color = "black"; 						
+						document.getElementById("L3b"+h+"z").value = localStorage.getItem("L3g"+h+"z");
+								document.getElementById("L3b"+h+"z").style.color = "black"; 
+						document.getElementById("L4b"+h).value = localStorage.getItem("L4g"+h);
+										document.getElementById("L4b"+h).style.color = "black"; 						
+						document.getElementById("L4b"+h+"z").value = localStorage.getItem("L4g"+h+"z");
+										document.getElementById("L4b"+h+"z").style.color = "black"; 
+						document.getElementById("L5b"+h).value = localStorage.getItem("L5g"+h);
+										document.getElementById("L5b"+h).style.color = "black"; 						
+						document.getElementById("L5b"+h+"z").value = localStorage.getItem("L5g"+h+"z");
+										document.getElementById("L5b"+h+"z").style.color = "black"; 						
+				}	
+				document.getElementById("CHORDS").value = ""; 	
+				document.getElementById("fret").value = ""; 					
+		}
+
+	function showLSwrite() {
+		if (document.getElementById("divLSwrite").style.visibility=="visible") {
+			document.getElementById("divLSwrite").style.visibility="hidden"; 	
+		}		
+		else {
+			document.getElementById("divLSwrite").style.visibility="visible"; 
+		}
+		//hideMENU();		
+	}
+	function showLSread() {
+		if (document.getElementById("divLSread").style.visibility=="visible") {
+			document.getElementById("divLSread").style.visibility="hidden"; 	
+		}		
+		else {
+			document.getElementById("divLSread").style.visibility="visible"; 
+		}
+		//hideMENU();		
+	}	
+
+	var MyDiv1; var readArray;
+	function DIVtoVAR() {
+			MyDiv1 = document.getElementById('output').innerHTML;	
+			/*
+			if ( chr3!="," ) {
+										// convert a text file to CSV file:
+										//	1.split on line breaks
+										//	2. split on white space
+										//	3. join with commas
+										//	4. join with new lines 							
+					let txtTOcsv = MyDiv1.split('\n')                      // split lines
+					            .map(line => line.split(/\s+/).join(','))  // split spaces then join with ,
+					            .join('\n')                                // rejoin lines
+					
+								alert(".txt > .csv file conversion:\n"+
+									  txtTOcsv);
+								MyDiv1 = txtTOcsv;											  
+			}
+			*/			
+			readArray = MyDiv1.split("<br>");	//const readArray = MyDiv1.split("<br>");
+			
+		}
+
+	function changeLclStrg() {
+			var dROW1 = readArray[0]; const dARR1 = dROW1.split(","); 
+				localStorage.setItem('sNAME', dARR1[0]);	localStorage.setItem('sKEY', dARR1[1]);	
+				//alert("dROW1 = "+dROW1+"\ndARR1 = "+dARR1+"\ndARR1[1] = "+dARR1[1]);
+			var dROW2 = readArray[1]; const dARR2 = dROW2.split(","); 
+				localStorage.setItem('L1g1', dARR2[0]);	localStorage.setItem('L1g1z', dARR2[1]);	
+				localStorage.setItem('L1g2', dARR2[2]);	localStorage.setItem('L1g2z', dARR2[3]);	
+				localStorage.setItem('L1g3', dARR2[4]);	localStorage.setItem('L1g3z', dARR2[5]);	
+				localStorage.setItem('L1g4', dARR2[6]);	localStorage.setItem('L1g4z', dARR2[7]);
+			var dROW3 = readArray[2]; const dARR3 = dROW3.split(","); 
+				localStorage.setItem('L2g1', dARR3[0]);	localStorage.setItem('L2g1z', dARR3[1]);	
+				localStorage.setItem('L2g2', dARR3[2]);	localStorage.setItem('L2g2z', dARR3[3]);	
+				localStorage.setItem('L2g3', dARR3[4]);	localStorage.setItem('L2g3z', dARR3[5]);	
+				localStorage.setItem('L2g4', dARR3[6]);	localStorage.setItem('L2g4z', dARR3[7]);	
+			var dROW4 = readArray[3]; const dARR4 = dROW4.split(","); 
+				localStorage.setItem('L3g1', dARR4[0]);	localStorage.setItem('L3g1z', dARR4[1]);	
+				localStorage.setItem('L3g2', dARR4[2]);	localStorage.setItem('L3g2z', dARR4[3]);	
+				localStorage.setItem('L3g3', dARR4[4]);	localStorage.setItem('L3g3z', dARR4[5]);	
+				localStorage.setItem('L3g4', dARR4[6]);	localStorage.setItem('L3g4z', dARR4[7]);	
+			var dROW5 = readArray[4]; const dARR5 = dROW5.split(","); 
+				localStorage.setItem('L4g1', dARR5[0]);	localStorage.setItem('L4g1z', dARR5[1]);	
+				localStorage.setItem('L4g2', dARR5[2]);	localStorage.setItem('L4g2z', dARR5[3]);	
+				localStorage.setItem('L4g3', dARR5[4]);	localStorage.setItem('L4g3z', dARR5[5]);	
+				localStorage.setItem('L4g4', dARR5[6]);	localStorage.setItem('L4g4z', dARR5[7]);	
+			var dROW6 = readArray[5]; const dARR6 = dROW6.split(","); 
+				localStorage.setItem('L5g1', dARR6[0]);	localStorage.setItem('L5g1z', dARR6[1]);	
+				localStorage.setItem('L5g2', dARR6[2]);	localStorage.setItem('L5g2z', dARR6[3]);	
+				localStorage.setItem('L5g3', dARR6[4]);	localStorage.setItem('L5g3z', dARR6[5]);	
+				localStorage.setItem('L5g4', dARR6[6]);	localStorage.setItem('L5g4z', dARR6[7]);					
+			//alert("In 'changeLclStrg' fn! dROW4 = "+dROW4+"\ndARR4 = "+dARR4+"\ndARR4[1] = "+dARR4[1]);
+	}		
+
+	function HELP() {
+		alert("KEYS:\n\tE-4#; A-3#; D-2#; G-1#\n\tAb-4b; Eb-3b; Bb-2b; F-1b");
+	}
+
+	function clearSTORED() {
+		//alert("Will CLEAR 'stored' inputs here!");
+		  let reply;
+		  if (confirm("Are you SURE you want to CLEAR all 'stored' input?") == true) {
+		    reply = "YES!";
+		  } else {
+		    reply = "NO!";
+		  }
+  		  alert(reply);
+			  
+		if ( reply=="YES!") {
+			for (L=1; L<6; L++) {
+					//alert("in for loop! b1 value = "+document.getElementById("L"+ L +"b1").value);
+					for (B=1; B<5; B++) {						
+						localStorage.setItem("L"+L+"g"+B,""); document.getElementById("L"+L+"b"+B).value = ""; 
+						localStorage.setItem("L"+L+"g"+B+"z",""); document.getElementById("L"+L+"b"+B+"z").value = ""; 
+					}
+			}
+			/*
+			for (var h = 1; h < 19; h++) {
+					for (var n = 1; n < 6; n++) {
+						localStorage.setItem('g'+n+'H'+h+'s',""); document.getElementById("p"+n+"h"+h).value = "";
+					}
+			}
+			*/			
+			localStorage.setItem("sNAME",""); document.getElementById("sNAME").value = ""; 
+			localStorage.setItem("sKEY",""); document.getElementById("sKEY").value = ""; 
+			document.getElementById("CHORDS").value = ""; 	
+			document.getElementById("fret").value = ""; 				
+		}		
+		//alert("g1H1s POST 'clear' = " +  localStorage.getItem("g1H1s"));		
+		//hideMENU();		
+	}
+
+	function loadSONG() {
+		DIVtoVAR();
+		changeLclStrg();
+		stored();
+		showLSread();
+	}	
+	
+</script>
+
+</head>
+
+<body class="body" style="background-color:white;"  onload=""> 	
+<div class="wrapper"><!-- Put the page contents here -->
+
+
+				<div id="mySidenav" class="sidenav"  style='opacity:0.8; border-right: 5px solid red;'>
+						<div class="grid-container">
+							  <!--<div></div>-->
+							  <div><button id='calcTOTbtn' onclick="transpose()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>Transpose</b></u></button></div>
+							  <div style="background:black;"><A style="FONT-SIZE:small; cursor:pointer;" onclick="clearSTORED()"><b>CLEAR<br>'stored'</b></A></div>  							  
+							  <div style="background:black;"><A onclick="stored()" style='cursor:pointer;'><b>insert<br>STORED chords</b></A></div>
+							  
+							  <!--<div><A onclick="remREADONLY()" style='cursor:pointer;'><b></b></A></div>-->
+							  <div><button id='CLEARbtn' onclick="showLSread()" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">READ file</button><</div>
+							  <div style="background:black;"><A onclick="HELP()" style='cursor:pointer;'><b>Help</b></A></div>
+							  <div><button id='REPLACEbtn'  onclick="showLSwrite()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">WRITE chords to file</button>
+							  </div>							  
+					  
+						</div>					
+					
+				</div>	
+				
+
+
+	
+	
+<TABLE id="HEADtbl" border=1 align=center style='FONT-SIZE:large; color:blue; visibility:visible;' bgcolor='lightgray'>	
+	<TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:white; background:green; FONT-WEIGHT:bold; padding:5px;" >CHORDS&emsp;<font size=1 color=lightgray>Sept 6, 2023</font> <br>
+		<span style="float:right;"><font size=2><u>Long Neck</u> Banjo</font></span>
+		</TD> 
+		<TD>
+			<span style="font-size:35px; cursor:pointer; color:maroon;" onclick="openNav()">&#9776;</span>	
+		</TD>			
+	</TR>
+</TABLE>
+
+	
+	<table class="table2" id="SCOREStbl" border='3'   align=center 
+	style='table-layout:fixed; FONT-SIZE:large; color:maroon; visibility:visible; zoom:100%;' bgcolor='lightgray'> <!-- lightgreen -->
+		<thead> 
+				
+			<th colspan=4 align=center><input type="text" id="sNAME" onchange="localStorage.setItem('sNAME',this.value);"  tabindex="" style="background:whitesmoke; width:60%; font-weight:bold; font-size:15px; text-align:center;" value="">
+				&emsp;
+				<font size=2>KEY</font>&nbsp;<input  id="sKEY" onchange="localStorage.setItem('sKEY',this.value);" style="background:moccasin; width:10%; font-weight:bold; font-size:12px; text-align:center;" maxlength=3 type="" value="E">
+			</th>
+		</thead>
+		<TR>	
+			<th colspan=4 style="font-size:12px;">play&nbsp;<input style="background:red; color:white; width:10%; font-weight:bold; font-size:16px; text-align:center;" maxlength=3 type="" id="CHORDS" onchange="" value="">&nbsp;chords&emsp;&emsp;
+				capo > fret&nbsp;<input style="background:red; color:white; width:10%; font-weight:bold; font-size:16px; text-align:center;" maxlength=3 type="" id="fret" onchange="" value="">&nbsp;<font size=1>(from 3=C/G)</font>
+				<!--<button id='TRANSPOSE' onclick="transpose()" style="FONT-WEIGHT:bold; FONT-SIZE:12px; COLOR:blue; background:yellow; border:2px solid blue; border-radius:5px;">Transpose</button>-->
+			</th>
+				
+		</TR>
+		<tbody id='TBLbody'> 							
+			<TR>				
+				<TD align=center style="background:slategray;"><input type="" id="L1b1" maxlength=3 onchange="localStorage.setItem('L1g1',this.value);" autofocus tabindex="201" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;" value=""> 
+						<input type="" id="L1b1z" maxlength=3 onchange="localStorage.setItem('L1g1z',this.value);" autofocus tabindex="201" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;"></TD>				
+				
+				<TD align=center style="background:black;"><input type="" id="L1b2" maxlength=3 onchange="localStorage.setItem('L1g2',this.value);" autofocus tabindex="202" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px;" >
+						<input type="" id="L1b2z" maxlength=7 onchange="localStorage.setItem('L1g2z',this.value);" autofocus tabindex="202" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;"></TD>						
+				<TD align=center style="background:slategray;"><input type="" id="L1b3" maxlength=3 onchange="localStorage.setItem('L1g3',this.value);" autofocus tabindex="203" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px;" >
+						<input type="" id="L1b3z" maxlength=3 onchange="localStorage.setItem('L1g3z',this.value);" autofocus tabindex="203" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;"></TD>						
+				<TD align=center style="background:black;"><input type="" id="L1b4" maxlength=3 onchange="localStorage.setItem('L1g4',this.value);" autofocus tabindex="204" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px;" >
+						<input type="" id="L1b4z" maxlength=3 onchange="localStorage.setItem('L1g4z',this.value);" autofocus tabindex="204" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;"></TD>						
+			</TR>
+			<TR>				
+				<TD align=center style="background:slategray;"><input type="" id="L2b1" maxlength=3 onchange="localStorage.setItem('L2g1',this.value);" autofocus tabindex="205" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;" value=""> 
+						<input type="" id="L2b1z" maxlength=3 onchange="localStorage.setItem('L2g1z',this.value);" autofocus tabindex="205" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;"></TD>				
+				
+				<TD align=center style="background:black;"><input type="" id="L2b2" maxlength=3 onchange="localStorage.setItem('L2g2',this.value);" autofocus tabindex="206" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px;" >
+						<input type="" id="L2b2z" maxlength=7 onchange="localStorage.setItem('L2g2z',this.value);" autofocus tabindex="206" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;"></TD>						
+				<TD align=center style="background:slategray;"><input type="" id="L2b3" maxlength=3 onchange="localStorage.setItem('L2g3',this.value);" autofocus tabindex="207" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px;" >
+						<input type="" id="L2b3z" maxlength=3 onchange="localStorage.setItem('L2g3z',this.value);" autofocus tabindex="207" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;"></TD>						
+				<TD align=center style="background:black;"><input type="" id="L2b4" maxlength=3 onchange="localStorage.setItem('L2g4',this.value);" autofocus tabindex="208" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px;" >
+						<input type="" id="L2b4z" maxlength=3 onchange="localStorage.setItem('L2g4z',this.value);" autofocus tabindex="208" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;"></TD>						
+			</TR>
+			
+			<TR>				
+				<TD align=center style="background:slategray;"><input type="" id="L3b1" maxlength=3 onchange="localStorage.setItem('L3g1',this.value);" autofocus tabindex="209" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;" value=""> 
+						<input type="" id="L3b1z" maxlength=3 onchange="localStorage.setItem('L3g1z',this.value);" autofocus tabindex="209" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;"></TD>							
+				<TD align=center style="background:black;"><input type="" id="L3b2" maxlength=3 onchange="localStorage.setItem('L3g2',this.value);" autofocus tabindex="210" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px;" >
+						<input type="" id="L3b2z" maxlength=7 onchange="localStorage.setItem('L3g2z',this.value);" autofocus tabindex="210" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;"></TD>						
+				<TD align=center style="background:slategray;"><input type="" id="L3b3" maxlength=3 onchange="localStorage.setItem('L3g3',this.value);" autofocus tabindex="211" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px;" >
+						<input type="" id="L3b3z" maxlength=3 onchange="localStorage.setItem('L3g3z',this.value);" autofocus tabindex="211" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;"></TD>						
+				<TD align=center style="background:black;"><input type="" id="L3b4" maxlength=3 onchange="localStorage.setItem('L3g4',this.value);" autofocus tabindex="212" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px;" >
+						<input type="" id="L3b4z" maxlength=3 onchange="localStorage.setItem('L3g4z',this.value);" autofocus tabindex="212" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;"></TD>						
+			</TR>
+			<TR>				
+				<TD align=center style="background:slategray;"><input type="" id="L4b1" maxlength=3 onchange="localStorage.setItem('L4g1',this.value);" autofocus tabindex="213" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;" value=""> 
+						<input type="" id="L4b1z" maxlength=3 onchange="localStorage.setItem('L4g1z',this.value);" autofocus tabindex="213" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;"></TD>							
+				<TD align=center style="background:black;"><input type="" id="L4b2" maxlength=3 onchange="localStorage.setItem('L4g2',this.value);" autofocus tabindex="214" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px;" >
+						<input type="" id="L4b2z" maxlength=7 onchange="localStorage.setItem('L4g2z',this.value);" autofocus tabindex="214" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;"></TD>						
+				<TD align=center style="background:slategray;"><input type="" id="L4b3" maxlength=3 onchange="localStorage.setItem('L4g3',this.value);" autofocus tabindex="215" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px;" >
+						<input type="" id="L4b3z" maxlength=3 onchange="localStorage.setItem('L4g3z',this.value);" autofocus tabindex="215" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;"></TD>						
+				<TD align=center style="background:black;"><input type="" id="L4b4" maxlength=3 onchange="localStorage.setItem('L4g4',this.value);" autofocus tabindex="216" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px;" >
+						<input type="" id="L4b4z" maxlength=3 onchange="localStorage.setItem('L4g4z',this.value);" autofocus tabindex="216" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;"></TD>						
+			</TR>	
+			<TR>				
+				<TD align=center style="background:slategray;"><input type="" id="L5b1" maxlength=3 onchange="localStorage.setItem('L5g1',this.value);" autofocus tabindex="217" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;" value=""> 
+						<input type="" id="L5b1z" maxlength=3 onchange="localStorage.setItem('L5g1z',this.value);" autofocus tabindex="217" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;"></TD>							
+				<TD align=center style="background:black;"><input type="" id="L5b2" maxlength=3 onchange="localStorage.setItem('L5g2',this.value);" autofocus tabindex="218" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px;" >
+						<input type="" id="L5b2z" maxlength=7 onchange="localStorage.setItem('L5g2z',this.value);" autofocus tabindex="218" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;"></TD>						
+				<TD align=center style="background:slategray;"><input type="" id="L5b3" maxlength=3 onchange="localStorage.setItem('L5g3',this.value);" autofocus tabindex="219" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px;" >
+						<input type="" id="L5b3z" maxlength=3 onchange="localStorage.setItem('L5g3z',this.value);" autofocus tabindex="219" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;"></TD>						
+				<TD align=center style="background:black;"><input type="" id="L5b4" maxlength=3 onchange="localStorage.setItem('L5g4',this.value);" autofocus tabindex="220" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px;" >
+						<input type="" id="L5b4z" maxlength=3 onchange="localStorage.setItem('L5g4z',this.value);" autofocus tabindex="220" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;"></TD>						
+			</TR>	
+			
+		</tbody>
+	</table>
+
+
+<!-- zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz locStor zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz -->
+	<div class="classLSwrite" id="divLSwrite" style= "" >
+			<!-- position = 'fixed'; left = "700px"; top = "100px"; -->
+
+			<!-- <div style="border:2px inset purple; width:50%; margin:auto; padding:10px; background:ivory;"> -->
+	    <font size=5>WRITE <i>localStroage</i> to File
+					&nbsp;
+					<span style="float:right; padding-right:10px; cursor:pointer; background:transparent; color:black; font-size:20px;">
+						<a onclick="showLSwrite()"><b>&times;</b></a>
+					</span><br>
+		</font>
+		<!--<label for="today">Today:</label><input type="date" id="today" name="birthday">&emsp;-->
+		<button id="b" style="background:black; color:white; font-size:20px; border:2px outset blue; border-radius:10%;">export to CSV</button>
+			    <script type="text/javascript">
+			        function exportToCsv() {
+						var SONG = localStorage.getItem("sNAME");
+						var KEY = localStorage.getItem("sKEY");
+							alert("'SONG' variable = "+SONG);
+						
+						var L1b1 = localStorage.getItem("L1g1"); var L1b1z = localStorage.getItem("L1g1z");
+						var L1b2 = localStorage.getItem("L1g2"); var L1b2z = localStorage.getItem("L1g2z");
+						var L1b3 = localStorage.getItem("L1g3"); var L1b3z = localStorage.getItem("L1g3z");
+						var L1b4 = localStorage.getItem("L1g4"); var L1b4z = localStorage.getItem("L1g4z");
+						var L2b1 = localStorage.getItem("L2g1"); var L2b1z = localStorage.getItem("L2g1z");
+						var L2b2 = localStorage.getItem("L2g2"); var L2b2z = localStorage.getItem("L2g2z");
+						var L2b3 = localStorage.getItem("L2g3"); var L2b3z = localStorage.getItem("L2g3z");
+						var L2b4 = localStorage.getItem("L2g4"); var L2b4z = localStorage.getItem("L2g4z");
+						var L3b1 = localStorage.getItem("L3g1"); var L3b1z = localStorage.getItem("L3g1z");
+							var L3b2 = localStorage.getItem("L3g2"); var L3b2z = localStorage.getItem("L3g2z");
+							var L3b3 = localStorage.getItem("L3g3"); var L3b3z = localStorage.getItem("L3g3z");
+							var L3b4 = localStorage.getItem("L3g4"); var L3b4z = localStorage.getItem("L3g4z");
+						var L4b1 = localStorage.getItem("L4g1"); var L4b1z = localStorage.getItem("L4g1z");
+							var L4b2 = localStorage.getItem("L4g2"); var L4b2z = localStorage.getItem("L4g2z");
+							var L4b3 = localStorage.getItem("L4g3"); var L4b3z = localStorage.getItem("L4g3z");
+							var L4b4 = localStorage.getItem("L4g4"); var L4b4z = localStorage.getItem("L4g4z");	
+						var L5b1 = localStorage.getItem("L5g1"); var L5b1z = localStorage.getItem("L5g1z");
+							var L5b2 = localStorage.getItem("L5g2"); var L5b2z = localStorage.getItem("L5g2z");
+							var L5b3 = localStorage.getItem("L5g3"); var L5b3z = localStorage.getItem("L5g3z");
+							var L5b4 = localStorage.getItem("L5g4"); var L5b4z = localStorage.getItem("L5g4z");							
+						
+							
+							var myCsv = SONG+","+KEY+
+										"\n"+L1b1+","+L1b1z+","+L1b2+","+L1b2z+","+L1b3+","+L1b3z+","+L1b4+","+L1b4z+ 
+										"\n"+L2b1+","+L2b1z+","+L2b2+","+L2b2z+","+L2b3+","+L2b3z+","+L2b4+","+L2b4z+
+										"\n"+L3b1+","+L3b1z+","+L3b2+","+L3b2z+","+L3b3+","+L3b3z+","+L3b4+","+L3b4z+
+										"\n"+L4b1+","+L4b1z+","+L4b2+","+L4b2z+","+L4b3+","+L4b3z+","+L4b4+","+L4b4z+
+										"\n"+L5b1+","+L5b1z+","+L5b2+","+L5b2z+","+L5b3+","+L5b3z+","+L5b4+","+L5b4z;
+				            window.open('data:text/csv;charset=utf-8,' + escape(myCsv));
+				        }
+				        var button = document.getElementById('b');
+				        button.addEventListener('click', exportToCsv);
+			    </script>		
+	</div>
+
+
+	<div class="" id="divLSread" style= "position:fixed; left:50%; transform:translate(-50%,0); top:10%;
+	background:pink; padding:10px; border:2px inset gray; border-radius:10px; visibility:hidden;">	<!-- position:fixed; left:50px; top:200px; -->
+					<!-- style="border:2px outset blue; border-radius:5%; width:50%; margin:auto; padding:10px; background:ivory;" -->
+			<font size=5>READ file</font> <font size=4><i>+/- > localStroage</i></font>
+					&emsp;
+					<span style="float:right; padding-right:10px; cursor:pointer; background:transparent; color:black; font-size:20px;">
+						<a onclick="showLSread()"><b>&times;</b></a>
+					</span>		
+			<br>
+					<script>
+						var openFile = function(event) {
+						  var input = event.target;
+								//alert("'event' = "+event);
+						  var reader = new FileReader();
+						  reader.onload = function() {
+						    var text = reader.result;
+						    var node = document.getElementById('output');
+						    node.innerText = text;
+						    console.log(reader.result.substring(0, 200));
+						  };
+						  reader.readAsText(input.files[0]);
+						};
+					</script>
+			<input type='file' accept='text/plain' onchange='openFile(event)' style="border:3px solid orange; width:200px;"><br>
+			<div id='output' style="border:2px dotted blue; width:80%; margin:auto; display:none;">
+			  ...
+			</div>
+			<!--<br>-->
+			<!--<button style="" onclick="CHOOSEalert()">Help</button>-->
+			
+			<!--<br><br>-->
+			<!--
+			<button id='DIVtoVARbtn' onclick="DIVtoVAR()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; cursor:pointer; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>DIVtoVAR</b></u></button>
+			&emsp;
+			<button id='chgLSbtn' onclick="changeLclStrg()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; cursor:pointer; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>Change localStorage</b></u></button><br>
+			-->		<!--   disabled -->	
+			<button id='loadSONGbtn' onclick="loadSONG()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; cursor:pointer; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>Load Song</b></u></button><br>			
+			<!--<br>-->
+			<!--<script>	</script>-->			
+			<!--<br>-->
+			<!--<button style="" onclick="readNOTEalert()">NOTE</button>-->
+			
+	</div>
+		
+	<!-- zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz ^ locStor ^zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz -->
+
+
+
+	
+</div>	<!-- end of wrapper -->
+</body>
+</html>
