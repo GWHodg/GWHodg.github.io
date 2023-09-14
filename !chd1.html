@@ -5,7 +5,16 @@
 <title>!chd1</title> 
 
 <style>
+
+	/*table.table2 thead { display:block;} /* display:block; | display:unset; */ 
+	table.table2 tbody { height:430px; overflow-y:scroll; display:block;} /* height:300px; */
+	table.table2 td { width: 60px; background:black; color:white; text-align:center;}
+	 table.table2 th { width: 60px; background:beige; color:maroon;  } 
 	
+	input { width:11px; font-size:12px; text-align:center; }
+		/*input.uncoded { background:gray; } /* beige ivory linen */
+		/* input.inptTXT { background:gray; width:110px; } */  /* beige ivory linen */
+
 	/*Animated Sidenav (Menu):
 		create an animated, closable side navigation menu
 	  	https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sidenav*/
@@ -416,24 +425,31 @@
 				<font size=2>KEY</font>&nbsp;<input  id="sKEY" onchange="localStorage.setItem('sKEY',this.value);" style="background:moccasin; width:10%; font-weight:bold; font-size:12px; text-align:center;" maxlength=3 type="" value="E">
 			</th>
 		</thead>
+		<tbody id='TBLbody'> 							
 		<TR>	
-			<th colspan=4 style="font-size:12px;">play&nbsp;<input style="background:red; color:white; width:10%; font-weight:bold; font-size:16px; text-align:center;" maxlength=3 type="" id="CHORDS" onchange="" value="">&nbsp;chords&emsp;&emsp;
+			<td colspan=8 style="font-size:12px;">play&nbsp;<input style="background:red; color:white; width:10%; font-weight:bold; font-size:16px; text-align:center;" maxlength=3 type="" id="CHORDS" onchange="" value="">&nbsp;chords&emsp;&emsp;
 				capo > fret&nbsp;<input style="background:red; color:white; width:10%; font-weight:bold; font-size:16px; text-align:center;" maxlength=3 type="" id="fret" onchange="" value="">&nbsp;<font size=1>(from 3=C/G)</font>
 				<!--<button id='TRANSPOSE' onclick="transpose()" style="FONT-WEIGHT:bold; FONT-SIZE:12px; COLOR:blue; background:yellow; border:2px solid blue; border-radius:5px;">Transpose</button>-->
-			</th>
+			</td>
 				
 		</TR>
-		<tbody id='TBLbody'> 							
+
 			<TR>				
-				<TD align=center style="background:slategray;"><input type="" id="L1b1" maxlength=3 onchange="localStorage.setItem('L1g1',this.value);" autofocus tabindex="201" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;" value=""> 
-						<input type="" id="L1b1z" maxlength=3 onchange="localStorage.setItem('L1g1z',this.value);" autofocus tabindex="201" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;"></TD>				
-				
+				<TD align=center style="background:slategray;"><input type="" id="L1b1" maxlength=3 onchange="localStorage.setItem('L1g1',this.value);" autofocus tabindex="201" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;" value="">
+				</TD><TD style="background:slategray;">	
+				<input type="" id="L1b1z" maxlength=3 onchange="localStorage.setItem('L1g1z',this.value);" autofocus tabindex="201" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;"></TD>				
+
 				<TD align=center style="background:black;"><input type="" id="L1b2" maxlength=3 onchange="localStorage.setItem('L1g2',this.value);" autofocus tabindex="202" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px;" >
-						<input type="" id="L1b2z" maxlength=7 onchange="localStorage.setItem('L1g2z',this.value);" autofocus tabindex="202" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;"></TD>						
+				</TD><TD>	
+				<input type="" id="L1b2z" maxlength=7 onchange="localStorage.setItem('L1g2z',this.value);" autofocus tabindex="202" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;"></TD>	
+				
 				<TD align=center style="background:slategray;"><input type="" id="L1b3" maxlength=3 onchange="localStorage.setItem('L1g3',this.value);" autofocus tabindex="203" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px;" >
-						<input type="" id="L1b3z" maxlength=3 onchange="localStorage.setItem('L1g3z',this.value);" autofocus tabindex="203" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;"></TD>						
+				</TD><TD style="background:slategray;">	
+				<input type="" id="L1b3z" maxlength=3 onchange="localStorage.setItem('L1g3z',this.value);" autofocus tabindex="203" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;"></TD>	
+				
 				<TD align=center style="background:black;"><input type="" id="L1b4" maxlength=3 onchange="localStorage.setItem('L1g4',this.value);" autofocus tabindex="204" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px;" >
-						<input type="" id="L1b4z" maxlength=3 onchange="localStorage.setItem('L1g4z',this.value);" autofocus tabindex="204" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;"></TD>						
+				</TD><TD>	
+				<input type="" id="L1b4z" maxlength=3 onchange="localStorage.setItem('L1g4z',this.value);" autofocus tabindex="204" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;"></TD>						
 			</TR>
 			<TR>				
 				<TD align=center style="background:slategray;"><input type="" id="L2b1" maxlength=3 onchange="localStorage.setItem('L2g1',this.value);" autofocus tabindex="205" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;" value=""> 
