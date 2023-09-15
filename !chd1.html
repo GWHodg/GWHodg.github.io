@@ -8,13 +8,13 @@
 	.body {
 	  	/* Sending body at the bottom of the stack */
 	  	z-index: 1;
-	   	zoom:250%;	/*zoom:150%;*/	/*250%;*/
+	   	zoom:130%;	/*zoom:150%;*/	/*250%;*/
 	  	overscroll-behavior-y: contain; /* < prevents 'pull-to-refresh' in CHROME (not DDG) */
 	  	/*background:gray;*/
     }
 	
 	/*table.table2 thead { display:block;} /* display:block; | display:unset; */ 
-	table.table2 tbody { height:430px; overflow-y:scroll; display:block;} /* height:300px; */
+	table.table2 tbody { height:430px; overflow-y:scroll; display:block;} /* height:300px; > 430 */
 	table.table2 td { width: 60px; background:black; color:white; text-align:center;}
 	 table.table2 th { width: 60px; background:beige; color:maroon;  } 
 	
@@ -442,7 +442,7 @@
 		</TR>
 
 			<TR>				
-				<TD align=center style="background:slategray;"><input type="" id="L1b1" maxlength=3 onchange="localStorage.setItem('L1g1',this.value);" autofocus tabindex="201" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;" value="">
+				<TD align=center style="background:slategray;"><input type="" id="L1b1" maxlength=3 onchange="localStorage.setItem('L1g1',this.value);" autofocus tabindex="201" style="background:whitesmoke; width:50%; font-weight:bold; font-size:16px; text-align:left;" value="">
 				</TD><TD style="background:slategray;">	
 				<input type="" id="L1b1z" maxlength=3 onchange="localStorage.setItem('L1g1z',this.value);" autofocus tabindex="201" style="background:whitesmoke; width:40%; font-weight:bold; font-size:16px; text-align:left;"></TD>				
 
