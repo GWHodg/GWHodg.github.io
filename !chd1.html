@@ -8,7 +8,7 @@
 	.body {
 	  	/* Sending body at the bottom of the stack */
 	  	z-index: 1;
-	   	zoom:250%;	/* 250%;  <> 130%; */
+	   	zoom:130%;	/* 250%;  <> 130%; */
 	  	overscroll-behavior-y: contain; /* < prevents 'pull-to-refresh' in CHROME (not DDG) */
 	  	/*background:gray;*/
     }
@@ -229,7 +229,59 @@
 				}
 			}				
 		
-		
+			
+			if ( Okey == 'Bb' ) {
+				Nchords = 'C'; document.getElementById("CHORDS").value = Nchords;
+				document.getElementById("fret").value = '-2';				
+				for (L=1; L<6; L++) {
+					//alert("in for loop! b1 value = "+document.getElementById("L"+ L +"b1").value);
+					for (B=1; B<5; B++) {			
+						switch(document.getElementById("L"+L+"b"+B).value) {
+						  case "Bb":
+						    document.getElementById("L"+L+"b"+B).value = 'C';
+							document.getElementById("L"+L+"b"+B).style.color = "red"; 
+						    break;
+						  case "Eb":
+						    document.getElementById("L"+L+"b"+B).value = 'F';
+							document.getElementById("L"+L+"b"+B).style.color = "red"; 
+						    break;
+						  case "F":
+						    document.getElementById("L"+L+"b"+B).value = 'G7';
+							document.getElementById("L"+L+"b"+B).style.color = "red"; 
+						    break;
+						  case "F7":
+						    document.getElementById("L"+L+"b"+B).value = 'G7';
+							document.getElementById("L"+L+"b"+B).style.color = "red"; 
+						    break;
+						  /*default:
+						    	alert("No chord to 'convert'!");*/
+						}
+						switch(document.getElementById("L"+L+"b"+B+"z").value) {
+						  case "Bb":
+						    document.getElementById("L"+L+"b"+B+"z").value = 'C';
+							document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						    break;
+						  case "Eb":
+						    document.getElementById("L"+L+"b"+B+"z").value = 'F';
+							document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						    break;
+						  case "F":
+						    document.getElementById("L"+L+"b"+B+"z").value = 'G7';
+							document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						    break;
+						  case "F7":
+						    document.getElementById("L"+L+"b"+B+"z").value = 'G7';
+							document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						    break;
+						}						
+					}	
+				}
+			
+			}			
+			
+			
+	
+			
 			
 		}
 
@@ -383,6 +435,15 @@
 		stored();
 		showLSread();
 	}	
+
+	function Fconvert() {
+		var B1a = document.getElementById("L1b1").value;
+			if (B1a=="C") {B1a="I"};
+		alert("Will try to 'convert' all chords to Key of F!\n"+
+			  "\tWill have to 'transpose' to C (or ? G) first.\n\n"+
+			  "B1a = "+B1a);
+			  			  
+	}
 	
 </script>
 
@@ -501,6 +562,53 @@
 				<TD align=center style="background:black;"><input type="" id="L5b4" maxlength=3 onchange="localStorage.setItem('L5g4',this.value);" autofocus tabindex="220" style="background:whitesmoke; width:60%; font-weight:bold; font-size:16px;" >
 				</TD><TD style="background:black;">	<input type="" id="L5b4z" maxlength=3 onchange="localStorage.setItem('L5g4z',this.value);" autofocus tabindex="220" style="background:whitesmoke; width:60%; font-weight:bold; font-size:16px; text-align:left;"></TD>						
 			</TR>	
+
+			<TR height=50> </TR>
+<!--<TABLE id="EZTRAtbl" border=1 align=center style='FONT-SIZE:large; color:blue; visibility:visible;' bgcolor='white'>	-->
+	<TR >
+		<TD style="background:white;"><span style="font-size:35px; cursor:pointer; color:maroon;" onclick="">C</span></TD>
+		<TD style="background:white;"><span style="font-size:35px; cursor:pointer; color:maroon;" onclick="">D</span></TD>	
+		<TD style="background:white;"><span style="font-size:35px; cursor:pointer; color:gray;" onclick="">Eb</span></TD>	
+		<TD style="background:white;"><span style="font-size:35px; cursor:pointer; color:maroon;" onclick="">E</span></TD>		
+		<TD style="background:white;">
+			<span style="font-size:35px; cursor:pointer; color:maroon; background:yellow;" onclick="Fconvert()">F</span>	
+		</TD>
+		<TD style="background:white;"><span style="font-size:35px; cursor:pointer; color:maroon;" onclick="">G</span></TD>
+		<!--<TD style="background:white;"><span style="font-size:35px; cursor:pointer; color:gray;" onclick="">Ab</span></TD>-->
+		<TD style="background:white;"><span style="font-size:35px; cursor:pointer; color:maroon;" onclick="">A</span></TD>
+		<TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:white; background:ivory; FONT-WEIGHT:bold; padding:5px;" >
+			<button id='CLEARbtn' onclick="" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">Bb</button>
+		</TD> 
+			
+	</TR>
+	
+<!--</TABLE>-->
+<br>
+<!--<TABLE id="EZTRAtbl" border=1 align=center style='FONT-SIZE:large; color:blue; visibility:visible; width:100%;' bgcolor='white'>	-->
+	<TR>
+		<TD style="background:ivory;"><span style="float:left; font-size:10px; color:gray;">E</span><!--&nbsp;-->
+			<span style="float:right; font-size:15px; color:orange;">Bb</span></TD>	
+		<TD style="background:ivory;"><span style="float:left; font-size:15px; color:red;"><b>F</b></span>&nbsp;</TD>	
+		<TD style="background:ivory;">&nbsp;<span style="float:right; color:blue;">C</span></TD>
+		<TD style="background:ivory;"><span style="float:left; color:blue;">G</span></TD>
+			<!--<TD><span style="float:left; font-size:10px; color:gray;"">Ab</span></TD>-->
+		<TD style="background:ivory;"><span style="float:left; font-size:10px; color:gray;">Ab</span>
+			<span style="float:right; font-size:15px; color:red;"><b>D</b></span></TD>		
+		<TD style="background:ivory;"><span style="float:left; font-size:15px; color:orange;">A</span>&nbsp;
+			<span style="float:right; font-size:10px; color:gray;">Eb</span>
+		</TD>	
+		<TD style="background:ivory;">&nbsp;<span style="float:right; font-size:15px; color:red;"><b>E</b></span></TD>
+	</TR>
+
+<!--</TABLE>	-->
+
+
+
+
+
+
+
+
 			
 		</tbody>
 	</table>
