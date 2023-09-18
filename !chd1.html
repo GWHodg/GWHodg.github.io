@@ -107,10 +107,10 @@
 						if ( document.getElementById("L"+L+"b"+B+"z").value == 'A' ) { 
 							document.getElementById("L"+L+"b"+B+"z").value = 'F'; document.getElementById("L"+L+"b"+B+"z").style.color = "red";  
 						};
-						if ( document.getElementById("L"+L+"b"+B).value == 'B' ) { 
+						if ( document.getElementById("L"+L+"b"+B).value == 'B' || document.getElementById("L"+L+"b"+B).value == 'B7' ) { 
 							document.getElementById("L"+L+"b"+B).value = 'G7'; document.getElementById("L"+L+"b"+B).style.color = "red";
 						};	
-						if ( document.getElementById("L"+L+"b"+B+"z").value == 'B' ) { 
+						if ( document.getElementById("L"+L+"b"+B+"z").value == 'B' || document.getElementById("L"+L+"b"+B).value == 'B7' ) { 
 							document.getElementById("L"+L+"b"+B+"z").value = 'G7'; document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
 						};
 						if ( document.getElementById("L"+L+"b"+B).value == 'C#m' ) { 
@@ -148,10 +148,10 @@
 							document.getElementById("L"+L+"b"+B+"z").value = 'G'; document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 			
 						};
 						
-						if ( document.getElementById("L"+L+"b"+B).value == 'C' ) { 
+						if ( document.getElementById("L"+L+"b"+B).value == 'C' || document.getElementById("L"+L+"b"+B).value == 'C7' ) { 
 							document.getElementById("L"+L+"b"+B).value = 'D7'; document.getElementById("L"+L+"b"+B).style.color = "red";
 						};	
-						if ( document.getElementById("L"+L+"b"+B+"z").value == 'C' ) { 
+						if ( document.getElementById("L"+L+"b"+B+"z").value == 'C' || document.getElementById("L"+L+"b"+B).value == 'C7' ) { 
 							document.getElementById("L"+L+"b"+B+"z").value = 'D7'; document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
 						};
 						if ( document.getElementById("L"+L+"b"+B).value == 'Dm' ) { 
@@ -201,10 +201,10 @@
 						if ( document.getElementById("L"+L+"b"+B+"z").value == 'G' ) { 
 							document.getElementById("L"+L+"b"+B+"z").value = 'F'; document.getElementById("L"+L+"b"+B+"z").style.color = "red";  
 						};
-						if ( document.getElementById("L"+L+"b"+B).value == 'A' ) { 
+						if ( document.getElementById("L"+L+"b"+B).value == 'A' || document.getElementById("L"+L+"b"+B).value == 'A7') { 
 							document.getElementById("L"+L+"b"+B).value = 'G7'; document.getElementById("L"+L+"b"+B).style.color = "red";
 						};	
-						if ( document.getElementById("L"+L+"b"+B+"z").value == 'A' ) { 
+						if ( document.getElementById("L"+L+"b"+B+"z").value == 'A' || document.getElementById("L"+L+"b"+B).value == 'A7') { 
 							document.getElementById("L"+L+"b"+B+"z").value = 'G7'; document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
 						};
 						if ( document.getElementById("L"+L+"b"+B).value == 'Bm' ) { 
@@ -253,6 +253,18 @@
 						    document.getElementById("L"+L+"b"+B).value = 'G7';
 							document.getElementById("L"+L+"b"+B).style.color = "red"; 
 						    break;
+						  case "Gm":
+						    document.getElementById("L"+L+"b"+B).value = 'Am';
+							document.getElementById("L"+L+"b"+B).style.color = "red"; 
+						    break;
+						  case "Cm":
+						    document.getElementById("L"+L+"b"+B).value = 'Dm';
+							document.getElementById("L"+L+"b"+B).style.color = "red"; 
+						    break;
+						  case "Dm":
+						    document.getElementById("L"+L+"b"+B).value = 'Em';
+							document.getElementById("L"+L+"b"+B).style.color = "red"; 
+						    break;
 						  /*default:
 						    	alert("No chord to 'convert'!");*/
 						}
@@ -273,12 +285,97 @@
 						    document.getElementById("L"+L+"b"+B+"z").value = 'G7';
 							document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
 						    break;
+						  case "Gm":
+						    document.getElementById("L"+L+"b"+B+"z").value = 'Am';
+							document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						    break;
+						  case "Cm":
+						    document.getElementById("L"+L+"b"+B+"z").value = 'Dm';
+							document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						    break;
+						  case "Dm":
+						    document.getElementById("L"+L+"b"+B+"z").value = 'Em';
+							document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						    break;							
 						}						
 					}	
 				}
 			
 			}			
 			
+			
+			if ( Okey == 'A' ) {
+				Nchords = 'G'; document.getElementById("CHORDS").value = Nchords;
+				document.getElementById("fret").value = '+2';				
+				for (L=1; L<6; L++) {
+					//alert("in for loop! b1 value = "+document.getElementById("L"+ L +"b1").value);
+					for (B=1; B<5; B++) {			
+						switch(document.getElementById("L"+L+"b"+B).value) {
+						  case "A":
+						    document.getElementById("L"+L+"b"+B).value = 'G';
+							document.getElementById("L"+L+"b"+B).style.color = "red"; 
+						    break;
+						  case "D":
+						    document.getElementById("L"+L+"b"+B).value = 'C';
+							document.getElementById("L"+L+"b"+B).style.color = "red"; 
+						    break;
+						  case "E":
+						    document.getElementById("L"+L+"b"+B).value = 'D7';
+							document.getElementById("L"+L+"b"+B).style.color = "red"; 
+						    break;
+						  case "E7":
+						    document.getElementById("L"+L+"b"+B).value = 'D7';
+							document.getElementById("L"+L+"b"+B).style.color = "red"; 
+						    break;
+						  case "F#m":
+						    document.getElementById("L"+L+"b"+B).value = 'Em';
+							document.getElementById("L"+L+"b"+B).style.color = "red"; 
+						    break;
+						  case "Bm":
+						    document.getElementById("L"+L+"b"+B).value = 'Am';
+							document.getElementById("L"+L+"b"+B).style.color = "red"; 
+						    break;
+						  case "C#m":
+						    document.getElementById("L"+L+"b"+B).value = 'Bm';
+							document.getElementById("L"+L+"b"+B).style.color = "red"; 
+						    break;
+						  /*default:
+						    	alert("No chord to 'convert'!");*/
+						}
+						switch(document.getElementById("L"+L+"b"+B+"z").value) {
+						  case "A":
+						    document.getElementById("L"+L+"b"+B+"z").value = 'G';
+							document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						    break;
+						  case "D":
+						    document.getElementById("L"+L+"b"+B+"z").value = 'C';
+							document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						    break;
+						  case "E":
+						    document.getElementById("L"+L+"b"+B+"z").value = 'D7';
+							document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						    break;
+						  case "E7":
+						    document.getElementById("L"+L+"b"+B+"z").value = 'D7';
+							document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						    break;
+						  case "F#m":
+						    document.getElementById("L"+L+"b"+B+"z").value = 'Em';
+							document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						    break;
+						  case "Bm":
+						    document.getElementById("L"+L+"b"+B+"z").value = 'Am';
+							document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						    break;
+						  case "C#m":
+						    document.getElementById("L"+L+"b"+B+"z").value = 'Bm';
+							document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						    break;
+						}						
+					}	
+				}
+			
+			}						
 			
 	
 			
@@ -473,7 +570,7 @@
 
 
 	
-	
+<!--	
 <TABLE id="HEADtbl" border=1 align=center style='FONT-SIZE:large; color:blue; visibility:visible;' bgcolor='lightgray'>	
 	<TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:white; background:green; FONT-WEIGHT:bold; padding:5px;" >CHORDS&emsp;<font size=1 color=lightgray>Sept 6, 2023</font> <br>
 		<span style="float:right;"><font size=2><u>Long Neck</u> Banjo</font></span>
@@ -483,12 +580,19 @@
 		</TD>			
 	</TR>
 </TABLE>
+-->
 
-	
-	<table class="table2" id="SCOREStbl" border='3'   align=center 
+<span style="font-size:30px;">
+CHORDS&emsp;<font size=2 color=gray>Sept 6, 2023</font> &emsp;
+		<span style="float:;"><font size=5><u>Long Neck</u> Banjo</font></span>
+		&emsp;&emsp;&emsp;<span style="font-size:40px; cursor:pointer; color:maroon;" onclick="openNav()">&#9776;</span>	
+</span>
+
+			
+<table class="table2" id="SCOREStbl" border='3'   align=center 
 	style='table-layout:fixed; FONT-SIZE:large; color:maroon; visibility:visible; zoom:100%;' bgcolor='lightgray'> <!-- lightgreen -->
 		<thead> 
-				
+						
 			<th colspan=4 align=center><input type="text" id="sNAME" onchange="localStorage.setItem('sNAME',this.value);"  tabindex="" style="background:whitesmoke; width:60%; font-weight:bold; font-size:15px; text-align:center;" value="">
 				&emsp;
 				<font size=2>KEY</font>&nbsp;<input  id="sKEY" onchange="localStorage.setItem('sKEY',this.value);" style="background:moccasin; width:10%; font-weight:bold; font-size:12px; text-align:center;" maxlength=3 type="" value="E">
