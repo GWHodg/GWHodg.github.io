@@ -19,7 +19,7 @@
 	.body {
 	  /* Sending body at the bottom of the stack */
 	  z-index: 1;
-	   zoom:400%;	/* 250%; */
+	   zoom:250%;	/* 250%; */
 	  overscroll-behavior-y: contain; /* < prevents 'pull-to-refresh' in CHROME (not DDG) */
 	  /*background:gray;*/
 	  /*zoom:150%;*/	/*250%;*/
