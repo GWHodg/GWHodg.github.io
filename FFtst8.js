@@ -971,19 +971,23 @@
 			document.getElementById("focusIPT").style.color = "maroon";
 			document.getElementById("focusIPT").value = "GSmac3x"; 		//GLOBALinput;
 			
+//LAST FOCUSED ELEMENT:
+document.getElementById('lastFOCUS').value = SCRinput;	
 		
+			
 		var entry = +document.getElementById(SCRinput).value;
-		//alert ("In 'BLURfn' function! \n'SCRinput' variable = "+SCRinput+"\n"+
-		//	   "Content of "+SCRinput+" element = "+entry);			
+		/*alert ("In 'BLURfn' function! \n'SCRinput' variable = "+SCRinput+"\n"+
+			   "Content of "+SCRinput+" element = "+entry);*/
 		if ( +entry > 0 ) {
-			document.getElementById(SCRinput).setAttribute('readonly', 'true');
+			//document.getElementById(SCRinput).setAttribute('readonly', 'true');
+				document.getElementById(SCRinput).disabled = true;	//"disabled";
 			document.getElementById('TD'+SCRinput).style.background='aqua';
 		}		//TDp3h5
 		/*if ( s > 0 ) {
 			document.getElementById('p'+p+'h'+h).setAttribute('readonly', 'true');
 		}*/	
 		//LAST FOCUSED ELEMENT:
-		document.getElementById('lastFOCUS').value = SCRinput;
+        //document.getElementById('lastFOCUS').value = SCRinput;
 
 		calcALL();
 
@@ -1226,7 +1230,8 @@
 						//alert ("In 'replace' function! \n'SCRinput' variable = "+SCRinput+"\n"+
 						//	   "Content of "+SCRinput+" element = "+entry);			
 				if ( +entry > 0 ) {
-					document.getElementById("p"+p+"h"+h).setAttribute('readonly', 'true');
+					//document.getElementById("p"+p+"h"+h).setAttribute('readonly', 'true');
+					document.getElementById("p"+p+"h"+h).disabled = true;	//"disabled";
 					document.getElementById('TD'+"p"+p+"h"+h).style.background='aqua';
 				}		//TDp3h5
 			}	
@@ -1334,7 +1339,7 @@
 									for (let i = 0; i < 5; i++) {
 									  text += "The number is " + i + "<br>";
 									} */
-				document.getElementById("STROKESbtn").innerHTML = "HIDE Stroke Holes";
+				document.getElementById("STROKESbtn").innerHTML = "HIDE Strokes";	// Holes";
 					//document.getElementById("STROKESbtn").innerText = "HIDE Stroke Holes";
 				document.getElementById("postMNUtd").innerHTML =
 										"<span style='font-size:10px; background:lime; border:1px solid black; color:black;'>&nbsp;1&nbsp;</span>"+
@@ -1343,7 +1348,7 @@
 		}			
 		else { 
 			remCOLORS(); 
-			document.getElementById("STROKESbtn").innerHTML = "Display Stroke Holes";
+			document.getElementById("STROKESbtn").innerHTML = "Display Strokes";	// Holes";
 		}			
 			
 	}	
@@ -2119,7 +2124,8 @@
 		
 
 		
-		document.getElementById('p'+cPno+'h'+cH).setAttribute('readonly', 'true');
+		//document.getElementById('p'+cPno+'h'+cH).setAttribute('readonly', 'true');
+		document.getElementById('p'+cPno+'h'+cH).disabled = true;	//"disabled";
 		document.getElementById('TDp'+cPno+'h'+cH).style.background='aqua';
 		document.getElementById('lastFOCUS').value = 'p'+cPno+'h'+cH;
 		
@@ -2470,10 +2476,49 @@
 		//document.getElementById('p'+p+'h'+h).setAttribute('readonly', 'true');		
 		//document.getElementById('p'+p+'h'+h).readOnly = false;		
 		document.getElementById(lastFOCUS).removeAttribute('readOnly');
+			alert("Made it to post 'removeAttribute('readOnly')");
 		document.getElementById(lastFOCUS).focus();
 		//hideMENU();
+		
+		/*if ( document.getElementById("lastFOCUS").disabled == false ) {
+			alert("lastFOCUS diabled = false");
+		}
+		else { alert("lastFOCUS diabled = true!"); }*/
+		if ( document.getElementById("lastFOCUS").disabled == true ) {
+			alert("lastFOCUS diabled = true!\nTry to edit it now . . .");
+			document.getElementById("lastFOCUS").disabled = false;	//"disabled";
+		}
+		else { alert("lastFOCUS disabled is FALSE already!\nNo action taken."); }
+		
 	}
 
+	function UNFREEZE() {
+		alert("Will try to UNFREEZE all OCCUPIED inputs!");
+		for (var p = 1; p < 6; p++) {
+			for (var h = 1; h < 19; h++) {
+				if ( document.getElementById('p'+p+'h'+h).value > 0 ) {
+					document.getElementById('p'+p+'h'+h).disabled = false;
+					//document.getElementById('p'+p+'h'+h).setAttribute('disabled', '');	
+				}
+			}
+		}	
+	}
+	function FREEZE() {
+		alert("Will try to FREEZE all OCCUPIED inputs!");
+		for (var p = 1; p < 6; p++) {
+			for (var h = 1; h < 19; h++) {
+				if ( document.getElementById('p'+p+'h'+h).value > 0 ) {
+					document.getElementById('p'+p+'h'+h).disabled = true;
+					//document.getElementById('p'+p+'h'+h).setAttribute('disabled', '');	
+				}
+			}
+		}	
+	}	
+	function inputEDIT() {
+		alert("Test alternate input edit using element (p2h2) 'disabled' status!");
+		document.getElementById("p2h2").disabled = false;	//"disabled";
+	}
+	
 	function displayP5() {
 		alert("Will try to display/hide P5 . . .\n"+
 			  "document.getElementById('TDp5h1').style.display = '"+document.getElementById('TDp5h1').style.display+"'");
