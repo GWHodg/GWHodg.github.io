@@ -8,7 +8,7 @@
 	.body {
 	  	/* Sending body at the bottom of the stack */
 	  	z-index: 1;
-	   	zoom:250%;	/* 250%;  <> 130%; */
+	   	zoom:250%;	/* 250%;  <> 130%; 		Body CSS: zoom for GitHub = 250%; for iPad = 130% */
 	  	overscroll-behavior-y: contain; /* < prevents 'pull-to-refresh' in CHROME (not DDG) */
 	  	/*background:gray;*/
     }
@@ -489,7 +489,8 @@
 
 	function HELP() {
 		alert("KEYS:\n\tE-4#; A-3#; D-2#; G-1#\n\tAb-4b; Eb-3b; Bb-2b; F-1b\n\n"+
-			  "Body CSS: zoom for GitHub = 250%; for iPad = 130%");
+			  "Body CSS: zoom for GitHub = 250%; for iPad = 130%\n\n"+
+			  "Transposed keys (Sept/23): D; E; F; A; Bb [> C or G]");
 	}
 
 	function clearSTORED() {
@@ -533,14 +534,197 @@
 		showLSread();
 	}	
 
-	function Fconvert() {
-		var B1a = document.getElementById("L1b1").value;
+	function NUMBERconvert(desiredKEY) {
+		/*var B1a = document.getElementById("L1b1").value;
 			if (B1a=="C") {B1a="I"};
 		alert("Will try to 'convert' all chords to Key of F!\n"+
 			  "\tWill have to 'transpose' to C (or ? G) first.\n\n"+
-			  "B1a = "+B1a);
-			  			  
+			  "B1a = "+B1a);*/
+		
+		var SONG = localStorage.getItem('sNAME');  var KEY = localStorage.getItem('sKEY');
+		var chdB1a = localStorage.getItem('L1g1');    //localStorage.setItem('sNAME',this.value); localStorage.setItem('L1g1',this.value);	  
+		var chdB1b = localStorage.getItem('L1g1z'); 
+		var chdB2a = localStorage.getItem('L1g2'); var chdB2b = localStorage.getItem('L1g2z');
+		var chdB3a = localStorage.getItem('L1g3'); var chdB3b = localStorage.getItem('L1g3z');
+		var chdB4a = localStorage.getItem('L1g4'); var chdB4b = localStorage.getItem('L1g4z');
+			var chdB5a = localStorage.getItem('L2g1'); var chdB5b = localStorage.getItem('L2g1z');
+			var chdB6a = localStorage.getItem('L2g2'); var chdB6b = localStorage.getItem('L2g2z');
+			var chdB7a = localStorage.getItem('L2g3'); var chdB7b = localStorage.getItem('L2g3z');
+			var chdB8a = localStorage.getItem('L2g4'); var chdB8b = localStorage.getItem('L2g4z');		
+		const CHDarray = [chdB1a, chdB1b, chdB2a, chdB2b, chdB3a, chdB3b, chdB4a, chdB4b,
+						  chdB5a, chdB5b, chdB6a, chdB6b, chdB7a, chdB7b, chdB8a, chdB8b,];	
+		alert("SONG = "+SONG+"; KEY = "+KEY+"\n"+"CHDarray = "+CHDarray+"\n\n"+
+			  "'desired' (target) key = "+desiredKEY);	  
+		/*	  		 
+		alert("CONVERT KEY FROM D TO F . . .");
+		for (i=0; i<17; i++) {
+			var item = CHDarray[i];		
+			if ( KEY=="D" ) {	
+					switch(CHDarray[i]) {
+						case "D": CHDarray.splice(i, 1, "F"); break;
+						case "G": CHDarray.splice(i, 1, "Bb"); break;
+						case "A":
+						    CHDarray.splice(i, 1, "C7");
+							//document.getElementById("L"+L+"b"+B).style.color = "red"; 
+						    break;
+						case "A7": CHDarray.splice(i, 1, "C7"); break;
+						case "Em": CHDarray.splice(i, 1, "Gm"); break;  case "F#m": CHDarray.splice(i, 1, "Am"); break;	
+						case "Bm": CHDarray.splice(i, 1, "Em"); break; 
+					}
+			}			
+		}
+		alert("'CHDarray' post for loop = "+CHDarray);
+		*/
+				/* ++++++++++++++++++++++++++++++ */
+		
+		alert("Convert E/F/Bb/D/ + A/g/c chords (Jesse/Reuben/12BB/Dooley) to numbers:");
+		for (i=0; i<17; i++) {
+			var item = CHDarray[i];
+			//alert("'CHDarray' item"+i+" = "+item);	
+			if ( KEY=="E" ) {	
+					switch(CHDarray[i]) {
+						case "E": CHDarray.splice(i, 1, "I"); break;
+						case "A": CHDarray.splice(i, 1, "IV"); break;
+						case "B":
+						    CHDarray.splice(i, 1, "V");
+							//document.getElementById("L"+L+"b"+B).style.color = "red"; 
+						    break;
+						case "B7": CHDarray.splice(i, 1, "V7"); break;
+						case "F#m": CHDarray.splice(i, 1, "ii"); break;  case "G#m": CHDarray.splice(i, 1, "iii"); break;	
+						case "C#m": CHDarray.splice(i, 1, "vi"); break; 
+					}
+			}
+			if ( KEY=="F" ) {
+					switch(CHDarray[i]) {
+						case "F": CHDarray.splice(i, 1, "I"); break;  case "Bb": CHDarray.splice(i, 1, "IV"); break;
+						case "C": CHDarray.splice(i, 1, "V"); break;  case "C7": CHDarray.splice(i, 1, "V7"); break;
+						case "Gm": CHDarray.splice(i, 1, "ii"); break;  case "Am": CHDarray.splice(i, 1, "iii"); break;	
+						case "Dm": CHDarray.splice(i, 1, "vi"); break; 
+					}
+			}
+			if ( KEY=="Bb" ) {
+					switch(CHDarray[i]) {
+						case "Bb": CHDarray.splice(i, 1, "I"); break;  case "Eb": CHDarray.splice(i, 1, "IV"); break;
+						case "F": CHDarray.splice(i, 1, "V"); break;  case "F7": CHDarray.splice(i, 1, "V7"); break;
+						case "Cm": CHDarray.splice(i, 1, "ii"); break;  case "Dm": CHDarray.splice(i, 1, "iii"); break;	
+						case "Gm": CHDarray.splice(i, 1, "vi"); break; 
+					}
+			}
+			if ( KEY=="D" ) {
+					switch(CHDarray[i]) {
+						case "D": CHDarray.splice(i, 1, "I"); break;  case "G": CHDarray.splice(i, 1, "IV"); break;
+						case "A": CHDarray.splice(i, 1, "V"); break;  case "A7": CHDarray.splice(i, 1, "V7"); break;
+						case "Em": CHDarray.splice(i, 1, "ii"); break;  case "F#m": CHDarray.splice(i, 1, "iii"); break;	
+						case "Bm": CHDarray.splice(i, 1, "vi"); break; 
+					}
+			}
+			if ( KEY=="A" ) {
+					switch(CHDarray[i]) {
+						case "A": CHDarray.splice(i, 1, "I"); break;  case "D": CHDarray.splice(i, 1, "IV"); break;
+						case "E": CHDarray.splice(i, 1, "V"); break;  case "E7": CHDarray.splice(i, 1, "V7"); break;
+						case "Bm": CHDarray.splice(i, 1, "ii"); break;  case "C#m": CHDarray.splice(i, 1, "iii"); break;	
+						case "F#m": CHDarray.splice(i, 1, "vi"); break; 
+					}
+			}
+			if ( KEY=="G" ) {
+					switch(CHDarray[i]) {
+						case "G": CHDarray.splice(i, 1, "I"); break;  case "C": CHDarray.splice(i, 1, "IV"); break;
+						case "D": CHDarray.splice(i, 1, "V"); break;  case "D7": CHDarray.splice(i, 1, "V7"); break;
+						case "Am": CHDarray.splice(i, 1, "ii"); break;  case "Bm": CHDarray.splice(i, 1, "iii"); break;	
+						case "Em": CHDarray.splice(i, 1, "vi"); break; 
+					}
+			}
+			if ( KEY=="C" ) {
+					switch(CHDarray[i]) {
+						case "C": CHDarray.splice(i, 1, "I"); break;  case "F": CHDarray.splice(i, 1, "IV"); break;
+						case "G": CHDarray.splice(i, 1, "V"); break;  case "G7": CHDarray.splice(i, 1, "V7"); break;
+						case "Dm": CHDarray.splice(i, 1, "ii"); break;  case "Em": CHDarray.splice(i, 1, "iii"); break;	
+						case "Am": CHDarray.splice(i, 1, "vi"); break; 
+					}
+			}
+			
+			
+			
+			
+		}
+		alert("'CHDarray' post 'number conversion' = "+CHDarray);	
+		
+		
+		
+		
+		alert("NEXT: Convert chord numbers to target/desired key . . .");
+		for (i=0; i<17; i++) {
+			var item = CHDarray[i];
+			//alert("'CHDarray' item"+i+" = "+item);	
+			if ( desiredKEY=="F" ) {	
+					switch(CHDarray[i]) {
+						case "I": CHDarray.splice(i, 1, "F"); break;  case "IV": CHDarray.splice(i, 1, "Bb"); break;
+						case "V": CHDarray.splice(i, 1, "C"); break;  case "V7": CHDarray.splice(i, 1, "C7"); break;
+						case "ii": CHDarray.splice(i, 1, "Gm"); break;  case "iii": CHDarray.splice(i, 1, "Am"); break;	
+						case "vi": CHDarray.splice(i, 1, "Dm"); break; 
+					}
+			}
+			if ( desiredKEY=="D" ) {	
+					switch(CHDarray[i]) {
+						case "I": CHDarray.splice(i, 1, "D"); break;  case "IV": CHDarray.splice(i, 1, "G"); break;
+						case "V": CHDarray.splice(i, 1, "A"); break;  case "V7": CHDarray.splice(i, 1, "A7"); break;
+						case "ii": CHDarray.splice(i, 1, "Em"); break;  case "iii": CHDarray.splice(i, 1, "F#m"); break;	
+						case "vi": CHDarray.splice(i, 1, "Bm"); break; 
+					}
+			}
+			if ( desiredKEY=="C" ) {	
+					switch(CHDarray[i]) {
+						case "I": CHDarray.splice(i, 1, "C"); break;  case "IV": CHDarray.splice(i, 1, "F"); break;
+						case "V": CHDarray.splice(i, 1, "G"); break;  case "V7": CHDarray.splice(i, 1, "G7"); break;
+						case "ii": CHDarray.splice(i, 1, "Dm"); break;  case "iii": CHDarray.splice(i, 1, "Em"); break;	
+						case "vi": CHDarray.splice(i, 1, "Am"); break; 
+					}
+			}
+			if ( desiredKEY=="E" ) {	
+					switch(CHDarray[i]) {
+						case "I": CHDarray.splice(i, 1, "E"); break;  case "IV": CHDarray.splice(i, 1, "A"); break;
+						case "V": CHDarray.splice(i, 1, "B"); break;  case "V7": CHDarray.splice(i, 1, "B7"); break;
+						case "ii": CHDarray.splice(i, 1, "F#m"); break;  case "iii": CHDarray.splice(i, 1, "G#m"); break;	
+						case "vi": CHDarray.splice(i, 1, "C#m"); break; 
+					}
+			}
+			if ( desiredKEY=="G" ) {	
+					switch(CHDarray[i]) {
+						case "I": CHDarray.splice(i, 1, "G"); break;  case "IV": CHDarray.splice(i, 1, "C"); break;
+						case "V": CHDarray.splice(i, 1, "D"); break;  case "V7": CHDarray.splice(i, 1, "D7"); break;
+						case "ii": CHDarray.splice(i, 1, "Am"); break;  case "iii": CHDarray.splice(i, 1, "Bm"); break;	
+						case "vi": CHDarray.splice(i, 1, "Em"); break; 
+					}
+			}
+			if ( desiredKEY=="A" ) {	
+					switch(CHDarray[i]) {
+						case "I": CHDarray.splice(i, 1, "A"); break;  case "IV": CHDarray.splice(i, 1, "D"); break;
+						case "V": CHDarray.splice(i, 1, "E"); break;  case "V7": CHDarray.splice(i, 1, "E7"); break;
+						case "ii": CHDarray.splice(i, 1, "Bm"); break;  case "iii": CHDarray.splice(i, 1, "C#m"); break;	
+						case "vi": CHDarray.splice(i, 1, "F#m"); break; 
+					}
+			}
+			if ( desiredKEY=="Bb" ) {	
+					switch(CHDarray[i]) {
+						case "I": CHDarray.splice(i, 1, "Bb"); break;  case "IV": CHDarray.splice(i, 1, "Eb"); break;
+						case "V": CHDarray.splice(i, 1, "F"); break;  case "V7": CHDarray.splice(i, 1, "F7"); break;
+						case "ii": CHDarray.splice(i, 1, "Cm"); break;  case "iii": CHDarray.splice(i, 1, "Dm"); break;	
+						case "vi": CHDarray.splice(i, 1, "Gm"); break; 
+					}
+			}
+			
+			
+			
+			
+			
+		}
+		alert("'CHDarray' post 'number' conversion to 'desiredKEY' ("+desiredKEY+") = "+CHDarray);		
+		
+
+
+		
 	}
+	
 	
 </script>
 
@@ -560,7 +744,8 @@
 							  <!--<div><A onclick="remREADONLY()" style='cursor:pointer;'><b></b></A></div>-->
 							  <div><button id='CLEARbtn' onclick="showLSread()" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">READ file</button><</div>
 							  <div style="background:black;"><A onclick="HELP()" style='cursor:pointer;'><b>Help</b></A></div>
-							  <div><button id='REPLACEbtn'  onclick="showLSwrite()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">WRITE chords to file</button>
+							  <div><button id='REPLACEbtn'  onclick="showLSwrite()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">WRITE chords to file</button><br>
+								  <font size=3 color=black>Screenshot on Pixel</font>
 							  </div>							  
 					  
 						</div>					
@@ -595,7 +780,7 @@ CHORDS&nbsp;<font size=2 color=gray>Sept 6, 2023</font> <!--&emsp;
 						
 			<th colspan=4 align=center><input type="text" id="sNAME" onchange="localStorage.setItem('sNAME',this.value);"  tabindex="" style="background:whitesmoke; width:60%; font-weight:bold; font-size:15px; text-align:center;" value="">
 				&emsp;
-				<font size=2>KEY</font>&nbsp;<input  id="sKEY" onchange="localStorage.setItem('sKEY',this.value);" style="background:moccasin; width:10%; font-weight:bold; font-size:12px; text-align:center;" maxlength=3 type="" value="E">
+				<font size=2>KEY</font>&nbsp;<input  id="sKEY" onchange="localStorage.setItem('sKEY',this.value);" style="background:moccasin; width:10%; font-weight:bold; font-size:12px; text-align:center;" maxlength=3 type="" value="">
 			</th>
 		</thead>
 		<tbody id='TBLbody'> 							
@@ -669,22 +854,24 @@ CHORDS&nbsp;<font size=2 color=gray>Sept 6, 2023</font> <!--&emsp;
 
 			<TR height=50> </TR>
 <!--<TABLE id="EZTRAtbl" border=1 align=center style='FONT-SIZE:large; color:blue; visibility:visible;' bgcolor='white'>	-->
-	<TR >
-		<TD style="background:white;"><span style="font-size:35px; cursor:pointer; color:maroon;" onclick="">C</span></TD>
-		<TD style="background:white;"><span style="font-size:35px; cursor:pointer; color:maroon;" onclick="">D</span></TD>	
-		<TD style="background:white;"><span style="font-size:25px; cursor:pointer; color:gray;" onclick=""><s>Eb</s></span></TD>	
-		<TD style="background:white;"><span style="font-size:35px; cursor:pointer; color:maroon;" onclick="">E</span></TD>		
-		<TD style="background:white;">
-			<span style="font-size:35px; cursor:pointer; color:maroon; background:yellow;" onclick="Fconvert()">F</span>	
+	
+	<TR>
+		<TD><span style="font-size:35px; cursor:pointer; color:maroon; background:yellow;" onclick="NUMBERconvert('C')">C</span></TD>
+		<TD><span style="font-size:35px; cursor:pointer; color:maroon; background:yellow;" onclick="NUMBERconvert('D')">D</span></TD>	
+		<!--<TD><span style="font-size:20px; cursor:none; color:gray;" onclick=""><s>Eb</s></span></TD>	-->
+		<TD><span style="font-size:35px; cursor:pointer; color:maroon; background:yellow;" onclick="NUMBERconvert('E')">E</span></TD>		
+		<TD>
+			<span style="font-size:35px; cursor:pointer; color:maroon; background:yellow;" onclick="NUMBERconvert('F')">F</span>	
 		</TD>
-		<TD style="background:white;"><span style="font-size:35px; cursor:pointer; color:maroon;" onclick="">G</span></TD>
-		<!--<TD style="background:white;"><span style="font-size:35px; cursor:pointer; color:gray;" onclick="">Ab</span></TD>-->
-		<TD style="background:white;"><span style="font-size:35px; cursor:pointer; color:maroon;" onclick="">A</span></TD>
-		<TD style="FONT-WEIGHT: bold; FONT-SIZE:12px; COLOR:white; background:ivory; FONT-WEIGHT:bold; padding:0px;" >
-			<button id='CLEARbtn' onclick="" style="FONT-WEIGHT:normal; FONT-SIZE:12px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">Bb</button>
+		<TD><span style="font-size:35px; cursor:pointer; color:maroon; background:yellow;" onclick="NUMBERconvert('G')">G</span></TD>
+		<TD><span style="font-size:20px; cursor:none; color:gray;" onclick=""><s>Ab</s></span></TD>	
+		<TD><span style="font-size:35px; cursor:pointer; color:maroon; background:yellow;" onclick="NUMBERconvert('A')">A</span></TD>
+		<TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:white; background:yellow; FONT-WEIGHT:bold; padding:5px;" >
+			<button id='BbBTN' onclick="NUMBERconvert('Bb')" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:black; background:lightyellow; border:2px solid black; border-radius:10px; opacity:100%; cursor:pointer;">Bb</button>
 		</TD> 
 			
 	</TR>
+	
 	
 <!--</TABLE>-->
 <TR><TD colspan=8 style="background:transparent; color:brown; border:0px solid black;">
