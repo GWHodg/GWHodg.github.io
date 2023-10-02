@@ -379,6 +379,81 @@
 			
 	
 			
+			if ( Okey == 'B' ) {
+				Nchords = 'C'; document.getElementById("CHORDS").value = Nchords;
+				document.getElementById("fret").value = '-1';				
+				for (L=1; L<6; L++) {
+					//alert("in for loop! b1 value = "+document.getElementById("L"+ L +"b1").value);
+					for (B=1; B<5; B++) {			
+						switch(document.getElementById("L"+L+"b"+B).value) {
+						  case "B":
+						    document.getElementById("L"+L+"b"+B).value = 'C';
+							document.getElementById("L"+L+"b"+B).style.color = "red"; 
+						    break;
+						  case "E":
+						    document.getElementById("L"+L+"b"+B).value = 'F';
+							document.getElementById("L"+L+"b"+B).style.color = "red"; 
+						    break;
+						  case "F#":
+						    document.getElementById("L"+L+"b"+B).value = 'G7';
+							document.getElementById("L"+L+"b"+B).style.color = "red"; 
+						    break;
+						  case "F#7":
+						    document.getElementById("L"+L+"b"+B).value = 'G7';
+							document.getElementById("L"+L+"b"+B).style.color = "red"; 
+						    break;
+						  case "G#m":
+						    document.getElementById("L"+L+"b"+B).value = 'Am';
+							document.getElementById("L"+L+"b"+B).style.color = "red"; 
+						    break;
+						  case "C#m":
+						    document.getElementById("L"+L+"b"+B).value = 'Dm';
+							document.getElementById("L"+L+"b"+B).style.color = "red"; 
+						    break;
+						  case "D#m":
+						    document.getElementById("L"+L+"b"+B).value = 'Em';
+							document.getElementById("L"+L+"b"+B).style.color = "red"; 
+						    break;
+						  /*default:
+						    	alert("No chord to 'convert'!");*/
+						}
+						switch(document.getElementById("L"+L+"b"+B+"z").value) {
+						  case "B":
+						    document.getElementById("L"+L+"b"+B+"z").value = 'C';
+							document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						    break;
+						  case "E":
+						    document.getElementById("L"+L+"b"+B+"z").value = 'F';
+							document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						    break;
+						  case "F#":
+						    document.getElementById("L"+L+"b"+B+"z").value = 'G7';
+							document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						    break;
+						  case "F#7":
+						    document.getElementById("L"+L+"b"+B+"z").value = 'G7';
+							document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						    break;
+						  case "G#m":
+						    document.getElementById("L"+L+"b"+B+"z").value = 'Am';
+							document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						    break;
+						  case "C#m":
+						    document.getElementById("L"+L+"b"+B+"z").value = 'Dm';
+							document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						    break;
+						  case "D#m":
+						    document.getElementById("L"+L+"b"+B+"z").value = 'Em';
+							document.getElementById("L"+L+"b"+B+"z").style.color = "red"; 
+						    break;
+						}						
+					}	
+				}
+			
+			}						
+			
+			
+			
 			
 		}
 
@@ -535,6 +610,26 @@
 	}	
 
 	function NUMBERconvert(desiredKEY) {
+		if ( desiredKEY=="C" ) { alert("I:C; IV:F; V:G7; vi:Am"); }
+		if ( desiredKEY=="D" ) { alert("I:D; IV:G; V:A7; vi:Bm"); }
+		if ( desiredKEY=="E" ) { alert("I:E; IV:A; V:B7; vi:C#m"); }
+		if ( desiredKEY=="F" ) { alert("I:F; IV:Bb; V:C7; vi:Dm"); }
+		if ( desiredKEY=="G" ) { alert("I:G; IV:C; V:D7; vi:Em"); }
+		if ( desiredKEY=="A" ) { alert("I:A; IV:D; V:E7; vi:F#m"); }
+		if ( desiredKEY=="Bb" ) { alert("I:Bb; IV:Eb; V:F7; vi:Gm"); }
+		if ( desiredKEY=="B" ) { alert("I:B; IV:E; V:F#7; vi:G#m\n"+
+									   "Key of B not yet coded!"); }
+		
+let reply;
+if (confirm("Are you SURE you want to go ahead & COVERT chords to "+desiredKEY+"?") == true) {
+reply = "YES!";
+} else {
+reply = "NO!";
+}
+alert(reply);
+  
+if ( reply=="YES!") {		
+
 		/*var B1a = document.getElementById("L1b1").value;
 			if (B1a=="C") {B1a="I"};
 		alert("Will try to 'convert' all chords to Key of F!\n"+
@@ -551,8 +646,18 @@
 			var chdB6a = localStorage.getItem('L2g2'); var chdB6b = localStorage.getItem('L2g2z');
 			var chdB7a = localStorage.getItem('L2g3'); var chdB7b = localStorage.getItem('L2g3z');
 			var chdB8a = localStorage.getItem('L2g4'); var chdB8b = localStorage.getItem('L2g4z');		
+		var chdB9a = localStorage.getItem('L3g1'); var chdB9b = localStorage.getItem('L3g1z'); 
+		var chdB10a = localStorage.getItem('L3g2'); var chdB10b = localStorage.getItem('L3g2z');
+		var chdB11a = localStorage.getItem('L3g3'); var chdB11b = localStorage.getItem('L3g3z');
+		var chdB12a = localStorage.getItem('L3g4'); var chdB12b = localStorage.getItem('L3g4z');
+			var chdB13a = localStorage.getItem('L4g1'); var chdB13b = localStorage.getItem('L4g1z');
+			var chdB14a = localStorage.getItem('L4g2'); var chdB14b = localStorage.getItem('L4g2z');
+			var chdB15a = localStorage.getItem('L4g3'); var chdB15b = localStorage.getItem('L4g3z');
+			var chdB16a = localStorage.getItem('L4g4'); var chdB16b = localStorage.getItem('L4g4z');					
 		const CHDarray = [chdB1a, chdB1b, chdB2a, chdB2b, chdB3a, chdB3b, chdB4a, chdB4b,
-						  chdB5a, chdB5b, chdB6a, chdB6b, chdB7a, chdB7b, chdB8a, chdB8b,];	
+						  chdB5a, chdB5b, chdB6a, chdB6b, chdB7a, chdB7b, chdB8a, chdB8b,
+						  chdB9a, chdB9b, chdB10a, chdB10b, chdB11a, chdB11b, chdB12a, chdB12b,
+						  chdB13a, chdB13b, chdB14a, chdB14b, chdB15a, chdB15b, chdB16a, chdB16b,];	
 		alert("SONG = "+SONG+"; KEY = "+KEY+"\n"+"CHDarray = "+CHDarray+"\n\n"+
 			  "'desired' (target) key = "+desiredKEY);	  
 		/*	  		 
@@ -577,8 +682,8 @@
 		*/
 				/* ++++++++++++++++++++++++++++++ */
 		
-		alert("Convert E/F/Bb/D/ + A/g/c chords (Jesse/Reuben/12BB/Dooley) to numbers:");
-		for (i=0; i<17; i++) {
+		//alert("Convert E/F/Bb/D/ + A/g/c chords (Jesse/Reuben/12BB/Dooley) to numbers:");
+		for (i=0; i<33; i++) {
 			var item = CHDarray[i];
 			//alert("'CHDarray' item"+i+" = "+item);	
 			if ( KEY=="E" ) {	
@@ -642,7 +747,14 @@
 						case "Am": CHDarray.splice(i, 1, "vi"); break; 
 					}
 			}
-			
+			if ( KEY=="B" ) {
+					switch(CHDarray[i]) {
+						case "B": CHDarray.splice(i, 1, "I"); break;  case "E": CHDarray.splice(i, 1, "IV"); break;
+						case "F#": CHDarray.splice(i, 1, "V"); break;  case "F#7": CHDarray.splice(i, 1, "V7"); break;
+						case "C#m": CHDarray.splice(i, 1, "ii"); break;  case "D#m": CHDarray.splice(i, 1, "iii"); break;	
+						case "G#m": CHDarray.splice(i, 1, "vi"); break; 
+					}
+			}			
 			
 			
 			
@@ -650,10 +762,11 @@
 		alert("'CHDarray' post 'number conversion' = "+CHDarray);	
 		
 		
+		//if ( desiredKEY=="C" ) { alert("I:C; IV:F; V:G7; vi:Am"); }
+		//if ( desiredKEY=="E" ) { alert("I:E; IV:A; V:B7; vi:C#m"); }
 		
-		
-		alert("NEXT: Convert chord numbers to target/desired key . . .");
-		for (i=0; i<17; i++) {
+		//alert("NEXT: Convert chord numbers to target/desired key . . .");
+		for (i=0; i<33; i++) {
 			var item = CHDarray[i];
 			//alert("'CHDarray' item"+i+" = "+item);	
 			if ( desiredKEY=="F" ) {	
@@ -673,6 +786,7 @@
 					}
 			}
 			if ( desiredKEY=="C" ) {	
+					//alert("I:C; IV:F; V:G7; vi:Am");
 					switch(CHDarray[i]) {
 						case "I": CHDarray.splice(i, 1, "C"); break;  case "IV": CHDarray.splice(i, 1, "F"); break;
 						case "V": CHDarray.splice(i, 1, "G"); break;  case "V7": CHDarray.splice(i, 1, "G7"); break;
@@ -681,6 +795,7 @@
 					}
 			}
 			if ( desiredKEY=="E" ) {	
+					//alert("I:E; IV:A; V:B7; vi:C#m");
 					switch(CHDarray[i]) {
 						case "I": CHDarray.splice(i, 1, "E"); break;  case "IV": CHDarray.splice(i, 1, "A"); break;
 						case "V": CHDarray.splice(i, 1, "B"); break;  case "V7": CHDarray.splice(i, 1, "B7"); break;
@@ -712,7 +827,14 @@
 						case "vi": CHDarray.splice(i, 1, "Gm"); break; 
 					}
 			}
-			
+			if ( desiredKEY=="B" ) {	
+					switch(CHDarray[i]) {
+						case "I": CHDarray.splice(i, 1, "B"); break;  case "IV": CHDarray.splice(i, 1, "E"); break;
+						case "V": CHDarray.splice(i, 1, "F#"); break;  case "V7": CHDarray.splice(i, 1, "F#7"); break;
+						case "ii": CHDarray.splice(i, 1, "C#m"); break;  case "iii": CHDarray.splice(i, 1, "D#m"); break;	
+						case "vi": CHDarray.splice(i, 1, "G#m"); break; 
+					}
+				}			
 			
 			
 			
@@ -721,7 +843,8 @@
 		alert("'CHDarray' post 'number' conversion to 'desiredKEY' ("+desiredKEY+") = "+CHDarray);		
 		
 
-
+}
+		
 		
 	}
 	
@@ -852,7 +975,18 @@ CHORDS&nbsp;<font size=2 color=gray>Sept 6, 2023</font> <!--&emsp;
 				</TD><TD style="background:black;">	<input type="" id="L5b4z" maxlength=3 onchange="localStorage.setItem('L5g4z',this.value);" autofocus tabindex="220" style="background:whitesmoke; width:60%; font-weight:bold; font-size:16px; text-align:left;"></TD>						
 			</TR>	
 
-			<TR height=50> </TR>
+			<TR>				
+				<TD align=center style="background:slategray;"><input type="" id="L6b1" maxlength=3 onchange="localStorage.setItem('L6g1',this.value);" autofocus tabindex="221" style="background:whitesmoke; width:60%; font-weight:bold; font-size:16px; text-align:left;" value=""> 
+				</TD><TD style="background:slategray;">	<input type="" id="L6b1z" maxlength=3 onchange="localStorage.setItem('L6g1z',this.value);" autofocus tabindex="221" style="background:whitesmoke; width:60%; font-weight:bold; font-size:16px; text-align:left;"></TD>							
+				<TD align=center style="background:black;"><input type="" id="L6b2" maxlength=3 onchange="localStorage.setItem('L6g2',this.value);" autofocus tabindex="222" style="background:whitesmoke; width:60%; font-weight:bold; font-size:16px;" >
+				</TD><TD style="background:black;">	<input type="" id="L6b2z" maxlength=7 onchange="localStorage.setItem('L6g2z',this.value);" autofocus tabindex="222" style="background:whitesmoke; width:60%; font-weight:bold; font-size:16px; text-align:left;"></TD>						
+				<TD align=center style="background:slategray;"><input type="" id="L6b3" maxlength=3 onchange="localStorage.setItem('L6g3',this.value);" autofocus tabindex="223" style="background:whitesmoke; width:60%; font-weight:bold; font-size:16px;" >
+				</TD><TD style="background:slategray;">	<input type="" id="L6b3z" maxlength=3 onchange="localStorage.setItem('L6g3z',this.value);" autofocus tabindex="223" style="background:whitesmoke; width:60%; font-weight:bold; font-size:16px; text-align:left;"></TD>						
+				<TD align=center style="background:black;"><input type="" id="L6b4" maxlength=3 onchange="localStorage.setItem('L6g4',this.value);" autofocus tabindex="224" style="background:whitesmoke; width:60%; font-weight:bold; font-size:16px;" >
+				</TD><TD style="background:black;">	<input type="" id="L6b4z" maxlength=3 onchange="localStorage.setItem('L6g4z',this.value);" autofocus tabindex="224" style="background:whitesmoke; width:60%; font-weight:bold; font-size:16px; text-align:left;"></TD>						
+			</TR>				
+
+			<TR height=10> </TR>
 <!--<TABLE id="EZTRAtbl" border=1 align=center style='FONT-SIZE:large; color:blue; visibility:visible;' bgcolor='white'>	-->
 	
 	<TR>
@@ -864,26 +998,28 @@ CHORDS&nbsp;<font size=2 color=gray>Sept 6, 2023</font> <!--&emsp;
 			<span style="font-size:35px; cursor:pointer; color:maroon; background:yellow;" onclick="NUMBERconvert('F')">F</span>	
 		</TD>
 		<TD><span style="font-size:35px; cursor:pointer; color:maroon; background:yellow;" onclick="NUMBERconvert('G')">G</span></TD>
-		<TD><span style="font-size:20px; cursor:none; color:gray;" onclick=""><s>Ab</s></span></TD>	
+		<!--<TD><span style="font-size:20px; cursor:none; color:gray;" onclick=""><s>Ab</s></span></TD>	-->
 		<TD><span style="font-size:35px; cursor:pointer; color:maroon; background:yellow;" onclick="NUMBERconvert('A')">A</span></TD>
 		<TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:white; background:yellow; FONT-WEIGHT:bold; padding:5px;" >
 			<button id='BbBTN' onclick="NUMBERconvert('Bb')" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:black; background:lightyellow; border:2px solid black; border-radius:10px; opacity:100%; cursor:pointer;">Bb</button>
 		</TD> 
+		<TD><span style="font-size:35px; cursor:pointer; color:red; background:yellow;" onclick="NUMBERconvert('B')"><b>B</b></span></TD>
+		
 			
 	</TR>
 	
 	
 <!--</TABLE>-->
 <TR><TD colspan=8 style="background:transparent; color:brown; border:0px solid black;">
-<br>
 <span style="float:;"><font size=5><u>Long Neck</u> Banjo</font></span>
-<br>
 </TD></TR>
 <!--<TABLE id="EZTRAtbl" border=1 align=center style='FONT-SIZE:large; color:blue; visibility:visible; width:100%;' bgcolor='white'>	-->
 	<TR>
 		<TD style="background:ivory;"><span style="float:left; font-size:10px; color:gray;">E</span><!--&nbsp;-->
 			<span style="float:right; font-size:15px; color:orange;">Bb</span></TD>	
-		<TD style="background:ivory;"><span style="float:left; font-size:15px; color:red;"><b>F</b></span>&nbsp;</TD>	
+		<TD style="background:ivory;">
+			<span style="float:right; font-size:20px; color:red;"><b>B</b></span>
+			<span style="float:left; font-size:15px; color:red;"><b>F</b></span>&nbsp;</TD>	
 		<TD style="background:ivory;">&nbsp;<span style="float:right; color:blue;">C</span></TD>
 		<TD style="background:ivory;"><span style="float:left; color:blue;">G</span></TD>
 			<!--<TD><span style="float:left; font-size:10px; color:gray;"">Ab</span></TD>-->
