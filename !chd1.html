@@ -658,8 +658,8 @@ if ( reply=="YES!") {
 						  chdB5a, chdB5b, chdB6a, chdB6b, chdB7a, chdB7b, chdB8a, chdB8b,
 						  chdB9a, chdB9b, chdB10a, chdB10b, chdB11a, chdB11b, chdB12a, chdB12b,
 						  chdB13a, chdB13b, chdB14a, chdB14b, chdB15a, chdB15b, chdB16a, chdB16b,];	
-		alert("SONG = "+SONG+"; KEY = "+KEY+"\n"+"CHDarray = "+CHDarray+"\n\n"+
-			  "'desired' (target) key = "+desiredKEY);	  
+		/*alert("SONG = "+SONG+"; KEY = "+KEY+"\n"+"CHDarray = "+CHDarray+"\n\n"+
+			  "'desired' (target) key = "+desiredKEY);*/
 		/*	  		 
 		alert("CONVERT KEY FROM D TO F . . .");
 		for (i=0; i<17; i++) {
@@ -759,7 +759,7 @@ if ( reply=="YES!") {
 			
 			
 		}
-		alert("'CHDarray' post 'number conversion' = "+CHDarray);	
+		//alert("'CHDarray' post 'number conversion' = "+CHDarray);	
 		
 		
 		//if ( desiredKEY=="C" ) { alert("I:C; IV:F; V:G7; vi:Am"); }
@@ -842,7 +842,48 @@ if ( reply=="YES!") {
 		}
 		alert("'CHDarray' post 'number' conversion to 'desiredKEY' ("+desiredKEY+") = "+CHDarray);		
 		
-
+		var n = 0;
+		//for (n=0; n<16; n++) {
+			   //alert("CHDarray[n] = "+CHDarray[n]);	
+			   for (L=1; L<5; L++) {
+					//var n=0
+				    //alert("in for loop! b1 value = "+document.getElementById("L"+ L +"b1").value);
+					for (B=1; B<5; B++) {			
+						//n=n+1;
+						//for (n=0; n<16; n++) {
+						//switch(document.getElementById("L"+L+"b"+B).value) {
+						  //case "B":
+						    //alert("CHDarray[n] = "+CHDarray[n]+"\nBar # = L"+L+"b"+B);	
+						    document.getElementById("L"+L+"b"+B).value = CHDarray[n];
+							document.getElementById("L"+L+"b"+B).style.color = "green"; 
+						    //break;
+							n=n+2;
+						//}
+					}
+					//n=n+1;
+				}		
+		//}
+		var x = 1;
+			   for (L=1; L<5; L++) {
+					for (B=1; B<5; B++) {			
+						    document.getElementById("L"+L+"b"+B+"z").value = CHDarray[x];
+							document.getElementById("L"+L+"b"+B+"z").style.color = "green"; 
+							x=x+2;
+					}
+				}		
+		
+		
+		document.getElementById("tdC").style.background = "slategray";
+			document.getElementById("tdD").style.background = "slategray";
+			document.getElementById("tdE").style.background = "slategray";
+			document.getElementById("tdF").style.background = "slategray";
+			document.getElementById("tdG").style.background = "slategray";
+			document.getElementById("tdA").style.background = "slategray";
+			document.getElementById("tdBb").style.background = "slategray";
+			document.getElementById("tdB").style.background = "slategray";			
+		document.getElementById("td"+desiredKEY).style.background = "lime";		
+				
+		
 }
 		
 		
@@ -891,7 +932,7 @@ if ( reply=="YES!") {
 -->
 
 <span style="font-size:30px;">
-CHORDS&nbsp;<font size=2 color=gray>Sept 6, 2023</font> <!--&emsp;
+CHORDS&nbsp;<font size=2 color=gray>Oct 4, 2023</font> <!--&emsp;
 		<span style="float:;"><font size=5><u>Long Neck</u> Banjo</font></span>
 		&emsp;&emsp;-->&emsp;<span style="font-size:40px; cursor:pointer; color:maroon;" onclick="openNav()">&#9776;</span>	
 </span>
@@ -990,20 +1031,20 @@ CHORDS&nbsp;<font size=2 color=gray>Sept 6, 2023</font> <!--&emsp;
 <!--<TABLE id="EZTRAtbl" border=1 align=center style='FONT-SIZE:large; color:blue; visibility:visible;' bgcolor='white'>	-->
 	
 	<TR>
-		<TD><span style="font-size:35px; cursor:pointer; color:maroon; background:yellow;" onclick="NUMBERconvert('C')">C</span></TD>
-		<TD><span style="font-size:35px; cursor:pointer; color:maroon; background:yellow;" onclick="NUMBERconvert('D')">D</span></TD>	
+		<TD id="tdC"><span style="font-size:35px; cursor:pointer; color:maroon; background:yellow;" onclick="NUMBERconvert('C')">C</span></TD>
+		<TD id="tdD"><span style="font-size:35px; cursor:pointer; color:maroon; background:yellow;" onclick="NUMBERconvert('D')">D</span></TD>	
 		<!--<TD><span style="font-size:20px; cursor:none; color:gray;" onclick=""><s>Eb</s></span></TD>	-->
-		<TD><span style="font-size:35px; cursor:pointer; color:maroon; background:yellow;" onclick="NUMBERconvert('E')">E</span></TD>		
-		<TD>
+		<TD id="tdE"><span style="font-size:35px; cursor:pointer; color:maroon; background:yellow;" onclick="NUMBERconvert('E')">E</span></TD>		
+		<TD id="tdF">
 			<span style="font-size:35px; cursor:pointer; color:maroon; background:yellow;" onclick="NUMBERconvert('F')">F</span>	
 		</TD>
-		<TD><span style="font-size:35px; cursor:pointer; color:maroon; background:yellow;" onclick="NUMBERconvert('G')">G</span></TD>
+		<TD id="tdG"><span style="font-size:35px; cursor:pointer; color:maroon; background:yellow;" onclick="NUMBERconvert('G')">G</span></TD>
 		<!--<TD><span style="font-size:20px; cursor:none; color:gray;" onclick=""><s>Ab</s></span></TD>	-->
-		<TD><span style="font-size:35px; cursor:pointer; color:maroon; background:yellow;" onclick="NUMBERconvert('A')">A</span></TD>
-		<TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:white; background:yellow; FONT-WEIGHT:bold; padding:5px;" >
+		<TD id="tdA"><span style="font-size:35px; cursor:pointer; color:maroon; background:yellow;" onclick="NUMBERconvert('A')">A</span></TD>
+		<TD id="tdBb" style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:white; background:yellow; FONT-WEIGHT:bold; padding:5px;" >
 			<button id='BbBTN' onclick="NUMBERconvert('Bb')" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:black; background:lightyellow; border:2px solid black; border-radius:10px; opacity:100%; cursor:pointer;">Bb</button>
 		</TD> 
-		<TD><span style="font-size:35px; cursor:pointer; color:red; background:yellow;" onclick="NUMBERconvert('B')"><b>B</b></span></TD>
+		<TD id="tdB"><span style="font-size:35px; cursor:pointer; color:red; background:yellow;" onclick="NUMBERconvert('B')"><b>B</b></span></TD>
 		
 			
 	</TR>
@@ -1102,7 +1143,8 @@ CHORDS&nbsp;<font size=2 color=gray>Sept 6, 2023</font> <!--&emsp;
 										"\n"+L3b1+","+L3b1z+","+L3b2+","+L3b2z+","+L3b3+","+L3b3z+","+L3b4+","+L3b4z+
 										"\n"+L4b1+","+L4b1z+","+L4b2+","+L4b2z+","+L4b3+","+L4b3z+","+L4b4+","+L4b4z+
 										"\n"+L5b1+","+L5b1z+","+L5b2+","+L5b2z+","+L5b3+","+L5b3z+","+L5b4+","+L5b4z;
-				            window.open('data:text/csv;charset=utf-8,' + escape(myCsv));
+				           	//window.open('data:text/csv;charset=utf-8,' + escape(myCsv));
+							window.open('data:text/txt;charset=utf-8,' + escape(myCsv));
 				        }
 				        var button = document.getElementById('b');
 				        button.addEventListener('click', exportToCsv);
