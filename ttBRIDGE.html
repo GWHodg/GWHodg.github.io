@@ -1,0 +1,1287 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>BRIDGEaccordion</title>
+			<!--
+				Tricks	.	. 333
+				Play 	.	. 470
+				BIDDING	.	. 550
+				Tips	.	. 790
+			-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+	r { font-size:20px; color:red; font-weight:bold; background:yellow; }
+	bl { font-size:20px; color:blue; font-weight:bold; }
+				/* gr { font-size:20px; color:green; font-weight:bold; } */
+	e { color:green; }	/* orange; } */
+
+	.accordion {
+		background-color: #eee;
+		color: #444;
+		cursor: pointer;
+		padding: 18px;
+		width: 100%;
+		border: none;
+		text-align: left;
+		outline: none;
+		font-size: 15px;
+		transition: 0.4s;
+		
+		height: 10px;
+	}
+	
+	.active, .accordion:hover {
+		background-color: #ccc;
+	}
+	
+	.panel {
+		padding: 0 18px;
+		background-color: white;
+		max-height: 0;
+			/*overflow:scroll;*/
+		overflow: hidden;
+		transition: max-height 0.2s ease-out;
+		
+		border-bottom:1px solid #aaa;
+	}
+	
+	
+	/*Add a symbol to each button to indicate whether the collapsible content is open or closed:*/
+	.accordion:after {
+		content: '\02795'; /* Unicode character for "plus" sign (+) */
+		font-size: 13px;
+		color: #777;
+		float: right;
+		margin-left: 5px;
+	}
+	.active:after {
+		content: "\2796"; /* Unicode character for "minus" sign (-) */
+	}
+	
+    table.table2 thead { display:block; }
+    table.table2 tbody { height:100px; overflow-y:scroll; display:block; }
+    table.table2 td { width: 80px; }
+    table.table2 th { width: 80px; }
+    
+    table.table3 thead { display:block; }	/*width: 550px;}*/
+    table.table3 tbody { height:120px; overflow-y:scroll; display:block; }	/*width: 550px;}*/
+    table.table3 td { width: 275px; }
+    table.table3 th { width: 275px; }
+    
+    table.table4 tbody { height:250px; overflow-y:scroll; display:block; }
+   
+    /* ======================================================	*/
+    
+    #tab { display:inline-block; margin-left: 40px; }
+    #tab2 { display:inline-block; margin-left: 120px; }
+
+
+  
+</style>
+
+<script type="text/javascript">
+<!-- 
+	function httpsLEARNctr() {
+		/* alert("Will load 'Gravity' https here!"); */ 
+		window.open('https://www.bridgeworld.com/indexphp.php?page=/pages/learn/learningcentermainpage.html',
+		'popUpWindow','height=400,width=600,left=10,top=10,,'+'scrollbars=yes,menubar=no'); 
+	}
+	
+	function alertFIRST()  {     
+	  alert("For those knowing little or nothing\n"+
+			"about the game")
+	}
+
+	function showImage(){
+        	document.getElementById('loadingImage').style.visibility="visible";
+	}
+
+	function alertTRUMP()  {     
+	  alert("If you have a lot of high cards, but not a great many cards in any one "+
+	  "suit (no long suit), the presence of a trump suit may help the enemy, and you "+
+	  "may therefore wish to play at NOTRUMP. However, it is essential to consider "+
+	  "your partner for your own longest suit may not be a good trump suit when the "+
+	  "combined partnership holding is considered;\n"+
+	  "and the opponents will want to make one of their long suits trump. "+
+	  "The naming of a STRAIN (trump suit or notrump; 'denomination') "+
+	  "is one of the major features of THE BIDDING (the 'auction').")
+	}
+	
+	function alertGOOD()  {     
+	  alert("Game in a minor suit requires eleven tricks (and 29 points) and is harder to "+
+	  "make than game in notrump, which requires only nine tricks (and only 26 points). As a "+
+	  "result, many hands that include long minor suits are best played in notrump instead "+
+	  "of clubs or diamonds, and you may have difficulty making your contract if your "+
+	  "long suit is weak")
+	}
+	
+	function alertBIDnb()  {     
+	  alert("MOST NB ASPECT OF GAME!")
+	}
+	
+	
+	function alertPREEMPTIVE()  {     
+	  alert("Must have a powerful suit and less than 10 HCP. If you are not vulnerable, you "+
+	  "should overbid by three tricks; if you are vulnerable, you should overbid by only two tricks.\n"+
+	  "It also informs partner that your hand is useful only if played in your suit and that you "+
+	  "are so weak that your sole objective during the bidding is to HINDER the OPPONENTS.")
+	}
+
+	function alertBID()  {     
+	  alert("If have generous supply of high cards and a goodly quantity of hearts, "+
+	  "and would like to inform partner that a contract to take tricks is in order "+
+	  "& also wish to suggest hearts as a trump suit open bidding by saying 'one heart'.")
+	}
+	
+	function alertSTRAIN()  {     
+	  alert("Among strains, notrump ranks highest")
+	}
+	
+	function alertCONTRACT()  {     
+	  alert("Last bid of AUCTION > 'final contract'.\n"+
+	  "Team has made a commitment to take 6 + contact # strain tricks.\n"+
+	  "1 player (the 'DECLARER' - one who first named the strain) on side "+
+	  "bidding final contract plays teams cards; his partner is the 'DUMMY'.")
+	}
+	
+	function alertDOUBLE()  {     
+	  alert("Can 'double' last bid & if followed by 3 passes final contract = "+
+	  "that bid DOUBLED. Effect is to INCREASE ALL SCORING.\n"+
+	  "Bidders will pay out increased penalty if fail to make their contract "+
+	  "but will gain extra reward if they fulfill it.\n"+
+	  "Can double any bid if are NO INTERVENING BIDS.\n"+
+	  "When one partnership has doubled and there have been no intervening calls "+
+	  "other than passes, a player from the OTHER partnership may 'REDOUBLE'.")
+	}
+	
+	function alertESTABLISH()  {     
+	  alert("When you ESTABLISH TRICKS you make sure you have winning cards by playing "+
+	  "or forcing out your opponents' higher cards.\n\n"+
+	  "DUCK: Play low to a trick to which one has led, losing it intentionally in order "+
+	  "to set up a suit or to preserve a control or entry.\n\n"+
+	  "CASH: To take a trick with a card that is currently the highest in the suit, "+
+	  "thought likely to succeed, or to take all available winners in a suit.\n\n"+ 
+	  "Contract bridge = 'bridge'.\n\n"+
+	  "GLOSSARY OF TERMS: https://en.wikipedia.org/wiki/Glossary_of_contract_bridge_terms#C")
+	}
+	
+	function alertPOINTS()  {
+	   alert("Once bidding under way, you can keep track of pts announced by partner's bids, "+
+	   "add them to the total you can see in your own hand, and have an idea as to the "+
+	   "likelihood of your partnership's possessing the total of 26 points needed for game.")
+	}
+	
+	function httpsYouTube() {
+		window.open('https://www.youtube.com/watch?v=2IomnCvxWzM',
+		'popUpWindow','height=400,width=600,left=10,top=10,,'+'scrollbars=yes,menubar=no'); 
+	}	
+
+	function imageHAND() {
+				 window.open('FunBridgeHAND.png','popUpWindow','height=400,width=600,left=10,top=10,,'+
+									'scrollbars=yes,menubar=no'); 
+	}	
+	
+	function alertBEGIN() {
+		alert("'Learn the basics, and "+
+		"start playing in no time!'");
+	}
+	
+	function alertCOLLECTION() {
+		alert("Collection of intermediate-level problems in bidding,\n"+
+		"declarer play, and defense");
+	}
+	
+	function touchFunc() {
+			 alert("Will load 'TouchEvents2' html \n"+
+			 "here!"); 
+			 window.open('TouchEvents2.html','popUpWindow','height=300,width=500,left=10,top=10,,'+
+								'scrollbars=yes,menubar=no'); 
+	}
+	
+	function imageDUMMIES() {
+					 /*alert("Will load 'Bidding For Dummies'\n"+"image here!"); */
+				 window.open('BIDDINGdummies.jpeg','popUpWindow','height=400,width=600,left=10,top=10,,'+
+									'scrollbars=yes,menubar=no'); 
+	}
+	
+	function popupDEAL(myform, windowname) {
+		if (! window.focus)return true;
+		window.open('', windowname, 'height=480,width=1050,scrollbars=yes');
+		myform.target=windowname;
+		return true;
+	}	
+	function popupDRAG(myform, windowname) {
+		if (! window.focus)return true;
+		window.open('', windowname, 'height=500,width=500,left=600,top=300,scrollbars=yes');
+		myform.target=windowname;
+		return true;
+	}
+
+	function popupDragDeal(myform, windowname) {
+		if (! window.focus)return true;
+		window.open('', windowname, 'height=730,width=1650,scrollbars=yes');
+		myform.target=windowname;
+		return true;
+	}
+
+	function alertMINORraise() {
+		alert("RESPONDER'S MINOR RAISE:\n"+
+			  "Can raise w/ minor suit fit (8+) BUT opener may have just 4 cards. So YOU NEED 4!\n"+
+			  "FIT + 6-9 HCP > raise 1 level.\n"+
+			  "FIT + 10-12 HCP > raise 2 levels.\n\n"+
+			  "Only if no MAJOR suit fit.");
+	}
+	function alert2NTresponse() {
+		alert("CONSIDER NT BID BEFORE RAISING MINOR:\n"+
+			  "2NT = balanced hand + 10-12 HCP.\n"+
+			  "3NT = balanced hand + 13-15 HCP.");
+		  }
+		  
+//-->
+</script>
+
+</head>
+<body>
+
+	<table style="margin: 0px auto;" ><tr><td>
+	  <font color=black size=7 style="opacity:0.5;"><i>BRIDGE </i></font>
+	  <IMG style="WIDTH: 50px; HEIGHT: 50px; border: 2px black solid;" 
+		alt="effortless" src="BRIDGEicon.png" >
+	  &nbsp;&nbsp;&nbsp;&nbsp;<font color=green>Apr&nbsp;2019</font>&nbsp;&nbsp;&nbsp;&nbsp;	  
+	</td>
+	
+	<td>
+		<IMG style="WIDTH: 50px; HEIGHT: 50px; border: 2px black solid;" 
+		alt="goofy" src="goofy4.jpg" >
+
+	</td>
+	<TD width=40></TD>
+	<TD>
+		<A style="FONT-WEIGHT: bold; font-size:15px; COLOR: blue;" title="4 Hand Deal (C3) "
+		onclick="return popupDEAL(this, 'deal')" href="psBIDdrill.php">
+		<font face="papyrus"><s>Deal Me In</s></A> <br>
+			&emsp;<A style="FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR:;"
+					onclick="return popupDEAL(this, 'deal')" title= ""
+					href="http://movicra.com/@BRIDGE/PSmar19/psBIDdrill.php">psBIDdrill.php</A>
+		<br>	
+		<A style="FONT-WEIGHT: bold; font-size:15px; COLOR: blue;" 
+		onclick="return popupDragDeal(this, 'drag')" href="brdgDRAGdeal.php" title="Drag 'n Drop">
+		<font face="papyrus"><font size=2><s>DEAL 'n Drag</s></font></A> <br>
+			&emsp;<A style="FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR:;"
+					onclick="popupDragDeal(this, 'drag')" title= ""
+					href="http://movicra.com/@BRIDGE/PSmar19/brdgDRAGdealPS.php">brdgDRAGdealPS.php</A>
+	</TD>
+	<TD width=40></TD>
+	<TD>
+	</TD>
+	
+	</tr></table>
+
+	<!--
+	<font style="opacity:.7" size=2>Enables closing collapsible content. Click on the 
+		buttons to open collapsible content.</font><br><br>	
+	-->
+	
+	<button class="accordion"><b>INTRO</b> <i><font style="opacity:.6" size=1>(Dec 22/18)</font></i></button>
+	<div class="panel">
+		<IMG style="WIDTH: 200px; HEIGHT: 30px; border: 2px black solid;" 
+		alt="BW" src="BridgeWorld.png" >
+		<span style="cursor: progress; color:blue; 
+					text-decoration: underline;" 
+					onclick="httpsLEARNctr()"> 
+					'The Bridge World' Learning Center
+		</span><font color=black> (brigeworld.com)</font><br>
+					
+		<span style="opacity:.7" size=2> <!--  id="tab"  -->
+			<A style="cursor: progress; FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: "
+			onclick="return popupINDEX(this, 'index')" 
+			href="https://www.youtube.com/watch?v=2IomnCvxWzM">YouTube 'Tutorial' 2</A>
+		</span><br>
+		
+		
+		
+			
+
+		<table class="table2" border='3'   align=center style='FONT-SIZE: small; color:maroon;' bgcolor='yellow'>
+			<thead>
+				<tr bgcolor='silver' style="color:white;"> 
+					<th title='knowing little'>
+						<A style="FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: blue;
+								cursor: help;"
+							onclick="alertBEGIN(); alertFIRST();" href="javascript:;">
+							First time <i>("Beginner")</i></A> 					
+					</th> 
+					<th bgcolor='gray'>Elementary</th> <th bgcolor='gray'>Intermediate</th>  
+				</tr>
+			</thead>
+			<tbody>
+				<tr>  <td>Mechanics</td> <!-- BEGIN -->
+					  <td><span style="opacity:.7" size=2>Understand basics</span></td> <!-- ELEM --> 
+					  <td><span style="opacity:.7" size=2>	<!-- INT -->
+					  			<A style="FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: blue; 
+					  					cursor: help;"
+								onclick="alertCOLLECTION()" href="javascript:;">
+								Problem Collection</i></A> 
+						  </span></td>             
+				</tr>
+				<tr>  <td>Scoring</td> <td></td> <td></td> </tr>
+				
+				<tr>  <td>"Declarer's" Play</td> <td></td> <td bgcolor='lightyellow'></td> </tr>
+				
+				<tr>  <td style="cursor: help; color:white;" title='? lead'  bgcolor='green'>
+						"Defender's" Play</td> 
+					<td></td> <td></td> </tr>
+				<tr>  <td><b>Bidding</b></td> <td></td> <td></td> </tr>
+			</tbody>
+		</table>
+		
+		<dl>	<!-- style='height:580px; overflow:scroll;'> -->
+			<dt><e><b><u><span style="background:white; font-size:20px">Skill</span></b></u></e>
+			</dt>					
+			<dd><li>
+				<b><font color=black><i>Bridge</i> requires such abilities as reasoning, 
+					memory, and planning.</font> Among the world's popular activities, 
+					bridge is one of the hardest, very likely <u>number one</u> on the list. 
+					Yet anyone who is willing to invest some time and effort can learn to play. 
+				<span id="tab" style="opacity:1.0;">
+					<ol type="a">
+						<li> 
+							<div id="wristDIV" align=left style="padding-top:15px;  
+								width:400px; 
+							background:white; color:black;  border: 2px solid red; 
+									padding: 0px;">
+								<!--<font color=black>-->
+								<font color=green>Interplay of skill and chance is one of the 
+								most appealing features of bridge.</font> 
+								
+							</div>
+						</li>
+						<li><font style="opacity:0.5;">
+						   Taking into consideration the behavior patterns of your opponents 
+						   (& partner) is yet another intriguing aspect of bridge.
+						   </font></li>
+					</ol>
+				</span>
+			</dd>
+			<dd><li>
+				There are clearly defined rules concerning the information you are 
+				permitted to give to your partner.
+			</dd>						
+			
+			
+			<dt><e><b><u><span style="background:white; font-size:20px">
+				Equipment</span></b></u></e>
+				<table class="table" border='3'   align=center 
+				style='FONT-SIZE: small; color:maroon;' bgcolor='white' >
+					<thead>
+						<tr bgcolor='silver' style="color:white;"> 
+							<th title='' style="color:blue;">
+								SUIT					
+							</th> 
+							<th bgcolor='gray'>SYMBOL</th> <th bgcolor='gray'>RANK</th> 
+							<th style="color:black;">cards</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr> <td>Spades</td> <td align=center style="color:black;">&spades;</td> 
+							<td>Highest</td> <td>10 > A = honor cards</td> </tr>
+						<tr> <td>Hearts</td> <td align=center style="color:red;">&hearts;</td> 
+							<td>2nd-highest</td> <td>2 > 9 = spot cards</td></tr>
+						<tr> <td>Diamonds</td> <td align=center style="color:red;">&diams;</td> 
+							<td>3rd-highest</td> 
+							<td rowspan=2>e.g. <font style="color:red;">&hearts;</font>J<br>
+										  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										  <font style="color:black;">&clubs;A K 10 7					
+							</td>
+						</tr>
+						<tr> <td>Clubs</td> <td align=center style="color:black;">&clubs;</td> <td>Lowest</td> </tr>
+						
+					</tbody>
+				</table>
+			
+			</dt>
+			
+			<dt><e><b><u><span style="background:white; font-size:20px">
+			    Apps</span></b></u></e>			
+				<ul>
+					<li>
+						<u>iBridgePlus</u> (for Apple devices - even iPods)<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Can be played offline<br>
+					</li>
+					<li>
+						<IMG style="WIDTH: 100px; HEIGHT: 50px; border: 2px black solid; background-color: black;" 
+						alt="FB" src="FunBridge.png" >
+						<u>FunBridge</u> <i>(most popular)</i><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><i>2 player game</i></b> – <u>Can play w/ 
+						partner</u> for unlimited time. Can set own parameters if want 
+						customised practice<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cannot play offline - need a stable internet connection
+					</li>
+			
+			</dt>
+		</dl>
+	</div>
+	
+
+
+	<button class="accordion">Preliminaries</button>
+	<div class="panel">
+		<dl>	<!-- style='height:580px; overflow:scroll;'> -->
+					
+			
+			<dt><e><b><u><span style="background:white; font-size:20px">
+				CUTTING FOR PARTNERS</span></b></u></e><br>
+				Deck spread face down & each player draws a card. Those with the two 
+				highest-ranking cards become partners and play against those drawing 
+				the lowest-ranking cards.<br><br>
+			</dt>
+			<dt><e><b><u><span style="background:white; font-size:20px">
+				SORT HAND</span></b></u></e><br>
+				Put all cards of same suit together w/ highest-ranking at left. 
+				Alternate red & black suits. <br>
+				<font style="color:black;">&spades;</font>
+				<font style="color:red;">&hearts;</font>
+				<font style="color:black;">&clubs;</font>
+				<font style="color:red;">&diams;</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<span style="cursor: crosshair; color:blue; 
+					text-decoration: underline;" onclick="imageHAND()">Hands</span>				
+			    </span><br><br>
+			    
+			    Are 13 tricks in each deal. Each deal is divided into two major phases: 
+			    <u>bidding</u> and <u>play</u>.<br>
+							
+			</dt>						
+		</dl>
+	</div>
+	
+	<button class="accordion">Tricks</button>
+	<div class="panel">
+	   		<table class="table2" border='2'   
+	   		align=center style='FONT-SIZE: small; color:white;' bgcolor='black'>
+			<thead>
+				<tr bgcolor='silver' style="color:green;"> 
+					<th style="width: 300px;" title='must follow suit if can' >
+						Winning Tricks					
+					</th> 
+					<th bgcolor='gray' style="width: 300px; color:white;">Trumps</th> 
+				</tr>
+			</thead>
+			<tbody>
+				<tr>  <td style="width: 300px;">1st card played = <u>the lead</u></td> <!-- BEGIN -->
+					  <td style="width: 300px;"><span style="opacity:.7" size=2>
+					  	On <i>many</i> deals, 1 suit will be designated <u>trump</u> 
+					  	</span>
+					  </td>            
+				</tr>
+				<tr>  <td>Played card of different suit than led = a <u>discard</td> 
+					  <td><span style="opacity:.7" size=2>	<!-- INT -->
+					  			Outranks any card of a different suit 
+						  </span></td> 
+				</tr>
+				
+				<tr>  <td>Player who won previous trick <u>leads</u> to next</td>  
+					  <td>Can <u>ruff</u> (play a trump) only when have no cards in led suit
+				<tr>  <td style="cursor: help; color:white;" title='? lead'  bgcolor='black'>
+							</td> 						
+					<td bgcolor='silver'>
+						<A style="FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: blue; cursor: help;"
+						onclick="alertTRUMP();" href="javascript:;">					
+						If have lot of diamonds in your hand <u>may</u> be good idea to try to make 
+						diamonds trumps</A>					
+					</td> 
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+		
+	<button class="accordion"><font color=blue>
+					<A onclick="alertBIDnb();" style="cursor: help;" href="javascript:;">
+					Bidding</A>
+				</font></button>
+	<div class="panel">
+	
+			Partners exchange info w/ two objectives: <u>what</u> & 
+						<u>how much</u> to bid
+	
+	   		<table class="table3" border='1'   
+	   		align=center style='FONT-SIZE: small; color:maroon;' bgcolor='white'>
+			<thead>
+				<tr bgcolor='silver' style="color:green;"> 
+					<th title='must follow suit if can' >
+						What					
+					</th> 
+					<th> Now Much</th> 
+				</tr>
+			</thead>
+			<tbody>
+				<!--
+				<tr bgcolor='gray' style="color:white;"> 
+					<th style="width: 300px;" title='must follow suit if can' >
+						WHAT			
+					</th> 
+					<th bgcolor='gray' style="width: 300px; color:white;">HOW MUCH</th> 
+				</tr>
+				-->
+				<tr>
+					<td>NB goal of bidding is to describe trick-taking potential of hand</td>
+					<td>Right to name trump suit (or notrump) goes to side willing to risk highest</td> 
+				</tr>
+				<tr>
+					<td>Dealer makes 1st 
+					<A style="FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: blue; cursor: help;"
+						onclick="alertBID();" href="javascript:;">call</A> 
+					(a # fr 1-7 + a 
+					<A style="FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: blue; cursor: help;"
+						onclick="alertSTRAIN();" href="javascript:;">strain </A>
+					- a suit or notrump) or may pass</td>
+					<td bgcolor='silver' title='BOOK of 6 tricks + 1 additional trick'>
+						1 &clubs; bid = take 7 tricks w/ &clubs; as trumps
+					</td> 
+				</tr>
+				<tr>
+					<td colspan=2>
+						<uL>
+							<li>Illegal to embellish call w/ superfluous comments - use <u>exact bidding 
+								language</u>: "pass"; "2 clubs"; "3 notrump"</li>
+							<li>Bidding > min nec = 'jumped the bidding' (a 'jump bid')</li>
+							<li>If all 4 pass bidding ENDS = no one 
+								<A onclick="alertCONTRACT();" style="cursor: help;" href="javascript:;">
+								<u>contracted</u>&nbsp;</A>
+								(to take tricks) 
+									& deal ('<u>passed out</u>') thrown in (> L) 
+							</li>
+				
+						</ul>
+					</td>
+				</tr>
+				<tr><td></td>
+					<td><A onclick="alertDOUBLE();" style="cursor: help;" href="javascript:;">Doubling</A> 
+						'increases all scoring'</td>
+				</tr>
+				<tr>
+				   <td colspan=2 align=center>
+						<!--<input type="button" value="Show Image" onclick="return popupform(this, 'coil')"/>
+						    <input type="button" value="Show Button" onclick="showImage();"/>
+					            <img id="loadingImage" src="CONTRACTtypes.jpeg" width=100 height=400 style="visibility:hidden"/>-->
+				   	<!--<img id="CONTRACTSimage" src="CONTRACTtypes.jpeg" width=500 height=400 
+				   		style="visibility:visible"/>-->
+				   	<IMG style="WIDTH: 400px; HEIGHT: 600px; background-color:yellow; border: 2px green solid;" 
+					alt="pts" src="CONTRACTtypesP.png" >
+				   </td>
+				</tr>
+				
+				
+			</tbody>
+			</table>
+			<br>
+			Capsule Summary of <u>POINT COUNT</u> for the Opening Bid:<br>
+			<span id="tab">
+			&nbsp;&nbsp;&nbsp;&nbsp;Hands are evaluated by assigning points to various holdings.<br>
+			<ol>
+			<li>HIGH-CARD POINTS:<br>
+  				 Ace = 4, King = 3, Queen = 2, Jack = 1</li> 
+			<li>DISTRIBUTION POINTS:<br>
+   				Void = 3, Singleton = 2, Doubleton = 1 </li>
+			<li>LENGTH POINTS: <br>
+			   Six-card suit = 1 (in a minor only if 
+			   	<A onclick="alertGOOD();" style="cursor: help;" href="javascript:;">
+				good</A>)&nbsp;<br>
+			   Seven-card suit = 2 (in a minor only if good)</li>
+			</ol>
+			&nbsp;&nbsp;&nbsp;&nbsp;A <font style="color:red;">good suit</font> is one which includes two of the top three honors.<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;1 + 2 + 3 > TOTAL PTS!
+			</span>
+			<br><br>
+			
+			
+			<u>Capsule Summary: THE OPENING BID</u><br>
+			<span id="tab">
+				Step 1. Count your points.<br>
+				Step 2. Decide whether to open the bidding or pass.<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;A. With less than 13 total points or less than 10 HCP, pass.<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;B. With 24 total points or more, open two clubs (artificial).<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;C. Otherwise, continue to Step 3.<br>
+				Step 3. Decide whether to open with one notrump or one of a suit.<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;A. With 16-18 HCP, balanced suit distribution, and high-card points in at least three suits, open one notrump. (Do not count Distribution Points if you open one notrump.)<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;B. Otherwise, continue to Step 4 (where you do count Distribution Points).<br>
+				Step 4. Select the correct suit in which to make your opening bid.<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;A. If your longest suit has five cards or more, bid it. In case of ties, bid the higher-ranking suit.<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;B. If your longest suit has four cards, bid your longer minor. In case of ties, bid the stronger minor. If the minors are equal in length and strength, open one club.<br>
+				<br>
+				
+				<A onclick="alertPREEMPTIVE();" style="cursor: help;" href="javascript:;">
+				Preemptive bids</A>&nbsp;
+			        show less than 10 HCP in a hand with a powerful suit:<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;A. Opening three-bid = six tricks not vulnerable; seven tricks vulnerable<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;B. Opening four-bid = seven tricks not vulnerable; eight tricks vulnerable<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;C. Many players also use opening bids of two spades, 
+						two hearts and two diamonds as preemptive bids.<— *<br>
+			</span>
+			<br><br>
+			
+			<span style="cursor: crosshair; color:blue; 
+				text-decoration: underline;" onclick="imageDUMMIES()">
+				Bidding For Dummies
+			</span>
+			<br><br>
+			
+			<A style="cursor: progress; FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: "
+			onclick="return popupINDEX(this, 'index')" 
+			href="http://www.rpbridge.net/2z05.htm">Bidding Guide</A>
+			<br><br>
+				
+	</div>
+
+
+	<button class="accordion">Games, Slams, and Rubbers</button>
+	<div class="panel">
+	<ul>
+		<li>Unit of play = <e>rubber</e> - ends when 1 side  has scored 2 games. <u>Rubber bonus</u> 
+			awarded side achieving this.</li>
+		<li>Good way to get pts is to score 2 games before opponents --> get <b>rubber bonus</b> 
+			(so large that partnership recording it will usually have superior score).</li>
+		<li>Normal session will encompass several rubbers.</li>
+		<li>A <e><u>game</u></e> is <i>scored</i> by bidding and <u>making contracts</u> with a <u>trick 
+			score of 100</u> or more. (May be accomplished in 1 or more deals.)</li>
+		<li><u>Trick score</u> depends on the <u>level of the contract</u>, i.e. # tricks bid for 
+			and made in excess of the <i>book</i> of 6 - odd tricks. 
+			Trick score for odd tricks is as follows:<br>
+				<table border=1 align=center>
+					<tr style="color:blue"><td>Strain (= denomination)</td>	<td>Score for odd tricks</td></tr>
+					<tr><td>Notrump</td>	<td>40 for the first; 30 thereafter</td></tr>
+					<tr><td>Major suit (spades or hearts)</td>	<td><font color=red>30</font> for each trick</td></tr>
+					<tr><td>Minor suit (damonds or clubs)</td>	<td>20 for each trick</td></tr>
+				</table>
+			3NT = <u>game contract</u>. Others: 4 spades, 4 hearts, 5 diamonds, 5 clubs (& higher bids).<br>
+		</li>
+	</ul>
+	<e><b><u><span style="background:white; font-size:20px">Slams</span></b></u></e><br>
+		 <span id='tab'>
+		 12 tricks > <u>small slam</u>; making all 13 tricks > <u>grand slam</u>.<br>
+		 CAUTION: If bid 6NT and take only 11 tricks --> loss on the deal.
+		 </span>
+	</div>
+
+	<button class="accordion">Play</button>
+	<div class="panel">
+		<table class='table4'><tr><td>
+			Player to L of declarer makes opening lead. Dummy places hand face up, arranged 
+				by suits w/ <u>trump suit</u> (if any) on dummy's R (<u>declarer's L</u>).<br>
+			Declarer battles to take # tricks contracted for & the defenders to collect 
+				enough tricks to stop him.
+		</td></tr>
+		
+		<tr><td>
+			<br>
+			<e><b><u><span style="background:white; font-size:20px">
+				Declarer's Play</span></b></u></e><br>
+			<u>Key Pointers About Sure Tricks</u>
+			<ol>
+				<li>The first step in playing a bridge hand as declarer is to 
+					count your sure tricks.</li> 
+				<li>A sure trick is a trick that can be taken without giving up the lead.</li>
+				<li>You can never take more tricks in a suit than there are cards in 
+					the longer hand. (If both you and your dummy have two cards in 
+					one suit, the most tricks you can take in that suit is two.)</li> 
+				<li>When taking sure tricks, play the high cards(s) from the short side 
+					first. This will allow you to end up on the long side, where you 
+					can cash the rest of the tricks in the suit.</li>
+			</ol>
+			<span id="tab" style="color:gray;">Whenever you have a bunch of good tricks in a suit 
+			that is unevenly divided, you should play the high card(s) from the short side first.<br>
+			Playing the high card or high cards from the short side first allows us to <u>end 
+			up on the long side</u>, where we can take the maximum number of tricks.
+			</span>
+			<br><br>
+			<u>Key Pointers About Establishing Tricks</u>
+			<ol>
+				<li>When playing a hand as declarer, know how many tricks you must take 
+					to fulfill your contract.</li>
+				<li>Count your sure tricks and, if you do not have enough, look for suits 
+					that can be established (usually suits that are missing the ace 
+					or the king). Once you lose a trick to the high card, the rest of 
+					your cards in that suit will be good.</li>
+				<li>Do your establishing early. Establish first and then take your sure tricks.</li>
+				<li>If you take your sure tricks too soon, you may find that when you start 
+					establishing, the opponents will by that time have good tricks 
+					established in the suits in which you hastily cashed your sure tricks.</li>
+				<li>Do not be afraid to give up the lead. On most hands you must give up the 
+					lead two or three times.</li>
+				<li>When playing equal cards (such as the jack, ten, and nine), declarer 
+					should usually play his highest equal first. This applies to both 
+					establishing and taking. By doing this, you make it harder for the opponents 
+					to know what is going on. If you have the ace, king, and queen of spades 
+					and you play the queen, naturally it will take the trick, but your 
+					opponents will know that you still have the king and ace. However, if you 
+					play the ace first, the opponents will not know who has the king and queen.<br> 
+				    When playing equal cards from the dummy, it does not matter which one you 
+				    	play first, because the opponents can see the dummy. However, just to 
+				    	stay in practice, you should take the highest equal from dummy also.</li>
+			</ol>
+			<span id="tab" style="color:gray;">
+				When it comes to establishing tricks, you follow the same general rule that you 
+				did when you were taking your sure tricks. <u>Play the high card(s) from the 
+				short side first</u>. 
+				<br><br>				
+				In planning the play of a contract <u>count the sure tricks 
+				you have and see how many more tricks you can establish</u>.<br> 
+				NB to keep the two counts separate until you have actually established 
+				some tricks. Once you establish some tricks, you can <u>add the tricks</u> you 
+				have established to your sure trick count.<br> 
+			</span>
+		</td></tr>
+		
+		<tr><td>
+		<br>
+		   <e><b><u><span style="background:white; font-size:20px">
+		   Defender`s Play</span></b></u></e><br>
+			
+			Defense is most difficult aspect of playing bridge. Many become adequate 
+			bidders by simply <u>memorizing point count for various bids</u>.
+			But defense is a matter of logic and thus separates the men from the boys.<br>
+			If you are a strong defender it is almost impossible to be a losing player. 
+			At least half of your opponents` contracts can be defeated with a good 
+			defense, but the sad truth is that about eighty percent of contracts 
+			are fulfilled.<br><br>
+			
+			<u>Key Pointers About Opening Leads Against Notrump</u>
+			   <ol>
+			     	<li>In order to select the correct opening lead you must listen to the bidding.</li>
+			     	<li>With no clues from the bidding the opening leader normally leads his longest suit.</li>
+			     	<li>Sequence leads are better than fourth-best leads and take precedence over them. 
+			     		A four-card suit headed by a sequence is usually a better lead than a longer 
+			     		suit without a sequence.</li> 
+				<li>Avoid leading suits that the opponents have bid unless you have three-card 
+					or longer sequences in those suits.</li>
+				<li>Aces, kings, queens, jacks, and tens are honors. The more honor cards you 
+					have in a particular suit the more apt you are to lead the suit. 
+					A lead from K 10 4 2 is preferable to a lead from K 8 6 2.</li>
+				<li>If partner has bid, especially if he has overcalled, tend to lead his suit. 
+					An exception occurs when you happen to have a very strong opening 
+					lead of your own (K Q J x x, for instance, with a way of gaining the 
+					lead in another suit).</li>
+				<font color=green>	
+				<li>When leading from length you lead (a) fourth highest or (b) top of a sequence, or (c) the jack from 
+					a holding that includes A J 10 or K J 10, or (d) the ten from a holding that 
+					includes A 10 9, K 10 9, Q 10 9, A Q 10 9, or A K 10 9, or (e) the ace from a holding 
+					that includes A K Q J, A K Q 10, A K J 10, A Q J 10.</li>
+				<li>When leading from a three-card holding headed by one honor (A x x, K x x, Q x x, J x x, 10 x x) 
+					lead your lowest card. When leading from a three-card holding headed by no 
+					honors 9 x x, 8 x x, 7 x x, etc., lead your top card.</li>
+				<li>When leading from a three-card holding that has two honor cards, lead the top honor if they are 
+					touching and the lowest card if they are not. (Exception: king from A K x.)</li>
+				<li>When leading from any two-card holding, lead the top card.</li>
+				</font>
+				<li>The rules for opening leads do not necessarily apply to leads later in the play, when common sense 
+					may dictate a deviation.</li>
+				<li>As a general rule, honor leads show sequences, high middle cards tend to be top of nothing, 
+					and low cards tend to be fourth best. The lead of the nine always shows the highest card in that suit.</li>
+				<li>Always keep your objective in mind. You are trying to set up your suit or your partner`s suit 
+					before declarer can set up his suit or suits. You have a head start because the defense 
+					makes the opening lead. Do not waste your opportunity.					
+				</li>
+			  </ol>	
+		</td></tr>
+			
+		</table>
+	</div>
+	
+	<button class="accordion">Properties <font style="color:silver;" size=2>(Behavior Principles)</font></button>
+	<div class="panel">
+		<e>Communication bet partners should take place only through calls and plays that are made</e><br>
+		AVOID:
+			<ol style="color:gray">
+				<li>INVENTING NEW WORDING DURING BIDDING</li>
+				<li>VARYING SPEED OF ACTIONS</li>
+				<li>DRAWING INFERENCES FROM SPEED OF PARTNER'S BIDS & PLAYS</li>
+				<li>MAKING EMPHATIC GESTURES</li>
+				<li>MAKING SUPERFLUOUS COMMENTS <i>RELEVANT TO THE GAME</i></li>
+				<li>PRETENDING TO THINK JUST TO FOOL OPPONENTS</li>
+			</ol>
+	</div>
+	
+	<button class="accordion"><font style="color:gray;"><i>Tips/Notes</i></font></button>
+	<div class="panel">
+		<ul>
+			<li>Lead fr <b>longest suit</b> - if not 'headed by a <u>sequence</u>' lead
+				a <i>low</i> card</li>
+			<li><u>Principle of short hand</u>: win trick w/ the <u>honour</u> (10 > A) in 
+				the short hand</li>
+			<li><u>Count sure tricks</u> (declarer): A, K, etc in both hands (all suits)</li>
+			
+			<li>Declarer is person initially bidding contacted suit (even if partner raised it)</li>
+			<li>Looks like doubling does not ^ # tricks declarer must take to fulfill contract. 
+				There is ^ penalty if fail, however <i>(& 'reward' if succ)</i>.</li>
+			<li><u>'Establish' tricks</u> (suit): Have high cards w/o A <i>(wh can draw out w/ a loss)</i>
+			<li>It is right to 
+				<A onclick="alertESTABLISH();" style="cursor: help;" href="javascript:;">
+				establish</A> 
+			    1st & <u>cash</u> sure tricks later</li>
+			
+			<li>BIDDING:
+			   <ol type=A>	<!-- list-style-type: circle; -->
+			     <li>
+				Following NB concepts can be assigned numerical values:<br> 
+				<span id="tab">
+				Average hand = 10 HCP<br> 
+				Number of points in the <u>combined</u> 
+				<A onclick="alertPOINTS();" style="cursor: help;" href="javascript:;">
+				partnership</A>&nbsp;
+				hands usually needed for:<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;Game in notrump, spades, or hearts = 26 or more points<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;Game in diamonds or clubs = 29 or more points<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;Small slam 33 or more points<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;Grand slam 37 or more points
+				</span>
+			     </li>
+			     <li>
+				<u>Roth Point Count</u> is more exciting than old-fashioned count, for it 
+				enables you to see the value of your hand change in front of your eyes as
+				the result of the bids you and your partner make. When partner's bids signal 
+				good news, your points go up; when partner's bids flash warning 
+				signals, your points go down.
+			     </li>
+			     <li>
+				w/ 14 points (7 HCP, 5 Distribution Points, and 2 Length Points) but do not have 
+				the required 10 HCP = should <u>pass</u> 
+			     </li>
+			     <li>
+				<u>? open with 1 notrump or with one of a suit</u>: There are 3 requirements for the 
+					one-notrump opening bid; if your hand meets all of them, you should open 
+					one notrump. However, if you fail to satisfy any one of the three 
+					requirements, you must reject the notrump opening and open with one of a suit. 
+					The requirements for the opening bid of one notrump are: <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;1. 16-18 HCP. (You may not open one notrump with more than 18 HCP)<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;2. Balanced suit distribution: 4-3-3-3, 4-4-3-2, or 5-3-3-2. <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;3. High-card points in at least three of the four suits.<br>
+				Once you have decided to open one notrump, you should not count your Distribution Points. 
+				It is impossible to ruff anything in a notrump contract.<br>
+				The notrump bid is subject to exact requirements & so connvey to your partner a 
+				great deal of information about your hand.
+			     </li>
+			     <li>
+				Open bidding with two clubs any time you have 24 or more points.<br>
+				It says nothing about your holding in clubs; it is a legal method of informing 
+				partner that you have at least 24 points and that <u>both of you must continue to 
+				bid until at least game is reached</u>. Since partner is not permitted to pass 
+				two clubs (game has not been reached), you will get another chance to bid and 
+				can then bid your longest suit.
+			     </li>
+			   </ol>
+			<li>Enter new note here!</li>
+			
+		</ul>
+	</div>
+
+
+	<button class="accordion">Scoring</button>
+	<div class="panel">
+		<IMG style="WIDTH: 900px; HEIGHT: 600px; background-color:yellow; border: 2px white solid;" 
+		alt="score" src="BRIDGEscoring.jpeg" ><br>
+		
+		<IMG style="WIDTH: 900px; HEIGHT: 600px; background-color:yellow; border: 2px white solid;" 
+		alt="pts" src="BRIDGEpts.jpeg" >
+		<br>
+		<A style="cursor: progress; FONT-WEIGHT: normal; FONT-SIZE: 30px; COLOR: "
+			onclick="return popupINDEX(this, 'index')" 
+			href="https://www.funbridge.com/counting_bridge">Auto Counter</A>
+		<br>
+		
+		Get a <u>part-score bonus</u> when the contract required is below the game level, i.e. 
+		a trick score of fewer than 100 points. A bonus of 50 points called "part-score bonus" 
+		is then automatically awarded.<br>
+		
+			<!--
+			<IMG style="WIDTH: 400px; HEIGHT: 600px; background-color:yellow; border: 2px green solid;" 
+			alt="pts" src="CONTRACTtypesP.png" >
+			-->
+	</div>
+
+
+	<button class="accordion">2 Player Bridge</button>
+	<div class="panel">
+
+		<u>Honeymoon Bridge</u> can be applied to any adaptation of Contract Bridge for two players.<br>
+		There are several versions. All of them use a 52-card pack, with suits and cards in each 
+		suit ranking as in Bridge. Scoring is the same as in Rubber Bridge.<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;<i>https://www.pagat.com/auctionwhist/honeymoon.html#single</i>
+		<ul>
+			<li>Draw Bridge<br>
+			   <span id="tab" style="opacity:0.5;"> 
+			   	2 players use 52 card pack. Deals 13 cards to each player. Remaining 26 
+				cards placed face in pile (the stock) from which cards are drawn. 
+				1st 13 tricks played at no trump. Non dealer leads to the first trick, 
+				& it is not necessary to follow suit. These tricks do not count towards 
+				the score - they are simply discarded - but the winner of each trick 
+				draws the top card from the top of the stock and the loser takes the next card. 
+				When drawing a card you add it to your hand without showing it to your opponent.
+				After 13 tricks each player still has 13 cards, and if they have very good 
+				memories they will know each other's hands. The players now bid as in Contract
+				Bridge (doubles and redoubles are allowed), until one player passes. 
+				The final contract is then played, the opponent of the bidder leading to the 
+				first trick. Suit must be followed, as in Bridge.
+			   </span>
+			</li>
+			<li>Draw and Discard Bridge</li>
+			<li>Double Dummy Bridge
+			   <span id="tab" style="opacity:0.5;">
+				The two active players sit next to each other. Four 13-card hands are dealt 
+				as in Bridge - a hand for each player and two dummy hands. The hand opposite 
+				each player is their dummy, but they cannot look at it until after the bidding.<br>
+				The two players bid as in Contract Bridge (doubles and redoubles allowed) 
+				until one player passes. The players then look at their own dummies, but 
+				do not show them to each other until after the opening lead.<br>
+				The declarer`s opponent leads a card to the first trick from the hand that will 
+				be to declarer`s left: this will be the opponent`s own hand if the declarer 
+				is the right-hand player, but the opponent`s dummy if the declarer is the 
+				left-hand player. Both dummies are then exposed on the table, opposite 
+				their owners, and play continues as in Bridge, each of the players playing 
+				cards from their own dummy at its turn.<br><br>
+				Variations:<br>
+				Some play that neither dummy is exposed to the opponent. After the end of 
+				the bidding, the dummy cards are placed in racks so that they are visible 
+				to the owner throughout the play, but not to the other player.
+				Hans Peter Albach suggests that when playing this way, the two players should 
+				sit facing each other across the table, each having their opponent's rack 
+				in front of them to their left. So if South and East are the real players, 
+				with North and West as their dummy partners, the arrangement and sequence 
+				of play looks like this:<br><br>
+				<IMG style="WIDTH: 200px; HEIGHT: 200px; border: 2px black solid; 
+				background-color: black;" alt="2X" src="2Xdummy.jpeg" ><br>
+				To eliminate any positional advantage in sitting to the left or right, 
+				some play that the hands are always arranged, after the bidding, 
+				in the clockwise order: opponent's dummy, declarer's dummy, opponent, 
+				declarer. In this case the opponent's dummy leads to the first trick.<br><br>
+
+				Some deal just 12 cards to each player initially. Players may look at their 
+				own dummies during the bidding. After the bidding, the dealer deals two 
+				more cards to each player. The players look at these extra cards and 
+				choose which to add to their own hand and which to their dummy.
+			</li>
+			<li>Single Dummy Bridge</li>
+			<li>Bridge with Semi-exposed Dummies</li>
+			<li>Memory Bridge</li>
+			<li>Bridgette</li>
+		</ul>
+		
+		<A style="cursor: progress; FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: "
+			onclick="return popupINDEX(this, 'index')" 
+			href="https://www.youtube.com/watch?v=LObdBhJIxPQ">YouTube Video</A><br><br>
+				<!-- https://youtu.be/LObdBhJIxPQ -->
+	</div>
+
+
+	<button class="accordion"><font color=red><b>LearnBridge</b> App <i>'24</i></font></button>
+	<div class="panel">
+		<ul>
+			<li><u>What is bridge?</u><br>
+				<ol>
+					<li>Top 5 cards (AKQJ10) = <b>honors</b>. Rest = <b>spots</b></li>
+					<li>Can't follow suit <i>(out)</i> & play diff suit that can't win = <b>discard</b></li>
+					<li><u>Some</u> deals > <b>trump suit</b> <i>(outranks other suits; played only if out of lead suit)</i> [= 'ruff']</li>
+					<li>Defence communicates thru cards they play!</li>
+					<li><u>Bidding</u>: <b>Auction</b> (> right to be declarer & pick trump suit; last bid) > <b>contract <i>(> 'level' & 'strain'/denomination)</i></b><br>
+						&emsp;1&hearts; = have at least 5 hearts.<br>
+						&emsp;1 NT = above avg hand w/ = cards ea suit.</li>
+					<li>Hand evaluation: assess trick-taking potential</li>
+				</ol>
+			</li>
+					
+			<li><u>Intro to Declarer Play</u><br>
+				<ol>
+					<li>Taking Tricks</li>
+						<ul>
+							<li><b>Count winners in ea suit</b> <i>(sure tricks)</i> [p11]<br>
+								&emsp;A+K+Q=3 <i>(no A = 0 winners)</i></li>
+							<li><b>overtricks</b>: # of tricks above those req for contract</li>
+							<li>long side <i>(hand w/ more cards in given suit)</i><br>
+								&emsp; - can't take more tricks in suit than <i>long side</i> has cards <i>(p45)</i><br>
+								&emsp; - <e># tricks can take ONLY limited by lgth of 'long side'</e>! <i>(p51)</i>
+							</li>
+							<li>'stopper': prev opp taking ++ tricks (in NT) <i>(Axx, KQx, QJ10)</i> [p65]</li>
+							<li><bl>blocked</bl> suits <i>(pp 75/84/111)</i><br>
+								&emsp;- no way to take all tricks w/o > side suit <i>(to get back to partner/dummy)</i></li>
+							<li><r>play 'high cards' fr 'short side' 1st</r> (to prevent suit being 'blocked') [p79]</li>
+							
+
+							<li>equivalent = 2 cards part of sequence <i>(eg 'ace & king')</i> </li>
+							<li>unblock/<i>untangle</i> a suit <i>[pp95-98]</i><br>
+								&emsp;- play high cards fr short side so long side <u>can run</u><br>
+								&emsp;- find way BACK to partner/<i>dummy</i> in diff suit (an '<e>entry</e> (eg A/K') [p95]
+							</li>
+							<!--<li>short side (in a suit)</li>-->
+							<li><r>entries</r> <i>(eg 'to dummy')</i>: card that lets you TRANSFER LEAD fr 1 hand to other<br>
+								&emsp;- high card in OTHER hand that you want to lead<br>
+								&emsp;&emsp;- don't use it TOO EARLY (before you 'unblock' another suit) [p107]<br>
+								&emsp;- <i>'plan the play'</i>
+							</li>
+							<li><e>overtaking</e> (play card fr 1 hand ^ 1 already played fr opp hand)<br> & <e>underplaying</e> (play high card fr BOTH hands but lower in 2nd) [p120]<br> 
+								&emsp;- <i>done to <u>unblock</u> suit (manage entries)</i><br>
+								&emsp;- <u>duck</u> - intentional decline win (<i>safe w/ stoppers in ev suit)</i>)<br>
+								&emsp;- <u>overtake</u> sacrifices high card to > entry to other hand<br>
+								&emsp;- <u>underplay</u> sacrifices high card to ENSURE lead stays in SAME hand
+							</li>
+						</ul>	
+					<li>Establishment & Promotion <i>(take tricks w/ lower cards)</i>
+						<ul>
+							<li><u>Establish</u> [p147]<br>
+								&emsp;- play suit enough > both opponents VOID > all your rem cards WINNERS</li>
+							<li><i>most deals req conceding tricks to set up more</i></li>	
+							<li><u>Promotion</u> [p191]<br>
+								&emsp;- when card played, all below (in same suit) -> <u>promoted</u> in rank <i>(eg knock out A w/ K -> Q a winner)</i><br>
+								&emsp;- intentionally LOSE a TRICK!
+								</li>							
+						</ul>					
+					</li>
+					<li>Finessing</li>
+					<li>Using the Trump Suit</li>
+				</ol>
+		    </li>
+			<li><u>Basic Constructive Bidding</u><br>
+				<ol>
+					<li>Intro</li>
+						<ul>
+							<li>Standard American vs <u>2/1 ('two-over-one'</u> <i>game forcing</i>) systems</li>
+							<li><u>constructive</u> <i>(stong 1-side-only)</i> vs competative bidding</li>
+						</ul>
+					<li>Auction</li>
+						<ul>
+							<li>dealer acts 1st</li>
+							<li>bids must increase</li>
+							<li>bids sort by level & then <u>strain</u> <i>(<r>suits in alpha order > NT</r>)</i> [p18]<br>
+								&emsp;NT &emsp;&spades; &emsp;&hearts; &emsp;&diams; &emsp;&clubs;<br>
+								&emsp;&emsp;&emsp; S &emsp; H &emsp; D &emsp; C<br>
+							
+							</li>
+							<li>last bid > <u>declaring side</u> (declarer = 1st to name strain)</li>
+							<li>'opening leader' = person to L of 'declarer'</li>
+							<li>1&spades; = have <i>at least</i> 5 &spades; & '>avg hand' <bl>(in 2/1)</bl></li>
+							<li><e>partner bidding in same suit = have <i>at least</i> 3 of that suit</e></li>
+							<li>'agreements' <i><font size=2>(artificial bids; not natural)</font></i> vs 'rules'<br>
+								&emsp;e.g. you & partner 'agree' 1&hearts; open = >5&diams;
+							</li>
+						</ul>								
+					<li>Goals</li>
+						<ul>
+							<li>? best <u>combined</u> <i>(w/ partner)</i> suit + # tricks can take</li>
+							<!--<li><e>MAJOR (&spades;&hearts;) & MINOR (&diams;&clubs;) suits</e></li>-->
+							<li style="background:moccasin; width:80%; border-radius:10px;">
+								<e>MAJOR (&spades;&hearts;) & MINOR (&diams;&clubs;) suits</e>
+								<!--<div style="border: 1px solid #aaaaaa; border-radius:5px; width:50%; background:moccasin;">-->
+									<TABLE border=0 style="border-spacing:0px;"><TR><TD valign=top>
+										<u>'Game' contract</u>: 3NT, 4 major; 5 minor<br>
+										'partscore'/'partial': below ^ 
+									</TD> 
+									<TD style="width:30px;"></TD>
+									<TD>
+										1st goal: <u>? can play w/ major trump suit</u>.<br>If not - ? play NT contact <i>(req 9 tricks)</i>.<br>Last resort = play in minor suit. 	
+									<TD style="width:30px;"></TD>
+									<TD>
+										After find best suit > ? combined strength<br>
+										Want to bid '<u>game</u>' if can make it!<br>
+										SLAMS: small = 12 tricks; grand = 13;
+										
+									</TD></TR></TABLE>
+								<!--</div>-->
+							</li>
+						</ul>					
+					<li>Opening Bid</li>	
+						<ul>
+							<li>Opening 1 of suit 'promises' 12 <u>High Card Points (<r>HCP</r>)</u><br>
+								&emsp;&emsp;&emsp;A=4 | K=3 | Q=2 | J=1<br>
+								&emsp;&emsp;&emsp;&emsp;- <i>avg hand = 10 HCP</i><br>
+							</li>			
+							<li>If can open (^) - ? which suit<br>
+								&emsp;1) <r>1&hearts; or 1&spades; promise 5 cards</r> <i>(2/1 = '5-card majors' system)</i><br>
+								&emsp;2) open <u>longest suit</u><br>
+								&emsp;- val for prtnr to know if have 4 or 5-card major. OPEN of 1&hearts; or 1&spades; = 5 <i>(later = 4)</i>
+							</li>
+							<li>w/ long suits of = lgth <font size=2 color=silver>[p65]</font>:<br>
+								&emsp;1) open higher <u>ranked</u> <i>(not stronger)</i><br>
+								&emsp;2) w/ 2 3-card minors > &clubs; <i>(1&diams; open = at least 4 &diams;)</i>		
+							</li>
+							<li><u>1&2NT</u> <i>(prefer over 1 of suit)</i>:
+								<ul style="list-style-type: circle;">
+									<li><e>Balanced hand</e>: no sigletons or voids & onlt 1 doubleton <i>(4333; 4432; 5332) </i></li>
+									<li>1NT = 15-17 HCP + balanced</li>
+									<li>2NT = 20-21 HCP + balanced</li>
+									
+								</ul>
+							</li>
+						</ul>	
+					<li>Responding to 1 of Suit</li>
+						<ul>
+							<li style="background:yellow; width:30%;">PRIORITIES:
+								<ul style="list-style-type: circle;">
+									<li><e>Support opener's MAJOR</e></li>
+									<li>Suggest new suit</li>
+									<li>Suggest NT if no viable MAJOR</li>
+									<li>Support opener's minor</li>
+								</ul>
+							</li>	
+							<li style="background:yellow; width:30%;">Communicate hand strength <i>(req 25 HCP to bid <b>game</b>)</i>:
+								<ul style="list-style-type: circle;">
+									<li><e>6-9 HCP</e> (min)<br>
+										&emsp;- pass w/ less
+									</li>	
+									<li><e>10-12 HCP</e> (invitational)</li>	
+									<li><e>13+ HCP</e> (game forcing)</li>	
+								</ul>	
+							</li>
+							<li>Major suit <r>fit</r> = 8 cards bet 2 hands<br>
+								&emsp;- w/ open of 1 &hearts; or &spades; = 5 cards > respr can <b>raise</b> w/ 3<br>
+								<ul style="list-style-type: circle; margin-left:20px;">
+									<li>fit w/ 'min' > raise 1</li>	
+									<li>fit w/ 'inv' > raise 2</li>
+									<li>fit w/ 'forcing' > bid new suit <u>1st</u></li>		
+								</ul>	
+							</li>
+							<li style="border: 2px solid red; width:95%; border-radius:10px;">Bidding major locates major <u>fit</u>. Bidding minor > ? play NT contract <u>(strgth in q suit)</u>.<br> 
+								<TABLE border=1 style="border-spacing:0px;"><TR><TD valign=top style="width:40%;">
+									Bid <u>new suit</u> <i>(promise <u>4 cards</u> <bl>except 2&hearts; resp to 1&spades; = 5&hearts;</bl>)</i> if can't raise opener's major or opener bids minor! 
+									<ul style="list-style-type: circle; margin-left:20px;">
+										<li>1-level new = 6+ HCP <i>(min hand)</i></li>
+										<li>2-level <i><font size=2><e>(if 1-level unavail)</e></font></i> new = 13+ HCP <i>(game forcing)</i>
+											&emsp;&emsp;<e>^ but 'bid cheaply'!
+											
+										</li>
+									</ul>
+									<r>2/1 = 5 card <u>majors</u> <i>(15-17 HCP 1 NT open)</i> + <u>game forcing</u> 2-level <u>new suit</u> resp.</r> 
+								</TD> <!--<TD width=20px></TD>-->
+								<TD valign=top style="width:30%;"><e>Bid <u>cheaply</u></e>: don't 'jump' to 2 just bec have 13+ HCP.<br>
+									<span style="background:lime;">
+									w/ mult poss <u>new</u> suits:
+										<ul style="list-style-type: circle; margin-left:20px; background:lime; width:60%;">
+											<li>start w/ longest</li>
+											<li>w/ 2 equal<br>
+												&emsp; - 5 cards: start higher<br>
+												&emsp; - 4 cards: bid lower												
+											</li>											
+										</ul>
+									<font size=2>w/ no 4-card suit to bid & min or inv hand bid 1NT</font>
+									</span>
+								</TD>
+								<TD valign=top style="width:30;">
+									Responders <u>new</u> suit bid is <bl>forcing</bl> <i>(prtnr must bid again <font size=2>if interv opp passes</font>)</i>.<br>
+									1 NT resp is <i>special</i>:
+										<ul style="list-style-type: circle; margin-left:20px;">
+											<li>post minor open 1NT = min hnd & is <u>not</u> forcing</li>
+											<li>post major opn 1NT = min <u>or</u> inv & <u>is</u> forcing</li>
+										</ul>
+										<A onclick="alertMINORraise();" href="javascript:;">Minor Raises</A> &emsp;	
+										<A onclick="alert2NTresponse();" href="javascript:;">2&3NT Responses</A> 					
+								</TD>
+								
+								</TR>
+							</TABLE>
+			
+			
+							</li>					
+						</ul>										
+					<li>Opener's Rebid</li>
+						Show <u>shape</u> & <u>strength</u> of hand
+						<ul>
+							<li><u>Shape</u>: e.g. 5-4-3-1
+								'Specific' shape: e.g. 1=5=4=3 <i>(S=H=D=C)</i>
+								<ol>
+									<li><u>Balanced</u> shape: </i>
+									<li><u>Unbalanced</u> shape: 1, 2 & 3-suited <i>(=> 4 lgth)</i>!
+								</ol>
+							</li>
+							<li><u>Strength</u>:
+								<ol>
+									<li>responder: min, inv, 'game forcing'</li>
+									<li>opener: ^ + 6!</li>
+									<li>want 25 HCP to bid game<br>
+										&emsp;- gf = enough if ptnr has min<br>
+										&emsp;- <font color=gray>2 min +> enough</font><br>
+										&emsp;- inv + <i>good</i> min = enough<br>
+									</li>										
+								</ol>
+							</li>
+							<li><u>SHOW</u> shape & strength:
+								<ol>
+									<li>w/ 1-suited bid suit 2nd time<br>
+										&emsp;- cheap w/ min<br>
+										&emsp;- jump w/ inv<br>
+										&emsp;- dbl jump w/ game forcing<br>
+									</li>
+									<li>w/ 2-suited > 2nd suit<br>
+										&emsp;- cheap w. min or inv<br>
+										&emsp;- jump w/ game forcing<br>
+										&emsp;<span style="border: 2px black solid; color:silver;">
+													w/ disproportionaly long suit of 2 [p154] - <u><font color=gray>rebid long if 2+ more</font></u>			
+													<font size=2>(unless 1 is 3 cards longer show 2nd suit)</font>
+											  </span><br>
+										&emsp;<span style="border: 2px green solid; color:silver;"> 
+											  		jumping exception [p155] - <font color=gray>if <u>rspdr</u> > gf (2/1) = no need to jump</font>! <font color=silver>e.g. S = 1&spades; | N = 2&clubs;
+											  </span>
+									</li>
+								</ol>
+							</li>
+							
+						</ul>
+					<li>Responders Rebid</li>
+					<li>BEYOND</li>
+					<li>Hand Evaluation</li>					
+				</ol>
+			</li>
+
+			<font color=silver>
+			<li><u>Defense</u><br>
+				&emsp;<a href="https://www.bridgedoctor.com/lessons/15-learning-how-to-play-bridge.htm" style="color:blue; font-size:14px;" title="">2 ways to enter auction after opponents have opened</a>
+			</li>
+			<li><u>Game Bidding</u><br>
+			</li>
+			<li><u>Slam Bidding</u><br>
+			</li>
+			</font>
+		</ul>   		
+	</div>
+
+	<button class="accordion"><font color=green>Basics in 5 min</font></button>
+	<div class="panel">
+		&emsp;<span id="tab" style="opacity:0.5;"> 
+			   	<A style="cursor: progress; FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: "
+					onclick="return popupINDEX(this, 'index')" 
+					href="https://youtu.be/Arq3t0iHfPE">Peter Hollands</A>&emsp;<i>(YouTube '22)</i>
+			  </span>	<br>
+		&emsp;<span id="tab" style="opacity:0.5;"> 
+			   	<A style="cursor: progress; FONT-WEIGHT: normal; FONT-SIZE: normal; COLOR: "
+					onclick="return popupINDEX(this, 'index')" 
+					href="https://youtu.be/LfRbjDP-9pU?si=4MP5mqlgbyztUTPr">How to Sort Cards</A>&emsp;<i>(YouTube '24)</i>
+			  </span>
+			
+					
+	</div>
+
+
+
+<script>	/* js must be HERE (after body html) */
+	var acc = document.getElementsByClassName("accordion");
+	var i;
+	
+	for (i = 0; i < acc.length; i++) {
+	  acc[i].addEventListener("click", function() {
+		this.classList.toggle("active");
+		var panel = this.nextElementSibling;
+		if (panel.style.maxHeight){
+		  panel.style.maxHeight = null;
+		} else {
+		  panel.style.maxHeight = panel.scrollHeight + "px";
+		} 
+	  });
+	}
+</script>
+
+
+	<A style="FONT-WEIGHT: bold; COLOR: blue; float: left; width: 80%; text-align: right;" 
+		onclick="return popupform(this, 'coil')" href="BRIDGE.html">Original HTML
+	</A><br>
+
+
+</body>
+</html>
