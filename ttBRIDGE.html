@@ -108,13 +108,76 @@
 									iPad Pro viewport size: W=1426(1366); Ht=1024 PX √ 
 									WorkingCopy Preview:    W=1051 X  H=964  √ 
 									*/
-		/*@media screen and (min-width: 400px) and (max-width:2600px) and (min-height:400px) {*/
-						/* incl iPad Pro */
-			body { background-color: orange; /*zoom: 250%;*/ } 
-						
-		}			
-	
-	
+/* ----------- iPad 3, 4 and Pro 9.7" ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+			body { background-color: orange; } 
+}
+/* Portrait */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+	body { background-color: yellow; } 
+}
+/* Landscape */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+		body { background-color: lime; } 
+ }	
+
+/* ----------- iPad Pro 12.9" ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-width: 1366px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+		body { background-color: maroon; } 
+}
+/* Portrait */
+/* Declare the same value for min- and max-width to avoid colliding with desktops */
+/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+@media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+		body { background-color: blue; } 
+}
+/* Landscape */
+/* Declare the same value for min- and max-width to avoid colliding with desktops */
+/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+@media only screen 
+  and (min-device-width: 1366px) 
+  and (max-device-width: 1366px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+		body { background-color: red; } 
+  } 
+
+ 
+
+/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+@media screen and (min-width: 601px) {
+  div.example {
+    font-size: 80px;
+  }
+}
+/* If the screen size is 600px wide or less, set the font-size of <div> to 10px */
+@media screen and (max-width: 600px) {
+  div.example {
+    font-size: 10px;
+  }
+}  
   
 </style>
 
@@ -1012,7 +1075,7 @@
 
 
 	<button class="accordion"><font color=red><b>LearnBridge</b> App <i>'24</i></font></button>
-	<div class="panel">
+	<div class="panel" style="background:ivory; font-size:1vw;"> <!-- width:100vw; height:100vh; overflow:scroll; font-size:10px;  zoom:50%; -->
 		<ul>
 			<li><u>What is bridge?</u><br>
 				<ol>
