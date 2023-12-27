@@ -25,6 +25,18 @@
 </style>
 
 <script type="text/javascript">
+	function alertMINORraise() {
+		alert("RESPONDER'S MINOR RAISE:\n"+
+			  "Can raise w/ minor suit fit (8+) BUT opener may have just 4 cards. So YOU NEED 4!\n"+
+			  "FIT + 6-9 HCP > raise 1 level.\n"+
+			  "FIT + 10-12 HCP > raise 2 levels.\n\n"+
+			  "Only if no MAJOR suit fit.");
+	}
+	function alert2NTresponse() {
+		alert("CONSIDER NT BID BEFORE RAISING MINOR:\n"+
+			  "2NT = balanced hand + 10-12 HCP.\n"+
+			  "3NT = balanced hand + 13-15 HCP.");
+	}	
 </script>
 
 </head>
@@ -130,16 +142,34 @@
 				</dt>	
 			</dl>
 			<dl style="border:2px solid dodgerblue; border-radius:5px; display:inline-block;">
-				<dt>&#9632;Bidding major locates major <u>fit</u>. Bidding minor > ? play NT contract <u>(strgth in q suit)</u>. 
+				<dt>&#9632; Bidding major locates major <u>fit</u>. Bidding minor > ? play NT contract <u>(strgth in q suit)</u>. 
 						<dd>&#9679; Bid <u>new suit</u> <i>(promise <u>4 cards</u> <bl>except 2&hearts; resp to 1&spades; = 5&hearts;</bl>)</i> if can't raise opener's major or opener bids minor! <br>
 										&emsp;1-level new = 6+ HCP <i>(min hand).</i><br>
 										&emsp;2-level <i><font size=2><e>(if 1-level unavail)</e></font></i> new = 13+ HCP &emsp;&emsp;<i>(game forcing)</i>
 											&emsp;<e>^ but 'bid cheaply'!<br>
 									<r>2/1 = 5 card <u>majors</u> <i>(15-17 HCP 1 NT open)</i> + <u>game forcing</u> 2-level <u>new suit</u> resp.</r> 
 						</dd> 	
-				</dt>			
-			
+				</dt>
+				<dt>&#9632;<e>Bid <u>cheaply</u></e>: don't 'jump' to 2 just bec have 13+ HCP.
+									<span style="background:lime;"w/ mult poss <u>new</u> suits:</span>
+									<dd>&#9679; <span style="background:lime;">start w/ longest</span></dd>
+									<dd style="">&#9679; <span style="background:lime;">w/ 2 equal<br>
+												&emsp; - 5 cards: start higher<br>
+												&emsp; - 4 cards: bid lower</span>												
+									</dd>										
+									<font size=2>&emsp;<span style="background:lime;">w/ no 4-card suit to bid & min or inv hand bid 1NT</font></span>
+				</dt>
+				<dt>&#9632;Responders <u>new</u> suit bid is <bl>forcing</bl> <i>(prtnr must bid again <font size=2>if interv opp passes</font>)</i>.<br>
+									1 NT resp is <i>special</i>:
+									<dd>&emsp;† post minor open 1NT = min hnd & is <u>not</u> forcing</dd>
+									<dd>&emsp;† post major opn 1NT = min <u>or</u> inv & <u>is</u> forcing</dd>
+							<A onclick="alertMINORraise();" href="javascript:;">Minor Raises</A> &emsp;	
+							<A onclick="alert2NTresponse();" href="javascript:;">2&3NT Responses</A> 					
+				</dt>
 			</dl>
-		
+		<br>
+		<sh>Opener's Rebid</sh><br>
+			Show <u>shape</u> & <u>strength</u> of hand.
+			
 </body>
 </html>	
