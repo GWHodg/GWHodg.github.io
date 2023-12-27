@@ -7,13 +7,28 @@
 <style>
 	sh { font-size:20px; color:red; font-weight:bold; background:yellow; }
 	e { color:green; }
+	r { font-size:20px; color:brown; font-weight:bold; background:beige; }
+	bl { font-size:20px; color:blue; font-weight:bold; }
+	
+	dl {
+	  display:block;
+	  margin-top: 0;
+	  margin-bottom: 0em;
+	  margin-left: 0em;
+	  margin-right: 0em;
+	}
+	dd {
+		margin-left: 2.5em;
+		text-indent:-1.5em;
+	}
+	dt { margin-left: 1.1em; text-indent:-1.0em; }
 </style>
 
 <script type="text/javascript">
 </script>
 
 </head>
-<body>	
+<body style="width:320px; border:2px orange solid; border-radius:5px; padding:5px; margin-left:auto; margin-right:auto;"> <!-- height:640px;  border:3px orange outset;  border-radius:10px; -->	
 <H1>LearnBridge App <i>'24</i></H1>	
 <h2>What is bridge?</h2>
 		Top 5 cards (AKQJ10) = <b>honors</b>. Rest = <b>spots</b><br>
@@ -41,7 +56,12 @@
 		<u>constructive</u> <i>(stong 1-side-only)</i> vs competative bidding<br>
 
 	<sh>Auction</sh><br>	
-	
+			<dt>&#9632; dealer acts 1st;&nbsp;</dt>
+			<dt>&#9632; bids must increase</dt>
+			<dt>&#9632; bids sort by level & then <u>strain</u> <i>(<r>suits in alpha order > NT</r>)</i> [p18]<br>
+				&emsp;NT &emsp;&spades; &emsp;&hearts; &emsp;&diams; &emsp;&clubs;<br>
+				&emsp;&emsp;&emsp; S &emsp; H &emsp; D &emsp; C</dt>
+								
 	<sh>Goals</sh><br>
 		? best <u>combined</u> <i>(w/ partner)</i> suit + # tricks can take<br>
 		<font style="background:moccasin; width:80%; border-radius:10px;">
@@ -55,12 +75,25 @@
 				</div>
 	<br>			
 	<sh>Opening Bid</sh><br>
-		Opening 1 of suit 'promises' 12 <u>High Card Points (<r>HCP</r>)</u><br>
-								&emsp;&emsp;&emsp;A=4 | K=3 | Q=2 | J=1<br>
-		If can open (^) - ? which suit<br>
-								&emsp;1) <r>1&hearts; or 1&spades; promise 5 cards</r> <i>(2/1 = '5-card majors' system)</i><br>
-								&emsp;2) open <u>longest suit</u><br>
-								&emsp;- val for prtnr to know if have 4 or 5-card major. OPEN of 1&hearts; or 1&spades; = 5 <i>(later = 4)</i> <br>
+		<dl>
+			<dt>&#9632; Opening 1 of suit 'promises' 12 <u>High Card Points (<r>HCP</r>)</u><br>
+									&emsp;&emsp;&emsp;A=4 | K=3 | Q=2 | J=1</dt>
+			<dt>&#9632; If can open (^) - ? which suit</dt>
+				<dd>&#9679; 1) <r>1&hearts; or 1&spades; promise 5 cards</r> <i>(2/1 = '5-card majors' system)</i></dd>
+				<dd>&#9679; 2) open <u>longest suit</u></dd>
+				<dd>&#9679; - val for prtnr to know if have 4 or 5-card major. OPEN of 1&hearts; or 1&spades; = 5 <i>(later = 4)</i> </dd>
+		</dl>
+		
+		<!-- alt T = †   |     alt V = √    |    alt J = ∆   |   &#9632;=black square; &#9679;=blk crcl -->
+		<!--
+		<dl>	
+		  <dt>&#9632; Coffee: made in South America for the most part by nice people!</dt>
+		  	<dd>&#9679; Black hot drink</dd>
+		  <dt>&#9632; Milk</dt>
+		  	<dd>&#9679; White cold drink yyyyyyyy uuhuhu jj uuuu jhgg iiii ii</dd>
+		    <dd>&#9679; Chocolate</dd>
+		</dl>
+		-->
 
 		
 </body>
