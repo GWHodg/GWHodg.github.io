@@ -37,6 +37,15 @@
 			  "2NT = balanced hand + 10-12 HCP.\n"+
 			  "3NT = balanced hand + 13-15 HCP.");
 	}	
+	function note2X4card() {
+		alert("w/ enough HCP to resp (eg 7) & 2 4-card suits bid cheapest [+> up a level].\n"+
+			  "w/o strength (13+) for 2-level & no AVAILABLE suit > 1NT.\n"+
+			  "w/ 13 HCP & longest suits = 4 cards bid lower.");
+	}
+	function note1NT() {
+		alert("w/o strgth for 2-level RESP (eg 7 HCP) > 1 NT (doesn't have to be 'balanced' for 'response'.")
+	}
+	
 </script>
 
 </head>
@@ -180,9 +189,15 @@
 									<dd>&#9679; <span style="background:lime;">start w/ longest</span></dd>
 									<dd style="">&#9679; <span style="background:lime;">w/ 2 equal<br>
 												&emsp; - 5 cards: start higher<br>
-												&emsp; - 4 cards: bid lower</span>												
+												&emsp; - 4 cards: bid lower</span> 
+																<!-- &#9998; = rotated pencil -->
+																<!-- &#x270D; = hand + pencil -->
+																<!-- &#9999; = colored pencil -->	
+													<A style="text-decoration:none;" onclick="note2X4card();" href="javascript:;">&#9999;</A>	
 									</dd>										
-									<font size=2>&emsp;<span style="background:lime;">w/ no 4-card suit to bid & min or inv hand bid 1NT</font></span>
+									<font size=2>&emsp;<span style="background:lime;">w/ no 4-card suit to bid & min or inv hand bid 1NT</span>
+										<A style="text-decoration:none;" onclick="note1NT();" href="javascript:;">&#9999;</A>	</font>
+									
 				</dt>
 				<dt>&#9632; Responders <u>new</u> suit bid is <bl>forcing</bl> <i>(prtnr must bid again <font size=2>if interv opp passes</font>)</i>.<br>
 									1 NT resp is <i>special</i>:
@@ -203,16 +218,16 @@
 				</dt>
 				<dt>&#9632; <u>Strength</u>:
 					<dd>&#9679; responder: min, inv, 'game forcing'</dd>
-					<dd>&#9679; opener: ^ + 6!</dd>
+					<dd>&#9679; opener: <span style="background:lime;">resp^ + 6</span> <i>(12/16/19)</i>!</dd>
 					<dd>&#9679; want 25 HCP to bid game<br>
 										&emsp;- gf = enough if ptnr has min<br>
 										&emsp;- <font color=gray>2 min +> enough</font><br>
 										&emsp;- inv + <i>good</i> min = enough<br></dd>									
 				</dt>
 				<dt>&#9632; <u>SHOW</u> shape & strength:	
-					<dd>&#9679; w/ 1-suited bid suit 2nd time<br>
+					<dd>&#9679; w/ <span style="background:lime;">1-suited</span> bid suit 2nd time<br>
 										&emsp;- cheap w/ min<br>
-										&emsp;- jump w/ inv<br>
+										&emsp;- <span style="background:lime;">jump w/ inv</span><br>
 										&emsp;- dbl jump w/ game forcing<br>
 					</dd>
 					<dd>&#9679; w/ 2-suited > 2nd suit<br>
