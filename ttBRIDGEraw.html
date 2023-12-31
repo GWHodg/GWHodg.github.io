@@ -37,19 +37,31 @@
 			  "2NT = balanced hand + 10-12 HCP.\n"+
 			  "3NT = balanced hand + 13-15 HCP.");
 	}	
-	function note2X4card() {
-		alert("w/ enough HCP to resp (eg 7) & 2 4-card suits bid cheapest [+> up a level].\n"+
-			  "w/o strength (13+) for 2-level & no AVAILABLE suit > 1NT.\n"+
-			  "w/ 13 HCP & longest suits = 4 cards bid lower.");
+	function rsp2X4card() {		/*  alt T = †   |     alt V = √    |    alt J = ∆     */
+		alert("† w/ enough HCP to resp (eg 7) & 2 4-card suits bid cheapest [+> up a level] - gives opener ROOM to show higher if poss.\n\n"+
+			  "† w/o strength (13+) for 2-level & no AVAILABLE suit > 1NT.\n\n"+
+			  "† w/ 13 HCP & longest suits = 4 cards bid lower.");
 	}
-	function note1NT() {
-		alert("w/o strgth for 2-level RESP (eg 7 HCP) > 1 NT (doesn't have to be 'balanced' for 'response'.")
+	function rsp1NT() {
+		alert("† w/o strgth for 2-level RESP (eg 7/9 HCP) > 1 NT (doesn't have to be 'balanced' for 'response'.");
+	}
+	function rspMinor() {
+		alert("† Bidding/finding MAJOR more NB than supporting opener's minor (even w/ 'fit').");
+	}
+	function rspRaiseMaj() {
+		alert("Raising opener's major (6+ HCP + 3 cds) is PRIORITY!");		
+	}	
+	function rspNoJump() {
+		alert("† Even w/ gt hnd (eg 16 HCP) just bid 1-level. Conv won't stop - enough for game w/ opener's 12 HCP.");
+	}
+	function rspLongest() {
+		alert("Show LONGEST suit 1st evn if MINOR when > 2-level (shows game forcing stgth).");
 	}
 	
 </script>
 
 </head>
-<body style="width:320px; border:2px orange solid; border-radius:5px; padding:5px; margin-left:auto; margin-right:auto;"> <!-- height:640px;  border:3px orange outset;  border-radius:10px; -->	
+<body onLoad="window.scroll(0, 2200)" style="width:320px; border:2px orange solid; border-radius:5px; padding:5px; margin-left:auto; margin-right:auto;"> <!-- height:640px;  border:3px orange outset;  border-radius:10px; -->	
 <H1>LearnBridge App <i>'24</i></H1>
 	<span style="float:right;">
 		<A style="FONT-WEIGHT:normal; FONT-SIZE:small; COLOR:;"
@@ -158,7 +170,10 @@
 					<dd>&#9679; <e>Support opener's MAJOR</e></dd>
 					<dd>&#9679; Suggest new suit</dd>
 					<dd>&#9679; Suggest NT if no viable MAJOR</dd>
-					<dd>&#9679; Support opener's minor</dd>
+					<dd>&#9679; Support opener's minor
+								<!-- &#x270D; = hand + pencil  &#9999; = colored pencil -->	
+								<A style="text-decoration:none;" onclick="rspMinor();" href="javascript:;">&#x270D;</A>	
+					</dd>
 				</dt>	
 				<dt>&#9632; Communicate hand strength <i>(req 25 HCP to bid <b>game</b>)</i>:
 						<dd>&#9679; <e>6-9 HCP</e> (min)<br>
@@ -170,7 +185,9 @@
 			<dl>
 				<dt>&#9632; Major suit <r>fit</r> = 8 cards bet 2 hands<br>
 								- w/ open of 1 &hearts; or &spades; = 5 cards > respr can <b>raise</b> w/ 3<br>
-						<dd>&#9679; fit w/ 'min' > raise 1</dd>	
+						<dd>&#9679; fit w/ 'min' > raise 1
+								<A style="text-decoration:none;" onclick="rspRaiseMaj();" href="javascript:;">&#x270D;</A>	
+						</dd>	
 						<dd>&#9679; fit w/ 'inv' > raise 2</dd>
 						<dd>&#9679; fit w/ 'forcing' > bid new suit <u>1st</u></dd>		
 				</dt>	
@@ -185,18 +202,21 @@
 						</dd> 	
 				</dt>
 				<dt>&#9632; <e>Bid <u>cheaply</u></e>: don't 'jump' to 2 just bec have 13+ HCP.
+											<A style="text-decoration:none;" onclick="rspNoJump();" href="javascript:;">&#x270D;</A>	<br>
 									<span style="background:lime;">w/ mult poss <u>new</u> suits:</span>
-									<dd>&#9679; <span style="background:lime;">start w/ longest</span></dd>
+									<dd>&#9679; <span style="background:lime;">start w/ longest</span>
+											<A style="text-decoration:none;" onclick="rspLongest();" href="javascript:;">&#x270D;</A>	
+									</dd>
 									<dd style="">&#9679; <span style="background:lime;">w/ 2 equal<br>
 												&emsp; - 5 cards: start higher<br>
 												&emsp; - 4 cards: bid lower</span> 
 																<!-- &#9998; = rotated pencil -->
 																<!-- &#x270D; = hand + pencil -->
 																<!-- &#9999; = colored pencil -->	
-													<A style="text-decoration:none;" onclick="note2X4card();" href="javascript:;">&#9999;</A>	
+													<A style="text-decoration:none;" onclick="rsp2X4card();" href="javascript:;">&#9999;</A>	
 									</dd>										
 									<font size=2>&emsp;<span style="background:lime;">w/ no 4-card suit to bid & min or inv hand bid 1NT</span>
-										<A style="text-decoration:none;" onclick="note1NT();" href="javascript:;">&#9999;</A>	</font>
+										<A style="text-decoration:none;" onclick="rsp1NT();" href="javascript:;">&#9999;</A>	</font>
 									
 				</dt>
 				<dt>&#9632; Responders <u>new</u> suit bid is <bl>forcing</bl> <i>(prtnr must bid again <font size=2>if interv opp passes</font>)</i>.<br>
