@@ -40,10 +40,11 @@
 	function rsp2X4card() {		/*  alt T = †   |     alt V = √    |    alt J = ∆     */
 		alert("† w/ enough HCP to resp (eg 7) & 2 4-card suits bid cheapest [+> up a level] - gives opener ROOM to show higher if poss.\n\n"+
 			  "† w/o strength (13+) for 2-level & no AVAILABLE suit > 1NT.\n\n"+
-			  "† w/ 13 HCP & longest suits = 4 cards bid lower.");
+			  "† w/ 13 HCP & longest suits = 4 cards bid lower.\n\n"+
+			  "† EXCEPTION: 2H = 5! w/ just 4 bid minor (lowest).");
 	}
 	function rsp1NT() {
-		alert("† w/o strgth for 2-level RESP (eg 7/9 HCP) > 1 NT (doesn't have to be 'balanced' for 'response'.");
+		alert("† w/o strgth for 2-level RESP (eg 7/9 HCP) > 1 NT (doesn't have to be 'balanced' for 'response').");
 	}
 	function rspMinor() {
 		alert("† Bidding/finding MAJOR more NB than supporting opener's minor (even w/ 'fit').");
@@ -57,6 +58,10 @@
 	function rspLongest() {
 		alert("Show LONGEST suit 1st evn if MINOR when > 2-level (shows game forcing stgth).");
 	}
+	function rspDENY() {
+		alert("† BOTH deny 4-card major!\n\n"+
+			  "† Most HELPFUL to show willingness to play NT: bal hnd, 10-12 HCP & suit stgth = 'descriptive' 2NT bid avail.");
+	}	
 	
 </script>
 
@@ -224,7 +229,8 @@
 									<dd>&emsp;† post minor open 1NT = min hnd & is <u>not</u> forcing</dd>
 									<dd>&emsp;† post major opn 1NT = min <u>or</u> inv & <u>is</u> forcing</dd>
 							<A onclick="alertMINORraise();" href="javascript:;">Minor Raises</A> &emsp;	
-							<A onclick="alert2NTresponse();" href="javascript:;">2&3NT Responses</A> 					
+							<A onclick="alert2NTresponse();" href="javascript:;">2&3NT Responses</A> &emsp;		
+								&#8678;<A style="text-decoration:none;" onclick="rspDENY();" href="javascript:;">&#9999;</A>	</font>				
 				</dt>
 			</dl>
 		<br>
