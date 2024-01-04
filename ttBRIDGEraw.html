@@ -71,6 +71,15 @@
 		alert("† OPEN 1 of a suit 1st!\n\n"+
 			  "† JUMP = bid one level higher than necessary.");
 	}	
+	function reopRAISE() {
+		alert("1/min; 2/inv; game/GF)\n\nBUT > just 1 if rspr showed GF!");
+	}
+	function reopRAISEnt() {
+		alert("† NOT A JUMP!\n\n"+
+			  "† Opnr can pass 1NT resp w/ 12-14 + minor open (can't be 25 HCP for gm) BUT w/ MAJ open 1NT is  FORCING (bid longer minor w/ bal hd.\n\n"+
+			  "[for 2NT rsp raise see p185]");
+	}
+	
 </script>
 
 </head>
@@ -275,7 +284,7 @@
 										&emsp;- <font color=gray>2 min +> enough</font><br>
 										&emsp;- inv + <i>good</i> min = enough<br></dd>									
 				</dt>
-				<dt>&#9632; <u>SHOW</u> shape & strength:	
+				<dt>&#9632; <u>SHOW</u> shape & strength post <b>rspr > new <u>strain</u> diff</b> fr opnr intent:	
 					<dd>&#9679; w/ <span style="background:lime;">1-suited</span> bid suit 2nd time<br>
 										&emsp;- cheap w/ min<br>
 										&emsp;- <span style="background:lime;">jump w/ inv</span><br>
@@ -303,6 +312,19 @@
 						- w/ 4-cd maj show @ 1-level before > NT!
 					</dd>
 				</dt>
+				
+				<dt>&#9632; <u>SHOW</u> post <b>rspr > <u>strain</u> opnr about</b> to bid:	
+					<dd>&#9679; if rspr > opnr's 2nd: opnr <b>raise</b> &#8678;<A style="text-decoration:none;" onclick="reopRAISE();" href="javascript:;">&#9999;</A>	</dd>
+					<dd>&#9679; if rspr > NT: opnr raising rspr 1NT = 18-19 HCP <b>balanced</b>.
+						 <font color=red>&#8678;</font><A style="text-decoration:none;" onclick="reopRAISEnt();" href="javascript:;">&#9999;</A>	
+						 <font color=silver>[2NT: p185]</font>
+					</dd>
+				</dt>				
+				<dt>&#9632; <u>SHOW</u> if rspr raises opnr suit <i>(fit found)</i>:	
+					<dd>&#9679; if rspr > single raise: . . .</dd>
+					
+					<dd>&#9679; if rspr > <b>limit raise</b> <i>(dbl jmp)</i>: . . .</dd>
+				</dt>				
 			</dl>	
 		<!--<br>-->
 		<sh>Responders Rebid</sh>
