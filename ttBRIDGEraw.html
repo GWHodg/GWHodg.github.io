@@ -79,6 +79,18 @@
 			  "† Opnr can pass 1NT resp w/ 12-14 + minor open (can't be 25 HCP for gm) BUT w/ MAJ open 1NT is  FORCING (bid longer minor w/ bal hd.\n\n"+
 			  "[for 2NT rsp raise see p185]");
 	}
+	function reopFITlimit() {
+		alert("'Limit raise' = inv hd (10-12 HCP).\n"+
+			  "If opnr = min (12-15): 12-13 +> enough for gm; 14-15 OK.\n"+
+			  "If opnr = inv+ must be enough.");
+	}
+	
+	function rerspTTL() {
+		alert("Can pick good contract using exchanged info!");
+	}
+	function rerspGMmnr() {
+		alert("Want 29 HCP for game if playing in MINOR suit!");	
+	}	
 	
 </script>
 
@@ -321,14 +333,37 @@
 					</dd>
 				</dt>				
 				<dt>&#9632; <u>SHOW</u> if rspr raises opnr suit <i>(fit found)</i>:	
-					<dd>&#9679; if rspr > single raise: . . .</dd>
+					<dd>&#9679; if rspr > single raise:<br>
+									&emsp;∆ min hd - pass<br>
+									&emsp;∆ inv hd - ^ 1 lvl<br>
+									&emsp;∆ GF hd - ^ to gm (or > 3NT post mnr ^)
+					</dd>
 					
-					<dd>&#9679; if rspr > <b>limit raise</b> <i>(dbl jmp)</i>: . . .</dd>
+					<dd>&#9679; if rspr > <b>limit raise</b> <i>(dbl jmp)</i>:
+									<font color=blue>&#8678;</font><A style="text-decoration:none;" onclick="reopFITlimit();" href="javascript:;">&#9999;</A>	
+									<br>
+									&emsp;∆ min hd - pass or ^ to gm <i>(or > 3NT)</i><br>
+									&emsp;∆ stonger hd - ^ to gm <i>(or > 3NT)</i><br>
+					</dd>
 				</dt>				
 			</dl>	
 		<!--<br>-->
-		<sh>Responders Rebid</sh>
-		<br>
+		<sh>Responders Rebid</sh><font color=black>&#8678;</font><A style="text-decoration:none;" onclick="rerspTTL();" href="javascript:;">&#x270D;</A>	<!-- &#9999; -->
+			<dl>
+				<dt>&#9632; <b>Do we know what <u>strain</u> to play?</b>
+						<dd>&#9679; Y: mjr suit avail.</dd>
+						<dd>&#9679; Y: no mjr <i>fit</i> BUT stgth in ea suit <b>(> NT)</b>.</dd>
+						<dd>&#9679; N: mjr fit not <i>confirmed</i>.</dd>
+				</dt>
+				<dt>&#9632; <b>Do we have enough <u>points for game</u>?</b>
+							<font color=black>&#8678;</font><A style="text-decoration:none;" onclick="rerspGMmnr();" href="javascript:;">&#9999;</A>	<!-- &#9999; -->
+						<dd>&#9679; Y: must have 25 HCP <i>(even w/ opnr @ btm of rng)</i>. Pick 'game contract'! </dd>
+						<dd>&#9679; N: +> 25 evn w/ opnr @ top of rng. STOP!</dd>
+						<dd>&#9679; ?: <b>dep</b> on where opnr is in rng. <i>(> inv bid).</i></dd>
+				</dt>				
+			<dl>		
+		
+		<!--<br>-->
 		<sh>BEYOND</sh>
 		<br>
 		<sh>Hand Evaluation</sh>
