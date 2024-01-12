@@ -1,0 +1,314 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>HCPcountC</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+	sh { font-size:20px; color:red; font-weight:bold; background:yellow; }
+	e { color:green; }
+	r { font-size:20px; color:brown; font-weight:bold; background:beige; }
+	bl { font-size:20px; color:blue; font-weight:bold; }
+	
+	dl {
+	  display:block;
+	  margin-top: 0;
+	  margin-bottom: 0em;
+	  margin-left: 0em;
+	  margin-right: 0em;
+	}
+	dd {
+		margin-left: 2.5em;
+		text-indent:-1.5em;
+	}
+	dt { margin-left: 1.1em; text-indent:-1.0em; }
+</style>
+
+<script type="text/javascript">
+	const hand = [];
+	var card1;	var card2;	
+
+	//alert(document.querySelectorAll('input[type="checkbox"]:checked').length);	
+	var checkNO;
+	
+	function enterCARDS() {
+		
+		//alert(document.querySelectorAll('input[type="checkbox"]:checked').length);
+		
+		for (var  n = 1; n < 53; n++) {
+			if (document.getElementById(n).checked==true) {
+				hand.push(n);		//alert(h+"s is true!");
+			}
+		}		
+		alert("'hand' array = "+hand);		
+		//document.getElementById("W1v").value = hand[0];
+		card2 = hand[1]; alert("card2 = "+card2);
+		convertCard();
+	}	
+
+	function convertCard() {
+		for (var  c = 0; c < 13; c++) {
+			//alert("Card #1 code = "+ hand[c]);
+			if (hand[c] === undefined) {alert("'hand["+c+"] is UNDEFINED!");}	
+			else {
+				document.getElementById("c"+ (c+1) +"#").innerHTML = hand[c];	
+				document.getElementById("c"+ (c+1) +"rank").style.color = "black";	// < ??
+				
+				if (hand[c]<13){ 
+					document.getElementById("c"+ (c+1) +"suit").innerHTML = "&spades;";	
+						document.getElementById("c"+ (c+1) +"suit").style.color = "black";	
+						document.getElementById("Wcard"+(c+1)).style.background = "white";	
+				}		
+				if (hand[c]>13 && hand[c]<27){ 
+					document.getElementById("c"+ (c+1) +"suit").innerHTML = "&hearts;";	
+						document.getElementById("c"+ (c+1) +"suit").style.color = "red";	
+						document.getElementById("Wcard"+(c+1)).style.background = "white";	
+				}					
+				if (hand[c]>26 && hand[c]<40){ 
+					document.getElementById("c"+ (c+1) +"suit").innerHTML = "&clubs;";	
+						document.getElementById("c"+ (c+1) +"suit").style.color = "black";	
+						document.getElementById("Wcard"+(c+1)).style.background = "moccasin";					
+				}					
+				if (hand[c]>39 && hand[c]<53){ 
+					document.getElementById("c"+ (c+1) +"suit").innerHTML = "&diams;";	
+						document.getElementById("c"+ (c+1) +"suit").style.color = "red";
+						document.getElementById("Wcard"+(c+1)).style.background = "moccasin";
+				}									
+				
+				if (hand[c]==1 || hand[c]==14 || hand[c]==27 || hand[c]==40) { 
+					document.getElementById("c"+ (c+1) +"rank").innerHTML = "A";	
+						//document.getElementById("c"+ (c+1) +"rank").style.color = "black";
+					}
+				if (hand[c]==2||hand[c]==15||hand[c]==28||hand[c]==41) {document.getElementById("c"+ (c+1) +"rank").innerHTML = "K";}	
+				if (hand[c]==3||hand[c]==16||hand[c]==29||hand[c]==42) {document.getElementById("c"+ (c+1) +"rank").innerHTML = "Q";}	
+				if (hand[c]==4||hand[c]==17||hand[c]==30||hand[c]==43) {document.getElementById("c"+ (c+1) +"rank").innerHTML = "J";}				
+				if (hand[c]==5||hand[c]==18||hand[c]==31||hand[c]==44) {document.getElementById("c"+ (c+1) +"rank").innerHTML = "10";}
+				if (hand[c]==6||hand[c]==19||hand[c]==32||hand[c]==45) {document.getElementById("c"+ (c+1) +"rank").innerHTML = "9";}	
+				if (hand[c]==7||hand[c]==20||hand[c]==33||hand[c]==46) {document.getElementById("c"+ (c+1) +"rank").innerHTML = "8";}			
+				if (hand[c]==8||hand[c]==21||hand[c]==34||hand[c]==47) {document.getElementById("c"+ (c+1) +"rank").innerHTML = "7";}			
+				if (hand[c]==9||hand[c]==22||hand[c]==35||hand[c]==48) {document.getElementById("c"+ (c+1) +"rank").innerHTML = "6";}
+				if (hand[c]==10||hand[c]==23||hand[c]==36||hand[c]==49) {document.getElementById("c"+ (c+1) +"rank").innerHTML = "5";}
+				if (hand[c]==11||hand[c]==24||hand[c]==37||hand[c]==50) {document.getElementById("c"+ (c+1) +"rank").innerHTML = "4";}
+				if (hand[c]==12||hand[c]==25||hand[c]==38||hand[c]==51) {document.getElementById("c"+ (c+1) +"rank").innerHTML = "3";}
+				if (hand[c]==13||hand[c]==26||hand[c]==39||hand[c]==52) {document.getElementById("c"+ (c+1) +"rank").innerHTML = "2";}			
+			}						
+			
+		}		
+		
+	}	
+
+	function limitCHECKS() {
+		//alert("Will TRY to limit # of checks to 13 . . .");
+					//checkNO = document.querySelectorAll('input[type="checkbox"]:checked').length;
+					//alert("'checkNO' var = "+checkNO);		
+		checkNO = document.querySelectorAll('input[type="checkbox"]:checked').length;
+		//alert("'checkNO' var = "+checkNO);
+		if (checkNO==11) {alert("You have entered 10 cards so far.");}
+		if (checkNO==13) {alert("This will be your 13th card entry!");}
+		if (checkNO>13) {alert("MORE THAN 13 cards have been entered.");}
+	}
+
+	//checkTOT = document.querySelectorAll('input[type="checkbox"]:checked').length;
+	//document.getElementById("totalCHECKED").value = "Total Boxes CHECKED: " + checkTOT;
+	
+	
+</script>
+
+</head>
+<body onLoad="window.scroll(0, 0)" style="width:320px; border:2px orange solid; border-radius:5px; padding:5px; margin-left:auto; margin-right:auto;"> <!-- height:640px;  border:3px orange outset;  border-radius:10px; -->	
+				
+				<!--		++++++++++++++++++++++++++++++++++++++++++++++++++     -->
+				
+				<h3>BRIDGE Hand <i>(Vn c)</i></h3>
+				<table id="WcdTBL" bgcolor='green' border='3' style='FONT-SIZE:normal; color:white;'>
+					<tr  bgcolor='silver' style='color:black; font-size:20px;'> 
+						<th>1</th> <th>2</th> <th>3</th> <th>4</th>
+						<th>5</th> <th>6</th> <th>7</th> <th>8</th> <th>9</th> <th>10</th> 
+						<th>11</th> <th>12</th>  <th>13</th> 
+					</tr>
+				<!--<?php include 'DLincWcds.php'; ?>-->
+					<tr>
+						<td align=center bgcolor='ivory' id='Wcard1'>
+							<span id="c1suit" style='color:gray; font-size:20px;'>S</span><br><!--suit-->
+							<!--<font style='color:red; font-size:20px;'>&diams;</font><br>-->
+							<span id="c1rank" style='color:gray; font-size:20px;'>r</span><br><!--rank-->
+							<span id="c1#" style='color:gray; font-size:8px;'>#</span>
+						</td>
+						<td align=center bgcolor='ivory' id='Wcard2'>
+							<span id="c2suit" style='color:gray; font-size:20px;'>S</span><br><!--suit-->
+							<!--<font style='color:red; font-size:20px;'>&diams;</font><br>-->
+							<span id="c2rank" style='color:gray; font-size:20px;'>r</span><br><!--rank-->
+							<span id="c2#" style='color:gray; font-size:8px;'>#</span>
+						</td>							
+						<td align=center bgcolor='ivory' id='Wcard3'>
+							<span id="c3suit" style='color:gray; font-size:20px;'>S</span><br><!--suit-->
+							<!--<font style='color:red; font-size:20px;'>&diams;</font><br>-->
+							<span id="c3rank" style='color:gray; font-size:20px;'>r</span><br><!--rank-->
+							<span id="c3#" style='color:gray; font-size:8px;'>#</span>
+						</td>													
+						<td align=center bgcolor='ivory' id='Wcard4'>
+							<span id="c4suit" style='color:gray; font-size:20px;'>S</span><br><!--suit-->
+							<!--<font style='color:red; font-size:20px;'>&diams;</font><br>-->
+							<span id="c4rank" style='color:gray; font-size:20px;'>r</span><br><!--rank-->
+							<span id="c4#" style='color:gray; font-size:8px;'>#</span>
+						</td>	
+						<td align=center bgcolor='ivory' id='Wcard5'>
+							<span id="c5suit" style='color:gray; font-size:20px;'>S</span><br><!--suit-->
+							<span id="c5rank" style='color:gray; font-size:20px;'>r</span><br><!--rank-->
+							<span id="c5#" style='color:gray; font-size:8px;'>#</span>
+						</td>	
+						<td align=center bgcolor='ivory' id='Wcard6'>
+							<span id="c6suit" style='color:gray; font-size:20px;'>S</span><br><!--suit-->
+							<span id="c6rank" style='color:gray; font-size:20px;'>r</span><br><!--rank-->
+							<span id="c6#" style='color:gray; font-size:8px;'>#</span>
+						</td>							
+						<td align=center bgcolor='ivory' id='Wcard7'>
+							<span id="c7suit" style='color:gray; font-size:20px;'>S</span><br><!--suit-->
+							<span id="c7rank" style='color:gray; font-size:20px;'>r</span><br><!--rank-->
+							<span id="c7#" style='color:gray; font-size:8px;'>#</span>
+						</td>							
+						<td align=center bgcolor='ivory' id='Wcard8'>
+							<span id="c8suit" style='color:gray; font-size:20px;'>S</span><br><!--suit-->
+							<span id="c8rank" style='color:gray; font-size:20px;'>r</span><br><!--rank-->
+							<span id="c8#" style='color:gray; font-size:8px;'>#</span>
+						</td>							
+						<td align=center bgcolor='ivory' id='Wcard9'>
+							<span id="c9suit" style='color:gray; font-size:20px;'>S</span><br><!--suit-->
+							<span id="c9rank" style='color:gray; font-size:20px;'>r</span><br><!--rank-->
+							<span id="c9#" style='color:gray; font-size:8px;'>#</span>
+						</td>							
+						<td align=center bgcolor='ivory' id='Wcard10'>
+							<span id="c10suit" style='color:gray; font-size:20px;'>S</span><br><!--suit-->
+							<span id="c10rank" style='color:gray; font-size:20px;'>r</span><br><!--rank-->
+							<span id="c10#" style='color:gray; font-size:8px;'>#</span>
+						</td>							
+						<td align=center bgcolor='ivory' id='Wcard11'>
+							<span id="c11suit" style='color:gray; font-size:20px;'>S</span><br><!--suit-->
+							<span id="c11rank" style='color:gray; font-size:20px;'>r</span><br><!--rank-->
+							<span id="c11#" style='color:gray; font-size:8px;'>#</span>
+						</td>							
+						<td align=center bgcolor='ivory' id='Wcard12'>
+							<span id="c12suit" style='color:gray; font-size:20px;'>S</span><br><!--suit-->
+							<span id="c12rank" style='color:gray; font-size:20px;'>r</span><br><!--rank-->
+							<span id="c12#" style='color:gray; font-size:8px;'>#</span>
+						</td>													
+						<td align=center bgcolor='ivory' id='Wcard13'>
+							<span id="c13suit" style='color:gray; font-size:20px;'>S</span><br><!--suit-->
+							<span id="c13rank" style='color:gray; font-size:20px;'>r</span><br><!--rank-->
+							<span id="c13#" style='color:gray; font-size:8px;'>#</span>
+						</td>						
+						<!--
+						<td align=center bgcolor='white' id='Wcard10'>
+							<font style='color:black; font-size:20px;'>&spades;</font><br>
+							<font style='color:black; font-size:20px;'>A</font><br>
+							<font style='color:green; font-size:8px;'>32</font>	 
+						</td>	
+						<td align=center bgcolor='moccasin' id='Wcard11'>
+							<font style='color:red; font-size:20px;'>&diams;</font><br>
+							<font style='color:black; font-size:20px;'>9</font><br>
+							<font style='color:green; font-size:8px;'>18</font>	 
+						</td>
+						<td align=center bgcolor='white' id='Wcard12'>
+							<font style='color:red; font-size:20px;'>&hearts;</font><br>
+							<font style='color:black; font-size:20px;'>Q</font><br>
+							<font style='color:green; font-size:8px;'>8</font>	 
+						</td>
+						<td align=center bgcolor='moccasin' id='Wcard13'>
+							<font style='color:black; font-size:20px;'>&clubs;</font><br>
+							<font style='color:black; font-size:20px;'>10</font><br>
+							<font style='color:green; font-size:8px;'>15</font>	 
+						</td>	
+						-->					
+					</tr>
+				</table>
+
+				
+					<!--
+					<TABLE>
+						<TR>
+							<TD><input id="W1v" style="text-align:center; background:linen; width:12px; font-size:12px;"></TD>
+								
+						</TR>
+					</TABLE>
+					-->
+
+	<TABLE border='3' align=center style='FONT-SIZE:25px; color:black; visibility:visible; zoom:100%;' bgcolor='ivory'>
+		<thead> 
+			<th></th> <th>&spades;</th> <th style="color:red;">&hearts;</th> <th>&clubs;</th> <th style="color:red;">&diams;</th>
+		</thead>
+		<tbody>
+			<TR><TD>2</TD> 
+				<TD><input type="checkbox" id="13"  onclick="limitCHECKS();">
+				</TD><TD><input type="checkbox" id="26" onclick="limitCHECKS();"></TD> 
+				<TD><input type="checkbox" id="39" onclick="limitCHECKS();"></TD>
+				<TD><input type="checkbox" id="52" onclick="limitCHECKS();"></TD>
+			</TR>
+			<TR><TD>3</TD> 
+				<TD><input type="checkbox" id="12" onclick="limitCHECKS();"></TD>
+				<TD><input type="checkbox" id="25" onclick="limitCHECKS();"></TD> 
+				<TD><input type="checkbox" id="38" onclick="limitCHECKS();"></TD><TD><input type="checkbox" id="51" onclick="limitCHECKS();"></TD>
+			</TR>
+			<TR><TD>4</TD> 
+				<TD><input type="checkbox" id="11" onclick="limitCHECKS();"></TD>
+				<TD><input type="checkbox" id="24" onclick="limitCHECKS();"></TD> 
+				<TD><input type="checkbox" id="37" onclick="limitCHECKS();"></TD><TD><input type="checkbox" id="50" onclick="limitCHECKS();"></TD>
+			</TR>
+			<TR><TD>5</TD> 
+				<TD><input type="checkbox" id="10" onclick="limitCHECKS();"></TD><TD><input type="checkbox" id="23" onclick="limitCHECKS();"></TD> 
+				<TD><input type="checkbox" id="36" onclick="limitCHECKS();"></TD><TD><input type="checkbox" id="49" onclick="limitCHECKS();"></TD>
+			</TR>
+			<TR><TD>6</TD> 
+				<TD><input type="checkbox" id=9 onclick="limitCHECKS();"></TD><TD><input type="checkbox" id=22 onclick="limitCHECKS();"></TD> 
+				<TD><input type="checkbox" id="35" onclick="limitCHECKS();"></TD><TD><input type="checkbox" id="48" onclick="limitCHECKS();"></TD>
+			</TR>			
+			<TR><TD>7</TD> 
+				<TD><input type="checkbox" id=8 onclick="limitCHECKS();" ></TD><TD><input type="checkbox" id="21" onclick="limitCHECKS();" ></TD> 
+				<TD><input type="checkbox" id="34" onclick="limitCHECKS();"></TD><TD><input type="checkbox" id="47" onclick="limitCHECKS();" ></TD>
+			</TR>			
+			<TR><TD>8</TD> 
+				<TD><input type="checkbox" id=7 onclick="limitCHECKS();"></TD><TD><input type="checkbox" id=20 onclick="limitCHECKS();"></TD> 
+				<TD><input type="checkbox" id="33" onclick="limitCHECKS();"></TD><TD><input type="checkbox" id="46" onclick="limitCHECKS();"></TD>
+			</TR>
+			<TR><TD>9</TD> 
+				<TD><input type="checkbox" id="6" onclick="limitCHECKS();"></TD><TD><input type="checkbox" id=19 onclick="limitCHECKS();"></TD> 
+				<TD><input type="checkbox" id="32" onclick="limitCHECKS();"></TD><TD><input type="checkbox" id="45" onclick="limitCHECKS();"></TD>
+			</TR>
+			<TR><TD>10</TD> 
+				<TD><input type="checkbox" id="5" onclick="limitCHECKS();"></TD><TD><input type="checkbox" id="18" onclick="limitCHECKS();"></TD> 
+				<TD><input type="checkbox" id="31" onclick="limitCHECKS();"></TD><TD><input type="checkbox" id="44" onclick="limitCHECKS();"></TD>
+			</TR>
+			<TR><TD>J</TD> 
+				<TD><input type="checkbox" id="4" onclick="limitCHECKS();"></TD><TD><input type="checkbox" id="17" onclick="limitCHECKS();"></TD> 
+				<TD><input type="checkbox" id="30" onclick="limitCHECKS();"></TD><TD><input type="checkbox" id="43" onclick="limitCHECKS();"></TD>
+			</TR>
+			<TR><TD>Q</TD> 
+				<TD><input type="checkbox" id="3" onclick="limitCHECKS();"></TD><TD><input type="checkbox" id="16" onclick="limitCHECKS();"></TD> 
+				<TD><input type="checkbox" id="29" onclick="limitCHECKS();"></TD><TD><input type="checkbox" id="42" onclick="limitCHECKS();"></TD>
+			</TR>						
+			<TR><TD>K</TD> 
+				<TD><input type="checkbox" id="2" onclick="limitCHECKS();"></TD><TD><input type="checkbox" id="15" onclick="limitCHECKS();"></TD> 
+				<TD><input type="checkbox" id="28" onclick="limitCHECKS();"></TD><TD><input type="checkbox" id="41" onclick="limitCHECKS();"></TD>
+			</TR>
+			<TR><TD>A</TD> 
+				<TD><input type="checkbox" id="1" onclick="limitCHECKS();"></TD><TD><input type="checkbox" id="14" onclick="limitCHECKS();"></TD> 
+				<TD><input type="checkbox" id="27" onclick="limitCHECKS();"></TD><TD><input type="checkbox" id="40" onclick="limitCHECKS();"></TD>
+			</TR>			
+
+			<TR>
+				<TD colspan=4 align=center>
+					<button id='ENTERbtn' onclick="enterCARDS()" style="font-size:18px; border:3px solid black; border-radius:10px; color:red;"><b>Enter</b></button>
+				</TD>
+				<TD>
+					<input id="totalCHECKED" style="width:20px;">
+				</TD>
+			</TR>			
+		</tbody>			
+	</TABLE>
+
+	
+
+				<!--<input type="text" id="p2NAME" onchange="localStorage.setItem('g2NAME',this.value);"  onblur="setHC('p2',this.value)" tabindex="31" style="background:beige; width:50%;" maxlength=3 value="">-->
+				
+		
+</body>
+</html>
