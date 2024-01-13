@@ -94,6 +94,26 @@
 			}						
 			
 		}		
+	
+		var HCP=0;					/* A: 1, 14; 27; 40" */
+		if (document.getElementById(1).checked==true) {HCP=HCP+4}; 
+			if (document.getElementById(14).checked==true) {HCP=HCP+4};
+			if (document.getElementById(27).checked==true) {HCP=HCP+4};
+			if (document.getElementById(40).checked==true) {HCP=HCP+4};
+		if (document.getElementById(2).checked==true) {HCP=HCP+3}; 
+			if (document.getElementById(15).checked==true) {HCP=HCP+3};
+			if (document.getElementById(28).checked==true) {HCP=HCP+3};
+			if (document.getElementById(41).checked==true) {HCP=HCP+3};			
+		if (document.getElementById(3).checked==true) {HCP=HCP+2}; 
+			if (document.getElementById(16).checked==true) {HCP=HCP+2};
+			if (document.getElementById(29).checked==true) {HCP=HCP+2};
+			if (document.getElementById(42).checked==true) {HCP=HCP+2};	
+		if (document.getElementById(4).checked==true) {HCP=HCP+1}; 
+			if (document.getElementById(17).checked==true) {HCP=HCP+1};
+			if (document.getElementById(30).checked==true) {HCP=HCP+1};
+			if (document.getElementById(43).checked==true) {HCP=HCP+1};				
+		alert("HCP total = "+HCP);
+		document.getElementById("totalHCP").value = HCP;
 		
 	}	
 
@@ -298,8 +318,9 @@
 				<TD colspan=4 align=center>
 					<button id='ENTERbtn' onclick="enterCARDS()" style="font-size:18px; border:3px solid black; border-radius:10px; color:red;"><b>Enter</b></button>
 				</TD>
-				<TD>
-					<input id="totalCHECKED" style="width:20px;">
+				<TD align=center>
+					<!--<font size=2>HCP:</font><br>-->
+					<input id="totalHCP" style="width:20px; text-align:center;">
 				</TD>
 			</TR>			
 		</tbody>			
