@@ -27,7 +27,9 @@
 <script type="text/javascript">
 	const hand = [];
 	var card1;	var card2;	
-
+	
+	var HCP = 0;
+	
 	//alert(document.querySelectorAll('input[type="checkbox"]:checked').length);	
 	var checkNO;
 	
@@ -95,7 +97,7 @@
 			
 		}		
 	
-		var HCP=0;					/* A: 1, 14; 27; 40" */
+		//var HCP=0;					/* A: 1, 14; 27; 40" */
 		if (document.getElementById(1).checked==true) {HCP=HCP+4}; 
 			if (document.getElementById(14).checked==true) {HCP=HCP+4};
 			if (document.getElementById(27).checked==true) {HCP=HCP+4};
@@ -139,10 +141,46 @@
 			if (document.getElementById(40).checked==true) {HCP=HCP+4};	*/
 		}
 		for (var  h = 13; h < 26; h++) {if (document.getElementById(h+1).checked==true) {SUITnoH=SUITnoH+1};}//#hts
-		for (var  d = 26; d < 39; d++) {if (document.getElementById(d+1).checked==true) {SUITnoD=SUITnoD+1};}//#hts
-		for (var  b = 39; b < 52; b++) {if (document.getElementById(b+1).checked==true) {SUITnoC=SUITnoC+1};}//#hts		
+		for (var  d = 26; d < 39; d++) {if (document.getElementById(d+1).checked==true) {SUITnoC=SUITnoC+1};}//#hts
+		for (var  b = 39; b < 52; b++) {if (document.getElementById(b+1).checked==true) {SUITnoD=SUITnoD+1};}//#hts		
 		//alert("# cards:\n\tSPADES: "+SUITnoS+"\n\tHEARTS: "+SUITnoH+"\n\tDIAMONDS: "+SUITnoD+"\n\tCLUBS: "+SUITnoC);
-		document.getElementById("shape").value=SUITnoS+";"+SUITnoH+";"+SUITnoD+";"+SUITnoC; 
+		document.getElementById("shape").value=SUITnoS+"="+SUITnoH+"="+SUITnoC+"="+SUITnoD; 
+		
+				/* 3 balanced shapes: 4-3-3-3; 4-4-3-2; 5-3-3-2 (Opener's Rebid; p 143) */
+				SHAPEarray = [SUITnoS, SUITnoH, SUITnoD, SUITnoC];  //alert("'SHAPEarray' = "+SHAPEarray);
+				sortedSHAPE = SHAPEarray.sort(function(a, b){return b - a});
+					alert("sortedSHAPE array = '"+sortedSHAPE+"'");
+					
+					
+		alert("You have "+HCP+" HCPs & card shape is "+sortedSHAPE+"\n\n"+
+			  "(balanced shapes = 4-3-3-3, 4-4-3-2 & 5-3-3-2)"); 
+		if ( (sortedSHAPE=="4,3,3,3") || (sortedSHAPE=="4,3,3,2") || (sortedSHAPE=="5,3,3,2") ) {
+				alert("Your shape ("+sortedSHAPE+") is BALANCED!");
+				
+		}
+		/*if ( (sortedSHAPE!=="4,3,3,3") || (sortedSHAPE!=="4,3,3,2") || (sortedSHAPE!=="5,3,3,2") ) {
+				alert("Your shape is NOT balanced");
+		}*/
+		else {
+				alert("Your shape is NOT balanced");
+				
+		}
+			
+		/*	  
+		if (HCP < 12) { alert("You have < 12 HCP. PASS!"); }
+		else { 
+			alert("You have > 12 HCP. BID!"); 
+			if ( sortedSHAPE=="4,3,3,3" || sortedSHAPE=="4,3,3,2" || sortedSHAPE=="5,3,3,2") {
+				alert("Your shape is BALANCED");
+			}
+			else {
+				alert("Your shape is NOT balanced");
+			}
+	
+		}
+		*/
+			
+			  
 	}	
 
 	function saved() {
@@ -256,10 +294,12 @@
 		//convertCard();
 		
 		for (let x = 0; x < 13; x++) {
-			document.getElementById(+numbers[x]).checked = true;
+			document.getElementById(+numbers[x]).checked = true;			// < problem here Jan 14! **
 		}
 		
 		//hand = []; // < empty array!
+			//A.length = 0
+			//A.splice(0,A.length)
 		/*
 		for (let i = 0; i < r; i++) {
 		  do {
@@ -382,7 +422,7 @@
 				<TD><input type="checkbox" id="52" onclick="limitCHECKS();" 
 					onchange="localStorage.setItem('52',this.value);"></TD>
 				
-				<TD align=center><input id="shape" style="width:40px; text-align:center;"></TD>
+				<TD align=center><input id="shape" style="width:60px; text-align:center;"></TD>
 				
 			</TR>
 			<TR><TD>3</TD> 
@@ -464,7 +504,7 @@
 					onchange="localStorage.setItem(31,this.value);"></TD>
 				<TD><input type="checkbox" id="44" onclick="limitCHECKS();" 
 					onchange="localStorage.setItem(44,this.value);"></TD>
-				<TD rowspan=1>
+				<TD rowspan=1 align=center>
 					<button id='RELOADbtn' onclick="reload()" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:gray; background:ivory; border:2px solid silver; border-radius:10px; opacity:100%;"><b>reload</b></button>
 				</TD>									
 			</TR>
@@ -504,7 +544,7 @@
 					onchange="localStorage.setItem(28,this.value);"></TD>
 				<TD><input type="checkbox"  id="41" onclick="limitCHECKS();" 
 					onchange="localStorage.setItem(41,this.value);"></TD>
-				<TD rowspan=2>
+				<TD rowspan=2 align=center>
 					<button id='CLEARbtn' onclick="clearSAVED()" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">CLEAR<br>saved</button>
 				</TD>
 			</TR>
