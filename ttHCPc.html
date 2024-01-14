@@ -54,22 +54,22 @@
 				document.getElementById("c"+ (c+1) +"#").innerHTML = hand[c];	
 				document.getElementById("c"+ (c+1) +"rank").style.color = "black";	// < ??
 				
-				if (hand[c]<13){ 
+				if (hand[c]<14){ // < was <13 ** NB! Jan 13/24 
 					document.getElementById("c"+ (c+1) +"suit").innerHTML = "&spades;";	
 						document.getElementById("c"+ (c+1) +"suit").style.color = "black";	
 						document.getElementById("Wcard"+(c+1)).style.background = "white";	
 				}		
-				if (hand[c]>13 && hand[c]<27){ 
+				if (hand[c]>13 && hand[c]<27){ //< was <27
 					document.getElementById("c"+ (c+1) +"suit").innerHTML = "&hearts;";	
 						document.getElementById("c"+ (c+1) +"suit").style.color = "red";	
 						document.getElementById("Wcard"+(c+1)).style.background = "white";	
 				}					
-				if (hand[c]>26 && hand[c]<40){ 
+				if (hand[c]>26 && hand[c]<40){ //< was <40
 					document.getElementById("c"+ (c+1) +"suit").innerHTML = "&clubs;";	
 						document.getElementById("c"+ (c+1) +"suit").style.color = "black";	
 						document.getElementById("Wcard"+(c+1)).style.background = "moccasin";					
 				}					
-				if (hand[c]>39 && hand[c]<53){ 
+				if (hand[c]>39 && hand[c]<53){ //< was <53 
 					document.getElementById("c"+ (c+1) +"suit").innerHTML = "&diams;";	
 						document.getElementById("c"+ (c+1) +"suit").style.color = "red";
 						document.getElementById("Wcard"+(c+1)).style.background = "moccasin";
@@ -154,35 +154,20 @@
 			  "\t25 (3h) = "+localStorage.getItem(25)+"\n"+
 			  "\t38 (3c) = "+localStorage.getItem(38)+"\n"+
 			  "\t51 (3d) = "+localStorage.getItem(51));
-			  
-		//if (document.getElementById(38).checked=="on") {alert("checkbox 38 (3d) is checked (true)!");}			
+		/*	  
 		if (localStorage.getItem(13)=="on") { document.getElementById(13).checked = true; }
-		if (localStorage.getItem(26)=="on") { document.getElementById(26).checked = true; }		
-				/*
-				if (localStorage.getItem(38)=="on") {
-					alert("checkbox 38 (3d) is checked (true)!");
-					// Check:
-					document.getElementById(38).checked = true;
-					// Uncheck:
-					//document.getElementById("checkbox").checked = false;
-				}
-				*/
+		if (localStorage.getItem(26)=="on") { document.getElementById(26).checked = true; }				
 		if (localStorage.getItem(39)=="on") { document.getElementById(39).checked = true; }
-		if (localStorage.getItem(52)=="on") { document.getElementById(52).checked = true; }
-		
-		//if (localStorage.getItem(25)=="on") {alert("checkbox 25 (3h) is checked (true)!");}		
-		//if (localStorage.getItem(12)=="on") {alert("checkbox 12 (3s) is checked (true)!");}		
+		if (localStorage.getItem(52)=="on") { document.getElementById(52).checked = true; }	
 		if (localStorage.getItem(12)=="on") { document.getElementById(12).checked = true; }
 		if (localStorage.getItem(25)=="on") { document.getElementById(25).checked = true; }
 		if (localStorage.getItem(38)=="on") { document.getElementById(38).checked = true; }
 		if (localStorage.getItem(51)=="on") { document.getElementById(51).checked = true; }
-		
-		//document.getElementById("g2s").value = whCHC;
-		/*
-		document.getElementById("p1NAME").value = localStorage.getItem("g1NAME");
-		document.getElementById("p1HC").value = localStorage.getItem("g1HC");
-		var vG1h1s = localStorage.getItem("g1H1s");	var vG2h1s = localStorage.getItem("g2H1s");
 		*/
+		for (var  n = 1; n < 53; n++) {
+			if (localStorage.getItem(n)=="on") { document.getElementById(n).checked = true; }	
+		}
+		
 	}
 
 	function clearSAVED() {
@@ -195,26 +180,20 @@
 		    reply = "NO!";
 		  }
   		  alert(reply);
-		/*	  
-		if ( reply=="YES!") {
-			for (var h = 1; h < 19; h++) {
-					for (var n = 1; n < 6; n++) {
-						localStorage.setItem('g'+n+'H'+h+'s',""); document.getElementById("p"+n+"h"+h).value = "";
-					}
-			}
-		}
-		*/
+		  
 		// 13 26 39 52. 12 25 38 51.  
-		localStorage.setItem(13,""); //document.getElementById("p"+n+"h"+h).value = "";
-			//document.getElementById(21).checked = false; document.getElementById(34).checked = false;	//<7	
-			document.getElementById(13).checked = false; 
-		localStorage.setItem(26,""); document.getElementById(26).checked = false;	//<2
+		localStorage.setItem(13,""); document.getElementById(13).checked = false; 
+				localStorage.setItem(26,""); document.getElementById(26).checked = false;	//<2
 				localStorage.setItem(39,""); document.getElementById(39).checked = false;
 				localStorage.setItem(52,""); document.getElementById(52).checked = false;	
 		localStorage.setItem(12,""); document.getElementById(12).checked = false;	//<3
 				localStorage.setItem(25,""); document.getElementById(25).checked = false;
 				localStorage.setItem(38,""); document.getElementById(38).checked = false;
-				localStorage.setItem(51,""); document.getElementById(51).checked = false;		
+				localStorage.setItem(51,""); document.getElementById(51).checked = false;	
+		for (var  n = 1; n < 53; n++) {
+			localStorage.setItem(n,""); document.getElementById(n).checked = false;
+		}			
+						
 	}
 
 	function PRESETS() {
@@ -239,6 +218,31 @@
 		}
 		
 	}	
+
+	function RANDOM() {
+		var RANDno = Math.floor(Math.random() * (53 - 1) ) + 1;
+		alert("Return a random number between min (included) and max (excluded)\n\n"+
+			  "RANDno = "+RANDno);	// 1 > 52 	
+			//function getRndInteger(min, max) {
+  			//return Math.floor(Math.random() * (max - min) ) + min;
+		var numbers = []; // new empty array
+		var min, max, r, n, p;
+		min = 1;
+		max = 53;
+		r = 13; // how many numbers you want to extract
+		for (let i = 0; i < r; i++) {
+		  do {
+		    n = Math.floor(Math.random() * (max - min + 1)) + min;
+		    p = numbers.includes(n);
+		    if(!p){
+		      numbers.push(n);
+		    }
+		  }
+		  while(p);
+		}
+		//console.log(numbers.join(" - "));
+		alert("'numbers' array = "+numbers);
+	}
 	
 </script>
 
@@ -247,7 +251,7 @@
 				
 				<!--		++++++++++++++++++++++++++++++++++++++++++++++++++     -->
 				
-				<h3>BRIDGE Hand <i>(Vn c)</i></h3>
+				<h3>BRIDGE Hand <i>(Vn c+)</i></h3>
 				<table id="WcdTBL" bgcolor='green' border='3'  align=center style='FONT-SIZE:normal; color:white;'>
 					<tr  bgcolor='silver' style='color:black; font-size:20px;'> 
 						<th>1</th> <th>2</th> <th>3</th> <th>4</th>
@@ -358,63 +362,124 @@
 					onchange="localStorage.setItem(51,this.value);"></TD>
 			</TR>
 			<TR><TD>4</TD> 
-				<TD><input type="checkbox" id="11" onclick="limitCHECKS();"></TD>
-				<TD><input type="checkbox" id="24" onclick="limitCHECKS();"></TD> 
-				<TD><input type="checkbox" id="37" onclick="limitCHECKS();"></TD><TD><input type="checkbox" id="50" onclick="limitCHECKS();"></TD>
+				<TD><input type="checkbox" id="11" onclick="limitCHECKS();"
+					onchange="localStorage.setItem(11,this.value);"></TD>
+				<TD><input type="checkbox" id="24" onclick="limitCHECKS();"
+					onchange="localStorage.setItem(24,this.value);"></TD> 
+				<TD><input type="checkbox" id="37" onclick="limitCHECKS();"
+					onchange="localStorage.setItem(37,this.value);"></TD>
+				<TD><input type="checkbox" id="50" onclick="limitCHECKS();"
+					onchange="localStorage.setItem(50,this.value);"></TD>
 			</TR>
 			<TR><TD>5</TD> 
-				<TD><input type="checkbox" id="10" onclick="limitCHECKS();"></TD><TD><input type="checkbox" id="23" onclick="limitCHECKS();"></TD> 
-				<TD><input type="checkbox" id="36" onclick="limitCHECKS();"></TD><TD><input type="checkbox" id="49" onclick="limitCHECKS();"></TD>
+				<TD><input type="checkbox" id="10" onclick="limitCHECKS();"
+					onchange="localStorage.setItem(10,this.value);"></TD>				
+				<TD><input type="checkbox" id="23" onclick="limitCHECKS();"
+					onchange="localStorage.setItem(23,this.value);"></TD> 
+				<TD><input type="checkbox" id="36" onclick="limitCHECKS();"
+					onchange="localStorage.setItem(36,this.value);"></TD>				
+				<TD><input type="checkbox" id="49" onclick="limitCHECKS();"
+					onchange="localStorage.setItem(49,this.value);"></TD>
 			</TR>
 			<TR><TD>6</TD> 
-				<TD><input type="checkbox" id=9 onclick="limitCHECKS();"></TD><TD><input type="checkbox" id=22 onclick="limitCHECKS();"></TD> 
-				<TD><input type="checkbox" id="35" onclick="limitCHECKS();"></TD><TD><input type="checkbox" id="48" onclick="limitCHECKS();"></TD>
+				<TD><input type="checkbox" id=9 onclick="limitCHECKS();"
+					onchange="localStorage.setItem(9,this.value);"></TD>				
+				<TD><input type="checkbox" id=22 onclick="limitCHECKS();"
+					onchange="localStorage.setItem(22,this.value);"></TD> 
+				<TD><input type="checkbox" id="35" onclick="limitCHECKS();"
+					onchange="localStorage.setItem(35,this.value);"></TD>				
+				<TD><input type="checkbox" id="48" onclick="limitCHECKS();"
+					onchange="localStorage.setItem(48,this.value);"></TD>
 			</TR>			
 			<TR><TD>7</TD> 
-				<TD><input type="checkbox"  checked id=8 onclick="limitCHECKS();" >	</TD>
-				<TD><input type="checkbox"  checked id="21" onclick="limitCHECKS();" ></TD> 
-				<TD><input type="checkbox" checked id="34" onclick="limitCHECKS();"></TD>
-				<TD><input type="checkbox"  checked id="47" onclick="limitCHECKS();" ></TD>
+				<TD><input type="checkbox"  id=8 onclick="limitCHECKS();"
+					onchange="localStorage.setItem(8,this.value);" >	</TD>
+				<TD><input type="checkbox"   id="21" onclick="limitCHECKS();"
+					onchange="localStorage.setItem(21,this.value);" ></TD> 
+				<TD><input type="checkbox"  id="34" onclick="limitCHECKS();"
+					onchange="localStorage.setItem(34,this.value);"></TD>
+				<TD><input type="checkbox"   id="47" onclick="limitCHECKS();"
+					onchange="localStorage.setItem(47,this.value);" ></TD>
 			</TR>			
 			<TR><TD>8</TD> 
-				<TD><input type="checkbox"  checked id=7 onclick="limitCHECKS();"></TD>
-				<TD><input type="checkbox" checked id=20 onclick="limitCHECKS();"></TD> 
-				<TD><input type="checkbox"  checked id="33" onclick="limitCHECKS();"></TD>
-				<TD><input type="checkbox" checked id="46" onclick="limitCHECKS();"></TD>
+				<TD><input type="checkbox"   id=7 onclick="limitCHECKS();"
+					onchange="localStorage.setItem(7,this.value);"></TD>
+				<TD><input type="checkbox"  id=20 onclick="limitCHECKS();"
+					onchange="localStorage.setItem(20,this.value);"></TD> 
+				<TD><input type="checkbox"  id="33" onclick="limitCHECKS();"
+					onchange="localStorage.setItem(33,this.value);"></TD>
+				<TD><input type="checkbox"  id="46" onclick="limitCHECKS();"				
+					onchange="localStorage.setItem(46,this.value);"></TD>
 			</TR>
 			<TR><TD>9</TD> 
-				<TD><input type="checkbox" id="6" onclick="limitCHECKS();"></TD><TD><input type="checkbox" id=19 onclick="limitCHECKS();"></TD> 
-				<TD><input type="checkbox" id="32" onclick="limitCHECKS();"></TD><TD><input type="checkbox" id="45" onclick="limitCHECKS();"></TD>
+				<TD><input type="checkbox" id="6" onclick="limitCHECKS();"
+					onchange="localStorage.setItem(6,this.value);"></TD>
+				<TD><input type="checkbox" id=19 onclick="limitCHECKS();"
+					onchange="localStorage.setItem(19,this.value);"></TD> 
+				<TD><input type="checkbox" id="32" onclick="limitCHECKS();" 
+					onchange="localStorage.setItem(32,this.value);"></TD>
+				<TD><input type="checkbox" id="45" onclick="limitCHECKS();" 
+					onchange="localStorage.setItem(45,this.value);"></TD>
 			</TR>
 			<TR><TD>10</TD> 
-				<TD><input type="checkbox" id="5" onclick="limitCHECKS();"></TD><TD><input type="checkbox" id="18" onclick="limitCHECKS();"></TD> 
-				<TD><input type="checkbox" id="31" onclick="limitCHECKS();"></TD><TD><input type="checkbox" id="44" onclick="limitCHECKS();"></TD>
+				<TD><input type="checkbox" id="5" onclick="limitCHECKS();" 
+					onchange="localStorage.setItem(5,this.value);"></TD>		
+				<TD><input type="checkbox" id="18" onclick="limitCHECKS();" 
+					onchange="localStorage.setItem(18,this.value);"></TD> 
+				<TD><input type="checkbox" id="31" onclick="limitCHECKS();" 
+					onchange="localStorage.setItem(31,this.value);"></TD>
+				<TD><input type="checkbox" id="44" onclick="limitCHECKS();" 
+					onchange="localStorage.setItem(44,this.value);"></TD>
 			</TR>
 			<TR><TD>J</TD> 
-				<TD><input type="checkbox" id="4" onclick="limitCHECKS();"></TD><TD><input type="checkbox" id="17" onclick="limitCHECKS();"></TD> 
-				<TD><input type="checkbox" id="30" onclick="limitCHECKS();"></TD><TD><input type="checkbox" id="43" onclick="limitCHECKS();"></TD>
+				<TD><input type="checkbox" id="4" onclick="limitCHECKS();" 
+					onchange="localStorage.setItem(4,this.value);"></TD>
+				<TD><input type="checkbox" id="17" onclick="limitCHECKS();" 
+					onchange="localStorage.setItem(17,this.value);"></TD> 
+				<TD><input type="checkbox" id="30" onclick="limitCHECKS();" 
+					onchange="localStorage.setItem(30,this.value);"></TD>
+				<TD><input type="checkbox" id="43" onclick="limitCHECKS();" 
+					onchange="localStorage.setItem(43,this.value);"></TD>
+				<TD rowspan=1>
+					<button id='RANDOMbtn' onclick="RANDOM()" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:white; background:black; border:2px solid silver; border-radius:10px; opacity:100%;"><b>Random</b></button>
+				</TD>				
 			</TR>
 			<TR><TD>Q</TD> 
-				<TD><input type="checkbox" id="3" onclick="limitCHECKS();"></TD><TD><input type="checkbox" id="16" onclick="limitCHECKS();"></TD> 
-				<TD><input type="checkbox" id="29" onclick="limitCHECKS();"></TD>
-				<TD><input type="checkbox" checked id="42" onclick="limitCHECKS();"></TD>
+				<TD><input type="checkbox" id="3" onclick="limitCHECKS();" 
+					onchange="localStorage.setItem(3,this.value);"></TD>
+				
+				<TD><input type="checkbox" id="16" onclick="limitCHECKS();" 
+					onchange="localStorage.setItem(16,this.value);"></TD> 
+				<TD><input type="checkbox" id="29" onclick="limitCHECKS();" 
+					onchange="localStorage.setItem(29,this.value);"></TD>
+				<TD><input type="checkbox" id="42" onclick="limitCHECKS();" 
+					onchange="localStorage.setItem(42,this.value);"></TD>
 				<TD rowspan=1>
 					<button id='PRESETSbtn' onclick="PRESETS()" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:white; background:dodgerblue; border:2px solid black; border-radius:10px; opacity:100%;"><b>Presets</b></button>
 				</TD>
 			</TR>						
 			<TR><TD>K</TD> 
-				<TD><input type="checkbox" checked id="2" onclick="limitCHECKS();"></TD>
-				<TD><input type="checkbox" checked id="15" onclick="limitCHECKS();"></TD> 
-				<TD><input type="checkbox" checked id="28" onclick="limitCHECKS();"></TD>
-				<TD><input type="checkbox" checked id="41" onclick="limitCHECKS();"></TD>
+				<TD><input type="checkbox"  id="2" onclick="limitCHECKS();" 
+					onchange="localStorage.setItem(2,this.value);"></TD>
+				<TD><input type="checkbox"  id="15" onclick="limitCHECKS();" 
+					onchange="localStorage.setItem(15,this.value);"></TD> 
+				<TD><input type="checkbox"  id="28" onclick="limitCHECKS();" 
+					onchange="localStorage.setItem(28,this.value);"></TD>
+				<TD><input type="checkbox"  id="41" onclick="limitCHECKS();" 
+					onchange="localStorage.setItem(41,this.value);"></TD>
 				<TD rowspan=2>
 					<button id='CLEARbtn' onclick="clearSAVED()" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">CLEAR<br>saved</button>
 				</TD>
 			</TR>
 			<TR><TD>A</TD> 
-				<TD><input type="checkbox" id="1" onclick="limitCHECKS();"></TD><TD><input type="checkbox" id="14" onclick="limitCHECKS();"></TD> 
-				<TD><input type="checkbox" id="27" onclick="limitCHECKS();"></TD><TD><input type="checkbox" id="40" onclick="limitCHECKS();"></TD>
-				
+				<TD><input type="checkbox" id="1" onclick="limitCHECKS();" 
+					onchange="localStorage.setItem(1,this.value);"></TD>
+				<TD><input type="checkbox" id="14" onclick="limitCHECKS();" 
+					onchange="localStorage.setItem(14,this.value);"></TD> 
+				<TD><input type="checkbox" id="27" onclick="limitCHECKS();" 
+					onchange="localStorage.setItem(27,this.value);"></TD>
+				<TD><input type="checkbox" id="40" onclick="limitCHECKS();" 
+					onchange="localStorage.setItem(40,this.value);"></TD>				
 			</TR>			
 
 			<TR>
