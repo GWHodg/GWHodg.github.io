@@ -129,7 +129,7 @@
 	}
 
 	function BID() {
-		alert("Will try to code opening bid.");
+		//alert("Will try to code opening bid.");
 		var SUITnoS = 0; var SUITnoH = 0; var SUITnoD = 0; var SUITnoC = 0;
 		for (var  s = 0; s < 13; s++) {
 			if (document.getElementById(s+1).checked==true) {SUITnoS=SUITnoS+1}; 	//< # spades
@@ -141,7 +141,7 @@
 		for (var  h = 13; h < 26; h++) {if (document.getElementById(h+1).checked==true) {SUITnoH=SUITnoH+1};}//#hts
 		for (var  d = 26; d < 39; d++) {if (document.getElementById(d+1).checked==true) {SUITnoD=SUITnoD+1};}//#hts
 		for (var  b = 39; b < 52; b++) {if (document.getElementById(b+1).checked==true) {SUITnoC=SUITnoC+1};}//#hts		
-		alert("# cards:\n\tSPADES: "+SUITnoS+"\n\tHEARTS: "+SUITnoH+"\n\tDIAMONDS: "+SUITnoD+"\n\tCLUBS: "+SUITnoC);
+		//alert("# cards:\n\tSPADES: "+SUITnoS+"\n\tHEARTS: "+SUITnoH+"\n\tDIAMONDS: "+SUITnoD+"\n\tCLUBS: "+SUITnoC);
 		document.getElementById("shape").value=SUITnoS+";"+SUITnoH+";"+SUITnoD+";"+SUITnoC; 
 	}	
 
@@ -169,8 +169,11 @@
 		}
 		
 	}
-
+	function reload() { window.location.reload(true); }
 	function clearSAVED() {
+		//Force a hard reload to clear the cache if supported by the browser
+		//window.location.reload(true);
+		//location.reload();
 		/*alert("Will CLEAR 'saved' inputs here!\n\n"+
 			  "g1H1s PRE 'clear' = " + localStorage.getItem("g1H1s"));*/
 		  let reply;
@@ -193,7 +196,13 @@
 		for (var  n = 1; n < 53; n++) {
 			localStorage.setItem(n,""); document.getElementById(n).checked = false;
 		}			
-						
+
+				for (var  n = 0; n < 13; n++) {
+					document.getElementById("c"+ (n+1) +"#").innerHTML = "#";	
+					document.getElementById("c"+ (n+1) +"rank").innerHTML = "r";	
+					document.getElementById("c"+ (n+1) +"suit").innerHTML = "S";	
+				}
+		//location.reload();
 	}
 
 	function PRESETS() {
@@ -220,9 +229,9 @@
 	}	
 
 	function RANDOM() {
+		//location.reload();	
 		var RANDno = Math.floor(Math.random() * (53 - 1) ) + 1;
-		alert("Return a random number between min (included) and max (excluded)\n\n"+
-			  "RANDno = "+RANDno);	// 1 > 52 	
+		//alert("Return a random number between min (included) and max (excluded)\n\n"+"RANDno = "+RANDno);	// 1 > 52 	
 			//function getRndInteger(min, max) {
   			//return Math.floor(Math.random() * (max - min) ) + min;
 		var numbers = []; // new empty array
@@ -242,6 +251,31 @@
 		}
 		//console.log(numbers.join(" - "));
 		alert("'numbers' array = "+numbers);
+		
+		//hand = numbers.clone();		//hand=numbers;
+		//convertCard();
+		
+		for (let x = 0; x < 13; x++) {
+			document.getElementById(+numbers[x]).checked = true;
+		}
+		
+		//hand = []; // < empty array!
+		/*
+		for (let i = 0; i < r; i++) {
+		  do {
+		    n = Math.floor(Math.random() * (max - min + 1)) + min;
+		    p = hand.includes(n);
+		    if(!p){
+		      hand.push(n);
+		    }
+		  }
+		  while(p);
+		}
+		alert("'hand' array = "+hand);		
+		convertCard();
+		*/
+
+		
 	}
 	
 </script>
@@ -430,11 +464,14 @@
 					onchange="localStorage.setItem(31,this.value);"></TD>
 				<TD><input type="checkbox" id="44" onclick="limitCHECKS();" 
 					onchange="localStorage.setItem(44,this.value);"></TD>
+				<TD rowspan=1>
+					<button id='RELOADbtn' onclick="reload()" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:gray; background:ivory; border:2px solid silver; border-radius:10px; opacity:100%;"><b>reload</b></button>
+				</TD>									
 			</TR>
 			<TR><TD>J</TD> 
 				<TD><input type="checkbox" id="4" onclick="limitCHECKS();" 
 					onchange="localStorage.setItem(4,this.value);"></TD>
-				<TD><input type="checkbox" id="17" onclick="limitCHECKS();" 
+				<TD><input type="checkbox" id="17" onclick="limitCHECKS();"  
 					onchange="localStorage.setItem(17,this.value);"></TD> 
 				<TD><input type="checkbox" id="30" onclick="limitCHECKS();" 
 					onchange="localStorage.setItem(30,this.value);"></TD>
