@@ -135,10 +135,6 @@
 		var SUITnoS = 0; var SUITnoH = 0; var SUITnoD = 0; var SUITnoC = 0;
 		for (var  s = 0; s < 13; s++) {
 			if (document.getElementById(s+1).checked==true) {SUITnoS=SUITnoS+1}; 	//< # spades
-			//if (document.getElementById(1).checked==true) {SUITnoS=SUITnoS+1}; 	//< As
-			/*if (document.getElementById(14).checked==true) {HCP=HCP+4};
-			if (document.getElementById(27).checked==true) {HCP=HCP+4};
-			if (document.getElementById(40).checked==true) {HCP=HCP+4};	*/
 		}
 		for (var  h = 13; h < 26; h++) {if (document.getElementById(h+1).checked==true) {SUITnoH=SUITnoH+1};}//#hts
 		for (var  d = 26; d < 39; d++) {if (document.getElementById(d+1).checked==true) {SUITnoC=SUITnoC+1};}//#hts
@@ -146,62 +142,64 @@
 		//alert("# cards:\n\tSPADES: "+SUITnoS+"\n\tHEARTS: "+SUITnoH+"\n\tDIAMONDS: "+SUITnoD+"\n\tCLUBS: "+SUITnoC);
 		document.getElementById("shape").value=SUITnoS+"="+SUITnoH+"="+SUITnoC+"="+SUITnoD; 
 		
-				/* 3 balanced shapes: 4-3-3-3; 4-4-3-2; 5-3-3-2 (Opener's Rebid; p 143) */
+				/* 3 balanced shapes: 4-3-3-3; (4-4-3-2); 5-3-3-2 (Opener's Rebid; p 143) */
 				SHAPEarray = [SUITnoS, SUITnoH, SUITnoD, SUITnoC];  //alert("'SHAPEarray' = "+SHAPEarray);
 				sortedSHAPE = SHAPEarray.sort(function(a, b){return b - a});
-					alert("sortedSHAPE array = '"+sortedSHAPE+"'");
-					
-					
+					//alert("sortedSHAPE array = '"+sortedSHAPE+"'");
+		var blncdYN = "?";								
 		alert("You have "+HCP+" HCPs & card shape is "+sortedSHAPE+"\n\n"+
 			  "(balanced shapes = 4-3-3-3, 4-4-3-2 & 5-3-3-2)"); 
-		if ( (sortedSHAPE=="4,3,3,3") || (sortedSHAPE=="4,3,3,2") || (sortedSHAPE=="5,3,3,2") ) {
-				alert("Your shape ("+sortedSHAPE+") is BALANCED!");
-				
+		if ( (sortedSHAPE=="4,3,3,3") || (sortedSHAPE=="4,4,3,2") || (sortedSHAPE=="5,3,3,2") ) {
+				alert("Your shape ("+sortedSHAPE+") is BALANCED!");	
+				blncdYN = "Y";			
 		}
-		/*if ( (sortedSHAPE!=="4,3,3,3") || (sortedSHAPE!=="4,3,3,2") || (sortedSHAPE!=="5,3,3,2") ) {
-				alert("Your shape is NOT balanced");
-		}*/
 		else {
 				alert("Your shape is NOT balanced");
-				
+				blncdYN = "N";				
 		}
 			
-		/*	  
+						/* ========================= */
+						
 		if (HCP < 12) { alert("You have < 12 HCP. PASS!"); }
 		else { 
-			alert("You have > 12 HCP. BID!"); 
-			if ( sortedSHAPE=="4,3,3,3" || sortedSHAPE=="4,3,3,2" || sortedSHAPE=="5,3,3,2") {
-				alert("Your shape is BALANCED");
+			//alert("You have > 12 HCP. BID!"); 
+			if ( blncdYN=="Y" ) {
+				alert("You have > 12 HCP & your shape is balanced. BID!");
+				if ( HCP>14 && HCP<18 ) { alert("w/ bal hd + HCP 15-17 bid 1 NT.") }
+				else if ( HCP==20 || HCP==21 ) { alert("w/ bal hd + HCP 20 or 21 bid 2 NT.") }
+				else { alert("Bid 1 of suit w/ HCP +> 15-17, 20 or 21.") 
+					if ( SUITnoS >= 5 ) { 
+						alert("w/ 5 spades bid 1S");
+						document.getElementById("open").value= "1S";	
+					}
+					else if ( SUITnoH >= 5 ) { alert("w/ 5 hearts bid 1H") }
+					else if ( SUITnoD >= 4 ) { alert("w/ min 4 diamonds bid 1D") }
+					else if ( SUITnoD >= 3 ) { alert("w/ min 3 clubs bid 1C") }					
+				}
 			}
 			else {
-				alert("Your shape is NOT balanced");
+				alert("You have > 12 HCP & can BID but your shape is NOT balanced. Can't bid NT!");
+				if ( SUITnoS >= 5 ) { alert("w/ at least 5 spades bid 1S") }
+				if ( SUITnoH >= 5 ) { alert("w/ min 5 hearts bid 1H") }
+				if ( SUITnoD >= 4 ) { alert("w/ min 4 diamonds bid 1D") }
+				if ( SUITnoD >= 3 ) { alert("w/ min 3 clubs bid 1C") }
 			}
 	
 		}
-		*/
 			
 			  
 	}	
 
 	function saved() {
-		alert("SAVED:\n\n 13 (2s) = "+localStorage.getItem(13)+"\n"+
+		/* alert("SAVED:\n\n 13 (2s) = "+localStorage.getItem(13)+"\n"+
 			  "\t26 (2h) = "+localStorage.getItem(26)+"\n"+
 			  "\t'39' (2c) = "+localStorage.getItem("39")+"\n"+
 			  "\t'52' (2d) = "+localStorage.getItem("52")+"\n\n"+
 			  "\t12 (3s) = "+localStorage.getItem(12)+"\n"+
 			  "\t25 (3h) = "+localStorage.getItem(25)+"\n"+
 			  "\t38 (3c) = "+localStorage.getItem(38)+"\n"+
-			  "\t51 (3d) = "+localStorage.getItem(51));
-		/*	  
-		if (localStorage.getItem(13)=="on") { document.getElementById(13).checked = true; }
-		if (localStorage.getItem(26)=="on") { document.getElementById(26).checked = true; }				
-		if (localStorage.getItem(39)=="on") { document.getElementById(39).checked = true; }
-		if (localStorage.getItem(52)=="on") { document.getElementById(52).checked = true; }	
-		if (localStorage.getItem(12)=="on") { document.getElementById(12).checked = true; }
-		if (localStorage.getItem(25)=="on") { document.getElementById(25).checked = true; }
-		if (localStorage.getItem(38)=="on") { document.getElementById(38).checked = true; }
-		if (localStorage.getItem(51)=="on") { document.getElementById(51).checked = true; }
-		*/
+			  "\t51 (3d) = "+localStorage.getItem(51)); */
+			
 		for (var  n = 1; n < 53; n++) {
 			if (localStorage.getItem(n)=="on") { document.getElementById(n).checked = true; }	
 		}
@@ -434,6 +432,9 @@
 					onchange="localStorage.setItem(38,this.value);"></TD>
 				<TD><input type="checkbox" id="51" onclick="limitCHECKS();" 
 					onchange="localStorage.setItem(51,this.value);"></TD>
+					
+				<TD align=center><font size=4><b>OPN&nbsp;RSP</b></font></TD>					
+					
 			</TR>
 			<TR><TD>4</TD> 
 				<TD><input type="checkbox" id="11" onclick="limitCHECKS();"
@@ -444,6 +445,12 @@
 					onchange="localStorage.setItem(37,this.value);"></TD>
 				<TD><input type="checkbox" id="50" onclick="limitCHECKS();"
 					onchange="localStorage.setItem(50,this.value);"></TD>
+					
+				<TD align=center>
+					<input id="open" style="width:30px; text-align:center; font-weight:bold;"><!--value="2NT"-->
+					<input id="resp" style="width:30px; text-align:center; font-weight:bold;"><!--value="3&spades;"-->
+				</TD>	
+					
 			</TR>
 			<TR><TD>5</TD> 
 				<TD><input type="checkbox" id="10" onclick="limitCHECKS();"
@@ -454,6 +461,12 @@
 					onchange="localStorage.setItem(36,this.value);"></TD>				
 				<TD><input type="checkbox" id="49" onclick="limitCHECKS();"
 					onchange="localStorage.setItem(49,this.value);"></TD>
+					
+				<TD align=center>
+					<input id="open2" style="width:30px; text-align:center; font-weight:bold;">
+					<input id="resp2" style="width:30px; text-align:center; font-weight:bold;">
+				</TD>						
+					
 			</TR>
 			<TR><TD>6</TD> 
 				<TD><input type="checkbox" id=9 onclick="limitCHECKS();"
