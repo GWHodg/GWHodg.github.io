@@ -10,6 +10,9 @@
 	r { font-size:20px; color:brown; font-weight:bold; background:beige; }
 	bl { font-size:20px; color:blue; font-weight:bold; }
 	
+	td { font-size:12px; text-align:center; } /* font-weight:bold; */
+	/* th { font-size:12px; } */
+	
 	dl {
 	  display:block;
 	  margin-top: 0;
@@ -25,6 +28,8 @@
 </style>
 
 <script type="text/javascript">
+
+
 	const hand = [];
 	var card1;	var card2;	
 	
@@ -147,14 +152,16 @@
 				sortedSHAPE = SHAPEarray.sort(function(a, b){return b - a});
 					//alert("sortedSHAPE array = '"+sortedSHAPE+"'");
 		var blncdYN = "?";								
-		alert("You have "+HCP+" HCPs & card shape is "+sortedSHAPE+"\n\n"+
-			  "(balanced shapes = 4-3-3-3, 4-4-3-2 & 5-3-3-2)"); 
+		/* alert("You have "+HCP+" HCPs & card shape is "+sortedSHAPE+"\n\n"+
+			  "(balanced shapes = 4-3-3-3, 4-4-3-2 & 5-3-3-2)"); */
+		var noteA = "You have "+HCP+" HCPs.\nCard shape is "+sortedSHAPE+
+					" (balanced shapes = 4-3-3-3, 4-4-3-2 & 5-3-3-2)";
 		if ( (sortedSHAPE=="4,3,3,3") || (sortedSHAPE=="4,4,3,2") || (sortedSHAPE=="5,3,3,2") ) {
-				alert("Your shape ("+sortedSHAPE+") is BALANCED!");	
+				alert(noteA+"\n\nYour shape ("+sortedSHAPE+") is BALANCED!");	
 				blncdYN = "Y";			
 		}
 		else {
-				alert("Your shape is NOT balanced");
+				alert(noteA+"\n\nYour shape is NOT balanced");
 				blncdYN = "N";				
 		}
 			
@@ -165,24 +172,51 @@
 			//alert("You have > 12 HCP. BID!"); 
 			if ( blncdYN=="Y" ) {
 				alert("You have > 12 HCP & your shape is balanced. BID!");
-				if ( HCP>14 && HCP<18 ) { alert("w/ bal hd + HCP 15-17 bid 1 NT.") }
-				else if ( HCP==20 || HCP==21 ) { alert("w/ bal hd + HCP 20 or 21 bid 2 NT.") }
+				if ( HCP>14 && HCP<18 ) { 
+					alert("w/ bal hd + HCP 15-17 bid 1 NT.") 
+					document.getElementById("open").value= "1NT";
+				}
+				else if ( HCP==20 || HCP==21 ) { 
+					alert("w/ bal hd + HCP 20 or 21 bid 2 NT.") 
+					document.getElementById("open").value= "2NT";
+				}
 				else { alert("Bid 1 of suit w/ HCP +> 15-17, 20 or 21.") 
 					if ( SUITnoS >= 5 ) { 
 						alert("w/ 5 spades bid 1S");
 						document.getElementById("open").value= "1S";	
 					}
-					else if ( SUITnoH >= 5 ) { alert("w/ 5 hearts bid 1H") }
-					else if ( SUITnoD >= 4 ) { alert("w/ min 4 diamonds bid 1D") }
-					else if ( SUITnoD >= 3 ) { alert("w/ min 3 clubs bid 1C") }					
+					else if ( SUITnoH >= 5 ) { 
+						alert("w/ 5 hearts bid 1H");
+						document.getElementById("open").value= "1H";
+					}
+					else if ( SUITnoD >= 4 ) { 
+						alert("w/ min 4 diamonds bid 1D") 
+						document.getElementById("open").value= "1D";
+					}
+					else if ( SUITnoD >= 3 ) { 
+						alert("w/ min 3 clubs bid 1C") 
+						document.getElementById("open").value= "1C";
+					}					
 				}
 			}
 			else {
 				alert("You have > 12 HCP & can BID but your shape is NOT balanced. Can't bid NT!");
-				if ( SUITnoS >= 5 ) { alert("w/ at least 5 spades bid 1S") }
-				if ( SUITnoH >= 5 ) { alert("w/ min 5 hearts bid 1H") }
-				if ( SUITnoD >= 4 ) { alert("w/ min 4 diamonds bid 1D") }
-				if ( SUITnoD >= 3 ) { alert("w/ min 3 clubs bid 1C") }
+				if ( SUITnoS >= 5 ) { 
+					alert("w/ at least 5 spades bid 1S") 
+					document.getElementById("open").value= "1S";
+				}
+				else if ( SUITnoH >= 5 ) { 
+					alert("w/ min 5 hearts bid 1H") 
+					document.getElementById("open").value= "1H";
+				}
+				else if ( SUITnoD >= 4 ) { 
+					alert("w/ min 4 diamonds bid 1D") 
+					document.getElementById("open").value= "1D";
+				}
+				else if ( SUITnoD >= 3 ) { 
+					alert("w/ min 3 clubs bid 1C") 
+					document.getElementById("open").value= "1C";
+				}
 			}
 	
 		}
@@ -242,7 +276,31 @@
 	}
 
 	function PRESETS() {
-		//alert("Set or clear 13 preset checkbox inputs.")			
+		//alert("Set or clear 13 preset checkbox inputs.")	
+		alert("Will TRY to set/clear 13 checkboxes > 17 HCP & balanced (5-3-3-2) hand.");		
+		if (document.getElementById(2).checked==true) {		// FOR 16 HCP & BALANCED (5-3-3-2):
+			document.getElementById(2).checked = false; document.getElementById(15).checked = false; //4K>12HCP
+				document.getElementById(28).checked = false; document.getElementById(41).checked = false; 
+			document.getElementById(3).checked = false; document.getElementById(17).checked = false; //1Q+2J>4HCP
+				document.getElementById(16).checked = false; 			
+			document.getElementById(19).checked = false; document.getElementById(21).checked = false; //+2H>5
+				document.getElementById(36).checked = false; //+1C>2			
+			document.getElementById(13).checked = false; //+1S>3
+			document.getElementById(52).checked = false; //+1D>2
+			document.getElementById(38).checked = false; //+1C>3 <*		
+		}
+		else {
+			document.getElementById(2).checked = true; document.getElementById(15).checked = true; //4K>12HCP
+				document.getElementById(28).checked = true; document.getElementById(41).checked = true; 
+			document.getElementById(3).checked = true; document.getElementById(17).checked = true; //1Q+2J>4HCP
+				document.getElementById(16).checked = true; 			
+			document.getElementById(19).checked = true; document.getElementById(21).checked = true; //+2H>5
+				document.getElementById(36).checked = true; //+1C>2						
+			document.getElementById(13).checked = true; //+1S>3
+			document.getElementById(52).checked = true; //+1D>2
+			document.getElementById(38).checked = true; //+1C>3 <*		
+			}
+		/*
 		if (document.getElementById(8).checked==true) {		
 			document.getElementById(8).checked = false; document.getElementById(21).checked = false; // < 7
 				document.getElementById(34).checked = false; document.getElementById(47).checked = false;
@@ -261,7 +319,7 @@
 				document.getElementById(28).checked = true; document.getElementById(41).checked = true;
 				document.getElementById(42).checked = true; // > Qd			
 		}
-		
+		*/
 	}	
 
 	function RANDOM() {
@@ -326,9 +384,10 @@
 				<h3>BRIDGE Hand <i>(Vn c+)</i></h3>
 				<table id="WcdTBL" bgcolor='green' border='3'  align=center style='FONT-SIZE:normal; color:white;'>
 					<tr  bgcolor='silver' style='color:black; font-size:20px;'> 
-						<th>1</th> <th>2</th> <th>3</th> <th>4</th>
-						<th>5</th> <th>6</th> <th>7</th> <th>8</th> <th>9</th> <th>10</th> 
-						<th>11</th> <th>12</th>  <th>13</th> 
+						<td>1</td> <td>2</td> <td>3</td> <td>4</td>
+						<td>5</td> <td>6</td> <td>7</td> <td>8</td> <td>9</td> 
+						<td>10</td> 
+						<td>11</td> <td>12</td>  <td>13</td> 
 					</tr>
 				<!--<?php include 'DLincWcds.php'; ?>-->
 					<tr>
@@ -408,7 +467,7 @@
 		<thead> 
 			<th></th> <th>&spades;</th> <th style="color:red;">&hearts;</th> <th>&clubs;</th> <th style="color:red;">&diams;</th>
 				<TH><!--<font size=2>BIDS</font>-->
-					<button id='BIDbtn' onclick="BID()" style="font-size:15px; border:2px solid black; border-radius:5px; color:white; background:black;"><b>Bid</b></button>				
+					<button id='BIDbtn' onclick="BID()" onkeypress="" style="font-size:15px; border:2px solid black; border-radius:5px; color:white; background:black;"><b>Bid</b></button>				
 				</TH>
 		</thead>
 		<tbody>
