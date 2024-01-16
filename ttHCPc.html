@@ -5,6 +5,14 @@
 <title>HCPcountC</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+
+		div.DROPclass {
+			border:3px inset slategray; border-radius:10px; /*width:200px;*/ height:200px; overflow:scroll; background:yellow;
+			/*margin:auto;*/ visibility:hidden; position:fixed; left:50%; top:30%; transform: translate(-50%, -50%);
+			width:20%; /*zoom:100%;*/
+			 /*position: relative; display: inline-block;*/
+		}	
+		
 	sh { font-size:20px; color:red; font-weight:bold; background:yellow; }
 	e { color:green; }
 	r { font-size:20px; color:brown; font-weight:bold; background:beige; }
@@ -29,6 +37,47 @@
 
 <script type="text/javascript">
 
+function myFunction(event) {
+  let key = event.key;
+  alert("The key was: " + key);
+  //document.getElementById("demo").innerHTML = "The key was: " + key;
+  if ( key=="`" ) { respBIDa() } 
+}
+function respBIDa() {
+	//alert("Will try to call 'respBIDa' fn after '`' keypress 'event'!");
+	alert("'respBIDa' fn called after 'resp' input focus!");
+	document.getElementById("resp").value="";
+	if ( document.getElementById("open").value!="1S" ) { 
+		//document.getElementById("resp").value="";
+		//document.getElementById("resp").reset();
+		document.getElementById("resp").value = "1S";
+	}
+	else { 
+		document.getElementById("resp").value = "";
+		document.getElementById("resp").value= "2C"; 
+	}
+	
+}
+	function showDROP(text) {
+		document.getElementById("DROPdiv").innerHTML="<span style='float:right;'><a onclick='showDROP()''><b><font size=7>&times;</font></b></a></span>";
+		
+		if (document.getElementById("DROPdiv").style.visibility=="visible") {
+			document.getElementById("DROPdiv").style.visibility="hidden"; 
+			//document.getElementById("DROPcheck").style.visibility="hidden";
+			
+			//document.getElementById("pDone").style.visibility = "hidden";
+		}		
+		else {
+			document.getElementById("DROPdiv").style.visibility="visible";
+		}
+		
+		document.getElementById("DROPdiv").innerHTML=
+			document.getElementById("DROPdiv").innerHTML+"<br>"+text;
+		//hideMENU();		
+	}		
+	
+	
+	
 
 	const hand = [];
 	var card1;	var card2;	
@@ -467,7 +516,7 @@
 		<thead> 
 			<th></th> <th>&spades;</th> <th style="color:red;">&hearts;</th> <th>&clubs;</th> <th style="color:red;">&diams;</th>
 				<TH><!--<font size=2>BIDS</font>-->
-					<button id='BIDbtn' onclick="BID()" onkeypress="" style="font-size:15px; border:2px solid black; border-radius:5px; color:white; background:black;"><b>Bid</b></button>				
+					<button id='BIDbtn' onclick="BID()" style="font-size:15px; border:2px solid black; border-radius:5px; color:white; background:black;"><b>Bid</b></button>				
 				</TH>
 		</thead>
 		<tbody>
@@ -506,10 +555,14 @@
 					onchange="localStorage.setItem(50,this.value);"></TD>
 					
 				<TD align=center>
-					<input id="open" style="width:30px; text-align:center; font-weight:bold;"><!--value="2NT"-->
-					<input id="resp" style="width:30px; text-align:center; font-weight:bold;"><!--value="3&spades;"-->
+					<input id="open" style="width:30px; text-align:center; font-weight:bold;" 
+						onclick="showDROP('<b>OPENING</b>:<br><br> '+
+						'Need 12 HCP. 15 + bal > 1NT. > 1S/1H w/ 5 cards. Otherwise > longest suit.')"><!--value="2NT"-->
+					<input id="resp" style="width:30px; text-align:center; font-weight:bold; background:silver;" onfocus="respBIDa()"  
+						onclick="showDROP('<b>RESPONDING</b>:<br><br> w/ <b><u>6+ HCP</u></b> if can`t raise opener`s major (3 cards) '+'bid <u>new suit</u> <i>(4 cards)</i>. Else > 1NT <i>(10+HCP > 2NT)</i>. '+
+						  'Can raise minor open if have 4.')">
 				</TD>	
-					
+					 
 			</TR>
 			<TR><TD>5</TD> 
 				<TD><input type="checkbox" id="10" onclick="limitCHECKS();"
@@ -522,8 +575,10 @@
 					onchange="localStorage.setItem(49,this.value);"></TD>
 					
 				<TD align=center>
-					<input id="open2" style="width:30px; text-align:center; font-weight:bold;">
-					<input id="resp2" style="width:30px; text-align:center; font-weight:bold;">
+					<input id="open2" style="width:30px; text-align:center; font-weight:bold;"
+						onclick="showDROP('<b>OPENER REBID</b>:<br><br> '+
+						'Show shape & strength!')">
+					<input id="resp2" style="width:30px; text-align:center; font-weight:bold;  background:silver;">
 				</TD>						
 					
 			</TR>
@@ -646,5 +701,17 @@
 		</tbody>			
 	</TABLE>
 	
+	
+	<!-- 	√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√ \/ DROP BOX \/ √√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√	  -->
+	
+	<div class="DROPclass" id="DROPdiv" style= "">
+			<!-- position = 'fixed'; left = "700px"; top = "100px"; -->		
+		<font size=5><b>Bidding Help</b></font>
+				<span style="float:right; padding-right:10px; cursor:pointer;  background:yellow;  color:black; font-size:30px;">
+						<a onclick="showDROP()"><b>&times;</b></a>
+				</span><br>
+		<!--Put stuff here . . -->
+	</div>
+		
 </body>
 </html>
