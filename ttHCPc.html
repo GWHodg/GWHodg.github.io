@@ -541,7 +541,7 @@ function respBIDa() {
 				<TD><input type="checkbox" id="51" onclick="limitCHECKS();" 
 					onchange="localStorage.setItem(51,this.value);"></TD>
 					
-				<TD align=center><font size=4><b>OPN&nbsp;RSP</b></font></TD>					
+				<TD align=center style="background:blue; color:white;"><font size=4><b>OPN&nbsp;RSP</b></font></TD>					
 					
 			</TR>
 			<TR><TD>4</TD> 
@@ -554,7 +554,7 @@ function respBIDa() {
 				<TD><input type="checkbox" id="50" onclick="limitCHECKS();"
 					onchange="localStorage.setItem(50,this.value);"></TD>
 					
-				<TD align=center>
+				<TD align=center style="background:blue;">
 					<input id="open" style="width:30px; text-align:center; font-weight:bold;" 
 						onclick="showDROP('<b>OPENING</b>:<br><br> '+
 						'Need 12 HCP. 15 + bal > 1NT. > 1S/1H w/ 5 cards. Otherwise > longest suit.')"><!--value="2NT"-->
@@ -574,11 +574,16 @@ function respBIDa() {
 				<TD><input type="checkbox" id="49" onclick="limitCHECKS();"
 					onchange="localStorage.setItem(49,this.value);"></TD>
 					
-				<TD align=center>
+				<TD align=center style="background:blue;">
 					<input id="open2" style="width:30px; text-align:center; font-weight:bold;"
-						onclick="showDROP('<b>OPENER REBID</b>:<br><br> '+
-						'Show shape & strength!')">
-					<input id="resp2" style="width:30px; text-align:center; font-weight:bold;  background:silver;">
+						onclick="showDROP('<b>OPENER REBID</b>:<br>'+
+						'Show shape [<i>bal v unbal (1-3-<u>suited</u> > 4 lgth)</i>] & strength <i>(min = <B>12 HCP</b>)</i>!<br>'+
+						'<ul><li>rsp > <u>new strain</u>:<br>&emsp;w/ bal hd > NT<br>&emsp;w/ 1-suited > bid 2nd time<br>&emsp;w/ 2-suited bid 2nd suit<br></li>'+
+						    '<li>rsp raises opnr suit </i>(fit)</i>:<br>&emsp;pass or raise</li>'+
+						'</ul')">
+					<input id="resp2" style="width:30px; text-align:center; font-weight:bold;  background:silver;"
+						onclick="showDROP('<b>RESPONDER REBID</b>:<br>'+
+						'? strain <i>(mjr fit or NT)</i><br>? pts for game <i>(25)</i>')">
 				</TD>						
 					
 			</TR>
