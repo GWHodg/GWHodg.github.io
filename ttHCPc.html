@@ -101,6 +101,12 @@ function respBIDa() {
 		document.getElementById("resp").value= "2C"; 
 	}
 	
+	//document.getElementById("reopenPopup").innerHTML = "5NT!"; // < test **
+	//document.getElementById("pop2div").innerText = "Walter"; // < test **
+	//document.getElementById("test8a").innerText = "Walter"; // < test8a **
+	
+	
+	
 }
 	function showDROP(text) {
 		document.getElementById("DROPdiv").innerHTML="<span style='float:right;'><a onclick='showDROP()''><b><font size=7>&times;</font></b></a></span>";
@@ -650,18 +656,6 @@ function respBIDa() {
 					onchange="localStorage.setItem(35,this.value);"></TD>				
 				<TD><input type="checkbox" id="48" onclick="limitCHECKS();"
 					onchange="localStorage.setItem(48,this.value);"></TD>
-				<TD>
-					<div class="popup" onclick="myFunction('reopenPopup')">xx
-					  	<span class="popuptext" id="reopenPopup"> <!-- reopenPopup -->
-							OPENER REBID</b>:<br>
-							Show shape [<i>bal v unbal (1-3-<u>suited</u> > 4 lgth)</i>] & strength <i>(min = <B>12 HCP</b>)</i>!<br>
-							<dl><dt>&#9632; rsp > <u>new strain</u>:</dt><dd>&#9679; w/ bal hd > NT</dd>
-							<dd>&#9679; w/ 1-suited > bid 2nd time</dd> <dd>&#9679; w/ 2-suited bid 2nd suit<br></dd>
-							<dt>&#9632; rsp raises opnr suit </i>(fit)</i>:</dt><dd><dd>&#9679; pass or raise</dd></dl>
-				  		</span>
-					</div>	
-				</TD>					
-				
 			</TR>			
 			<TR><TD>7</TD> 
 				<TD><input type="checkbox"  id=8 onclick="limitCHECKS();"
@@ -674,13 +668,13 @@ function respBIDa() {
 					onchange="localStorage.setItem(47,this.value);" ></TD>
 					
 				<TD>
-					<div class="popup" onclick="myFunction('myPopup')">Popup Test!
+					<!--<div class="popup" onclick="myFunction('myPopup')">Popup Test!
 					  	<span class="popuptext" id="myPopup">
 							Walt Hodgins' Simple Popup<br>
 					  		Can we get a 2nd line in here?<br>
 							This is a <u>3rd</u> line!
 				  		</span>
-					</div>	
+					</div>-->
 				</TD>					
 					
 					
@@ -694,6 +688,30 @@ function respBIDa() {
 					onchange="localStorage.setItem(33,this.value);"></TD>
 				<TD><input type="checkbox"  id="46" onclick="limitCHECKS();"				
 					onchange="localStorage.setItem(46,this.value);"></TD>
+				<TD>
+					<div class="popup" id="HELP" onclick="myFunction('reopenPopup')">Bidding <u>HELP</u>
+					  	<span class="popuptext" id="reopenPopup">
+							<b>OPENING</b>:<br>
+							Need 12 HCP. 15 + bal > 1NT. > 1S/1H w/ 5 cards. Otherwise > longest suit.<br>
+							<br>
+							<b>RESPONDING</b>:<br> 
+							w/ <b><u>6+ HCP</u></b> if can`t raise opener`s major (3 cards) '+'bid <u>new suit</u> <i>(4 cards)</i>. Else > 1NT <i>(10+HCP > 2NT)</i>.<br>
+							<br>
+							<b>OPENER REBID</b>:<br>
+							Show shape [<i>bal v unbal (1-3-<u>suited</u> > 4 lgth)</i>] & strength <i>(min = <b>12 HCP</b>)</i>!<br>
+							<dl>
+								<dt>&#9632; rsp > <u>new strain</u>:</dt>
+									<dd>&#9679; w/ bal hd > NT</dd>
+									<dd>&#9679; w/ 1-suited > bid 2nd time</dd> 
+									<dd>&#9679; w/ 2-suited bid 2nd suit<br></dd>
+								<dt>&#9632; rsp raises opnr suit </i>(fit)</i>:</dt><dd><dd>&#9679; pass or raise</dd>
+							</dl>
+							<br>
+							<b>RESPONDER REBID</b>:<br>
+							? strain <i>(mjr fit or NT)</i><br>? pts for game <i>(25)</i>
+				  		</span>
+					</div>	
+				</TD>					
 			</TR>
 			<TR><TD>9</TD> 
 				<TD><input type="checkbox" id="6" onclick="limitCHECKS();"
