@@ -375,6 +375,8 @@ function respBIDa() {
 					document.getElementById("c"+ (n+1) +"suit").innerHTML = "S";	
 				}
 		//location.reload();
+		document.getElementById("CHECKcount").value = 0;	
+		
 	}
 
 	function PRESETS() {
@@ -482,6 +484,15 @@ function respBIDa() {
 		  	//var popup = document.getElementById("myPopup");
 		  popup.classList.toggle("show");
 	}
+
+	function CHECKcount() {
+		alert("Will try to count number of checkboxes that are checked.");
+		var checkCOUNT = document.querySelectorAll('input[type="checkbox"]:checked').length;
+		//alert("'checkNO' var = "+checkNO);
+		//if (checkNO==11) {alert("You have entered 10 cards so far.");}
+		document.getElementById("CHECKcount").value=checkCOUNT;
+			
+	}	
 	
 </script>
 
@@ -722,6 +733,12 @@ function respBIDa() {
 					onchange="localStorage.setItem(32,this.value);"></TD>
 				<TD><input type="checkbox" id="45" onclick="limitCHECKS();" 
 					onchange="localStorage.setItem(45,this.value);"></TD>
+					
+				<TD>
+					checked:<input id="CHECKcount" style="width:20px; text-align:center; font-weight:bold;"
+					onclick="CHECKcount()"  value=0>
+				</TD>	
+					
 			</TR>
 			<TR><TD>10</TD> 
 				<TD><input type="checkbox" id="5" onclick="limitCHECKS();" 
