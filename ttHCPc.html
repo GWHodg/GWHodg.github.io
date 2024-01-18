@@ -232,6 +232,8 @@ function respBIDa() {
 		if (checkNO==11) {alert("You have entered 10 cards so far.");}
 		if (checkNO==13) {alert("This will be your 13th card entry!");}
 		if (checkNO>13) {alert("MORE THAN 13 cards have been entered.");}
+		
+		document.getElementById("CHECKcount").value=checkNO;		
 	}
 
 	function BID() {
@@ -424,6 +426,10 @@ function respBIDa() {
 				document.getElementById(42).checked = true; // > Qd			
 		}
 		*/
+		
+		var checkCOUNT = document.querySelectorAll('input[type="checkbox"]:checked').length;
+		document.getElementById("CHECKcount").value=checkCOUNT;
+		
 	}	
 
 	function RANDOM() {
@@ -475,6 +481,8 @@ function respBIDa() {
 		convertCard();
 		*/
 
+		var checkCOUNT = document.querySelectorAll('input[type="checkbox"]:checked').length;
+		document.getElementById("CHECKcount").value=checkCOUNT;		
 		
 	}
 
@@ -501,7 +509,7 @@ function respBIDa() {
 				
 				<!--		++++++++++++++++++++++++++++++++++++++++++++++++++     -->
 				
-				<h3>BRIDGE Hand <i>(Vn c+)</i></h3>
+				<font size=5><b>BRIDGE Hand</b></font> <i>(Vn c+)</i><br>
 				<table id="WcdTBL" bgcolor='green' border='3'  align=center style='FONT-SIZE:normal; color:white;'>
 					<tr  bgcolor='silver' style='color:black; font-size:20px;'> 
 						<td>1</td> <td>2</td> <td>3</td> <td>4</td>
@@ -599,7 +607,7 @@ function respBIDa() {
 				<TD><input type="checkbox" id="52" onclick="limitCHECKS();" 
 					onchange="localStorage.setItem('52',this.value);"></TD>
 				
-				<TD align=center><input id="shape" style="width:60px; text-align:center;"></TD>
+				<TD align=center><input id="shape" style="width:60px; text-align:center;" value="shape"></TD>
 				
 			</TR>
 			<TR><TD>3</TD> 
@@ -699,30 +707,7 @@ function respBIDa() {
 					onchange="localStorage.setItem(33,this.value);"></TD>
 				<TD><input type="checkbox"  id="46" onclick="limitCHECKS();"				
 					onchange="localStorage.setItem(46,this.value);"></TD>
-				<TD>
-					<div class="popup" id="HELP" onclick="myFunction('reopenPopup')">Bidding <u>HELP</u>
-					  	<span class="popuptext" id="reopenPopup">
-							<b>OPENING</b>:<br>
-							Need 12 HCP. 15 + bal > 1NT. > 1S/1H w/ 5 cards. Otherwise > longest suit.<br>
-							<br>
-							<b>RESPONDING</b>:<br> 
-							w/ <b><u>6+ HCP</u></b> if can`t raise opener`s major (3 cards) '+'bid <u>new suit</u> <i>(4 cards)</i>. Else > 1NT <i>(10+HCP > 2NT)</i>.<br>
-							<br>
-							<b>OPENER REBID</b>:<br>
-							Show shape [<i>bal v unbal (1-3-<u>suited</u> > 4 lgth)</i>] & strength <i>(min = <b>12 HCP</b>)</i>!<br>
-							<dl>
-								<dt>&#9632; rsp > <u>new strain</u>:</dt>
-									<dd>&#9679; w/ bal hd > NT</dd>
-									<dd>&#9679; w/ 1-suited > bid 2nd time</dd> 
-									<dd>&#9679; w/ 2-suited bid 2nd suit<br></dd>
-								<dt>&#9632; rsp raises opnr suit </i>(fit)</i>:</dt><dd><dd>&#9679; pass or raise</dd>
-							</dl>
-							<br>
-							<b>RESPONDER REBID</b>:<br>
-							? strain <i>(mjr fit or NT)</i><br>? pts for game <i>(25)</i>
-				  		</span>
-					</div>	
-				</TD>					
+				<TD> </TD>					
 			</TR>
 			<TR><TD>9</TD> 
 				<TD><input type="checkbox" id="6" onclick="limitCHECKS();"
@@ -789,8 +774,29 @@ function respBIDa() {
 					onchange="localStorage.setItem(28,this.value);"></TD>
 				<TD><input type="checkbox"  id="41" onclick="limitCHECKS();" 
 					onchange="localStorage.setItem(41,this.value);"></TD>
-				<TD rowspan=2 align=center>
-					<button id='CLEARbtn' onclick="clearSAVED()" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">CLEAR<br>saved</button>
+				<TD>
+					<div class="popup" id="HELP" onclick="myFunction('reopenPopup')">Bidding <u>HELP</u>
+					  	<span class="popuptext" id="reopenPopup">
+							<b>OPENING</b>:<br>
+							Need 12 HCP. 15 + bal > 1NT. > 1S/1H w/ 5 cards. Otherwise > longest suit.<br>
+							<br>
+							<b>RESPONDING</b>:<br> 
+							w/ <b><u>6+ HCP</u></b> if can`t raise opener`s major (3 cards) '+'bid <u>new suit</u> <i>(4 cards)</i>. Else > 1NT <i>(10+HCP > 2NT)</i>.<br>
+							<br>
+							<b>OPENER REBID</b>:<br>
+							Show shape [<i>bal v unbal (1-3-<u>suited</u> > 4 lgth)</i>] & strength <i>(min = <b>12 HCP</b>)</i>!<br>
+							<dl>
+								<dt>&#9632; rsp > <u>new strain</u>:</dt>
+									<dd>&#9679; w/ bal hd > NT</dd>
+									<dd>&#9679; w/ 1-suited > bid 2nd time</dd> 
+									<dd>&#9679; w/ 2-suited bid 2nd suit<br></dd>
+								<dt>&#9632; rsp raises opnr suit </i>(fit)</i>:</dt><dd><dd>&#9679; pass or raise</dd>
+							</dl>
+							<br>
+							<b>RESPONDER REBID</b>:<br>
+							? strain <i>(mjr fit or NT)</i><br>? pts for game <i>(25)</i>
+				  		</span>
+					</div>	
 				</TD>
 			</TR>
 			<TR><TD>A</TD> 
@@ -801,7 +807,11 @@ function respBIDa() {
 				<TD><input type="checkbox" id="27" onclick="limitCHECKS();" 
 					onchange="localStorage.setItem(27,this.value);"></TD>
 				<TD><input type="checkbox" id="40" onclick="limitCHECKS();" 
-					onchange="localStorage.setItem(40,this.value);"></TD>				
+					onchange="localStorage.setItem(40,this.value);"></TD>	
+				<TD rowspan=2>
+					<button id='SAVEDbtn' onclick="saved()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">SAVED</button><br>	
+					<button id='CLEARbtn' onclick="clearSAVED()" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">CLEAR</button>		
+				</TD>			
 			</TR>			
 
 			<TR>
@@ -810,11 +820,9 @@ function respBIDa() {
 				</TD>
 				<TD align=center>
 					<!--<font size=2>HCP:</font><br>-->
-					<input id="totalHCP" style="width:20px; text-align:center;">
+					<input id="totalHCP" style="width:20px; text-align:center; font-weight:bold;" value="hcp">
 				</TD>
-				<TD>
-					<button id='SAVEDbtn' onclick="saved()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">SAVED</button><br>
-				</TD>
+				
 			</TR>			
 		</tbody>			
 	</TABLE>
