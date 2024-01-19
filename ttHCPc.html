@@ -7,10 +7,11 @@
 <style>
 
 		div.DROPclass {
-			border:3px inset slategray; border-radius:10px; /*width:200px;*/ height:200px; overflow:scroll; background:yellow;
-			/*margin:auto;*/ visibility:hidden; position:fixed; left:50%; top:40%; transform: translate(-50%, -50%);
-			width:70%; /*zoom:100%;*/
+			border:3px inset slategray; border-radius:10px; /*width:200px;*/ /* height:200px; overflow:scroll; */ background:yellow;
+			/*margin:auto;*/ visibility:hidden; position:fixed; left:50%; top:60%; transform: translate(-50%, -50%);
+			width:70%; /*zoom:100%;*/									/* top:60%; */
 			 /*position: relative; display: inline-block;*/
+			min-height:50px; overflow:hidden;
 		}	
 		
 	sh { font-size:20px; color:red; font-weight:bold; background:yellow; }
@@ -87,27 +88,7 @@ function myFunction(event) {
   //document.getElementById("demo").innerHTML = "The key was: " + key;
   if ( key=="`" ) { respBIDa() } 
 }
-function respBIDa() {
-	//alert("Will try to call 'respBIDa' fn after '`' keypress 'event'!");
-	alert("'respBIDa' fn called after 'resp' input focus!");
-	document.getElementById("resp").value="";
-	if ( document.getElementById("open").value!="1S" ) { 
-		//document.getElementById("resp").value="";
-		//document.getElementById("resp").reset(); 
-		document.getElementById("resp").value = "1S";
-	}
-	else { 
-		document.getElementById("resp").value = "";
-		document.getElementById("resp").value= "2C"; 
-	}
-	
-	//document.getElementById("reopenPopup").innerHTML = "5NT!"; // < test **
-	//document.getElementById("pop2div").innerText = "Walter"; // < test **
-	//document.getElementById("test8a").innerText = "Walter"; // < test8a **
-	
-	
-	
-}
+
 	function showDROP(text) {
 		document.getElementById("DROPdiv").innerHTML="<span style='float:right;'><a onclick='showDROP()''><b><font size=7>&times;</font></b></a></span>";
 		
@@ -218,7 +199,7 @@ function respBIDa() {
 			if (document.getElementById(17).checked==true) {HCP=HCP+1};
 			if (document.getElementById(30).checked==true) {HCP=HCP+1};
 			if (document.getElementById(43).checked==true) {HCP=HCP+1};				
-		alert("HCP total = "+HCP);
+		//alert("HCP total = "+HCP);
 		document.getElementById("totalHCP").value = HCP;
 		
 	}	
@@ -236,6 +217,8 @@ function respBIDa() {
 		document.getElementById("CHECKcount").value=checkNO;		
 	}
 
+	SHAPEarray = [];
+	var blncdYN = "?";
 	function BID() {
 		//alert("Will try to code opening bid.");
 		var SUITnoS = 0; var SUITnoH = 0; var SUITnoD = 0; var SUITnoC = 0;
@@ -252,11 +235,11 @@ function respBIDa() {
 				SHAPEarray = [SUITnoS, SUITnoH, SUITnoD, SUITnoC];  //alert("'SHAPEarray' = "+SHAPEarray);
 				sortedSHAPE = SHAPEarray.sort(function(a, b){return b - a});
 					//alert("sortedSHAPE array = '"+sortedSHAPE+"'");
-		var blncdYN = "?";								
+		//var blncdYN = "?";								
 		/* alert("You have "+HCP+" HCPs & card shape is "+sortedSHAPE+"\n\n"+
 			  "(balanced shapes = 4-3-3-3, 4-4-3-2 & 5-3-3-2)"); */
 		var noteA = "You have "+HCP+" HCPs.\nCard shape is "+sortedSHAPE+
-					" (balanced shapes = 4-3-3-3, 4-4-3-2 & 5-3-3-2)";
+					"\n(balanced shapes = 4-3-3-3, 4-4-3-2 & 5-3-3-2)";
 		if ( (sortedSHAPE=="4,3,3,3") || (sortedSHAPE=="4,4,3,2") || (sortedSHAPE=="5,3,3,2") ) {
 				alert(noteA+"\n\nYour shape ("+sortedSHAPE+") is BALANCED!");	
 				blncdYN = "Y";			
@@ -321,27 +304,38 @@ function respBIDa() {
 					alert("w/ min 3 clubs bid 1C") 
 					document.getElementById("open").value= "1C";
 				}
-			}
-	
-		}
-			
-			  
+			}	
+		}			  
 	}	
 
+	function respBIDa() {
+		//alert("Will try to call 'respBIDa' fn after '`' keypress 'event'!");
+		//alert("'respBIDa' fn called after 'resp' input focus!");
+		document.getElementById("resp").value="";
+		if ( document.getElementById("open").value!="1S" ) { 
+			//document.getElementById("resp").value="";
+			//document.getElementById("resp").reset(); 
+			document.getElementById("resp").value = "1S";
+		}
+		else { 
+			document.getElementById("resp").value = "";
+			document.getElementById("resp").value= "2C"; 
+		}		
+		//document.getElementById("reopenPopup").innerHTML = "5NT!"; // < test **
+	}	
+
+	function openREBID() {
+		alert(". . code opener's rebid . .\nHCP = "+HCP+"\n? balanced hand: "+blncdYN+"\n"+
+			  "shape = "+SHAPEarray);
+		
+		document.getElementById("open2").value= "test"; 	  
+			 
+	}
+	
 	function saved() {
-		/* alert("SAVED:\n\n 13 (2s) = "+localStorage.getItem(13)+"\n"+
-			  "\t26 (2h) = "+localStorage.getItem(26)+"\n"+
-			  "\t'39' (2c) = "+localStorage.getItem("39")+"\n"+
-			  "\t'52' (2d) = "+localStorage.getItem("52")+"\n\n"+
-			  "\t12 (3s) = "+localStorage.getItem(12)+"\n"+
-			  "\t25 (3h) = "+localStorage.getItem(25)+"\n"+
-			  "\t38 (3c) = "+localStorage.getItem(38)+"\n"+
-			  "\t51 (3d) = "+localStorage.getItem(51)); */
-			
 		for (var  n = 1; n < 53; n++) {
 			if (localStorage.getItem(n)=="on") { document.getElementById(n).checked = true; }	
-		}
-		
+		}		
 	}
 	function reload() { window.location.reload(true); }
 	function clearSAVED() {
@@ -634,11 +628,11 @@ function respBIDa() {
 					onchange="localStorage.setItem(50,this.value);"></TD>
 					
 				<TD align=center style="background:blue;">
-					<input id="open" style="width:30px; text-align:center; font-weight:bold;" 
-						onclick="showDROP('<b>OPENING</b>:<br><br> '+
+					<input id="open" style="width:30px; text-align:center; font-weight:bold;"  readonly 
+						onclick="showDROP('<b>OPENING</b>:<br>'+
 						'Need 12 HCP. 15 + bal > 1NT. > 1S/1H w/ 5 cards. Otherwise > longest suit.')"><!--value="2NT"-->
-					<input id="resp" style="width:30px; text-align:center; font-weight:bold; background:silver;" onfocus="respBIDa()"  
-						onclick="showDROP('<b>RESPONDING</b>:<br><br> w/ <b><u>6+ HCP</u></b> if can`t raise opener`s major (3 cards) '+'bid <u>new suit</u> <i>(4 cards)</i>. Else > 1NT <i>(10+HCP > 2NT)</i>. '+
+					<input id="resp" style="width:30px; text-align:center; font-weight:bold;  readonly  background:silver;" onfocus="respBIDa()"  
+						onclick="showDROP('<b>RESPONDING</b>:<br>w/ <b><u>6+ HCP</u></b> if can`t raise opener`s major (3 cards) '+'bid <u>new suit</u> <i>(4 cards)</i>. Else > 1NT <i>(10+HCP > 2NT)</i>. '+
 						  'Can raise minor open if have 4.')">
 				</TD>	
 					 
@@ -654,13 +648,14 @@ function respBIDa() {
 					onchange="localStorage.setItem(49,this.value);"></TD>
 					
 				<TD align=center style="background:blue;">
-					<input id="open2" style="width:30px; text-align:center; font-weight:bold;"
-						onclick="showDROP('<b>OPENER REBID</b>:<br>'+
+					<input id="open2" style="width:30px; text-align:center; font-weight:bold;" readonly 
+					onfocus="openREBID()"  	
+					onclick="showDROP('<b>OPENER REBID</b>:<br>'+
 						'Show shape [<i>bal v unbal (1-3-<u>suited</u> > 4 lgth)</i>] & strength <i>(min = <B>12 HCP</b>)</i>!<br>'+
 						'<dl><dt>&#9632; rsp > <u>new strain</u>:</dt><dd>&#9679; w/ bal hd > NT</dd>'+
 						'<dd>&#9679; w/ 1-suited > bid 2nd time</dd> <dd>&#9679; w/ 2-suited bid 2nd suit<br></dd>'+
 						'<dt>&#9632; rsp raises opnr suit </i>(fit)</i>:</dt><dd><dd>&#9679; pass or raise</dd></dl>')">
-					<input id="resp2" style="width:30px; text-align:center; font-weight:bold;  background:silver;"
+					<input id="resp2" style="width:30px; text-align:center; font-weight:bold;  readonly  background:silver;"
 						onclick="showDROP('<b>RESPONDER REBID</b>:<br>'+
 						'? strain <i>(mjr fit or NT)</i><br>? pts for game <i>(25)</i>')">
 				</TD>						
@@ -828,7 +823,7 @@ function respBIDa() {
 	</TABLE>
 	
 	
-	<!-- 	√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√ \/ DROP BOX \/ √√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√	  -->
+	<!-- 	√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√ \/ DROP POPUP \/ √√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√	  -->
 	
 	<div class="DROPclass" id="DROPdiv" style= "">
 			<!-- position = 'fixed'; left = "700px"; top = "100px"; -->		
