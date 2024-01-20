@@ -90,7 +90,12 @@ function myFunction(event) {
 }
 
 	function showDROP(text) {
+		document.getElementById("DROPdiv").style.top="60%";
 		document.getElementById("DROPdiv").innerHTML="<span style='float:right;'><a onclick='showDROP()''><b><font size=7>&times;</font></b></a></span>";
+		
+		/*if ( text.substring(0,8)=="<b>OPENER" ) {
+			document.getElementById("DROPdiv").style.top="70%";
+		}*/
 		
 		if (document.getElementById("DROPdiv").style.visibility=="visible") {
 			document.getElementById("DROPdiv").style.visibility="hidden"; 
@@ -99,6 +104,10 @@ function myFunction(event) {
 			//document.getElementById("pDone").style.visibility = "hidden";
 		}		
 		else {
+			//alert("text.substring(3,6) = "+text.substring(3,12));
+			if ( text.substring(3,12)=="OPENER RE" ) {
+				document.getElementById("DROPdiv").style.top="80%";
+			}
 			document.getElementById("DROPdiv").style.visibility="visible";
 		}
 		
@@ -106,6 +115,8 @@ function myFunction(event) {
 			/* document.getElementById("DROPdiv").innerHTML+"<br>"+text; */
 			document.getElementById("DROPdiv").innerHTML+text; 			
 		//hideMENU();		
+		
+		//document.getElementById("DROPdiv").style.top="60%";
 	}		
 	
 	
@@ -337,7 +348,7 @@ function myFunction(event) {
 			  
 		document.getElementById("open2").value= "test"; 	  
 		
-		document.getElementById("SPANopen2").innerHTML= "J19";
+		//document.getElementById("SPANopen2").innerHTML= "J19";
 		var spanContent = document.getElementById("SPANopen2").innerHTML;
 			alert("SPANopen2 content (innerHTML) = "+spanContent);
 	
@@ -673,7 +684,7 @@ function myFunction(event) {
 				</TD>						
 					
 			</TR>
-			<TR><TD>6</TD> 
+			<TR><TD>6</TD>  
 				<TD><input type="checkbox" id=9 onclick="limitCHECKS();"
 					onchange="localStorage.setItem(9,this.value);"></TD>				
 				<TD><input type="checkbox" id=22 onclick="limitCHECKS();"
@@ -682,17 +693,19 @@ function myFunction(event) {
 					onchange="localStorage.setItem(35,this.value);"></TD>				
 				<TD><input type="checkbox" id="48" onclick="limitCHECKS();"
 					onchange="localStorage.setItem(48,this.value);"></TD>
+				<TD> </TD>
+				<!--
 				<TD align=center style="background:blue;">
 					<span id="SPANopen2" style="padding:2px; text-align:center; font-weight:bold; border:3px inset slategray; border-radius:5px; background:yellow; display:inline-block; width:30%; height:12px;"
 						onclick="openREBID(); showDROP('<b>OPENER REBID</b>:<br>'+
 						'Show shape [<i>bal v unbal (1-3-<u>suited</u> > 4 lgth)</i>] & strength <i>(min = <B>12 HCP</b>)</i>!<br>')">
 					</span>
-					<!--&nbsp;-->
 					<span id="SPANresp2" style="padding:2px; text-align:center; font-weight:bold; border:3px inset slategray; border-radius:5px; background:yellow; display:inline-block;  width:30%; height:12px;"
 						onclick="showDROP('<b>RESPONDER REBID</b>:<br>'+
 						'? strain <i>(mjr fit or NT)</i><br>? pts for game <i>(25)</i>')">
 					</span>
 				</TD>
+				-->
 			</TR>			
 			<TR><TD>7</TD> 
 				<TD><input type="checkbox"  id=8 onclick="limitCHECKS();"
