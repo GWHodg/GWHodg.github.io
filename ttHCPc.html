@@ -339,19 +339,25 @@ function myFunction(event) {
 	function openREBID() {
 		var rspBid = document.getElementById("resp").value; var rBlastCH = rspBid.slice(-1);
 		var opnBid = document.getElementById("open").value; var oBlastCH = opnBid.slice(-1);
-		alert(". . code opener's rebid . .\nHCP = "+HCP+"\n? balanced hand: "+blncdYN+"\n"+
+		 alert(". . code opener's rebid . .\nHCP = "+HCP+"\n? balanced hand: "+blncdYN+"\n"+
 			  "shape = "+SHAPEarray+"\n\n"+
 			  "Last character of responder's bid = "+rBlastCH+"\n"+
 			  "Last character of opener's bid = "+oBlastCH);
 			  if ( rBlastCH==oBlastCH ) { alert("last CH r = o!") }
-			  else { alert("last CH r != o") };
+			  else { alert("last CH r != o") }; 
 			  
 		document.getElementById("open2").value= "test"; 	  
 		
-		//document.getElementById("SPANopen2").innerHTML= "J19";
-		var spanContent = document.getElementById("SPANopen2").innerHTML;
-			alert("SPANopen2 content (innerHTML) = "+spanContent);
-	
+		if ( (HCP>11) && (rBlastCH==oBlastCH) ) {
+			alert("HCP > 11 & rBlastCH = oBlastCH (fit found). Raise w/ inv (16) or pass w/ min (12-15).");
+			document.getElementById("open2").value= "2"+rBlastCH;
+		}	
+		else if ( (HCP>11) && (rBlastCH!=oBlastCH) ) {
+			alert("HCP > 11 BUT rBlastCH != oBlastCH (fit NOT found). "+
+				  "w/ bal hd > NT. w/ 1-suited > bid IT 2nd time. w/ 2-suited bid 2nd suit.");
+			document.getElementById("open2").value= "1NT";
+		}	
+		else { alert("w/ HCP < 12 PASS!"); document.getElementById("open2").value= "pass"; }
 	}
 	
 	function saved() {
@@ -397,7 +403,7 @@ function myFunction(event) {
 		
 	}
 
-	function PRESETS() {
+	function PRESET1() { //17 HCP & balanced (5-3-3-2) hand
 		//alert("Set or clear 13 preset checkbox inputs.")	
 		alert("Will TRY to set/clear 13 checkboxes > 17 HCP & balanced (5-3-3-2) hand.");		
 		if (document.getElementById(2).checked==true) {		// FOR 16 HCP & BALANCED (5-3-3-2):
@@ -444,10 +450,57 @@ function myFunction(event) {
 		*/
 		
 		var checkCOUNT = document.querySelectorAll('input[type="checkbox"]:checked').length;
-		document.getElementById("CHECKcount").value=checkCOUNT;
-		
+		document.getElementById("CHECKcount").value=checkCOUNT;		
 	}	
-
+	function PRESET2() {	//13 HCP & Unbalanced
+		if (document.getElementById(37).checked==true) {		// FOR 16 HCP & BALANCED (5-3-3-2):
+			document.getElementById(37).checked = false; document.getElementById(15).checked = false; //4K>12HCP
+				document.getElementById(28).checked = false; document.getElementById(41).checked = false; 
+			document.getElementById(4).checked = false; document.getElementById(17).checked = false; //1Q+2J>4HCP
+				document.getElementById(16).checked = false; 			
+			document.getElementById(19).checked = false; document.getElementById(21).checked = false; //+2H>5
+				document.getElementById(36).checked = false; //+1C>2			
+			document.getElementById(13).checked = false; //+1S>3
+			document.getElementById(52).checked = false; //+1D>2
+			document.getElementById(38).checked = false; //+1C>3 <*		
+		}
+		else {
+			document.getElementById(37).checked = true; document.getElementById(15).checked = true; //4K>12HCP
+				document.getElementById(28).checked = true; document.getElementById(41).checked = true; 
+			document.getElementById(4).checked = true; document.getElementById(17).checked = true; //1Q+2J>4HCP
+				document.getElementById(16).checked = true; 			
+			document.getElementById(19).checked = true; document.getElementById(21).checked = true; //+2H>5
+				document.getElementById(36).checked = true; //+1C>2						
+			document.getElementById(13).checked = true; //+1S>3
+			document.getElementById(52).checked = true; //+1D>2
+			document.getElementById(38).checked = true; //+1C>3 <*		
+		}		
+	}
+	function PRESET3() {	//< 12 HCP
+		if (document.getElementById(37).checked==true) {		// FOR 16 HCP & BALANCED (5-3-3-2):
+			document.getElementById(37).checked = false; document.getElementById(15).checked = false; //4K>12HCP
+				document.getElementById(35).checked = false; document.getElementById(41).checked = false; 
+			document.getElementById(4).checked = false; document.getElementById(17).checked = false; //1Q+2J>4HCP
+				document.getElementById(16).checked = false; 			
+			document.getElementById(19).checked = false; document.getElementById(21).checked = false; //+2H>5
+				document.getElementById(36).checked = false; //+1C>2			
+			document.getElementById(13).checked = false; //+1S>3
+			document.getElementById(52).checked = false; //+1D>2
+			document.getElementById(38).checked = false; //+1C>3 <*		
+		}
+		else {
+			document.getElementById(37).checked = true; document.getElementById(15).checked = true; //4K>12HCP
+				document.getElementById(35).checked = true; document.getElementById(41).checked = true; 
+			document.getElementById(4).checked = true; document.getElementById(17).checked = true; //1Q+2J>4HCP
+				document.getElementById(16).checked = true; 			
+			document.getElementById(19).checked = true; document.getElementById(21).checked = true; //+2H>5
+				document.getElementById(36).checked = true; //+1C>2						
+			document.getElementById(13).checked = true; //+1S>3
+			document.getElementById(52).checked = true; //+1D>2
+			document.getElementById(38).checked = true; //+1C>3 <*		
+		}		
+	}	
+	
 	function RANDOM() {
 		//location.reload();	
 		var RANDno = Math.floor(Math.random() * (53 - 1) ) + 1;
@@ -516,6 +569,21 @@ function myFunction(event) {
 		//if (checkNO==11) {alert("You have entered 10 cards so far.");}
 		document.getElementById("CHECKcount").value=checkCOUNT;
 			
+	}	
+
+	function presetPROMPT() {
+	  let preset = prompt("Please enter preset choice\n"+
+	  					  "1) 17 HCP & BALANCED\n"+
+						  "2) 13 HCP & Unbalanced\n"+
+						  "3) < 12 HCP\t\t\t\t", ""); /*  (5-3-3-2) */
+	  //if (preset != null) {
+	  if (preset==1) {
+	    	//document.getElementById("demo").innerHTML = "Selected Preset: " + preset;
+			alert("Selected Preset: " + preset);
+			PRESET1();
+	  }
+	  if (preset==2) { PRESET2(); }
+	  if (preset==3) { PRESET3(); }
 	}	
 	
 </script>
@@ -793,7 +861,7 @@ function myFunction(event) {
 				<TD><input type="checkbox" id="42" onclick="limitCHECKS();" 
 					onchange="localStorage.setItem(42,this.value);"></TD>
 				<TD rowspan=1>
-					<button id='PRESETSbtn' onclick="PRESETS()" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:white; background:dodgerblue; border:2px solid black; border-radius:10px; opacity:100%;"><b>Presets</b></button>
+					<button id='PRESETSbtn' onclick="presetPROMPT()" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:white; background:dodgerblue; border:2px solid black; border-radius:10px; opacity:100%;"><b>Presets</b></button> <!-- onclick="PRESETS()" -->
 				</TD>
 			</TR>						
 			<TR><TD>K</TD> 
