@@ -213,6 +213,20 @@ function myFunction(event) {
 			if (document.getElementById(43).checked==true) {HCP=HCP+1};				
 		//alert("HCP total = "+HCP);
 		document.getElementById("totalHCP").value = HCP;
+
+
+		
+		var SUITnoS = 0; var SUITnoH = 0; var SUITnoD = 0; var SUITnoC = 0;
+		for (var  s = 0; s < 13; s++) {
+			if (document.getElementById(s+1).checked==true) {SUITnoS=SUITnoS+1}; 	//< # spades
+		}
+		for (var  h = 13; h < 26; h++) {if (document.getElementById(h+1).checked==true) {SUITnoH=SUITnoH+1};}//#hts
+		for (var  d = 26; d < 39; d++) {if (document.getElementById(d+1).checked==true) {SUITnoC=SUITnoC+1};}//#hts
+		for (var  b = 39; b < 52; b++) {if (document.getElementById(b+1).checked==true) {SUITnoD=SUITnoD+1};}//#hts		
+		//alert("# cards:\n\tSPADES: "+SUITnoS+"\n\tHEARTS: "+SUITnoH+"\n\tDIAMONDS: "+SUITnoD+"\n\tCLUBS: "+SUITnoC);
+		document.getElementById("shape").value=SUITnoS+"="+SUITnoH+"="+SUITnoC+"="+SUITnoD; 
+
+
 		
 	}	
 
@@ -231,7 +245,7 @@ function myFunction(event) {
 
 	SHAPEarray = [];
 	var blncdYN = "?";
-	function BID() {
+	function openBID() {
 		//alert("Will try to code opening bid.");
 		var SUITnoS = 0; var SUITnoH = 0; var SUITnoD = 0; var SUITnoC = 0;
 		for (var  s = 0; s < 13; s++) {
@@ -321,10 +335,47 @@ function myFunction(event) {
 	}	
 
 	function respBIDa() {
+		var RANDno = Math.floor(Math.random() * (5 - 1) ) + 1; // > 4 #s 1-4
+		var opnBid = document.getElementById("open").value; 
+			var oBlastCH = opnBid.slice(-1); //< last CH open bid
+		alert("RANDno = "+RANDno+"\nOpener's bid = "+opnBid+" (last ch: "+oBlastCH+")");
+				//var RANDno = Math.floor(Math.random() * (53 - 1) ) + 1; // > 52 #s 1-52
 		//alert("Will try to call 'respBIDa' fn after '`' keypress 'event'!");
 		//alert("'respBIDa' fn called after 'resp' input focus!");
 		document.getElementById("resp").value="";
-		if ( document.getElementById("open").value!="1S" ) { 
+		var RSPval;
+		if ( oBlastCH=="H" ) {
+			if (RANDno==1) {RSPval="1S"};
+			if (RANDno==2) {RSPval="1NT"};
+			if (RANDno==3) {RSPval="2H"};
+			if (RANDno==4) {RSPval="pass"};
+		}
+		if ( oBlastCH=="S" ) {
+			if (RANDno==1) {RSPval="1NT"};
+			if (RANDno==2) {RSPval="pass"};
+			if (RANDno==3) {RSPval="2S"};
+			if (RANDno==4) {RSPval="pass"};
+		}
+		if ( oBlastCH=="D" ) {
+			if (RANDno==1) {RSPval="1H"}; if (RANDno==2) {RSPval="1S"};
+			if (RANDno==3) {RSPval="1NT"}; if (RANDno==4) {RSPval="pass"};
+		}
+		if ( oBlastCH=="C" ) {
+			if (RANDno==1) {RSPval="1H"}; if (RANDno==2) {RSPval="1S"};
+			if (RANDno==3) {RSPval="1D"}; if (RANDno==4) {RSPval="pass"};
+		}
+		if ( oBlastCH=="T" ) { //< opn = NT
+			if (RANDno==1) {RSPval="2H"}; if (RANDno==2) {RSPval="2S"};
+			if (RANDno==3) {RSPval="2NT"}; if (RANDno==4) {RSPval="pass"};
+		}	
+		if ( oBlastCH=="s" ) { //< opn = pass
+			if (RANDno==1) {RSPval="1H"}; if (RANDno==2) {RSPval="1S"};
+			if (RANDno==3) {RSPval="1D"}; if (RANDno==4) {RSPval="pass"};
+		}	
+	
+		document.getElementById("resp").value=RSPval;	
+		
+		/*if ( document.getElementById("open").value!="1S" ) { 
 			//document.getElementById("resp").value="";
 			//document.getElementById("resp").reset(); 
 			document.getElementById("resp").value = "1S";
@@ -332,7 +383,7 @@ function myFunction(event) {
 		else { 
 			document.getElementById("resp").value = "";
 			document.getElementById("resp").value= "2C"; 
-		}		
+		}*/		
 		//document.getElementById("reopenPopup").innerHTML = "5NT!"; // < test **
 	}	
 
@@ -474,9 +525,11 @@ function myFunction(event) {
 			document.getElementById(13).checked = true; //+1S>3
 			document.getElementById(52).checked = true; //+1D>2
 			document.getElementById(38).checked = true; //+1C>3 <*		
-		}		
+		}	
+		var checkCOUNT = document.querySelectorAll('input[type="checkbox"]:checked').length;
+		document.getElementById("CHECKcount").value=checkCOUNT;				
 	}
-	function PRESET3() {	//< 12 HCP
+	function PRESET5() {	//< 12 HCP
 		if (document.getElementById(37).checked==true) {		// FOR 16 HCP & BALANCED (5-3-3-2):
 			document.getElementById(37).checked = false; document.getElementById(15).checked = false; //4K>12HCP
 				document.getElementById(35).checked = false; document.getElementById(41).checked = false; 
@@ -498,7 +551,9 @@ function myFunction(event) {
 			document.getElementById(13).checked = true; //+1S>3
 			document.getElementById(52).checked = true; //+1D>2
 			document.getElementById(38).checked = true; //+1C>3 <*		
-		}		
+		}	
+		var checkCOUNT = document.querySelectorAll('input[type="checkbox"]:checked').length;
+		document.getElementById("CHECKcount").value=checkCOUNT;				
 	}	
 	
 	function RANDOM() {
@@ -574,8 +629,10 @@ function myFunction(event) {
 	function presetPROMPT() {
 	  let preset = prompt("Please enter preset choice\n"+
 	  					  "1) 17 HCP & BALANCED\n"+
-						  "2) 13 HCP & Unbalanced\n"+
-						  "3) < 12 HCP\t\t\t\t", ""); /*  (5-3-3-2) */
+						  "2) 13 HCP & Unbalanced - 5H\n"+
+						  "3) \t\t\t\t\t - 5S\n"+
+						  "4) \t\t\t\t\t - 4D\n"+						  
+						  "5) < 12 HCP\t\t\t\t", "2"); /*  (5-3-3-2) */
 	  //if (preset != null) {
 	  if (preset==1) {
 	    	//document.getElementById("demo").innerHTML = "Selected Preset: " + preset;
@@ -583,7 +640,7 @@ function myFunction(event) {
 			PRESET1();
 	  }
 	  if (preset==2) { PRESET2(); }
-	  if (preset==3) { PRESET3(); }
+	  if (preset==5) { PRESET5(); }
 	}	
 	
 </script>
@@ -679,7 +736,8 @@ function myFunction(event) {
 		<thead> 
 			<th></th> <th>&spades;</th> <th style="color:red;">&hearts;</th> <th>&clubs;</th> <th style="color:red;">&diams;</th>
 				<TH><!--<font size=2>BIDS</font>-->
-					<button id='BIDbtn' onclick="BID()" style="font-size:15px; border:2px solid black; border-radius:5px; color:white; background:black;"><b>Bid</b></button>				
+					<button id='BIDbtn' onclick="openBID()" style="font-size:15px; border:2px solid black; border-radius:5px; color:white; background:black;"><b>Bid</b></button>	
+					<input id="totalHCP" style="width:20px; text-align:center; font-weight:bold;" value="hcp">			
 				</TH>
 		</thead>
 		<tbody>
@@ -819,8 +877,8 @@ function myFunction(event) {
 					onchange="localStorage.setItem(45,this.value);"></TD>
 					
 				<TD>
-					checked:<input id="CHECKcount" style="width:20px; text-align:center; font-weight:bold;"
-					onclick="CHECKcount()"  value=0>
+					<!--checked:<input id="CHECKcount" style="width:20px; text-align:center; font-weight:bold;"
+					onclick="CHECKcount()"  value=0>-->
 				</TD>	
 					
 			</TR>
@@ -918,8 +976,10 @@ function myFunction(event) {
 					<button id='ENTERbtn' onclick="enterCARDS()" style="font-size:18px; border:3px solid black; border-radius:10px; color:red;"><b>Enter</b></button>
 				</TD>
 				<TD align=center>
+					<!--checked:--><input id="CHECKcount" style="width:20px; text-align:center; font-weight:bold;"
+					onclick="CHECKcount()"  value="chd">
 					<!--<font size=2>HCP:</font><br>-->
-					<input id="totalHCP" style="width:20px; text-align:center; font-weight:bold;" value="hcp">
+					<!--<input id="totalHCP" style="width:20px; text-align:center; font-weight:bold;" value="hcp">-->
 				</TD>
 				
 			</TR>			
