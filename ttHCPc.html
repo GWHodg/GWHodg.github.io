@@ -303,11 +303,11 @@ function myFunction(event) {
 						document.getElementById("open").value= "1H";
 					}
 					else if ( SUITnoD >= 4 ) { 
-						alert("w/ min 4 diamonds bid 1D") 
+						alert("w/ min 4 diamonds bid 1D");
 						document.getElementById("open").value= "1D";
 					}
 					else if ( SUITnoD >= 3 ) { 
-						alert("w/ min 3 clubs bid 1C") 
+						alert("w/ min 3 clubs bid 1C");
 						document.getElementById("open").value= "1C";
 					}					
 				}
@@ -315,21 +315,27 @@ function myFunction(event) {
 			else {
 				alert("You have > 12 HCP & can BID but your shape is NOT balanced. Can't bid NT!");
 				if ( SUITnoS >= 5 ) { 
-					alert("w/ at least 5 spades bid 1S") 
+					alert("w/ at least 5 spades bid 1S");
 					document.getElementById("open").value= "1S";
 				}
 				else if ( SUITnoH >= 5 ) { 
-					alert("w/ min 5 hearts bid 1H") 
+					alert("w/ min 5 hearts bid 1H");
 					document.getElementById("open").value= "1H";
 				}
 				else if ( SUITnoD >= 4 ) { 
-					alert("w/ min 4 diamonds bid 1D") 
+					alert("w/ min 4 diamonds bid 1D");
 					document.getElementById("open").value= "1D";
 				}
 				else if ( SUITnoD >= 3 ) { 
-					alert("w/ min 3 clubs bid 1C") 
+					alert("w/ min 3 clubs bid 1C");
 					document.getElementById("open").value= "1C";
 				}
+				
+				else if ( SUITnoC >= 4 ) { 
+					alert("# clubs = "+SUITnoC);
+					document.getElementById("open").value= "1C";
+				}
+				
 			}	
 		}			  
 	}	
@@ -397,16 +403,18 @@ function myFunction(event) {
 			  if ( rBlastCH==oBlastCH ) { alert("last CH r = o!") }
 			  else { alert("last CH r != o") }; 
 			  
-		document.getElementById("open2").value= "test"; 	  
+		//document.getElementById("open2").value= "test"; 	  
 		
-		if ( (HCP>11) && (rBlastCH==oBlastCH) ) {
-			alert("HCP > 11 & rBlastCH = oBlastCH (fit found). Raise w/ inv (16) or pass w/ min (12-15).");
-			document.getElementById("open2").value= "2"+rBlastCH;
+		if (  (HCP>11) && (rBlastCH==oBlastCH) ) { // < fit found!
+			alert("Fit found!. Raise w/ inv (16) or pass w/ min (12-15).");
+			if (HCP>15) {document.getElementById("open2").value= "3"+rBlastCH;}
+			if (HCP<16) {document.getElementById("open2").value= "pass";}
 		}	
 		else if ( (HCP>11) && (rBlastCH!=oBlastCH) ) {
 			alert("HCP > 11 BUT rBlastCH != oBlastCH (fit NOT found). "+
 				  "w/ bal hd > NT. w/ 1-suited > bid IT 2nd time. w/ 2-suited bid 2nd suit.");
-			document.getElementById("open2").value= "1NT";
+			if (blncdYN=="Y") {document.getElementById("open2").value= "2NT";}
+			if (blncdYN=="N") {document.getElementById("open2").value= "2"+oBlastCH;}
 		}	
 		else { alert("w/ HCP < 12 PASS!"); document.getElementById("open2").value= "pass"; }
 	}
@@ -529,6 +537,58 @@ function myFunction(event) {
 		var checkCOUNT = document.querySelectorAll('input[type="checkbox"]:checked').length;
 		document.getElementById("CHECKcount").value=checkCOUNT;				
 	}
+	function PRESET3() {	//13 HCP & Unbalanced: 1-suited in CLUBS
+		if (document.getElementById(37).checked==true) {		// FOR 16 HCP & BALANCED (5-3-3-2):
+			document.getElementById(37).checked = false; document.getElementById(15).checked = false; //4K>12HCP
+				document.getElementById(28).checked = false; document.getElementById(41).checked = false; 
+			document.getElementById(4).checked = false; document.getElementById(17).checked = false; //1Q+2J>4HCP
+				document.getElementById(16).checked = false; 			
+			document.getElementById(32).checked = false; document.getElementById(34).checked = false; //+2C
+				document.getElementById(36).checked = false; //+1C>2			
+			document.getElementById(13).checked = false; //+1S>3
+			document.getElementById(52).checked = false; //+1D>2
+			document.getElementById(38).checked = false; //+1C>3 <*		
+		}
+		else {
+			document.getElementById(37).checked = true; document.getElementById(15).checked = true; //4K>12HCP
+				document.getElementById(28).checked = true; document.getElementById(41).checked = true; 
+			document.getElementById(4).checked = true; document.getElementById(17).checked = true; //1Q+2J>4HCP
+				document.getElementById(16).checked = true; 			
+			document.getElementById(32).checked = true; document.getElementById(34).checked = true; //+2C
+				document.getElementById(36).checked = true; //+1C>2						
+			document.getElementById(13).checked = true; //+1S>3
+			document.getElementById(52).checked = true; //+1D>2
+			document.getElementById(38).checked = true; //+1C>3 <*		
+		}	
+		var checkCOUNT = document.querySelectorAll('input[type="checkbox"]:checked').length;
+		document.getElementById("CHECKcount").value=checkCOUNT;				
+	}
+	function PRESET4() {	//13 HCP & Unbalanced: 2-suited in DIAMONDS & CLUBS!
+		if (document.getElementById(37).checked==true) {		// FOR 16 HCP & BALANCED (5-3-3-2):
+			document.getElementById(37).checked = false; document.getElementById(15).checked = false; //4K>12HCP
+				document.getElementById(28).checked = false; document.getElementById(41).checked = false; 
+			document.getElementById(4).checked = false; document.getElementById(17).checked = false; //1Q+2J>4HCP
+				document.getElementById(16).checked = false; 			
+			document.getElementById(45).checked = false; document.getElementById(47).checked = false; //+2D
+				document.getElementById(36).checked = false; //+1C>2			
+			document.getElementById(13).checked = false; //+1S>3
+			document.getElementById(52).checked = false; //+1D>2
+			document.getElementById(38).checked = false; //+1C>3 <*		
+		}
+		else {
+			document.getElementById(37).checked = true; document.getElementById(15).checked = true; //4K>12HCP
+				document.getElementById(28).checked = true; document.getElementById(41).checked = true; 
+			document.getElementById(4).checked = true; document.getElementById(17).checked = true; //1Q+2J>4HCP
+				document.getElementById(16).checked = true; 			
+			document.getElementById(45).checked = true; document.getElementById(47).checked = true; //+2D
+				document.getElementById(36).checked = true; //+1C>2						
+			document.getElementById(13).checked = true; //+1S>3
+			document.getElementById(52).checked = true; //+1D>2
+			document.getElementById(38).checked = true; //+1C>3 <*		
+		}	
+		var checkCOUNT = document.querySelectorAll('input[type="checkbox"]:checked').length;
+		document.getElementById("CHECKcount").value=checkCOUNT;				
+	}	
 	function PRESET5() {	//< 12 HCP
 		if (document.getElementById(37).checked==true) {		// FOR 16 HCP & BALANCED (5-3-3-2):
 			document.getElementById(37).checked = false; document.getElementById(15).checked = false; //4K>12HCP
@@ -628,10 +688,10 @@ function myFunction(event) {
 
 	function presetPROMPT() {
 	  let preset = prompt("Please enter preset choice\n"+
-	  					  "1) 17 HCP & BALANCED\n"+
-						  "2) 13 HCP & Unbalanced - 5H\n"+
-						  "3) \t\t\t\t\t - 5S\n"+
-						  "4) \t\t\t\t\t - 4D\n"+						  
+	  					  "1) 17 HCP BALANCED\n"+
+						  "2) 13 HCP Unbalanced - 5H/4C (2-std)\n"+
+						  "3) \t\t\t\t\t - 5C (1-std)\n"+
+						  "4) \t\t\t\t\t - 4D/4C (2-std)\n"+						  
 						  "5) < 12 HCP\t\t\t\t", "2"); /*  (5-3-3-2) */
 	  //if (preset != null) {
 	  if (preset==1) {
@@ -639,7 +699,7 @@ function myFunction(event) {
 			alert("Selected Preset: " + preset);
 			PRESET1();
 	  }
-	  if (preset==2) { PRESET2(); }
+	  if (preset==2) { PRESET2(); } if (preset==3) { PRESET3(); } if (preset==4) { PRESET4(); }
 	  if (preset==5) { PRESET5(); }
 	}	
 	
