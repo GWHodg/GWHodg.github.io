@@ -413,28 +413,28 @@
 
 		
 	<div id="COUNTdiv" style="/* width:480px; height:350px; */ /*width:85%;*/ border-radius:10px; padding:10px; 
-		        			  position: absolute; top:30%; left:30%; /* top: 100%; left: 70%; */
+		        			  position: absolute; top:30%; left:10%; /* top: 100%; left: 70%; */
 		                      margin:20px; display:none; /* margin:auto; */
 							  text-align:left; border:3px slategray outset; background:slategray; color:white;
 						      overflow: scroll; z-index:100;">
 							  
 		<font size=5><b>HCP Counter</b></font>	
 			<!--<span style="float:right; text-align:right; padding-right:10px; cursor:pointer; color:white; font-size:30px;">-->
-						&emsp;&emsp;&emsp;&emsp;&emsp;<a style="font-size:30px;" onclick="showCOUNT()">&times;</a>
+						&emsp;&emsp;&emsp;<a style="font-size:30px;" onclick="showCOUNT()">&times;</a>
 			<!--</span>-->
 			<br>
 				<table class="table2" id="SCOREStbl" border='3'   align=center 
 				style='FONT-SIZE:large; color:maroon; visibility:visible; zoom:100%;' bgcolor='lightgreen'>
 				<thead> 
 						<TR>
-							<th><button id='ACEbtn' onclick="countACE()" style="font-size:18px; font-weight:1000; border:3px solid black; border-radius:10px;"><font color=blue><b>A</b></font></button> </th>	
-							<th><button id='KINGbtn' onclick="countKING()" style="font-size:18px; font-weight:800; 
+							<th align=center><button id='ACEbtn' onclick="countACE()" style="font-size:18px; font-weight:1000; border:3px solid black; border-radius:10px;"><font color=blue><b>A</b></font></button> </th>	
+							<th align=center><button id='KINGbtn' onclick="countKING()" style="font-size:18px; font-weight:800; 
 							border:3px solid black; border-radius:10px;"><font color=bbrown><b>K</b></font></button>
 							</th>
-							<th>
+							<th align=center>
 								<button id='QUEENbtn' onclick="countQUEEN()" style="font-size:18px; border:3px solid black; border-radius:10px; color:red;"><b>Q</b></button>
 							</th> 
-							<th>
+							<th align=center>
 								<button id='JACKbtn' onclick="countJACK()" style="font-size:18px; border:3px solid black; border-radius:10px;"><font color=black><b>J</b></font></button>			
 							</th>
 							<th align=center><b>HCP</b></th>
@@ -444,11 +444,11 @@
 					<tbody id='TBLbody'> 
 						
 						<TR>
-							<TH align=center><input id="aceHCP" name='NMp1hc' autofocus tabindex="202" style="width:30px; text-align:center; font-weight:bold;" readonly  value=0></TH> <!-- type="number"  style="text-align:center; background:ivory; width:60%; font-size:18px;  font-weight:1000;"  | value=24.  onchange="pHCcolors('p1')" -->
-							<TH align=center><input id="kingHCP" tabindex="204"  style="width:30px; text-align:center; font-weight:bold;" readonly    value=0></TH> <!-- P2 HC -->				
-							<TH align=center><input id="queenHCP"  tabindex="206"  style="width:30px; text-align:center; font-weight:bold;" readonly    value=0></TH>
-							<TH align=center><input id="jackHCP"  tabindex="208"  style="width:30px; text-align:center; font-weight:bold;" readonly    value=0 ></TH>
-							<TH align=center><input id="myHCP" tabindex="210"  style="width:30px; text-align:center; font-weight:bold;" readonly   value=0></TH>
+							<TH align=center><input id="aceHCP" name='NMp1hc' autofocus tabindex="202" style="width:30px; text-align:center; font-weight:bold; font-size:18px;" readonly  value=0></TH> <!-- type="number"  style="text-align:center; background:ivory; width:60%; font-size:18px;  font-weight:1000;"  | value=24.  onchange="pHCcolors('p1')" -->
+							<TH align=center><input id="kingHCP" tabindex="204"  style="width:30px; text-align:center; font-weight:bold; font-size:18px;" readonly    value=0></TH> <!-- P2 HC -->				
+							<TH align=center><input id="queenHCP"  tabindex="206"  style="width:30px; text-align:center; font-weight:bold; font-size:18px;" readonly    value=0></TH>
+							<TH align=center><input id="jackHCP"  tabindex="208"  style="width:30px; text-align:center; font-weight:bold; font-size:18px;" readonly    value=0 ></TH>
+							<TH align=center><input id="myHCP" tabindex="210"  style="width:30px; text-align:center; font-weight:bold; font-size:18px;" readonly   value=0></TH>
 						</TR>
 						<TR>
 							<TD colspan=5 align=center>
