@@ -7,14 +7,63 @@
 <script src="ttHCPz.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style></style>
-<script type="text/javascript"></script>
+
+<script type="text/javascript">
+	function countQUEEN() {
+		let crntQp = document.getElementById("queenHCP").value;
+		//alert("Will TRY to count QUEEN HCPs!\n\n"+"crntQp = "+crntQp);
+		document.getElementById("queenHCP").value = +crntQp+2;
+		let myTp = document.getElementById("myHCP").value; //alert("myTp = "+myTp);
+		document.getElementById("myHCP").value = +myTp+2;		
+	}
+	function countACE() {
+		let crntAp = document.getElementById("aceHCP").value;
+		//alert("Will TRY to count ACE HCPs!\n\n"+ "crntAp = "+crntAp);
+		document.getElementById("aceHCP").value = +crntAp+4;
+				let myTp = document.getElementById("myHCP").value; //alert("myTp = "+myTp);
+				document.getElementById("myHCP").value = +myTp+4;		
+	}	
+	function countKING() {
+		let crntKp = document.getElementById("kingHCP").value;
+		document.getElementById("kingHCP").value = +crntKp+3;
+		let myTp = document.getElementById("myHCP").value; //alert("myTp = "+myTp);
+		document.getElementById("myHCP").value = +myTp+3;				
+	}	
+	function countJACK() {
+		let crntJp = document.getElementById("jackHCP").value;
+		document.getElementById("jackHCP").value = +crntJp+1;
+				let myTp = document.getElementById("myHCP").value; //alert("myTp = "+myTp);
+				document.getElementById("myHCP").value = +myTp+1;		
+	}	
+	function clearPTS() {
+		document.getElementById("myHCP").value = 0;				
+		document.getElementById("aceHCP").value = 0; document.getElementById("kingHCP").value = 0;
+		document.getElementById("queenHCP").value = 0; document.getElementById("jackHCP").value = 0;		
+	}	
+	
+	function showCOUNT() {
+		if (document.getElementById("btnCOUNT").textContent=="Hide COUNT") {
+			document.getElementById("COUNTdiv").style.display="none"; //inline 	
+			document.getElementById("btnCOUNT").textContent="COUNT HCPs";
+		}		
+		else {
+			document.getElementById("COUNTdiv").style.display="block"; //inline 	
+			document.getElementById("btnCOUNT").textContent="Hide COUNT";
+		}
+	}	
+	
+</script>
+
 </head>
 
 <body onLoad="window.scroll(0, 0)" style="width:320px; border:2px orange solid; background:moccasin; border-radius:5px; padding:5px; margin-left:auto; margin-right:auto;"> <!-- height:640px;  border:3px orange outset;  border-radius:10px; -->	
 				
 				<!--		++++++++++++++++++++++++++++++++++++++++++++++++++     -->
 				
-				<font size=5><b>BRIDGE Hand</b></font> <i>(Vn <font color=red>z</font>)</i><br>
+				<font size=5><b>BRIDGE Hand</b></font> <i>(Vn <font color=red>z</font>)</i>
+						<button id="btnCOUNT" onclick="showCOUNT()" style='cursor:pointer; background-color:black; color:white; border:2px solid white; border-radius:8px; font-size:12px;' title=""><b>COUNTER<!-- HCPs--></b>
+						</button>
+				<br>
 				<table id="WcdTBL" bgcolor='green' border='3'  align=center style='FONT-SIZE:normal; color:white;'>
 					<tr  bgcolor='silver' style='color:black; font-size:20px;'> 
 						<td>1</td> <td>2</td> <td>3</td> <td>4</td>
@@ -311,7 +360,7 @@
 									<dd>&#9679; w/ bal hd > NT</dd>
 									<dd>&#9679; w/ 1-suited > bid 2nd time</dd> 
 									<dd>&#9679; w/ 2-suited bid 2nd suit<br></dd>
-								<dt>&#9632; rsp raises opnr suit </i>(fit)</i>:</dt><dd><dd>&#9679; pass or raise</dd>
+								<dt>&#9632; rsp raises opnr suit </i>(fit)</i>:</dt><dd><dd>&#9679; pass [min hd] or raise [inv hd]</dd>
 							</dl>
 							<br>
 							<b>RESPONDER REBID</b>:<br>
@@ -359,6 +408,60 @@
 				<!--<span style="float:right; padding-right:10px; cursor:pointer;  background:yellow;  color:black; font-size:30px;"><a onclick="showDROP()"><b>&times;</b></a></span>--> 	<!--<br>-->
 		<!--Put stuff here . . -->
 	</div>
+
+			<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->	
+
 		
+	<div id="COUNTdiv" style="/* width:480px; height:350px; */ width:25%; border-radius:10px; padding:10px; 
+		        			  position: absolute; top:30%; left:30%; /* top: 100%; left: 70%; */
+		                      margin:20px; display:none; /* margin:auto; */
+							  text-align:left; border:3px slategray outset; background:slategray; color:white;
+						      overflow: scroll; z-index:100;">
+							  
+		<font size=5><b>HCP Counter</b></font>	
+			<!--<span style="float:right; text-align:right; padding-right:10px; cursor:pointer; color:white; font-size:30px;">-->
+						&emsp;&emsp;&emsp;&emsp;&emsp;<a style="font-size:30px;" onclick="showCOUNT()">&times;</a>
+			<!--</span>-->
+			<br>
+				<table class="table2" id="SCOREStbl" border='3'   align=center 
+				style='FONT-SIZE:large; color:maroon; visibility:visible; zoom:100%;' bgcolor='lightgreen'>
+				<thead> 
+						<TR>
+							<th><button id='ACEbtn' onclick="countACE()" style="font-size:18px; font-weight:1000; border:3px solid black; border-radius:10px;"><font color=blue><b>A</b></font></button> </th>	
+							<th><button id='KINGbtn' onclick="countKING()" style="font-size:18px; font-weight:800; 
+							border:3px solid black; border-radius:10px;"><font color=bbrown><b>K</b></font></button>
+							</th>
+							<th>
+								<button id='QUEENbtn' onclick="countQUEEN()" style="font-size:18px; border:3px solid black; border-radius:10px; color:red;"><b>Q</b></button>
+							</th> 
+							<th>
+								<button id='JACKbtn' onclick="countJACK()" style="font-size:18px; border:3px solid black; border-radius:10px;"><font color=black><b>J</b></font></button>			
+							</th>
+							<th align=center><b>HCP</b></th>
+						</TR>											
+					</thead>
+					
+					<tbody id='TBLbody'> 
+						
+						<TR>
+							<TH><input type="number" id="aceHCP" name='NMp1hc' autofocus tabindex="202" style="text-align:center; background:ivory; width:60%; font-size:18px;  font-weight:1000;"  value=0></TH> <!-- value=24.  onchange="pHCcolors('p1')" -->
+							<TH><input type="number" id="kingHCP" tabindex="204" style="text-align:center; background:beige; width:60%; font-size:18px;  font-weight:1000;"  value=0></TH> <!-- P2 HC -->				
+							<TH><input type="number" id="queenHCP"  tabindex="206" style="text-align:center; background:linen;  width:60%; font-size:18px;  font-weight:1000;"  value=0></TH>
+							<TH><input type="number" id="jackHCP"  tabindex="208" style="text-align:center; background:whitesmoke; width:60%; font-size:18px;  font-weight:1000;"  value=0 ></TH>
+							<TH><input type="number" id="myHCP" tabindex="210" style="text-align:center; background:snow; width:60%; font-size:18px;  font-weight:1000;" value=0></TH>
+						</TR>
+						<TR>
+							<TD colspan=5 align=center>
+								<button id='CLEARbtn' onclick="clearPTS()" style="font-size:15px; border:3px solid black; border-radius:10px;"><font color=blue>CLEAR</font></button>
+							</TD>
+						</TR>
+					</tbody>
+				</table>
+	</div>
+	
+			<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+			
+
+	
 </body>
 </html>
