@@ -28,7 +28,7 @@
 			.sidenav {
 			  height: 23%; width: 0;   /* height: 100%;   30%*/
 			  position: fixed;z-index: 1;
-			  top: 545px; left: 0; /* top: 0; */
+			  top: 900px; left: 0; /* top: 545px; */
 			  background-color:black;	/*blue;	  #111;*/
 			  overflow:scroll; transition: 0.5s; padding-top:0px;	/* 30px; */
 			  /* overflow-x: hidden; overflow-y:scroll; */
@@ -37,7 +37,7 @@
 			.sidenav a {
 			  /* padding: 8px 8px 8px 32px; text-decoration: none; */
 			  padding: 3px 3px 3px 0px; text-decoration: none; 
-			  font-size: 20px;	/* 25px; */ color: #818181; display: block; transition: 0.3s;
+			  font-size: 40px;	/* 20px; */ color: #818181; display: block; transition: 0.3s;
 			}		
 			.sidenav a:hover { color: #f1f1f1; }		
 			.sidenav .closebtn {
@@ -142,8 +142,8 @@
 		}
 
 		if ( PLAY.includes(NAME) ) {
-			alert("PLAY array includes "+NAME+". Will REMOVE from list!");
-			var index = PLAY.indexOf(NAME);		
+			alert("PLAY array includes "+NAME+". Will REMOVE from PLAY array!");
+			var index = PLAY.indexOf(NAME);		alert("index of "+NAME+" = "+index);
 			PLAY.splice(index, 1);				/* <<< HELP! (July 15/23 */									// < **!
 			//PLAY.splice(PLAYidxTOsplice, 1);
 			//alert("'PLAY' array length post splice = "+PLAY.length+"\n\nARRAY = '"+PLAY+"'");	
@@ -151,6 +151,15 @@
 			
 			document.getElementById("CHK"+plr+"b").checked=false;
 			document.getElementById("G"+plr).style.background="ivory"; //="white" | ="beige"
+			
+//			var index = PLAY.indexOf(NAME);
+//				alert("Will now try to remove "+NAME+" from PLAY array.\n"+
+//					  "index of "+NAME+" = "+index);
+			//if (index > -1) {
+//				PLAY.splice(index, 1);
+			//}
+			
+			
 		}		
 		else {
 			//alert("PLAY array does NOT include "+NAME);
@@ -498,7 +507,7 @@
 
 </head>
 
-<body class="body" style="background-color:white; zoom:1; font-size:30px;"   onLoad="window.scroll(0, 0); showALL()"> 	
+<body class="body" style="background-color:white; zoom:1; font-size:60px;"   onLoad="window.scroll(0, 0); showALL()"> 	
 <div class="wrapper"><!-- Put the page contents here -->
 
 				<div id="mySidenav" class="sidenav"  style='opacity:0.8; border-right: 5px solid red;'>
