@@ -26,7 +26,7 @@
 		create an animated, closable side navigation menu
 	  	https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sidenav*/
 			.sidenav {
-			  height: 23%; width:0;   /* height: 100%;   30%*/
+			  height: 15%; width:0;   /* height: 100%;   30%*/
 			  position: fixed;z-index: 1;
 			  top: 500px; left: 0; /* top: 545px; */
 			  background-color:black;	/*blue;	  #111;*/
@@ -319,9 +319,9 @@
 		 					/*   +++++++++++++++++++++++++++++++++++++++++   */
 							
 	 function presetPLAY() {
-			//alert("'PLAY' array length = "+PLAY.length+"\n\nARRAY = '"+PLAY+"'");	
+			alert("'PLAY' array length = "+PLAY.length+"\n\nARRAY = '"+PLAY+"'");	
 		 
-//		 	PLAY[0] = "Pengelly";  PLAY[1] = "Field"; 
+		 	PLAY[0] = "Pengelly";  //PLAY[1] = "Field"; 
 			PLAY.push("Hodgins", "Porter", "Jessop"); //4,9,10,7,3
 			let PLAYstring = PLAY.toString();
 			localStorage.clear();
@@ -357,25 +357,25 @@
 			  	PLAY.push(LASTarray[i]);
 				document.getElementById("NXT"+(i+1)).innerHTML = PLAY[i];
 		 }
-		 /*	
-		 if ( PLAY.includes("Buckley") ) {document.getElementById("CHK1").checked="true";}
-		 if ( PLAY.includes("Connolly") ) {document.getElementById("CHK2").checked="true";}
-		 if ( PLAY.includes("Jessop") ) {document.getElementById("CHK6").checked="true";}
-		 if ( PLAY.includes("Pengelly") ) {document.getElementById("CHK10").checked="true";}
-		 if ( PLAY.includes("Kuechler") ) {document.getElementById("CHK7").checked="true";}
-		 if ( PLAY.includes("Schofield") ) {document.getElementById("CHK14").checked="true";}
-		 if ( PLAY.includes("Porter") ) {document.getElementById("CHK12").checked="true";}
-		 if ( PLAY.includes("Ritchie") ) {document.getElementById("CHK13").checked="true";}
-		 if ( PLAY.includes("Field") ) {document.getElementById("CHK4").checked="true";}
-		 if ( PLAY.includes("Hodgins") ) {document.getElementById("CHK5").checked="true";}
-		 if ( PLAY.includes("Medhurst") ) {document.getElementById("CHK9").checked="true";}
-		 if ( PLAY.includes("N.Bailey") ) {document.getElementById("CHK15").checked="true";}
-		 if ( PLAY.includes("E.Hazell") ) {document.getElementById("CHK16").checked="true";}
-		 if ( PLAY.includes("G.Harris") ) {document.getElementById("CHK17").checked="true";}
-		 if ( PLAY.includes("Dutton") ) {document.getElementById("CHK3").checked="true";}
-		 if ( PLAY.includes("McCracken") ) {document.getElementById("CHK8").checked="true";}
-		 if ( PLAY.includes("Paulson") ) {document.getElementById("CHK11").checked="true";}	
-		 */	 
+		 	
+		 if ( PLAY.includes("Buckley") ) {document.getElementById("CHK1b").checked="true";}
+		 if ( PLAY.includes("Connolly") ) {document.getElementById("CHK2b").checked="true";}
+		 if ( PLAY.includes("Jessop") ) {document.getElementById("CHK6b").checked="true";}
+		 if ( PLAY.includes("Pengelly") ) {document.getElementById("CHK10b").checked="true";}
+		 if ( PLAY.includes("Kuechler") ) {document.getElementById("CHK7b").checked="true";}
+		 if ( PLAY.includes("Schofield") ) {document.getElementById("CHK14b").checked="true";}
+		 if ( PLAY.includes("Porter") ) {document.getElementById("CHK12b").checked="true";}
+		 if ( PLAY.includes("Ritchie") ) {document.getElementById("CHK13b").checked="true";}
+		 if ( PLAY.includes("Field") ) {document.getElementById("CHK4b").checked="true";}
+		 if ( PLAY.includes("Hodgins") ) {document.getElementById("CHK5b").checked="true";}
+		 if ( PLAY.includes("Medhurst") ) {document.getElementById("CHK9b").checked="true";}
+		 if ( PLAY.includes("N.Bailey") ) {document.getElementById("CHK15b").checked="true";}
+		 if ( PLAY.includes("E.Hazell") ) {document.getElementById("CHK16b").checked="true";}
+		 if ( PLAY.includes("G.Harris") ) {document.getElementById("CHK17b").checked="true";}
+		 if ( PLAY.includes("Dutton") ) {document.getElementById("CHK3b").checked="true";}
+		 if ( PLAY.includes("McCracken") ) {document.getElementById("CHK8b").checked="true";}
+		 if ( PLAY.includes("Paulson") ) {document.getElementById("CHK11b").checked="true";}	
+		 	 
 	}
 	
 	function clearPLAYarray() {
@@ -418,15 +418,14 @@
 
 				<div id="mySidenav" class="sidenav"  style='opacity:1.0; border-right: 5px solid red;'>
 						<div class="grid-container">
-							  <div><button style="color:blue; font-size:25px;" onclick="presetPLAY()">use presets</button></div>
-							  <div><button style="color:black; font-size:25px;" onclick="lastPLAY()"><b>LAST</b></button></div>
-							  <div><button style="color:black; font-size:25px;" onclick="clearPLAYarray()"><b>CLEAR</b> PLAY[]</button></div>
+							  <div><A style="FONT-SIZE:normal; cursor:pointer; color:maroon;" onclick="presetPLAY()"><b>presets</b></A><!--<button style="color:blue; font-size:25px;" onclick="presetPLAY()">use presets</button>--></div>
+							  <div><A style="FONT-SIZE:normal; cursor:pointer; color:maroon;" onclick="lastPLAY()"><b>LAST</b></A><!--<button style="color:black; font-size:25px;" onclick="lastPLAY()"><b>LAST</b></button>--></div>
+							  <div><A style="FONT-SIZE:normal; cursor:pointer; color:maroon;" onclick="clearPLAYarray()"><b>clear</b></A><!--<button style="color:black; font-size:25px;" onclick="clearPLAYarray()"><b>CLEAR</b> PLAY[]</button>--></div>
 							  
-							  <div><!--<button onclick="showALL()">display group</button>--></div>
+							  <div><span style="font-size:60px; cursor:pointer; color:maroon;" onclick="closeNav()"><s>&#9776;</s></span>	<!--<button onclick="showALL()">display group</button>--></div>
 							  <!--<div><button onclick="emails()">emails</button></div>-->
-							  <div><A onclick="emails()" style='cursor:pointer; color:maroon;'><b>emails</b></A></div>
-							  <div><A style="FONT-SIZE:normal; cursor:pointer; color:maroon;" title="Mix playing order"
-								  onclick="SHUFFLEorder('PLAY')"><b>SHUFFLE</b></A>	</div>
+							  <div><A onclick="emails()" style='FONT-SIZE:normal; cursor:pointer; color:maroon;'><b>emails</b></A></div>
+							  <div><A style="FONT-SIZE:normal; cursor:pointer; color:maroon;" onclick="SHUFFLEorder('PLAY')"><b>SHUFFLE</b></A>	</div>
 							  <!--  
 							  <div><a><button style="color:blue; cursor:pointer; font-size:8px;" onclick="UNIVhelp()"><s>WRITE/READ HELP</s></button></a></div>
 							  <div><A onclick="showLSread()" style='cursor:pointer;'><s><b>READ file</b></s></A></div>
@@ -435,11 +434,11 @@
 						</div>									
 				</div>	
 				
-<TABLE id="HEADtbl" border=1 align=center style='FONT-SIZE:large; color:blue; visibility:visible;' bgcolor='lightgray'>	
-	<TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:25px; COLOR:white; background:green; FONT-WEIGHT:bold; padding:5px;" ><u>'DOCS' Golf</u> Booking&emsp;<font size=1 color=lightgray>May 9, 2024</font> 
+<TABLE id="HEADtbl" border=1 align=center style='color:blue; visibility:visible;' bgcolor='lightgray'>	
+	<TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:40px; COLOR:white; background:green; FONT-WEIGHT:bold; padding:5px;" ><u>'DOCS' Golf</u> Booking&emsp;<font size=3 color=lightgray>May 9, 2024</font> 
 		</TD> 
 		<TD>
-			<span style="font-size:35px; cursor:pointer; color:maroon;" onclick="openNav()">&#9776;</span>	
+			<span style="font-size:60px; cursor:pointer; color:maroon;" onclick="openNav()">&#9776;</span>	
 		</TD>			
 	</TR>
 </TABLE>
@@ -453,11 +452,11 @@
 			<TH>&nbsp;</TH>   
 			<!--<TH colspan=3 ><button onclick="showALL()">group</button></TH>-->
 			<TH colspan=2> 
-				<input type="date" id="DATE" tabindex="300" style="background:beige; border:1px solid slategray; color:blue; width:100px;" placeholder="2024-mm-dd" value="2024-mm-dd"     onchange="localStorage.setItem('bkDATE',this.value);" > 
+				<input type="date" id="DATE" tabindex="300" style="background:beige; border:1px solid slategray; color:blue; width:200px; font-size:30px;" placeholder="2024-mm-dd" value="2024-mm-dd"     onchange="localStorage.setItem('bkDATE',this.value);" > 
 			</TH>
-			<TD colspan=1 align=center style="color:green; font-size:25px;">selected<!--<br>to play--></TD>
+			<TD colspan=1 align=center style="color:green; font-size:40px;">selected<!--<br>to play--></TD>
 	
-			<TH> <button onclick="SHUFFLEorder('PLAY')">SHUFFLED</button></TH>
+			<TH> <button onclick="SHUFFLEorder('PLAY')" style="font-size:20px;">SHUFFLED</button></TH>
 			<!--
 			<TH width=10px rowspan=22 style="background:beige;"></TH>		
 			<TD id="READtd" style="display:none;" rowspan=22 align=left valign=top> 
@@ -471,132 +470,132 @@
 		<TR>
 			<TD>1</TD> 
 			
-			<TD align=center><input type="checkbox" style="color:yellow; zoom:1;" id="CHK1b" onclick="PlayNxtWk('1')"></TD>
+			<TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK1b" onclick="PlayNxtWk('1')"></TD>
 			
 			<TD id="G1" tabindex="0" onclick="NAMEnxtwk('1')" style='cursor:pointer;'> </TD> <!-- onkeydown="keydwnFN(event, '0')" -->
 			<!--<TD align=center><input type="checkbox" id="CHK1" onclick="PlayNxtWk('1')"></TD>-->
 			<TD style="width:70px;" align=center id="NXT1"></TD>
-			<TD align=center id="SFL1"></TD>			
+			<TD align=center id="SFL1" style="font-size:30px;"></TD>			
 		</TR>
 		<TR>
 			<TD>2</TD> 
-			<TD align=center><input type="checkbox" style="color:yellow;" id="CHK2b" onclick="PlayNxtWk('2')"></TD>
+			<TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK2b" onclick="PlayNxtWk('2')"></TD>
 			<TD id="G2" tabindex="0" onclick="NAMEnxtwk('2')" style='cursor:pointer;'></TD> <!-- onkeydown="keydwnFN(event, '1')" -->
 			<!--<TD align=center><input type="checkbox" id="CHK2" onclick="PlayNxtWk('2')"></TD>-->
 			<TD align=center id="NXT2"></TD>
-			<TD align=center id="SFL2"></TD>
+			<TD align=center id="SFL2" style="font-size:30px;"></TD>
 		</TR>
 		<TR> <TD>3</TD> 
-			 <TD align=center><input type="checkbox" style="color:yellow; zoom:2;" id="CHK3b" onclick="PlayNxtWk('3')"></TD>
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK3b" onclick="PlayNxtWk('3')"></TD>
 			 <TD id="G3" tabindex="0"  onclick="NAMEnxtwk('3')" style='cursor:pointer;'></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
 			 <!--<TD align=center><input type="checkbox" id="CHK3" onclick="PlayNxtWk('3')"></TD>-->
 			 <TD align=center id="NXT3"></TD>
-			 <TD align=center id="SFL3"></TD>
+			 <TD align=center id="SFL3"  style="font-size:30px;"></TD>
 		 </TR>	
 		<TR> <TD>4</TD> 
-			 <TD align=center><input type="checkbox" style="color:yellow; zoom:1;" id="CHK4b" onclick="PlayNxtWk('4')"></TD>
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK4b" onclick="PlayNxtWk('4')"></TD>
 			 <TD id="G4" tabindex="0"  onclick="NAMEnxtwk('4')" style='cursor:pointer;'></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
 			 <!--<TD align=center><input type="checkbox" id="CHK4" onclick="PlayNxtWk('4')"></TD>-->
 			 <TD align=center id="NXT4"></TD>
-			 <TD align=center id="SFL4"></TD>
+			 <TD align=center id="SFL4" style="font-size:30px;"></TD>
 		 </TR>	
 		<TR> <TD>5</TD> 
-			 <TD align=center><input type="checkbox" style="color:yellow; zoom:1;" id="CHK5b" onclick="PlayNxtWk('5')"></TD>
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK5b" onclick="PlayNxtWk('5')"></TD>
 			 <TD id="G5" tabindex="0"  onclick="NAMEnxtwk('5')" style='cursor:pointer;'></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
 			 <!--<TD align=center><input type="checkbox" id="CHK5" onclick="PlayNxtWk('5')"></TD>-->
 			 <TD align=center id="NXT5"></TD>
-			 <TD align=center id="SFL5"></TD>
+			 <TD align=center id="SFL5" style="font-size:30px;"></TD>
 		 </TR>	
 		<TR> <TD>6</TD> 
-			 <TD align=center><input type="checkbox" style="color:yellow; zoom:1;" id="CHK6b" onclick="PlayNxtWk('6')"></TD>
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK6b" onclick="PlayNxtWk('6')"></TD>
 			 <TD id="G6" tabindex="0"  onclick="NAMEnxtwk('6')" style='cursor:pointer;'></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
 			 <!--<TD align=center><input type="checkbox" id="CHK6" onclick="PlayNxtWk('6')"></TD>-->
 			 <TD align=center id="NXT6"></TD>
-			 <TD align=center id="SFL6"></TD>
+			 <TD align=center id="SFL6" style="font-size:30px;"></TD>
 		 </TR>	
 		<TR> <TD>7</TD> 
-			 <TD align=center><input type="checkbox" style="color:yellow;" id="CHK7b" onclick="PlayNxtWk('7')"></TD>
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK7b" onclick="PlayNxtWk('7')"></TD>
 			 <TD id="G7" tabindex="0" onclick="NAMEnxtwk('7')" style='cursor:pointer;'></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
 			 <!--<TD align=center><input type="checkbox" id="CHK7" onclick="PlayNxtWk('7')"></TD>-->
 			 <TD align=center id="NXT7"></TD>
-			 <TD align=center id="SFL7"></TD>
+			 <TD align=center id="SFL7" style="font-size:30px;"></TD>
 		 </TR>	
 		<TR> <TD>8</TD> 
-			 <TD align=center><input type="checkbox" style="color:yellow;" id="CHK8b" onclick="PlayNxtWk('8')"></TD>
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK8b" onclick="PlayNxtWk('8')"></TD>
 			 <TD id="G8" tabindex="0"  onclick="NAMEnxtwk('8')" style='cursor:pointer;'></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
 			 <!--<TD align=center><input type="checkbox" id="CHK8" onclick="PlayNxtWk('8')"></TD>-->
 			 <TD align=center id="NXT8"></TD>
-			 <TD align=center id="SFL8"></TD>
+			 <TD align=center id="SFL8" style="font-size:30px;"></TD>
 		 </TR>	
 		<TR> <TD>9</TD> 
-			 <TD align=center><input type="checkbox" style="color:yellow;" id="CHK9b" onclick="PlayNxtWk('9')"></TD>
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK9b" onclick="PlayNxtWk('9')"></TD>
 			 <TD id="G9" tabindex="0"  onclick="NAMEnxtwk('9')" style='cursor:pointer;'></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
 			 <!--<TD align=center><input type="checkbox" id="CHK9" onclick="PlayNxtWk('9')"></TD>-->
 			 <TD align=center id="NXT9"></TD>
-			 <TD align=center id="SFL9"></TD>
+			 <TD align=center id="SFL9" style="font-size:30px;"></TD>
 		 </TR>
 			<TR> <TD>10</TD> 
-			 <TD align=center><input type="checkbox" style="color:yellow;" id="CHK10b" onclick="PlayNxtWk('10')"></TD>	
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK10b" onclick="PlayNxtWk('10')"></TD>	
 			 <TD id="G10" tabindex="0" onclick="NAMEnxtwk('10')" style='cursor:pointer;' ></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
 			 <!--<TD align=center><input type="checkbox" id="CHK10" onclick="PlayNxtWk('10')"></TD>-->
 			 <TD align=center id="NXT10"></TD>
-			 <TD align=center id="SFL10"></TD>
+			 <TD align=center id="SFL10" style="font-size:30px;"></TD>
 		 </TR>
 			<TR> <TD>11</TD>
-			 <TD align=center><input type="checkbox" style="color:yellow;" id="CHK11b" onclick="PlayNxtWk('11')"></TD>	
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK11b" onclick="PlayNxtWk('11')"></TD>	
 			 <TD id="G11" tabindex="0"  onclick="NAMEnxtwk('11')" style='cursor:pointer;'></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
 			 <!--<TD align=center><input type="checkbox" id="CHK11" onclick="PlayNxtWk('11')"></TD>-->
 			 <TD align=center id="NXT11"></TD>
-			 <TD align=center id="SFL11"></TD>
+			 <TD align=center id="SFL11" style="font-size:30px;"></TD>
 		 </TR>
 		 <TR> <TD>12</TD> 
-			 <TD align=center><input type="checkbox" style="color:yellow;" id="CHK12b" onclick="PlayNxtWk('12')"></TD>
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK12b" onclick="PlayNxtWk('12')"></TD>
 			 <TD id="G12" tabindex="0" onclick="NAMEnxtwk('12')" style='cursor:pointer;' ></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
 			 <!--<TD align=center><input type="checkbox" id="CHK12" onclick="PlayNxtWk('12')"></TD>-->
 			 <TD align=center id="NXT12"></TD>
-			 <TD align=center id="SFL12"></TD>
+			 <TD align=center id="SFL12" style="font-size:30px;"></TD>
 		 </TR>		 
 		 <TR> <TD>13</TD> 
-			 <TD align=center><input type="checkbox" style="color:yellow;" id="CHK13b" onclick="PlayNxtWk('13')"></TD>
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK13b" onclick="PlayNxtWk('13')"></TD>
 			 <TD id="G13" tabindex="0"  onclick="NAMEnxtwk('13')" style='cursor:pointer;'></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
 			 <!--<TD align=center><input type="checkbox" id="CHK13" onclick="PlayNxtWk('13')"></TD>-->
 			 <TD align=center id="NXT13"></TD>
-			 <TD align=center id="SFL13"></TD>
+			 <TD align=center id="SFL13" style="font-size:30px;"></TD>
 		 </TR>	
 		 <TR> <TD>14</TD> 
-			 <TD align=center><input type="checkbox" style="color:yellow;" id="CHK14b" onclick="PlayNxtWk('14')"></TD>
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK14b" onclick="PlayNxtWk('14')"></TD>
 			 <TD id="G14" tabindex="0"  onclick="NAMEnxtwk('14')" style='cursor:pointer;'></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
 			 <!--<TD align=center><input type="checkbox" id="CHK14" onclick="PlayNxtWk('14')"></TD>-->
 			 <TD align=center id="NXT14"></TD>
-			 <TD align=center id="SFL14"></TD>
+			 <TD align=center id="SFL14" style="font-size:30px;"></TD>
 		 </TR>	
 		 <TR> <TD>15</TD> 
-			 <TD align=center><input type="checkbox" style="color:yellow;" id="CHK15b" onclick="PlayNxtWk('15')"></TD>
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK15b" onclick="PlayNxtWk('15')"></TD>
 			 <TD id="G15" tabindex="0"  onclick="NAMEnxtwk('15')" style='cursor:pointer;'></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
 			 <!--<TD align=center><input type="checkbox" id="CHK15" onclick="PlayNxtWk('15')"></TD>-->
 			 <TD align=center id="NXT15"></TD>
-			 <TD align=center id="SFL15"></TD>
+			 <TD align=center id="SFL15" style="font-size:30px;"></TD>
 		 </TR>	
 		 <TR> <TD>16</TD> 
-			 <TD align=center><input type="checkbox" style="color:yellow;" id="CHK16b" onclick="PlayNxtWk('16')"></TD>
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK16b" onclick="PlayNxtWk('16')"></TD>
 			 <TD id="G16" tabindex="0"  onclick="NAMEnxtwk('16')" style='cursor:pointer;'></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
 			 <!--<TD align=center><input type="checkbox" id="CHK16" onclick="PlayNxtWk('16')"></TD>-->
 			 <TD align=center id="NXT16"></TD>
-			 <TD align=center id="SFL16"></TD>
+			 <TD align=center id="SFL16" style="font-size:30px;"></TD>
 		 </TR>	
 		 <TR> <TD>17</TD> 
-			 <TD align=center><input type="checkbox" style="color:yellow;" id="CHK17b" onclick="PlayNxtWk('17')"></TD>
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK17b" onclick="PlayNxtWk('17')"></TD>
 			 <TD id="G17" tabindex="0"  onclick="NAMEnxtwk('17')" style='cursor:pointer;'></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
 			 <!--<TD align=center><input type="checkbox" id="CHK17" onclick="PlayNxtWk('17')"></TD>-->
 			 <TD align=center id="NXT17"></TD>
-			 <TD align=center id="SFL17"></TD>
+			 <TD align=center id="SFL17" style="font-size:30px;"></TD>
 		 </TR>	
 		 <TR> <TD>18</TD> 
-			 <TD align=center><input type="checkbox" style="color:yellow;" id="CHK18b" onclick="PlayNxtWk('18')"></TD>
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK18b" onclick="PlayNxtWk('18')"></TD>
 			 <TD id="G18" tabindex="0"  onclick="NAMEnxtwk('18')" style='cursor:pointer;'></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
 			 <!--<TD align=center><input type="checkbox" id="CHK18" onclick="PlayNxtWk('18')"></TD>-->
 			 <TD align=center id="NXT18"></TD>
-			 <TD align=center id="SFL18"></TD>
+			 <TD align=center id="SFL18" style="font-size:30px;"></TD>
 		 </TR>	
 		<!-- 
 		<TR> <TD colspan=2>
