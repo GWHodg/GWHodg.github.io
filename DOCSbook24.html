@@ -26,9 +26,9 @@
 		create an animated, closable side navigation menu
 	  	https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sidenav*/
 			.sidenav {
-			  height: 23%; width: 0;   /* height: 100%;   30%*/
+			  height: 23%; width:0;   /* height: 100%;   30%*/
 			  position: fixed;z-index: 1;
-			  top: 900px; left: 0; /* top: 545px; */
+			  top: 500px; left: 0; /* top: 545px; */
 			  background-color:black;	/*blue;	  #111;*/
 			  overflow:scroll; transition: 0.5s; padding-top:0px;	/* 30px; */
 			  /* overflow-x: hidden; overflow-y:scroll; */
@@ -73,7 +73,7 @@
 
 		function openNav() {
 			  if (document.getElementById("mySidenav").style.width<"200px") {
-					document.getElementById("mySidenav").style.width = "400px";
+					document.getElementById("mySidenav").style.width = "600px";
 					//document.getElementById("mySidenav").style.overflow = "scroll";
 			  }
 			  else {
@@ -143,8 +143,13 @@
 
 		if ( PLAY.includes(NAME) ) {
 			alert("PLAY array includes "+NAME+". Will REMOVE from PLAY array!");
-			var index = PLAY.indexOf(NAME);		alert("index of "+NAME+" = "+index);
+			var index = PLAY.indexOf(NAME);		alert("index of "+NAME+" = "+index+"\nPLAY = "+PLAY);
 			PLAY.splice(index, 1);				/* <<< HELP! (July 15/23 */									// < **!
+				alert("Post splice PLAY = "+PLAY);
+				let PLAYstring = PLAY.toString();  alert("PLAYstring = "+PLAYstring+"!");
+				localStorage.clear();
+				localStorage.setItem("lastPLAY",PLAYstring); 
+				//localStorage.removeItem(NAME);  //<<<<< NO! (May/24)
 			//PLAY.splice(PLAYidxTOsplice, 1);
 			//alert("'PLAY' array length post splice = "+PLAY.length+"\n\nARRAY = '"+PLAY+"'");	
 			//alert("Will REMOVE "+NAME+" from list.");
@@ -243,38 +248,8 @@
 		/*alert("Will try to display player email + entry #! (pNO = "+pNO+"):\n\n"+
 			  ALL[pNO-1] + " email = " + EMAILS[pNO-1] );*/
 		alert(EMAILS[pNO-1]);
-		}
+	}
 		
-	function stored() {
-				//alert("Will try to REPLACE chords w/ stored data . . .");
-				document.getElementById("sNAME").value = localStorage.getItem("sNAME");
-				document.getElementById("sKEY").value = localStorage.getItem("sKEY");			
-				for (var h = 1; h < 5; h++) {		//L1g1
-						document.getElementById("L1b"+h).value = localStorage.getItem("L1g"+h);  
-										document.getElementById("L1b"+h).style.color = "black"; 
-							document.getElementById("L1b"+h+"z").value = localStorage.getItem("L1g"+h+"z");
-										document.getElementById("L1b"+h+"z").style.color = "black"; 							
-						document.getElementById("L2b"+h).value = localStorage.getItem("L2g"+h);
-										document.getElementById("L2b"+h).style.color = "black"; 						
-							document.getElementById("L2b"+h+"z").value = localStorage.getItem("L2g"+h+"z");
-										document.getElementById("L2b"+h+"z").style.color = "black"; 							
-						//document.getElementById("p3h"+h).value = localStorage.getItem("g3H"+h+"s");	
-						document.getElementById("L3b"+h).value = localStorage.getItem("L3g"+h);
-										document.getElementById("L3b"+h).style.color = "black"; 						
-						document.getElementById("L3b"+h+"z").value = localStorage.getItem("L3g"+h+"z");
-								document.getElementById("L3b"+h+"z").style.color = "black"; 
-						document.getElementById("L4b"+h).value = localStorage.getItem("L4g"+h);
-										document.getElementById("L4b"+h).style.color = "black"; 						
-						document.getElementById("L4b"+h+"z").value = localStorage.getItem("L4g"+h+"z");
-										document.getElementById("L4b"+h+"z").style.color = "black"; 
-						document.getElementById("L5b"+h).value = localStorage.getItem("L5g"+h);
-										document.getElementById("L5b"+h).style.color = "black"; 						
-						document.getElementById("L5b"+h+"z").value = localStorage.getItem("L5g"+h+"z");
-										document.getElementById("L5b"+h+"z").style.color = "black"; 						
-				}	
-				document.getElementById("CHORDS").value = ""; 	
-				document.getElementById("fret").value = ""; 					
-		}
 
 	function showLSwrite() {
 		if (document.getElementById("divLSwrite").style.visibility=="visible") {
@@ -318,83 +293,7 @@
 			
 		}
 
-	function changeLclStrg() {
-			var dROW1 = readArray[0]; const dARR1 = dROW1.split(","); 
-				localStorage.setItem('sNAME', dARR1[0]);	localStorage.setItem('sKEY', dARR1[1]);	
-				//alert("dROW1 = "+dROW1+"\ndARR1 = "+dARR1+"\ndARR1[1] = "+dARR1[1]);
-			var dROW2 = readArray[1]; const dARR2 = dROW2.split(","); 
-				localStorage.setItem('L1g1', dARR2[0]);	localStorage.setItem('L1g1z', dARR2[1]);	
-				localStorage.setItem('L1g2', dARR2[2]);	localStorage.setItem('L1g2z', dARR2[3]);	
-				localStorage.setItem('L1g3', dARR2[4]);	localStorage.setItem('L1g3z', dARR2[5]);	
-				localStorage.setItem('L1g4', dARR2[6]);	localStorage.setItem('L1g4z', dARR2[7]);
-			var dROW3 = readArray[2]; const dARR3 = dROW3.split(","); 
-				localStorage.setItem('L2g1', dARR3[0]);	localStorage.setItem('L2g1z', dARR3[1]);	
-				localStorage.setItem('L2g2', dARR3[2]);	localStorage.setItem('L2g2z', dARR3[3]);	
-				localStorage.setItem('L2g3', dARR3[4]);	localStorage.setItem('L2g3z', dARR3[5]);	
-				localStorage.setItem('L2g4', dARR3[6]);	localStorage.setItem('L2g4z', dARR3[7]);	
-			var dROW4 = readArray[3]; const dARR4 = dROW4.split(","); 
-				localStorage.setItem('L3g1', dARR4[0]);	localStorage.setItem('L3g1z', dARR4[1]);	
-				localStorage.setItem('L3g2', dARR4[2]);	localStorage.setItem('L3g2z', dARR4[3]);	
-				localStorage.setItem('L3g3', dARR4[4]);	localStorage.setItem('L3g3z', dARR4[5]);	
-				localStorage.setItem('L3g4', dARR4[6]);	localStorage.setItem('L3g4z', dARR4[7]);	
-			var dROW5 = readArray[4]; const dARR5 = dROW5.split(","); 
-				localStorage.setItem('L4g1', dARR5[0]);	localStorage.setItem('L4g1z', dARR5[1]);	
-				localStorage.setItem('L4g2', dARR5[2]);	localStorage.setItem('L4g2z', dARR5[3]);	
-				localStorage.setItem('L4g3', dARR5[4]);	localStorage.setItem('L4g3z', dARR5[5]);	
-				localStorage.setItem('L4g4', dARR5[6]);	localStorage.setItem('L4g4z', dARR5[7]);	
-			var dROW6 = readArray[5]; const dARR6 = dROW6.split(","); 
-				localStorage.setItem('L5g1', dARR6[0]);	localStorage.setItem('L5g1z', dARR6[1]);	
-				localStorage.setItem('L5g2', dARR6[2]);	localStorage.setItem('L5g2z', dARR6[3]);	
-				localStorage.setItem('L5g3', dARR6[4]);	localStorage.setItem('L5g3z', dARR6[5]);	
-				localStorage.setItem('L5g4', dARR6[6]);	localStorage.setItem('L5g4z', dARR6[7]);					
-			//alert("In 'changeLclStrg' fn! dROW4 = "+dROW4+"\ndARR4 = "+dARR4+"\ndARR4[1] = "+dARR4[1]);
-	}		
-
-	function HELP() {
-		alert("KEYS:\n\tE-4#; A-3#; D-2#; G-1#\n\tAb-4b; Eb-3b; Bb-2b; F-1b\n\n"+
-			  "Body CSS: zoom for GitHub = 250%; for iPad = 130%");
-	}
-
-	function clearSTORED() {
-		//alert("Will CLEAR 'stored' inputs here!");
-		  let reply;
-		  if (confirm("Are you SURE you want to CLEAR all 'stored' input?") == true) {
-		    reply = "YES!";
-		  } else {
-		    reply = "NO!";
-		  }
-  		  alert(reply);
-			  
-		if ( reply=="YES!") {
-			for (L=1; L<6; L++) {
-					//alert("in for loop! b1 value = "+document.getElementById("L"+ L +"b1").value);
-					for (B=1; B<5; B++) {						
-						localStorage.setItem("L"+L+"g"+B,""); document.getElementById("L"+L+"b"+B).value = ""; 
-						localStorage.setItem("L"+L+"g"+B+"z",""); document.getElementById("L"+L+"b"+B+"z").value = ""; 
-					}
-			}
-			/*
-			for (var h = 1; h < 19; h++) {
-					for (var n = 1; n < 6; n++) {
-						localStorage.setItem('g'+n+'H'+h+'s',""); document.getElementById("p"+n+"h"+h).value = "";
-					}
-			}
-			*/			
-			localStorage.setItem("sNAME",""); document.getElementById("sNAME").value = ""; 
-			localStorage.setItem("sKEY",""); document.getElementById("sKEY").value = ""; 
-			document.getElementById("CHORDS").value = ""; 	
-			document.getElementById("fret").value = ""; 				
-		}		
-		//alert("g1H1s POST 'clear' = " +  localStorage.getItem("g1H1s"));		
-		//hideMENU();		
-	}
-
-	function loadSONG() {
-		DIVtoVAR();
-		changeLclStrg();
-		stored();
-		showLSread();
-	}	
+		
 
 	function emails() {
 		alert("dbpengelly@gmail.com, jas@uvic.ca, abbuck@shaw.ca, tp70connolly@gmail.com, therad@shaw.ca, charlesmed@shaw.ca, evan@evanhazell.com, geofffield@shaw.ca, cathyhodgins2@gmail.com, pmkuechler@gmail.com, jmccr99@gmail.com, gportermd@gmail.com, jwdutton@telus.net, gmharris@hotmail.com, shaynej@shaw.ca, nigelbailey@shaw.ca, dave.pianoman@gmail.com");
@@ -422,38 +321,43 @@
 	 function presetPLAY() {
 			//alert("'PLAY' array length = "+PLAY.length+"\n\nARRAY = '"+PLAY+"'");	
 		 
-		 	PLAY[0] = "Pengelly";  PLAY[1] = "Field"; PLAY.push("Hodgins", "Porter", "Jessop"); //4,9,10,7,3
+//		 	PLAY[0] = "Pengelly";  PLAY[1] = "Field"; 
+			PLAY.push("Hodgins", "Porter", "Jessop"); //4,9,10,7,3
+			let PLAYstring = PLAY.toString();
+			localStorage.clear();
+			localStorage.setItem("lastPLAY",PLAYstring); 
 				//alert("'PLAY' array = "+PLAY);
-			document.getElementById('CHK10').checked=true;
+//			document.getElementById('CHK10').checked=true;
 			//document.getElementById('NXT4').innerHTML="Pengelly";
-				document.getElementById('CHK4').checked=true;
+//				document.getElementById('CHK4').checked=true;
 					//document.getElementById('NXT9').innerHTML="Field";
-				document.getElementById('CHK5').checked=true;
+//				document.getElementById('CHK5').checked=true;
 					//document.getElementById('NXT10').innerHTML="Hodgins";
-				document.getElementById('CHK12').checked=true;
+//				document.getElementById('CHK12').checked=true;
 					//document.getElementById('NXT7').innerHTML="Porter";
-				document.getElementById('CHK6').checked=true;
+//				document.getElementById('CHK6').checked=true;
 					//document.getElementById('NXT3').innerHTML="Jessop";	
 			let pLen = PLAY.length;
 			for (let i = 1; i < pLen+1; i++) {
 			  document.getElementById("NXT"+i).innerHTML = PLAY[i-1];		
 		  	}		
 	 }
+	 
 	 function lastPLAY() {
 		 LASTstring = localStorage.getItem("lastPLAY");
-		 //alert("Will load last used 'play nxt wk' list.\n\n"+
-			  //"LASTstring var (fr LS) = "+LASTstring);	//lastPLAY;	//LASTstring);	
-		 var LASTarray = LASTstring.split(",");	 
+		 alert("Will load last used 'play nxt wk' list.\n\n"+
+			  "LASTstring var (fr LS) = "+LASTstring);	//lastPLAY;	//LASTstring);	
+		 var LASTarray = LASTstring.split(",");	 alert("LASTarray = "+LASTarray);
 		
-		 LASTarray.pop(); LASTarray.shift();
-		 //alert("'LASTarray' array length = "+LASTarray.length+"\n\nARRAY = '"+LASTarray+"'");
+		 //LASTarray.pop(); LASTarray.shift();
+		 alert("'LASTarray' array length = "+LASTarray.length+"\n\nARRAY = '"+LASTarray+"'");
 		 
-		 var LaLen = LASTarray.length;	//alert("LASTarray.length = "+LASTarray.length);
+		 var LaLen = LASTarray.length;	alert("LASTarray.length = "+LASTarray.length);
 		 for (let i = 0; i < LaLen; i++) {
 			  	PLAY.push(LASTarray[i]);
 				document.getElementById("NXT"+(i+1)).innerHTML = PLAY[i];
 		 }
-	
+		 /*	
 		 if ( PLAY.includes("Buckley") ) {document.getElementById("CHK1").checked="true";}
 		 if ( PLAY.includes("Connolly") ) {document.getElementById("CHK2").checked="true";}
 		 if ( PLAY.includes("Jessop") ) {document.getElementById("CHK6").checked="true";}
@@ -470,7 +374,8 @@
 		 if ( PLAY.includes("G.Harris") ) {document.getElementById("CHK17").checked="true";}
 		 if ( PLAY.includes("Dutton") ) {document.getElementById("CHK3").checked="true";}
 		 if ( PLAY.includes("McCracken") ) {document.getElementById("CHK8").checked="true";}
-		 if ( PLAY.includes("Paulson") ) {document.getElementById("CHK11").checked="true";}		 
+		 if ( PLAY.includes("Paulson") ) {document.getElementById("CHK11").checked="true";}	
+		 */	 
 	}
 	
 	function clearPLAYarray() {
@@ -486,20 +391,21 @@
 					//alert("Will try to RESET locally stored 'DROPstr' STRING to 'Medhurst, Dutton, Hodgins'!");
 				PLAY.length = 0;
 					//localStorage.setItem('DROPstr', "");
-		  }
+//		  }
 		  
-		  //alert("'PLAY' array length = "+PLAY.length+"\n\nARRAY = '"+PLAY+"'");	
-		  //getLocStorDROPPED();	
-		  //var pLen = PLAY.length;
-		  for (let i = 1; i < 18; i++) {
-			  	//PLAY.push(LASTarray[i]);
-				document.getElementById("NXT"+(i)).innerHTML = "";
-				document.getElementById("CHK"+(i)).checked=false;
-				
-				//LASTstring = LASTstring + NAME + ",";
-				//localStorage.setItem("lastPLAY",LASTstring);
-				localStorage.setItem("lastPLAY","");
-		  }	 
+			  alert("'PLAY' array length = "+PLAY.length+"\n\nARRAY = '"+PLAY+"'");	
+			  //getLocStorDROPPED();	
+			  //var pLen = PLAY.length;
+			  for (let i = 1; i < 18; i++) {
+				  	//PLAY.push(LASTarray[i]);
+					document.getElementById("NXT"+(i)).innerHTML = "";
+					//document.getElementById("CHK"+(i)).checked=false;
+					
+					//LASTstring = LASTstring + NAME + ",";
+					//localStorage.setItem("lastPLAY",LASTstring);
+					localStorage.setItem("lastPLAY","");
+		  	   }
+			}  
 	}
 	
 		  
@@ -510,21 +416,22 @@
 <body class="body" style="background-color:white; zoom:1; font-size:60px;"   onLoad="window.scroll(0, 0); showALL()"> 	
 <div class="wrapper"><!-- Put the page contents here -->
 
-				<div id="mySidenav" class="sidenav"  style='opacity:0.8; border-right: 5px solid red;'>
+				<div id="mySidenav" class="sidenav"  style='opacity:1.0; border-right: 5px solid red;'>
 						<div class="grid-container">
-							  <div><button style="color:blue; font-size:10px;" onclick="presetPLAY()">use presets</button></div>
-							  <div><button style="color:black; font-size:15px;" onclick="lastPLAY()"><b>LAST</b></button></div>
-							  <div><button style="color:black; font-size:10px;" onclick="clearPLAYarray()"><s><b>CLEAR</b> PLAY[]</s></button></div>
+							  <div><button style="color:blue; font-size:25px;" onclick="presetPLAY()">use presets</button></div>
+							  <div><button style="color:black; font-size:25px;" onclick="lastPLAY()"><b>LAST</b></button></div>
+							  <div><button style="color:black; font-size:25px;" onclick="clearPLAYarray()"><b>CLEAR</b> PLAY[]</button></div>
 							  
 							  <div><!--<button onclick="showALL()">display group</button>--></div>
 							  <!--<div><button onclick="emails()">emails</button></div>-->
 							  <div><A onclick="emails()" style='cursor:pointer; color:maroon;'><b>emails</b></A></div>
 							  <div><A style="FONT-SIZE:normal; cursor:pointer; color:maroon;" title="Mix playing order"
 								  onclick="SHUFFLEorder('PLAY')"><b>SHUFFLE</b></A>	</div>
-								  
-								<div><a><button style="color:blue; cursor:pointer; font-size:8px;" onclick="UNIVhelp()"><s>WRITE/READ HELP</s></button></a></div>
+							  <!--  
+							  <div><a><button style="color:blue; cursor:pointer; font-size:8px;" onclick="UNIVhelp()"><s>WRITE/READ HELP</s></button></a></div>
 							  <div><A onclick="showLSread()" style='cursor:pointer;'><s><b>READ file</b></s></A></div>
-							  <div><a><button id='REPLACEbtn'  onclick="showLSwrite()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%; cursor:pointer;"><s><b>WRITE to file</b></s></button></a></div>									  
+							  <div><a><button id='REPLACEbtn'  onclick="showLSwrite()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%; cursor:pointer;"><s><b>WRITE to file</b></s></button></a></div>
+							  -->							  
 						</div>									
 				</div>	
 				
@@ -580,7 +487,7 @@
 			<TD align=center id="SFL2"></TD>
 		</TR>
 		<TR> <TD>3</TD> 
-			 <TD align=center><input type="checkbox" style="color:yellow;" id="CHK3b" onclick="PlayNxtWk('3')"></TD>
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:2;" id="CHK3b" onclick="PlayNxtWk('3')"></TD>
 			 <TD id="G3" tabindex="0"  onclick="NAMEnxtwk('3')" style='cursor:pointer;'></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
 			 <!--<TD align=center><input type="checkbox" id="CHK3" onclick="PlayNxtWk('3')"></TD>-->
 			 <TD align=center id="NXT3"></TD>
