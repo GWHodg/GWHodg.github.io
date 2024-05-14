@@ -370,25 +370,25 @@
 	 
 	 function lastPLAY() {
 		 LASTstring = localStorage.getItem("lastPLAY");
-		 alert("Will load last used 'play nxt wk' list.\n\n"+
-			  "LASTstring var (fr LS) = '"+LASTstring+"'");	//lastPLAY;	//LASTstring);	
+//		 alert("Will load last used 'play nxt wk' list.\n\n"+
+//			  "LASTstring var (fr LS) = '"+LASTstring+"'");	//lastPLAY;	//LASTstring);	
 		 //LASTarray.length = 0;
-		 LASTarray = LASTstring.split(",");	 alert("LASTarray = '"+LASTarray+"'");
+		 LASTarray = LASTstring.split(",");	 //alert("LASTarray = '"+LASTarray+"'");
 		
 		 //LASTarray.pop(); LASTarray.shift();
-		 alert("'LASTarray' array length = "+LASTarray.length+"\n\nARRAY = '"+LASTarray+"'");
+//		 alert("'LASTarray' array length = "+LASTarray.length+"\n\nARRAY = '"+LASTarray+"'");
 		 
 		 var LaLen = LASTarray.length;	
-		 newLASTarray = lastARRAY.slice(1,lastARRAY.length);	
-		 		alert("LASTarray.length = "+LaLen+"\n"+
-					  "'newLASTarray length = "+newLASTarray.length);
+		 newLASTarray = LASTarray.slice(1,LASTarray.length);	
+//		 		alert("LASTarray.length = "+LaLen+"\n"+
+//					  "'newLASTarray length = "+newLASTarray.length);
 		 
 		 //for (let i = 0; i < LaLen; i++) {
 /*		 for (let i = 0; i < newLASTarray.length; i++) {
 			  	PLAY.push(newLASTarray[i]);
 				document.getElementById("NXT"+(i+1)).innerHTML = PLAY[i];
 		 }
-*/		 alert("LASTarray[0] = '"+LASTarray[0]+"'");
+*/		 //alert("LASTarray[0] = '"+LASTarray[0]+"'");
 		 if ( LASTarray[0] == "" ) {
 			 	for (let i = 0; i < newLASTarray.length; i++) {
 				  	PLAY.push(newLASTarray[i]);
@@ -434,25 +434,26 @@
 			  
 		  if ( reply=="YES!") {
 					//alert("Will try to RESET locally stored 'DROPstr' STRING to 'Medhurst, Dutton, Hodgins'!");
-				PLAY.length = 0;
+				  PLAY.length = 0;
 					//localStorage.setItem('DROPstr', "");
 //		  }
 
-			  alert("'PLAY' array length = "+PLAY.length+"\n\nARRAY = '"+PLAY);
-						  
-			  //getLocStorDROPPED();	
-			  //var pLen = PLAY.length;
-			  for (let i = 1; i < 18; i++) {
-				  	//PLAY.push(LASTarray[i]);
-					document.getElementById("NXT"+(i)).innerHTML = "";
-					//document.getElementById("CHK"+(i)).checked=false;
-					
-					//LASTstring = LASTstring + NAME + ",";
-					//localStorage.setItem("lastPLAY",LASTstring);
-					
-					localStorage.setItem("lastPLAY","");
-					//localStorage.clear();
-		  	   }
+//				  alert("'PLAY' array length = "+PLAY.length+"\n\nARRAY = '"+PLAY);
+							  
+				  //getLocStorDROPPED();	
+				  //var pLen = PLAY.length;
+				  for (let i = 1; i < 18; i++) {
+					  	//PLAY.push(LASTarray[i]);
+						document.getElementById("NXT"+(i)).innerHTML = "";
+						//document.getElementById("CHK"+(i)).checked=false;
+						
+						//LASTstring = LASTstring + NAME + ",";
+						//localStorage.setItem("lastPLAY",LASTstring);
+						
+						localStorage.setItem("lastPLAY","");
+						//localStorage.clear();
+			  	   }
+/* *>> */		   window.location.reload();
 			}  
 	}
 	
@@ -462,7 +463,7 @@
 </head>
 
 <body class="body" style="background-color:white; zoom:1; font-size:60px;"   
-	onLoad="window.scroll(0, 0); showALL(); loadVARS();"> 	
+	onLoad="window.scroll(0, 0); showALL();">	<!--  loadVARS(); --> 	
 <div class="wrapper"><!-- Put the page contents here -->
 
 				<div id="mySidenav" class="sidenav"  style='opacity:1.0; border-right: 5px solid red;'>
