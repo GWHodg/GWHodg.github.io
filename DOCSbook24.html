@@ -73,7 +73,7 @@
 
 		function openNav() {
 			  if (document.getElementById("mySidenav").style.width<"200px") {
-					document.getElementById("mySidenav").style.width = "600px";
+					document.getElementById("mySidenav").style.width = "800px";
 					//document.getElementById("mySidenav").style.overflow = "scroll";
 			  }
 			  else {
@@ -107,11 +107,33 @@
 	var newDROPstr;  var canDROPstr = "";
 		let canDPary = [];	const dropNOW = [];
 	var strDROPls;
-	var LASTstring = ",";
+	var LASTstring; //= ",";
+	//const lastARRAY = []; const newLASTarray = [];
 	//const NEXT = [];			//const DROPPED = [];
 	const slctDP = [];
 	var DRPmark = "n";
 	//const statsDATES = [];
+
+	function loadVARS() {
+
+		LASTstring = localStorage.getItem("lastPLAY");
+		lastARRAY = LASTstring.split(",");
+		
+		newLASTarray = lastARRAY.slice(1,lastARRAY.length);	
+		
+					//LASTarray.length = 0;		
+		//LASTstring = LASTstring  + "," + NAME;
+		alert("VARIABLE VALUES ON LOADING:\n\n"+
+			  "Will load last used 'play nxt wk' list.\n\n"+
+			  "LASTstring var (fr LS) = '"+LASTstring+"'\n"+
+			  "LASTarray = '"+lastARRAY+"'\n"+
+		 	  "'LASTarray' array length = "+lastARRAY.length+"\n\n"+
+			  "'PLAY' array length = "+PLAY.length+"\n\t'PLAY' ARRAY = '"+PLAY+"'\n\n"+
+			  "LASTarray[1] (2nd element) = "+lastARRAY[1]+"\n\n"+
+			  "newLASTarray (LASTarray w/ 1st el 'sliced') = "+newLASTarray+"\n"+
+			  "newLASTarray length = "+newLASTarray.length);
+			    
+	}
 	
 	function showALL() {
 		//alert("'ALL' array length = "+ALL.length+"\n\nARRAY = '"+ALL+"'");
@@ -171,7 +193,8 @@
 			//alert("PLAY array does NOT include "+NAME);
 			PLAY.push(NAME); 			//alert("PLAY array = "+PLAY);
 			
-			LASTstring = LASTstring + NAME + ",";
+			//LASTstring = LASTstring + NAME + ",";
+			LASTstring = LASTstring  + "," + NAME;
 			localStorage.setItem("lastPLAY",LASTstring); //alert("GOT to 'localStorage.setItem'!");
 					
 			document.getElementById("CHK"+plr+"b").checked=true;
@@ -347,15 +370,21 @@
 	 function lastPLAY() {
 		 LASTstring = localStorage.getItem("lastPLAY");
 		 alert("Will load last used 'play nxt wk' list.\n\n"+
-			  "LASTstring var (fr LS) = "+LASTstring);	//lastPLAY;	//LASTstring);	
-		 var LASTarray = LASTstring.split(",");	 alert("LASTarray = "+LASTarray);
+			  "LASTstring var (fr LS) = '"+LASTstring+"'");	//lastPLAY;	//LASTstring);	
+		 //LASTarray.length = 0;
+		 LASTarray = LASTstring.split(",");	 alert("LASTarray = '"+LASTarray+"'");
 		
 		 //LASTarray.pop(); LASTarray.shift();
 		 alert("'LASTarray' array length = "+LASTarray.length+"\n\nARRAY = '"+LASTarray+"'");
 		 
-		 var LaLen = LASTarray.length;	alert("LASTarray.length = "+LASTarray.length);
-		 for (let i = 0; i < LaLen; i++) {
-			  	PLAY.push(LASTarray[i]);
+		 var LaLen = LASTarray.length;	
+		 newLASTarray = lastARRAY.slice(1,lastARRAY.length);	
+		 		alert("LASTarray.length = "+LaLen+"\n"+
+					  "'newLASTarray length = "+newLASTarray.length);
+		 
+		 //for (let i = 0; i < LaLen; i++) {
+		 for (let i = 0; i < newLASTarray.length; i++) {
+			  	PLAY.push(newLASTarray[i]);
 				document.getElementById("NXT"+(i+1)).innerHTML = PLAY[i];
 		 }
 		 	
@@ -393,8 +422,9 @@
 				PLAY.length = 0;
 					//localStorage.setItem('DROPstr', "");
 //		  }
-		  
-			  alert("'PLAY' array length = "+PLAY.length+"\n\nARRAY = '"+PLAY+"'");	
+
+			  alert("'PLAY' array length = "+PLAY.length+"\n\nARRAY = '"+PLAY);
+						  
 			  //getLocStorDROPPED();	
 			  //var pLen = PLAY.length;
 			  for (let i = 1; i < 18; i++) {
@@ -404,7 +434,9 @@
 					
 					//LASTstring = LASTstring + NAME + ",";
 					//localStorage.setItem("lastPLAY",LASTstring);
+					
 					localStorage.setItem("lastPLAY","");
+					//localStorage.clear();
 		  	   }
 			}  
 	}
@@ -414,14 +446,15 @@
 
 </head>
 
-<body class="body" style="background-color:white; zoom:1; font-size:60px;"   onLoad="window.scroll(0, 0); showALL()"> 	
+<body class="body" style="background-color:white; zoom:1; font-size:60px;"   
+	onLoad="window.scroll(0, 0); showALL(); loadVARS();"> 	
 <div class="wrapper"><!-- Put the page contents here -->
 
 				<div id="mySidenav" class="sidenav"  style='opacity:1.0; border-right: 5px solid red;'>
 						<div class="grid-container">
 							  <div><A style="FONT-SIZE:normal; cursor:pointer; color:maroon;" onclick="presetPLAY()"><b>presets</b></A><!--<button style="color:blue; font-size:25px;" onclick="presetPLAY()">use presets</button>--></div>
-							  <div><A style="FONT-SIZE:normal; cursor:pointer; color:maroon;" onclick="lastPLAY()"><b>LAST</b></A><!--<button style="color:black; font-size:25px;" onclick="lastPLAY()"><b>LAST</b></button>--></div>
-							  <div><A style="FONT-SIZE:normal; cursor:pointer; color:maroon;" onclick="clearPLAYarray()"><b>clear</b></A><!--<button style="color:black; font-size:25px;" onclick="clearPLAYarray()"><b>CLEAR</b> PLAY[]</button>--></div>
+							  <div><A style="FONT-SIZE:60px; cursor:pointer; color:maroon;" onclick="lastPLAY()"><b>LAST</b></A><!--<button style="color:black; font-size:25px;" onclick="lastPLAY()"><b>LAST</b></button>--></div>
+							  <div><A style="FONT-SIZE:60px; cursor:pointer; color:maroon;" onclick="clearPLAYarray()"><b>clear</b></A><!--<button style="color:black; font-size:25px;" onclick="clearPLAYarray()"><b>CLEAR</b> PLAY[]</button>--></div>
 							  
 							  <div><span style="font-size:60px; cursor:pointer; color:maroon;" onclick="closeNav()"><s>&#9776;</s></span>	<!--<button onclick="showALL()">display group</button>--></div>
 							  <!--<div><button onclick="emails()">emails</button></div>-->
