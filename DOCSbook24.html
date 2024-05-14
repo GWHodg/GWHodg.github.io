@@ -126,6 +126,7 @@
 		alert("VARIABLE VALUES ON LOADING:\n\n"+
 			  "Will load last used 'play nxt wk' list.\n\n"+
 			  "LASTstring var (fr LS) = '"+LASTstring+"'\n"+
+			  		"lastARRAY[0] (1st element) = '"+lastARRAY[0]+"'\n"+
 			  "LASTarray = '"+lastARRAY+"'\n"+
 		 	  "'LASTarray' array length = "+lastARRAY.length+"\n\n"+
 			  "'PLAY' array length = "+PLAY.length+"\n\t'PLAY' ARRAY = '"+PLAY+"'\n\n"+
@@ -383,11 +384,25 @@
 					  "'newLASTarray length = "+newLASTarray.length);
 		 
 		 //for (let i = 0; i < LaLen; i++) {
-		 for (let i = 0; i < newLASTarray.length; i++) {
+/*		 for (let i = 0; i < newLASTarray.length; i++) {
 			  	PLAY.push(newLASTarray[i]);
 				document.getElementById("NXT"+(i+1)).innerHTML = PLAY[i];
 		 }
-		 	
+*/		 alert("LASTarray[0] = '"+LASTarray[0]+"'");
+		 if ( LASTarray[0] == "" ) {
+			 	for (let i = 0; i < newLASTarray.length; i++) {
+				  	PLAY.push(newLASTarray[i]);
+					document.getElementById("NXT"+(i+1)).innerHTML = PLAY[i];
+				}			 
+		 } 
+		 else {
+			 	for (let i = 0; i < LaLen; i++) {
+				  	PLAY.push(LASTarray[i]);
+					document.getElementById("NXT"+(i+1)).innerHTML = PLAY[i];
+				}			 			 
+		 }
+
+		 
 		 if ( PLAY.includes("Buckley") ) {document.getElementById("CHK1b").checked="true";}
 		 if ( PLAY.includes("Connolly") ) {document.getElementById("CHK2b").checked="true";}
 		 if ( PLAY.includes("Jessop") ) {document.getElementById("CHK6b").checked="true";}
@@ -469,10 +484,10 @@
 				</div>	
 				
 <TABLE id="HEADtbl" border=1 align=center style='color:blue; visibility:visible;' bgcolor='lightgray'>	
-	<TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:40px; COLOR:white; background:green; FONT-WEIGHT:bold; padding:5px;" ><u>'DOCS' Golf</u> Booking&emsp;<font size=3 color=lightgray>May 9, 2024</font> 
+	<TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:40px; COLOR:white; background:green; FONT-WEIGHT:bold; padding:5px;" ><u>'DOCS' Golf</u> Booking&emsp;<font size=5 color=lightgray>May 14, 2024</font> 
 		</TD> 
 		<TD>
-			<span style="font-size:60px; cursor:pointer; color:maroon;" onclick="openNav()">&#9776;</span>	
+			<span style="font-size:100px; cursor:pointer; color:maroon;" onclick="openNav()">&#9776;</span>	
 		</TD>			
 	</TR>
 </TABLE>
