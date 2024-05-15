@@ -347,7 +347,7 @@
 			alert("'PLAY' array length = "+PLAY.length+"\n\nARRAY = '"+PLAY+"'");	
 		 
 		 	PLAY[0] = "Pengelly";  //PLAY[1] = "Field"; 
-			PLAY.push("Hodgins", "Porter", "Jessop"); //4,9,10,7,3
+			PLAY.push("Porter", "Buckley", "Connolly", "Kuechler", "Schofield", "Ritchie"); //4,9,10,7,3
 			let PLAYstring = PLAY.toString();
 			localStorage.clear();
 			localStorage.setItem("lastPLAY",PLAYstring); 
@@ -366,10 +366,31 @@
 			for (let i = 1; i < pLen+1; i++) {
 			  document.getElementById("NXT"+i).innerHTML = PLAY[i-1];		
 		  	}		
+
+			 if ( PLAY.includes("Buckley") ) {document.getElementById("CHK1b").checked="true";}
+			 if ( PLAY.includes("Connolly") ) {document.getElementById("CHK2b").checked="true";}
+			 if ( PLAY.includes("Jessop") ) {document.getElementById("CHK6b").checked="true";}
+			 if ( PLAY.includes("Pengelly") ) {document.getElementById("CHK10b").checked="true";}
+			 if ( PLAY.includes("Kuechler") ) {document.getElementById("CHK7b").checked="true";}
+			 if ( PLAY.includes("Schofield") ) {document.getElementById("CHK14b").checked="true";}
+			 if ( PLAY.includes("Porter") ) {document.getElementById("CHK12b").checked="true";}
+			 if ( PLAY.includes("Ritchie") ) {document.getElementById("CHK13b").checked="true";}
+			 if ( PLAY.includes("Field") ) {document.getElementById("CHK4b").checked="true";}
+			 if ( PLAY.includes("Hodgins") ) {document.getElementById("CHK5b").checked="true";}
+			 if ( PLAY.includes("Medhurst") ) {document.getElementById("CHK9b").checked="true";}
+			 if ( PLAY.includes("N.Bailey") ) {document.getElementById("CHK15b").checked="true";}
+			 if ( PLAY.includes("E.Hazell") ) {document.getElementById("CHK16b").checked="true";}
+			 if ( PLAY.includes("G.Harris") ) {document.getElementById("CHK17b").checked="true";}
+			 if ( PLAY.includes("Dutton") ) {document.getElementById("CHK3b").checked="true";}
+			 if ( PLAY.includes("McCracken") ) {document.getElementById("CHK8b").checked="true";}
+			 if ( PLAY.includes("Paulson") ) {document.getElementById("CHK11b").checked="true";}				
+			
 	 }
 	 
 	 function lastPLAY() {
 		 LASTstring = localStorage.getItem("lastPLAY");
+		 var DAY = localStorage.getItem("bkDATE");
+		 
 //		 alert("Will load last used 'play nxt wk' list.\n\n"+
 //			  "LASTstring var (fr LS) = '"+LASTstring+"'");	//lastPLAY;	//LASTstring);	
 		 //LASTarray.length = 0;
@@ -389,17 +410,23 @@
 				document.getElementById("NXT"+(i+1)).innerHTML = PLAY[i];
 		 }
 */		 //alert("LASTarray[0] = '"+LASTarray[0]+"'");
-		 if ( LASTarray[0] == "" ) {
+			 //if ( LASTarray[0] == "" ) {
+			 if ( LASTarray[0] == "undefined" ) {
+					alert("typeof LASTarray[0] is "+typeof LASTarray[0]+"\n(& == 'undefined')");
+			 }
+		 if ( (LASTarray[0] == "") || (LASTarray[0] == "undefined") ) {
 			 	for (let i = 0; i < newLASTarray.length; i++) {
 				  	PLAY.push(newLASTarray[i]);
 					document.getElementById("NXT"+(i+1)).innerHTML = PLAY[i];
 				}			 
+				document.getElementById("DATE").value = DAY;	//innerHTML = DAY;
 		 } 
 		 else {
 			 	for (let i = 0; i < LaLen; i++) {
 				  	PLAY.push(LASTarray[i]);
 					document.getElementById("NXT"+(i+1)).innerHTML = PLAY[i];
-				}			 			 
+				}
+				document.getElementById("DATE").value = DAY;	//innerHTML = DAY;				
 		 }
 
 		 
@@ -472,9 +499,9 @@
 							  <div><A style="FONT-SIZE:60px; cursor:pointer; color:maroon;" onclick="lastPLAY()"><b>LAST</b></A><!--<button style="color:black; font-size:25px;" onclick="lastPLAY()"><b>LAST</b></button>--></div>
 							  <div><A style="FONT-SIZE:60px; cursor:pointer; color:maroon;" onclick="clearPLAYarray()"><b>clear</b></A><!--<button style="color:black; font-size:25px;" onclick="clearPLAYarray()"><b>CLEAR</b> PLAY[]</button>--></div>
 							  
-							  <div><span style="font-size:60px; cursor:pointer; color:maroon;" onclick="closeNav()"><s>&#9776;</s></span>	<!--<button onclick="showALL()">display group</button>--></div>
-							  <!--<div><button onclick="emails()">emails</button></div>-->
 							  <div><A onclick="emails()" style='FONT-SIZE:normal; cursor:pointer; color:maroon;'><b>emails</b></A></div>
+							  <div><span style="font-size:60px; cursor:pointer; color:black;" onclick="closeNav()"><s>&#9776;</s></span>	<!--<button onclick="showALL()">display group</button>--></div>
+							  <!--<div><button onclick="emails()">emails</button></div>-->
 							  <div><A style="FONT-SIZE:normal; cursor:pointer; color:maroon;" onclick="SHUFFLEorder('PLAY')"><b>SHUFFLE</b></A>	</div>
 							  <!--  
 							  <div><a><button style="color:blue; cursor:pointer; font-size:8px;" onclick="UNIVhelp()"><s>WRITE/READ HELP</s></button></a></div>
@@ -499,7 +526,7 @@
 -->
 	<TABLE border=1 align=center style="background:beige; zoom:1;">
 		<TR>			
-			<TH>&nbsp;</TH>   
+			<TH><A style="cursor:pointer; color:ivory; background:slategray; border:2px solid black; border-radius:5px;" onclick="loadVARS()">V</A></TH>   
 			<!--<TH colspan=3 ><button onclick="showALL()">group</button></TH>-->
 			<TH colspan=2> 
 				<input type="date" id="DATE" tabindex="300" style="background:beige; border:1px solid slategray; color:blue; width:200px; font-size:30px;" placeholder="2024-mm-dd" value="2024-mm-dd"     onchange="localStorage.setItem('bkDATE',this.value);" > 
