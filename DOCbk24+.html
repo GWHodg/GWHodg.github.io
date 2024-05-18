@@ -433,23 +433,74 @@
 		 }
 
 		 
-		 if ( PLAY.includes("Buckley") ) {document.getElementById("CHK1b").checked="true";}
-		 if ( PLAY.includes("Connolly") ) {document.getElementById("CHK2b").checked="true";}
-		 if ( PLAY.includes("Jessop") ) {document.getElementById("CHK6b").checked="true";}
-		 if ( PLAY.includes("Pengelly") ) {document.getElementById("CHK10b").checked="true";}
-		 if ( PLAY.includes("Kuechler") ) {document.getElementById("CHK7b").checked="true";}
-		 if ( PLAY.includes("Schofield") ) {document.getElementById("CHK14b").checked="true";}
-		 if ( PLAY.includes("Porter") ) {document.getElementById("CHK12b").checked="true";}
-		 if ( PLAY.includes("Ritchie") ) {document.getElementById("CHK13b").checked="true";}
-		 if ( PLAY.includes("Field") ) {document.getElementById("CHK4b").checked="true";}
-		 if ( PLAY.includes("Hodgins") ) {document.getElementById("CHK5b").checked="true";}
-		 if ( PLAY.includes("Medhurst") ) {document.getElementById("CHK9b").checked="true";}
-		 if ( PLAY.includes("N.Bailey") ) {document.getElementById("CHK15b").checked="true";}
-		 if ( PLAY.includes("E.Hazell") ) {document.getElementById("CHK16b").checked="true";}
-		 if ( PLAY.includes("G.Harris") ) {document.getElementById("CHK17b").checked="true";}
-		 if ( PLAY.includes("Dutton") ) {document.getElementById("CHK3b").checked="true";}
-		 if ( PLAY.includes("McCracken") ) {document.getElementById("CHK8b").checked="true";}
-		 if ( PLAY.includes("Paulson") ) {document.getElementById("CHK11b").checked="true";}	
+		 if ( PLAY.includes("Buckley") ) {
+			 document.getElementById("CHK1b").checked="true";
+		 	 document.getElementById("G1").style.background="silver"; //<<??
+		 }
+		 if ( PLAY.includes("Connolly") ) {	 
+			 document.getElementById("CHK2b").checked="true";
+			 document.getElementById("G2").style.background="silver"; //<<??
+		 }
+		 if ( PLAY.includes("Jessop") ) {
+			 document.getElementById("CHK6b").checked="true";
+		 	 document.getElementById("G6").style.background="silver"; //<<??
+		 }
+		 if ( PLAY.includes("Pengelly") ) {	 
+			 document.getElementById("G10").style.background="silver";
+			 document.getElementById("CHK10b").checked="true";
+		 }
+		 if ( PLAY.includes("Kuechler") ) {
+			 document.getElementById("CHK7b").checked="true";
+		 	 document.getElementById("G7").style.background="silver";
+		 }
+		 if ( PLAY.includes("Schofield") ) {
+			 document.getElementById("CHK14b").checked="true";
+		 	 document.getElementById("G14").style.background="silver";
+		 }
+		 if ( PLAY.includes("Porter") ) {
+			 document.getElementById("CHK12b").checked="true";
+		 	 document.getElementById("G12").style.background="silver";
+		 }
+		 if ( PLAY.includes("Ritchie") ) {
+			 document.getElementById("CHK13b").checked="true";
+		 	 document.getElementById("G13").style.background="silver";
+		 }
+		 if ( PLAY.includes("Field") ) {
+			 document.getElementById("CHK4b").checked="true";
+		 	 document.getElementById("G4").style.background="silver";
+		 }
+		 if ( PLAY.includes("Hodgins") ) {
+			 document.getElementById("CHK5b").checked="true";
+		 	 document.getElementById("G5").style.background="silver";
+		 }
+		 if ( PLAY.includes("Medhurst") ) {
+			 document.getElementById("CHK9b").checked="true";
+		 	 document.getElementById("G9").style.background="silver";
+		 }
+		 if ( PLAY.includes("N.Bailey") ) {
+			 document.getElementById("CHK15b").checked="true";
+		 	 document.getElementById("G15").style.background="silver";
+		 }
+		 if ( PLAY.includes("E.Hazell") ) {
+			 document.getElementById("CHK16b").checked="true";
+			 document.getElementById("G16").style.background="silver";
+	 	 }
+		 if ( PLAY.includes("G.Harris") ) {
+			 document.getElementById("CHK17b").checked="true";
+		 	 document.getElementById("G17").style.background="silver";
+		 }
+		 if ( PLAY.includes("Dutton") ) {
+			 document.getElementById("CHK3b").checked="true";
+		 	 document.getElementById("G3").style.background="silver"; //<<??
+		 }
+		 if ( PLAY.includes("McCracken") ) {
+			 document.getElementById("CHK8b").checked="true";
+		 	 document.getElementById("G8").style.background="silver";
+		 }
+		 if ( PLAY.includes("Paulson") ) {
+			 document.getElementById("CHK11b").checked="true";
+		 	 document.getElementById("G11").style.background="silver";
+		 }	
 		 	 
 	}
 	
@@ -552,7 +603,7 @@
 				</div>	
 				
 <TABLE id="HEADtbl" border=1 align=center style='color:blue; visibility:visible;' bgcolor='lightgray'>	
-	<TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:40px; COLOR:white; background:slategray; FONT-WEIGHT:bold; padding:5px;" ><u>DOCbk24+</u> &emsp;<font size=5 color=lightgray>May 18/24</font> 
+	<TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:40px; COLOR:white; background:slategray; FONT-WEIGHT:bold; padding:5px;" ><u>DOCbk24+</u> &emsp;<font size=5 color=lightgray>May 18/24 (b)</font> 
 		</TD> 
 		<TD>
 			<span style="font-size:100px; cursor:pointer; color:maroon;" onclick="openNav()">&#9776;</span>	
@@ -769,7 +820,7 @@
 		
 	</div>
 	
-	<div class="classLSread" id="divLSread" style= "position:fixed; left:250px; top:200px;  width:75%; background:pink; padding:10px; border:2px inset gray; border-radius:10px; visibility:hidden;">	
+	<div class="classLSread" id="divLSread" style= "position:fixed; left:100px; top:200px;  width:80%; background:pink; padding:10px; border:2px inset gray; border-radius:10px; visibility:hidden;">	
 					<!-- style="border:2px outset blue; border-radius:5%; width:50%; margin:auto; padding:10px; background:ivory;" -->
 			<font>READ file</font> <i>+/- > localStroage</i>
 					&emsp;
