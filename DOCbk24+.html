@@ -1,0 +1,834 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DOCbk24+</title> 
+
+<style>
+	.body {
+	  	/* Sending body at the bottom of the stack */
+	  	z-index: 1;
+	   	zoom:130%;	/* 250%;  <> 130%; */
+	  	overscroll-behavior-y: contain; /* < prevents 'pull-to-refresh' in CHROME (not DDG) */
+	  	/*background:gray;*/
+    }
+	
+	/*table.table2 thead { display:block;} /* display:block; | display:unset; */ 
+	table.table2 tbody { height:430px; overflow-y:scroll; display:block;} /* height:300px; > 430 */
+	table.table2 td { width: 60px; background:black; color:white; text-align:center;}
+	 table.table2 th { width: 60px; background:beige; color:maroon;  } 
+	
+	input { width:11px; font-size:12px; text-align:center; }
+		/*input.uncoded { background:gray; } /* beige ivory linen */
+		/* input.inptTXT { background:gray; width:110px; } */  /* beige ivory linen */
+
+	/*Animated Sidenav (Menu):
+		create an animated, closable side navigation menu
+	  	https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sidenav*/
+			.sidenav {
+			  height: 22%; width:0;   /* height: 100%;   30%*/
+			  position: fixed;z-index: 1;
+			  top: 700px; left: 0; /* top: 545px; */
+			  background-color:black;	/*blue;	  #111;*/
+			  overflow:scroll; transition: 0.5s; padding-top:0px;	/* 30px; */
+			  /* overflow-x: hidden; overflow-y:scroll; */
+			  /*vertical-align: top;*/
+			}		
+			.sidenav a {
+			  /* padding: 8px 8px 8px 32px; text-decoration: none; */
+			  padding: 3px 3px 3px 0px; text-decoration: none; 
+			  font-size: 40px;	/* 20px; */ color: #818181; display: block; transition: 0.3s;
+			}		
+			.sidenav a:hover { color: #f1f1f1; }		
+			.sidenav .closebtn {
+			  position: absolute; top: 0; right: 25px;
+			  font-size: 36px; margin-left: 50px;
+			}	
+			
+	.grid-container {
+	  display: grid;
+	  grid-template-columns: auto auto auto;	/* auto; */
+	  gap: 2px;
+	  background-color:dodgerblue; 	/* #2196F3; */
+	  padding: 5px;
+	  /*vertical-align:top;*/
+	  /*align-content:space-evenly;*/
+	}	
+	.grid-container > div {
+	  background-color: ivory;	/* rgba(255, 255, 255, 0.8); */
+	  	color:white;
+	  border: 1px solid black;
+	  text-align: center;
+	  font-size: 20px;	  
+    }	
+	
+	div.classLSwrite { position:fixed; left:50%; transform:translate(-50%,0); top:10%;
+		background:pink; padding:10px; border:2px inset gray; border-radius:10px; visibility:hidden; } 	
+
+
+		
+</style>
+
+<script>
+
+		function openNav() {
+			  if (document.getElementById("mySidenav").style.width<"200px") {
+					document.getElementById("mySidenav").style.width = "800px";
+					//document.getElementById("mySidenav").style.overflow = "scroll";
+			  }
+			  else {
+				 	document.getElementById("mySidenav").style.width = "0px"; 
+			  }
+		}
+		
+		function closeNav() {
+			document.getElementById("mySidenav").style.width = "0px";
+		}		
+
+
+	  					/*   &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&   */
+						
+	/* ARRAYS */
+	const ALL = ["Buckley", "Connolly", "Dutton", "Field", "Hodgins", "Jessop", "Kuechler", "McCracken", "Medhurst", "Pengelly", "Paulson", "Porter", "Ritchie", "Schofield", "N.Bailey", "E.Hazell", "G.Harris", ];   /* < 17 guys! */
+			/* const ALL = ["Buckley", "Connolly", "Hodgins", "Porter" ]; */
+	const CODES = ["AB", "TC", "JD", "GF", "WH", "SJ", "PK", "JM", "CM", "DP", "Pd", "BP", "WR", "JS", "NB", "EH", "GH"];
+	
+	const EMAILS = ["Buckley, . . : abbuck@shaw.ca", "Connolly, Thomas: tp70connolly@gmail.com",  
+				    "Dutton, . . : jwdutton@telus.net", "Field, Geoffrey: geofffield@shaw.ca", 
+					"Hodgins, George W.: cathyhodgins2@gmail.com", "Jessop, Shayne A.: shaynej@shaw.ca", 
+					"Kuechler, Peter M.: pmkuechler@gmail.com", "McCracken, John G.: jmccr99@gmail.com",  
+					"Medhurst, . . : charlesmed@shaw.ca",  "Pengelly, Delmer B.: dbpengelly@gmail.com", 
+					"Paulson, David B.: dave.pianoman@gmail.com", "Porter, George R.: gportermd@gmail.com", 
+					"Ritchie, William: therad@shaw.ca",  "Schofield, John A.: jas@uvic.ca", 
+					"Bailey, . . : nigelbailey@shaw.ca", "Hazell, . . : evan@evanhazell.com",  
+					"Harris, . . : gmharris@hotmail.com"]; 
+	
+	const PLAY = [];
+	var newDROPstr;  var canDROPstr = "";
+		let canDPary = [];	const dropNOW = [];
+	var strDROPls;
+	var LASTstring; //= ",";
+	//const lastARRAY = []; const newLASTarray = [];
+	//const NEXT = [];			//const DROPPED = [];
+	const slctDP = [];
+	var DRPmark = "n";
+	//const statsDATES = [];
+
+	function loadVARS() {
+
+		LASTstring = localStorage.getItem("lastPLAY");
+		lastARRAY = LASTstring.split(",");
+		
+		newLASTarray = lastARRAY.slice(1,lastARRAY.length);	
+		
+					//LASTarray.length = 0;		
+		//LASTstring = LASTstring  + "," + NAME;
+		alert("VARIABLE VALUES ON LOADING:\n\n"+
+			  "Will load last used 'play nxt wk' list.\n\n"+
+			  "LASTstring var (fr LS) = '"+LASTstring+"'\n"+
+			  		"lastARRAY[0] (1st element) = '"+lastARRAY[0]+"'\n"+
+			  "LASTarray = '"+lastARRAY+"'\n"+
+		 	  "'LASTarray' array length = "+lastARRAY.length+"\n\n"+
+			  "'PLAY' array length = "+PLAY.length+"\n\t'PLAY' ARRAY = '"+PLAY+"'\n\n"+
+			  "LASTarray[1] (2nd element) = "+lastARRAY[1]+"\n\n"+
+			  "newLASTarray (LASTarray w/ 1st el 'sliced') = "+newLASTarray+"\n"+
+			  "newLASTarray length = "+newLASTarray.length);
+			    
+	}
+	
+	function showALL() {
+		//alert("'ALL' array length = "+ALL.length+"\n\nARRAY = '"+ALL+"'");
+		let fLen = ALL.length;
+		for (let i = 1; i < fLen+1; i++) {
+		  //document.getElementById("G"+i).innerHTML = ALL[i-1];	
+		  document.getElementById("G"+i).innerHTML = ALL[i-1];
+		  //document.getElementById("G"+i).innerHTML = ALL[i-1] + " <font color=gray size=1>(" + CODES[i-1] + ")</font>";			 
+		  if (ALL[i-1]=="Dutton" || ALL[i-1]=="Paulson" || ALL[i-1]=="McCracken") { 
+			  //alert("G"+i+" = "+ALL[i-1]); 
+			  document.getElementById("G"+i).style.opacity="50%";
+		  }
+		  if (ALL[i-1]=="N.Bailey" || ALL[i-1]=="E.Hazell" || ALL[i-1]=="G.Harris" ) { 
+			  //alert("G"+i+" = "+ALL[i-1]); 
+			  document.getElementById("G"+i).style.opacity="25%";
+			  //document.getElementById("G"+i).style.text-decoration="line-through";
+		  }
+		}		
+		//alert("In 'showALL' fn! 'PLAY' array = "+PLAY);		
+	}						
+	
+	function NAMEnxtwk(plr) {	
+		//alert("In 'NAMEnxtwk' fn!\nplr var = "+plr);
+		var NAME;
+		//if (plr==1) {NAME=ALL[0]}; if (plr==2) {NAME=ALL[1]}; if (plr==3) {NAME=ALL[2]}; if (plr==4) {NAME=ALL[3]};
+		//for (let p = 1; p < 18; p++) {
+		for (let p = 1; p < 18; p++) {
+			if (plr==p) {NAME=ALL[p-1]};
+		}
+
+		if ( PLAY.includes(NAME) ) {
+			alert("PLAY array includes "+NAME+". Will REMOVE from PLAY array!");
+			var index = PLAY.indexOf(NAME);		alert("index of "+NAME+" = "+index+"\nPLAY = "+PLAY);
+			PLAY.splice(index, 1);				/* <<< HELP! (July 15/23 */									// < **!
+				alert("Post splice PLAY = "+PLAY);
+				let PLAYstring = PLAY.toString();  alert("PLAYstring = "+PLAYstring+"!");
+				localStorage.clear();
+				localStorage.setItem("lastPLAY",PLAYstring); 
+				//localStorage.removeItem(NAME);  //<<<<< NO! (May/24)
+			//PLAY.splice(PLAYidxTOsplice, 1);
+			//alert("'PLAY' array length post splice = "+PLAY.length+"\n\nARRAY = '"+PLAY+"'");	
+			//alert("Will REMOVE "+NAME+" from list.");
+			
+			document.getElementById("CHK"+plr+"b").checked=false;
+			document.getElementById("G"+plr).style.background="ivory"; //="white" | ="beige"
+			
+//			var index = PLAY.indexOf(NAME);
+//				alert("Will now try to remove "+NAME+" from PLAY array.\n"+
+//					  "index of "+NAME+" = "+index);
+			//if (index > -1) {
+//				PLAY.splice(index, 1);
+			//}
+			
+			
+		}		
+		else {
+			//alert("PLAY array does NOT include "+NAME);
+			PLAY.push(NAME); 			//alert("PLAY array = "+PLAY);
+			
+			//LASTstring = LASTstring + NAME + ",";
+			LASTstring = LASTstring  + "," + NAME;
+			localStorage.setItem("lastPLAY",LASTstring); //alert("GOT to 'localStorage.setItem'!");
+					
+			document.getElementById("CHK"+plr+"b").checked=true;
+						//document.getElementById("CHK"+plr+"b").disabled=true;
+			document.getElementById("G"+plr).style.background="silver";
+			
+		}	
+
+		for (let i = 1; i < 18; i++) {
+			  	//PLAY.push(LASTarray[i]);
+			document.getElementById("NXT"+(i)).innerHTML = "";	//alert("GOT HERE 3!");
+			//document.getElementById("CHK"+(i)).checked=false;
+			
+		}	 
+		
+		for (let n = 1; n < 18; n++) {
+			//alert("GOT HERE 4!\nPLAY array = "+PLAY);
+			if (PLAY[n-1] != null) {
+				//alert("PLAY[n-1] = "+PLAY[n-1]);
+				document.getElementById("NXT"+n).innerHTML = PLAY[n-1];	
+			}
+			//document.getElementById("NXT"+n).innerHTML = PLAY[n];	
+		}		
+			
+	}	
+	
+	/* ++++++++++++++++++++++++++++++++ */
+	
+	function SHUFFLEorder(array) {		
+		const PLAYfull = [];
+		//alert("PLAY array pre-adjusted = "+PLAY);
+		for (let n = 1; n < 18; n++) {
+			if (PLAY[n-1] == "Buckley") { PLAYfull[n-1] = "Buckley, Alan" }
+			if (PLAY[n-1] == "Connolly") { PLAYfull[n-1] = "Connolly, Thomas" }
+			if (PLAY[n-1] == "Dutton") { PLAYfull[n-1] = "Dutton, (James)" }
+			if (PLAY[n-1] == "Field") { PLAYfull[n-1] = "Field, Geoffrey" }
+			if (PLAY[n-1] == "Hodgins") { PLAYfull[n-1] = "Hodgins, George W." }
+			if (PLAY[n-1] == "Jessop") { PLAYfull[n-1] = "Jessop, Shayne A." }
+			if (PLAY[n-1] == "Kuechler") { PLAYfull[n-1] = "Kuechler, Peter M." }
+			if (PLAY[n-1] == "McCracken") { PLAYfull[n-1] = "McCracken, John G." }
+			if (PLAY[n-1] == "Medhurst") { PLAYfull[n-1] = "Medhurst, Charles" }
+			if (PLAY[n-1] == "Pengelly") { PLAYfull[n-1] = "Pengelly, Delmer B." }
+			if (PLAY[n-1] == "Paulson") { PLAYfull[n-1] = "Paulson, David B." }
+			if (PLAY[n-1] == "Porter") { PLAYfull[n-1] = "Porter, George R." }
+			if (PLAY[n-1] == "Ritchie") { PLAYfull[n-1] = "Ritchie, William" }
+			if (PLAY[n-1] == "Schofield") { PLAYfull[n-1] = "Schofield, John A." }
+			if (PLAY[n-1] == "N.Bailey") { PLAYfull[n-1] = "Bailey, (Nigel)" }
+			if (PLAY[n-1] == "E.Hazell") { PLAYfull[n-1] = "Hazell, Evan" }
+			if (PLAY[n-1] == "G.Harris") { PLAYfull[n-1] = "Harris, (Geoff)" }									
+		}
+		//alert("PLAY array POST-adjusted = "+PLAY);
+				
+		for (let z = 1; z < 18; z++) {
+				document.getElementById("SFL"+z).innerHTML = "";
+		}
+		/*alert("Will try to SHUFFLE finished player order. Array to shuffle = "+array+"\n\n"+
+			  array+" array content = "+PLAY);*/
+		
+		  //let shuffled = PLAY
+		  let shuffled = PLAYfull
+		    .map(value => ({ value, sort: Math.random() }))
+		    .sort((a, b) => a.sort - b.sort)
+		    .map(({ value }) => value)
+		  
+		//alert("'PLAY' array = "+PLAY+"\n\nNew 'shuffled' array = "+shuffled);	
+		var sflLen = shuffled.length;
+		for (let q = 0; q < sflLen; q++) {
+				document.getElementById("SFL"+(q+1)).innerHTML = shuffled[q];
+		}		
+	}
+
+	/* =========================================== */	
+
+	function movr(pNO) {
+		/*alert("Will try to display player email + entry #! (pNO = "+pNO+"):\n\n"+
+			  ALL[pNO-1] + " email = " + EMAILS[pNO-1] );*/
+		alert(EMAILS[pNO-1]);
+	}
+		
+
+	function showLSwrite() {
+		if (document.getElementById("divLSwrite").style.visibility=="visible") {
+			document.getElementById("divLSwrite").style.visibility="hidden"; 	
+		}		
+		else {
+			document.getElementById("divLSwrite").style.visibility="visible"; 
+		}
+		//hideMENU();		
+	}
+	function showLSread() {
+		if (document.getElementById("divLSread").style.visibility=="visible") {
+			document.getElementById("divLSread").style.visibility="hidden"; 	
+		}		
+		else {
+			document.getElementById("divLSread").style.visibility="visible"; 
+		}
+		//hideMENU();		
+	}	
+
+	var MyDiv1; var readArray;
+	function DIVtoVAR() {
+			MyDiv1 = document.getElementById('output').innerHTML;	
+			/*
+			if ( chr3!="," ) {
+										// convert a text file to CSV file:
+										//	1.split on line breaks
+										//	2. split on white space
+										//	3. join with commas
+										//	4. join with new lines 							
+					let txtTOcsv = MyDiv1.split('\n')                      // split lines
+					            .map(line => line.split(/\s+/).join(','))  // split spaces then join with ,
+					            .join('\n')                                // rejoin lines
+					
+								alert(".txt > .csv file conversion:\n"+
+									  txtTOcsv);
+								MyDiv1 = txtTOcsv;											  
+			}
+			*/			
+			readArray = MyDiv1.split("<br>");	//const readArray = MyDiv1.split("<br>");
+			
+		}
+
+		
+
+	function emails() {
+		alert("dbpengelly@gmail.com, jas@uvic.ca, abbuck@shaw.ca, tp70connolly@gmail.com, therad@shaw.ca, charlesmed@shaw.ca, evan@evanhazell.com, geofffield@shaw.ca, cathyhodgins2@gmail.com, pmkuechler@gmail.com, jmccr99@gmail.com, gportermd@gmail.com, jwdutton@telus.net, gmharris@hotmail.com, shaynej@shaw.ca, nigelbailey@shaw.ca, dave.pianoman@gmail.com");
+	}
+	
+	function UNIVhelp() {
+		alert("EXPORT HELP!\n"+
+			  "iMac: Copy & paste to 'TextEdit' & save a .txt file in #CODE23/ROUNDS.\n\n"+
+			  "iPad: myCsv ^ -> screen. 'Select All' > share > email to self (sends X 2) > select on email (1/2) > share > create csv (or txt) file. In iPad WS/GitHub seems to write to iCloud/Numbers as 'Unknown.txt' w/o needing > email (for some reason).\n\n"+
+			  "Pixel: exports/writes to Google SHEETS (as csv file - 'download.csv').\n\n"+
+			  "iPod: > screen (like iPad) > select all > email. Then ? how to create file (? In Pixel email select it > save/share to 'HodgGW' Google 'Drive' (Textastic folder) > read it from there).\n"+
+			  "\n++++++++++++++++++++++++++++++++++\n\n"+
+			  "CHOOSE/READ HELP!\n"+
+			  "iPad: Download as txt file & 'splits' w/ ' ' > array!\n\n"+
+			  "Pixel: Appears to download as csv file from SHEETS w/o spaces. Would need to split w/ commas > array\n\n"+
+			  "iPod: NEED TO FIGURE OUT HOW TO GET EMAIL DATA FROM IPOD TO PIXEL FILE (? SHEETS). ?Looks like you MAY be able to copy it in email & paste in a SHEETS file (? 'download.csv')?? \nIn Pixel email select it > save/share to 'HodgGW' Google 'Drive' (Textastic folder) > read it from there.\n"+
+			  "\n++++++++++++++++++++++++++++++++++\n\n"+
+			  "READ NOTE!\n"+
+			  "iPad: Convert content of div ('output') to variable ('myDiv1').  Then split > array?\n"+	
+			  "\t\t[File: On My iPad/GScsv.csv.txt > GSwrite.txt]");
+		  }	
+
+		 					/*   +++++++++++++++++++++++++++++++++++++++++   */
+							
+	 function presetPLAY() {
+			alert("'PLAY' array length = "+PLAY.length+"\n\nARRAY = '"+PLAY+"'");	
+		 
+		 	PLAY[0] = "Pengelly";  //PLAY[1] = "Field"; 
+			PLAY.push("Porter", "Buckley", "Connolly", "Kuechler", "Schofield", "Ritchie"); //4,9,10,7,3
+			let PLAYstring = PLAY.toString();
+			localStorage.clear();
+			localStorage.setItem("lastPLAY",PLAYstring); 
+				//alert("'PLAY' array = "+PLAY);
+//			document.getElementById('CHK10').checked=true;
+			//document.getElementById('NXT4').innerHTML="Pengelly";
+//				document.getElementById('CHK4').checked=true;
+					//document.getElementById('NXT9').innerHTML="Field";
+//				document.getElementById('CHK5').checked=true;
+					//document.getElementById('NXT10').innerHTML="Hodgins";
+//				document.getElementById('CHK12').checked=true;
+					//document.getElementById('NXT7').innerHTML="Porter";
+//				document.getElementById('CHK6').checked=true;
+					//document.getElementById('NXT3').innerHTML="Jessop";	
+			let pLen = PLAY.length;
+			for (let i = 1; i < pLen+1; i++) {
+			  document.getElementById("NXT"+i).innerHTML = PLAY[i-1];		
+		  	}		
+
+			 if ( PLAY.includes("Buckley") ) {document.getElementById("CHK1b").checked="true";}
+			 if ( PLAY.includes("Connolly") ) {document.getElementById("CHK2b").checked="true";}
+			 if ( PLAY.includes("Jessop") ) {document.getElementById("CHK6b").checked="true";}
+			 if ( PLAY.includes("Pengelly") ) {document.getElementById("CHK10b").checked="true";}
+			 if ( PLAY.includes("Kuechler") ) {document.getElementById("CHK7b").checked="true";}
+			 if ( PLAY.includes("Schofield") ) {document.getElementById("CHK14b").checked="true";}
+			 if ( PLAY.includes("Porter") ) {document.getElementById("CHK12b").checked="true";}
+			 if ( PLAY.includes("Ritchie") ) {document.getElementById("CHK13b").checked="true";}
+			 if ( PLAY.includes("Field") ) {document.getElementById("CHK4b").checked="true";}
+			 if ( PLAY.includes("Hodgins") ) {document.getElementById("CHK5b").checked="true";}
+			 if ( PLAY.includes("Medhurst") ) {document.getElementById("CHK9b").checked="true";}
+			 if ( PLAY.includes("N.Bailey") ) {document.getElementById("CHK15b").checked="true";}
+			 if ( PLAY.includes("E.Hazell") ) {document.getElementById("CHK16b").checked="true";}
+			 if ( PLAY.includes("G.Harris") ) {document.getElementById("CHK17b").checked="true";}
+			 if ( PLAY.includes("Dutton") ) {document.getElementById("CHK3b").checked="true";}
+			 if ( PLAY.includes("McCracken") ) {document.getElementById("CHK8b").checked="true";}
+			 if ( PLAY.includes("Paulson") ) {document.getElementById("CHK11b").checked="true";}				
+			
+	 }
+	 
+	 function lastPLAY() {
+		 LASTstring = localStorage.getItem("lastPLAY");
+		 var DAY = localStorage.getItem("bkDATE");
+		 
+//		 alert("Will load last used 'play nxt wk' list.\n\n"+
+//			  "LASTstring var (fr LS) = '"+LASTstring+"'");	//lastPLAY;	//LASTstring);	
+		 //LASTarray.length = 0;
+		 LASTarray = LASTstring.split(",");	 //alert("LASTarray = '"+LASTarray+"'");
+		
+		 //LASTarray.pop(); LASTarray.shift();
+//		 alert("'LASTarray' array length = "+LASTarray.length+"\n\nARRAY = '"+LASTarray+"'");
+		 
+		 var LaLen = LASTarray.length;	
+		 newLASTarray = LASTarray.slice(1,LASTarray.length);	
+//		 		alert("LASTarray.length = "+LaLen+"\n"+
+//					  "'newLASTarray length = "+newLASTarray.length);
+		 
+		 //for (let i = 0; i < LaLen; i++) {
+/*		 for (let i = 0; i < newLASTarray.length; i++) {
+			  	PLAY.push(newLASTarray[i]);
+				document.getElementById("NXT"+(i+1)).innerHTML = PLAY[i];
+		 }
+*/		 //alert("LASTarray[0] = '"+LASTarray[0]+"'");
+			 //if ( LASTarray[0] == "" ) {
+			 if ( LASTarray[0] == "undefined" ) {
+					alert("typeof LASTarray[0] is "+typeof LASTarray[0]+"\n(& == 'undefined')");
+			 }
+		 if ( (LASTarray[0] == "") || (LASTarray[0] == "undefined") ) {
+			 	for (let i = 0; i < newLASTarray.length; i++) {
+				  	PLAY.push(newLASTarray[i]);
+					document.getElementById("NXT"+(i+1)).innerHTML = PLAY[i];
+				}			 
+				document.getElementById("DATE").value = DAY;	//innerHTML = DAY;
+		 } 
+		 else {
+			 	for (let i = 0; i < LaLen; i++) {
+				  	PLAY.push(LASTarray[i]);
+					document.getElementById("NXT"+(i+1)).innerHTML = PLAY[i];
+				}
+				document.getElementById("DATE").value = DAY;	//innerHTML = DAY;				
+		 }
+
+		 
+		 if ( PLAY.includes("Buckley") ) {document.getElementById("CHK1b").checked="true";}
+		 if ( PLAY.includes("Connolly") ) {document.getElementById("CHK2b").checked="true";}
+		 if ( PLAY.includes("Jessop") ) {document.getElementById("CHK6b").checked="true";}
+		 if ( PLAY.includes("Pengelly") ) {document.getElementById("CHK10b").checked="true";}
+		 if ( PLAY.includes("Kuechler") ) {document.getElementById("CHK7b").checked="true";}
+		 if ( PLAY.includes("Schofield") ) {document.getElementById("CHK14b").checked="true";}
+		 if ( PLAY.includes("Porter") ) {document.getElementById("CHK12b").checked="true";}
+		 if ( PLAY.includes("Ritchie") ) {document.getElementById("CHK13b").checked="true";}
+		 if ( PLAY.includes("Field") ) {document.getElementById("CHK4b").checked="true";}
+		 if ( PLAY.includes("Hodgins") ) {document.getElementById("CHK5b").checked="true";}
+		 if ( PLAY.includes("Medhurst") ) {document.getElementById("CHK9b").checked="true";}
+		 if ( PLAY.includes("N.Bailey") ) {document.getElementById("CHK15b").checked="true";}
+		 if ( PLAY.includes("E.Hazell") ) {document.getElementById("CHK16b").checked="true";}
+		 if ( PLAY.includes("G.Harris") ) {document.getElementById("CHK17b").checked="true";}
+		 if ( PLAY.includes("Dutton") ) {document.getElementById("CHK3b").checked="true";}
+		 if ( PLAY.includes("McCracken") ) {document.getElementById("CHK8b").checked="true";}
+		 if ( PLAY.includes("Paulson") ) {document.getElementById("CHK11b").checked="true";}	
+		 	 
+	}
+	
+	function clearPLAYarray() {
+		  let reply;
+		  if (confirm("Are you SURE you want to CLEAR 'PLAY' array?") == true) {
+		    reply = "YES!";
+		  } else {
+		    reply = "NO!";
+		  }
+  		  alert(reply);
+			  
+		  if ( reply=="YES!") {
+					//alert("Will try to RESET locally stored 'DROPstr' STRING to 'Medhurst, Dutton, Hodgins'!");
+				  PLAY.length = 0;
+					//localStorage.setItem('DROPstr', "");
+//		  }
+
+//				  alert("'PLAY' array length = "+PLAY.length+"\n\nARRAY = '"+PLAY);
+							  
+				  //getLocStorDROPPED();	
+				  //var pLen = PLAY.length;
+				  for (let i = 1; i < 18; i++) {
+					  	//PLAY.push(LASTarray[i]);
+						document.getElementById("NXT"+(i)).innerHTML = "";
+						//document.getElementById("CHK"+(i)).checked=false;
+						
+						//LASTstring = LASTstring + NAME + ",";
+						//localStorage.setItem("lastPLAY",LASTstring);
+						
+						localStorage.setItem("lastPLAY","");
+						//localStorage.clear();
+			  	   }
+/* *>> */		   window.location.reload();
+			}  
+	}
+	
+	function showNOTE() {
+		if (document.getElementById("noteTA").style.visibility=="visible") {
+			document.getElementById("noteTA").style.visibility="hidden"; 
+			//onchange="localStorage.setItem('bkDATE',this.value);"	
+		}		
+		else {
+			document.getElementById("noteTA").style.visibility="visible"; 
+			storedNOTE = localStorage.getItem("NOTEchange");
+				//alert("storedNOTE (fr lS) = "+storedNOTE);
+			document.getElementById("noteTA").value=storedNOTE;	
+		}
+		//hideMENU();		
+	}
+	
+</script>
+
+</head>
+
+<body class="body" style="background-color:white; zoom:1; font-size:60px;"   
+	onLoad="window.scroll(0, 0); showALL();">	<!--  loadVARS(); --> 	
+<div class="wrapper"><!-- Put the page contents here -->
+
+				<div id="mySidenav" class="sidenav"  style='opacity:1.0; border-right: 5px solid red;'>
+						<div class="grid-container">
+							  <div><A style="FONT-SIZE:normal; cursor:pointer; color:maroon;" onclick="presetPLAY()"><b>presets</b></A><!--<button style="color:blue; font-size:25px;" onclick="presetPLAY()">use presets</button>--></div>
+							  <div><A style="FONT-SIZE:60px; cursor:pointer; color:maroon;" onclick="lastPLAY()"><b>LAST</b></A><!--<button style="color:black; font-size:25px;" onclick="lastPLAY()"><b>LAST</b></button>--></div>
+							  <div><A style="FONT-SIZE:60px; cursor:pointer; color:maroon;" onclick="clearPLAYarray()"><b>clear</b></A><!--<button style="color:black; font-size:25px;" onclick="clearPLAYarray()"><b>CLEAR</b> PLAY[]</button>--></div>
+							  
+							  <div><A onclick="emails()" style='FONT-SIZE:normal; cursor:pointer; color:maroon;'><b>emails</b></A></div>
+							  <div><span style="font-size:60px; cursor:pointer; color:black;" onclick="closeNav()"><s>&#9776;</s></span>	<!--<button onclick="showALL()">display group</button>-->
+							  </div>
+							  <!--<div><button onclick="emails()">emails</button></div>-->
+							  <div><A style="FONT-SIZE:normal; cursor:pointer; color:maroon;" onclick="SHUFFLEorder('PLAY')"><b>SHUFFLE</b></A>	</div>
+							  
+							  <div>
+								  <a onclick="showLSwrite()" style=""><b>WRITE to file</b></a>
+								  <!--
+							  	  <a><button style="color:blue; cursor:pointer; font-size:8px;" onclick="UNIVhelp()">WRITE/READ HELP</button></a>
+								  <a><button style="color:blue; cursor:pointer; font-size:8px;" onclick="note()">note</button></a>
+							  	  -->
+								  <!--<A onclick="note()" style='cursor:pointer;'><s><b>note</b></s></A>-->
+							  </div>
+							  <div><A onclick="showLSread()" style='cursor:pointer;'>READ file</A></div>
+							  <div>
+								  <a onclick="showNOTE()" style="color:maroon"><b>note</b></a>
+								  <!--<a><button id='REPLACEbtn'  onclick="showLSwrite()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%; cursor:pointer;"><s><b>WRITE to file</b></s></button></a>-->
+							  </div>
+							  
+						</div>									
+				</div>	
+				
+<TABLE id="HEADtbl" border=1 align=center style='color:blue; visibility:visible;' bgcolor='lightgray'>	
+	<TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:40px; COLOR:white; background:slategray; FONT-WEIGHT:bold; padding:5px;" ><u>DOCbk24+</u> &emsp;<font size=5 color=lightgray>May 18/24</font> 
+		</TD> 
+		<TD>
+			<span style="font-size:100px; cursor:pointer; color:maroon;" onclick="openNav()">&#9776;</span>	
+		</TD>			
+	</TR>
+</TABLE>
+
+<!--	
+	<table class="table2" id="SCOREStbl" border='3'   align=center 
+	style='table-layout:fixed; FONT-SIZE:large; color:maroon; visibility:visible; zoom:100%;' bgcolor='lightgray'> 
+-->
+	<TABLE border=1 align=center style="background:beige; zoom:1;">
+		<TR>			
+			<TH><A style="cursor:pointer; color:ivory; background:slategray; border:2px solid black; border-radius:5px;" onclick="loadVARS()">V</A></TH>   
+			<!--<TH colspan=3 ><button onclick="showALL()">group</button></TH>-->
+			<TH colspan=2> 
+				<input type="date" id="DATE" tabindex="300" style="background:beige; border:1px solid slategray; color:blue; width:200px; font-size:30px;" placeholder="2024-mm-dd" value="2024-mm-dd"     onchange="localStorage.setItem('bkDATE',this.value);" > 
+			</TH>
+			<TD colspan=1 align=center style="color:green; font-size:40px;">selected<!--<br>to play--></TD>
+	
+			<TH> <button onclick="SHUFFLEorder('PLAY')" style="font-size:20px;">SHUFFLED</button></TH>
+			<!--
+			<TH width=10px rowspan=22 style="background:beige;"></TH>		
+			<TD id="READtd" style="display:none;" rowspan=22 align=left valign=top> 
+				<div id="READcol" style="height:480px; width:110px; border:1px solid slategray; border-radius:5px; overflow:scroll;">
+					&emsp;<u><b>READ file</b></u><br>		
+				</div>					
+			</TD>
+		-->
+		</TR>	
+
+		<TR>
+			<TD>1</TD> 
+			
+			<TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK1b" onclick="PlayNxtWk('1')"></TD>
+			
+			<TD id="G1" tabindex="0" onclick="NAMEnxtwk('1')" style='cursor:pointer;'> </TD> <!-- onkeydown="keydwnFN(event, '0')" -->
+			<!--<TD align=center><input type="checkbox" id="CHK1" onclick="PlayNxtWk('1')"></TD>-->
+			<TD style="width:70px; font-size:40px;" align=center id="NXT1" ></TD>
+			<TD align=center id="SFL1" style="font-size:30px;"></TD>			
+		</TR>
+		<TR>
+			<TD>2</TD> 
+			<TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK2b" onclick="PlayNxtWk('2')"></TD>
+			<TD id="G2" tabindex="0" onclick="NAMEnxtwk('2')" style='cursor:pointer;'></TD> <!-- onkeydown="keydwnFN(event, '1')" -->
+			<!--<TD align=center><input type="checkbox" id="CHK2" onclick="PlayNxtWk('2')"></TD>-->
+			<TD align=center id="NXT2" style="font-size:40px;"></TD>
+			<TD align=center id="SFL2" style="font-size:30px;"></TD>
+		</TR>
+		<TR> <TD>3</TD> 
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK3b" onclick="PlayNxtWk('3')"></TD>
+			 <TD id="G3" tabindex="0"  onclick="NAMEnxtwk('3')" style='cursor:pointer;'></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
+			 <!--<TD align=center><input type="checkbox" id="CHK3" onclick="PlayNxtWk('3')"></TD>-->
+			 <TD align=center id="NXT3" style="font-size:40px;"></TD>
+			 <TD align=center id="SFL3"  style="font-size:30px;"></TD>
+		 </TR>	
+		<TR> <TD>4</TD> 
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK4b" onclick="PlayNxtWk('4')"></TD>
+			 <TD id="G4" tabindex="0"  onclick="NAMEnxtwk('4')" style='cursor:pointer;'></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
+			 <!--<TD align=center><input type="checkbox" id="CHK4" onclick="PlayNxtWk('4')"></TD>-->
+			 <TD align=center id="NXT4" style="font-size:40px;"></TD>
+			 <TD align=center id="SFL4" style="font-size:30px;"></TD>
+		 </TR>	
+		<TR> <TD>5</TD> 
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK5b" onclick="PlayNxtWk('5')"></TD>
+			 <TD id="G5" tabindex="0"  onclick="NAMEnxtwk('5')" style='cursor:pointer;'></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
+			 <!--<TD align=center><input type="checkbox" id="CHK5" onclick="PlayNxtWk('5')"></TD>-->
+			 <TD align=center id="NXT5" style="font-size:40px;"></TD>
+			 <TD align=center id="SFL5" style="font-size:30px;"></TD>
+		 </TR>	
+		<TR> <TD>6</TD> 
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK6b" onclick="PlayNxtWk('6')"></TD>
+			 <TD id="G6" tabindex="0"  onclick="NAMEnxtwk('6')" style='cursor:pointer;'></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
+			 <!--<TD align=center><input type="checkbox" id="CHK6" onclick="PlayNxtWk('6')"></TD>-->
+			 <TD align=center id="NXT6" style="font-size:40px;"></TD>
+			 <TD align=center id="SFL6" style="font-size:30px;"></TD>
+		 </TR>	
+		<TR> <TD>7</TD> 
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK7b" onclick="PlayNxtWk('7')"></TD>
+			 <TD id="G7" tabindex="0" onclick="NAMEnxtwk('7')" style='cursor:pointer;'></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
+			 <!--<TD align=center><input type="checkbox" id="CHK7" onclick="PlayNxtWk('7')"></TD>-->
+			 <TD align=center id="NXT7" style="font-size:40px;"></TD>
+			 <TD align=center id="SFL7" style="font-size:30px;"></TD>
+		 </TR>	
+		<TR> <TD>8</TD> 
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK8b" onclick="PlayNxtWk('8')"></TD>
+			 <TD id="G8" tabindex="0"  onclick="NAMEnxtwk('8')" style='cursor:pointer;'></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
+			 <!--<TD align=center><input type="checkbox" id="CHK8" onclick="PlayNxtWk('8')"></TD>-->
+			 <TD align=center id="NXT8" style="font-size:40px;"></TD>
+			 <TD align=center id="SFL8" style="font-size:30px;"></TD>
+		 </TR>	
+		<TR> <TD>9</TD> 
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK9b" onclick="PlayNxtWk('9')"></TD>
+			 <TD id="G9" tabindex="0"  onclick="NAMEnxtwk('9')" style='cursor:pointer;'></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
+			 <!--<TD align=center><input type="checkbox" id="CHK9" onclick="PlayNxtWk('9')"></TD>-->
+			 <TD align=center id="NXT9" style="font-size:40px;"></TD>
+			 <TD align=center id="SFL9" style="font-size:30px;"></TD>
+		 </TR>
+			<TR> <TD>10</TD> 
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK10b" onclick="PlayNxtWk('10')"></TD>	
+			 <TD id="G10" tabindex="0" onclick="NAMEnxtwk('10')" style='cursor:pointer;' ></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
+			 <!--<TD align=center><input type="checkbox" id="CHK10" onclick="PlayNxtWk('10')"></TD>-->
+			 <TD align=center id="NXT10" style="font-size:40px;"></TD>
+			 <TD align=center id="SFL10" style="font-size:30px;"></TD>
+		 </TR>
+			<TR> <TD>11</TD>
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK11b" onclick="PlayNxtWk('11')"></TD>	
+			 <TD id="G11" tabindex="0"  onclick="NAMEnxtwk('11')" style='cursor:pointer;'></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
+			 <!--<TD align=center><input type="checkbox" id="CHK11" onclick="PlayNxtWk('11')"></TD>-->
+			 <TD align=center id="NXT11" style="font-size:40px;"></TD>
+			 <TD align=center id="SFL11" style="font-size:30px;"></TD>
+		 </TR>
+		 <TR> <TD>12</TD> 
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK12b" onclick="PlayNxtWk('12')"></TD>
+			 <TD id="G12" tabindex="0" onclick="NAMEnxtwk('12')" style='cursor:pointer;' ></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
+			 <!--<TD align=center><input type="checkbox" id="CHK12" onclick="PlayNxtWk('12')"></TD>-->
+			 <TD align=center id="NXT12" style="font-size:40px;"></TD>
+			 <TD align=center id="SFL12" style="font-size:30px;"></TD>
+		 </TR>		 
+		 <TR> <TD>13</TD> 
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK13b" onclick="PlayNxtWk('13')"></TD>
+			 <TD id="G13" tabindex="0"  onclick="NAMEnxtwk('13')" style='cursor:pointer;'></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
+			 <!--<TD align=center><input type="checkbox" id="CHK13" onclick="PlayNxtWk('13')"></TD>-->
+			 <TD align=center id="NXT13" style="font-size:40px;"></TD>
+			 <TD align=center id="SFL13" style="font-size:30px;"></TD>
+		 </TR>	
+		 <TR> <TD>14</TD> 
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK14b" onclick="PlayNxtWk('14')"></TD>
+			 <TD id="G14" tabindex="0"  onclick="NAMEnxtwk('14')" style='cursor:pointer;'></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
+			 <!--<TD align=center><input type="checkbox" id="CHK14" onclick="PlayNxtWk('14')"></TD>-->
+			 <TD align=center id="NXT14" style="font-size:40px;"></TD>
+			 <TD align=center id="SFL14" style="font-size:30px;"></TD>
+		 </TR>	
+		 <TR> <TD>15</TD> 
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK15b" onclick="PlayNxtWk('15')"></TD>
+			 <TD id="G15" tabindex="0"  onclick="NAMEnxtwk('15')" style='cursor:pointer;'></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
+			 <!--<TD align=center><input type="checkbox" id="CHK15" onclick="PlayNxtWk('15')"></TD>-->
+			 <TD align=center id="NXT15" style="font-size:40px;"></TD>
+			 <TD align=center id="SFL15" style="font-size:30px;"></TD>
+		 </TR>	
+		 <TR> <TD>16</TD> 
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK16b" onclick="PlayNxtWk('16')"></TD>
+			 <TD id="G16" tabindex="0"  onclick="NAMEnxtwk('16')" style='cursor:pointer;'></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
+			 <!--<TD align=center><input type="checkbox" id="CHK16" onclick="PlayNxtWk('16')"></TD>-->
+			 <TD align=center id="NXT16" style="font-size:40px;"></TD>
+			 <TD align=center id="SFL16" style="font-size:30px;"></TD>
+		 </TR>	
+		 <TR> <TD>17</TD> 
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK17b" onclick="PlayNxtWk('17')"></TD>
+			 <TD id="G17" tabindex="0"  onclick="NAMEnxtwk('17')" style='cursor:pointer;'></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
+			 <!--<TD align=center><input type="checkbox" id="CHK17" onclick="PlayNxtWk('17')"></TD>-->
+			 <TD align=center id="NXT17" style="font-size:40px;"></TD>
+			 <TD align=center id="SFL17" style="font-size:30px;"></TD>
+		 </TR>	
+		 <TR> <TD>18</TD> 
+			 <TD align=center><input type="checkbox" style="color:yellow; zoom:3;" id="CHK18b" onclick="PlayNxtWk('18')"></TD>
+			 <TD id="G18" tabindex="0"  onclick="NAMEnxtwk('18')" style='cursor:pointer;'></TD> <!-- onkeydown="keydwnFN(event, '2')" -->
+			 <!--<TD align=center><input type="checkbox" id="CHK18" onclick="PlayNxtWk('18')"></TD>-->
+			 <TD align=center id="NXT18" style="font-size:40px;"></TD>
+			 <TD align=center id="SFL18" style="font-size:30px;"></TD>
+		 </TR>	
+		<!-- 
+		<TR> <TD colspan=2>
+					<input type="date" id="DATE" tabindex="300" style="background:beige; border:1px solid slategray; color:blue; width:120px;" placeholder="yyyy-mm-dd" value=""     onchange="localStorage.setItem('bkDATE',this.value);" > 
+			 </TD>
+			 <TD colspan=3><button style="color:blue; font-size:10px;" onclick="presetPLAY()">use presets</button>
+				           <button style="color:black; font-size:15px;" onclick="lastPLAY()"><b>LAST</b></button><br>
+						   &emsp;&emsp;<button style="color:black; font-size:10px;" onclick="clearPLAYarray()"><b>CLEAR</b> PLAY[]</button>
+			 </TD>		 
+		</TR>
+		-->		
+	</TABLE>		 
+	
+
+<!-- zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz locStor zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz -->
+	<div class="classLSwrite" id="divLSwrite" style= "" >
+			<!-- position = 'fixed'; left = "700px"; top = "100px"; -->
+
+			<!-- <div style="border:2px inset purple; width:50%; margin:auto; padding:10px; background:ivory;"> -->
+	    <font size=5>WRITE <i>localStroage</i> to File
+					&nbsp;
+					<span style="float:right; padding-right:10px; cursor:pointer; background:transparent; color:black; font-size:20px;">
+						<a onclick="showLSwrite()"><b>&times;</b></a>
+					</span><br>
+		</font>
+		<!--<label for="today">Today:</label><input type="date" id="today" name="birthday">&emsp;-->
+		<button id="b" style="background:black; color:white; font-size:20px; border:2px outset blue; border-radius:10%;">export to CSV</button>
+			    <script type="text/javascript">
+			        function exportToCsv() {
+						var Today = localStorage.getItem("bkDATE");
+												//var Today = document.getElementById('today').value;
+						var Playing = localStorage.getItem("lastPLAY");
+						var Note = localStorage.getItem("NOTEchange");						
+							alert("'Today' variable = "+Today+"\n"+
+								  "'Playing' variable = "+Playing+"\n"+
+								  "'Note' variable = "+Note);
+														/*	
+														localStorage.setItem("lastPLAY",PLAYstring); 
+														localStorage.setItem('bkDATE',this.value);
+														localStorage.setItem('NOTEchange',this.value);
+														*/
+							
+						//var p1NAME = localStorage.getItem("g1NAME"); var p2NAME = localStorage.getItem("g2NAME");
+							
+							/*for (var h = 4; h < 19; h++) {
+									//document.getElementById("p1h"+h).value = localStorage.getItem("g1H"+h+"s");
+								for (var g = 1; h < 6; h++) {
+									var vG+g+h+h+s = localStorage.getItem("g"+g+"H"+h+"s");
+								}	
+							}*/
+							
+/*							let pLen = PLAY.length;
+							if (pLen > 0 && pLen < 16) {
+								var p1name = PLAY[0]; var p2name = PLAY[1]; var p3name = PLAY[2]; var p4name = PLAY[3];
+								var p5name = PLAY[4]; var p6name = PLAY[5]; var p7name = PLAY[6]; var p8name = PLAY[7];
+								var p9name = PLAY[8]; var p10name = PLAY[9]; var p11name = PLAY[10]; var p12name = PLAY[11];
+								var p13name = PLAY[12]; var p14name = PLAY[13]; var p15name = PLAY[14]; var p16name = PLAY[15];
+							}
+							
+							/*var myCsv = p1name+","+p2name+","+p3name+","+p4name+","+p5name+ 
+										"\n"+p6name+","+p7name+","+p8name+","+p9name+","+p10name+
+										"\n"+p11name+","+p12name+","+p13name+","+p14name+","+p15name+
+										"\n"+p16name;*/
+/*							var myCsv = p1name+","+p2name+","+p3name+","+p4name+","+p5name+","+ 
+										p6name+","+p7name+","+p8name+","+p9name+","+p10name+","+
+										p11name+","+p12name+","+p13name+","+p14name+","+p15name+","+
+										p16name+","+Today;							
+							NOWtoTOTAL(Today); showSTATS();
+*/							
+							var myCsv = Today+","+Playing+","+Note;							
+										
+				            window.open('data:text/csv;charset=utf-8,' + escape(myCsv));
+				        }
+				        var button = document.getElementById('b');
+				        button.addEventListener('click', exportToCsv);
+			    </script>		
+		<!--<button style="" onclick="EXPORTalert()">Help</button>-->
+			<!-- </div> -->
+			
+		<a><button style="color:blue; cursor:pointer; font-size:8px;" onclick="UNIVhelp()">WRITE/READ HELP</button></a>
+		
+	</div>
+	
+	<div class="classLSread" id="divLSread" style= "position:fixed; left:250px; top:200px; background:pink; padding:10px; border:2px inset gray; border-radius:10px; visibility:hidden;">	
+					<!-- style="border:2px outset blue; border-radius:5%; width:50%; margin:auto; padding:10px; background:ivory;" -->
+			<font size=5>READ file</font> <font size=4><i>+/- > localStroage</i></font>
+					&emsp;
+					<span style="float:right; padding-right:10px; cursor:pointer; background:transparent; color:black; font-size:20px;">
+						<a onclick="showLSread()"><b>&times;</b></a>
+					</span>	
+			<a style="color:blue; cursor:pointer; font-size:8px;" onclick="UNIVhelp()">HELP</a>
+					
+			<br>
+					<script>
+						var openFile = function(event) {
+						  var input = event.target;
+								//alert("'event' = "+event);
+						  var reader = new FileReader();
+						  reader.onload = function() {
+						    var text = reader.result;
+						    var node = document.getElementById('output');
+						    node.innerText = text;
+						    console.log(reader.result.substring(0, 200));
+						  };
+						  reader.readAsText(input.files[0]);
+						};
+					</script>
+			<input type='file' accept='text/plain' onchange='openFile(event)' style="border:3px solid orange; width:200px;"><br>
+			<div id='output' style="border:2px dotted blue;  width:200px; height:100px; margin:auto; font-size:12px; overflow-x:auto;"> <!-- overflow:scroll;  | display:none; | width:80%; | overflow-x:auto; -->
+			  ...
+			</div>
+			<!--<br>-->
+			<!--<button style="" onclick="CHOOSEalert()">Help</button>-->
+			
+			<!--<br><br>-->
+			<button id='DIVtoVARbtn' onclick="DIVtoVAR()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; cursor:pointer; border:3px solid black; border-radius:10px; opacity:50%;" disabled><s><b>DIVtoVAR</b></s></button>
+			&emsp;
+			<button id='chgLSbtn' onclick="changeLclStrg()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; cursor:pointer; border:3px solid black; border-radius:10px; opacity:50%;" disabled><s><b>Change localStorage</b></s></button><br>		<!--   disabled -->	
+						
+			<!--<br>-->
+			<!--<script>	</script>-->			
+			<!--<br>-->
+			<!--<button style="" onclick="readNOTEalert()">NOTE</button>-->
+			
+			</div>
+	<!-- zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz ^ locStor ^zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz -->
+
+		<textarea id="noteTA" style= "position:fixed; left:250px; top:200px; background:lightyellow; padding:5px; visibility:hidden; width:500px; height:400px; font-size:25px;" ondblclick="showNOTE();" onchange="localStorage.setItem('NOTEchange',this.value);">NOTE textarea:
+		</textarea>		<!-- border:2px inset gray; border-radius:10px;  -->
+
+
+	
+</div>	<!-- end of wrapper -->
+</body>
+</html>
