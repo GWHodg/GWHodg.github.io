@@ -62,7 +62,7 @@
 	  font-size: 20px;	  
     }	
 	
-	div.classLSwrite { position:fixed; left:50%; transform:translate(-50%,0); top:10%;
+	div.classLSwrite { position:fixed; left:50%; transform:translate(-50%,0); top:10%; width:75%;
 		background:pink; padding:10px; border:2px inset gray; border-radius:10px; visibility:hidden; } 	
 
 
@@ -324,14 +324,16 @@
 		alert("dbpengelly@gmail.com, jas@uvic.ca, abbuck@shaw.ca, tp70connolly@gmail.com, therad@shaw.ca, charlesmed@shaw.ca, evan@evanhazell.com, geofffield@shaw.ca, cathyhodgins2@gmail.com, pmkuechler@gmail.com, jmccr99@gmail.com, gportermd@gmail.com, jwdutton@telus.net, gmharris@hotmail.com, shaynej@shaw.ca, nigelbailey@shaw.ca, dave.pianoman@gmail.com");
 	}
 	
-	function UNIVhelp() {
+	function WRITEhelp() {
 		alert("EXPORT HELP!\n"+
 			  "iMac: Copy & paste to 'TextEdit' & save a .txt file in #CODE23/ROUNDS.\n\n"+
 			  "iPad: myCsv ^ -> screen. 'Select All' > share > email to self (sends X 2) > select on email (1/2) > share > create csv (or txt) file. In iPad WS/GitHub seems to write to iCloud/Numbers as 'Unknown.txt' w/o needing > email (for some reason).\n\n"+
 			  "Pixel: exports/writes to Google SHEETS (as csv file - 'download.csv').\n\n"+
-			  "iPod: > screen (like iPad) > select all > email. Then ? how to create file (? In Pixel email select it > save/share to 'HodgGW' Google 'Drive' (Textastic folder) > read it from there).\n"+
-			  "\n++++++++++++++++++++++++++++++++++\n\n"+
-			  "CHOOSE/READ HELP!\n"+
+			  "iPod: > screen (like iPad) > select all > email. Then ? how to create file (? In Pixel email select it > save/share to 'HodgGW' Google 'Drive' (Textastic folder) > read it from there).");
+			  
+	}	
+	function READhelp() {
+			alert("CHOOSE/READ HELP!\n"+
 			  "iPad: Download as txt file & 'splits' w/ ' ' > array!\n\n"+
 			  "Pixel: Appears to download as csv file from SHEETS w/o spaces. Would need to split w/ commas > array\n\n"+
 			  "iPod: NEED TO FIGURE OUT HOW TO GET EMAIL DATA FROM IPOD TO PIXEL FILE (? SHEETS). ?Looks like you MAY be able to copy it in email & paste in a SHEETS file (? 'download.csv')?? \nIn Pixel email select it > save/share to 'HodgGW' Google 'Drive' (Textastic folder) > read it from there.\n"+
@@ -339,8 +341,7 @@
 			  "READ NOTE!\n"+
 			  "iPad: Convert content of div ('output') to variable ('myDiv1').  Then split > array?\n"+	
 			  "\t\t[File: On My iPad/GScsv.csv.txt > GSwrite.txt]");
-		  }	
-
+	}
 		 					/*   +++++++++++++++++++++++++++++++++++++++++   */
 							
 	 function presetPLAY() {
@@ -418,6 +419,7 @@
 			 	for (let i = 0; i < newLASTarray.length; i++) {
 				  	PLAY.push(newLASTarray[i]);
 					document.getElementById("NXT"+(i+1)).innerHTML = PLAY[i];
+								//document.getElementById("G"+(i+1)).style.background="silver"; //<<??
 				}			 
 				document.getElementById("DATE").value = DAY;	//innerHTML = DAY;
 		 } 
@@ -425,6 +427,7 @@
 			 	for (let i = 0; i < LaLen; i++) {
 				  	PLAY.push(LASTarray[i]);
 					document.getElementById("NXT"+(i+1)).innerHTML = PLAY[i];
+								//document.getElementById("G"+(i+1)).style.background="silver"; //<<??
 				}
 				document.getElementById("DATE").value = DAY;	//innerHTML = DAY;				
 		 }
@@ -497,6 +500,16 @@
 		}
 		//hideMENU();		
 	}
+
+	function codeFILES() {
+		alert("CODE FILES:\n\n"+
+			  "SCORING 'APP':\t*\n"+
+			  "'GSidx3' files (Sept/23): !sep23_index.html (= index.html); !sep23_!gs63.css; !sep23_!gs63.js; WaltStuff.webmanifest; WaltStuffsw.js [on iPad @ Files/2021/$CODE/!code23/Elmer23]\n\n"+
+			  "BOOKING APP:\nDOCbk24+.html [on iPad @ Files/2021/$GOLF]\n\n"+			  
+			  "PIXEL reload/refresh: Hold icon > App info > Storage & cache > Manage space > MANAGE (Site storage) > 'gwhodg.github.io' > Clear & reset"
+			  
+			  );
+	}	
 	
 </script>
 
@@ -531,6 +544,9 @@
 								  <a onclick="showNOTE()" style="color:maroon"><b>note</b></a>
 								  <!--<a><button id='REPLACEbtn'  onclick="showLSwrite()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%; cursor:pointer;"><s><b>WRITE to file</b></s></button></a>-->
 							  </div>
+							  <div> </div>
+							  <div><A onclick="codeFILES()" style='cursor:pointer;'>code files</A></div>
+							  <div> </div>
 							  
 						</div>									
 				</div>	
@@ -553,11 +569,11 @@
 			<TH><A style="cursor:pointer; color:ivory; background:slategray; border:2px solid black; border-radius:5px;" onclick="loadVARS()">V</A></TH>   
 			<!--<TH colspan=3 ><button onclick="showALL()">group</button></TH>-->
 			<TH colspan=2> 
-				<input type="date" id="DATE" tabindex="300" style="background:beige; border:1px solid slategray; color:blue; width:200px; font-size:30px;" placeholder="2024-mm-dd" value="2024-mm-dd"     onchange="localStorage.setItem('bkDATE',this.value);" > 
+				<input type="date" id="DATE" tabindex="300" style="background:beige; border:1px solid slategray; color:blue; width:275px; font-size:30px;" placeholder="2024-mm-dd" value="2024-mm-dd"     onchange="localStorage.setItem('bkDATE',this.value);" > 
 			</TH>
 			<TD colspan=1 align=center style="color:green; font-size:40px;">selected<!--<br>to play--></TD>
 	
-			<TH> <button onclick="SHUFFLEorder('PLAY')" style="font-size:20px;">SHUFFLED</button></TH>
+			<TH> <button onclick="SHUFFLEorder('PLAY')" style="font-size:30px; border:2px inset gray; border-radius:10px;">SHUFFLED</button></TH>
 			<!--
 			<TH width=10px rowspan=22 style="background:beige;"></TH>		
 			<TD id="READtd" style="display:none;" rowspan=22 align=left valign=top> 
@@ -716,14 +732,14 @@
 			<!-- position = 'fixed'; left = "700px"; top = "100px"; -->
 
 			<!-- <div style="border:2px inset purple; width:50%; margin:auto; padding:10px; background:ivory;"> -->
-	    <font size=5>WRITE <i>localStroage</i> to File
+	    <font>WRITE <i>localStroage</i> to File
 					&nbsp;
-					<span style="float:right; padding-right:10px; cursor:pointer; background:transparent; color:black; font-size:20px;">
+					<span style="float:right; padding-right:10px; cursor:pointer; background:transparent; color:black;">
 						<a onclick="showLSwrite()"><b>&times;</b></a>
 					</span><br>
 		</font>
 		<!--<label for="today">Today:</label><input type="date" id="today" name="birthday">&emsp;-->
-		<button id="b" style="background:black; color:white; font-size:20px; border:2px outset blue; border-radius:10%;">export to CSV</button>
+		<button id="b" style="background:black; color:white; border:2px outset blue; border-radius:10%; font-size:60px;">export to CSV</button>
 			    <script type="text/javascript">
 			        function exportToCsv() {
 						var Today = localStorage.getItem("bkDATE");
@@ -738,34 +754,7 @@
 														localStorage.setItem('bkDATE',this.value);
 														localStorage.setItem('NOTEchange',this.value);
 														*/
-							
-						//var p1NAME = localStorage.getItem("g1NAME"); var p2NAME = localStorage.getItem("g2NAME");
-							
-							/*for (var h = 4; h < 19; h++) {
-									//document.getElementById("p1h"+h).value = localStorage.getItem("g1H"+h+"s");
-								for (var g = 1; h < 6; h++) {
-									var vG+g+h+h+s = localStorage.getItem("g"+g+"H"+h+"s");
-								}	
-							}*/
-							
-/*							let pLen = PLAY.length;
-							if (pLen > 0 && pLen < 16) {
-								var p1name = PLAY[0]; var p2name = PLAY[1]; var p3name = PLAY[2]; var p4name = PLAY[3];
-								var p5name = PLAY[4]; var p6name = PLAY[5]; var p7name = PLAY[6]; var p8name = PLAY[7];
-								var p9name = PLAY[8]; var p10name = PLAY[9]; var p11name = PLAY[10]; var p12name = PLAY[11];
-								var p13name = PLAY[12]; var p14name = PLAY[13]; var p15name = PLAY[14]; var p16name = PLAY[15];
-							}
-							
-							/*var myCsv = p1name+","+p2name+","+p3name+","+p4name+","+p5name+ 
-										"\n"+p6name+","+p7name+","+p8name+","+p9name+","+p10name+
-										"\n"+p11name+","+p12name+","+p13name+","+p14name+","+p15name+
-										"\n"+p16name;*/
-/*							var myCsv = p1name+","+p2name+","+p3name+","+p4name+","+p5name+","+ 
-										p6name+","+p7name+","+p8name+","+p9name+","+p10name+","+
-										p11name+","+p12name+","+p13name+","+p14name+","+p15name+","+
-										p16name+","+Today;							
-							NOWtoTOTAL(Today); showSTATS();
-*/							
+												
 							var myCsv = Today+","+Playing+","+Note;							
 										
 				            window.open('data:text/csv;charset=utf-8,' + escape(myCsv));
@@ -776,18 +765,18 @@
 		<!--<button style="" onclick="EXPORTalert()">Help</button>-->
 			<!-- </div> -->
 			
-		<a><button style="color:blue; cursor:pointer; font-size:8px;" onclick="UNIVhelp()">WRITE/READ HELP</button></a>
+		<a><button style="color:blue; cursor:pointer; font-size:60px;" onclick="WRITEhelp()">HELP</button></a>
 		
 	</div>
 	
-	<div class="classLSread" id="divLSread" style= "position:fixed; left:250px; top:200px; background:pink; padding:10px; border:2px inset gray; border-radius:10px; visibility:hidden;">	
+	<div class="classLSread" id="divLSread" style= "position:fixed; left:250px; top:200px;  width:75%; background:pink; padding:10px; border:2px inset gray; border-radius:10px; visibility:hidden;">	
 					<!-- style="border:2px outset blue; border-radius:5%; width:50%; margin:auto; padding:10px; background:ivory;" -->
-			<font size=5>READ file</font> <font size=4><i>+/- > localStroage</i></font>
+			<font>READ file</font> <i>+/- > localStroage</i>
 					&emsp;
-					<span style="float:right; padding-right:10px; cursor:pointer; background:transparent; color:black; font-size:20px;">
+					<span style="float:right; padding-right:10px; cursor:pointer; background:transparent; color:black;">
 						<a onclick="showLSread()"><b>&times;</b></a>
 					</span>	
-			<a style="color:blue; cursor:pointer; font-size:8px;" onclick="UNIVhelp()">HELP</a>
+			<a style="color:blue; cursor:pointer;" onclick="READhelp()">HELP</a>
 					
 			<br>
 					<script>
@@ -804,18 +793,18 @@
 						  reader.readAsText(input.files[0]);
 						};
 					</script>
-			<input type='file' accept='text/plain' onchange='openFile(event)' style="border:3px solid orange; width:200px;"><br>
-			<div id='output' style="border:2px dotted blue;  width:200px; height:100px; margin:auto; font-size:12px; overflow-x:auto;"> <!-- overflow:scroll;  | display:none; | width:80%; | overflow-x:auto; -->
+			<input type='file' accept='text/plain' onchange='openFile(event)' style="border:3px solid orange; width:50%; zoom:3;"><br>
+			<div id='output' style="border:2px dotted blue;  width:75%; height:400px; margin:auto; overflow-x:auto;"> <!-- overflow:scroll;  | display:none; | width:80%; | overflow-x:auto; -->
 			  ...
 			</div>
 			<!--<br>-->
 			<!--<button style="" onclick="CHOOSEalert()">Help</button>-->
 			
 			<!--<br><br>-->
-			<button id='DIVtoVARbtn' onclick="DIVtoVAR()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; cursor:pointer; border:3px solid black; border-radius:10px; opacity:50%;" disabled><s><b>DIVtoVAR</b></s></button>
+<!--			<button id='DIVtoVARbtn' onclick="DIVtoVAR()" style="FONT-WEIGHT: bold; COLOR:black; background:lime; cursor:pointer; border:3px solid black; border-radius:10px; opacity:50%;" disabled><s><b>DIVtoVAR</b></s></button>
 			&emsp;
-			<button id='chgLSbtn' onclick="changeLclStrg()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; cursor:pointer; border:3px solid black; border-radius:10px; opacity:50%;" disabled><s><b>Change localStorage</b></s></button><br>		<!--   disabled -->	
-						
+			<button id='chgLSbtn' onclick="changeLclStrg()" style="FONT-WEIGHT: bold;COLOR:black; background:lime; cursor:pointer; border:3px solid black; border-radius:10px; opacity:50%;" disabled><s><b>Change localStorage</b></s></button><br>		
+-->						
 			<!--<br>-->
 			<!--<script>	</script>-->			
 			<!--<br>-->
