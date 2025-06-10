@@ -1081,7 +1081,8 @@
 
 	function hideMENU() {
 		//document.getElementById("miscCONTENT").style.visibility="hidden";
-		document.getElementById("menuCONTENT").style.visibility="hidden";
+		//document.getElementById("menuCONTENT").style.visibility="hidden";
+		document.getElementById("mySidenav").style.width = "0px"; 
 	}
 	function showMENU(topic) {
 		if (topic=="tipMENU") {
@@ -1243,9 +1244,11 @@
 				}		//TDp3h5
 			}	
 		}
+
+		calcALL();
+		calcTOTALS();	// < Dec 8/24 *
 		
-			
-		hideMENU();
+		//hideMENU();
 			 		
 	}
 
@@ -2212,6 +2215,14 @@
 	function loadFN() {  
 		document.getElementById('p&h').value = localStorage.getItem('g1NAME') + ' 2';
 		document.getElementById("SLIDER").style.visibility="hidden";
+		
+		//alert("Got to pre 'replace() fn!");      
+		replace();  
+		//alert("Got to pre 'pHCcolors() fn!");      
+		pHCcolors(); restrictTAB(); 
+		calcALL(); calcTOTALS(); 
+		//showPARTIAL();
+		//circleMAXs25(); //alert("Got to post 'circleMAXs25() fn!");      
 	}	
 
 	function cellTOslide(P,H) {
@@ -2557,4 +2568,21 @@
 			document.getElementById(name+'CHC').style.background='white';			
 		}
 	}	
+	
+	function circleMAXs25() {			/*  ################ \/ Jan/25 \/ ################  */
+				//alert("Trying to find previous round circled holes . .\n\n"+
+				//	"localStorage 'lsCIRCLED' = \n"+localStorage.getItem('lsCIRCLED'));
+		var string = localStorage.getItem('lsCIRCLED');
+		var array = string.split(",");
+		/* alert("Trying to find previous round circled holes . .\n\n"+
+			"localStorage 'lsCIRCLED' = \n"+localStorage.getItem('lsCIRCLED')+"\n\n"+
+			"1st array element = " + array[0]); */
+					//alert("1st array element = " + array[0]);
+		//document.getElementById(array[0]).style.border = "2px solid red";
+		let arrayLEN = array.length;
+		for (let i = 0; i < arrayLEN; i++) {
+			document.getElementById(array[i]).style.border = "2px solid red";
+		}
+			
+	}
 	
