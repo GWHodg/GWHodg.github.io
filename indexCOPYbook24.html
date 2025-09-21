@@ -1,0 +1,354 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Snigdoh2</title> <!-- 6 = 6th month (June); 3 = '(2)3; formerly 'GSidx3' (_M4) -->
+<link rel="manifest" href="SnigStuff.webmanifest">
+	<!--Changed href = "manifest.json" To <link rel="manifest" href="WaltStuff.webmanifest">  -->
+	<!-- https://www.w3schools.com/jsref/jsref_split.asp -->
+	<!-- Using whichever browser you choose, Tap this link below to install 'WaltStuff': https://GWHodg.github.io -->
+
+<link rel="stylesheet" href="!snig.css">
+<script src="!snig.js"></script>
+
+
+<style>
+</style>
+
+<script>
+	function HELP() {
+		alert("HELP!\n\n"+
+			  "'GSidx3' files (Aug/23): !gs63.html (= index.html); !gs63.css; !gs63.js; WaltStuff.webmanifest; WaltStuffsw.js\n\n"+
+			  "PIXEL reload/refresh: Hold icon > App info > Storage & cache > Manage space > MANAGE (Site storage) > 'gwhodg.github.io' > Clear & reset");	
+	}
+	
+	
+
+	
+</script>
+
+</head>
+
+<body class="body" style="background:yellow;"  onload="LOADfn();"> <!--  zoom:250%; -->
+	
+<div class="wrapper"><!-- Put the page contents here -->
+	
+				<div id="mySidenav" class="sidenav"  style='opacity:1.0; border-right: 5px solid red;'>
+						<div class="grid-container">
+							  <div><A onclick="showAWAY()" style='cursor:pointer; color:lime;'><i>away</i></A>
+								  <!--<A style="FONT-SIZE:normal; cursor:pointer; color:maroon;" onclick="presetPLAY()"><b>presets</b></A>--></div>
+							  <div><A style="color:lime;" onclick="locStor()"><b>LAST</b></A><!--<button style="color:black; font-size:25px;" onclick="lastPLAY()"><b>LAST</b></button>--></div>
+							  <div><A style="cursor:pointer; color:white;" onclick="clearLS()"><b>clear LS</b></A><!--<button style="color:black; font-size:25px;" onclick="clearPLAYarray()"><b>CLEAR</b> PLAY[]</button>--></div>
+							  
+							  <div><A onclick="emails()" style='cursor:pointer; color:gray;'><b>emails</b></A></div>
+							  <div><A onclick="closeNav()" style='cursor:pointer; color:white;'><s>&#9776;</s></A>
+							  	<!--<span style=" cursor:pointer; color:white;" onclick="closeNav()"><s>&#9776;</s></span>-->	<!--<button onclick="showALL()">display group</button>-->
+							  </div>
+							  		<!--<div><button onclick="emails()">emails</button></div>-->
+							  <div><A onclick="FREEZE()" style='cursor:pointer; color:white;'><i>freeze</i></A></div>
+							  
+							  <div><A style="color:white;" onclick="showDATE()">date</A>
+								  <!--<a onclick="showLSwrite()" style=""><b>WRITE to file</b></a>-->
+									  
+							  </div>
+							  <div><A style="color:lime;" onclick="showSFL()">shuffle</A></div>
+							  <div><A href="index.html" style='color:yellow;'>scorecard</A></div>
+							  
+							  <div><A style="cursor:pointer; color:silver;" onclick="clearFFx()"><b>? FFx</b></A></div>
+							  <div><A onclick="codeFILES()" style='color:gray;'>code files</A></div>
+							  <!--<div><A href="!gs63/!gs63idx.html" style='color:yellow;'>!gs63</A></div>-->
+							  <div>
+								  <a onclick="showNOTE()" style="color:white;"><b>note</b></a>
+							  </div>
+							  
+						</div>									
+				</div>	
+				
+
+	<TABLE class="HEADtbl" border=1 align=center > <!-- style='color:maroon; visibility:visible;' bgcolor='lightgray' -->	
+		<TR><TD><span style="background:slategray; border:1px outset silver; border-radius:10px; font-size:35px; padding:2px;">snigdoh</span><font size=5><i><!--v10-->'25</i></font><!-- font-family="Comic Sans MS"  <br><font size=2 color=lightgray>May 22, 2024</font>--></TD> 
+			<TD><span style="font-size:50px; cursor:pointer; background:ivory;color:maroon;" onclick="openNav()">&#9776;</span>	</TD>	
+			<TD>
+				<img src="IMG_woody.png" width=50 height=50>
+			</TD>
+		</TR>
+	</TABLE>
+
+	<!--<DIV style="width:150px; overflow-y:scroll;">-->
+	<TABLE class="tableMAIN" border=1 align=center style="">
+		<thead><TR>			
+			<TD  class="headcol" colspan=1 align=center style="color:green; font-size:20px;"><!--<br>to play--></TD>
+	
+			<TH id='w0' style="font-size:12px;" onclick="displayDATE(0)">W0<br><span style="background:maroon;" id="W0lbl">00</span></TH>
+			<TH id='w1' style="font-size:12px;" onclick="displayDATE(1)">W1<br><span style="background:maroon;" id="W1lbl">00</span></TH> 
+			<TH id='w2' style="font-size:12px;" onclick="displayDATE(2)">W2<br><span style="background:maroon;" id="W2lbl">00</span></TH> 
+			<TH id='w3' style="font-size:12px;" onclick="displayDATE(3)">W3<br><span style="background:maroon;" id="W3lbl">00</span></TH>
+			<TH id='w4' style="font-size:12px;" onclick="displayDATE(4)">W4<br><span style="background:maroon;" id="W4lbl">00</span></TH>
+		</TR></thead>	
+		<tbody>
+		<TR>
+			<TD class="headcol" id="G1" tabindex="0" onclick="" style='cursor:pointer;'>AB</TD> 
+			<TD style=" font-size:40px;" align=center id="G1wk0" onclick="PLAYwk('AB',1,0)"></TD>
+			<TD align=center id="G1wk1" style="font-size:30px;" onclick="PLAYwk('AB',1,1)"></TD>
+			<TD align=center id="G1wk2" style="font-size:30px;" onclick="PLAYwk('AB',1,2)"></TD>
+			<TD align=center id="G1wk3" style="font-size:30px; opacity:100%;" onclick="PLAYwk('AB',1,3)"></TD>
+			<TD align=center id="G1wk4" style="font-size:30px; opacity:100%;" onclick="PLAYwk('AB',1,4)"></TD>			
+		</TR>
+		<TR>
+			<TD class="headcol" id="G2" tabindex="0" onclick="" style='cursor:pointer;'>TC</TD> 
+			<TD align=center id="G2wk0" style="font-size:40px;" onclick="PLAYwk('TC',2,0)"></TD>
+			<TD align=center id="G2wk1" style="font-size:30px;" onclick="PLAYwk('TC',2,1)"></TD>
+			<TD align=center id="G2wk2" style="font-size:30px;" onclick="PLAYwk('TC',2,2)"></TD>
+			<TD align=center id="G2wk3" style="font-size:30px; opacity:100%;" onclick="PLAYwk('TC',2,3)"></TD>
+			<TD align=center id="G2wk4" style="font-size:30px; opacity:100%;" onclick="PLAYwk('TC',2,4)"></TD>			
+		</TR>
+		
+		<TR>
+			<TD class="headcol" id="G4" tabindex="0" onclick="" style='cursor:pointer;'>GF</TD> 
+			<TD align=center id="G4wk0" style="font-size:40px;" onclick="PLAYwk('GF',4,0)"></TD>
+			<TD align=center id="G4wk1" style="font-size:30px;" onclick="PLAYwk('GF',4,1)"></TD>
+			<TD align=center id="G4wk2" style="font-size:30px;" onclick="PLAYwk('GF',4,2)"></TD>
+			<TD align=center id="G4wk3" style="font-size:30px; opacity:100%;" onclick="PLAYwk('GF',4,3)"></TD>
+			<TD align=center id="G4wk4" style="font-size:30px; opacity:100%;" onclick="PLAYwk('GF',4,4)"></TD>			
+		</TR>
+		<TR>
+			<TD class="headcol" id="G5" tabindex="0" onclick="" style='cursor:pointer;'>WH</TD> 
+			<TD align=center id="G5wk0" style="font-size:40px;" onclick="PLAYwk('WH',5,0)"></TD>
+			<TD align=center id="G5wk1" style="font-size:30px;" onclick="PLAYwk('WH',5,1)"></TD>
+			<TD align=center id="G5wk2" style="font-size:30px;" onclick="PLAYwk('WH',5,2)"></TD>
+			<TD align=center id="G5wk3" style="font-size:30px; opacity:100%;" onclick="PLAYwk('WH',5,3)"></TD>	
+			<TD align=center id="G5wk4" style="font-size:30px; opacity:100%;" onclick="PLAYwk('WH',5,4)"></TD>		
+		</TR>
+		<TR>
+			<TD class="headcol" id="G6" tabindex="0" onclick="" style='cursor:pointer;'>SJ</TD> 
+			<TD align=center id="G6wk0" style="font-size:40px;" onclick="PLAYwk('SJ',6,0)"></TD>
+			<TD align=center id="G6wk1" style="font-size:30px;" onclick="PLAYwk('SJ',6,1)"></TD>
+			<TD align=center id="G6wk2" style="font-size:30px;" onclick="PLAYwk('SJ',6,2)"></TD>
+			<TD align=center id="G6wk3" style="font-size:30px; opacity:100%;" onclick="PLAYwk('SJ',6,3)"></TD>			
+			<TD align=center id="G6wk4" style="font-size:30px; opacity:100%;" onclick="PLAYwk('SJ',6,4)"></TD>			
+		</TR>	
+		<TR>
+			<TD class="headcol" id="G7" tabindex="0" onclick="" style='cursor:pointer;'>PK</TD> 
+			<TD align=center id="G7wk0" style="font-size:40px;" onclick="PLAYwk('PK',7,0)"></TD>
+			<TD align=center id="G7wk1" style="font-size:30px;" onclick="PLAYwk('PK',7,1)"></TD>
+			<TD align=center id="G7wk2" style="font-size:30px;" onclick="PLAYwk('PK',7,2)"></TD>
+			<TD align=center id="G7wk3" style="font-size:30px; opacity:100%;" onclick="PLAYwk('PK',7,3)"></TD>
+			<TD align=center id="G7wk4" style="font-size:30px; opacity:100%;" onclick="PLAYwk('PK',7,4)"></TD>			
+		</TR>	
+			<TR>
+			<TD class="headcol" id="G8" tabindex="0" onclick="" style='cursor:pointer;'>JM</TD> 
+			<TD align=center id="G8wk0" style="font-size:40px;" onclick="PLAYwk('JM',8,0)"></TD>
+			<TD align=center id="G8wk1" style="font-size:30px;" onclick="PLAYwk('JM',8,1)"></TD>
+			<TD align=center id="G8wk2" style="font-size:30px;" onclick="PLAYwk('JM',8,2)"></TD>
+			<TD align=center id="G8wk3" style="font-size:30px; opacity:100%;" onclick="PLAYwk('JM',8,3)"></TD>
+			<TD align=center id="G8wk4" style="font-size:30px; opacity:100%;" onclick="PLAYwk('JM',8,4)"></TD>			
+		</TR>	
+		<TR>
+			<TD class="headcol" id="G9" tabindex="0" onclick="" style=' opacity:100%;'>CM</TD> 
+			<TD align=center id="G9wk0" style="font-size:40px;" onclick="PLAYwk('CM',9,0)"></TD>
+			<TD align=center id="G9wk1" style="font-size:30px;" onclick="PLAYwk('CM',9,1)"></TD>
+			<TD align=center id="G9wk2" style="font-size:30px;" onclick="PLAYwk('CM',9,2)"></TD>
+			<TD align=center id="G9wk3" style="font-size:30px; opacity:100%;" onclick="PLAYwk('CM',9,3)"></TD>
+			<TD align=center id="G9wk4" style="font-size:30px; opacity:100%;" onclick="PLAYwk('CM',9,4)"></TD>			
+		</TR>		
+		<TR>
+			<TD class="headcol" id="G10" tabindex="0" onclick="" style='cursor:pointer;'>DP</TD> 
+			<TD align=center id="G10wk0" style="font-size:40px;" onclick="PLAYwk('DP',10,0)"></TD>
+			<TD align=center id="G10wk1" style="font-size:30px;" onclick="PLAYwk('DP',10,1)"></TD>
+			<TD align=center id="G10wk2" style="font-size:30px;" onclick="PLAYwk('DP',10,2)"></TD>
+			<TD align=center id="G10wk3" style="font-size:30px; opacity:100%;" onclick="PLAYwk('DP',10,3)"></TD>		
+			<TD align=center id="G10wk4" style="font-size:30px; opacity:100%;" onclick="PLAYwk('DP',10,4)"></TD>		
+		</TR>		
+		<TR>
+			<TD class="headcol" id="G11" tabindex="0" onclick="" style='cursor:pointer;'>Pd</TD> 
+			<TD align=center id="G11wk0" style="font-size:40px;" onclick="PLAYwk('Pd',11,0)"></TD>
+			<TD align=center id="G11wk1" style="font-size:30px;" onclick="PLAYwk('Pd',11,1)"></TD>
+			<TD align=center id="G11wk2" style="font-size:30px;" onclick="PLAYwk('Pd',11,2)"></TD>
+			<TD align=center id="G11wk3" style="font-size:30px; opacity:100%;" onclick="PLAYwk('Pd',11,3)"></TD>
+			<TD align=center id="G11wk4" style="font-size:30px; opacity:100%;" onclick="PLAYwk('Pd',11,4)"></TD>			
+		</TR>		
+		<TR>
+			<TD class="headcol" id="G12" tabindex="0" onclick="" style='cursor:pointer;'>BP</TD> 
+			<TD align=center id="G12wk0" style="font-size:40px;" onclick="PLAYwk('BP',12,0)"></TD>
+			<TD align=center id="G12wk1" style="font-size:30px;" onclick="PLAYwk('BP',12,1)"></TD>
+			<TD align=center id="G12wk2" style="font-size:30px;" onclick="PLAYwk('BP',12,2)"></TD>
+			<TD align=center id="G12wk3" style="font-size:30px; opacity:100%;" onclick="PLAYwk('BP',12,3)"></TD>
+			<TD align=center id="G12wk4" style="font-size:30px; opacity:100%;" onclick="PLAYwk('BP',12,4)"></TD>						
+		</TR>				
+		<TR>
+			<TD class="headcol" id="G13" tabindex="0" onclick="" style='cursor:pointer;'>WR</TD> 
+			<TD align=center id="G13wk0" style="font-size:40px;" onclick="PLAYwk('WR',13,0)"></TD>
+			<TD align=center id="G13wk1" style="font-size:30px;" onclick="PLAYwk('WR',13,1)"></TD>
+			<TD align=center id="G13wk2" style="font-size:30px;" onclick="PLAYwk('WR',13,2)"></TD>
+			<TD align=center id="G13wk3" style="font-size:30px; opacity:100%;" onclick="PLAYwk('WR',13,3)"></TD>
+			<TD align=center id="G13wk4" style="font-size:30px; opacity:100%;" onclick="PLAYwk('WR',13,4)"></TD>			
+		</TR>				
+		<TR>
+			<TD class="headcol" id="G14" tabindex="0" onclick="" style='cursor:pointer;'>JS</TD> 
+			<TD align=center id="G14wk0" style="font-size:40px;" onclick="PLAYwk('JS',14,0)"></TD>
+			<TD align=center id="G14wk1" style="font-size:30px;" onclick="PLAYwk('JS',14,1)"></TD>
+			<TD align=center id="G14wk2" style="font-size:30px;" onclick="PLAYwk('JS',14,2)"></TD>
+			<TD align=center id="G14wk3" style="font-size:30px; opacity:100%;" onclick="PLAYwk('JS',14,3)"></TD>
+			<TD align=center id="G14wk4" style="font-size:30px; opacity:100%;" onclick="PLAYwk('JS',14,4)"></TD>						
+		</TR>	
+		<TR>
+			<TD class="headcol" id="G3" tabindex="0" onclick="" style='opacity:50%;'>JD</TD> 
+			<TD align=center id="G3wk0" style="font-size:40px;" onclick="PLAYwk('JD',3,0)" style='cursor:pointer;'></TD>
+			<TD align=center id="G3wk1" style="font-size:30px;" onclick="PLAYwk('JD',3,1)"></TD>
+			<TD align=center id="G3wk2" style="font-size:30px;" onclick="PLAYwk('JD',3,2)"></TD> 
+											<!-- background:red; -->
+			<TD align=center id="G3wk3" style="font-size:30px; opacity:100%;" onclick="PLAYwk('JD',3,3)"></TD>
+			<TD align=center id="G3wk4" style="font-size:30px; opacity:100%;" onclick="PLAYwk('JD',3,4)"></TD>			
+		</TR>
+		<TR>
+			<TD class="headcol" id="G15" tabindex="0" onclick="" style='cursor:pointer; opacity:50%;'>NB</TD>
+																						<!-- = ?1 -->	
+			<TD align=center id="G15wk0" style="font-size:40px;" onclick="PLAYwk('NB',15,0)"></TD>
+																			<!-- = PLAYwk('?1',15,0) -->
+			<TD align=center id="G15wk1" style="font-size:30px;" onclick="PLAYwk('NB',15,1)"></TD>
+			<TD align=center id="G15wk2" style="font-size:30px;" onclick="PLAYwk('NB',15,2)"></TD>
+			<TD align=center id="G15wk3" style="font-size:30px; opacity:100%;" onclick="PLAYwk('NB',15,3)"></TD>	
+			<TD align=center id="G15wk4" style="font-size:30px; opacity:100%;" onclick="PLAYwk('NB',15,4)"></TD>			
+		</TR>
+		<TR>
+			<TD class="headcol" id="G16" tabindex="0" onclick="" style=' opacity:50%;'>EH</TD>
+																				<!-- = ?2 -->	
+			<TD align=center id="G16wk0" style="font-size:40px;" onclick="PLAYwk('EH',16,0)"></TD>
+			<TD align=center id="G16wk1" style="font-size:30px;" onclick="PLAYwk('EH',16,1)"></TD>
+			<TD align=center id="G16wk2" style="font-size:30px;" onclick="PLAYwk('EH',16,2)"></TD>
+			<TD align=center id="G16wk3" style="font-size:30px; opacity:100%;" onclick="PLAYwk('EH',16,3)"></TD>
+			<TD align=center id="G16wk4" style="font-size:30px; opacity:100%;" onclick="PLAYwk('EH',16,4)"></TD>			
+		</TR>
+		
+		</tbody>	
+	</TABLE>	
+	<!--</DIV>-->
+
+					<!--   $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$.  -->
+
+		<button id="noteX" onclick="hideNOTE()" style="position:fixed;  border:2px inset gray; border-radius:0px; z-index:10;  left:250px; top:160px; background:lightyellow; padding:5px; visibility:hidden; font-size:25px; opacity:1;"><b>&times;</b></button>	
+		<textarea id="noteTA" style= "position:fixed; left:250px; top:200px; background:lightyellow; padding:5px; visibility:hidden; width:500px; height:400px; font-size:25px;" ondblclick="showNOTE();" onchange="localStorage.setItem('NOTEchange',this.value);">NOTE textarea:
+		</textarea>		<!-- border:2px inset gray; border-radius:10px;  -->
+
+		
+	<TABLE id="tblSFL" border=1 align=center style="background:beige; zoom:1; position:fixed; left:150px; top:100px; visibility:hidden;">
+		<TR>			
+			<TD><!--<input value="WK">-->
+				&nbsp;Docs Group&emsp;<a onclick="hideSFL()"><b>&times;</b></a><br>
+				<input id="WKipt" style="border:0px inset gray; background:beige;color:gray; width:20px; font-size:10px;" value='W2'>
+				<input id="WKdisp" style="border:0px inset gray; background:beige; color:blue; width:100px; font-size:20px;" value=''>&emsp;
+				<button onclick="SFL2()" style="font-size:15px; border:2px inset gray; border-radius:10px;">S</button> <!-- SHUFFLE -->
+				
+			</TD>
+		</TR>	
+		<TR><TD align=center id="SFL1" style="font-size:30px;"><!--Hodgins, George W.--></TD></TR>
+		<TR><TD align=center id="SFL2" style="font-size:30px;"><!--Pengelly, Delbert--></TD>
+		<TR><TD align=center id="SFL3" style="font-size:30px;"><!--Porter, George R.--></TD>
+		<TR><TD align=center id="SFL4" style="font-size:30px;">&nbsp;</TD>
+		<TR><TD align=center id="SFL5" style="font-size:30px;">&nbsp;</TD>
+		<TR><TD align=center id="SFL6" style="font-size:30px;">&nbsp;</TD>
+		<TR><TD align=center id="SFL7" style="font-size:30px;">&nbsp;</TD>
+		<TR><TD align=center id="SFL8" style="font-size:30px;">&nbsp;</TD>
+		<TR><TD align=center id="SFL9" style="font-size:30px;">&nbsp;</TD>
+		<TR><TD align=center id="SFL10" style="font-size:30px;">&nbsp;</TD>	
+		<TR><TD align=center id="SFL11" style="font-size:30px;">&nbsp;</TD>
+		<TR><TD align=center id="SFL12" style="font-size:30px;">&nbsp;</TD>
+		<TR><TD align=center id="SFL13" style="font-size:30px;">&nbsp;</TD>
+		<TR><TD align=center id="SFL14" style="font-size:30px;">&nbsp;</TD>
+		<TR><TD align=center id="SFL15" style="font-size:30px;">&nbsp;</TD>
+		<TR><TD align=center id="SFL16" style="font-size:30px;">&nbsp;</TD>
+	</TABLE>	
+
+	
+	
+	<TABLE id="tblDATE" border=1 align=center style="background:red; zoom:1; position:fixed; left:200px; top:500px; visibility:hidden;">
+		<TR><TH colspan=3>Date Picker</TH>
+			<td colspan=2>			
+				<button style="color:black; font-size:35px;" onclick="setDATE()"><b>SET!</b></button>				
+			</td>	
+			<TD align=right><a onclick="hidePICKER()" style="font-size:45px;"><b>&times;</b></a></TD>
+		</TR>	
+		<TR>
+			<TD align=center id="wk0date" style="font-size:35px;">
+				wk0<br><input id="date0" type="radio" name="ninjaTurtles" value="aa" style="zoom:2;"/>
+			</TD>
+			<TD align=center id="wk1date" style="font-size:35px;">
+				wk1<br><input id="date1" type="radio" name="ninjaTurtles" value="bb" checked/ style="zoom:2;">				
+			</TD>			
+			<TD align=center id="wk2date" style="font-size:35px;">
+				wk2<br><input id="date2" type="radio" name="ninjaTurtles" value="cc"/ style="zoom:2;">				
+			</TD>			
+			<TD align=center id="wk3date" style="font-size:35px;">
+				wk3<br><input id="date3" type="radio" name="ninjaTurtles" value="dd"/ style="zoom:2;">				
+			</TD>
+			<TD align=center id="wk4date" style="font-size:35px; opacity:50%;">
+				wk4<br><input id="date4" type="radio" name="ninjaTurtles" value="ee"/ style="zoom:2;">				
+			</TD>	
+			<td rowspan=2>
+				<button style="color:black; font-size:35px;" onclick="PrimeWK()">PRIME</button>
+			</td>					
+		</TR>
+		<TR>
+			<TD colspan=5>
+				<input type="date" id="DATE" tabindex="" style="background:beige; border:1px solid slategray; color:blue; width:275px; font-size:33px;" placeholder="2024-mm-dd" value="2024-mm-dd">
+							<!-- onchange="localStorage.setItem('setDATE',this.value);" -->	
+			</TD>			
+		</TR>	
+	</TABLE>
+
+
+
+	<TABLE id="tblAWAY" border=1 align=center style="background:orange; zoom:2; position:fixed; left:40px; top:400px; visibility:hidden; font-size:20px;">
+		<thead>
+		<TR style="background:brown; color:white;"><TH colspan=4>AWAY</TH>
+			<TD colspan=2 align=center><a style="color:silver;" onclick="removeAWAY()">remove</a>
+			<TH><a onclick="showAWAY()"><b>&times;</b></a></TH>
+		</TR>	
+		<TR>
+			<TD>
+				<label><input id="pl1" type="radio" name="guysAWAY" value="ab" style="zoom:1;"/>AB</label>
+			</TD>
+			<TD><label><input id="pl2" type="radio" name="guysAWAY" value="tc" style="zoom:;"/>TC</label></TD>	
+			<TD> 
+				<label><input id="pl3" type="radio" name="guysAWAY" value="jd" style="zoom:1;"/>JD</label>
+			</TD>	
+			<TD>
+				<label><input id="pl4" type="radio" name="guysAWAY" value="gf" style="zoom:;"/>GF</label>
+			</TD>			
+			<TD><label><input id="pl5" type="radio" name="guysAWAY" value="wh" style="zoom:;"/>WH</label></TD>
+			<TD><label><input id="pl6" type="radio" name="guysAWAY" value="sj" style="zoom:;"/>SJ</label></TD>
+			<TD><label><input id="pl7" type="radio" name="guysAWAY" value="pk" style="zoom:;"/>PK</label></TD>			
+		</TR>
+		<TR>
+			<TD><label><input id="pl8" type="radio" name="guysAWAY" value="jm" style="zoom:;"/>JM</label></TD>
+			<TD><label><input id="pl9" type="radio" name="guysAWAY" value="cm" style="zoom:;"/>CM</label></TD>
+			<TD><label><input id="pl10" type="radio" name="guysAWAY" value="dp" style="zoom:;"/>DP</label></TD>	
+			<TD><label><input id="pl11" type="radio" name="guysAWAY" value="pd" style="zoom:;"/>Pd</label></TD>
+			<TD><label><input id="pl12" type="radio" name="guysAWAY" value="bp" style="zoom:;"/>BP</label></TD>
+			<TD><label><input id="pl13" type="radio" name="guysAWAY" value="wr" style="zoom:;"/>WR</label></TD>	
+			<TD><label><input id="pl14" type="radio" name="guysAWAY" value="js" style="zoom:;"/>JS</label></TD>			
+		</TR>	
+			
+		</thead>	
+		<tbody>
+			
+		<TR style="background:brown; color:white;">	
+			<TD><label><input type="checkbox" style="color:yellow; zoom:1;" id="CHKw0">W0</label></TD>			
+				<!--<TD align=center>W0<br><input type="checkbox" style="color:yellow; zoom:1;" id="CHKw0"></TD>-->
+			<TD><label><input type="checkbox" style="color:yellow; zoom:1;" id="CHKw1">W1</label></TD>	
+			<TD><label><input type="checkbox" style="color:yellow; zoom:1;" id="CHKw2">W2</label></TD>	
+			<TD><label><input type="checkbox" style="color:yellow; zoom:1;" id="CHKw3">W3</label></TD>	
+			<TD><label><input type="checkbox" style="color:yellow; zoom:1;" id="CHKw4">W4</label></TD>				
+			<TD colspan=2 align=center><button style="color:black;  font-size:15px;" onclick="setAWAY()"><b>SET!</b></button>
+									<!-- font-size:15px; -->
+			</TD>
+		</TR>	
+		
+	</TABLE	
+	
+	
+	
+</div>	
+
+</body>
+</html>

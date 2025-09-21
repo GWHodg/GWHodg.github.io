@@ -817,10 +817,27 @@
 				// gTb9p2 | sTb9p2 
 			}		
 		}
-		
-		
-		
+				
 		hideMENU();
+		
+					/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+/*			
+		for (h=1; h<19; h++) {
+			if ( document.getElementById("p1h"+h).value=="x" ) {
+				var Hpar = document.getElementById("PARh"+h).value;
+				alert("hole "+h+" par = "+Hpar);
+				
+				//alert("'p1h3scr' variable = "+p1h3scr+"!"); //TDp3h17
+				document.getElementById("TDp1h"+h).style.border = "3px solid red";
+				//PARh17
+			}	
+			else {
+				document.getElementById("TDp1h"+h).style.border = "1px solid gray";
+			}		
+		}
+*/		
+		
+		
 		
 	}	  
 
@@ -925,10 +942,16 @@
 			if ( pNUM=="p5" ) { pNAME = document.getElementById("p5NAME").value; }
 			//alert("pNUM = "+pNUM+"\npNAME = "+pNAME);
 		document.getElementById("p&h").value = pNAME+" "+nameArray[1]; 		//GLOBALinput;
+	//document.getElementById("lastVAL").value = SCRinput; // ** (Sep/25)
+	document.getElementById("lastVAL").value = document.getElementById(SCRinput).value; // ** (Sep/25)
 			document.getElementById("focusIPT").value = pNAME+" "+nameArray[1]; 		//GLOBALinput;
+			//document.getElementById("lastVAL").value = localStorage.getItem("lastFOCUS");
 		
 		document.getElementById("myRange").value = 0;	//value="0";	// < **
 			document.getElementById("demo").innerHTML = 0;
+			
+		//localStorage.setItem("lastFOCUSval", SCRinput);
+		//document.getElementById("lastVAL").value = localStorage.getItem("lastFOCUSval");
 		
 		//alert("SCRinput =" +GLOBALinput);	
 		//document.getElementById(SCRinput).style.background = "yellow";	
@@ -936,6 +959,14 @@
 		//document.getElementById(SCRinput).onfocus = function() { document.getElementById(SCRinput).style.background = "lime"; }
 		//document.getElementById(SCRinput).blur = function() { document.getElementById(SCRinput).style.background = "orange"; }
 
+							/*   %%%%%%%%% \/ June/24 \/ %%%%%%%%%%%%%%%   */
+		/*alert ("'SCRinput' variable = "+SCRinput+"!");					
+		if ( SCRinput == "x" ) {
+			alert ("'SCRinput' variable = "+SCRinput+"!\n"+
+				"Will try to > red BORDER for this box.");
+		}*/
+		
+		
 		
 	}
 
@@ -960,7 +991,31 @@
 			document.getElementById("focusIPT").value = pNAME+" "+nameArray[1]; 		//GLOBALinput;
 		document.getElementById("TD"+SCRinput).style.background = "red";   //TDp1h1
 			//changeGLOBAL(x);
+			
+		//localStorage.setItem("lastFOCUSval", document.getElementById(SCRinput).value);
+		
 	}
+	var lastFOCUS; var lastSCORE;
+	function remREADONLY() {
+		lastFOCUS = document.getElementById('lastFOCUS').value;
+		lastSCORE = document.getElementById(lastFOCUS).value;
+		/*alert("Will TRY to re-enable SELECTED player input for editing . . .\n"+
+		      "Last focussed element/input = "+lastFOCUS);*/
+		//var focused = document.activeElement;  alert(focussed + " has focus");
+				/*for (var h = 1; h < 19; h++) {
+					for (var n = 1; n < 6; n++) {
+						document.getElementById('p'+n+'h'+h).readOnly = false;
+					}
+				}*/
+		localStorage.setItem("READONLYremoved", "Y");
+			//alert("READONLY removed (lS = "+localStorage.getItem('READONLYremoved')+")!");
+		//document.getElementById('p'+p+'h'+h).setAttribute('readonly', 'true');		
+		//document.getElementById('p'+p+'h'+h).readOnly = false;		
+		document.getElementById(lastFOCUS).removeAttribute('readOnly');
+		document.getElementById(lastFOCUS).focus();
+		hideMENU();
+	}
+	
 	function BLURfn(SCRinput) {
 		  	//alert("'this' variable = "+x);
 			//x.style.background = "yellow";
@@ -969,7 +1024,7 @@
 		document.getElementById("TD"+SCRinput).style.background = "black";
 		document.getElementById("focusIPT").style.background = "white";
 			document.getElementById("focusIPT").style.color = "maroon";
-			document.getElementById("focusIPT").value = "GSmac3x"; 		//GLOBALinput;
+			document.getElementById("focusIPT").value = "SNIGgs"	//"GSmac3x"; 		//GLOBALinput;
 			
 		
 		var entry = +document.getElementById(SCRinput).value;
@@ -989,19 +1044,121 @@
 
 		if ( +document.getElementById(SCRinput).value == 0) {
 			document.getElementById('SP'+SCRinput).innerHTML = 0;	
+		}		
+
+		
+							/*  ################ \/ Jun/24 \/ ################  */
+		
+		// HOLE: p2h17;   PAR: PARh17;    STROKES: =color;    MAXscr = par+strokes+2;     playerNO;
+		var HOLE = SCRinput.substr(3);	
+		var PAR = document.getElementById("PARh"+HOLE).value;
+		var STROKES = 0;
+		var playerNO = SCRinput.substr(1,1);	;
+		var MAXscore;
+			if ( document.getElementById(SCRinput).style.background=="lime") {
+				//alert("'SCRinput' bkgd = lime!");
+				STROKES = 1;
+			}
+			if ( document.getElementById(SCRinput).style.background=="green") {
+				STROKES = 2;
+			}
+			//else { STROKES = 0 }
+			//document.getElementById("p2h"+h).style.background = "lime";
+		MAXscore = +PAR + +STROKES + 2;							
+		//alert("In BLURfn. 'SCRinput' = "+SCRinput);
+		//if ((document.getElementById(SCRinput).value=="#")||(document.getElementById(SCRinput).value>=MAXscore)) {
+		if ((document.getElementById(SCRinput).value=="#")||(document.getElementById(SCRinput).value>=MAXscore+1)) {
+			/*alert("In BLURfn. 'SCRinput' = "+SCRinput+"\n"+
+				"'HOLE' = '"+HOLE+"'"+
+				"\t\t'PAR' = '"+PAR+"'\n\n"+
+				"'STROKES' = '"+STROKES+"'\n"+
+				"'MAXscore = '"+MAXscore+"'\n\n"+
+				"'playerNO' ="+playerNO+"'");*/
+			document.getElementById(SCRinput).style.border = "2px solid red";
+			document.getElementById(SCRinput).value = MAXscore;
+			localStorage.setItem('g'+playerNO+'H'+HOLE+'s',MAXscore);
+				//document.getElementById(SCRinput).innerHTML = MAXscore;				
+				
+		}
+		else { document.getElementById(SCRinput).style.border = "1px solid gray"; }
+/*
+		for (h=1; h<19; h++) {
+			if ( document.getElementById("p1h"+h).value=="x" ) {
+				var Hpar = document.getElementById("PARh"+h).value;
+				alert("hole "+h+" par = "+Hpar);
+				
+				//alert("'p1h3scr' variable = "+p1h3scr+"!"); //TDp3h17
+				document.getElementById("TDp1h"+h).style.border = "3px solid red";
+				//PARh17
+			}	
+			else {
+				document.getElementById("TDp1h"+h).style.border = "1px solid gray";
+			}		
+		}
+*/		
+		
+							/*  ################ ^ Jun/24 ^ ################  */
+		if (localStorage.getItem('READONLYremoved')=="Y") {
+			localStorage.setItem("READONLYremoved", "N");  //Sep/25
+			GLOBALinput = SCRinput;	//"ADD";
+				const nameArray = GLOBALinput.split("h");
+					let pNUM = nameArray[0]; 
+					var pNAME;
+					if ( pNUM=="p1" ) { pNAME = document.getElementById("p1NAME").value; }
+					if ( pNUM=="p2" ) { pNAME = document.getElementById("p2NAME").value; }
+					if ( pNUM=="p3" ) { pNAME = document.getElementById("p3NAME").value; }
+					if ( pNUM=="p4" ) { pNAME = document.getElementById("p4NAME").value; }
+					if ( pNUM=="p5" ) { pNAME = document.getElementById("p5NAME").value; }
+					//document.getElementById("p&h").value = pNAME+" "+nameArray[1]; 		//GLOBALinput;
+			/*alert("'lastFOCUS variable = '"+lastFOCUS+"'\n"+
+				"'lastSCORE' variable = "+lastSCORE+"\n"+
+				"New score = "+document.getElementById(SCRinput).value+"\n"+
+				"p & h = "+pNAME+" "+nameArray[1]);*/
+			alert(pNAME+" "+nameArray[1] + " changed from "+ lastSCORE + " to " + document.getElementById(SCRinput).value + "!");
+			document.getElementById(GLOBALinput).style.border='2px solid purple';	// < Sep/25
+			//alert("READONLY reinitiated (lS = "+localStorage.getItem('READONLYremoved')+")!");					
 		}
 		
-
-
-
+		
+		
 		calcTOTALS();				
 		
-		
-		
-		
+		countCIRCLES();
 	}	
-
+	function countCIRCLES() {			//Dec 11/24: *	
+			//alert("Will try to count CIRCLED holes!");
+		const circled = new Array();
+		for (var h = 1; h < 19; h++) {	
+			for (var p = 1; p<6; p++) {	
+				//var entry = +document.getElementById("p"+p+"h"+h).value;
+				//circled.push(entry);
+				if (document.getElementById("p"+p+"h"+h).style.border == "2px solid red") {
+					var entry = "p"+p+"h"+h;
+					circled.push(entry);
+				}
+			}
+		}
+			//alert(circled.map(i => '*' +i).join(' | '));
+		/* alert("Will try to count CIRCLED holes!\n\n"+
+			circled.map(i => i).join(' | ')); */
+			//alert(circled.map(i => i).join(' | '));
+		localStorage.setItem("lsCIRCLED",circled);	
+			/* alert("localStorage 'lsCIRCLED' = \n"+localStorage.getItem('lsCIRCLED')); */
+					/* circled.push(playerNO+'/'+HOLE);
+					alert(circled.map(i => '*' +i).join('\n'));
+					localStorage.setItem("lsCIRCLED",circled);	
+						alert("localStorage 'lsCIRCLED' = \n"+localStorage.getItem('lsCIRCLED')); */
+										
+									//window.close();	//exit();	//window.open('','_self').close();
+									//window.open("indexA.html");	//,"_blank","width=50, height=50");
+									//window.close("indexA.html");	//self.close();
+		
+	}												
+	
 	function showSLIDER() {
+		
+		//document.getElementById("TD"+GLOBALinput).style.background='gold';	// < Sep/25
+		
 		if (document.getElementById("SLIDER").style.visibility=="hidden") {	
 			document.getElementById("SLIDER").style.visibility="visible";
 			document.getElementById("TBLbody").style.height = "430px";	//300px';
@@ -1010,6 +1167,8 @@
 		}
 		else {
 			document.getElementById("SLIDER").style.visibility="hidden";
+			document.getElementById('check').style.visibility = 'hidden';	
+			document.getElementById("btnUNDO").style.visibility="hidden";			
 		}
 		hideMENU();
 	}	
@@ -1081,7 +1240,8 @@
 
 	function hideMENU() {
 		//document.getElementById("miscCONTENT").style.visibility="hidden";
-		//document.getElementById("menuCONTENT").style.visibility="hidden";
+//		document.getElementById("menuCONTENT").style.visibility="hidden";
+		//document.getElementById("btnUNDO").style.visibility="hidden";
 		document.getElementById("mySidenav").style.width = "0px"; 
 	}
 	function showMENU(topic) {
@@ -1244,11 +1404,11 @@
 				}		//TDp3h5
 			}	
 		}
-
+		
 		calcALL();
 		calcTOTALS();	// < Dec 8/24 *
 		
-		//hideMENU();
+		hideMENU();
 			 		
 	}
 
@@ -1267,6 +1427,12 @@
 			for (var h = 1; h < 19; h++) {
 					for (var n = 1; n < 6; n++) {
 						localStorage.setItem('g'+n+'H'+h+'s',""); document.getElementById("p"+n+"h"+h).value = "";
+														
+										/* %%%%%%%%%%%%% Jun/24 \/ %%%%%%%%%%%%%%% */						
+						//if ( document.getElementById("p"+p+"h"+h).style.border = "2px solid red" ) {
+								document.getElementById("p"+n+"h"+h).style.border = "1px solid gray";
+						//}
+										/* %%%%%%%%%%%%% Jun/24 ^ %%%%%%%%%%%%%%% */										
 					}
 			}
 			
@@ -1281,12 +1447,30 @@
 				localStorage.setItem("g3HC",""); document.getElementById("p3HC").value = ""; 
 				localStorage.setItem("g4HC",""); document.getElementById("p4HC").value = ""; 
 				localStorage.setItem("g5HC",""); document.getElementById("p5HC").value = ""; 
-			
+
+				
+			for (var h = 1; h < 19; h++) { 	//clear 'Matches' values (Apr/25):
+					for (var n = 1; n < 6; n++) {
+						localStorage.setItem("SBFDg"+n+"h"+h,""); 		
+					}
+			}				
+			localStorage.setItem("hideM",""); 	
+			localStorage.setItem("hideS1",""); localStorage.setItem("hideS2",""); localStorage.setItem("hideS3","");
+			localStorage.setItem("hideS4",""); localStorage.setItem("hideS5",""); localStorage.setItem("hideS6","");
 		}
 		
-		//alert("g1H1s POST 'clear' = " +  localStorage.getItem("g1H1s"));
+		
+		localStorage.setItem('lsCIRCLED',"");	// < Dec/24 *
+		
+		
+		/* alert("LS values:\ng1H1s POST 'clear' = " +  localStorage.getItem("g1H1s")+"\n"+
+			"SBFDg1h1 POST 'clear' = " +  localStorage.getItem('SBFDg1h1')+"\n"+
+			"lsCIRCLED POST 'clear' = " +  localStorage.getItem('lsCIRCLED')); */  // < Apr/25! *
+			
 		
 		hideMENU();		
+		
+		window.location = "index.html"; //location.reload(true);
 	}
 	
 						/* 	√√√√√√√√√√√√√√√√√  ^ SAVE ^  √√√√√√√√√√√√√√√√   */
@@ -1315,10 +1499,12 @@
 				}
 		*/		
 		var STKbtnLBL = document.getElementById("STROKESbtn").innerHTML;
+			//alert("STKbtnLBL = '"+STKbtnLBL+"'!");
 		var shtSTKbtn = STKbtnLBL.substr(0,7);
 		//alert("In 'pHCcolors()'' fn!\nshtSTKbtn = "+shtSTKbtn);
 			//alert("In 'pHCcolors()'' fn!\nSTKbtnLBL = "+STKbtnLBL+"\tshtSTKbtn = "+shtSTKbtn);
-		if ( shtSTKbtn=="Display" ) {
+		//if ( shtSTKbtn=="Display" ) {
+		if ( STKbtnLBL=="Strokes" ) {
 				for (var h = 1; h < 19; h++) {
 					//alert("hole = "+h);
 					HOLEhc = document.getElementById("HCPh"+h).value;
@@ -1349,7 +1535,8 @@
 									for (let i = 0; i < 5; i++) {
 									  text += "The number is " + i + "<br>";
 									} */
-				document.getElementById("STROKESbtn").innerHTML = "HIDE Stroke Holes";
+				//document.getElementById("STROKESbtn").innerHTML = "HIDE Stroke Holes";
+				document.getElementById("STROKESbtn").innerHTML = "StrokesX";
 					//document.getElementById("STROKESbtn").innerText = "HIDE Stroke Holes";
 				document.getElementById("postMNUtd").innerHTML =
 										"<span style='font-size:10px; background:lime; border:1px solid black; color:black;'>&nbsp;1&nbsp;</span>"+
@@ -1358,11 +1545,70 @@
 		}			
 		else { 
 			remCOLORS(); 
-			document.getElementById("STROKESbtn").innerHTML = "Display Stroke Holes";
+			//document.getElementById("STROKESbtn").innerHTML = "Display Stroke Holes";
+			document.getElementById("STROKESbtn").innerHTML = "Strokes";
 		}			
 			
 	}	
 
+	function circleMAXs() {			/*  ################ \/ Jun/24 \/ ################  */
+		
+		// HOLE: p2h17;   PAR: PARh17;    STROKES: =color;    MAXscr = par+strokes+2;     playerNO;
+		var HOLE;	// = SCRinput.substr(3);	
+		var PAR;	// = document.getElementById("PARh"+HOLE).value;
+		var STROKES = 0;
+		var playerNO;	// = SCRinput.substr(1,1);	;
+		var MAXscore;
+		for (var h = 1; h < 19; h++) {	
+			for (var p = 1; p<6; p++) {	
+				if ( document.getElementById("p"+p+"h"+h).style.background=="lime") {
+						//alert("'SCRinput' bkgd = lime!");
+						STROKES = 1;
+				}
+				else if ( document.getElementById("p"+p+"h"+h).style.background=="green") {
+						STROKES = 2;
+				}
+				else { STROKES = 0; }
+					//else { STROKES = 0 }
+					//document.getElementById("p2h"+h).style.background = "lime";
+				//HOLE = h;
+				PAR = document.getElementById("PARh"+h).value;
+				MAXscore = +PAR + +STROKES + 2;							
+				//alert("In BLURfn. 'SCRinput' = "+SCRinput);
+				if ((document.getElementById("p"+p+"h"+h).value=="#")||(document.getElementById("p"+p+"h"+h).value>=MAXscore)) {
+					/*alert("In BLURfn. 'SCRinput' = "+SCRinput+"\n"+
+						"'HOLE' = '"+HOLE+"'"+
+						"\t\t'PAR' = '"+PAR+"'\n\n"+
+						"'STROKES' = '"+STROKES+"'\n"+
+						"'MAXscore = '"+MAXscore+"'\n\n"+
+						"'playerNO' ="+playerNO+"'");*/
+					document.getElementById("p"+p+"h"+h).style.border = "2px solid red";
+					//document.getElementById(SCRinput).value = MAXscore;
+					//localStorage.setItem('g'+playerNO+'H'+HOLE+'s',MAXscore);
+						//document.getElementById(SCRinput).innerHTML = MAXscore;
+				}
+				//else { document.getElementById(SCRinput).style.border = "1px solid gray"; }		
+			}
+		}					
+	}
+
+	function circleMAXs25() {			/*  ################ \/ Jan/25 \/ ################  */
+				//alert("Trying to find previous round circled holes . .\n\n"+
+				//	"localStorage 'lsCIRCLED' = \n"+localStorage.getItem('lsCIRCLED'));
+		var string = localStorage.getItem('lsCIRCLED');
+		var array = string.split(",");
+		/* alert("Trying to find previous round circled holes . .\n\n"+
+			"localStorage 'lsCIRCLED' = \n"+localStorage.getItem('lsCIRCLED')+"\n\n"+
+			"1st array element = " + array[0]); */
+					//alert("1st array element = " + array[0]);
+		//document.getElementById(array[0]).style.border = "2px solid red";
+		let arrayLEN = array.length;
+		for (let i = 0; i < arrayLEN; i++) {
+			document.getElementById(array[i]).style.border = "2px solid red";
+		}
+			
+	}
+	
 	function remCOLORS() {
 		alert("Will try to REMOVE hole stroke colors!");
 		for (var h = 1; h < 19; h++) {
@@ -1755,6 +2001,17 @@
 			document.getElementById("fullDRPbtn").innerText = "+";
 		}
 	}
+	function FULLpartial() {
+		//alert("in 'FULLdrop' fn! Will try to ^ div height.");
+		if ( document.getElementById("fullPARTIALbtn").innerText == "+" ) {
+			document.getElementById("PARTIALdiv").style.height = '650px';	//"100%";	//'800px';
+			document.getElementById("fullPARTIALbtn").innerText = "-";
+		}
+		else { 
+			document.getElementById("PARTIALdiv").style.height = "400px";	//'300px';
+			document.getElementById("fullPARTIALbtn").innerText = "+";
+		}
+	}
 	
 	function changeZOOM() {
 		//In js you can change zoom by:
@@ -1949,7 +2206,7 @@
 			}	
 		}
 		
-
+/*
 	//SLIDER stuff:
 	var slider = document.getElementById("myRange");
 	var output = document.getElementById("demo");
@@ -1957,7 +2214,7 @@
 	slider.oninput = function() {
 	  output.innerHTML = this.value;
   	}	
-	
+*/	
 	
 		function calcCHC() {
 					/* VGC Golf Canada Course Rating  68.9 / 131 (Apr/23) */
@@ -2136,14 +2393,28 @@
 		
 		document.getElementById('p'+cPno+'h'+cH).setAttribute('readonly', 'true');
 		document.getElementById('TDp'+cPno+'h'+cH).style.background='aqua';
+			//document.getElementById('TDp'+cPno+'h'+cH).style.background='gold';
 		document.getElementById('lastFOCUS').value = 'p'+cPno+'h'+cH;
 		
+		
+		document.getElementById('btnUNDO').style.visibility = 'visible';	
+		
+		//document.getElementById("TD"+GLOBALinput).style.background='gold';	// < Sep/25
+			document.getElementById(GLOBALinput).style.border='2px solid purple';	// < Sep/25
 		
 		//document.getElementById('h'+cH+'p'+cPno).innerHTML = slideVAL;
 		replace();
 		
 	}
-		
+
+	function undo() {
+		/*alert("Will try to change '" + document.getElementById('p&h').value + "' back to '" + document.getElementById('lastVAL').value + "'!\n"+
+			"'GLOBALinput' var = "+GLOBALinput);*/		//GLOBALinput
+		document.getElementById(GLOBALinput).value = document.getElementById('lastVAL').value;
+		document.getElementById('btnUNDO').style.visibility = 'hidden';	
+		alert(document.getElementById('p&h').value + " ("+GLOBALinput+") changed BACK to '" + document.getElementById('lastVAL').value + "'!");
+	}
+	
 	function PrevInput() {
 		document.getElementById(prevIPT).style.border="0px solid orange";	
 
@@ -2216,13 +2487,12 @@
 		document.getElementById('p&h').value = localStorage.getItem('g1NAME') + ' 2';
 		document.getElementById("SLIDER").style.visibility="hidden";
 		
-		//alert("Got to pre 'replace() fn!");      
-		replace();  
-		//alert("Got to pre 'pHCcolors() fn!");      
-		pHCcolors(); restrictTAB(); 
+		replace(); pHCcolors(); restrictTAB(); 
 		calcALL(); calcTOTALS(); 
 		//showPARTIAL();
-		//circleMAXs25(); //alert("Got to post 'circleMAXs25() fn!");      
+		circleMAXs25();
+			//circleMAXs();
+		
 	}	
 
 	function cellTOslide(P,H) {
@@ -2262,20 +2532,34 @@
 	function showADDIN() {
 		if (document.getElementById("ADDINdiv").style.visibility=="visible") {
 			document.getElementById("ADDINdiv").style.visibility="hidden"; 
-			document.getElementById("ADDcheck").style.visibility="hidden";
+			//document.getElementById("ADDcheck").style.visibility="hidden";
 			
-			document.getElementById("pDone").style.visibility = "hidden";
+			//document.getElementById("pDone").style.visibility = "hidden"; *
 		}		
 		else {
 			document.getElementById("ADDINdiv").style.visibility="visible";
 			//alert("Enter added players POINTS by hole\nthen touch/click 'ADD-IN'");
-			document.getElementById('ptsADDh1').focus();
+			//document.getElementById('ptsADDh1').focus(); *
 		}
 		
 		hideMENU();		
 	}			
 	
 	function ADD() {
+var addH1 = +document.getElementById("ptsADDh1").value;
+//alert("addH1 = '"+addH1+"'");
+if (addH1==0) { 
+	alert("ptsADDh1 is empty. Will add new F9 & B9 totals > new group TOTAL!");
+	document.getElementById('ptsADD18').value = +document.getElementById('ptsADDf9').value + +document.getElementById('ptsADDb9').value;		
+	//document.getElementById('new18ptT').innerHTML = +document.getElementById('newf9ptT').innerHTML + +document.getElementById('newb9ptT').innerHTML;	
+	document.getElementById('newb9ptT').innerHTML = +document.getElementById('sTb9gp').innerHTML +  +document.getElementById('ptsADDb9').value;
+	document.getElementById('newf9ptT').innerHTML = +document.getElementById('sTf9gp').innerHTML +  +document.getElementById('ptsADDf9').value;
+	//sTb9gp
+	document.getElementById('new18ptT').innerHTML = +document.getElementById('newf9ptT').innerHTML + +document.getElementById('newb9ptT').innerHTML;		
+}
+else {
+
+
 		//alert("Enter added players POINTS by hole\nthen touch/click 'ADD-IN'");
 		var GROUPh1PTS = +document.getElementById("SPgpH1").innerText;
 		//alert("Group T pts for H1 = "+GROUPh1PTS);		//document.getElementById('SPgpH1').innerText);
@@ -2294,7 +2578,7 @@
 			ptsADDf9 = ptsADDf9 + +document.getElementById('ptsADDh'+h).value; 
 		}
 		document.getElementById('ptsADDf9').value = ptsADDf9;
-		
+		 
 		var ptsADDb9 = 0;
 		for (var h = 10; h < 19; h++) {
 			ptsADDb9 = ptsADDb9 + +document.getElementById('ptsADDh'+h).value; 
@@ -2326,6 +2610,7 @@
 		
 	}
 
+}	
 			/* &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& */
 		
 	function showLSwrite() {
@@ -2478,24 +2763,6 @@
 	
 					/*		#################### \/ sw registration code \/ ################	*/
 					
-	
-	
-	function remREADONLY() {
-		var lastFOCUS = document.getElementById('lastFOCUS').value;
-		/*alert("Will TRY to re-enable SELECTED player input for editing . . .\n"+
-		      "Last focussed element/input = "+lastFOCUS);*/
-		//var focused = document.activeElement;  alert(focussed + " has focus");
-				/*for (var h = 1; h < 19; h++) {
-					for (var n = 1; n < 6; n++) {
-						document.getElementById('p'+n+'h'+h).readOnly = false;
-					}
-				}*/
-		//document.getElementById('p'+p+'h'+h).setAttribute('readonly', 'true');		
-		//document.getElementById('p'+p+'h'+h).readOnly = false;		
-		document.getElementById(lastFOCUS).removeAttribute('readOnly');
-		document.getElementById(lastFOCUS).focus();
-		hideMENU();
-	}
 
 	function displayP5() {
 		alert("Will try to display/hide P5 . . .\n"+
@@ -2569,20 +2836,32 @@
 		}
 	}	
 	
-	function circleMAXs25() {			/*  ################ \/ Jan/25 \/ ################  */
-				//alert("Trying to find previous round circled holes . .\n\n"+
-				//	"localStorage 'lsCIRCLED' = \n"+localStorage.getItem('lsCIRCLED'));
-		var string = localStorage.getItem('lsCIRCLED');
-		var array = string.split(",");
-		/* alert("Trying to find previous round circled holes . .\n\n"+
-			"localStorage 'lsCIRCLED' = \n"+localStorage.getItem('lsCIRCLED')+"\n\n"+
-			"1st array element = " + array[0]); */
-					//alert("1st array element = " + array[0]);
-		//document.getElementById(array[0]).style.border = "2px solid red";
-		let arrayLEN = array.length;
-		for (let i = 0; i < arrayLEN; i++) {
-			document.getElementById(array[i]).style.border = "2px solid red";
+	function setLSsbfd() {		
+		//var SPp1h3VAL = document.getElementById("SPp1h3").innerHTML;
+		//alert ("SPp1h3VAL = "+SPp1h3VAL);
+		
+		//localStorage.setItem('g'+playerNO+'H'+HOLE+'s',MAXscore);
+/*		localStorage.setItem("SBFDg1h3",document.getElementById('SPp1h3').innerHTML);
+		localStorage.setItem("SBFDg3h3",document.getElementById('SPp3h3').innerHTML);
+		localStorage.setItem("SBFDg4h3",document.getElementById('SPp4h3').innerHTML);
+
+		localStorage.setItem("SBFDg2h3",document.getElementById('SPp2h3').innerHTML);
+*/
+		for (var h = 1; h < 19; h++) {	
+			for (var p = 1; p<6; p++) {	
+				localStorage.setItem("SBFDg"+p+"h"+h,document.getElementById("SPp"+p+"h"+h).innerHTML);
+				if ( (document.getElementById("p"+p+"h"+h).style.border == "2px solid red") && (document.getElementById("SPp"+p+"h"+h).innerHTML == 0) ) {
+					localStorage.setItem("SBFDg"+p+"h"+h,-1);		
+					//alert("p3h5 was a pickup! SBFDg3h5 = "+localStorage.getItem('SBFDg3h5'));
+						//onblur="BLURfn('p1h1')" > function BLURfn(SCRinput) { 
+						//document.getElementById(SCRinput).style.border = "2px solid red";
+				}
+			}
 		}
-			
+		//alert ("p3h5 val = "+localStorage.getItem("SBFDg3h5"));
+		
+		window.location = "SNIGmatch.html";
+		//window.location = "index.html";
+		//window.location = "SNIGmatch.html";
+		
 	}
-	

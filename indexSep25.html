@@ -2,10 +2,8 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>!gs63>INDEX</title> <!-- Oct/24 -->
-	<!-- 6 = 6th month (June); 3 = '(2)3; formerly 'GSidx3' (_M4) -->
-	<!-- Sep/25: in 'ELMER23' folder as 'index.html' (? !gs63.html); formorly !gs63 ** -->
-<link rel="manifest" href="SnigStuff.webmanifest">	<!--SnigStuff.webmanifest">-->
+<title>!gs63</title> <!-- 6 = 6th month (June); 3 = '(2)3; formerly 'GSidx3' (_M4) -->
+<link rel="manifest" href="WaltStuff.webmanifest">
 	<!--Changed href = "manifest.json" To <link rel="manifest" href="WaltStuff.webmanifest">  -->
 	<!-- https://www.w3schools.com/jsref/jsref_split.asp -->
 	<!-- Using whichever browser you choose, Tap this link below to install 'WaltStuff': https://GWHodg.github.io -->
@@ -22,8 +20,7 @@
 			.sidenav {
 			  height: 30%; width: 0;   /* height: 100%; */
 			  position: fixed; z-index: 1;
-			  top:570px; /* = 400 pre Oct/24 */ 
-			  	left: 0; /*540px;*/ /* top: 545; */
+			  top: 540px; left: 0; /* top: 545; */
 			  background-color:black;	/*blue;	  #111;*/
 			  overflow:scroll; transition: 0.5s; padding-top:0px;	/* 30px; */
 			  /* overflow-x: hidden; overflow-y:scroll; */
@@ -53,7 +50,6 @@
 	  padding: 5px;
 	  /*vertical-align:top;*/
 	  /*align-content:space-evenly;*/
-	  overflow:scroll;														 /* << Jun/24!  *. */	  
 	}	
 	.grid-container > div {
 	  background-color: lightgray;	/* maroon; */	/* rgba(255, 255, 255, 0.8); */
@@ -62,8 +58,6 @@
 	  text-align: center;
 	  font-size: 20px;
 	  
-	  overflow:scroll;														 /* << Jun/24!  *. */
-	  
     }		
   
 </style>
@@ -71,23 +65,9 @@
 <script>
 	function HELP() {
 		alert("HELP!\n\n"+
-			"To start new round: MENU > CLEAR 'saved' scores\n\n"+ 
-			"Pickup input = # (max score + 1 > red circle)\n"+  
-			"Input edit: 'Input Edit' OR 'Slider'\n"+
-			"PART ROUND: post 'drop'/'add' = -/+\n\n"+
-			"Code files ['2021/$CODE/!code23/ELMER23' folder] (Sep/25): index.html (?'!gs63.html'); !gs63.css; !!gs63.js; [pre Sep/25 > indexSep25*.html, !gs63Sep25*.css & !gs63Sep25*.js]\n"+
-			"\tSnigStuff.webmanifest; SnigStuffsw.js; [pre Sep/25: WaltStuff.webmanifest; WaltStuffsw.js]\n"+
-			"\tSNIGmatch.html; indexCOPYbook24.html; !snig.js\n\n"+
-			  "PIXEL reload/refresh: Hold icon > App info > Storage & cache > Manage space > MANAGE (Site storage) > 'https://snigdoh.github.io' > Clear & reset.\nMust also clear Chrome cache to enable new app to play offline (so +> old vn)."+
-			  "\n\n"+
-			  "Red circle scores functions: circleMAXs25(); countCIRCLES()\n\n"+
-			  "BOOK: pwd = 'GWH42'");	
-	}
-
-	function addTIP() {
-		var F9totADD = document.getElementById("ptsADDf9").value;   
-		alert("ADD-IN:\nCan just enter F9/B9 totals if not comparing hole-by-hole (i.e. 3 groups)");/*+
-			"\n\nF9 total to add in = '"+F9totADD+"'");*/
+			 "To start new round: MENU > CLEAR 'saved' scores\n\n"+ 
+			 "'GSidx3' files (Aug/23) [folder = '2021/$CODE/!code23/ELMER23']: !gs63.html (= index.html); !gs63.css; !gs63.js; WaltStuff.webmanifest; WaltStuffsw.js\n\n"+
+			  "PIXEL reload/refresh: Hold icon > App info > Storage & cache > Manage space > MANAGE (Site storage) > 'gwhodg.github.io' > Clear & reset");	
 	}
 	
 	function USplus() {
@@ -170,7 +150,7 @@
 
 		function openNav() {
 			  if (document.getElementById("mySidenav").style.width<"200px") {
-					document.getElementById("mySidenav").style.width = "350px";	//400px";
+					document.getElementById("mySidenav").style.width = "400px";
 					//document.getElementById("mySidenav").style.overflow = "scroll";
 			  }
 			  else {
@@ -181,190 +161,16 @@
 		function closeNav() {
 			document.getElementById("mySidenav").style.width = "0px";
 		}		
-
-									/* &&&&&&&&&&&&&&&&& */
-									
-	function showPARTIAL() {
-		if (document.getElementById("PARTIALdiv").style.visibility=="visible") {
-			document.getElementById("PARTIALdiv").style.visibility="hidden"; 
-		}		
-		else {
-			document.getElementById("PARTIALdiv").style.visibility="visible";
-		}
 		
-		hideMENU();		
-	}											
-
-
-	function PARTcalcMASTER() {
-		if(document.getElementById('cN').checked==true) {
-	  		alert ("'cN' radio button is checked (using native values).");	
-			//selPL = p;
-			document.getElementById("PARTIALdiv").style.left = "30%";
-							//PARTIALdiv
-			calcPARTIAL();
-		}
-		if(document.getElementById('c-').checked==true) {
-			alert ("'c-' radio button is checked.\n\n"+
-				"'H3ptT' td from DROP fn = '"+ document.getElementById("H3ptT").innerText+"'."); //H3ptT
-			calcPARTdropped();
-		}
-		if(document.getElementById('c+').checked==true) {
-			alert ("'c+' radio button is checked.\n\n"+
-			"'newH3ptT' td from ADD fn = '"+ document.getElementById("newH3ptT").innerText+"'!"); //newH3ptT
-																//TDs: ptsADDh3 | newH3ptT
-			calcPARTadded();
-	    }				
-	}
-	function calcPARTIAL() {
-		for (let a = 1; a < 19; a++) {	  
-				document.getElementById("H"+a+"tSF").innerText = "";
-				document.getElementById("H"+a+"tSF").style.background = "ivory";
-				document.getElementById("H"+a+"tSF").style.color = "slategray";
-		}
-		
-							/*   ()()()()()()()()   */		
-		
-		var Ft = 0;
-		for (let i = 1; i < 19; i++) {	  
-			if(document.getElementById('chkF'+i).checked) {
-				document.getElementById("H"+i+"tSF").innerText = document.getElementById("SPgpH"+i).innerText;
-				Ft = +Ft + +document.getElementById("H"+i+"tSF").innerText;
-				document.getElementById("H"+i+"tSF").style.background = "black";
-				document.getElementById("H"+i+"tSF").style.color = "white";
-			}
-		}
-		alert("Ft = '"+Ft+"'!");
-		document.getElementById("myF9ptT").innerText = Ft;  //f9ptT 
-		document.getElementById("myF9ptT").style.background = "black";
-		document.getElementById("myF9ptT").style.color = "white";
-		
-							/*   ()()()()()()()()   */
-							
-		var Bt = 0;	
-		for (let x = 1; x < 19; x++) {	  
-			if(document.getElementById('chkB'+x).checked) {
-				document.getElementById("H"+x+"tSF").innerText = document.getElementById("SPgpH"+x).innerText;
-				Bt = +Bt + +document.getElementById("H"+x+"tSF").innerText;
-				document.getElementById("H"+x+"tSF").style.background = "yellow";
-				document.getElementById("H"+x+"tSF").style.color = "maroon";
-			}
-		}
-		alert("Bt = '"+Bt+"'!");		
-		document.getElementById("myB9ptT").innerText = Bt;  //f9ptT 
-		document.getElementById("myB9ptT").style.background = "yellow";
-		document.getElementById("myB9ptT").style.color = "maroon";
-		
-		document.getElementById("my18ptT").innerText = Ft+Bt;  //f9ptT 
-		document.getElementById("my18ptT").style.background = "red";
-		document.getElementById("my18ptT").style.color = "white";
-		
-	}
-	function calcPARTdropped() {
-		for (let a = 1; a < 19; a++) {	  
-				document.getElementById("H"+a+"tSF").innerText = "";
-				document.getElementById("H"+a+"tSF").style.background = "ivory";
-				document.getElementById("H"+a+"tSF").style.color = "slategray";
-			}
-							/*   ()()()()()()()()   */		
-		
-		var Ft = 0;
-		for (let i = 1; i < 19; i++) {	 //H3ptT 
-			if(document.getElementById('chkF'+i).checked) {
-				document.getElementById("H"+i+"tSF").innerText = document.getElementById("H"+i+"ptT").innerText;
-				Ft = +Ft + +document.getElementById("H"+i+"tSF").innerText;
-				document.getElementById("H"+i+"tSF").style.background = "black";
-				document.getElementById("H"+i+"tSF").style.color = "white";
-			}
-		}
-		alert("Ft = '"+Ft+"'!");
-		document.getElementById("myF9ptT").innerText = Ft;  //f9ptT 
-		document.getElementById("myF9ptT").style.background = "black";
-		document.getElementById("myF9ptT").style.color = "white";
-		
-							/*   ()()()()()()()()   */
-							
-		var Bt = 0;	
-		for (let x = 1; x < 19; x++) {	  
-			if(document.getElementById('chkB'+x).checked) {
-				document.getElementById("H"+x+"tSF").innerText = document.getElementById("H"+x+"ptT").innerText;
-				Bt = +Bt + +document.getElementById("H"+x+"tSF").innerText;
-				document.getElementById("H"+x+"tSF").style.background = "yellow";
-				document.getElementById("H"+x+"tSF").style.color = "maroon";
-			}
-		}
-		alert("Bt = '"+Bt+"'!");		
-		document.getElementById("myB9ptT").innerText = Bt;  //f9ptT 
-		document.getElementById("myB9ptT").style.background = "yellow";
-		document.getElementById("myB9ptT").style.color = "maroon";
-		
-		document.getElementById("my18ptT").innerText = Ft+Bt;  //f9ptT 
-		document.getElementById("my18ptT").style.background = "red";
-		document.getElementById("my18ptT").style.color = "white";			
-	}		
-	function calcPARTadded() {
-		for (let a = 1; a < 19; a++) {	  
-				document.getElementById("H"+a+"tSF").innerText = "";
-				document.getElementById("H"+a+"tSF").style.background = "ivory";
-				document.getElementById("H"+a+"tSF").style.color = "slategray";
-			}
-							/*   ()()()()()()()()   */		
-		
-		var Ft = 0;
-		for (let i = 1; i < 19; i++) {	 //newH3ptT
-			if(document.getElementById('chkF'+i).checked) {
-				document.getElementById("H"+i+"tSF").innerText = document.getElementById("newH"+i+"ptT").innerText;
-				Ft = +Ft + +document.getElementById("H"+i+"tSF").innerText;
-				document.getElementById("H"+i+"tSF").style.background = "black";
-				document.getElementById("H"+i+"tSF").style.color = "white";
-			}
-		}
-		alert("Ft = '"+Ft+"'!");
-		document.getElementById("myF9ptT").innerText = Ft;  //f9ptT 
-		document.getElementById("myF9ptT").style.background = "black";
-		document.getElementById("myF9ptT").style.color = "white";
-		
-							/*   ()()()()()()()()   */
-							
-		var Bt = 0;	
-		for (let x = 1; x < 19; x++) {	  
-			if(document.getElementById('chkB'+x).checked) {
-				document.getElementById("H"+x+"tSF").innerText = document.getElementById("newH"+x+"ptT").innerText;
-				Bt = +Bt + +document.getElementById("H"+x+"tSF").innerText;
-				document.getElementById("H"+x+"tSF").style.background = "yellow";
-				document.getElementById("H"+x+"tSF").style.color = "maroon";
-			}
-		}
-		alert("Bt = '"+Bt+"'!");		
-		document.getElementById("myB9ptT").innerText = Bt;  //f9ptT 
-		document.getElementById("myB9ptT").style.background = "yellow";
-		document.getElementById("myB9ptT").style.color = "maroon";
-		
-		document.getElementById("my18ptT").innerText = Ft+Bt;  //f9ptT 
-		document.getElementById("my18ptT").style.background = "red";
-		document.getElementById("my18ptT").style.color = "white";						
-	}	
-
-	function book() {
-		pwd = prompt("Please enter password", "XXXii");
-		if (pwd == "GWH42") {
-			//alert ("Password is valid. Will try to load href = 'indexCOPYbook24.html'.");
-			window.location.href = "indexCOPYbook24.html";
-		}
-		else {
-			alert ("Password is not valid.");
-		}
-	}	
-	
 </script>
 
 </head>
 
-<body class="body" style="background-color:white;"  onload="loadFN()" > <!--  zoom:250%; -->
+<body class="body" style="background-color:white;"  onload="loadFN()"> <!--  zoom:250%; -->
 	
 <div class="wrapper"><!-- Put the page contents here -->
 
-				<div id="mySidenav" class="sidenav"  style='opacity:1.0; border-right:5px solid brown;'>
+				<div id="mySidenav" class="sidenav"  style='opacity:0.8; border-right:5px solid brown;'>
 																						<!-- red; -->
 							<!--
 							&nbsp;&nbsp; &#127948;
@@ -375,42 +181,28 @@
 						<div class="grid-container">
 							  <!--<div><a><button style="color:blue; cursor:pointer;" onclick="calcALL()">Points</button></a></div>
 							  <div><button id='calcTOTbtn' onclick="calcTOTALS()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>TOTALS</b></u></button></div>-->
-							  <div><button id='calcALLbtn' onclick="calcALL()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:white; background:blue; border:3px solid black; border-radius:10px; opacity:95%;"><u>SF<!--STABLEFORD Points--></u></button></div>
-							  <div><button id='calcTOTbtn' onclick="calcTOTALS()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;"><u>T<!--TOTALS--></u></button></div>
-							  <div><button id='STROKESbtn' onclick="pHCcolors()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;">Strokes</button><!--Display Stroke Holes--></div>
-							  <div><button id='TABbtn' onclick="restrictTAB()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;">Inputs+/-<!--Disable/Enable Inputs--></button></div>
+							  <div><button id='calcALLbtn' onclick="calcALL()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:white; background:blue; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>STABLEFORD Points</b></u></button></div>
+							  <div><button id='calcTOTbtn' onclick="calcTOTALS()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>TOTALS</b></u></button></div>
+							  <div><button id='STROKESbtn' onclick="pHCcolors()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;">Display Stroke Holes</button></div>
+							  <div><button id='TABbtn' onclick="restrictTAB()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;"><b>Disable/Enable Inputs</b></button></div>
 							  
-							  <div><button onclick="remREADONLY()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Input<br>Edit<!--Enable Input Edit--></button></div>
-							  <div><button id='SLIDEbtn' onclick="showSLIDER()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">Slider<br>&emsp;<!--Slider Input +/--></button></div>
-							  <div><button id='DROPbtn' onclick="showDROP()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:white; background:slategray; border:2px solid black; border-radius:10px; opacity:100%;">Drop<br>&emsp;<!--Drop Box!--></button></div>
-							  <div><button id='FreezeHCbtn' onclick="freeze()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:gray; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">HC<br>freeze<!--+/- freeze HC input--></button></div>
-
-							 <div><button id='CLEARbtn' onclick="clearSAVED()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><s>saved X</s><!--CLEAR 'saved' scores--></button></div> 
-							 <div><button id='ADDbtn' onclick="showADDIN(),addTIP()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:ivory; background:slategray; border:2px solid black; border-radius:10px; opacity:100%;">Add<!--Add-in!--></button></div> 
-							  <div><button id='PARTbtn' onclick="showPARTIAL()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">PARTrd<!--PARTial Round--></button></div>							  
-							  <div><button onclick="displayP5()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:10px;'>P5+/-<!--5th Player +/--></button></div>							  
+							  <div><button id='REPLACEbtn' onclick="replace()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">insert SAVED scores</button></div>
+							  <div><button id='FreezeHCbtn' onclick="freeze()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:gray; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">+/- freeze HC input</button></div>
+							  <div><button id='HOLEbtn' onclick="editHOLES()" style="FONT-WEIGHT:bold; FONT-SIZE:12px; COLOR:white; background:red; border:1px solid black; border-radius:10px;">Edit Holes +</button></div>
+							  <div><button onclick="displayP5()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>5th Player +/-</button></div>
 							  
-							  <div><button id='REPLACEbtn' onclick="replace()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">SAVED<!--insert SAVED scores--></button></div>
+							  <div><button onclick="remREADONLY()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Enable Input Edit</button></div>
+							  <div><button id='DROPbtn' onclick="showDROP()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:ivory; background:slategray; border:2px solid black; border-radius:10px; opacity:100%;"><b>Drop Box!</b></button></div>
+							  <div><button id='ADDbtn' onclick="showADDIN()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:ivory; background:slategray; border:2px solid black; border-radius:10px; opacity:100%;"><b>Add-in!</b></button></div>
+							  <div><button onclick="showHCs()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Player Handicaps</button></div>
+							  
+							  <div><button id='CLEARbtn' onclick="clearSAVED()" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">CLEAR 'saved' scores</button></div>
+							  <div><button id='REPLACEbtn'  onclick="showLSwrite()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">WRITE scores to file</button></div>
+							  <div><button id='CLEARbtn' onclick="showLSread()" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">READ file</button></div>
 							  <div><button onclick="HELP()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Help</button></div>
-							  <div><button id='HOLEbtn' onclick="editHOLES()" style="FONT-WEIGHT:bold; FONT-SIZE:10px; COLOR:white; background:red; border:1px solid black; border-radius:10px;">Holes<!--Edit Holes +--></button></div>
 							  
-							  <div>
-								    <button id='BOOKbtn' onclick="book()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:white; background:maroon; border:2px solid black; border-radius:10px; opacity:100%;">BOOK</button>
-							  		<!--<A href="indexCOPYbook24.html" style='color:maroon;'>BOOK!</A>-->
-							  </div>
-							 
-							  <div><button onclick="showHCs()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:10px;'>pHCs<!--Player Handicaps--></button></div>							  
-
-							  <div><button id='NOTEbtn' onclick="note()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:gray; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">note<!--+/- note--></button></div>
-							  
-							  <div><button id='CLEARbtn' onclick="showLSread()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">READ<!--READ file--></button></div>
-							  
-							  <!--<div><A href="../index.html" style='color:maroon;'>snigd'Oh</A></div>-->
-							  <div><button id='REPLACEbtn'  onclick="showLSwrite()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">WRITE<!--WRITE scores to file--></button></div>
-							  
-							  <!--<div><button onclick="remREADONLY()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Input Edit</button></div>-->
-							  
-							  
+							  <div><button id='SLIDEbtn' onclick="showSLIDER()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">Slider Input +/-</button></div>
+							  <div><button id='NOTEbtn' onclick="note()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:gray; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">+/- note</button></div>
 						</div> 
 				</div>
 	
@@ -420,9 +212,9 @@
 	
 	
 <TABLE id="HEADtbl" border=1 align=center style='FONT-SIZE:large; color:maroon; visibility:visible;' bgcolor='lightgray'>	
-<TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:gold; background:purple; FONT-WEIGHT:bold;" >VGC '26<br><font size=2 color=silver><b>rev index</b></font>
+<TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:white; background:royalblue; FONT-WEIGHT:bold;" >VGC '25<br><font size=1 color=lightgray>Jun 8, 2025</font>
 	<!--<label style="FONT-WEIGHT: bold; FONT-SIZE:25px; COLOR:white; background:royalblue; border:3px solid black; border-radius:10px; opacity:100%; padding:5px;">VGC blue </label>-->
-</TD> <!--<TD width=20><font size=1>93i</font></TD>	-->
+</TD> <TD width=20><font size=1>93i</font></TD>	
 	<!--<span style="font-size:30px;cursor:pointer; color:blue; background:white; position:relative; left:38%;" onclick="openMENU()">&#9776;</span>-->	<!-- position:absolute; LEFT:750px; top:30px;  -->
 <TD>
 					<div class="dropup" style="cursor:pointer; color:black; background:lightgray; /*position:relative; left:18%;*/">
@@ -430,23 +222,69 @@
 						  	  	<span style="font-size:30px;cursor:pointer; color:white;" 
 								onclick="">&#9776;</span>
 						  </button>
-						  
+						  <!--
+						  <div class="dropup-content" style="border:3px solid red; border-radius:10px; background:beige;"
+						  id="menuCONTENT">		
+									<span style="float:right; text-align:right; padding-right: 5px;">
+										<button id="OKbtn" onclick="hideMENU()" style="FONT-WEIGHT: bold; 
+										FONT-SIZE:15px; COLOR:black">close</button>
+									</span>	<br>		
+								<a> </a>
+								<a> </a>										
+								<button id='calcALLbtn' onclick="calcALL()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:white; background:blue; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>STABLEFORD Points</b></u></button> <br>
+								
+								<button id='calcTOTbtn' onclick="calcTOTALS()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>TOTALS</b></u></button><br>
+								<br> 
+								<button id='STROKESbtn' onclick="pHCcolors()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;">Display Stroke Holes<br>
+										<span style='background:lime; color:black;'>&nbsp;1&nbsp;</span>&emsp;
+										<span style='background:green;'>&nbsp;2&nbsp;</span>&emsp;
+										<span style='background:white; color:black;'>&nbsp;0&nbsp;</span>
+								</button> 
+								<br>
+								
+								<button id='TABbtn' onclick="restrictTAB()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;"><b>Disable/Enable Inputs</b></button><br>
+								<br>								
+								<div style="border:2px inset black; border-radius:0px; background:beige; width:90%; margin:auto;">
+								<button id='REPLACEbtn' onclick="replace()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">insert SAVED scores</button><br>
+								<br>
+								<button id='CLEARbtn' onclick="clearSAVED()" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">CLEAR 'saved' scores</button><br>
+								</div>
+								<br>
+								<button id='DROPbtn' onclick="showDROP()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:ivory; background:slategray; border:2px solid black; border-radius:10px; opacity:100%;"><b>Drop Box!</b></button>
+								<br>
+								<button id='ADDbtn' onclick="showADDIN()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:ivory; background:slategray; border:2px solid black; border-radius:10px; opacity:100%;"><b>Add-in!</b></button><br>
+								<br>								
+								
+								<button onclick="remREADONLY()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Enable Input Edit</button><br>
+							
+								<button id='NOTEbtn' onclick="note()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:gray; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">+/- note</button><br>
+							
+								<button id='FreezeHCbtn' onclick="freeze()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:gray; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">+/- freeze HC input</button><br>
+								<button id='SLIDEbtn' onclick="showSLIDER()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">Slider Input +/-</button> <br>
+								<button onclick="HELP()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Help</button><br>
+								<div style="border:2px inset black; border-radius:0px; background:beige; width:90%; margin:auto;">
+								
+								<button id='REPLACEbtn'  onclick="showLSwrite()" style="FONT-WEIGHT:normal; FONT-SIZE:14px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">WRITE scores to file</button>
+								<br>
+								<button id='CLEARbtn' onclick="showLSread()" style="FONT-WEIGHT:normal; FONT-SIZE:13px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">READ file</button><br>
+								</div>	
+								
+								<button id='HOLEbtn' onclick="editHOLES()" style="FONT-WEIGHT:bold; FONT-SIZE:12px; COLOR:white; background:red; border:1px solid black; border-radius:10px;">Edit Holes +</button> <br>
+
+								<button onclick="displayP5()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>5th Player +/-</button><br>	
+								<button onclick="showHCs()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Player Handicaps</button><br>	
+								<button onclick="" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px; display:none;'><s>Score Center</s></button>	
+								<br>
+						  </div>
+					  	  -->
 					</div>		
 </TD>	 <TD id="postMNUtd" width=20></td>	 <TD>
-	<input type="date" id="DATE" tabindex="300" style="background:beige; border:1px solid slategray; color:blue; width:160px;" value="date"     onchange="localStorage.setItem('DATE',this.value);" >
+	<input type="date" id="DATE" tabindex="300" style="background:beige; border:1px solid slategray; color:blue; width:120px;" value="date"     onchange="localStorage.setItem('DATE',this.value);" >
 				<!-- /*position:relative; left:20%;*/ placeholder="Apr 14/23" -->
 	<br>
 				<!-- <input type="date" id="today" name="birthday"> -->
-	<input type="text" id="focusIPT" style="height:12px; width:85px; background:black; color:yellow;" value="gwhodg"> 																<!-- GSidx3 -->
+	<input type="text" id="focusIPT" style="height:12px; width:85px; background:black; color:yellow;" value="GSidx3"> 																<!-- GSidx3 -->
 	<!--<font size=2 color=gray><i>(GS<b>pxl2z</b>)</i></font> -->
-	<!--<A href="SNIGmatch.html" style='color:maroon;'>Matches</A>-->
-	<button id='LSsbfdbtn' onclick="setLSsbfd()" style="FONT-WEIGHT:normal; FONT-SIZE:12px; COLOR:white; background:blue; border:2px solid black; border-radius:5px; opacity:100%;">Matches</button>
-	
-				<!--
-				<span style="float:right; padding-right:5px; cursor:pointer; background:transparent; color:blue; font-size:20px;">
-						<a onclick="CLOSEapp()"><b>X</b>&times;</a>
-				</span><br>
-				-->
 </TD></TR>
 </TABLE>
 
@@ -498,9 +336,8 @@
 					<input type="" id="PARh1" style="background:white; color:black; width:60%;" placeholder=5 value=5 readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
-					<input type="" id="HCPh1" style="background:white;  border:0px dotted black; color:red; width:50%;" placeholder=14 value=14 readonly> <!-- old = 13; width:11px; font-size:15px; -->
+					<input type="" id="HCPh1" style="background:white;  border:0px dotted black; color:red; width:50%;" placeholder=14 value=14 readonly> <!-- width:11px; font-size:15px; -->
 				</TD>
-				
 			</tr>
 			<tr>
 				<TH id="H2" style="cursor:pointer;" onclick="cellTOslide(1,2)">2</TH>
@@ -517,7 +354,7 @@
 				</TD>
 				<TD style='background:white; color:black;'>
 					<input  id="HCPh2" style="background:white; border:0px dotted black;  color:red; width:50%; cursor:help;" placeholder=16 value=16 readonly>
-								<!-- old= 17; onclick="location.href='GSmacSPLSH.html'" title="> GSmacSPLSH.html " -->
+								<!-- onclick="location.href='GSmacSPLSH.html'" title="> GSmacSPLSH.html " -->
 				</TD>
 			</tr>				
 			<tr> <TH id="H3" style="cursor:pointer;" onclick="cellTOslide(1,3)">3</TH> 
@@ -536,7 +373,7 @@
 				<TD style='background:white; color:black;'>
 					<input type="" id="HCPh3" style="background:white;  border:0px dotted black; color:red; width:50%;" placeholder=2 value=2 readonly>
 				</TD>				
-				<!--old= 1; <TD style='background:white; color:black;'>4</TD> <TD style='background:white; color:black;'>1</TD>-->
+				<!--<TD style='background:white; color:black;'>4</TD> <TD style='background:white; color:black;'>1</TD>-->
 			</tr>	
 			<tr> <TH id="H4" style="cursor:pointer;" onclick="cellTOslide(1,4)">4</TH> 
 				<td id="TDp1h4"> <input class='' type="tel" id="p1h4" maxlength=1 onclick="changeGLOBAL('p1h4')" tabindex="16"  onchange="localStorage.setItem('g1H4s',this.value);" onfocus="FOCUSfn('p1h4')" onblur="BLURfn('p1h4')"><span id='SPp1h4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
@@ -554,7 +391,7 @@
 				</TD>
 				<TD style='background:white; color:black;'>
 					<input type="" id="HCPh4" style="background:white;  border:0px dotted black;  color:red; width:50%; cursor:help;" placeholder=6 value=6 readonly> 
-						<!-- 5; title="WRITE localStorage to file!" onclick="showLSwrite()" -->
+						<!-- title="WRITE localStorage to file!" onclick="showLSwrite()" -->
 						<!-- onclick="location.href='locStorMAC.html'" title="locStorMAC.html" -->
 				</TD>
 				
@@ -572,7 +409,7 @@
 				</TD>
 				<TD style='background:white; color:black;'>
 					<!--<input type="" id="HCPh5" style="background:white;  color:black; width:60%;" placeholder=7 value=7 readonly>-->
-					<input type="" id="HCPh5" style="background:white;  border:0px dotted black;  color:red; width:50%; cursor:help;" placeholder=8 value=8 readonly> <!--  7; title="READ localStorage from file!" onclick="showLSread()" -->
+					<input type="" id="HCPh5" style="background:white;  border:0px dotted black;  color:red; width:50%; cursor:help;" placeholder=8 value=8 readonly> <!--  title="READ localStorage from file!" onclick="showLSread()" -->
 				</TD>	
 				
 			</tr>	
@@ -587,7 +424,7 @@
 					<input type="" id="PARh6" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
-					<input type="" id="HCPh6" style="background:white;  border:0px dotted black;  color:red; width:50%; cursor:help;" placeholder=12 value=12 readonly> <!-- 11 -->
+					<input type="" id="HCPh6" style="background:white;  border:0px dotted black;  color:red; width:50%; cursor:help;" placeholder=12 value=12 readonly>
 				</TD>										
 			</tr>	
 			<tr> <TH id="H7" style="cursor:pointer;" onclick="cellTOslide(1,7)" >7</TH> 
@@ -601,7 +438,7 @@
 					<input type="" id="PARh7" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
-					<input type="" id="HCPh7" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=4 value=4 readonly> <!-- 3 -->
+					<input type="" id="HCPh7" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=4 value=4 readonly>
 				</TD>										
 			</tr>
 			<tr> <TH id="H8" style="cursor:pointer;" onclick="cellTOslide(1,8)" >8</TH> 
@@ -616,7 +453,7 @@
 				</TD>
 				<TD style='background:white; color:black;'>
 					<!--<input type="" id="HCPh5" style="background:white;  color:black; width:60%;" placeholder=7 value=7 readonly>-->
-					<input type="" id="HCPh8" style="background:white;  border:0px dotted black;  color:red; width:50%; cursor:help;" placeholder=18 value=18 readonly> <!-- 15 -->
+					<input type="" id="HCPh8" style="background:white;  border:0px dotted black;  color:red; width:50%; cursor:help;" placeholder=18 value=18 readonly>
 								<!-- title="READ localStorage from file!" onclick="showLSread()" -->
 				</TD>	
 							<!-- onclick="location.href='../JSpwd2.html'" title="JSpwd2.html" -->
@@ -635,7 +472,7 @@
 					<input type="" id="PARh9" style="background:white; color:black; width:60%;" placeholder=3 value=3 readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
-					<input type="" id="HCPh9" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=10 value=10 readonly> <!-- 9 -->
+					<input type="" id="HCPh9" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=10 value=10 readonly>
 				</TD>										
 			</tr>	
 	
@@ -686,7 +523,7 @@
 					<input type="" id="PARh10" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
-					<input type="" id="HCPh10" style="background:white;  border:0px dotted black;  color:red; width:50%; cursor:help;" placeholder=5 value=5 readonly > <!-- 6; onclick="showSLIDE()" title="showSLIDE()" -->
+					<input type="" id="HCPh10" style="background:white;  border:0px dotted black;  color:red; width:50%; cursor:help;" placeholder=5 value=5 readonly > <!-- onclick="showSLIDE()" title="showSLIDE()" -->
 				</TD>
 			</tr>
 			<tr>
@@ -702,7 +539,7 @@
 					<input type="" id="PARh11" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
-					<input type="" id="HCPh11" style="background:white;  border:0px dotted black;  color:red; width:50%; cursor:help;" placeholder=1 value=1 readonly> <!--  2; onclick="showNOTES()" title="Coding Notes" -->
+					<input type="" id="HCPh11" style="background:white;  border:0px dotted black;  color:red; width:50%; cursor:help;" placeholder=1 value=1 readonly> <!--  onclick="showNOTES()" title="Coding Notes" -->
 				</TD>
 			</tr>				
 			<tr> <TH id="H12" style="cursor:pointer;" onclick="cellTOslide(1,12)">12</TH> 
@@ -717,7 +554,7 @@
 					<input type="" id="PARh12" style="background:white; color:black; width:60%;" placeholder=5 value=5 readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
-					<input type="" id="HCPh12" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=11 value=11 readonly> <!-- 14 -->
+					<input type="" id="HCPh12" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=11 value=11 readonly>
 				</TD>				
 				<!--<TD style='background:white; color:black;'>4</TD> <TD style='background:white; color:black;'>1</TD>-->
 			</tr>							
@@ -732,7 +569,7 @@
 					<input type="" id="PARh13" style="background:white; color:black; width:60%;" placeholder=3 value=3 readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
-					<input type="" id="HCPh13" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=15 value=15 readonly> <!-- 16 -->
+					<input type="" id="HCPh13" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=15 value=15 readonly>
 				</TD>				
 			</tr>
 			<tr>
@@ -748,7 +585,7 @@
 					<input type="" id="PARh14" style="background:white; color:black; width:60%;" placeholder=3 value=3 readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
-					<input type="" id="HCPh14" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=9 value=9 readonly> <!-- 10 -->
+					<input type="" id="HCPh14" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=9 value=9 readonly>
 				</TD>
 			</tr>
 			<tr>
@@ -764,7 +601,7 @@
 					<input type="" id="PARh15" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
-					<input type="" id="HCPh15" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=3 value=3 readonly> <!-- 4 -->
+					<input type="" id="HCPh15" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=3 value=3 readonly>
 				</TD>
 			</tr>
 			<tr>
@@ -780,7 +617,7 @@
 					<input type="" id="PARh16" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
-					<input type="" id="HCPh16" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=13 value=13 readonly> <!-- 12 -->
+					<input type="" id="HCPh16" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=13 value=13 readonly>
 				</TD>
 			</tr>
 			<tr>
@@ -796,7 +633,7 @@
 					<input type="" id="PARh17" style="background:white; color:black; width:60%;" placeholder=5 value=5 readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
-					<input type="" id="HCPh17" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=17 value=17 readonly> <!-- 18 -->
+					<input type="" id="HCPh17" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=17 value=17 readonly>
 				</TD>
 			</tr>
 			<tr>
@@ -812,7 +649,7 @@
 					<input type="" id="PARh18" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
-					<input type="" id="HCPh18" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=7 value=7 readonly> <!-- 8 -->
+					<input type="" id="HCPh18" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=7 value=7 readonly>
 				</TD>
 			</tr>
 
@@ -904,11 +741,9 @@
 		<br>
 						
 		<!--<span style="position:relative; left:-100px;">-->
-		<!-- <script type="text/javascript" src="//rf.revolvermaps.com/0/0/3.js?i=5zm8eoty1bs&amp;b=0&amp;s=40&amp;m=2&amp;cl=ffffff&amp;co=010020&amp;cd=aa0000&amp;v0=60&amp;v1=60&amp;r=1" async="async"></script> -->
+		<script type="text/javascript" src="//rf.revolvermaps.com/0/0/3.js?i=5zm8eoty1bs&amp;b=0&amp;s=40&amp;m=2&amp;cl=ffffff&amp;co=010020&amp;cd=aa0000&amp;v0=60&amp;v1=60&amp;r=1" async="async"></script>
 		<!--</span>-->
-		
-		<input id="lastVAL"  type="tel"  placeholder="?"> <!-- type="tel" -->
-				
+								
 		<span id='check' class='gTOT' style="position:relative;  font-size:20px; visibility:hidden;"><b>√</b></span>
 											<!-- left:20%; -->
 		&emsp;&emsp;&emsp;
@@ -916,9 +751,6 @@
 											<!--  position:relative; left:30%; -->
 		&emsp;
 		<button id='-btn' onclick="PrevInput()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:blue; background:ivory; border:1px solid blue; border-radius:0px; cursor:pointer;">-</button>
-		&emsp;
-		<button id='btnUNDO' onclick="undo()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:blue; background:moccasin; border:2px outset brown; border-radius:5px; cursor:pointer; visibility:hidden;">&#8635;</button>
-		
 											<!--  position:relative; left:30%; -->
 	</div>	
 <script>
@@ -940,7 +772,7 @@
 	<!-- 	√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√ \/ DROP BOX \/ √√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√	  -->
 
 <!--<TABLE align=center><TR><TD>-->
-	<div class="DROPclass" id="DROPdiv" style= "" align=left>
+	<div class="DROPclass" id="DROPdiv" style= "">
 			<!-- position = 'fixed'; left = "700px"; top = "100px"; -->
 			
 		
@@ -957,7 +789,7 @@
 		<span id='DROPcheck' class='gTOT' style="font-size:20px; visibility:hidden;"><b>√</b></span> 		<!-- hidden    class='gTOT' -->
 		<span id="pDone"  style="background:ivory; color:black; font-size:15px; visibility:hidden;">__</span>			
 		
-		<table id="DROPtbl" border=1 align=left> <!-- align=center  -->
+		<table id="DROPtbl" border=1 align=center>
 			<tr>
 				<th>HOLE</th> <th>SF pts</th> <!--  p drop -->
 			</tr>
@@ -1295,24 +1127,22 @@
 					<a onclick="showADDIN()"><b>&times;</b></a>
 			</span><br>
 		<!--<br>-->
-		&nbsp;<button id='addPLbtn' onclick="ADD()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%; "><b>ADD-IN</b></button>
-		<!--&nbsp;-->
-		<input type="text" id="pADDED" tabindex="" style="background:silver; width:20px;" placeholder="P2" value="">
-		<button id='TIPbtn' onclick="addTIP()" style="FONT-WEIGHT:normal; FONT-SIZE:12px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%; ">tip</button>
+		&emsp;<button id='addPLbtn' onclick="ADD()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%; "><b>ADD-IN</b></button>
+		&emsp;
+		<input type="text" id="pADDED" tabindex="" style="background:silver; width:20px;" placeholder="" value="">
 		<!--&nbsp;-->
 		<!--<span id='ADDcheck' class='gTOT' style="font-size:20px; visibility:hidden;"><b>√</b></span>-->		
 							<!-- hidden    class='gTOT' -->
 		<!--<span id="aDone" style="background:ivory; color:black; font-size:15px; visibility:hidden;">__</span>-->			
 		
-		<table id="ADDtbl" border=1 align=left>
+		<table id="ADDtbl" border=1 align=center>
 			<tr style="background:orange;">
 				<th>HOLE</th> <TH>ADD<br>pts</TH> <th>new<br>SF pts</th> <!--  p drop -->
 			</tr>
 			
 			<tr> <td>1</td> 
 				<TD>
-					<input class='' type="tel" style="width:20px;" id="ptsADDh1" maxlength=2>
-						<!-- onfocus="alert('Enter added players POINTS by hole\nthen touch/click ADD-IN');" -->
+					<input class='' type="tel" style="width:20px;" id="ptsADDh1" maxlength=2 onfocus="alert('Enter added players POINTS by hole\nthen touch/click ADD-IN');">
 				</TD> 
 				<td style="background:ivory; color:black; font-size:25px;" id="newH1ptT"></td> 
 			</tr>
@@ -1496,138 +1326,7 @@
 	<textarea class="NOTEclass" cols="50" rows="5" id='ROUNDnote' >NOTE: 
 	</textarea>		
 				<!-- onchange="localStorage.setItem('roundNOTE',this.value);"  class="NOTEclass"  -->
-
 		
-		
-	<!-- 	√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√ \/ PARTIAL ROUND \/ √√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√	  -->
-
-<!--<TABLE align=center><TR><TD>-->
-	<div id="PARTIALdiv" style= "border:3px inset slategray; border-radius:10px; width:200px; height:400px; overflow:scroll; margin:auto; visibility:hidden; background:white;  position:fixed; left:65%; transform:translate(-50%,0); top:10%;  zoom:100%;"> <!-- left:35%; -->
-		
-		<font size=5><b>Part Rd</b></font>
-						<button id='fullPARTIALbtn' onclick="FULLpartial()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:blue; background:transparent; border:1px solid blue; border-radius:5px;">+</button>
-				<span style="float:right; padding-right:10px; cursor:pointer; background:white; color:black; font-size:30px;">
-						<a onclick="showPARTIAL()"><b>&times;</b></a>
-				</span><br>
-
-		
-		<button id='partialCALCbtn' onclick="PARTcalcMASTER()" style="FONT-WEIGHT:normal; FONT-SIZE:12px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><b>CALC!</b></button>
-		<!--&nbsp;-->
-		<label style="border:1px solid slategray;"><input id="cN" type="radio" name="gpSIZE" value="n" style="zoom:1;" checked/>N</label>
-		<label style="border:1px solid slategray;"><input id="c-" type="radio" name="gpSIZE" value="-" style="zoom:1;"/>-</label>
-		<label style="border:1px solid slategray;"><input id="c+" type="radio" name="gpSIZE" value="+" style="zoom:1;"/>+</label>
-		
-		
-		
-		<table id="PARTIALtbl" border=1 align=center>
-			<tr>
-				<th rowspan=1>f</th> <th rowspan=1>b</th> <th rowspan=1><b>H</b></th>
-				 <!--<th colspan=1>P1</th> <th>P2</th> <th>P3</th> <th>P4</th>--> 
-				 <th><!--sf<b><u>G</u></b>-->pts</th>
-				 
-				 <td rowspan=20 style="background:slategray;"> </td>
-				 <TD colspan=2 style="color:blue;""><b>TOT</b></TD>
-				 
-				 
-
-			
-				 
-			</tr>			
-			<tr> 
-				<td><input type="checkbox" style="color:yellow; zoom:1;" id="chkF1"></td>
-				<td><input type="checkbox" style="color:yellow; zoom:1;" id="chkB1"></td>
-				<td>1</td> 
-				<!--<td id="H1p1SF"></td> <td id="H1p2SF"></td> <td id="H1p3SF"></td> <td id="H1p4SF"></td> -->
-				<td id="H1tSF"></td> 
-				
-							 <td><b>F</b></td> <td width=10 colspan=1 id="myF9ptT"></td> 
-							 
-			</tr>
-			<tr><td><input type="checkbox" style="color:yellow; zoom:1;" id="chkF2"></td>
-				<td><input type="checkbox" style="color:yellow; zoom:1;" id="chkB2"></td>
-				<td>2</td> 
-				<!--<td id="H2p1SF"></td> <td id="H2p2SF"></td> <td id="H2p3SF"></td> <td id="H2p4SF"></td> -->
-				<td id="H2tSF"></td> 
-				
-							<td><b>B</b></td> <td colspan=1 id="myB9ptT"></td> 
-							
-				
-			</tr>
-			<tr><td><input type="checkbox" style="color:yellow; zoom:1;" id="chkF3"></td>
-				<td><input type="checkbox" style="color:yellow; zoom:1;" id="chkB3"></td> 
-				<td>3</td> 
-				<!--<td id="H3p1SF"></td> <td id="H3p2SF"></td> <td id="H3p3SF"></td> <td id="H3p4SF"></td> -->
-				<td id="H3tSF"></td> 
-				
-				 		<td><b>T</b></td> <td colspan=1 id="my18ptT"></td> 
-				
-			</tr>
-			<tr><td><input type="checkbox" style="color:yellow; zoom:1;" id="chkF4"></td>
-				<td><input type="checkbox" style="color:yellow; zoom:1;" id="chkB4"></td>
-				<td>4</td> <td id="H4tSF"></td> </tr>
-			<tr><td><input type="checkbox" style="color:yellow; zoom:1;" id="chkF5"></td>
-				<td><input type="checkbox" style="color:yellow; zoom:1;" id="chkB5"></td>
-				<td>5</td> <td id="H5tSF"></td> </tr>
-			<tr><td><input type="checkbox" style="color:yellow; zoom:1;" id="chkF6"></td>
-				<td><input type="checkbox" style="color:yellow; zoom:1;" id="chkB6"></td>
-				<td>6</td> <td id="H6tSF"></td> </tr>
-			<tr><td><input type="checkbox" style="color:yellow; zoom:1;" id="chkF7"></td>
-				<td><input type="checkbox" style="color:yellow; zoom:1;" id="chkB7"></td>
-				<td>7</td> <td id="H7tSF"></td> </tr>
-			<tr><td><input type="checkbox" style="color:yellow; zoom:1;" id="chkF8"></td>
-				<td><input type="checkbox" style="color:yellow; zoom:1;" id="chkB8"></td>
-				<td>8</td> <td id="H8tSF"></td> </tr>
-			<tr><td><input type="checkbox" style="color:yellow; zoom:1;" id="chkF9"></td>
-				<td><input type="checkbox" style="color:yellow; zoom:1;" id="chkB9"></td>
-				<td>9</td> <td id="H9tSF"></td> </tr>	
-			<tr> <td colspan=4 style="background:slategray; height:2px;"></td> </tr>
-			<tr><td><input type="checkbox" style="color:yellow; zoom:1;" id="chkF10"></td>
-				<td><input type="checkbox" style="color:yellow; zoom:1;" id="chkB10"></td>
-				<td>10</td> <td id="H10tSF"></td> </tr>				
-			<tr><td><input type="checkbox" style="color:yellow; zoom:1;" id="chkF11"></td>
-				<td><input type="checkbox" style="color:yellow; zoom:1;" id="chkB11"></td>
-				<td>11</td> <td id="H11tSF"></td> </tr>				
-			<tr><td><input type="checkbox" style="color:yellow; zoom:1;" id="chkF12"></td>
-				<td><input type="checkbox" style="color:yellow; zoom:1;" id="chkB12"></td>
-				<td>12</td> <td id="H12tSF"></td> </tr>				
-			<tr><td><input type="checkbox" style="color:yellow; zoom:1;" id="chkF13"></td>
-				<td><input type="checkbox" style="color:yellow; zoom:1;" id="chkB13"></td>
-				<td>13</td> <td id="H13tSF"></td> </tr>				
-			<tr><td><input type="checkbox" style="color:yellow; zoom:1;" id="chkF14"></td>
-				<td><input type="checkbox" style="color:yellow; zoom:1;" id="chkB14"></td>
-				<td>14</td> <td id="H14tSF"></td> </tr>				
-			<tr><td><input type="checkbox" style="color:yellow; zoom:1;" id="chkF15"></td>
-				<td><input type="checkbox" style="color:yellow; zoom:1;" id="chkB15"></td>
-				<td>15</td> <td id="H15tSF"></td> </tr>				
-			<tr><td><input type="checkbox" style="color:yellow; zoom:1;" id="chkF16"></td>
-				<td><input type="checkbox" style="color:yellow; zoom:1;" id="chkB16"></td>
-				<td>16</td> <td id="H16tSF"></td> </tr>				
-			<tr><td><input type="checkbox" style="color:yellow; zoom:1;" id="chkF17"></td>
-				<td><input type="checkbox" style="color:yellow; zoom:1;" id="chkB17"></td>
-				<td>17</td> <td id="H17tSF"></td> </tr>				
-			<tr><td><input type="checkbox" style="color:yellow; zoom:1;" id="chkF18"></td>
-				<td><input type="checkbox" style="color:yellow; zoom:1;" id="chkB18"></td>
-				<td>18</td> <td id="H18tSF"></td> </tr>								
-				
-			<tr style="height:3px;"> </tr>
-			<!--				
-			<TR>
-				<TD colspan=4 style="color:blue;""><b>TOTALS</b>:</TD>
-			</TR>	
-	
-			<tr> <td><b>F</b></td> <td colspan=1 id="myF9ptT"></td> 
-				 <td><b>B</b></td> <td colspan=1 id="myB9ptT"></td> </tr>
-			<tr> <td style="visibility:hidden;"></td> <td><b>T</b></td> <td colspan=1 id="my18ptT"></td> </tr>
-			-->
-			
-
-		</table>
-				
-	</div>	
-
-
-						<!--	^^^^^^^^^^^^^ Jun/24 ^^^^^^^^^^^^^^^^^^^^^^    -->
-				
 		
 </div>				
 </body>
