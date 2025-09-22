@@ -1024,7 +1024,7 @@
 		document.getElementById("TD"+SCRinput).style.background = "black";
 		document.getElementById("focusIPT").style.background = "white";
 			document.getElementById("focusIPT").style.color = "maroon";
-			document.getElementById("focusIPT").value = "SNIGgs"	//"GSmac3x"; 		//GLOBALinput;
+			document.getElementById("focusIPT").value = "gwHODG"	//"GSmac3x"; 		//GLOBALinput;
 			
 		
 		var entry = +document.getElementById(SCRinput).value;
