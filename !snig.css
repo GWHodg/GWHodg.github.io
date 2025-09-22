@@ -1,0 +1,128 @@
+/* !gs63.css (formally 'gsCSSidx3.css') [6 = 6th month (June); 3 = '(2)3] */
+
+	/* body { padding:20px; } */
+	.body,
+	.wrapper {
+	  /* Break the flow */
+		  position: absolute;
+		  top: 0px;	
+	  /* Give them all the available space */
+		  width: 100%;
+		  height: 100%;	
+	  /* Remove the margins if any */
+		  margin: 0;	
+	  /* Allow them to scroll down the document */
+		  /* overflow-y: hidden; */
+		  overflow-y:scroll;
+		  
+
+	}
+	
+	.body {
+	  /* Sending body at the bottom of the stack */
+	  FONT-SIZE:40px;
+	  z-index: 1;
+	   /* zoom:250%; */	/* 250%; */
+	  overscroll-behavior-y: contain; /* < prevents 'pull-to-refresh' in CHROME (not DDG) */
+	  /*background:lime;*/
+	  /*zoom:150%;*/	/*250%;*/
+	}
+/*	@media screen and (min-width:1300px) and (max-width:1500px)  { 			
+			.body { zoom: 135%; } 			/* iPad (√) */
+/*			.wrapper { background:brown; }
+	}	/* and (min-height:900px) */
+	/* iPad Pro viewport size: W=1426(1366); Ht=1024 PX √ */
+
+	
+	table.table2 tr td:nth-child(+6){ display:none }
+	table.table2 tr th:nth-child(+6){ display:none }
+	
+	
+	.wrapper {
+	  /* Making the wrapper stack above the body */
+	  z-index: 2;
+	  padding:5px; /* < my add (Mar 14/23) [dec to 5 px June 6/23] */
+	  /*zoom:150%;*/
+	}
+
+	table.HEADtbl td { 
+		background:black; color:white; text-align:center; 
+		zoom:300%;
+	}	
+	table.tableMAIN thead { 
+		display:block; /* display:block; | display:unset; */ 
+		/* width:150px; overflow-x:scroll; */
+		zoom:400%;
+	}
+	table.tableMAIN tbody { 
+		/* height:150px; overflow-y:scroll; */
+		display:block; 
+		zoom:400%;
+		/* width:150px; overflow-x:scroll; */
+	} 
+	table.tableMAIN td { width: 30px; background:black; color:white; text-align:center; font-size:15px;} /* width: 40px; */
+	table.tableMAIN th { width: 30px; background:beige; color:maroon;  font-size:15px; } /* width: 40px;  */
+	.headcol {
+		/*position: sticky;
+    	left: 5px;
+    	background-color: blue;*/
+	}
+
+	
+	input { width:11px; font-size:15px; text-align:center; }
+		input.uncoded { background:gray; } /* beige ivory linen */
+		input.inptTXT { background:gray; width:110px; } /* beige ivory linen */
+	span { color:white; background:black; font-size:12px; }
+		span.gTOT { color:black; background:white; font-size:12px; border:0px solid blue; border-radius:0px; padding:2px; font-weight:bold; }
+		span.sliderVAL { color:black; background:white; font-size:20px; border:1px solid blue; border-radius:0px; padding:5px; font-weight:bold; }  /* < slider */
+
+	div.classLSwrite { position:fixed; left:50%; transform:translate(-50%,0); top:10%;
+		background:pink; padding:10px; border:2px inset gray; border-radius:10px; visibility:hidden; } /*  position:fixed;  left:30em; top:200px;  (left:50px; top:200px;)  */
+	
+									/*	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   */
+									
+	/*Animated Sidenav (Menu):
+		create an animated, closable side navigation menu
+	  	https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sidenav*/
+			.sidenav {
+			  height: 22%; width:0;   /* height: 100%;   30%*/
+			  position: fixed;z-index: 1;
+			  top:700px; left:0px; /* top: 545px; */
+			  background-color:black;	/*blue;	  #111;*/
+			  overflow:scroll; transition: 0.5s; padding-top:0px;	/* 30px; */
+			  /* overflow-x: hidden; overflow-y:scroll; */
+			  /*vertical-align: top;*/
+			  /* zoom:2.5; */
+			}		
+			.sidenav a {
+			  /* padding: 8px 8px 8px 32px; text-decoration: none; */
+			  padding: 3px 3px 3px 0px; text-decoration: none; 
+			  font-size: 50px;	/* 20px; */ color:pink; display: block; transition: 0.3s;
+			  							/* color: #818181; */
+			}		
+			.sidenav a:hover { color: #f1f1f1; }		
+			.sidenav .closebtn {
+			  position: absolute; top: 0; right: 25px;
+			  font-size: 36px; margin-left: 50px;
+			}	
+			
+	.grid-container {
+	  display: grid;
+	  grid-template-columns: auto auto auto;	/* auto; */
+	  /*gap: 2px;
+	  background-color:dodgerblue; 	/* #2196F3; */
+	  padding: 5px;
+	  /*vertical-align:top;*/
+	  /*align-content:space-evenly;*/
+	  /* font-size: 50px;  */
+	}	
+	.grid-container > div {
+	  background-color:blue;	/* rgba(255, 255, 255, 0.8); */
+	  	color:white;
+	  border: 1px solid black;
+	  text-align: center;
+	  
+    }	
+	
+	
+					
