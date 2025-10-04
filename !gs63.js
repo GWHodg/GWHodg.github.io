@@ -1600,13 +1600,16 @@
 		/* alert("Trying to find previous round circled holes . .\n\n"+
 			"localStorage 'lsCIRCLED' = \n"+localStorage.getItem('lsCIRCLED')+"\n\n"+
 			"1st array element = " + array[0]); */
-					//alert("1st array element = " + array[0]);
+					//alert("1st array element = '" + array[0] + "'!");
 		//document.getElementById(array[0]).style.border = "2px solid red";
 		let arrayLEN = array.length;
-		for (let i = 0; i < arrayLEN; i++) {
-			document.getElementById(array[i]).style.border = "2px solid red";
-		}
-			
+					//alert("'lsCIRCLED' arrayLEN = " + arrayLEN);
+		
+		if ( array[0] != '' ) {	
+			for (let i = 0; i < arrayLEN; i++) {
+				document.getElementById(array[i]).style.border = "2px solid red";
+			}
+		}	
 	}
 	
 	function remCOLORS() {
@@ -2492,7 +2495,18 @@
 		//showPARTIAL();
 		circleMAXs25();
 			//circleMAXs();
-		
+			
+		for (Pno=1; Pno<6; Pno++) {	/* Added Sept/25 */
+			if (document.getElementById("p"+Pno+"NAME").value=="" && document.getElementById("p"+Pno+"HC").value=="") {
+				for (n=1; n<19; n++) {
+					document.getElementById("p"+Pno+"h"+n).value="";
+					document.getElementById("SPp"+Pno+"h"+n).innerHTML="";
+					localStorage.setItem('g'+Pno+'H'+n+'s',""); //document.getElementById("p"+n+"h"+h).value = "";
+					localStorage.setItem("SBFDg"+Pno+"h"+n,""); 		
+				}
+				calcTOTALS();
+			}
+		}
 	}	
 
 	function cellTOslide(P,H) {
