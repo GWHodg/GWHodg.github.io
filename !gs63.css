@@ -16,12 +16,16 @@
 		  overflow-y:scroll;
 	}
 	
+	html {
+		overflow:hidden;
+		overscroll-behavior: none;
+	}
 	.body {
 	  /* Sending body at the bottom of the stack */
 	  z-index: 1;
 	   zoom:250%;	/* 250%; */
 	  /* overscroll-behavior-y: contain; */ /* < prevents 'pull-to-refresh' in CHROME (not DDG) */
-	  overscroll-behavior: none; /* Sept/25 */
+	  /*overscroll-behavior: none;*/ /* Sept/25 */
 	  /*background:gray;*/
 	  /*zoom:150%;*/	/*250%;*/
 	}
