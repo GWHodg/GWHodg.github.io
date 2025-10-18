@@ -2510,6 +2510,14 @@
 	}	
 
 	function cellTOslide(P,H) {
+		//Oct/25:
+			if ( document.getElementById("H"+H).style.background == "beige" ) {
+				document.getElementById("H"+H).style.background = "red";	
+			}
+			else {
+				document.getElementById("H"+H).style.background = "beige";
+			}
+		
 		document.getElementById(prevIPT).style.border="0px solid orange";	
 		/*alert("Will try to get clicked cell P & H to display on slider frame!\n"+
 			  "P = "+P+" | H = "+H);*/
@@ -2878,4 +2886,27 @@ else {
 		//window.location = "index.html";
 		//window.location = "SNIGmatch.html";
 		
+	}
+	
+	function editSP() {
+		  /*let reply;
+		  if (confirm("Are you SURE you want to CLEAR all 'saved' input?") == true) {
+		    reply = "YES!";
+		  } else {
+		    reply = "NO!";
+		  }
+  		  alert(reply);*/	
+		 
+			let SPid = prompt("Please enter SP id to be edited", "SPp1h5");	
+			let SPnew = prompt("Please enter new value for "+SPid, 0);			
+			if (SPid != null) {
+				alert ("Will try to edit '" + SPid + "'!");	
+				/*if (SPid=='SPp1h5') {
+					alert("SPid variable DOES = 'SPp1h4'!");
+					//document.getElementById("SPp1h5").innerText;
+					document.getElementById("SPp1h5").innerText = "7";
+				}*/
+				document.getElementById(SPid).innerText = SPnew;
+			}	
+			
 	}
