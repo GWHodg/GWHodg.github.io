@@ -2511,7 +2511,7 @@
 
 	function cellTOslide(P,H) {
 		//Oct/25:
-			if ( document.getElementById("H"+H).style.background == "beige" ) {
+			if ( document.getElementById("H"+H).style.background != "red" ) {
 				document.getElementById("H"+H).style.background = "red";	
 			}
 			else {
@@ -2898,6 +2898,9 @@ else {
   		  alert(reply);*/	
 		 
 			let SPid = prompt("Please enter SP id to be edited", "SPp1h5");	
+				if (SPid === null) {
+			        return; //break out of the function early
+			    }
 			let SPnew = prompt("Please enter new value for "+SPid, 0);			
 			if (SPid != null) {
 				alert ("Will try to edit '" + SPid + "'!");	
