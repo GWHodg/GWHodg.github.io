@@ -81,12 +81,13 @@
 			  "PIXEL reload/refresh: Hold icon > App info > Storage & cache > Manage space > MANAGE (Site storage) > 'https://snigdoh.github.io' > Clear & reset.\nMust also clear Chrome cache to enable new app to play offline (so +> old vn).");	
 		alert("Red circle scores functions: circleMAXs25(); countCIRCLES()\n\n"+
 			  "BOOK: pwd = 'GWH42'\n"+
-			  "Del P + HC > clear scores\n"+
-			  "Post edit > purple border\n"+
+			  "Del P + HC > clear scores\n\n"+
+			  "Edit Input > purple border + brown TD [BLURfn(SCRinput); EnterInput()]\n\n"+
 			  "ADD: w/ 3 gps > F9/B9 TOTs only\n"+
 			  "'Pull-to-refresh' deactivated (CSS) √\n"+
-			  "Edit Stablefords: 'SP Edit' (SPp1h5)\n"+
-			  "Flag hole: click hole # (red <> beige)");
+			  "Edit Stablefords: 'SP Edit' (SPp1h5)\n\n"+
+			  "Flag hole: click hole # (red <> beige): cellTOslide(P,H); loadFN(); clearSAVED().\n\n"+
+			  "Edit Holes: editHOLES(); chgHpar(h); loadFN(); clearSAVED().\n\n");
 	}
 
 	function addTIP() {
@@ -158,7 +159,15 @@
 			alert("Hole editing disabled!");	
 		}	
 	}
-
+	function chgHpar(h) {
+		var p = document.getElementById("PARh"+h).value;
+		alert("Par of hole # " + h + " WAS changed!\n\tNew par = "+ p + ".");
+		document.getElementById("TDparH"+h).style.background = "orange";
+		localStorage.setItem("lsPARh"+h,p);
+		var newPAR = localStorage.getItem("lsPARh"+h);
+			alert("New p for h"+h+" (fr ls) = "+newPAR);
+	}
+	
 	function note() {
 		if (document.getElementById("ROUNDnote").style.visibility=="visible") {
 			document.getElementById("ROUNDnote").style.visibility="hidden";
@@ -501,8 +510,8 @@
 				<td id="TDp5h1"> <input class='' type="tel" maxlength=1 id="p5h1" onclick="changeGLOBAL('p5h1')"  tabindex="5" onchange="localStorage.setItem('g5H1s',this.value);" onfocus="FOCUSfn('p5h1')" onblur="BLURfn('p5h1')""> <br> 
 					<span id='SPp5h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 				
 				<TH><span id='SPgpH1' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
-				<TD style='background:white; color:black;'>
-					<input type="" id="PARh1" style="background:white; color:black; width:60%;" placeholder=5 value=5 readonly>
+				<TD id="TDparH1" style='background:white; color:black;'>
+					<input type="" id="PARh1" style="background:white; color:black; width:60%;" placeholder=5 value=5 onchange="chgHpar('1')" readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
 					<input type="" id="HCPh1" style="background:white;  border:0px dotted black; color:red; width:50%;" placeholder=14 value=14 readonly> <!-- old = 13; width:11px; font-size:15px; -->
@@ -519,8 +528,8 @@
 				<td id="TDp5h2"> <input class=''  id="p5h2" type="tel" maxlength=1 onclick="changeGLOBAL('p5h2')" tabindex="10"
 					onchange="localStorage.setItem('g5H2s',this.value);" onfocus="FOCUSfn('p5h2')" onblur="BLURfn('p5h2')"> <br> <span id='SPp5h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>
 				<TH><span id='SPgpH2' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH> <!-- &nbsp;&nbsp; ** -->
-				<TD style='background:white; color:black;'>
-					<input  id="PARh2" style="background:white; color:black; width:60%;" placeholder=3 value=3 readonly>
+				<TD id="TDparH2" style='background:white; color:black;'>
+					<input id="PARh2" style="background:white; color:black; width:60%;" onchange="chgHpar('2')" placeholder=3 value=3 readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
 					<input  id="HCPh2" style="background:white; border:0px dotted black;  color:red; width:50%; cursor:help;" placeholder=16 value=16 readonly>
@@ -537,8 +546,8 @@
 				<td id="TDp4h3"> <input class='' id="p4h3" type="tel" maxlength=1 onclick="changeGLOBAL('p4h3')" tabindex="14" onchange="localStorage.setItem('g4H3s',this.value);" onfocus="FOCUSfn('p4h3')" onblur="BLURfn('p4h3')"><span id='SPp4h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<td id="TDp5h3"> <input class='' id="p5h3" type="tel" maxlength=1 onclick="changeGLOBAL('p5h3')" tabindex="15" onchange="localStorage.setItem('g5H3s',this.value);" onfocus="FOCUSfn('p5h3')" onblur="BLURfn('p5h3')"> <br> <span id='SPp5h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<TH><span id='SPgpH3' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
-				<TD style='background:white; color:black;'>
-					<input type="" id="PARh3" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
+				<TD id="TDparH3" style='background:white; color:black;'>
+					<input type="" id="PARh3" style="background:white; color:black; width:60%;" placeholder=4 value=4  onchange="chgHpar('3')" readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
 					<input type="" id="HCPh3" style="background:white;  border:0px dotted black; color:red; width:50%;" placeholder=2 value=2 readonly>
@@ -556,8 +565,8 @@
 				<td id="TDp5h4"> <input class='' type="tel" id="p5h4" maxlength=1 onclick="changeGLOBAL('p5h4')" tabindex="20" 
 					onchange="localStorage.setItem('g5H4s',this.value);" onfocus="FOCUSfn('p5h4')" onblur="BLURfn('p5h4')"> <br> <span id='SPp5h4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<TH><!--4 --><span id='SPgpH4' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
-				<TD style='background:white; color:black;'>
-					<input type="" id="PARh4" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
+				<TD  id="TDparH4" style='background:white; color:black;'>
+					<input type="" id="PARh4" style="background:white; color:black; width:60%;" placeholder=4 value=4  onchange="chgHpar('4')" readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
 					<input type="" id="HCPh4" style="background:white;  border:0px dotted black;  color:red; width:50%; cursor:help;" placeholder=6 value=6 readonly> 
@@ -574,8 +583,8 @@
 				<td id="TDp5h5"> <input class='' type="tel" id="p5h5" maxlength=1 onclick="changeGLOBAL('p5h5')" tabindex="25"
 					 onchange="localStorage.setItem('g5H5s',this.value);" onfocus="FOCUSfn('p5h5')" onblur="BLURfn('p5h5')"> <br> <span id='SPp5h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<TH><span id='SPgpH5' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
-				<TD style='background:white; color:black;'>
-					<input type="" id="PARh5" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
+				<TD id="TDparH5" style='background:white; color:black;'>
+					<input type="" id="PARh5" style="background:white; color:black; width:60%;" placeholder=4 value=4  onchange="chgHpar('5')" readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
 					<!--<input type="" id="HCPh5" style="background:white;  color:black; width:60%;" placeholder=7 value=7 readonly>-->
@@ -590,8 +599,8 @@
 				<td id="TDp4h6"> <input class='' type="tel" id="p4h6" maxlength=1 onclick="changeGLOBAL('p4h6')" tabindex="29" onchange="localStorage.setItem('g4H6s',this.value);" onfocus="FOCUSfn('p4h6')" onblur="BLURfn('p4h6')"><span id='SPp4h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<td id="TDp5h6"> <input class='' type="tel" id="p5h6" maxlength=1 onclick="changeGLOBAL('p5h6')" tabindex="30" onchange="localStorage.setItem('g5H6s',this.value);" onfocus="FOCUSfn('p5h6')" onblur="BLURfn('p5h6')"> <br> <span id='SPp5h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<TH><span id='SPgpH6' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
-				<TD style='background:white; color:black;'>
-					<input type="" id="PARh6" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
+				<TD id="TDparH6" style='background:white; color:black;'>
+					<input type="" id="PARh6" style="background:white; color:black; width:60%;" placeholder=4 value=4 onchange="chgHpar('6')" readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
 					<input type="" id="HCPh6" style="background:white;  border:0px dotted black;  color:red; width:50%; cursor:help;" placeholder=12 value=12 readonly> <!-- 11 -->
@@ -604,8 +613,8 @@
 				<td id="TDp4h7"> <input class='' type="tel" id="p4h7" maxlength=1 onclick="changeGLOBAL('p4h7')" tabindex="34" onchange="localStorage.setItem('g4H7s',this.value);" onfocus="FOCUSfn('p4h7')" onblur="BLURfn('p4h7')"><span id='SPp4h7' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<td id="TDp5h7"> <input class='' type="tel" id="p5h7" maxlength=1 onclick="changeGLOBAL('p5h7')" tabindex="35" onchange="localStorage.setItem('g5H7s',this.value);" onfocus="FOCUSfn('p5h7')" onblur="BLURfn('p5h7')"> <br> <span id='SPp5h7' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<TH><span id='SPgpH7' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
-				<TD style='background:white; color:black;'>
-					<input type="" id="PARh7" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
+				<TD id="TDparH7" style='background:white; color:black;'>
+					<input type="" id="PARh7" style="background:white; color:black; width:60%;" placeholder=4 value=4 onchange="chgHpar('7')" readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
 					<input type="" id="HCPh7" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=4 value=4 readonly> <!-- 3 -->
@@ -618,8 +627,8 @@
 				<td id="TDp4h8"> <input class='' type="tel" id="p4h8" maxlength=1 onclick="changeGLOBAL('p4h8')" tabindex="39" onchange="localStorage.setItem('g4H8s',this.value);" onfocus="FOCUSfn('p4h8')" onblur="BLURfn('p4h8')"><span id='SPp4h8' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<td id="TDp5h8"> <input class='' type="tel" id="p5h8" maxlength=1 onclick="changeGLOBAL('p5h8')" tabindex="40" onchange="localStorage.setItem('g5H8s',this.value);" onfocus="FOCUSfn('p5h8')" onblur="BLURfn('p5h8')"> <br> <span id='SPp5h8' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<TH><span id='SPgpH8' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
-				<TD style='background:white; color:black;'>
-					<input type="" id="PARh8" style="background:white; color:black; width:60%;" placeholder=3 value=3 readonly>
+				<TD id="TDparH8" style='background:white; color:black;'>
+					<input type="" id="PARh8" style="background:white; color:black; width:60%;" placeholder=3 value=3 onchange="chgHpar('8')" readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
 					<!--<input type="" id="HCPh5" style="background:white;  color:black; width:60%;" placeholder=7 value=7 readonly>-->
@@ -638,8 +647,8 @@
 				<td id="TDp4h9"> <input class='' type="tel" id="p4h9" maxlength=1 onclick="changeGLOBAL('p4h9')" tabindex="44" onchange="localStorage.setItem('g4H9s',this.value);" onfocus="FOCUSfn('p4h9')" onblur="BLURfn('p4h9')"><span id='SPp4h9' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<td id="TDp5h9"> <input class='' type="tel" id="p5h9" maxlength=1 onclick="changeGLOBAL('p5h9')" tabindex="45" onchange="localStorage.setItem('g5H9s',this.value);" onfocus="FOCUSfn('p5h9')" onblur="BLURfn('p5h9')"> <br> <span id='SPp5h9' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<TH><span id='SPgpH9' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
-				<TD style='background:white; color:black;'>
-					<input type="" id="PARh9" style="background:white; color:black; width:60%;" placeholder=3 value=3 readonly>
+				<TD id="TDparH9" style='background:white; color:black;'>
+					<input type="" id="PARh9" style="background:white; color:black; width:60%;" placeholder=3 value=3 onchange="chgHpar('9')" readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
 					<input type="" id="HCPh9" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=10 value=10 readonly> <!-- 9 -->
@@ -689,8 +698,8 @@
 				<td id="TDp4h10"> <input class='' type="tel" id="p4h10" maxlength=1 onclick="changeGLOBAL('p4h10')" tabindex="49"  onchange="localStorage.setItem('g4H10s',this.value);" onfocus="FOCUSfn('p4h10')" onblur="BLURfn('p4h10')"><span id='SPp4h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	
 				<td id="TDp5h10"> <input class='' type="tel" id="p5h10" maxlength=1 onclick="changeGLOBAL('p5h10')"  tabindex="50" onchange="localStorage.setItem('g5H10s',this.value);" onfocus="FOCUSfn('p5h10')" onblur="BLURfn('p5h10')"> <br> <span id='SPp5h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
 				<TH><span id='SPgpH10' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
-				<TD style='background:white; color:black;'>
-					<input type="" id="PARh10" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
+				<TD id="TDparH10" style='background:white; color:black;'>
+					<input type="" id="PARh10" style="background:white; color:black; width:60%;" placeholder=4 value=4 onchange="chgHpar('10')" readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
 					<input type="" id="HCPh10" style="background:white;  border:0px dotted black;  color:red; width:50%; cursor:help;" placeholder=5 value=5 readonly > <!-- 6; onclick="showSLIDE()" title="showSLIDE()" -->
@@ -705,8 +714,8 @@
 				<td id="TDp4h11"> <input class='' type="tel" id="p4h11" maxlength=1 onclick="changeGLOBAL('p4h11')" tabindex="54" onchange="localStorage.setItem('g4H11s',this.value);" onfocus="FOCUSfn('p4h11')" onblur="BLURfn('p4h11')"><span id='SPp4h11' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
 				<td id="TDp5h11"> <input class='' type="tel" id="p5h11" maxlength=1 onclick="changeGLOBAL('p5h11')" tabindex="55" onchange="localStorage.setItem('g5H11s',this.value);" onfocus="FOCUSfn('p5h11')" onblur="BLURfn('p5h11')"> <br> <span id='SPp5h11' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>
 				<TH><span id='SPgpH11' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
-				<TD style='background:white; color:black;'>
-					<input type="" id="PARh11" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
+				<TD id="TDparH11" style='background:white; color:black;'>
+					<input type="" id="PARh11" style="background:white; color:black; width:60%;" placeholder=4 value=4 onchange="chgHpar('11')" readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
 					<input type="" id="HCPh11" style="background:white;  border:0px dotted black;  color:red; width:50%; cursor:help;" placeholder=1 value=1 readonly> <!--  2; onclick="showNOTES()" title="Coding Notes" -->
@@ -720,8 +729,8 @@
 				<td id="TDp5h12"> <input class='' type="tel" id="p5h12" maxlength=1 onclick="changeGLOBAL('p5h12')" tabindex="60"
 					 onchange="localStorage.setItem('g5H12s',this.value);" onfocus="FOCUSfn('p5h12')" onblur="BLURfn('p5h12')"> <br> <span id='SPp5h12' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<TH><span id='SPgpH12' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
-				<TD style='background:white; color:black;'>
-					<input type="" id="PARh12" style="background:white; color:black; width:60%;" placeholder=5 value=5 readonly>
+				<TD id="TDparH12" style='background:white; color:black;'>
+					<input type="" id="PARh12" style="background:white; color:black; width:60%;" placeholder=5 value=5 onchange="chgHpar('12')" readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
 					<input type="" id="HCPh12" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=11 value=11 readonly> <!-- 14 -->
@@ -735,8 +744,8 @@
 				<td id="TDp4h13"> <input class='' type="tel" id="p4h13" maxlength=1 onclick="changeGLOBAL('p4h13')" tabindex="64" onchange="localStorage.setItem('g4H13s',this.value);" onfocus="FOCUSfn('p4h13')" onblur="BLURfn('p4h13')"><span id='SPp4h13' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<td id="TDp5h13"> <input class='' type="tel" id="p5h13" maxlength=1 onclick="changeGLOBAL('p5h13')" tabindex="65" onchange="localStorage.setItem('g5H13s',this.value);" onfocus="FOCUSfn('p5h13')" onblur="BLURfn('p5h13')"> <br> <span id='SPp5h13' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<TH><!--13--><span id='SPgpH13' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
-				<TD style='background:white; color:black;'>
-					<input type="" id="PARh13" style="background:white; color:black; width:60%;" placeholder=3 value=3 readonly>
+				<TD id="TDparH13" style='background:white; color:black;'>
+					<input type="" id="PARh13" style="background:white; color:black; width:60%;" placeholder=3 value=3 onchange="chgHpar('13')" readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
 					<input type="" id="HCPh13" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=15 value=15 readonly> <!-- 16 -->
@@ -751,8 +760,8 @@
 				<td id="TDp4h14"> <input class='' type="tel" id="p4h14" maxlength=1 onclick="changeGLOBAL('p4h14')" tabindex="69" onchange="localStorage.setItem('g4H14s',this.value);" onfocus="FOCUSfn('p4h14')" onblur="BLURfn('p4h14')"><span id='SPp4h14' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
 				<td id="TDp5h14"> <input class='' type="tel" id="p5h14" maxlength=1 onclick="changeGLOBAL('p5h14')" tabindex="70" onchange="localStorage.setItem('g5H14s',this.value);" onfocus="FOCUSfn('p5h14')" onblur="BLURfn('p5h14')"> <br> <span id='SPp5h14' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>
 				<TH><span id='SPgpH14' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
-				<TD style='background:white; color:black;'>
-					<input type="" id="PARh14" style="background:white; color:black; width:60%;" placeholder=3 value=3 readonly>
+				<TD id="TDparH14" style='background:white; color:black;'>
+					<input type="" id="PARh14" style="background:white; color:black; width:60%;" placeholder=3 value=3 onchange="chgHpar('14')" readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
 					<input type="" id="HCPh14" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=9 value=9 readonly> <!-- 10 -->
@@ -767,8 +776,8 @@
 				<td id="TDp4h15"> <input class='' type="tel" id="p4h15" maxlength=1 onclick="changeGLOBAL('p4h15')" tabindex="74" onchange="localStorage.setItem('g4H15s',this.value);" onfocus="FOCUSfn('p4h15')" onblur="BLURfn('p4h15')"><span id='SPp4h15' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
 				<td id="TDp5h15"> <input class='' type="tel" id="p5h15" maxlength=1 onclick="changeGLOBAL('p5h15')" tabindex="75" onchange="localStorage.setItem('g5H15s',this.value);" onfocus="FOCUSfn('p5h15')" onblur="BLURfn('p5h15')"> <br> <span id='SPp5h15' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>
 				<TH><span id='SPgpH15' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
-				<TD style='background:white; color:black;'>
-					<input type="" id="PARh15" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
+				<TD id="TDparH15" style='background:white; color:black;'>
+					<input type="" id="PARh15" style="background:white; color:black; width:60%;" placeholder=4 value=4 onchange="chgHpar('15')" readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
 					<input type="" id="HCPh15" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=3 value=3 readonly> <!-- 4 -->
@@ -783,8 +792,8 @@
 				<td id="TDp4h16"> <input class='' type="tel" id="p4h16" maxlength=1 onclick="changeGLOBAL('p4h16')" tabindex="79" onchange="localStorage.setItem('g4H16s',this.value);" onfocus="FOCUSfn('p4h16')" onblur="BLURfn('p4h16')"><span id='SPp4h16' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
 				<td id="TDp5h16"> <input class='' type="tel" id="p5h16" maxlength=1 onclick="changeGLOBAL('p5h16')" tabindex="80" onchange="localStorage.setItem('g5H16s',this.value);" onfocus="FOCUSfn('p5h16')" onblur="BLURfn('p5h16')"> <br> <span id='SPp5h16' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>
 				<TH><span id='SPgpH16' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
-				<TD style='background:white; color:black;'>
-					<input type="" id="PARh16" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
+				<TD id="TDparH16" style='background:white; color:black;'>
+					<input type="" id="PARh16" style="background:white; color:black; width:60%;" placeholder=4 value=4 onchange="chgHpar('16')" readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
 					<input type="" id="HCPh16" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=13 value=13 readonly> <!-- 12 -->
@@ -799,8 +808,8 @@
 				<td id="TDp4h17"> <input class='' type="tel" id="p4h17" maxlength=1 onclick="changeGLOBAL('p4h17')" tabindex="84" onchange="localStorage.setItem('g4H17s',this.value);" onfocus="FOCUSfn('p4h17')" onblur="BLURfn('p4h17')"><span id='SPp4h17' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
 				<td id="TDp5h17"> <input class='' type="tel" id="p5h17" maxlength=1 onclick="changeGLOBAL('p5h17')" tabindex="85" onchange="localStorage.setItem('g5H17s',this.value);" onfocus="FOCUSfn('p5h17')" onblur="BLURfn('p5h17')"> <br> <span id='SPp5h17' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>
 				<TH><span id='SPgpH17' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
-				<TD style='background:white; color:black;'>
-					<input type="" id="PARh17" style="background:white; color:black; width:60%;" placeholder=5 value=5 readonly>
+				<TD id="TDparH17" style='background:white; color:black;'>
+					<input type="" id="PARh17" style="background:white; color:black; width:60%;" placeholder=5 value=5 onchange="chgHpar('17')" readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
 					<input type="" id="HCPh17" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=17 value=17 readonly> <!-- 18 -->
@@ -815,8 +824,8 @@
 				<td id="TDp4h18"> <input class='' type="tel" id="p4h18" maxlength=1 onclick="changeGLOBAL('p4h18')" tabindex="89" onchange="localStorage.setItem('g4H18s',this.value);" onfocus="FOCUSfn('p4h18')" onblur="BLURfn('p4h18')"><span id='SPp4h18' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
 				<td id="TDp5h18"> <input class='' type="tel" id="p5h18" maxlength=1 onclick="changeGLOBAL('p5h18')" tabindex="90" onchange="localStorage.setItem('g5H18s',this.value);" onfocus="FOCUSfn('p5h18')" onblur="BLURfn('p5h18')"> <br> <span id='SPp5h18' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>
 				<TH><span id='SPgpH18' style="border:1px solid orange; border-radius:0px; padding:2px; font-weight:bold;">&emsp;</span></TH>
-				<TD style='background:white; color:black;'>
-					<input type="" id="PARh18" style="background:white; color:black; width:60%;" placeholder=4 value=4 readonly>
+				<TD id="TDparH18" style='background:white; color:black;'>
+					<input type="" id="PARh18" style="background:white; color:black; width:60%;" placeholder=4 value=4 onchange="chgHpar('18')" readonly>
 				</TD>
 				<TD style='background:white; color:black;'>
 					<input type="" id="HCPh18" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=7 value=7 readonly> <!-- 8 -->

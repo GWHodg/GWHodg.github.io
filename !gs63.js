@@ -1116,6 +1116,7 @@
 				"p & h = "+pNAME+" "+nameArray[1]);*/
 			alert(pNAME+" "+nameArray[1] + " changed from "+ lastSCORE + " to " + document.getElementById(SCRinput).value + "!");
 			document.getElementById(GLOBALinput).style.border='2px solid purple';	// < Sep/25
+			document.getElementById("TD"+GLOBALinput).style.background='brown';	// < Sep/25
 			//alert("READONLY reinitiated (lS = "+localStorage.getItem('READONLYremoved')+")!");					
 		}
 		
@@ -1457,10 +1458,18 @@
 			localStorage.setItem("hideM",""); 	
 			localStorage.setItem("hideS1",""); localStorage.setItem("hideS2",""); localStorage.setItem("hideS3","");
 			localStorage.setItem("hideS4",""); localStorage.setItem("hideS5",""); localStorage.setItem("hideS6","");
+			
+			localStorage.setItem('lsCIRCLED',"");	// < Dec/24 *
+			
+			for (var H = 1; H < 19; H++) { 	//clear hole flags & hole par changes (Oct/25):
+				localStorage.setItem("lsFLAGh"+H,"n");
+				localStorage.setItem("lsPARh"+H,"");		//null);
+			}
+			
 		}
 		
 		
-		localStorage.setItem('lsCIRCLED',"");	// < Dec/24 *
+		//localStorage.setItem('lsCIRCLED',"");	// < Dec/24 *
 		
 		
 		/* alert("LS values:\ng1H1s POST 'clear' = " +  localStorage.getItem("g1H1s")+"\n"+
@@ -2404,6 +2413,7 @@
 		
 		//document.getElementById("TD"+GLOBALinput).style.background='gold';	// < Sep/25
 			document.getElementById(GLOBALinput).style.border='2px solid purple';	// < Sep/25
+			document.getElementById("TD"+GLOBALinput).style.background='brown';	// < Sep/25
 		
 		//document.getElementById('h'+cH+'p'+cPno).innerHTML = slideVAL;
 		replace();
@@ -2507,15 +2517,39 @@
 				calcTOTALS();
 			}
 		}
+		
+		
+		for (H=1; H<19; H++) {	/* Added Oct/25: CHANGE HOLE PAR! */
+			if ( document.getElementById("PARh"+H).value!=localStorage.getItem("lsPARh"+H) && ( localStorage.getItem("lsPARh"+H) != null )  && ( localStorage.getItem("lsPARh"+H) != "null" )  && ( localStorage.getItem("lsPARh"+H) != "" ) ) {
+				alert("PARh"+H+" does NOT equal "+"lsPARh"+H+"!\n"+
+					"PARh"+H+" = "+document.getElementById('PARh'+H).value +"\n"+
+					"lsPARh"+H+" = '" + localStorage.getItem('lsPARh'+H) + "'!" );
+					document.getElementById("PARh"+H).value = localStorage.getItem("lsPARh"+H);
+					document.getElementById("TDparH"+H).style.background = "orange";
+			}	//localStorage.getItem("lsPARh"+h);
+		}
+		
+		for (H=1; H<19; H++) {	/* Added Oct/25: FLAG HOLE! */
+			if ( localStorage.getItem("lsFLAGh"+H) == "y" ) {
+				document.getElementById("H"+H).style.background = "red";
+			}
+			else {
+				document.getElementById("H"+H).style.background = "beige";
+			}
+		}	//localStorage.setItem("lsFLAGh"+H,"n");
+		
 	}	
 
 	function cellTOslide(P,H) {
 		//Oct/25:
 			if ( document.getElementById("H"+H).style.background != "red" ) {
 				document.getElementById("H"+H).style.background = "red";	
+				localStorage.setItem("lsFLAGh"+H,"y");
+					//var newPAR = localStorage.getItem("lsPARh"+h); alert("New p for h"+h+" (fr ls) = "+newPAR);
 			}
 			else {
 				document.getElementById("H"+H).style.background = "beige";
+				localStorage.setItem("lsFLAGh"+H,"n");
 			}
 		
 		document.getElementById(prevIPT).style.border="0px solid orange";	
