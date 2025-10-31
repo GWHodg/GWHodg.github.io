@@ -1117,7 +1117,10 @@
 			alert(pNAME+" "+nameArray[1] + " changed from "+ lastSCORE + " to " + document.getElementById(SCRinput).value + "!");
 			document.getElementById(GLOBALinput).style.border='2px solid purple';	// < Sep/25
 			document.getElementById("TD"+GLOBALinput).style.background='brown';	// < Sep/25
-			//alert("READONLY reinitiated (lS = "+localStorage.getItem('READONLYremoved')+")!");					
+			//alert("READONLY reinitiated (lS = "+localStorage.getItem('READONLYremoved')+")!");	
+				 	/*localStorage.setItem("lsCHG"+GLOBALinput,p);
+					var newPAR = localStorage.getItem("lsPARh"+h);
+					alert("New p for h"+h+" (fr ls) = "+newPAR);*/	
 		}
 		
 		
@@ -1153,7 +1156,19 @@
 									//window.close();	//exit();	//window.open('','_self').close();
 									//window.open("indexA.html");	//,"_blank","width=50, height=50");
 									//window.close("indexA.html");	//self.close();
-		
+
+		/* \/ count EDITS (Oct/25) \/ */
+		const edits = new Array();
+		for (var h = 1; h < 19; h++) {	
+			for (var p = 1; p<6; p++) {	
+				if (document.getElementById("TDp"+p+"h"+h).style.background == "brown") {
+					var box = "TDp"+p+"h"+h;
+					edits.push(box);
+				}
+			}
+		}
+		localStorage.setItem("lsEDITED",edits);	
+		 		//alert("localStorage 'lsEDITED' = \n"+localStorage.getItem('lsEDITED')); 
 	}												
 	
 	function showSLIDER() {
@@ -1460,6 +1475,7 @@
 			localStorage.setItem("hideS4",""); localStorage.setItem("hideS5",""); localStorage.setItem("hideS6","");
 			
 			localStorage.setItem('lsCIRCLED',"");	// < Dec/24 *
+			localStorage.setItem('lsEDITED',"");	// < Oct/25 *
 			
 			for (var H = 1; H < 19; H++) { 	//clear hole flags & hole par changes (Oct/25):
 				localStorage.setItem("lsFLAGh"+H,"n");
@@ -1618,7 +1634,23 @@
 			for (let i = 0; i < arrayLEN; i++) {
 				document.getElementById(array[i]).style.border = "2px solid red";
 			}
-		}	
+		}
+	
+		/* Get Edits (Oct/25) */
+		var EDITstring = localStorage.getItem('lsEDITED');
+		var EDITarray = EDITstring.split(",");
+		    /*alert("Trying to find previous round EDITed holes . .\n\n"+
+			"localStorage 'lsEDITED' = \n"+localStorage.getItem('lsEDITED')+"\n\n"+
+			"1st EDITarray element = " + EDITarray[0]);*/
+		let EDITarrayLEN = EDITarray.length;	//alert("'lsEDITED' EDITarrayLEN = " + EDITarrayLEN);
+		
+		if ( EDITarray[0] != '' ) {	
+			for (let i = 0; i < EDITarrayLEN; i++) {
+				document.getElementById(EDITarray[i]).style.background = "brown";
+			}
+		}
+	
+		
 	}
 	
 	function remCOLORS() {
@@ -2501,8 +2533,9 @@
 		document.getElementById("SLIDER").style.visibility="hidden";
 		
 		replace(); pHCcolors(); restrictTAB(); 
+		//circleMAXs25();
 		calcALL(); calcTOTALS(); 
-		//showPARTIAL();
+			//showPARTIAL();
 		circleMAXs25();
 			//circleMAXs();
 			
@@ -2526,6 +2559,7 @@
 					"lsPARh"+H+" = '" + localStorage.getItem('lsPARh'+H) + "'!" );
 					document.getElementById("PARh"+H).value = localStorage.getItem("lsPARh"+H);
 					document.getElementById("TDparH"+H).style.background = "orange";
+					calcALL(); calcTOTALS(); // < ?? Nov/25
 			}	//localStorage.getItem("lsPARh"+h);
 		}
 		
@@ -2944,6 +2978,10 @@ else {
 					document.getElementById("SPp1h5").innerText = "7";
 				}*/
 				document.getElementById(SPid).innerText = SPnew;
+					document.getElementById(SPid).style.background = "orange";
+					document.getElementById(SPid).style.color = "black";
+				//calcALL(); calcTOTALS(); 
+				calcTOTALS();
 			}	
 			
 	}
