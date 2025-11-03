@@ -70,7 +70,7 @@
 	  z-index:100;
   	}	
 	div.SLIDERdiv {
-		border:3px inset orange; border-radius:5px; width:100%; margin:auto; text-align:center; padding:10px; background:beige; visibility:hidden;    /* width:90%; (to Nov/25) */
+		border:3px inset orange; border-radius:5px;  width:60%; float:right;  margin:auto; text-align:center; padding:10px; background:beige; visibility:hidden;    /* width:90%; (to Nov/25) */
 					/* position:fixed; left:50%; transform:translate(-50%,0); top:10%; */
 	}
 	div.classLSwrite { position:fixed; left:50%; transform:translate(-50%,0); top:10%;
