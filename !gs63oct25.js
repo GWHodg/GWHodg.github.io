@@ -1032,12 +1032,7 @@
 		//	   "Content of "+SCRinput+" element = "+entry);			
 		if ( +entry > 0 ) {
 			document.getElementById(SCRinput).setAttribute('readonly', 'true');
-			if ( (document.getElementById("TD"+SCRinput).style.background!='yellow') && (document.getElementById("TD"+SCRinput).style.background!='beige') && (document.getElementById("TD"+SCRinput).style.background!='brown')  ) {
-							document.getElementById("TD"+SCRinput).style.background='aqua'; // < orig to Nov/25!
-							//document.getElementById('TD'+"p"+p+"h"+h).style.background='yellow'; // < Nov/25!
-			}
-					//document.getElementById('TD'+SCRinput).style.background='aqua';
-			
+			document.getElementById('TD'+SCRinput).style.background='aqua';
 		}		//TDp3h5
 		/*if ( s > 0 ) {
 			document.getElementById('p'+p+'h'+h).setAttribute('readonly', 'true');
@@ -1331,7 +1326,6 @@
 		
 	}	
 
-	//const slidersARRAY = new Array();
 	function replace() {	 
 		/* onchange: */
 		document.getElementById("DATE").value = localStorage.getItem("DATE");
@@ -1414,44 +1408,17 @@
 				document.getElementById("p5h"+h).value = localStorage.getItem("g5H"+h+"s");						
 		}
 
+
 		for (var h = 1; h < 19; h++) {	
 			for (var p = 1; p<6; p++) {	
 				var entry = +document.getElementById("p"+p+"h"+h).value;
 						//alert ("In 'replace' function! \n'SCRinput' variable = "+SCRinput+"\n"+
 						//	   "Content of "+SCRinput+" element = "+entry);			
 				if ( +entry > 0 ) {
-					//alert("'entry' var = "+entry):
 					document.getElementById("p"+p+"h"+h).setAttribute('readonly', 'true');
-					if ( (document.getElementById("TDp"+p+"h"+h).style.background!='yellow') && (document.getElementById("TDp"+p+"h"+h).style.background!='beige') && (document.getElementById("TDp"+p+"h"+h).style.background!='brown')  ) {
-							document.getElementById('TD'+"p"+p+"h"+h).style.background='aqua'; // < orig to Nov/25!
-							//document.getElementById('TD'+"p"+p+"h"+h).style.background='yellow'; // < Nov/25!
-					}
+					document.getElementById('TD'+"p"+p+"h"+h).style.background='aqua';
 				}		//TDp3h5
 			}	
-		}
-		
-		//MAKE ALL SLIDER INPUTS YELLOW (Nov/25):
-				//localStorage.setItem("lsSLIDERS","");	
-		//const slidersARRAY = new Array();
-		//slidersARRAY.push(localStorage.getItem("lsSLIDERS"));	
-			var slidersSTRING = localStorage.getItem("lsSLIDERS");
-				//alert("slidersSTRING = "+slidersSTRING);
-			let slidersARRAY = slidersSTRING.split(',');
-		if ( document.getElementById("check").style.visibility == "visible" ) {
-			slidersARRAY.push("TD"+GLOBALinput); 
-//			localStorage.setItem("lsSLIDERS",slidersARRAY);	
-				//alert("slidersARR = "+slidersARRAY);
-//			for (let i = 0; i < slidersARRAY.length; i++) {
-				//alert("slidersARRAY el # " + i + " = '" + slidersARRAY[i] + "'!");
-//				document.getElementById(slidersARRAY[i]).style.background='yellow'; // < Nov/25!	
-//			}
-			//document.getElementById("TD"+GLOBALinput).style.background='yellow'; // < Nov/25!	
-		}
-		localStorage.setItem("lsSLIDERS",slidersARRAY);	
-				//alert("slidersARR = "+slidersARRAY);
-		for (let i = 1; i < slidersARRAY.length; i++) {
-				//alert("slidersARRAY el # " + i + " = '" + slidersARRAY[i] + "'!");
-				document.getElementById(slidersARRAY[i]).style.background='yellow'; // < Nov/25!	
 		}
 		
 		calcALL();
@@ -1460,30 +1427,7 @@
 		hideMENU();
 			 		
 	}
-	function clrSLDR() {
-		//alert("Will try to CLEAR slider-created YELLOW flags!");
-		  let reply;
-		  if (confirm("Are you SURE you want to CLEAR all slider-created YELLOW flags?") == true) {
-		    reply = "YES!";
-		  } else {
-		    reply = "NO!";
-		  }
-  		  alert(reply);			  
-		if ( reply=="YES!") {			
-			for (var h = 1; h < 19; h++) {	
-				for (var p = 1; p<6; p++) {	
-					var entry = +document.getElementById("p"+p+"h"+h).value;
-					if ( +entry > 0 ) {
-						if ( (document.getElementById("TDp"+p+"h"+h).style.background=='yellow') ) {
-							document.getElementById('TD'+"p"+p+"h"+h).style.background='aqua'; 
-						}
-					}		
-				}	
-			}
-			localStorage.setItem("lsSLIDERS","");	
-		}
-	}
-	
+
 	function clearSAVED() {
 		/*alert("Will CLEAR 'saved' inputs here!\n\n"+
 			  "g1H1s PRE 'clear' = " + localStorage.getItem("g1H1s"));*/
@@ -1496,18 +1440,6 @@
   		  alert(reply);
 			  
 		if ( reply=="YES!") {
-
-			  let answer; var DELholeChgs;
-			  if (confirm("Do you want to include all HOLE CHANGES (pars/handicaps) in this deletion?") == true) {
-			    answer = "YES!";
-			  } else {
-			    answer = "NO!";
-			  }
-	  		  alert(answer);			  
-			  if ( answer=="YES!") {		
-					DELholeChgs = 'y';
-			  }
-
 			for (var h = 1; h < 19; h++) {
 					for (var n = 1; n < 6; n++) {
 						localStorage.setItem('g'+n+'H'+h+'s',""); document.getElementById("p"+n+"h"+h).value = "";
@@ -1545,38 +1477,13 @@
 			localStorage.setItem('lsCIRCLED',"");	// < Dec/24 *
 			localStorage.setItem('lsEDITED',"");	// < Oct/25 *
 			
-			for (var H = 1; H < 19; H++) { 	//clear hole flags & hole par & hcp changes (Oct/25):
+			for (var H = 1; H < 19; H++) { 	//clear hole flags & hole par changes (Oct/25):
 				localStorage.setItem("lsFLAGh"+H,"n");
-				//localStorage.setItem("lsPARh"+H,"");		//null);
-				//localStorage.setItem("lsHCPh"+H,""); // < Nov/25 *
+				localStorage.setItem("lsPARh"+H,"");		//null);
 			}
-			
-			if ( DELholeChgs=="y" ) {
-				for (var H = 1; H < 19; H++) {
-					localStorage.setItem("lsPARh"+H,"");		//null);
-					localStorage.setItem("lsHCPh"+H,""); // < Nov/25 *			
-					//for (var n = 1; n < 6; n++) {
-					document.getElementById("TDparH"+H).style.background = "beige";
-					document.getElementById("TDhcpH"+H).style.background = "beige";
-						//localStorage.setItem("SBFDg"+n+"h"+h,""); 		
-					//}	
-				}
-			}		
 			
 		}
 		
-		//	try to CLEAR slider-created YELLOW flags:
-		for (var h = 1; h < 19; h++) {	
-			for (var p = 1; p<6; p++) {	
-				var entry = +document.getElementById("p"+p+"h"+h).value;
-				if ( +entry > 0 ) {
-					if ( (document.getElementById("TDp"+p+"h"+h).style.background=='yellow') ) {
-						document.getElementById('TD'+"p"+p+"h"+h).style.background='aqua'; 
-					}
-				}		
-			}	
-		}
-		localStorage.setItem("lsSLIDERS","");	
 		
 		//localStorage.setItem('lsCIRCLED',"");	// < Dec/24 *
 		
@@ -1735,28 +1642,19 @@
 		    /*alert("Trying to find previous round EDITed holes . .\n\n"+
 			"localStorage 'lsEDITED' = \n"+localStorage.getItem('lsEDITED')+"\n\n"+
 			"1st EDITarray element = " + EDITarray[0]);*/
-		let EDITarrayLEN = EDITarray.length;	//alert("'lsEDITED' EDITarrayLEN = " + EDITarrayLEN);		
+		let EDITarrayLEN = EDITarray.length;	//alert("'lsEDITED' EDITarrayLEN = " + EDITarrayLEN);
+		
 		if ( EDITarray[0] != '' ) {	
 			for (let i = 0; i < EDITarrayLEN; i++) {
 				document.getElementById(EDITarray[i]).style.background = "brown";
 			}
 		}
 	
-		/* Get SLIDER INPUTS (Nov/25) */
-/*		var SLIDERstring = localStorage.getItem('lsSLIDERS');
-			alert("'SLIDERstring' (fr lsSLIDERS in circleMAXs25() = " + SLIDERstring);
-		var SLIDERarray = SLIDERstring.split(",");
-		let SLIDERarrayLEN = SLIDERarray.length;	
-		if ( SLIDERarray[0] != '' ) {	
-			for (let i = 0; i < SLIDERarrayLEN; i++) {
-				document.getElementById(SLIDERarray[i]).style.background = "moccasin";
-			}
-		}		
-*/		
+		
 	}
 	
 	function remCOLORS() {
-		//alert("Will try to REMOVE hole stroke colors!"); // < deleted Nov/25 **
+		alert("Will try to REMOVE hole stroke colors!");
 		for (var h = 1; h < 19; h++) {
 			document.getElementById("p1h"+h).style.background = "linen";
 				document.getElementById("p1h"+h).style.color = "black";
@@ -2507,7 +2405,7 @@
 
 	function EnterInput() {
 		var currentInput = document.getElementById('p&h').value;
-		//alert("Will try to ENTER input to 'localStorage'!\n\tcurrentInput = '"+currentInput+"'!");
+		//alert("Will try to ENTER input to 'localStorage'!\n\tcurrentInput = "+currentInput);
 		
 		var P1 = localStorage.getItem('g1NAME');
 		var P2 = localStorage.getItem('g2NAME');
@@ -2538,8 +2436,7 @@
 
 		
 		document.getElementById('p'+cPno+'h'+cH).setAttribute('readonly', 'true');
-		document.getElementById('TDp'+cPno+'h'+cH).style.background='yellow';  // < Nov/25
-		//document.getElementById('TDp'+cPno+'h'+cH).style.background='aqua';
+		document.getElementById('TDp'+cPno+'h'+cH).style.background='aqua';
 			//document.getElementById('TDp'+cPno+'h'+cH).style.background='gold';
 		document.getElementById('lastFOCUS').value = 'p'+cPno+'h'+cH;
 		
@@ -2657,26 +2554,13 @@
 		
 		for (H=1; H<19; H++) {	/* Added Oct/25: CHANGE HOLE PAR! */
 			if ( document.getElementById("PARh"+H).value!=localStorage.getItem("lsPARh"+H) && ( localStorage.getItem("lsPARh"+H) != null )  && ( localStorage.getItem("lsPARh"+H) != "null" )  && ( localStorage.getItem("lsPARh"+H) != "" ) ) {
-				/*alert("PARh"+H+" does NOT equal "+"lsPARh"+H+"!\n"+
+				alert("PARh"+H+" does NOT equal "+"lsPARh"+H+"!\n"+
 					"PARh"+H+" = "+document.getElementById('PARh'+H).value +"\n"+
-					"lsPARh"+H+" = '" + localStorage.getItem('lsPARh'+H) + "'!" );*/
+					"lsPARh"+H+" = '" + localStorage.getItem('lsPARh'+H) + "'!" );
 					document.getElementById("PARh"+H).value = localStorage.getItem("lsPARh"+H);
 					document.getElementById("TDparH"+H).style.background = "orange";
 					calcALL(); calcTOTALS(); // < ?? Nov/25
 			}	//localStorage.getItem("lsPARh"+h);
-		}
-		for (H=1; H<19; H++) {	/* Added Nov/25: CHANGE HOLE HCP! */
-			if ( document.getElementById("HCPh"+H).value!=localStorage.getItem("lsHCPh"+H) && ( localStorage.getItem("lsHCPh"+H) != null )  && ( localStorage.getItem("lsHCPh"+H) != "null" )  && ( localStorage.getItem("lsHCPh"+H) != "" ) ) {
-				/*alert("HCPh"+H+" does NOT equal "+"lsHCPh"+H+"!\n"+
-					"HCPh"+H+" = "+document.getElementById('HCPh'+H).value +"\n"+
-					"lsHCPh"+H+" = '" + localStorage.getItem('lsHCPh'+H) + "'!" );*/
-					document.getElementById("HCPh"+H).value = localStorage.getItem("lsHCPh"+H);
-					document.getElementById("TDhcpH"+H).style.background = "orange";
-					pHCcolors(); 
-					//alert("Will now REPLACE stroke colors . . ."); 
-						pHCcolors(); // < ??	
-					calcALL(); calcTOTALS(); 
-			}	
 		}
 		
 		for (H=1; H<19; H++) {	/* Added Oct/25: FLAG HOLE! */

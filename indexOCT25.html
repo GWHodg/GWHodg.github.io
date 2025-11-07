@@ -87,11 +87,7 @@
 			  "'Pull-to-refresh' deactivated (CSS) √\n"+
 			  "Edit Stablefords: 'SP Edit' (SPp1h5) > orange > totaled [editSP()]\n\n"+
 			  "Flag hole: click hole # (red <> beige): cellTOslide(P,H); loadFN(); clearSAVED().\n\n"+
-			  "Edit Holes (pars): editHOLES(); chgHpar(h); loadFN(); clearSAVED(). [needed to re-do SPs & Ts - in loadFN() & chgHpar(h)]\n\n"+
-			  "SLIDER ('25): enterInput(); replace(); circleMAXs25(); clearSAVED().\n\n");
-		alert("Edit Holes (HCs): editHOLES(); chgHhcp(h); loadFN(); clearSAVED(). [?? need to re-do SPs & Ts - in 		   loadFN() & chgHhcp(h); ?? need to include load player hcp color chg - inserted pHCcolors() X 2 in 		loadFN(); remCOLORS() used!]\n\n"+
-			  "");
-		
+			  "Edit Holes: editHOLES(); chgHpar(h); loadFN(); clearSAVED(). [needed to re-do SPs & Ts w/ reload - in loadFN()}\n\n");
 	}
 
 	function addTIP() {
@@ -169,21 +165,7 @@
 		document.getElementById("TDparH"+h).style.background = "orange";
 		localStorage.setItem("lsPARh"+h,p);
 		var newPAR = localStorage.getItem("lsPARh"+h);
-			alert("New p for h"+h+" (fr ls) = "+newPAR);		
-		calcALL(); calcTOTALS(); // < ?? Nov/25 **
-	}
-	function chgHhcp(h) {
-		var hc = document.getElementById("HCPh"+h).value;
-		alert("HC of hole # " + h + " WAS changed!\n\tNew HC = "+ hc + ".");
-		document.getElementById("TDhcpH"+h).style.background = "orange";
-		localStorage.setItem("lsHCPh"+h,hc);
-		var newHC = localStorage.getItem("lsHCPh"+h);
-			alert("New HC for h"+h+" (fr ls) = "+newHC);
-			
-		pHCcolors(); 
-		alert("Will now REPLACE stroke colors . . ."); pHCcolors(); // < ??	
-			
-		calcALL(); calcTOTALS(); // < ?? Nov/25 **
+			alert("New p for h"+h+" (fr ls) = "+newPAR);
 	}
 	
 	function note() {
@@ -413,9 +395,7 @@
 							  <div><button id='TABbtn' onclick="restrictTAB()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;">Inputs+/-<!--Disable/Enable Inputs--></button></div>
 							  
 							  <div><button onclick="remREADONLY()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Input<br>Edit<!--Enable Input Edit--></button></div>
-							  <div><button id='SLIDEbtn' onclick="showSLIDER()" style="FONT-WEIGHT:bold; FONT-SIZE:12px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">Slide<!--Slider Input +/--></button><span style="" onclick="clrSLDR()">X</span>
-								  <!--<button id='clearSLIDERS' onclick="clrSLDR()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:white; background:green; border:2px solid orange; border-radius:10px; opacity:100%;">Clear</button>-->
-							  </div>
+							  <div><button id='SLIDEbtn' onclick="showSLIDER()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">Slider<br>&emsp;<!--Slider Input +/--></button></div>
 							  <div><button id='DROPbtn' onclick="showDROP()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:white; background:slategray; border:2px solid black; border-radius:10px; opacity:100%;">Drop<br>&emsp;<!--Drop Box!--></button></div>
 							  <div><button id='HOLEbtn' onclick="editHOLES()" style="FONT-WEIGHT:bold; FONT-SIZE:10px; COLOR:white; background:red; border:1px solid black; border-radius:10px;">Edit Holes<!--Edit Holes +--></button><br>
 								  <button id='editSPbtn' onclick="editSP()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:yellow; background:black; border:1px solid red; border-radius:10px; opacity:100%;">SP Edit</button>
@@ -456,7 +436,7 @@
 	
 	
 <TABLE id="HEADtbl" border=1 align=center style='FONT-SIZE:large; color:maroon; visibility:visible;' bgcolor='lightgray'>	
-<TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:gold; background:purple; FONT-WEIGHT:bold;" >VGC '26<br><font size=2 color=silver><b>Nov25<font color=gold>&#9733;<!--&#10024;--></font></b></font>	<!--rev index</b></font>-->
+<TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:gold; background:purple; FONT-WEIGHT:bold;" >VGC '26<br><font size=2 color=silver><b>Nov/25</b></font>	<!--rev index</b></font>-->
 	<!--<label style="FONT-WEIGHT: bold; FONT-SIZE:25px; COLOR:white; background:royalblue; border:3px solid black; border-radius:10px; opacity:100%; padding:5px;">VGC blue </label>-->
 </TD> <!--<TD width=20><font size=1>93i</font></TD>	-->
 	<!--<span style="font-size:30px;cursor:pointer; color:blue; background:white; position:relative; left:38%;" onclick="openMENU()">&#9776;</span>-->	<!-- position:absolute; LEFT:750px; top:30px;  -->
@@ -533,8 +513,8 @@
 				<TD id="TDparH1" style='background:white; color:black;'>
 					<input type="" id="PARh1" style="background:white; color:black; width:60%;" placeholder=5 value=5 onchange="chgHpar('1')" readonly>
 				</TD>
-				<TD id="TDhcpH1"  style='background:white; color:black;'>
-					<input type="" id="HCPh1" style="background:white;  border:0px dotted black; color:red; width:50%;" placeholder=14 value=14 onchange="chgHhcp('1')" readonly> <!-- old = 13; width:11px; font-size:15px; -->
+				<TD style='background:white; color:black;'>
+					<input type="" id="HCPh1" style="background:white;  border:0px dotted black; color:red; width:50%;" placeholder=14 value=14 readonly> <!-- old = 13; width:11px; font-size:15px; -->
 				</TD>
 				
 			</tr>
@@ -551,8 +531,8 @@
 				<TD id="TDparH2" style='background:white; color:black;'>
 					<input id="PARh2" style="background:white; color:black; width:60%;" onchange="chgHpar('2')" placeholder=3 value=3 readonly>
 				</TD>
-				<TD id="TDhcpH2" style='background:white; color:black;'>
-					<input  id="HCPh2" style="background:white; border:0px dotted black;  color:red; width:50%; cursor:help;" placeholder=16 value=16 onchange="chgHhcp('2')" readonly>
+				<TD style='background:white; color:black;'>
+					<input  id="HCPh2" style="background:white; border:0px dotted black;  color:red; width:50%; cursor:help;" placeholder=16 value=16 readonly>
 								<!-- old= 17; onclick="location.href='GSmacSPLSH.html'" title="> GSmacSPLSH.html " -->
 				</TD>
 			</tr>				
@@ -569,8 +549,8 @@
 				<TD id="TDparH3" style='background:white; color:black;'>
 					<input type="" id="PARh3" style="background:white; color:black; width:60%;" placeholder=4 value=4  onchange="chgHpar('3')" readonly>
 				</TD>
-				<TD id="TDhcpH3" style='background:white; color:black;'>
-					<input type="" id="HCPh3" style="background:white;  border:0px dotted black; color:red; width:50%;" placeholder=2 value=2 onchange="chgHhcp('3')" readonly>
+				<TD style='background:white; color:black;'>
+					<input type="" id="HCPh3" style="background:white;  border:0px dotted black; color:red; width:50%;" placeholder=2 value=2 readonly>
 				</TD>				
 				<!--old= 1; <TD style='background:white; color:black;'>4</TD> <TD style='background:white; color:black;'>1</TD>-->
 			</tr>	
@@ -588,8 +568,8 @@
 				<TD  id="TDparH4" style='background:white; color:black;'>
 					<input type="" id="PARh4" style="background:white; color:black; width:60%;" placeholder=4 value=4  onchange="chgHpar('4')" readonly>
 				</TD>
-				<TD id="TDhcpH4" style='background:white; color:black;'>
-					<input type="" id="HCPh4" style="background:white;  border:0px dotted black;  color:red; width:50%; cursor:help;" placeholder=6 value=6 onchange="chgHhcp('4')" readonly> 
+				<TD style='background:white; color:black;'>
+					<input type="" id="HCPh4" style="background:white;  border:0px dotted black;  color:red; width:50%; cursor:help;" placeholder=6 value=6 readonly> 
 						<!-- 5; title="WRITE localStorage to file!" onclick="showLSwrite()" -->
 						<!-- onclick="location.href='locStorMAC.html'" title="locStorMAC.html" -->
 				</TD>
@@ -606,9 +586,9 @@
 				<TD id="TDparH5" style='background:white; color:black;'>
 					<input type="" id="PARh5" style="background:white; color:black; width:60%;" placeholder=4 value=4  onchange="chgHpar('5')" readonly>
 				</TD>
-				<TD id="TDhcpH5" style='background:white; color:black;'>
+				<TD style='background:white; color:black;'>
 					<!--<input type="" id="HCPh5" style="background:white;  color:black; width:60%;" placeholder=7 value=7 readonly>-->
-					<input type="" id="HCPh5" style="background:white;  border:0px dotted black;  color:red; width:50%; cursor:help;" placeholder=8 value=8 onchange="chgHhcp('5')" readonly> <!--  7; title="READ localStorage from file!" onclick="showLSread()" -->
+					<input type="" id="HCPh5" style="background:white;  border:0px dotted black;  color:red; width:50%; cursor:help;" placeholder=8 value=8 readonly> <!--  7; title="READ localStorage from file!" onclick="showLSread()" -->
 				</TD>	
 				
 			</tr>	
@@ -622,8 +602,8 @@
 				<TD id="TDparH6" style='background:white; color:black;'>
 					<input type="" id="PARh6" style="background:white; color:black; width:60%;" placeholder=4 value=4 onchange="chgHpar('6')" readonly>
 				</TD>
-				<TD id="TDhcpH6" style='background:white; color:black;'>
-					<input type="" id="HCPh6" style="background:white;  border:0px dotted black;  color:red; width:50%; cursor:help;" placeholder=12 value=12 onchange="chgHhcp('6')" readonly> <!-- 11 -->
+				<TD style='background:white; color:black;'>
+					<input type="" id="HCPh6" style="background:white;  border:0px dotted black;  color:red; width:50%; cursor:help;" placeholder=12 value=12 readonly> <!-- 11 -->
 				</TD>										
 			</tr>	
 			<tr> <TH id="H7" style="cursor:pointer;" onclick="cellTOslide(1,7)" >7</TH> 
@@ -636,8 +616,8 @@
 				<TD id="TDparH7" style='background:white; color:black;'>
 					<input type="" id="PARh7" style="background:white; color:black; width:60%;" placeholder=4 value=4 onchange="chgHpar('7')" readonly>
 				</TD>
-				<TD id="TDhcpH7" style='background:white; color:black;'>
-					<input type="" id="HCPh7" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=4 value=4 onchange="chgHhcp('7')" readonly> <!-- 3 -->
+				<TD style='background:white; color:black;'>
+					<input type="" id="HCPh7" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=4 value=4 readonly> <!-- 3 -->
 				</TD>										
 			</tr>
 			<tr> <TH id="H8" style="cursor:pointer;" onclick="cellTOslide(1,8)" >8</TH> 
@@ -650,9 +630,9 @@
 				<TD id="TDparH8" style='background:white; color:black;'>
 					<input type="" id="PARh8" style="background:white; color:black; width:60%;" placeholder=3 value=3 onchange="chgHpar('8')" readonly>
 				</TD>
-				<TD id="TDhcpH8" style='background:white; color:black;'>
+				<TD style='background:white; color:black;'>
 					<!--<input type="" id="HCPh5" style="background:white;  color:black; width:60%;" placeholder=7 value=7 readonly>-->
-					<input type="" id="HCPh8" style="background:white;  border:0px dotted black;  color:red; width:50%; cursor:help;" placeholder=18 value=18 onchange="chgHhcp('8')" readonly> <!-- 15 -->
+					<input type="" id="HCPh8" style="background:white;  border:0px dotted black;  color:red; width:50%; cursor:help;" placeholder=18 value=18 readonly> <!-- 15 -->
 								<!-- title="READ localStorage from file!" onclick="showLSread()" -->
 				</TD>	
 							<!-- onclick="location.href='../JSpwd2.html'" title="JSpwd2.html" -->
@@ -670,8 +650,8 @@
 				<TD id="TDparH9" style='background:white; color:black;'>
 					<input type="" id="PARh9" style="background:white; color:black; width:60%;" placeholder=3 value=3 onchange="chgHpar('9')" readonly>
 				</TD>
-				<TD id="TDhcpH9" style='background:white; color:black;'>
-					<input type="" id="HCPh9" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=10 value=10 onchange="chgHhcp('9')" readonly> <!-- 9 -->
+				<TD style='background:white; color:black;'>
+					<input type="" id="HCPh9" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=10 value=10 readonly> <!-- 9 -->
 				</TD>										
 			</tr>	
 	
@@ -721,8 +701,8 @@
 				<TD id="TDparH10" style='background:white; color:black;'>
 					<input type="" id="PARh10" style="background:white; color:black; width:60%;" placeholder=4 value=4 onchange="chgHpar('10')" readonly>
 				</TD>
-				<TD id="TDhcpH10" style='background:white; color:black;'>
-					<input type="" id="HCPh10" style="background:white;  border:0px dotted black;  color:red; width:50%; cursor:help;" placeholder=5 value=5 onchange="chgHhcp('10')" readonly > <!-- 6; onclick="showSLIDE()" title="showSLIDE()" -->
+				<TD style='background:white; color:black;'>
+					<input type="" id="HCPh10" style="background:white;  border:0px dotted black;  color:red; width:50%; cursor:help;" placeholder=5 value=5 readonly > <!-- 6; onclick="showSLIDE()" title="showSLIDE()" -->
 				</TD>
 			</tr>
 			<tr>
@@ -737,8 +717,8 @@
 				<TD id="TDparH11" style='background:white; color:black;'>
 					<input type="" id="PARh11" style="background:white; color:black; width:60%;" placeholder=4 value=4 onchange="chgHpar('11')" readonly>
 				</TD>
-				<TD id="TDhcpH11" style='background:white; color:black;'>
-					<input type="" id="HCPh11" style="background:white;  border:0px dotted black;  color:red; width:50%; cursor:help;" placeholder=1 value=1 onchange="chgHhcp('11')" readonly> <!--  2; onclick="showNOTES()" title="Coding Notes" -->
+				<TD style='background:white; color:black;'>
+					<input type="" id="HCPh11" style="background:white;  border:0px dotted black;  color:red; width:50%; cursor:help;" placeholder=1 value=1 readonly> <!--  2; onclick="showNOTES()" title="Coding Notes" -->
 				</TD>
 			</tr>				
 			<tr> <TH id="H12" style="cursor:pointer;" onclick="cellTOslide(1,12)">12</TH> 
@@ -752,8 +732,8 @@
 				<TD id="TDparH12" style='background:white; color:black;'>
 					<input type="" id="PARh12" style="background:white; color:black; width:60%;" placeholder=5 value=5 onchange="chgHpar('12')" readonly>
 				</TD>
-				<TD id="TDhcpH12" style='background:white; color:black;'>
-					<input type="" id="HCPh12" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=11 value=11 onchange="chgHhcp('12')" readonly> <!-- 14 -->
+				<TD style='background:white; color:black;'>
+					<input type="" id="HCPh12" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=11 value=11 readonly> <!-- 14 -->
 				</TD>				
 				<!--<TD style='background:white; color:black;'>4</TD> <TD style='background:white; color:black;'>1</TD>-->
 			</tr>							
@@ -767,8 +747,8 @@
 				<TD id="TDparH13" style='background:white; color:black;'>
 					<input type="" id="PARh13" style="background:white; color:black; width:60%;" placeholder=3 value=3 onchange="chgHpar('13')" readonly>
 				</TD>
-				<TD id="TDhcpH13" style='background:white; color:black;'>
-					<input type="" id="HCPh13" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=15 value=15 onchange="chgHhcp('13')" readonly> <!-- 16 -->
+				<TD style='background:white; color:black;'>
+					<input type="" id="HCPh13" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=15 value=15 readonly> <!-- 16 -->
 				</TD>				
 			</tr>
 			<tr>
@@ -783,8 +763,8 @@
 				<TD id="TDparH14" style='background:white; color:black;'>
 					<input type="" id="PARh14" style="background:white; color:black; width:60%;" placeholder=3 value=3 onchange="chgHpar('14')" readonly>
 				</TD>
-				<TD id="TDhcpH14" style='background:white; color:black;'>
-					<input type="" id="HCPh14" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=9 value=9 onchange="chgHhcp('14')" readonly> <!-- 10 -->
+				<TD style='background:white; color:black;'>
+					<input type="" id="HCPh14" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=9 value=9 readonly> <!-- 10 -->
 				</TD>
 			</tr>
 			<tr>
@@ -799,8 +779,8 @@
 				<TD id="TDparH15" style='background:white; color:black;'>
 					<input type="" id="PARh15" style="background:white; color:black; width:60%;" placeholder=4 value=4 onchange="chgHpar('15')" readonly>
 				</TD>
-				<TD id="TDhcpH15" style='background:white; color:black;'>
-					<input type="" id="HCPh15" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=3 value=3 onchange="chgHhcp('15')" readonly> <!-- 4 -->
+				<TD style='background:white; color:black;'>
+					<input type="" id="HCPh15" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=3 value=3 readonly> <!-- 4 -->
 				</TD>
 			</tr>
 			<tr>
@@ -815,8 +795,8 @@
 				<TD id="TDparH16" style='background:white; color:black;'>
 					<input type="" id="PARh16" style="background:white; color:black; width:60%;" placeholder=4 value=4 onchange="chgHpar('16')" readonly>
 				</TD>
-				<TD id="TDhcpH16" style='background:white; color:black;'>
-					<input type="" id="HCPh16" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=13 value=13 onchange="chgHhcp('16')" readonly> <!-- 12 -->
+				<TD style='background:white; color:black;'>
+					<input type="" id="HCPh16" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=13 value=13 readonly> <!-- 12 -->
 				</TD>
 			</tr>
 			<tr>
@@ -831,8 +811,8 @@
 				<TD id="TDparH17" style='background:white; color:black;'>
 					<input type="" id="PARh17" style="background:white; color:black; width:60%;" placeholder=5 value=5 onchange="chgHpar('17')" readonly>
 				</TD>
-				<TD id="TDhcpH17" style='background:white; color:black;'>
-					<input type="" id="HCPh17" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=17 value=17 onchange="chgHhcp('17')" readonly> <!-- 18 -->
+				<TD style='background:white; color:black;'>
+					<input type="" id="HCPh17" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=17 value=17 readonly> <!-- 18 -->
 				</TD>
 			</tr>
 			<tr>
@@ -847,8 +827,8 @@
 				<TD id="TDparH18" style='background:white; color:black;'>
 					<input type="" id="PARh18" style="background:white; color:black; width:60%;" placeholder=4 value=4 onchange="chgHpar('18')" readonly>
 				</TD>
-				<TD id="TDhcpH18" style='background:white; color:black;'>
-					<input type="" id="HCPh18" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=7 value=7 onchange="chgHhcp('18')" readonly> <!-- 8 -->
+				<TD style='background:white; color:black;'>
+					<input type="" id="HCPh18" style="background:white;  border:0px dotted black;  color:red; width:50%;" placeholder=7 value=7 readonly> <!-- 8 -->
 				</TD>
 			</tr>
 
