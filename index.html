@@ -71,6 +71,10 @@
 	  overflow: auto;
 	  white-space: nowrap;
 	  border: 3px solid black;
+	  /* height: 30%; width: 0; */   /* height: 100%; */
+	  position:fixed; z-index:1;
+	  top:620px;	/* 570px; (Oct/25) */			/* = 400 pre Oct/24 */ 
+			  
 	}	​
 	div.scrollmenu a {
 	  display: inline-block;
@@ -412,71 +416,42 @@
 <body class="body" style="background-color:white;"  onload="loadFN()" > <!--  zoom:250%; -->
 	
 <div class="wrapper"><!-- Put the page contents here -->
-
+				<!--
 				<div id="mySidenav" class="sidenav"  style='opacity:1.0; border-right:5px solid brown;'>
-																						<!-- red; -->
-							<!--
-							&nbsp;&nbsp; &#127948;
-							<font size=2 face="papyrus" color=lime>Golf Score</font>
-					  		<font size=3 face="papyrus" color=lime> Menu</font>
-							<span style="float:right;"><button class="" onclick="closeNav()">&times;</button></span><br>
-						    -->
 						<div class="grid-container">
-							  <!--<div><a><button style="color:blue; cursor:pointer;" onclick="calcALL()">Points</button></a></div>
-							  <div><button id='calcTOTbtn' onclick="calcTOTALS()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;"><u><b>TOTALS</b></u></button></div>-->
-							  <div><button id='calcALLbtn' onclick="calcALL()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:white; background:blue; border:3px solid black; border-radius:10px; opacity:95%;"><u>SF<!--STABLEFORD Points--></u></button></div>
-							  <div><button id='calcTOTbtn' onclick="calcTOTALS()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;"><u>T<!--TOTALS--></u></button></div>
-							  <div><button id='STROKESbtn' onclick="pHCcolors()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;">Strokes</button><!--Display Stroke Holes--></div>
-							  <div><button id='TABbtn' onclick="restrictTAB()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;">Inputs+/-<!--Disable/Enable Inputs--></button></div>
-							  
-							  <div><button onclick="remREADONLY()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Input<br>Edit<!--Enable Input Edit--></button></div>
-							  <div><button id='SLIDEbtn' onclick="showSLIDER()" style="FONT-WEIGHT:bold; FONT-SIZE:12px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">Slide<!--Slider Input +/--></button><span style="" onclick="clrSLDR()">X</span>
-								  <!--<button id='clearSLIDERS' onclick="clrSLDR()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:white; background:green; border:2px solid orange; border-radius:10px; opacity:100%;">Clear</button>-->
+							  <div><button id='calcALLbtn' onclick="calcALL()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:white; background:blue; border:3px solid black; border-radius:10px; opacity:95%;"><u>SF</u></button></div>
+							  <div><button id='calcTOTbtn' onclick="calcTOTALS()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;"><u>T</u></button></div>
+							  <div><button id='STROKESbtn' onclick="pHCcolors()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;">Strokes</button></div>
+							  <div><button id='TABbtn' onclick="restrictTAB()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;">Inputs+/-</button></div>
+							  <div><button onclick="remREADONLY()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Input<br>Edit</button></div>
+							  <div><button id='SLIDEbtn' onclick="showSLIDER()" style="FONT-WEIGHT:bold; FONT-SIZE:12px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">Slide</button><span style="" onclick="clrSLDR()">X</span>
 							  </div>
-							  <div><button id='DROPbtn' onclick="showDROP()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:white; background:slategray; border:2px solid black; border-radius:10px; opacity:100%;">Drop<br>&emsp;<!--Drop Box!--></button></div>
-							  <div><button id='HOLEbtn' onclick="editHOLES()" style="FONT-WEIGHT:bold; FONT-SIZE:10px; COLOR:white; background:red; border:1px solid black; border-radius:10px;">Edit Holes<!--Edit Holes +--></button><br>
+							  <div><button id='DROPbtn' onclick="showDROP()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:white; background:slategray; border:2px solid black; border-radius:10px; opacity:100%;">Drop<br>&emsp;</button></div>
+							  <div><button id='HOLEbtn' onclick="editHOLES()" style="FONT-WEIGHT:bold; FONT-SIZE:10px; COLOR:white; background:red; border:1px solid black; border-radius:10px;">Edit Holes</button><br>
 								  <button id='editSPbtn' onclick="editSP()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:yellow; background:black; border:1px solid red; border-radius:10px; opacity:100%;">SP Edit</button>
 							  </div>
-
-							 <div><button id='CLEARbtn' onclick="clearSAVED()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><s>saved X</s><!--CLEAR 'saved' scores--></button></div> 
-							 <div><button id='ADDbtn' onclick="showADDIN(),addTIP()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:ivory; background:slategray; border:2px solid black; border-radius:10px; opacity:100%;">Add<!--Add-in!--></button></div> 
-							 <div><button id='FreezeHCbtn' onclick="freeze()" style="FONT-WEIGHT:normal; FONT-SIZE:12px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">HC freeze<!--+/- freeze HC input--></button>
+							 <div><button id='CLEARbtn' onclick="clearSAVED()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><s>saved X</s></button></div> 
+							 <div><button id='ADDbtn' onclick="showADDIN(),addTIP()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:ivory; background:slategray; border:2px solid black; border-radius:10px; opacity:100%;">Add</button></div> 
+							 <div><button id='FreezeHCbtn' onclick="freeze()" style="FONT-WEIGHT:normal; FONT-SIZE:12px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">HC freeze</button>
 							  </div>
-							  <div><button onclick="displayP5()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:10px;'>P5+/-<!--5th Player +/--></button></div>							  
-							  
-							  <div><button id='REPLACEbtn' onclick="replace()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">SAVED<!--insert SAVED scores--></button></div>
+							  <div><button onclick="displayP5()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:10px;'>P5+/-</button></div>							  
+							  <div><button id='REPLACEbtn' onclick="replace()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">SAVED</button></div>
 							  <div><button onclick="HELP()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Help</button></div>
-							  <div><button id='PARTbtn' onclick="showPARTIAL()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">PARTrd<!--PARTial Round--></button></div>							  
+							  <div><button id='PARTbtn' onclick="showPARTIAL()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">PARTrd</button></div>							  
 							  <div>
 								    <button id='BOOKbtn' onclick="book()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:white; background:maroon; border:2px solid black; border-radius:10px; opacity:100%;">BOOK</button>
-							  		<!--<A href="indexCOPYbook24.html" style='color:maroon;'>BOOK!</A>-->
 							  </div>
-							 
-							  <div><button onclick="showHCs()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:10px;'>pHCs<!--Player Handicaps--></button></div>							  
-
-							  <div><button id='NOTEbtn' onclick="note()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:black; background:yellow; border:2px solid black; border-radius:10px; opacity:100%;"><b>NOTE</b><!--+/- note--></button></div>
-							  
-							  <div><button id='CLEARbtn' onclick="showLSread()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">READ<!--READ file--></button></div>
-							  
-							  <!--<div><A href="../index.html" style='color:maroon;'>snigd'Oh</A></div>-->
-							  <div><button id='REPLACEbtn'  onclick="showLSwrite()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">WRITE<!--WRITE scores to file--></button></div>
-							  
-							  <!--<div><button onclick="remREADONLY()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Input Edit</button></div>-->
-							  
-							  
+							  <div><button onclick="showHCs()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:10px;'>pHCs</button></div>
+							  <div><button id='NOTEbtn' onclick="note()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:black; background:yellow; border:2px solid black; border-radius:10px; opacity:100%;"><b>NOTE</b></button></div>
+							  <div><button id='CLEARbtn' onclick="showLSread()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">READ</button></div>
+							  <div><button id='REPLACEbtn'  onclick="showLSwrite()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">WRITE</button></div>
 						</div> 
 				</div>
-	
-	
-	
-	
-	
-	
+				-->
+				
 <TABLE id="HEADtbl" border=1 align=center style='FONT-SIZE:large; color:maroon; visibility:visible;' bgcolor='lightgray'>	
-<TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:gold; background:purple; FONT-WEIGHT:bold;" >VGC '26<br><font size=2 color=silver><b>Nov25<font color=gold>&#9733;<!--&#10024;--></font></b></font>	<!--rev index</b></font>-->
-	<!--<label style="FONT-WEIGHT: bold; FONT-SIZE:25px; COLOR:white; background:royalblue; border:3px solid black; border-radius:10px; opacity:100%; padding:5px;">VGC blue </label>-->
+	<TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:gold; background:purple; FONT-WEIGHT:bold;" >VGC '26<br><font size=2 color=silver><b>Nov25<font color=gold>&#9733;<!--&#10024;--></font></b></font>	
 </TD> <!--<TD width=20><font size=1>93i</font></TD>	-->
-	<!--<span style="font-size:30px;cursor:pointer; color:blue; background:white; position:relative; left:38%;" onclick="openMENU()">&#9776;</span>-->	<!-- position:absolute; LEFT:750px; top:30px;  -->
 <TD>
 					<div class="dropup" style="cursor:pointer; color:black; background:lightgray; /*position:relative; left:18%;*/">
 						  <button class="dropbtn" id='menuBTN' onclick="openNav()" style="background:white;"> <!--  onclick="showMENU('tipMENU'); openNav()" -->
@@ -495,11 +470,6 @@
 	<!--<A href="SNIGmatch.html" style='color:maroon;'>Matches</A>-->
 	<button id='LSsbfdbtn' onclick="setLSsbfd()" style="FONT-WEIGHT:normal; FONT-SIZE:12px; COLOR:white; background:blue; border:2px solid black; border-radius:5px; opacity:100%;">Matches</button>
 	
-				<!--
-				<span style="float:right; padding-right:5px; cursor:pointer; background:transparent; color:blue; font-size:20px;">
-						<a onclick="CLOSEapp()"><b>X</b>&times;</a>
-				</span><br>
-				-->
 </TD></TR>
 </TABLE>
 
@@ -513,11 +483,6 @@
 				<th><input type="text" id="p3NAME" onchange="localStorage.setItem('g3NAME',this.value);"  tabindex="205" style="background:whitesmoke; width:60%;" maxlength=2 value=""></th> 
 				<th><input type="text" id="p4NAME" onchange="localStorage.setItem('g4NAME',this.value);"  tabindex="207" style="background:whitesmoke; width:60%; maxlength=2" value=""></th>
 				<th id="TDp5NAME"><input type="text" id="p5NAME" onchange="localStorage.setItem('g5NAME',this.value);"  tabindex="209" style="background:whitesmoke; width:60%; maxlength=2"></th>	
-							<!-- <onblur="setHC('p1',this.value)"
-								 onblur="setHC('p2',this.value)"
-								 onblur="setHC('p3',this.value)"
-								 onblur="setHC('p4',this.value)"
-								 onblur="setHC('p5',this.value)" -->
 				<th>Sf</th>
 				<th>p</th>
 				<th>hc</th>	
@@ -1686,31 +1651,24 @@
 	<div class="scrollmenu">
 	  <a style="color:red; font-size:30px;" onclick="calcALL()">SFpts</a>
 	  <a style="color:green; font-size:30px;" onclick="calcTOTALS()">Totals</a>
-	  <a style="color:red; font-size:30px;"onclick="pHCcolors()">Strokes</a>
-	  <button id='TABbtn' onclick="restrictTAB()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;">Inputs+/-</button>	
-	  
-	  <a style="color:red; font-size:30px;" onclick="remREADONLY()">InputEdit</a>
+	  <button id='STROKESbtn' onclick="pHCcolors()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;">Strokes</button>
+	  <button id='TABbtn' onclick="restrictTAB()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;">Inputs+/-</button>		  
 	  <a onclick="showSLIDER()">Slider</a>
 	  	<a onclick="clrSLDR()">SlideX</a>
-	  <a style="color:red; font-size:20px;" onclick="showDROP()">Drop</a>
+	  <a style="color:red; font-size:20px;" onclick="showDROP()"><b><u>Drop</u></b></a>
 	  <a style="color:green; font-size:20px;" onclick="showADDIN(),addTIP()">Add</a>
-	  <br>
 	  <a style="color:red; font-size:25px;" onclick="clearSAVED()">savedX</a>
+	  <a style="color:green; font-size:20px;" onclick="note()">NOTE</a>	  
+	  <br>
+	  <a style="color:red; font-size:30px;" onclick="remREADONLY()">InputEdit</a>
 	  <a style="color:green; font-size:30px;" onclick="freeze()">HCfreeze</a>	  
-	  <button id='HOLEbtn' onclick="editHOLES()" style="FONT-WEIGHT:bold; FONT-SIZE:10px; COLOR:white; background:red; border:1px solid black; border-radius:10px;">Edit Holes<!--Edit Holes +--></button>
+	  <button id='HOLEbtn' onclick="editHOLES()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:red; border:1px solid black; border-radius:10px;">Edit Holes<!--Edit Holes +--></button>
 	  <a onclick="editSP()">SPedit</a>
-	  
-	  <a href="#news">News</a>	  
-	  <a href="">Contact</a>
-	  <a href="#about">About</a>
-	  <a style="color:red;" href="#support">Support</a>	  
-	  <a href="#tools">Tools</a>  
-	  <a href="#base">Base</a>
-	  <a href="#custom">Custom</a>
-	  <a href="#more">More</a>	  
-	  <a href="#partners">Partners</a>
-	  <a href="#people">People</a>
-	  <a href="#work">Work</a>
+	  <a style="color:green; font-size:15px;" onclick="displayP5()">P5+/-</a>	  
+	  <a style="color:red; font-size:25px;" onclick="replace()">SAVED</a>
+	  <a style="color:green; font-size:30px;" onclick="HELP()">Help</a>
+	  <a style="color:red; font-size:15px;" onclick="showPARTIAL()">PARTrd</a>
+	  <button id='BOOKbtn' onclick="book()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:white; background:maroon; border:2px solid black; border-radius:10px; opacity:100%;">BOOK</button>
 	</div>
 	
 

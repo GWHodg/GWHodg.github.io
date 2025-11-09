@@ -1260,10 +1260,10 @@
   	}				
 
 	function hideMENU() {
-		//document.getElementById("miscCONTENT").style.visibility="hidden";
-//		document.getElementById("menuCONTENT").style.visibility="hidden";
-		//document.getElementById("btnUNDO").style.visibility="hidden";
-		document.getElementById("mySidenav").style.width = "0px"; 
+						//document.getElementById("miscCONTENT").style.visibility="hidden";
+				//		document.getElementById("menuCONTENT").style.visibility="hidden";
+						//document.getElementById("btnUNDO").style.visibility="hidden";
+		//document.getElementById("mySidenav").style.width = "0px"; 
 	}
 	function showMENU(topic) {
 		if (topic=="tipMENU") {
