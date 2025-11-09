@@ -1765,7 +1765,7 @@
 			document.getElementById("p3h"+h).style.background = "linen";
 				document.getElementById("p3h"+h).style.color = "black";			
 			document.getElementById("p4h"+h).style.background = "linen";
-				document.getElementById("p4h"+h).style.color = "black";			
+				document.getElementById("p4h"+h).style.color = "black";	//alert("got to p4 in remCOLORS()!");		
 			document.getElementById("p5h"+h).style.background = "linen";
 				document.getElementById("p5h"+h).style.color = "black";			
 		}
@@ -2635,7 +2635,7 @@
 		document.getElementById('p&h').value = localStorage.getItem('g1NAME') + ' 2';
 		document.getElementById("SLIDER").style.visibility="hidden";
 		
-		replace(); pHCcolors(); restrictTAB(); 
+		replace(); //pHCcolors(); restrictTAB(); 
 		//circleMAXs25();
 		calcALL(); calcTOTALS(); 
 			//showPARTIAL();
@@ -2672,9 +2672,9 @@
 					"lsHCPh"+H+" = '" + localStorage.getItem('lsHCPh'+H) + "'!" );*/
 					document.getElementById("HCPh"+H).value = localStorage.getItem("lsHCPh"+H);
 					document.getElementById("TDhcpH"+H).style.background = "orange";
-					pHCcolors(); 
-					//alert("Will now REPLACE stroke colors . . ."); 
-						pHCcolors(); // < ??	
+					//pHCcolors();												 // < rem Oct 8/25 **
+									//alert("Will now REPLACE stroke colors . . ."); 
+					//pHCcolors(); 												// < ??	// < rem Oct 8/25 **
 					calcALL(); calcTOTALS(); 
 			}	
 		}
@@ -2687,6 +2687,8 @@
 				document.getElementById("H"+H).style.background = "beige";
 			}
 		}	//localStorage.setItem("lsFLAGh"+H,"n");
+
+		pHCcolors(); restrictTAB(); // < moved from top of fn Oct 8/25 **
 		
 	}	
 

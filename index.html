@@ -1684,20 +1684,30 @@
 
 	<!-- Horizontal Scrollable Menu (Oct/25): -->
 	<div class="scrollmenu">
-	  <a href="#home">Home</a>
-	  <a style="color:red; font-size:30px;" href="#news">News</a>
+	  <a style="color:red; font-size:30px;" onclick="calcALL()">SFpts</a>
+	  <a style="color:green; font-size:30px;" onclick="calcTOTALS()">Totals</a>
+	  <a style="color:red; font-size:30px;"onclick="pHCcolors()">Strokes</a>
+	  <button id='TABbtn' onclick="restrictTAB()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;">Inputs+/-</button>	
+	  
+	  <a style="color:red; font-size:30px;" onclick="remREADONLY()">InputEdit</a>
 	  <a onclick="showSLIDER()">Slider</a>
+	  	<a onclick="clrSLDR()">SlideX</a>
+	  <a style="color:red; font-size:20px;" onclick="showDROP()">Drop</a>
+	  <a style="color:green; font-size:20px;" onclick="showADDIN(),addTIP()">Add</a>
+	  <br>
+	  <a style="color:red; font-size:25px;" onclick="clearSAVED()">savedX</a>
+	  <a style="color:green; font-size:30px;" onclick="freeze()">HCfreeze</a>	  
+	  <button id='HOLEbtn' onclick="editHOLES()" style="FONT-WEIGHT:bold; FONT-SIZE:10px; COLOR:white; background:red; border:1px solid black; border-radius:10px;">Edit Holes<!--Edit Holes +--></button>
+	  <a onclick="editSP()">SPedit</a>
+	  
+	  <a href="#news">News</a>	  
 	  <a href="">Contact</a>
 	  <a href="#about">About</a>
-	  <a style="color:red;" href="#support">Support</a>
-	  <a href="">Blog</a>
-	  <a onclick="showDROP()">Drop</a>
+	  <a style="color:red;" href="#support">Support</a>	  
 	  <a href="#tools">Tools</a>  
 	  <a href="#base">Base</a>
-	  <a href="#custom">Custom</a>	<br>
-	  <a href="#more">More</a>
-	  <a href="#logo">Logo</a>
-	  <a href="#friends">Friends</a>
+	  <a href="#custom">Custom</a>
+	  <a href="#more">More</a>	  
 	  <a href="#partners">Partners</a>
 	  <a href="#people">People</a>
 	  <a href="#work">Work</a>
