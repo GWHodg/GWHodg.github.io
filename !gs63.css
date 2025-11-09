@@ -51,7 +51,7 @@
 	table.table2 thead { display:block;} /* display:block; | display:unset; */ 
 
 	/* Nov/25: */
-	table.table2 tbody { height:550px; overflow-y:scroll; display:block; } /* height:300px; > 430 to Nov25 */
+	table.table2 tbody { height:570px; overflow-y:scroll; display:block; } /* height:300px; > 430 to Nov25 */
 			/* document.getElementById("TBLbody").style.height = "100%";	//'800px'; */
 
 	table.table2 td { width: 40px; background:black; color:white; text-align:center;}
@@ -74,8 +74,9 @@
 	  z-index:100;
   	}	
 	div.SLIDERdiv {
-		border:3px inset orange; border-radius:5px;  width:90%;  margin:auto; text-align:center; padding:10px; background:beige; visibility:hidden;    /* width:90%; (to Nov/25) */
+		border:3px inset orange; border-radius:5px;  width:90%;  margin:auto; text-align:center; padding:10px; background:beige; display:none; /* visibility:hidden; */    /* width:90%; (to Nov/25) */
 					/* position:fixed; left:50%; transform:translate(-50%,0); top:10%; */
+					/* display:inline-block; */
 	}
 	div.classLSwrite { position:fixed; left:50%; transform:translate(-50%,0); top:10%;
 		background:pink; padding:10px; border:2px inset gray; border-radius:10px; visibility:hidden; } /*  position:fixed;  left:30em; top:200px;  (left:50px; top:200px;)  */
