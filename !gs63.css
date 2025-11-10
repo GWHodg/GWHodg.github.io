@@ -70,7 +70,7 @@
 	  margin:auto; padding:10px;
 	  position:fixed; left:20em; top:300px;  	/*left:30em; top:40px;*/  
 	  opacity:100%; background:white;	/*transparent;*/ 
-	  visibility:hidden;
+	   visibility:hidden; 
 	  z-index:100;
   	}	
 	div.SLIDERdiv {

@@ -1177,12 +1177,25 @@
 	}												
 	
 	function showSLIDER() {
-		
+		if (document.getElementById("SLIDER").style.display=="none") {	
+			alert("Will try to display slider!");
+			document.getElementById("SLIDER").style.visibility="visible";
+			document.getElementById("SLIDER").style.display="inline-block";		//"none";
+			document.getElementById("TBLbody").style.height = "430px";	
+			document.getElementById("FULLbtn").innerText = "+";
+			document.getElementById("FULLbtn2").innerText = "+";	
+		}
+		else {
+			alert("Will try to hide slider.");
+			document.getElementById("SLIDER").style.visibility="hidden";
+			document.getElementById("SLIDER").style.display="none";	
+			document.getElementById("btnUNDO").style.visibility="hidden";			
+		}
 		//document.getElementById("TD"+GLOBALinput).style.background='gold';	// < Sep/25
-		
+		/*
 		if (document.getElementById("SLIDER").style.visibility=="hidden") {	
 			document.getElementById("SLIDER").style.visibility="visible";
-			document.getElementById("TBLbody").style.height = "430px";	//300px';
+			document.getElementById("TBLbody").style.height = "430px";	
 			document.getElementById("FULLbtn").innerText = "+";
 			document.getElementById("FULLbtn2").innerText = "+";	
 		}
@@ -1191,6 +1204,7 @@
 			document.getElementById('check').style.visibility = 'hidden';	
 			document.getElementById("btnUNDO").style.visibility="hidden";			
 		}
+		*/
 		hideMENU();
 	}	
 	function hideSLIDE() {

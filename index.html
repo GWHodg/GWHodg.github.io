@@ -903,7 +903,7 @@
 <!-- ########################################################################################### -->
 <!-- ################################### SLIDER PAGE ########################################### -->	
 
-	<div class="SLIDERdiv" style="" id='SLIDER' style="visibility:hidden;"> <!--style="zoom:200%;"--> 
+	<div class="SLIDERdiv" style="visibility:hidden; display:none;" id='SLIDER' > <!-- style="visibility:hidden;". style="zoom:200%;"--> 
   		<!--Strokes:--> <span id="demo" class="sliderVAL"></span>&emsp;
 		<input type="range" min="0" max="9" value="0" class="slider" id="myRange" style="width:200px;">&emsp;
 		
@@ -1653,7 +1653,7 @@
 	  <a style="color:green; font-size:30px;" onclick="calcTOTALS()">Totals</a>
 	  <button id='STROKESbtn' onclick="pHCcolors()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;">Strokes</button>
 	  <button id='TABbtn' onclick="restrictTAB()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;">Inputs+/-</button>		  
-	  <a onclick="showSLIDER()">Slider</a>
+	  <a style="color:blue; font-size:20px;" onclick="showSLIDER()">Slider</a>
 	  	<a onclick="clrSLDR()">SlideX</a>
 	  <a style="color:red; font-size:20px;" onclick="showDROP()"><b><u>Drop</u></b></a>
 	  <a style="color:green; font-size:20px;" onclick="showADDIN(),addTIP()">Add</a>
