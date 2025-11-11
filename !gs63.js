@@ -2050,7 +2050,7 @@
 					//position:fixed; left:20em; top:300px;  	/*left:30em; top:40px;*/  
 		}
 		else { 
-			document.getElementById("TBLbody").style.height = "430px";	//300px';
+			document.getElementById("TBLbody").style.height = "490px";	//300px > 430 (to Nov/25)
 			document.getElementById("FULLbtn").innerText = "+";
 			document.getElementById("FULLbtn2").innerText = "+";
 					/*
