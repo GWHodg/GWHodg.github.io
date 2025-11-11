@@ -1189,7 +1189,8 @@
 			alert("Will try to hide slider.");
 			document.getElementById("SLIDER").style.visibility="hidden";
 			document.getElementById("SLIDER").style.display="none";	
-			document.getElementById("btnUNDO").style.visibility="hidden";			
+			document.getElementById("btnUNDO").style.visibility="hidden";	
+			document.getElementById("TBLbody").style.height = "470px";			
 		}
 		//document.getElementById("TD"+GLOBALinput).style.background='gold';	// < Sep/25
 		/*
@@ -1670,7 +1671,7 @@
 				//document.getElementById("STROKESbtn").innerHTML = "HIDE Stroke Holes";
 				document.getElementById("STROKESbtn").innerHTML = "StrokesX";
 					//document.getElementById("STROKESbtn").innerText = "HIDE Stroke Holes";
-				document.getElementById("postMNUtd").innerHTML =
+				document.getElementById("postMNUtd").innerHTML ="<font size=2>Strokes</font><br>"+
 										"<span style='font-size:10px; background:lime; border:1px solid black; color:black;'>&nbsp;1&nbsp;</span>"+
 										"<span style='font-size:10px; background:green; border:1px solid black; '>&nbsp;2&nbsp;</span>"+
 										"<span style='font-size:10px; background:white; border:1px solid black; color:black;'>&nbsp;0&nbsp;</span>";					
