@@ -1017,6 +1017,8 @@
 	}
 	
 	function BLURfn(SCRinput) {
+		var BLURaudio = new Audio('mixkit-select-click-1109.wav');
+		BLURaudio.play();
 		  	//alert("'this' variable = "+x);
 			//x.style.background = "yellow";
 			//document.getElementById("TD"+x).background = "red";
@@ -1190,7 +1192,7 @@
 			document.getElementById("SLIDER").style.visibility="hidden";
 			document.getElementById("SLIDER").style.display="none";	
 			document.getElementById("btnUNDO").style.visibility="hidden";	
-			document.getElementById("TBLbody").style.height = "470px";			
+			document.getElementById("TBLbody").style.height = "490px";			
 		}
 		//document.getElementById("TD"+GLOBALinput).style.background='gold';	// < Sep/25
 		/*
@@ -2521,6 +2523,10 @@
 
 
 	function EnterInput() {
+		
+		var audio = new Audio('mixkit-fast-double-click-on-mouse-275.wav');
+		audio.play();
+		
 		var currentInput = document.getElementById('p&h').value;
 		//alert("Will try to ENTER input to 'localStorage'!\n\tcurrentInput = '"+currentInput+"'!");
 		
