@@ -1017,8 +1017,8 @@
 	}
 	
 	function BLURfn(SCRinput) {
-		var BLURaudio = new Audio('mixkit-select-click-1109.wav');
-		BLURaudio.play();
+		var BLURaudio = new Audio('mixkit-fast-double-click-on-mouse-275.wav');
+		BLURaudio.play(); 
 		  	//alert("'this' variable = "+x);
 			//x.style.background = "yellow";
 			//document.getElementById("TD"+x).background = "red";
@@ -1124,6 +1124,8 @@
 			alert(pNAME+" "+nameArray[1] + " changed from "+ lastSCORE + " to " + document.getElementById(SCRinput).value + "!");
 			document.getElementById(GLOBALinput).style.border='2px solid purple';	// < Sep/25
 			document.getElementById("TD"+GLOBALinput).style.background='brown';	// < Sep/25
+					var audio = new Audio('mixkit-select-click-1109.wav');
+					audio.play();
 			//alert("READONLY reinitiated (lS = "+localStorage.getItem('READONLYremoved')+")!");	
 				 	/*localStorage.setItem("lsCHG"+GLOBALinput,p);
 					var newPAR = localStorage.getItem("lsPARh"+h);
@@ -2524,7 +2526,7 @@
 
 	function EnterInput() {
 		
-		var audio = new Audio('mixkit-fast-double-click-on-mouse-275.wav');
+		var audio = new Audio('mixkit-select-click-1109.wav');
 		audio.play();
 		
 		var currentInput = document.getElementById('p&h').value;
