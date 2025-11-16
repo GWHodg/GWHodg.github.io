@@ -924,7 +924,14 @@
 	}
 
 	function changeGLOBAL(SCRinput) {		// < display slider! *
-
+		/*
+		if ( document.getElementById(SCRinput).readOnly ) {
+			alert("'"+SCRinput+"' element is readOnly!");	
+			//alert("READONLY removed (lS = "+localStorage.getItem('READONLYremoved')+")!");
+		}
+		else { alert("'"+SCRinput+"' element is NOT readOnly!") };
+		*/
+		
 		//document.getElementById(SCRinput).onfocus = function() { document.getElementById("TD"+SCRinput).style.background = "lime"; }
 
 
@@ -971,6 +978,8 @@
 	}
 
 	function FOCUSfn(SCRinput) {			/* FOCUSfn(x,SCRinput) { */
+		//var FOCUSaudio = new Audio('mixkit-fast-double-click-on-mouse-275.wav');
+		//FOCUSaudio.play(); 
 		  	//alert("'this' variable = "+x);
 			//x.style.background = "yellow";
 			//document.getElementById("TD"+x).background = "red";
@@ -997,25 +1006,74 @@
 	}
 	var lastFOCUS; var lastSCORE;
 	function remREADONLY() {
+		//var EDITaudio = new Audio('mixkit-handgun-click-1660.mp3');
+		//EDITaudio.play(); 
+
 		lastFOCUS = document.getElementById('lastFOCUS').value;
 		lastSCORE = document.getElementById(lastFOCUS).value;
-		/*alert("Will TRY to re-enable SELECTED player input for editing . . .\n"+
-		      "Last focussed element/input = "+lastFOCUS);*/
+		/* alert("Will TRY to re-enable SELECTED player input for editing . . .\n"+
+		      "Last focussed element/input = "+lastFOCUS); */
 		//var focused = document.activeElement;  alert(focussed + " has focus");
 				/*for (var h = 1; h < 19; h++) {
 					for (var n = 1; n < 6; n++) {
 						document.getElementById('p'+n+'h'+h).readOnly = false;
 					}
 				}*/
-		localStorage.setItem("READONLYremoved", "Y");
-			//alert("READONLY removed (lS = "+localStorage.getItem('READONLYremoved')+")!");
-		//document.getElementById('p'+p+'h'+h).setAttribute('readonly', 'true');		
+		
+		let p = lastFOCUS.charAt(1); 
+		var h;
+		if ( lastFOCUS.length > 4 ) {
+			h = lastFOCUS.substr(lastFOCUS.length-2);	
+		}
+		else { h = lastFOCUS.charAt(3) };
+		
+		var P1 = localStorage.getItem('g1NAME');
+		var P2 = localStorage.getItem('g2NAME');
+		var P3 = localStorage.getItem('g3NAME');
+		var P4 = localStorage.getItem('g4NAME');
+		var P5 = localStorage.getItem('g5NAME');	
+		var plNAME;
+		if (p==1) {pNAME=P1}; if (p==2) {pNAME=P2}; if (p==3) {pNAME=P3}; 
+			if (p==4) {pNAME=P4}; if (p==5) {pNAME=P5};
+		newValue = prompt("EDIT selected player input: "+
+					 "Last focussed input = "+lastFOCUS+" ("+lastSCORE+").\n\n"+
+					 "Enter new score value for "+pNAME+h, "");
+		/*if (pwd == "GWH42") {
+			window.location.href = "indexCOPYbook24.html";
+		}
+		else {
+			alert ("Password is not valid.");
+		}*/				
+		if ( lastSCORE != newValue ) {
+			document.getElementById(lastFOCUS).removeAttribute('readOnly');
+			document.getElementById(lastFOCUS).value=newValue;
+			document.getElementById("TD"+lastFOCUS).style.background='brown';	
+			calcALL(); calcTOTALS();  		countCIRCLES();
+			//let p = lastFOCUS.charAt(1); let h = lastFOCUS.charAt(3); 
+			localStorage.setItem('g'+p+'H'+h+'s', newValue);
+					// localStorage.setItem('g'+playerNO+'H'+HOLE+'s',MAXscore);
+					// onchange="localStorage.setItem('g3H18s',this.value);"
+			var audio = new Audio('mixkit-select-click-1109.wav');
+			audio.play();
+			document.getElementById('p'+p+'h'+h).readOnly = true;	
+			localStorage.setItem("READONLYremoved", "N")	
+		}
+		
+/*		localStorage.setItem("READONLYremoved", "Y");
+			alert("READONLY removed (lS = "+localStorage.getItem('READONLYremoved')+")!");
+*/		//document.getElementById('p'+p+'h'+h).setAttribute('readonly', 'true');		
 		//document.getElementById('p'+p+'h'+h).readOnly = false;		
-		document.getElementById(lastFOCUS).removeAttribute('readOnly');
-		document.getElementById(lastFOCUS).focus();
-		hideMENU();
+//		document.getElementById(lastFOCUS).removeAttribute('readOnly');
+//		document.getElementById(lastFOCUS).focus();
+		//hideMENU();
 	}
 	
+	
+	function KeyUp() {
+		var CHGaudio = new Audio('mixkit-modern-technology-select-3124.wav');
+		CHGaudio.play(); 	
+	}
+		
 	function BLURfn(SCRinput) {
 		var BLURaudio = new Audio('mixkit-fast-double-click-on-mouse-275.wav');
 		BLURaudio.play(); 
