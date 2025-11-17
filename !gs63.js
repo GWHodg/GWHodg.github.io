@@ -954,8 +954,28 @@
 			document.getElementById("focusIPT").value = pNAME+" "+nameArray[1]; 		//GLOBALinput;
 			//document.getElementById("lastVAL").value = localStorage.getItem("lastFOCUS");
 		
-		document.getElementById("myRange").value = 0;	//value="0";	// < **
-			document.getElementById("demo").innerHTML = 0;
+		//document.getElementById("myRange").value = 0;	//value="0";	// < **
+		//	document.getElementById("demo").innerHTML = 0;
+
+
+		// Nov 18/25: **
+			var currentInput = document.getElementById('p&h').value;
+			var curHOLE;
+			if (currentInput.length > 4 ) {
+				curHOLE = currentInput.substr(currentInput.length-2);	
+			}
+			else {curHOLE = currentInput.charAt(3)};
+					//var curHOLE = currentInput.substr(3,1); //SCRinput.substr(1,1)			
+			var curPAR = document.getElementById("PARh"+curHOLE).value;
+				alert("currentInput = "+currentInput+"\ncurPAR = "+curPAR);
+				
+			document.getElementById("myRange").value = +curPAR+1;	// < Nov 18/25 **
+				document.getElementById("demo").innerHTML = document.getElementById("myRange").value;	
+				
+
+
+
+
 			
 		//localStorage.setItem("lastFOCUSval", SCRinput);
 		//document.getElementById("lastVAL").value = localStorage.getItem("lastFOCUSval");
@@ -1032,18 +1052,19 @@
 		var P3 = localStorage.getItem('g3NAME');
 		var P4 = localStorage.getItem('g4NAME');
 		var P5 = localStorage.getItem('g5NAME');	
-		var plNAME;
+		var pNAME;
 		if (p==1) {pNAME=P1}; if (p==2) {pNAME=P2}; if (p==3) {pNAME=P3}; 
 			if (p==4) {pNAME=P4}; if (p==5) {pNAME=P5};
 		newValue = prompt("EDIT selected player input: "+
 					 "Last focussed input = "+lastFOCUS+" ("+lastSCORE+").\n\n"+
-					 "Enter new score value for "+pNAME+h, "");
+					 "Enter new score value for "+pNAME+h, '');
 		/*if (pwd == "GWH42") {
 			window.location.href = "indexCOPYbook24.html";
 		}
 		else {
 			alert ("Password is not valid.");
 		}*/				
+		if (newValue === null) { return; /*break out of fn! */ }
 		if ( lastSCORE != newValue ) {
 			document.getElementById(lastFOCUS).removeAttribute('readOnly');
 			document.getElementById(lastFOCUS).value=newValue;
@@ -1057,6 +1078,8 @@
 			audio.play();
 			document.getElementById('p'+p+'h'+h).readOnly = true;	
 			localStorage.setItem("READONLYremoved", "N")	
+			alert(pNAME+h + " changed from "+ lastSCORE + " to " + newValue + "!"); // < *
+			
 		}
 		
 /*		localStorage.setItem("READONLYremoved", "Y");
@@ -1246,6 +1269,21 @@
 			document.getElementById("TBLbody").style.height = "430px";	
 			document.getElementById("FULLbtn").innerText = "+";
 			document.getElementById("FULLbtn2").innerText = "+";	
+			
+			// Nov 18/25: **
+			var currentInput = document.getElementById('p&h').value;
+			var curHOLE;
+			if (currentInput.length > 4 ) {
+				curHOLE = currentInput.substr(currentInput.length-2);	
+			}
+			else {curHOLE = currentInput.charAt(3)};
+					//var curHOLE = currentInput.substr(3,1); //SCRinput.substr(1,1)			
+			var curPAR = document.getElementById("PARh"+curHOLE).value;
+				alert("currentInput = "+currentInput+"\ncurPAR = "+curPAR);
+			document.getElementById("myRange").value = +curPAR+1;	// < Nov 18/25 **
+				document.getElementById("demo").innerHTML = document.getElementById("myRange").value;	
+			
+				
 		}
 		else {
 			alert("Will try to hide slider.");
@@ -2543,6 +2581,9 @@
 		var cP = iptARY[0]; // < current player
 		/*alert("Current Hole = "+cH+"\t\t Next Hole = "+nH+"\nCurrent Player = "+cP+"\n\n"+
 			  "P1 = "+P1+"\tP2 = '"+P2+"'\tP3 = '"+P3+"'");*/
+
+		//var nxtPAR = document.getElementById("PARh"+nH).value;  // Nov16/25 *
+			//alert("currentInput = "+currentInput+"\nnxtPAR = "+nxtPAR);
 			  
 		if ( cP==P4 && P5!="" ) { 		/* P5!="" ) { */
 			//alert("next input = "+P5+" "+cH); 
@@ -2576,8 +2617,35 @@
 		}
 
 		document.getElementById('check').style.visibility = 'hidden';	
-		document.getElementById('myRange').value = 0;	//value="0" class="slider" id="myRange"
-			document.getElementById('demo').innerHTML = 0; //id="demo"
+		//document.getElementById('myRange').value = 0;	//value="0" class="slider" id="myRange"
+				//document.getElementById('demo').innerHTML = 0; //id="demo"
+			//document.getElementById("demo").innerHTML = document.getElementById("myRange").value;				
+			
+					
+			// Nov 18/25: **
+			//var currentInput = document.getElementById('p&h').value;
+			//var curHOLE;
+			var nxtIPThole;
+			if (prevIPT.length > 6 ) {
+				nxtIPThole = prevIPT.substr(prevIPT.length-2);	
+			}
+			else {nxtIPThole = prevIPT.charAt(5)};
+					//if (currentInput.length > 4 ) {
+					//	curHOLE = currentInput.substr(currentInput.length-2);	
+					//}
+					//else {curHOLE = currentInput.charAt(3)};
+							//var curHOLE = currentInput.substr(3,1); //SCRinput.substr(1,1)			
+			var nxtIPTpar = document.getElementById("PARh"+nxtIPThole).value;
+			alert("prevIPT [*NEXT input*] = "+prevIPT+"\nnxtIPTpar = "+nxtIPTpar);
+			//var curPAR = document.getElementById("PARh"+curHOLE).value;
+			//alert("currentInput = "+currentInput+"\ncurPAR = "+curPAR);		
+			//document.getElementById("myRange").value = nxtPAR;	// < Nov 18/25 **
+				//document.getElementById("demo").innerHTML = document.getElementById("myRange").value;	
+
+		document.getElementById("myRange").value = +nxtIPTpar + 1;	// < Nov 18/25 **
+		document.getElementById("demo").innerHTML = document.getElementById("myRange").value;					
+				
+				
 		
 	}	
 
@@ -2708,8 +2776,26 @@
 		*/	
 		
 		document.getElementById('check').style.visibility = 'hidden';
-		document.getElementById('myRange').value = 0;	//value="0" class="slider" id="myRange"
-			document.getElementById('demo').innerHTML = 0; //id="demo"
+		//document.getElementById('myRange').value = 0;	//value="0" class="slider" id="myRange"
+		//	document.getElementById('demo').innerHTML = 0; //id="demo"
+			
+			
+					
+			// Nov 18/25: **
+			var prevIPThole;
+			if (prevIPT.length > 6 ) {
+				prevIPThole = prevIPT.substr(prevIPT.length-2);	
+			}
+			else {prevIPThole = prevIPT.charAt(5)};
+			var prevIPTpar = document.getElementById("PARh"+prevIPThole).value;
+			alert("prevIPT [*PRIOR input*] = "+prevIPT+"\nprevIPTpar = "+prevIPTpar);
+
+		document.getElementById("myRange").value = +prevIPTpar + 1;	// < Nov 18/25 **
+		document.getElementById("demo").innerHTML = document.getElementById("myRange").value;					
+		
+			
+			
+			
 	}	
 	
 	function loadFN() {  
