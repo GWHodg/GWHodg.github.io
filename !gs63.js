@@ -967,7 +967,7 @@
 			else {curHOLE = currentInput.charAt(3)};
 					//var curHOLE = currentInput.substr(3,1); //SCRinput.substr(1,1)			
 			var curPAR = document.getElementById("PARh"+curHOLE).value;
-				alert("currentInput = "+currentInput+"\ncurPAR = "+curPAR);
+				//alert("currentInput = "+currentInput+"\ncurPAR = "+curPAR);
 				
 			document.getElementById("myRange").value = +curPAR+1;	// < Nov 18/25 **
 				document.getElementById("demo").innerHTML = document.getElementById("myRange").value;	
