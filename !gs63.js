@@ -997,6 +997,7 @@
 		
 	}
 
+	var editPROMPT;
 	function FOCUSfn(SCRinput) {			/* FOCUSfn(x,SCRinput) { */
 		//var FOCUSaudio = new Audio('mixkit-fast-double-click-on-mouse-275.wav');
 		//FOCUSaudio.play(); 
@@ -1055,8 +1056,20 @@
 		var pNAME;
 		if (p==1) {pNAME=P1}; if (p==2) {pNAME=P2}; if (p==3) {pNAME=P3}; 
 			if (p==4) {pNAME=P4}; if (p==5) {pNAME=P5};
+
+
+						
+						/*			
+								editPROMPT = "EDIT selected player input: "+
+											 "Last focussed input = "+lastFOCUS+" ("+lastSCORE+").\n"+
+											 "Enter new score value for "+pNAME+h;
+								Nov25(editPROMPT);			
+						*/
+
+
+		//let newValue = Nov25(editPROMPT);	
 		newValue = prompt("EDIT selected player input: "+
-					 "Last focussed input = "+lastFOCUS+" ("+lastSCORE+").\n\n"+
+					 "Last focussed input = "+lastFOCUS+" ("+lastSCORE+").\n"+
 					 "Enter new score value for "+pNAME+h, '');
 		/*if (pwd == "GWH42") {
 			window.location.href = "indexCOPYbook24.html";
@@ -1082,13 +1095,77 @@
 			
 		}
 		
-/*		localStorage.setItem("READONLYremoved", "Y");
-			alert("READONLY removed (lS = "+localStorage.getItem('READONLYremoved')+")!");
-*/		//document.getElementById('p'+p+'h'+h).setAttribute('readonly', 'true');		
-		//document.getElementById('p'+p+'h'+h).readOnly = false;		
-//		document.getElementById(lastFOCUS).removeAttribute('readOnly');
-//		document.getElementById(lastFOCUS).focus();
-		//hideMENU();
+				/*		localStorage.setItem("READONLYremoved", "Y");
+							alert("READONLY removed (lS = "+localStorage.getItem('READONLYremoved')+")!");
+				*/		//document.getElementById('p'+p+'h'+h).setAttribute('readonly', 'true');		
+						//document.getElementById('p'+p+'h'+h).readOnly = false;		
+				//		document.getElementById(lastFOCUS).removeAttribute('readOnly');
+				//		document.getElementById(lastFOCUS).focus();
+						//hideMENU();
+	}
+	function editTEST() {
+		lastFOCUS = document.getElementById('lastFOCUS').value;
+		lastSCORE = document.getElementById(lastFOCUS).value;
+		let p = lastFOCUS.charAt(1); 
+		var h;
+		if ( lastFOCUS.length > 4 ) {
+			h = lastFOCUS.substr(lastFOCUS.length-2);	
+		}
+		else { h = lastFOCUS.charAt(3) };		
+		var P1 = localStorage.getItem('g1NAME');
+		var P2 = localStorage.getItem('g2NAME');
+		var P3 = localStorage.getItem('g3NAME');
+		var P4 = localStorage.getItem('g4NAME');
+		var P5 = localStorage.getItem('g5NAME');	
+		var pNAME;
+		if (p==1) {pNAME=P1}; if (p==2) {pNAME=P2}; if (p==3) {pNAME=P3}; 
+			if (p==4) {pNAME=P4}; if (p==5) {pNAME=P5};			
+		editPROMPT = "EDIT selected player input: "+
+					 "Last focussed input = "+lastFOCUS+" ("+lastSCORE+").\n"+
+					 "Enter new score value for "+pNAME+h;
+		Nov25(editPROMPT,p,h);					
+	}
+	function Nov25(string,pN,hN) {
+		var Np = pN; var Nh = hN;
+			alert("Np (plyr) = "+Np+". Nh (hole) = "+Nh);
+						document.getElementById("hideP").value=Np;
+						document.getElementById("hideH").value=Nh;
+		//alert("Try to show MY alert!");
+		document.getElementById("promptSCR").value = "";
+		document.getElementById("Rhand25").style.visibility = "visible";
+		document.getElementById("Rhand25").style.display = "inline-block";
+		document.getElementById("promptSPAN").innerText = string;
+		document.getElementById("promptSCR").focus();
+		//document.getElementById("textarea").value = string;
+		/*alert("Nov/25:\n\n"+
+		"Sidearm throw\nL arm gravity drop\nR fingers 'throw' (& 'release'/let go) @ impact\n"+
+		"No wrist break (hands stay ahead of clubhead @ impact\n"+
+		"Forearm muscles relaxed");*/
+		//return 2;
+	}	
+	function promptOK() {
+		var OKp = document.getElementById('hideP').value; 
+			var OKh = document.getElementById('hideH').value;
+		alert("entered new value = "+document.getElementById("promptSCR").value+".\n"+
+			"OKp (plyr) = "+OKp+". OKh (hole) = "+OKh);
+			
+		newValue = document.getElementById("promptSCR").value;
+		if ( lastSCORE != newValue ) {
+			document.getElementById(lastFOCUS).removeAttribute('readOnly');
+			document.getElementById(lastFOCUS).value=newValue;
+			document.getElementById("TD"+lastFOCUS).style.background='brown';	
+			calcALL(); calcTOTALS();  		countCIRCLES();
+			//let p = lastFOCUS.charAt(1); let h = lastFOCUS.charAt(3); 
+			localStorage.setItem('g'+OKp+'H'+OKh+'s', newValue);  //**
+					// localStorage.setItem('g'+playerNO+'H'+HOLE+'s',MAXscore);
+					// onchange="localStorage.setItem('g3H18s',this.value);"
+			var audio = new Audio('mixkit-select-click-1109.wav');
+			audio.play();
+			document.getElementById('p'+OKp+'h'+OKh).readOnly = true;	
+			localStorage.setItem("READONLYremoved", "N")	
+			alert("Player "+OKp+", hole #"+OKh + " changed from "+ lastSCORE + " to " + newValue + "!"); // < *
+			document.getElementById("Rhand25").style.visibility='hidden';	
+		}
 	}
 	
 	
@@ -3270,3 +3347,6 @@ else {
 			}	
 			
 	}
+	
+	
+	
