@@ -1103,8 +1103,13 @@
 				//		document.getElementById(lastFOCUS).focus();
 						//hideMENU();
 	}
+	//var origCOLOR:
 	function editTEST() {
 		lastFOCUS = document.getElementById('lastFOCUS').value;
+			var origCOLOR = document.getElementById("TD"+lastFOCUS).style.background;	
+				//alert("origCOLOR = "+origCOLOR);
+				//document.getElementById("TDcolor").value = origCOLOR;	
+			document.getElementById("TD"+lastFOCUS).style.background = "red";	
 		lastSCORE = document.getElementById(lastFOCUS).value;
 		let p = lastFOCUS.charAt(1); 
 		var h;
@@ -1120,14 +1125,15 @@
 		var pNAME;
 		if (p==1) {pNAME=P1}; if (p==2) {pNAME=P2}; if (p==3) {pNAME=P3}; 
 			if (p==4) {pNAME=P4}; if (p==5) {pNAME=P5};			
-		editPROMPT = "EDIT selected player input: "+
+		/*editPROMPT = "EDIT selected player input: "+
 					 "Last focussed input = "+lastFOCUS+" ("+lastSCORE+").\n"+
-					 "Enter new score value for "+pNAME+h;
+					 "Enter new score value for "+pNAME+h;*/
+		editPROMPT = pNAME+h + " ("+lastSCORE+") new value:";
 		Nov25(editPROMPT,p,h);					
 	}
 	function Nov25(string,pN,hN) {
 		var Np = pN; var Nh = hN;
-			alert("Np (plyr) = "+Np+". Nh (hole) = "+Nh);
+			//alert("Np (plyr) = "+Np+". Nh (hole) = "+Nh);
 						document.getElementById("hideP").value=Np;
 						document.getElementById("hideH").value=Nh;
 		//alert("Try to show MY alert!");
@@ -1146,8 +1152,8 @@
 	function promptOK() {
 		var OKp = document.getElementById('hideP').value; 
 			var OKh = document.getElementById('hideH').value;
-		alert("entered new value = "+document.getElementById("promptSCR").value+".\n"+
-			"OKp (plyr) = "+OKp+". OKh (hole) = "+OKh);
+		/* alert("entered new value = "+document.getElementById("promptSCR").value+".\n"+
+			"OKp (plyr) = "+OKp+". OKh (hole) = "+OKh); */
 			
 		newValue = document.getElementById("promptSCR").value;
 		if ( lastSCORE != newValue ) {

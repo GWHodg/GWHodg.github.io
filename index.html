@@ -450,7 +450,7 @@
 				-->
 				
 <TABLE id="HEADtbl" border=1 align=center style='FONT-SIZE:large; color:maroon; visibility:visible;' bgcolor='lightgray'>	
-	<TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:gold; background:purple; FONT-WEIGHT:bold;" >!gs63<br><font size=2 color=silver><b>Nv25<font color=gold>&#9733;<!--&#10024;--></font></b></font>	
+	<TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:gold; background:purple; FONT-WEIGHT:bold;" >!gs63<br><font size=2 color=silver><b>N25c<font color=gold>&#9733;<!--&#10024;--></font></b></font>	
 </TD> <!--<TD width=20><font size=1>93i</font></TD>	-->
 <TD>
 					<div class="dropup" style="cursor:pointer; color:black; background:lightgray; /*position:relative; left:18%;*/">
@@ -1666,8 +1666,8 @@
 	  <a style="color:green; font-size:20px;" onclick="note()">NOTE</a>	  
 	  <button id='LSsbfdbtn' onclick="setLSsbfd()" style="FONT-WEIGHT:normal; FONT-SIZE:12px; COLOR:white; background:blue; border:2px solid black; border-radius:5px; opacity:100%;">Matches</button>
 	  <br>
-	  <a style="color:red; font-size:30px;" onclick="remREADONLY()">InputEdit</a>
-	  		<a style="color:orange; font-size:20px;" onclick="editTEST()">editTEST</a>
+	  <a style="color:red; font-size:30px;" onclick="editTEST()">InputEdit</a>
+	  		<!--<a style="color:orange; font-size:20px;" onclick="remREADONLY()">editTEST</a>-->
 	  <a style="color:green; font-size:30px;" onclick="freeze()">HCfreeze</a>	  
 	  <button id='HOLEbtn' onclick="editHOLES()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:red; border:1px solid black; border-radius:10px;">Edit Holes<!--Edit Holes +--></button>
 	  <a onclick="editSP()">SPedit</a>
@@ -1682,14 +1682,15 @@
 	<!--  ########################## GWH Alert Box \/ [Nov/25] ########################### -->
 	
 	
-	<div id="Rhand25" class="alert">  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>  <!--This is an alert box.--> 
+	<div id="Rhand25" class="alert">  <span class="closebtn" onclick="this.parentElement.style.display='none'; document.getElementById('TD'+lastFOCUS).style.background = 'aqua';">&times;</span>  <!--This is an alert box.--> 
 			<span id="promptSPAN" style="color:yellow; background:maroon; font-size:20px;"></span>
 			<!--<textarea id="textarea" rows="2" cols="45"></textarea><br>-->
-			&emsp;
-			<input type="tel" id="hideP" maxlength=1 style="font-size:10px; opacity:20%; visibility:visible;">
-			<input type="tel" id="hideH" maxlength=2 style="font-size:10px; opacity:20%; visibility:visible;">
-			<br>
-			&emsp;<input class='' type="tel" id="promptSCR" maxlength=1  tabindex="0">
+			<!--&emsp;-->
+			<input type="tel" id="hideP" maxlength=1 style="font-size:10px; opacity:20%; display:none;">
+			<input type="tel" id="hideH" maxlength=2 style="font-size:10px; opacity:20%;  display:none;">
+			<!--<input type="text" id="TDcolor" maxlength=7 style="font-size:10px; opacity:20%;">-->
+			<!--<br>-->
+			&nbsp;<input class='' type="tel" id="promptSCR" maxlength=1 style="font-size:20px;">
 			&emsp;&emsp;&emsp;&emsp; <button onclick="promptOK()"><font color=green size=4><b>OK</b></font></button>
 			<!--&nbsp;<button><font color=red size=2>cancel</font></button>-->
 	</div> 
