@@ -1031,8 +1031,10 @@
 			//changeGLOBAL(x);
 			/*alert("In 'FOCUSfn()'! SCRinput = "+SCRinput+". prevIPT = "+prevIPT+". lastFOCUS = "+lastFOCUS+".\n\n"+
 			  "document.getElementById('lastFOCUS').value = "+document.getElementById('lastFOCUS').value);*/
-			var lstFCSel =  document.getElementById('lastFOCUS').value;
-			document.getElementById("TD"+lstFCSel).style.background = "aqua";   // < Nov 20/25 **
+			if ( document.getElementById('lastFOCUS').value != "" ) {
+			  	var lstFCSel =  document.getElementById('lastFOCUS').value;
+				document.getElementById("TD"+lstFCSel).style.background = "aqua";   // < Nov 20/25 **
+			}
 		document.getElementById(prevIPT).style.background = "aqua";   // < Nov 20/25 **
 			
 		//localStorage.setItem("lastFOCUSval", document.getElementById(SCRinput).value);
@@ -2700,6 +2702,7 @@
 		if ( cP==P4 && P5!="" ) { 		/* P5!="" ) { */
 			//alert("next input = "+P5+" "+cH); 
 			document.getElementById('p&h').value = P5+" "+cH;	
+			document.getElementById("lastVAL").value = document.getElementById('p5h'+cH).value; // ** (Sep/25)
 				document.getElementById("TDp5"+"h"+cH).style.border="2px solid orange";	
 					document.getElementById("TDp5"+"h"+cH).style.background = "red";  // < N19/25 **	
 				prevIPT = "TDp5h"+cH;		
@@ -2707,6 +2710,7 @@
 		else if ( cP==P3 && P4!="" ) { 
 			//alert("next input = "+P4+" "+cH); 
 			document.getElementById('p&h').value = P4+" "+cH;	
+			document.getElementById("lastVAL").value = document.getElementById('p4h'+cH).value; // ** (Sep/25)
 				document.getElementById("TDp4"+"h"+cH).style.border="2px solid orange";	
 					document.getElementById("TDp4"+"h"+cH).style.background = "red";  // < N19/25 **	
 				prevIPT = "TDp4h"+cH;		
@@ -2714,6 +2718,7 @@
 		else if ( cP==P2 && P3!="" ) { 
 			//alert("next input = "+P3+" "+cH); 
 			document.getElementById('p&h').value = P3+" "+cH;	
+			document.getElementById("lastVAL").value = document.getElementById('p3h'+cH).value; // ** (Sep/25)
 				document.getElementById("TDp3"+"h"+cH).style.border="2px solid orange";	
 					document.getElementById("TDp3"+"h"+cH).style.background = "red";  // < N19/25 **
 					//document.getElementById(prevIPT).style.background = "aqua";  // < N19/25 **			
@@ -2721,7 +2726,8 @@
 		}
 		else if ( cP==P1 && P2!="" ) { 
 			//alert("next input = "+P2+" "+cH); 
-			document.getElementById('p&h').value = P2+" "+cH;	
+			document.getElementById('p&h').value = P2+" "+cH;
+			document.getElementById("lastVAL").value = document.getElementById('p2h'+cH).value; // ** (Sep/25)	
 				document.getElementById("TDp2"+"h"+cH).style.border="2px solid orange";	
 					document.getElementById("TDp2"+"h"+cH).style.background = "red";  // < N19/25 **	
 				prevIPT = "TDp2h"+cH;		
@@ -2729,6 +2735,7 @@
 		else { 
 			//alert("All players entered for hole "+cH+"! Go to hole "+nH+"."); 
 			document.getElementById('p&h').value = P1+" "+nH;	
+			document.getElementById("lastVAL").value = document.getElementById('p1h'+nH).value; // ** (Sep/25)
 				document.getElementById("TDp1"+"h"+nH).style.border="2px solid orange";	
 					document.getElementById("TDp1"+"h"+nH).style.background = "red";  // < N19/25 **	
 				prevIPT = "TDp1h"+nH;		
@@ -2761,7 +2768,8 @@
 				//document.getElementById("demo").innerHTML = document.getElementById("myRange").value;	
 
 		document.getElementById("myRange").value = +nxtIPTpar + 1;	// < Nov 18/25 **
-		document.getElementById("demo").innerHTML = document.getElementById("myRange").value;					
+		document.getElementById("demo").innerHTML = document.getElementById("myRange").value;	
+		
 						
 	}	
 
@@ -2795,6 +2803,7 @@
 		if ( cP==P5 ) { 
 			//alert("last input = "+P4+" "+cH); 
 			document.getElementById('p&h').value = P4+" "+cH;	
+			document.getElementById("lastVAL").value = document.getElementById('p4h'+cH).value; // ** (Sep/25)
 				document.getElementById("TDp4"+"h"+cH).style.border="2px solid orange";	
 				document.getElementById("TDp4"+"h"+cH).style.background = "red";  // < N21/25 **	
 				prevIPT = "TDp4h"+cH;					
@@ -2802,6 +2811,7 @@
 		else if ( cP==P4 ) { 
 			//alert("last input = "+P3+" "+cH); 
 			document.getElementById('p&h').value = P3+" "+cH;	
+			document.getElementById("lastVAL").value = document.getElementById('p3h'+cH).value; // ** (Sep/25)
 				document.getElementById("TDp3"+"h"+cH).style.border="2px solid orange";	
 				document.getElementById("TDp3"+"h"+cH).style.background = "red";  // < N21/25 **	
 				prevIPT = "TDp3h"+cH;								
@@ -2809,6 +2819,7 @@
 		else if ( cP==P3 ) { 
 			//alert("last input = "+P2+" "+cH); 
 			document.getElementById('p&h').value = P2+" "+cH;	
+			document.getElementById("lastVAL").value = document.getElementById('p2h'+cH).value; // ** (Sep/25)
 				document.getElementById("TDp2"+"h"+cH).style.border="2px solid orange";	
 				document.getElementById("TDp2"+"h"+cH).style.background = "red";  // < N21/25 **	
 				prevIPT = "TDp2h"+cH;								
@@ -2816,14 +2827,16 @@
 		else if ( cP==P2 ) { 
 			//alert("last input = "+P1+" "+cH); 
 			document.getElementById('p&h').value = P1+" "+cH;	
+			document.getElementById("lastVAL").value = document.getElementById('p1h'+cH).value; // ** (Sep/25)
 				document.getElementById("TDp1"+"h"+cH).style.border="2px solid orange";	
 				document.getElementById("TDp1"+"h"+cH).style.background = "red";  // < N21/25 **	
 				prevIPT = "TDp1h"+cH;								
 		}	
 		else { 
 			//alert("?? last input prior to "+P1+" "+cH); 
-			alert("Will go back to FIRST listed player of last hole!");
-			document.getElementById('p&h').value = P1+" "+pH;	
+			//alert("Will go back to FIRST listed player of last hole!");
+			document.getElementById('p&h').value = P1+" "+pH;
+			document.getElementById("lastVAL").value = document.getElementById('p1h'+pH).value; // ** (Sep/25)	
 				document.getElementById("TDp1"+"h"+pH).style.border="2px solid orange";	
 				document.getElementById("TDp1"+"h"+pH).style.background = "red";  // < N21/25 **	
 				prevIPT = "TDp1h"+pH;								
@@ -2850,7 +2863,7 @@
 			}
 			else {prevIPThole = prevIPT.charAt(5)};
 			var prevIPTpar = document.getElementById("PARh"+prevIPThole).value;
-			alert("prevIPT [*PRIOR input*] = "+prevIPT+"\nprevIPTpar = "+prevIPTpar);
+			//alert("prevIPT [*PRIOR input*] = "+prevIPT+"\nprevIPTpar = "+prevIPTpar);
 
 		document.getElementById("myRange").value = +prevIPTpar + 1;	// < Nov 18/25 **
 		document.getElementById("demo").innerHTML = document.getElementById("myRange").value;					
@@ -2910,6 +2923,10 @@
 			document.getElementById("TD"+GLOBALinput).style.background='brown';	// < Sep/25
 		
 		//document.getElementById('h'+cH+'p'+cPno).innerHTML = slideVAL;
+		
+		alert(cP+cH + " will be changed from "+ document.getElementById('lastVAL').value + " to " + slideVAL + "!"); // Nov 22/25 < **
+		//alert(pNAME+h + " changed from "+ lastSCORE + " to " + newValue + "!"); // < *
+		
 		replace();
 		
 	}
