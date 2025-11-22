@@ -934,8 +934,16 @@
 		
 		//document.getElementById(SCRinput).onfocus = function() { document.getElementById("TD"+SCRinput).style.background = "lime"; }
 
-
+		 /*if ( document.getElementById("TDp1h2").style.background = "red" ) {
+				document.getElementById("TDp1h2").style.background = "aqua"; 	// < nov 20/25 **
+		}*/ 
+		
 		GLOBALinput = SCRinput;	//"ADD";
+		
+		if ( (document.getElementById("TDp1h2").style.background = "red") && (GLOBALinput != "p1h2") ) {
+				document.getElementById("TDp1h2").style.background = "aqua"; 	// < nov 20/25 **
+		}
+		
 		//document.getElementById("SLIDER").style.visibility="visible";
 			document.getElementById("check").style.visibility = "hidden";	//	**
 		
@@ -1021,6 +1029,11 @@
 			document.getElementById("focusIPT").value = pNAME+" "+nameArray[1]; 		//GLOBALinput;
 		document.getElementById("TD"+SCRinput).style.background = "red";   //TDp1h1
 			//changeGLOBAL(x);
+			/*alert("In 'FOCUSfn()'! SCRinput = "+SCRinput+". prevIPT = "+prevIPT+". lastFOCUS = "+lastFOCUS+".\n\n"+
+			  "document.getElementById('lastFOCUS').value = "+document.getElementById('lastFOCUS').value);*/
+			var lstFCSel =  document.getElementById('lastFOCUS').value;
+			document.getElementById("TD"+lstFCSel).style.background = "aqua";   // < Nov 20/25 **
+		document.getElementById(prevIPT).style.background = "aqua";   // < Nov 20/25 **
 			
 		//localStorage.setItem("lastFOCUSval", document.getElementById(SCRinput).value);
 		
@@ -1346,7 +1359,7 @@
 	
 	function showSLIDER() {
 		if (document.getElementById("SLIDER").style.display=="none") {	
-			alert("Will try to display slider!");
+			//alert("Will try to display slider!");
 			document.getElementById("SLIDER").style.visibility="visible";
 			document.getElementById("SLIDER").style.display="inline-block";		//"none";
 			document.getElementById("TBLbody").style.height = "430px";	
@@ -1354,7 +1367,13 @@
 			document.getElementById("FULLbtn2").innerText = "+";	
 			
 			// Nov 18/25: **
-			var currentInput = document.getElementById('p&h').value;
+			var currentInput = document.getElementById('p&h').value; 
+					//alert("currentInput ='"+currentInput+"'. p1NAME = '"+document.getElementById('p1NAME').value+"'.\nGLOBALinput = '"+GLOBALinput+"'.");
+				if ( currentInput == document.getElementById('p1NAME').value + " 2" ) {
+					//alert ("currentInput == document.getElementById('p1NAME').value +  2");
+					document.getElementById('TDp1h2').style.background = 'red';	// < Nov 20/25 **
+					GLOBALinput = "p1h2"; prevIPT = "TDp1h2";   
+				}
 			var curHOLE;
 			if (currentInput.length > 4 ) {
 				curHOLE = currentInput.substr(currentInput.length-2);	
@@ -1362,18 +1381,24 @@
 			else {curHOLE = currentInput.charAt(3)};
 					//var curHOLE = currentInput.substr(3,1); //SCRinput.substr(1,1)			
 			var curPAR = document.getElementById("PARh"+curHOLE).value;
-				alert("currentInput = "+currentInput+"\ncurPAR = "+curPAR);
+				//alert("currentInput = "+currentInput+"\ncurPAR = "+curPAR);
 			document.getElementById("myRange").value = +curPAR+1;	// < Nov 18/25 **
 				document.getElementById("demo").innerHTML = document.getElementById("myRange").value;	
 			
-				
+			//document.getElementById(prevIPT).style.background = "aqua";  // < N19/25 **		
+			document.getElementById("TD"+GLOBALinput).style.background = "red";  // < N19/25 **			
+	
 		}
 		else {
-			alert("Will try to hide slider.");
+			//alert("Will try to hide slider.");
 			document.getElementById("SLIDER").style.visibility="hidden";
 			document.getElementById("SLIDER").style.display="none";	
 			document.getElementById("btnUNDO").style.visibility="hidden";	
-			document.getElementById("TBLbody").style.height = "490px";			
+			document.getElementById("TBLbody").style.height = "490px";	
+			document.getElementById(prevIPT).style.background = "aqua";  // < N19/25 **	
+			document.getElementById("TD"+GLOBALinput).style.background = "aqua";  // < N19/25 **			
+					//alert("In 'showSLIDER()' fn! prevIPT = "+prevIPT+". GLOBALinput = "+GLOBALinput+".");	
+			//prevIPT = ""; // < Nov 21/25 **	
 		}
 		//document.getElementById("TD"+GLOBALinput).style.background='gold';	// < Sep/25
 		/*
@@ -2638,6 +2663,10 @@
 		
 		//alert("'prevIPT' variable = "+prevIPT);	//varNumber);	//prevIPT);
 		document.getElementById(prevIPT).style.border="0px solid orange";	
+			document.getElementById(prevIPT).style.background = "aqua";  // < N19/25 **	
+			if ( document.getElementById("TD"+GLOBALinput).style.background = "red"  ) {
+				document.getElementById("TD"+GLOBALinput).style.background = "aqua"; 
+			}
 		
 		var currentInput = document.getElementById('p&h').value;
 		//alert("Will try to > next input!\n\tcurrentInput = "+currentInput);
@@ -2672,30 +2701,36 @@
 			//alert("next input = "+P5+" "+cH); 
 			document.getElementById('p&h').value = P5+" "+cH;	
 				document.getElementById("TDp5"+"h"+cH).style.border="2px solid orange";	
+					document.getElementById("TDp5"+"h"+cH).style.background = "red";  // < N19/25 **	
 				prevIPT = "TDp5h"+cH;		
 		}
 		else if ( cP==P3 && P4!="" ) { 
 			//alert("next input = "+P4+" "+cH); 
 			document.getElementById('p&h').value = P4+" "+cH;	
 				document.getElementById("TDp4"+"h"+cH).style.border="2px solid orange";	
+					document.getElementById("TDp4"+"h"+cH).style.background = "red";  // < N19/25 **	
 				prevIPT = "TDp4h"+cH;		
 		}
 		else if ( cP==P2 && P3!="" ) { 
 			//alert("next input = "+P3+" "+cH); 
 			document.getElementById('p&h').value = P3+" "+cH;	
 				document.getElementById("TDp3"+"h"+cH).style.border="2px solid orange";	
+					document.getElementById("TDp3"+"h"+cH).style.background = "red";  // < N19/25 **
+					//document.getElementById(prevIPT).style.background = "aqua";  // < N19/25 **			
 				prevIPT = "TDp3h"+cH;		
 		}
 		else if ( cP==P1 && P2!="" ) { 
 			//alert("next input = "+P2+" "+cH); 
 			document.getElementById('p&h').value = P2+" "+cH;	
 				document.getElementById("TDp2"+"h"+cH).style.border="2px solid orange";	
+					document.getElementById("TDp2"+"h"+cH).style.background = "red";  // < N19/25 **	
 				prevIPT = "TDp2h"+cH;		
 		}
 		else { 
-			alert("All players entered for hole "+cH+"! Go to hole "+nH+"."); 
+			//alert("All players entered for hole "+cH+"! Go to hole "+nH+"."); 
 			document.getElementById('p&h').value = P1+" "+nH;	
 				document.getElementById("TDp1"+"h"+nH).style.border="2px solid orange";	
+					document.getElementById("TDp1"+"h"+nH).style.background = "red";  // < N19/25 **	
 				prevIPT = "TDp1h"+nH;		
 		}
 
@@ -2719,7 +2754,7 @@
 					//else {curHOLE = currentInput.charAt(3)};
 							//var curHOLE = currentInput.substr(3,1); //SCRinput.substr(1,1)			
 			var nxtIPTpar = document.getElementById("PARh"+nxtIPThole).value;
-			alert("prevIPT [*NEXT input*] = "+prevIPT+"\nnxtIPTpar = "+nxtIPTpar);
+			//alert("prevIPT [*NEXT input*] = "+prevIPT+"\nnxtIPTpar = "+nxtIPTpar);
 			//var curPAR = document.getElementById("PARh"+curHOLE).value;
 			//alert("currentInput = "+currentInput+"\ncurPAR = "+curPAR);		
 			//document.getElementById("myRange").value = nxtPAR;	// < Nov 18/25 **
@@ -2727,12 +2762,104 @@
 
 		document.getElementById("myRange").value = +nxtIPTpar + 1;	// < Nov 18/25 **
 		document.getElementById("demo").innerHTML = document.getElementById("myRange").value;					
-				
-				
-		
+						
 	}	
 
+	function PrevInput() {
+		document.getElementById(prevIPT).style.border="0px solid orange";	
+			document.getElementById(prevIPT).style.background = "aqua";  // < N19/25 **	
+			if ( document.getElementById("TD"+GLOBALinput).style.background = "red"  ) {
+				document.getElementById("TD"+GLOBALinput).style.background = "aqua"; 
+			}
+			
+		var currentInput = document.getElementById('p&h').value;
+		//alert("Will try to > PREVIOUS input!\n\tcurrentInput = "+currentInput);
+		
+		var P1 = localStorage.getItem('g1NAME');
+		var P2 = localStorage.getItem('g2NAME');
+		var P3 = localStorage.getItem('g3NAME');
+		var P4 = localStorage.getItem('g4NAME');
+		var P5 = localStorage.getItem('g5NAME');
+		
+		const iptARY = currentInput.split(" ");
+		var cH = iptARY[1]; // <  // < current hole		
+			//const cH = currentInput.slice(-1); // < current hole
+			
+		var nH = +cH + 1; // < next hole
+		var pH = +cH - 1; // < PREVIOUS hole
+		
+		var cP = iptARY[0]; // < current player
+		/*alert("Current Hole = "+cH+"\tPrevious/last Hole = "+pH+"\nCurrent Player = "+cP+"\n\n"+
+			  "P1 = "+P1+"\tP2 = '"+P2+"'\tP4 = '"+P4+"'");*/
 
+		if ( cP==P5 ) { 
+			//alert("last input = "+P4+" "+cH); 
+			document.getElementById('p&h').value = P4+" "+cH;	
+				document.getElementById("TDp4"+"h"+cH).style.border="2px solid orange";	
+				document.getElementById("TDp4"+"h"+cH).style.background = "red";  // < N21/25 **	
+				prevIPT = "TDp4h"+cH;					
+		}
+		else if ( cP==P4 ) { 
+			//alert("last input = "+P3+" "+cH); 
+			document.getElementById('p&h').value = P3+" "+cH;	
+				document.getElementById("TDp3"+"h"+cH).style.border="2px solid orange";	
+				document.getElementById("TDp3"+"h"+cH).style.background = "red";  // < N21/25 **	
+				prevIPT = "TDp3h"+cH;								
+		}
+		else if ( cP==P3 ) { 
+			//alert("last input = "+P2+" "+cH); 
+			document.getElementById('p&h').value = P2+" "+cH;	
+				document.getElementById("TDp2"+"h"+cH).style.border="2px solid orange";	
+				document.getElementById("TDp2"+"h"+cH).style.background = "red";  // < N21/25 **	
+				prevIPT = "TDp2h"+cH;								
+		}	
+		else if ( cP==P2 ) { 
+			//alert("last input = "+P1+" "+cH); 
+			document.getElementById('p&h').value = P1+" "+cH;	
+				document.getElementById("TDp1"+"h"+cH).style.border="2px solid orange";	
+				document.getElementById("TDp1"+"h"+cH).style.background = "red";  // < N21/25 **	
+				prevIPT = "TDp1h"+cH;								
+		}	
+		else { 
+			//alert("?? last input prior to "+P1+" "+cH); 
+			alert("Will go back to FIRST listed player of last hole!");
+			document.getElementById('p&h').value = P1+" "+pH;	
+				document.getElementById("TDp1"+"h"+pH).style.border="2px solid orange";	
+				document.getElementById("TDp1"+"h"+pH).style.background = "red";  // < N21/25 **	
+				prevIPT = "TDp1h"+pH;								
+			
+		}
+		
+		/*	  
+		if ( cP==P4 && P5!="" ) { 
+			//alert("next input = "+P5+" "+cH); 
+			document.getElementById('p&h').value = P5+" "+cH;		
+		}
+		*/	
+		
+		document.getElementById('check').style.visibility = 'hidden';
+		//document.getElementById('myRange').value = 0;	//value="0" class="slider" id="myRange"
+		//	document.getElementById('demo').innerHTML = 0; //id="demo"
+			
+			
+					
+			// Nov 18/25: **
+			var prevIPThole;
+			if (prevIPT.length > 6 ) {
+				prevIPThole = prevIPT.substr(prevIPT.length-2);	
+			}
+			else {prevIPThole = prevIPT.charAt(5)};
+			var prevIPTpar = document.getElementById("PARh"+prevIPThole).value;
+			alert("prevIPT [*PRIOR input*] = "+prevIPT+"\nprevIPTpar = "+prevIPTpar);
+
+		document.getElementById("myRange").value = +prevIPTpar + 1;	// < Nov 18/25 **
+		document.getElementById("demo").innerHTML = document.getElementById("myRange").value;					
+		
+			
+			
+			
+	}	
+	
 	function EnterInput() {
 		
 		var audio = new Audio('mixkit-select-click-1109.wav');
@@ -2794,92 +2921,6 @@
 		document.getElementById('btnUNDO').style.visibility = 'hidden';	
 		alert(document.getElementById('p&h').value + " ("+GLOBALinput+") changed BACK to '" + document.getElementById('lastVAL').value + "'!");
 	}
-	
-	function PrevInput() {
-		document.getElementById(prevIPT).style.border="0px solid orange";	
-
-		var currentInput = document.getElementById('p&h').value;
-		//alert("Will try to > PREVIOUS input!\n\tcurrentInput = "+currentInput);
-		
-		var P1 = localStorage.getItem('g1NAME');
-		var P2 = localStorage.getItem('g2NAME');
-		var P3 = localStorage.getItem('g3NAME');
-		var P4 = localStorage.getItem('g4NAME');
-		var P5 = localStorage.getItem('g5NAME');
-		
-		const iptARY = currentInput.split(" ");
-		var cH = iptARY[1]; // <  // < current hole		
-			//const cH = currentInput.slice(-1); // < current hole
-			
-		var nH = +cH + 1; // < next hole
-		var pH = +cH - 1; // < PREVIOUS hole
-		
-		var cP = iptARY[0]; // < current player
-		/*alert("Current Hole = "+cH+"\tPrevious/last Hole = "+pH+"\nCurrent Player = "+cP+"\n\n"+
-			  "P1 = "+P1+"\tP2 = '"+P2+"'\tP4 = '"+P4+"'");*/
-
-		if ( cP==P5 ) { 
-			//alert("last input = "+P4+" "+cH); 
-			document.getElementById('p&h').value = P4+" "+cH;	
-				document.getElementById("TDp4"+"h"+cH).style.border="2px solid orange";	
-				prevIPT = "TDp4h"+cH;					
-		}
-		else if ( cP==P4 ) { 
-			//alert("last input = "+P3+" "+cH); 
-			document.getElementById('p&h').value = P3+" "+cH;	
-				document.getElementById("TDp3"+"h"+cH).style.border="2px solid orange";	
-				prevIPT = "TDp3h"+cH;								
-		}
-		else if ( cP==P3 ) { 
-			//alert("last input = "+P2+" "+cH); 
-			document.getElementById('p&h').value = P2+" "+cH;	
-				document.getElementById("TDp2"+"h"+cH).style.border="2px solid orange";	
-				prevIPT = "TDp2h"+cH;								
-		}	
-		else if ( cP==P2 ) { 
-			//alert("last input = "+P1+" "+cH); 
-			document.getElementById('p&h').value = P1+" "+cH;	
-				document.getElementById("TDp1"+"h"+cH).style.border="2px solid orange";	
-				prevIPT = "TDp1h"+cH;								
-		}	
-		else { 
-			//alert("?? last input prior to "+P1+" "+cH); 
-			alert("Will go back to FIRST listed player of last hole!");
-			document.getElementById('p&h').value = P1+" "+pH;	
-				document.getElementById("TDp1"+"h"+pH).style.border="2px solid orange";	
-				prevIPT = "TDp1h"+pH;								
-			
-		}
-		
-		/*	  
-		if ( cP==P4 && P5!="" ) { 
-			//alert("next input = "+P5+" "+cH); 
-			document.getElementById('p&h').value = P5+" "+cH;		
-		}
-		*/	
-		
-		document.getElementById('check').style.visibility = 'hidden';
-		//document.getElementById('myRange').value = 0;	//value="0" class="slider" id="myRange"
-		//	document.getElementById('demo').innerHTML = 0; //id="demo"
-			
-			
-					
-			// Nov 18/25: **
-			var prevIPThole;
-			if (prevIPT.length > 6 ) {
-				prevIPThole = prevIPT.substr(prevIPT.length-2);	
-			}
-			else {prevIPThole = prevIPT.charAt(5)};
-			var prevIPTpar = document.getElementById("PARh"+prevIPThole).value;
-			alert("prevIPT [*PRIOR input*] = "+prevIPT+"\nprevIPTpar = "+prevIPTpar);
-
-		document.getElementById("myRange").value = +prevIPTpar + 1;	// < Nov 18/25 **
-		document.getElementById("demo").innerHTML = document.getElementById("myRange").value;					
-		
-			
-			
-			
-	}	
 	
 	function loadFN() {  
 		document.getElementById('p&h').value = localStorage.getItem('g1NAME') + ' 2';
