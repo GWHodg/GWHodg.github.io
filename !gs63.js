@@ -1121,7 +1121,7 @@
 	//var origCOLOR:
 	function editTEST() {
 		lastFOCUS = document.getElementById('lastFOCUS').value;
-			var origCOLOR = document.getElementById("TD"+lastFOCUS).style.background;	
+			var origCOLOR = document.getElementById("TD"+lastFOCUS).style.background;	// << **
 				//alert("origCOLOR = "+origCOLOR);
 				//document.getElementById("TDcolor").value = origCOLOR;	
 			document.getElementById("TD"+lastFOCUS).style.background = "red";	
@@ -2770,7 +2770,8 @@
 		document.getElementById("myRange").value = +nxtIPTpar + 1;	// < Nov 18/25 **
 		document.getElementById("demo").innerHTML = document.getElementById("myRange").value;	
 		
-						
+		document.getElementById('lastFOCUS').value = prevIPT.substr(2);
+		//alert("document.getElementById('lastFOCUS').value = "+document.getElementById('lastFOCUS').value); //**				
 	}	
 
 	function PrevInput() {
@@ -2869,7 +2870,8 @@
 		document.getElementById("demo").innerHTML = document.getElementById("myRange").value;					
 		
 			
-			
+		document.getElementById('lastFOCUS').value = prevIPT.substr(2);
+		//alert("document.getElementById('lastFOCUS').value = "+document.getElementById('lastFOCUS').value); //**			
 			
 	}	
 	
