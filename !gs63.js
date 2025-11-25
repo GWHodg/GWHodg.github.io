@@ -2939,6 +2939,11 @@
 		document.getElementById(GLOBALinput).value = document.getElementById('lastVAL').value;
 		document.getElementById('btnUNDO').style.visibility = 'hidden';	
 		alert(document.getElementById('p&h').value + " ("+GLOBALinput+") changed BACK to '" + document.getElementById('lastVAL').value + "'!");
+		
+		var Pno = GLOBALinput.substr(1,1); var HOLE = GLOBALinput.substr(3);
+			//alert("Pno = "+Pno+". HOLE = "+HOLE+".");
+		localStorage.setItem('g'+Pno+'H'+HOLE+'s',document.getElementById('lastVAL').value);
+		
 	}
 	
 	function loadFN() {  
