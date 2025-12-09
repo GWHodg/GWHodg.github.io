@@ -1,0 +1,406 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>BRIDGEcol</title>
+		<!-- https://www.w3schools.com/css/tryit.asp?filename=trycss3_column-count -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+	.newspaper {
+  		column-count: 3;
+		column-gap: 40px;
+  		column-rule-style: solid;
+  		/* column-rule-width: 1px; */
+  		column-rule: 3px solid green;
+		border:2px orange solid; border-radius:5px; 
+		/* height:500px; overflow-y:scroll; */
+	}
+
+	sh { font-size:20px; color:red; font-weight:bold; background:yellow; }
+	e { color:green; }
+	r { font-size:20px; color:brown; font-weight:bold; background:beige; }
+	bl { font-size:20px; color:blue; font-weight:bold; }
+	
+	dl {
+	  display:block;
+	  margin-top: 0;
+	  margin-bottom: 0em;
+	  margin-left: 0em;
+	  margin-right: 0em;
+	}
+	dd {
+		margin-left: 2.5em;
+		text-indent:-1.5em;
+	}
+	dt { margin-left: 1.1em; text-indent:-1.0em; }
+</style>
+
+<script type="text/javascript">
+	function alertMINORraise() {
+		alert("RESPONDER'S MINOR RAISE:\n"+
+			  "Can raise w/ minor suit fit (8+) BUT opener may have just 4 cards. So YOU NEED 4!\n"+
+			  "FIT + 6-9 HCP > raise 1 level.\n"+
+			  "FIT + 10-12 HCP > raise 2 levels.\n\n"+
+			  "Only if no MAJOR suit fit.");
+	}
+	function alert2NTresponse() {
+		alert("CONSIDER NT BID BEFORE RAISING MINOR:\n"+
+			  "2NT = balanced hand + 10-12 HCP.\n"+
+			  "3NT = balanced hand + 13-15 HCP.");
+	}	
+	function rsp2X4card() {		/*  alt T = †   |     alt V = √    |    alt J = ∆     */
+		alert("† w/ enough HCP to resp (eg 7) & 2 4-card suits bid cheapest [+> up a level] - gives opener ROOM to show higher if poss.\n\n"+
+			  "† w/o strength (13+) for 2-level & no AVAILABLE suit > 1NT.\n\n"+
+			  "† w/ 13 HCP & longest suits = 4 cards bid lower.\n\n"+
+			  "† EXCEPTION: 2H = 5! w/ just 4 bid minor (lowest).");
+	}
+	function rsp1NT() {
+		alert("† w/o strgth for 2-level RESP (eg 7/9 HCP) > 1 NT (doesn't have to be 'balanced' for 'response').");
+	}
+	function rspMinor() {
+		alert("† Bidding/finding MAJOR more NB than supporting opener's minor (even w/ 'fit').");
+	}
+	function rspRaiseMaj() {
+		alert("Raising opener's major (6+ HCP + 3 cds) is PRIORITY!");		
+	}	
+	function rspNoJump() {
+		alert("† Even w/ gt hnd (eg 16 HCP) just bid 1-level. Conv won't stop - enough for game w/ opener's 12 HCP.");
+	}
+	function rspLongest() {
+		alert("Show LONGEST suit 1st evn if MINOR when > 2-level (shows game forcing stgth).");
+	}
+	function rspDENY() {
+		alert("† BOTH deny 4-card major!\n\n"+
+			  "† Most HELPFUL to show willingness to play NT: bal hnd, 10-12 HCP & suit stgth = 'descriptive' 2NT bid avail.\n\n"+
+			  "w/ 4-card MAJOR bid it before > minor or NT.");
+	}	
+	
+	function reopPtnrGF() {
+		alert("Even w/ GF stgth (eg 19) if ptnr has shown GF (ie > 2 lvl) don't have to jump.");
+	}
+	function reopBalanced() {
+		alert("† OPEN 1 of a suit 1st!\n\n"+
+			  "† JUMP = bid one level higher than necessary.");
+	}	
+	function reopRAISE() {
+		alert("1/min; 2/inv; game/GF)\n\nBUT > just 1 if rspr showed GF!");
+	}
+	function reopRAISEnt() {
+		alert("† NOT A JUMP!\n\n"+
+			  "† Opnr can pass 1NT resp w/ 12-14 + minor open (can't be 25 HCP for gm) BUT w/ MAJ open 1NT is  FORCING (bid longer minor w/ bal hd.\n\n"+
+			  "[for 2NT rsp raise see p185]");
+	}
+	function reopFITlimit() {
+		alert("'Limit raise' = inv hd (10-12 HCP).\n"+
+			  "If opnr = min (12-15): 12-13 +> enough for gm; 14-15 OK.\n"+
+			  "If opnr = inv+ must be enough.");
+	}
+	
+	function rerspTTL() {
+		alert("Can pick good contract using exchanged info!");
+	}
+	function rerspGMmnr() {
+		alert("Want 29 HCP for game if playing in MINOR suit!");	
+	}	
+	
+</script>
+
+</head>
+<body> <!--onLoad="window.scroll(0, 2200)" style="width:320px; border:2px orange solid; border-radius:5px; padding:5px; margin-left:auto; margin-right:auto;"> -->
+			<!-- height:640px;  border:3px orange outset;  border-radius:10px; -->	
+<H1>LearnBridge App <i>'24</i> &emsp;&emsp;
+	<!--<span style="float:right;">-->
+		<A style="FONT-WEIGHT:normal; FONT-SIZE:small; COLOR:;"
+					onclick="return popupDEAL(this, 'deal')" title= ""
+					href="http://movicra.com/@BRIDGE/PSmar19/psBIDdrill.php">psBIDdrill</A>
+		&emsp;
+		<A style="cursor: progress; FONT-WEIGHT:normal; FONT-SIZE:small; COLOR: "
+					onclick="return popupINDEX(this, 'index')" 
+					href="https://youtu.be/LfRbjDP-9pU?si=4MP5mqlgbyztUTPr">Sort Cards</A></H1>
+	<!--</span>-->
+
+<div class="newspaper">	
+<h2>What is bridge?</h2>
+		Top 5 cards (AKQJ10) = <b>honors</b>. Rest = <b>spots</b>.<br>
+		Can't follow suit <i>(out)</i> & play diff suit that can't win = <b>discard</b>.<br>
+		<u>Some</u> deals > <b>trump suit</b> <i>(outranks other suits; played only if out of lead suit)</i> [= 'ruff'].<br>
+		Defence communicates thru cards they play!<br>
+		<u>Bidding</u>: <b>Auction</b> (> right to be declarer & pick trump suit; last bid) > <b>contract <i>(> 'level' & 'strain'/denomination)</i></b>:<br>
+			&emsp;1&hearts; = have at least 5 hearts.<br>
+			&emsp;1 NT = above avg hand w/ = cards ea suit.<br>
+		Hand evaluation: assess trick-taking potential.</br>
+
+<h2>Intro to Declarer Play</h2>
+	<sh>Taking Tricks</font></sh><br>
+			<dt>&#9632; Count winners in ea suit</b> <i>(sure tricks)</i> [p11]:<br>
+									&emsp;A+K+Q=3 <i>(no A = 0 winners)</i>.</dt>
+			<dt>&#9632; <b>overtricks</b>: # of tricks above those req for contract.</dt>
+
+			<dt>&#9632; long side <i>(hand w/ more cards in given suit)</i></dt>
+					<dd>&#9679; - can't take more tricks in suit than <i>long side</i> has cards <i>(p45)</i></dd>
+					<dd>&#9679; - <e># tricks can take ONLY limited by lgth of 'long side'</e>! <i>(p51)</i></dd>
+			<dt>&#9632; 'stopper': prev opp taking ++ tricks (in NT) <i>(Axx, KQx, QJ10)</i> [p65]</dt>
+			<dt>&#9632; <bl>blocked</bl> suits <i>(pp 75/84/111)</i></dt>
+					<dd>&#9679; - no way to take all tricks w/o > side suit <i>(to get back to partner/dummy)</i></dd>
+			<dt>&#9632; <r>play 'high cards' fr 'short side' 1st</r> (to prevent suit being 'blocked') [p79]</dt>
+			<dt>&#9632; . . . </dt>							
+			<dt>&#9632; <r>entries</r> <i>(eg 'to dummy')</i>: card that lets you TRANSFER LEAD fr 1 hand to other<br>
+								&emsp;- high card in OTHER hand that you want to lead<br>
+								&emsp;&emsp;- don't use it TOO EARLY (before you 'unblock' another suit) [p107]<br>
+								&emsp;- <i>'plan the play'</i>
+			</dt>
+			<dt>&#9632; <e>overtaking</e> (play card fr 1 hand ^ 1 already played fr opp hand)<br> & <e>underplaying</e> (play high card fr BOTH hands but lower in 2nd) [p120]<br> 
+								&emsp;- <i>done to <u>unblock</u> suit (manage entries)</i><br>
+								&emsp;- <u>duck</u> - intentional decline win (<i>safe w/ stoppers in ev suit)</i>)<br>
+								&emsp;- <u>overtake</u> sacrifices high card to > entry to other hand<br>
+								&emsp;- <u>underplay</u> sacrifices high card to ENSURE lead stays in SAME hand
+			</dt>		
+		
+	<sh>Establishment & Promotion <i>(take tricks w/ lower cards)</i></sh>
+			<dt>&#9632; . . . </dt>	
+			<dt>&#9632; <u>Establish</u> [p147]<br>
+								&emsp;- play suit enough > both opponents VOID > all your rem cards WINNERS</dt>
+			<dt>&#9632; <i>most deals req conceding tricks to set up more</i></dt>	
+			<dt>&#9632; <u>Promotion</u> [p191]<br>
+								&emsp;- when card played, all below (in same suit) -> <u>promoted</u> in rank <i>(eg knock out A w/ K -> Q a winner)</i><br>
+								&emsp;- intentionally LOSE a TRICK!
+			</dt>										
+
+<h2>Basic Constructive Bidding</h2>
+	<sh>Intro</sh><br>
+		Standard American vs <u>2/1 ('two-over-one'</u> <i>game forcing</i>) systems.<br>
+		<u>constructive</u> <i>(stong 1-side-only)</i> vs competative bidding.<br>
+
+	<sh>Auction</sh><br>	
+			<dt>&#9632; dealer acts 1st;&nbsp;</dt>
+			<dt>&#9632; bids must increase</dt>
+			<dt>&#9632; bids sort by level & then <u>strain</u> <i>(<r>suits in alpha order > NT</r>)</i> [p18]<br>
+				&emsp;NT &emsp;&spades; &emsp;&hearts; &emsp;&diams; &emsp;&clubs;<br>
+				&emsp;&emsp;&emsp; S &emsp; H &emsp; D &emsp; C</dt>
+			<dt>&#9632; last bid > <u>declaring side</u> (declarer = 1st to name strain)</dt>
+			<dt>&#9632; 'opening leader' = person to L of 'declarer'</dt>
+			<dt>&#9632; 1&spades; = have <i>at least</i> 5 &spades; & '>avg hand' <bl>(in 2/1)</bl></dt>
+			<dt>&#9632; <e>partner bidding in same suit = have <i>at least</i> 3 of that suit</e></dt>
+			<dt>&#9632; 'agreements' <i><font size=2>(artificial bids; not natural)</font></i> vs 'rules'<br>
+								&emsp;e.g. you & partner 'agree' 1&hearts; open = >5&diams;</dt>				
+								
+	<sh>Goals</sh><br>
+		? best <u>combined</u> <i>(w/ partner)</i> suit + # tricks can take.<br>
+		<font style="background:moccasin; width:80%; border-radius:0px;">
+			<e>MAJOR (&spades;&hearts;) & MINOR (&diams;&clubs;) suits:</e></font><br>
+				<!--<div style="padding-left:1.5em; text-indent:-1.5em; background:silver; display:inline-block; margin-left:20px;">-->
+				  <dl style="background:moccasin; display:inline-block;">
+					<dd>&#9679;'Game' contract</u>: 3NT, 4 major; 5 minor<br>
+						'partscore'/'partial': below ^</dd>
+					<dd>&#9679;1st goal: <u>? can play w/ major trump suit</u>. If not - ? play NT contact <i>(req 9 tricks)</i>. Last resort = play in minor suit. </dd>	
+					<dd>&#9679;After find best suit > ? combined strength<br>
+						Want to bid '<u>game</u>' if can make it!<br>
+						SLAMS: small = 12 tricks; grand = 13;</dd>
+				  </dl>
+				<!--</div>-->
+	<br>			
+	<sh>Opening Bid</sh><br>
+		<dl>
+			<dt>&#9632; Opening 1 of suit 'promises' 12 <u>High Card Points (<r>HCP</r>):</u><br>
+									&emsp;&emsp;&emsp;A=4 | K=3 | Q=2 | J=1</dt>
+			<dt>&#9632; If can open (^) - ? which suit:</dt>
+				<dd>&#9679; 1) <r>1&hearts; or 1&spades; promise 5 cards</r> <i>(2/1 = '5-card majors' system).</i></dd>
+				<dd>&#9679; 2) open <u>longest suit.</u></dd>
+				<dd>&#9679; - val for prtnr to know if have 4 or 5-card major. OPEN of 1&hearts; or 1&spades; = 5 <i>(later = 4)</i>. </dd> </dt>				
+			<dt>&#9632; w/ long suits of = lgth <font size=2 color=silver>[p65]</font>:<br>
+				<dd>&#9679; 1) open higher <u>ranked</u> <i>(not stronger)</i>.</dd>
+				<dd>&#9679; 2) w/ 2 3-card minors > &clubs; <i>(1&diams; open = at least 4 &diams;)</i>.</dd>		
+			</dt>
+			<dt>&#9632; <u>1&2NT</u> <i>(prefer over 1 of suit)</i>:<br>
+				<dd>&#9679; <e>Balanced hand</e>: no sigletons or voids & only 1 doubleton <i>(4333; 4432; 5332). </i></dd>
+				<dd>&#9679; 1NT = 15-17 HCP + balanced.</dd>
+				<dd>&#9679; 2NT = 20-21 HCP + balanced.</dd>
+			</dt>
+		</dl>		
+		<!-- alt T = †   |     alt V = √    |    alt J = ∆   |   &#9632;=black square; &#9679;=blk crcl -->
+		<!--
+		<dl>	
+		  <dt>&#9632; Coffee: made in South America for the most part by nice people!</dt>
+		  	<dd>&#9679; Black hot drink</dd>
+		  <dt>&#9632; Milk</dt>
+		  	<dd>&#9679; White cold drink yyyyyyyy uuhuhu jj uuuu jhgg iiii ii</dd>
+		    <dd>&#9679; Chocolate</dd>
+		</dl>
+		-->
+		<br>
+		<sh>Responding to 1 of Suit</sh><br>
+			<dl style="background:moccasin; display:inline-block;">
+				<dt>&#9632; PRIORITIES:
+					<dd>&#9679; <e>Support opener's MAJOR</e></dd>
+					<dd>&#9679; Suggest new suit <i>(looking for a fit)</i></dd>
+					<dd>&#9679; Suggest NT if no viable MAJOR <i>fit</i></dd>
+					<dd>&#9679; Support opener's minor
+								<!-- &#x270D; = hand + pencil  &#9999; = colored pencil -->	
+								<A style="text-decoration:none;" onclick="rspMinor();" href="javascript:;">&#x270D;</A>	
+					</dd>
+				</dt>	
+				<dt>&#9632; Communicate hand strength <i>(req 25 HCP to bid <b>game</b>)</i>:
+						<dd>&#9679; <e>6-9 HCP</e> (min)<br>
+											&emsp;- pass w/ less</dd>	
+						<dd>&#9679; <e>10-12 HCP</e> (invitational; <i>inv</i>)</dd>	
+						<dd>&#9679; <e>13+ HCP</e> (game forcing; <i>GF</i>)</dd>	
+				</dt>
+			</dl>
+			<dl>
+				<dt>&#9632; Major suit <r>fit</r> = 8 cards bet 2 hands<br>
+								- w/ open of 1 &hearts; or &spades; = 5 cards > respr can <b>raise</b> w/ 3<br>
+						<dd>&#9679; fit w/ 'min' > raise 1
+								<A style="text-decoration:none;" onclick="rspRaiseMaj();" href="javascript:;">&#x270D;</A>	
+						</dd>	
+						<dd>&#9679; fit w/ 'inv' > raise 2</dd>
+						<dd>&#9679; fit w/ 'forcing' > bid new suit <u>1st</u></dd>		
+				</dt>	
+			</dl>
+			<dl style="border:2px solid dodgerblue; border-radius:5px; display:inline-block;">
+				<dt>&#9632; Bidding major locates major <u>fit</u>. Bidding minor > ? play NT contract <u>(strgth in q suit)</u>. 
+						<dd>&#9679; <span style="background:lime;">Bid <u>new suit</u></span> <i>(promise <u>4 cards</u> <bl>except 2&hearts; resp to 1&spades; = 5&hearts;</bl>)</i> <span style="background:lime;">if can't raise opener's major or opener bids minor!</span> <br>
+										&emsp;1-level new = 6+ HCP <i>(min hand).</i><br>
+										&emsp;2-level <i><font size=2><e>(if 1-level unavail)</e></font></i> new = 13+ <br>&emsp;&emsp;HCP <i>(game forcing)</i>
+											&nbsp;<e>- but 'bid<br>&emsp;&emsp;cheaply'!<br>
+									<r>2/1 = 5 card <u>majors</u> <i>(15-17 HCP 1 NT open)</i> + <u>game forcing</u> 2-level <u>new suit</u> resp.</r> 
+						</dd> 	
+				</dt>
+				<dt>&#9632; <e>Bid <u>cheaply</u></e>: don't 'jump' to 2 just bec have 13+ HCP.
+											<A style="text-decoration:none;" onclick="rspNoJump();" href="javascript:;">&#x270D;</A>	<br>
+									<span style="background:lime;">w/ mult poss <u>new</u> suits:</span>
+									<dd>&#9679; <span style="background:lime;">start w/ longest</span>
+											<A style="text-decoration:none;" onclick="rspLongest();" href="javascript:;">&#x270D;</A>	
+									</dd>
+									<dd style="">&#9679; <span style="background:lime;">w/ 2 equal<br>
+												&emsp; - 5 cards: start higher<br>
+												&emsp; - 4 cards: bid lower</span> 
+																<!-- &#9998; = rotated pencil -->
+																<!-- &#x270D; = hand + pencil -->
+																<!-- &#9999; = colored pencil -->	
+													<A style="text-decoration:none;" onclick="rsp2X4card();" href="javascript:;">&#9999;</A>	
+									</dd>										
+									<font size=2>&emsp;<span style="background:lime;">w/ no 4-card suit to bid & min or inv hand bid 1NT</span>
+										<A style="text-decoration:none;" onclick="rsp1NT();" href="javascript:;">&#9999;</A>	</font>
+									
+				</dt>
+				<dt>&#9632; Responders <u>new</u> suit bid is <bl>forcing</bl> <i>(prtnr must bid again <font size=2>if interv opp passes</font>)</i>.<br>
+									1 NT resp is <i>special</i>:
+									<dd>&emsp;† post minor open 1NT = min hnd & is <u>not</u> forcing</dd>
+									<dd>&emsp;† post major opn 1NT = min <u>or</u> inv & <u>is</u> forcing</dd>
+							<A onclick="alertMINORraise();" href="javascript:;">Minor Raises</A> &emsp;	
+							<A onclick="alert2NTresponse();" href="javascript:;">2&3NT Responses</A> &emsp;		
+								&#8678;<A style="text-decoration:none;" onclick="rspDENY();" href="javascript:;">&#9999;</A>	</font>				
+				</dt>
+			</dl>
+		<br>
+		<sh>Opener's Rebid</sh><br>
+			Show <u>shape</u> & <u>strength</u> of hand.
+			<dl>
+				<dt>&#9632; <u>Shape</u>: e.g. 5-4-3-1; 
+								'Specific' shape: e.g. 1=5=4=3 <i>(S=H=D=C)</i>
+						<dd>&#9679; <u>Balanced</u> shape: </dd>
+						<dd>&#9679; <u>Unbalanced</u> shape: 1, 2 & 3-suited <i>(=> 4 lgth)</i>!</dd>
+				</dt>
+				<dt>&#9632; <u>Strength</u>:
+					<dd>&#9679; responder: min, inv, 'game forcing'</dd>
+					<dd>&#9679; opener: <span style="background:lime;">resp^ + 6</span> <i>(<span style="background:moccasin;">12/16/19</span>)</i>!</dd>
+					<dd>&#9679; want <span style="background:moccasin;">25 HCP to bid game</span><br>
+										&emsp;- gf = enough if ptnr has min<br>
+										&emsp;- <font color=gray>2 min +> enough</font><br>
+										&emsp;- inv + <i>good</i> min = enough<br></dd>									
+				</dt>
+				<dt>&#9632; <u>SHOW</u> shape & strength post <b>rspr > new <u>strain</u> diff</b> fr opnr intent:	
+					<dd>&#9679; w/ <span style="background:lime;">1-suited</span> bid suit 2nd time<br>
+										&emsp;- cheap w/ min<br>
+										&emsp;- <span style="background:lime;">jump w/ inv</span><br>
+										&emsp;- dbl jump w/ game forcing<br>
+					</dd>
+					<dd>&#9679; w/ 2-suited > 2nd suit<br>
+										&emsp;- cheap w. min or inv<br>
+										&emsp;- jump w/ game forcing<br>
+					</dd>
+					<dd style="border: 0px black solid; color:silver;">&#9679; 
+													w/ disproportionaly long suit of 2 [p154] - <u><font color=gray>rebid long if 2+ more</font></u>			
+													<font size=2>(unless 1 is 3 cards longer show 2nd suit)</font>
+					</dd>
+					<dd style="border: 0px green solid; color:silver;">&#9679; 
+											  		jumping exception [p155] - <font color=gray>if <u>rspdr</u> > gf (2/1) = no need to jump</font>! <font color=silver>e.g. S = 1&spades; | N = 2&clubs;</font>
+													<font color=blue>&#8678;</font><A style="text-decoration:none;" onclick="reopPtnrGF();" href="javascript:;">&#x270D;</A>	<br>
+					</dd>
+					
+					<dd>&#9679; 3-suited:  bid suit that keeps bidding lowest. Bid cheap w/ min or inv hd; jump w/ GF hd <i>(if rspr +> GF).</i><br>
+					</dd>
+					<dd>&#9679; w/ <b>balanced</b> hd > NT: <u>cheap</u> w/ 12-14 HCP; <u>jump</u> w/ 18-19 <i>(if ptnr +> GF).</i>
+							<A style="text-decoration:none; font-size:12px;" onclick="reopBalanced();" href="javascript:;">&#8678;&#x270D;</A>	
+						<br>
+						- w/ 15-17 HCP <b>opened</b> 1 NT; 20-21 <b>opened</b> 2 NT.<br>
+						- w/ 4-cd maj show @ 1-level before > NT!
+					</dd>
+				</dt>
+				
+				<dt>&#9632; <u>SHOW</u> post <b>rspr > <u>strain</u> opnr about</b> to bid:	
+					<dd>&#9679; if rspr > opnr's 2nd: opnr <b>raise</b> &#8678;<A style="text-decoration:none;" onclick="reopRAISE();" href="javascript:;">&#9999;</A>	</dd>
+					<dd>&#9679; if rspr > NT: opnr raising rspr 1NT = 18-19 HCP <b>balanced</b>.
+						 <font color=red>&#8678;</font><A style="text-decoration:none;" onclick="reopRAISEnt();" href="javascript:;">&#9999;</A>	
+						 <font color=silver>[2NT: p185]</font>
+					</dd>
+				</dt>				
+				<dt>&#9632; <u>SHOW</u> if rspr raises opnr suit <i>(<span style="background:lime;">fit found</span>)</i>:	
+					<dd>&#9679; if rspr > single raise:<br>
+									&emsp;∆ <span style="background:lime;">min hd - pass</span><br>
+									&emsp;∆ <span style="background:lime;">inv hd - ^ 1 lvl</span><br>
+									&emsp;∆ GF hd - ^ to gm <font size=2>(or > 3NT post mnr ^)</font>
+					</dd>
+					
+					<dd>&#9679; if rspr > <b>limit raise</b> <i>(dbl jmp)</i>:
+									<font color=blue>&#8678;</font>
+									<span style="border:2px solid orange; border-radius:5px; background:blue;" onclick="reopFITlimit();">&#9999;</span>
+									<!--
+									<A style="text-decoration:none;" onclick="reopFITlimit();" href="javascript:;">&#9999;</A>	
+									-->
+									<br>
+									&emsp;∆ min hd - pass or ^ to gm <i>(or > 3NT)</i><br>
+									&emsp;∆ stonger hd - ^ to gm <i>(or > 3NT)</i><br>
+					</dd>
+				</dt>				
+			</dl>	
+		<!--<br>-->
+		<sh>Responders Rebid</sh>&emsp;<font color=black></font><A style="text-decoration:none;" onclick="rerspTTL();" href="javascript:;">&#11013;</A>	<!-- &#x270D; | &#8678; | &#9999; -->
+			<dl>
+				<dt>&#9632; <b>Do we know what <u>strain</u> to play?</b>
+						<dd>&#9679; Y: mjr suit avail. <!--&#9754; &#11013;-->
+						</dd>
+						<dd>&#9679; Y: no mjr <i>fit</i> BUT stgth in ea suit <b>(> NT)</b>.</dd>
+						<dd>&#9679; N: mjr fit not <i>confirmed</i>.
+												<!--<span style="border:2px solid orange; border-radius:5px; background:blue;" onclick="alert('This is a test alert!');">&#9999;</span>-->
+												<!-- &#11013; | &#x270D; | &#8678; | &#9999; -->
+						</dd>
+				</dt>
+				<dt>&#9632; <b>Do we have enough <u>pts for game</u>?</b>
+							<A style="text-decoration:none;" onclick="rerspGMmnr();" href="javascript:;">&#9999;</A>	<!-- &#9999; -->
+						<dd>&#9679; Y: must have 25 HCP <i>(even w/ opnr @ btm of rng)</i>. <font size=1>Pick 'game contract'!</font> </dd>
+						<dd>&#9679; N: +> 25 evn w/ opnr @ top of rng. <font size=1>STOP!</font></dd>
+						<dd>&#9679; ?: <b>dep</b> where opnr is in rng. <font size=1>(> inv bid).</font></dd>
+				</dt>	
+				<dt>&#9632; <span style="border:2px solid orange; border-radius:5px; background:blue; color:white;" onclick="alert('RESPONDER 1st BID: Even with balanced hand w 14 HCP if have 4 majors bid it (to EXPLORE possibly of a major FIT).\n\n'+
+					'RSP REBID: Opener single raise = 12 HCP.  If rspr has 14 = enough for game (25 if mjr) [eg > 4S].\n\n'+
+					'RSP REBID: w/ 11 HCP (inv) + bal hd & 3 dif sts bid by `team` > 2NT (1=min; 3=gm).\n\n'+
+					'RSP BID1: 10HCP + mult 4-cd sts > bid `up the line` - start w/ lowest!');">Exercise Nuggets&nbsp; <font color=white>&#8678;</font></span>
+		
+				</dt>			
+			<dl>		
+		
+		<!--<br>-->
+		<sh>BEYOND</sh>
+		<br><br>
+		<sh>Hand Evaluation</sh>
+		<br>		
+
+<h2><u>Defense</u></h2>
+				&emsp;<a href="https://www.bridgedoctor.com/lessons/15-learning-how-to-play-bridge.htm" style="color:blue; font-size:14px;" title="">2 ways to enter auction after opponents have opened</a>			
+<h2><u>Game Bidding</u></h2>
+<h2><u>Slam Bidding</u></h2>
+		
+</div>
+</body>
+</html>	
