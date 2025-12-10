@@ -1,0 +1,634 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>SNIGmatch</title>
+						<!-- THERE IS A RED CIRCLE PROBLEM APR 28, 2025! -->
+<style>
+            table, th, td {
+              border:2px solid white;
+              border-collapse: collapse;
+              background:black; color:white;
+              FONT-SIZE:50px; zoom:100%;
+              margin: 0px auto;
+              padding-top:5px; padding-bottom:5px;
+			  text-align:center;
+ 
+            }
+		
+</style>
+
+<script>
+	function matchLOAD() {
+			var p1NAME = localStorage.getItem("g1NAME"); var p2NAME = localStorage.getItem("g2NAME");
+			var p3NAME = localStorage.getItem("g3NAME"); var p4NAME = localStorage.getItem("g4NAME");
+			var p5NAME = localStorage.getItem("g5NAME");	
+			//alert ("p1NAME = '"+p1NAME+"'\np4NAME = '"+p4NAME+"'");		
+/*			var p1HC = localStorage.getItem("g1HC"); var p2HC = localStorage.getItem("g2HC");
+			var p3HC = localStorage.getItem("g3HC"); var p4HC = localStorage.getItem("g4HC");
+			var p5HC = localStorage.getItem("g5HC");			
+*/			/*							
+			var vG1h1s = localStorage.getItem("g1H1s"); var vG2h1s = localStorage.getItem("g2H1s");
+			var vG3h1s = localStorage.getItem("g3H1s"); var vG4h1s = localStorage.getItem("g4H1s");
+			var vG5h1s = localStorage.getItem("g5H1s");		
+			*/
+			//alert ("p1NAME = "+p1NAME+"\nvG1h1s = "+vG1h1s);
+			//document.getElementById("mainh1TD").innerText = vG1h1s; 
+			document.getElementById("p1/p3").innerText = p1NAME+"/"+p3NAME;	//+"\n(1v3)"; 
+			document.getElementById("p2/p3").innerText = p2NAME+"/"+p3NAME;	//+"\n(2v3)"; 
+			document.getElementById("p1/p4").innerText = p1NAME+"/"+p4NAME;	
+			document.getElementById("mainMatch").innerText = p1NAME+"+"+p2NAME+"\n"+p3NAME+"+"+p4NAME;	
+			document.getElementById("p2/p4").innerText = p2NAME+"/"+p4NAME;	
+			document.getElementById("p1/p2").innerText = p1NAME+"/"+p2NAME;	
+			document.getElementById("p3/p4").innerText = p3NAME+"/"+p4NAME;	
+
+			/*	++++++++++++++ FRONT 9 \/ ++++++++++++++++++. */			
+			s1val = 0; s2val = 0; s3val = 0; s4val = 0; s5val = 0; s6val = 0;
+			MAINval = 0; 
+			//alert("localStorage.getItem('SBFDg1h6') = '"+localStorage.getItem("SBFDg1h6")+"'!");			
+			for (let i = 1; i < 10; i++) {		// 1 v 3:
+				if ( localStorage.getItem("SBFDg1h"+i) != "&nbsp;&nbsp;" && (p1NAME!=null && p3NAME!=null && p1NAME!="" && p3NAME!="") ) {
+					if (localStorage.getItem("SBFDg1h"+i)>localStorage.getItem("SBFDg3h"+i)) {s1val = (s1val+1);}
+					else if (localStorage.getItem("SBFDg1h"+i)<localStorage.getItem("SBFDg3h"+i)) {s1val = (s1val-1);}
+					else {s1val = s1val;}
+					document.getElementById("s1h"+i+"TD").innerText = s1val;	
+					if ( (localStorage.getItem("SBFDg1h"+i) == 0) && (localStorage.getItem("SBFDg3h"+i) == 0) ) {
+						document.getElementById("s1h"+i+"TD").style.background = "gray";	
+					}								
+				}
+			}				
+			for (let i = 1; i < 10; i++) {
+				if ( localStorage.getItem("SBFDg1h"+i) != "&nbsp;&nbsp;" && (p1NAME!=null && p4NAME!=null && p1NAME!="" && p4NAME!="") ) {
+					if (localStorage.getItem("SBFDg1h"+i)>localStorage.getItem("SBFDg4h"+i)) {s2val = (s2val+1);}
+					else if (localStorage.getItem("SBFDg1h"+i)<localStorage.getItem("SBFDg4h"+i)) {s2val = (s2val-1);}
+					else {s2val = s2val;}
+					document.getElementById("s2h"+i+"TD").innerText = s2val;	
+					if ( (localStorage.getItem("SBFDg1h"+i) == 0) && (localStorage.getItem("SBFDg4h"+i) == 0) ) {
+						document.getElementById("s2h"+i+"TD").style.background = "gray";	
+					}
+				}				
+			}									
+			for (let i = 1; i < 10; i++) {
+				if ( localStorage.getItem("SBFDg2h"+i) != "&nbsp;&nbsp;" && (p2NAME!=null && p3NAME!=null && p2NAME!="" && p3NAME!="") ) {				
+					if (localStorage.getItem("SBFDg2h"+i)>localStorage.getItem("SBFDg3h"+i)) {s3val = (s3val+1);}
+					else if (localStorage.getItem("SBFDg2h"+i)<localStorage.getItem("SBFDg3h"+i)) {s3val = (s3val-1);}
+					else {s3val = s3val;}
+					document.getElementById("s3h"+i+"TD").innerText = s3val;	
+					if ( (localStorage.getItem("SBFDg2h"+i) == 0) && (localStorage.getItem("SBFDg3h"+i) == 0) ) {
+						document.getElementById("s3h"+i+"TD").style.background = "gray";	
+					}	
+				}
+			}									
+			for (let i = 1; i < 10; i++) {
+				if ( localStorage.getItem("SBFDg2h"+i) != "&nbsp;&nbsp;" && (p2NAME!=null && p4NAME!=null && p2NAME!="" && p4NAME!="") ) {				
+					if (localStorage.getItem("SBFDg2h"+i)>localStorage.getItem("SBFDg4h"+i)) {s4val = (s4val+1);}
+					else if (localStorage.getItem("SBFDg2h"+i)<localStorage.getItem("SBFDg4h"+i)) {s4val = (s4val-1);}
+					else {s4val = s4val;}
+					document.getElementById("s4h"+i+"TD").innerText = s4val;	
+					if ( (localStorage.getItem("SBFDg2h"+i) == 0) && (localStorage.getItem("SBFDg4h"+i) == 0) ) {
+						document.getElementById("s4h"+i+"TD").style.background = "gray";	
+					}	
+				}	
+			}									
+			for (let i = 1; i < 10; i++) {
+				if ( localStorage.getItem("SBFDg1h"+i) != "&nbsp;&nbsp;" && (p1NAME!=null && p2NAME!=null && p3NAME!=null && p4NAME!=null && p1NAME!="" && p2NAME!="" && p3NAME!="" && p4NAME!="") ) {				
+					if ( (localStorage.getItem("SBFDg1h"+i) > localStorage.getItem("SBFDg3h"+i)) && (localStorage.getItem("SBFDg1h"+i) > localStorage.getItem("SBFDg4h"+i)) )  {MAINval = (MAINval+1);}
+					else if ( (localStorage.getItem("SBFDg2h"+i) > localStorage.getItem("SBFDg3h"+i)) && (localStorage.getItem("SBFDg2h"+i) > localStorage.getItem("SBFDg4h"+i)) )  {MAINval = (MAINval+1);}
+					else if ( (localStorage.getItem("SBFDg3h"+i) > localStorage.getItem("SBFDg1h"+i)) && (localStorage.getItem("SBFDg3h"+i) > localStorage.getItem("SBFDg2h"+i)) )  {MAINval = (MAINval-1);}
+					else if ( (localStorage.getItem("SBFDg4h"+i) > localStorage.getItem("SBFDg1h"+i)) && (localStorage.getItem("SBFDg4h"+i) > localStorage.getItem("SBFDg2h"+i)) )  {MAINval = (MAINval-1);}
+					else {MAINval = MAINval;}
+					document.getElementById("mainh"+i+"TD").innerText = MAINval;	
+					if ( (localStorage.getItem("SBFDg1h"+i) == 0) && (localStorage.getItem("SBFDg2h"+i) == 0)  && (localStorage.getItem("SBFDg3h"+i) == 0) && (localStorage.getItem("SBFDg4h"+i) == 0) ) {
+						document.getElementById("mainh"+i+"TD").style.background = "gray";	
+					}	
+				}
+			}									
+			for (let i = 1; i < 10; i++) {
+				if ( localStorage.getItem("SBFDg1h"+i) != "&nbsp;&nbsp;" && (p1NAME!=null && p2NAME!=null && p1NAME!="" && p2NAME!="") ) {				
+					if (localStorage.getItem("SBFDg1h"+i)>localStorage.getItem("SBFDg2h"+i)) {s5val = (s5val+1);}
+					else if (localStorage.getItem("SBFDg1h"+i)<localStorage.getItem("SBFDg2h"+i)) {s5val = (s5val-1);}
+					else {s5val = s5val;}
+					document.getElementById("s5h"+i+"TD").innerText = s5val;	
+					if ( (localStorage.getItem("SBFDg1h"+i) == 0) && (localStorage.getItem("SBFDg2h"+i) == 0) ) {
+						document.getElementById("s5h"+i+"TD").style.background = "gray";	
+					}	
+				}
+			}
+			for (let i = 1; i < 10; i++) {
+				if ( localStorage.getItem("SBFDg3h"+i) != "&nbsp;&nbsp;" && (p3NAME!=null && p4NAME!=null && p3NAME!="" && p4NAME!="") ) {				
+					if (localStorage.getItem("SBFDg3h"+i)>localStorage.getItem("SBFDg4h"+i)) {s6val = (s6val+1);}
+					else if (localStorage.getItem("SBFDg3h"+i)<localStorage.getItem("SBFDg4h"+i)) {s6val = (s6val-1);}
+					else {s6val = s6val;}
+					document.getElementById("s6h"+i+"TD").innerText = s6val;	
+					if ( (localStorage.getItem("SBFDg3h"+i) == 0) && (localStorage.getItem("SBFDg4h"+i) == 0) ) {
+						document.getElementById("s6h"+i+"TD").style.background = "gray";	
+					}	
+				}
+			}														
+			/*	++++++++++++++ BACK 9 \/ ++++++++++++++++++. */			
+			s1valB = 0; s2valB = 0; s3valB = 0; s4valB = 0; s5valB = 0; s6valB = 0;
+			MAINvalB = 0; 						
+			for (let i = 10; i < 19; i++) {
+				if ( localStorage.getItem("SBFDg1h"+i) != "&nbsp;&nbsp;" && (p1NAME!=null && p3NAME!=null && p1NAME!="" && p3NAME!="") ) {				
+					if (localStorage.getItem("SBFDg1h"+i)>localStorage.getItem("SBFDg3h"+i)) {s1valB = (s1valB+1);}
+					else if (localStorage.getItem("SBFDg1h"+i)<localStorage.getItem("SBFDg3h"+i)) {s1valB = (s1valB-1);}
+					else {s1valB = s1valB;}
+					document.getElementById("s1h"+i+"TD").innerText = s1valB;	
+					if ( (localStorage.getItem("SBFDg1h"+i) == 0) && (localStorage.getItem("SBFDg3h"+i) == 0) ) {
+						document.getElementById("s1h"+i+"TD").style.background = "gray";	
+					}
+				}	
+			}				
+			for (let i = 10; i < 19; i++) {
+				if ( localStorage.getItem("SBFDg1h"+i) != "&nbsp;&nbsp;" && (p1NAME!=null && p4NAME!=null && p1NAME!="" && p4NAME!="") ) {				
+					if (localStorage.getItem("SBFDg1h"+i)>localStorage.getItem("SBFDg4h"+i)) {s2valB = (s2valB+1);}
+					else if (localStorage.getItem("SBFDg1h"+i)<localStorage.getItem("SBFDg4h"+i)) {s2valB = (s2valB-1);}
+					else {s2valB = s2valB;}
+					document.getElementById("s2h"+i+"TD").innerText = s2valB;	
+					if ( (localStorage.getItem("SBFDg1h"+i) == 0) && (localStorage.getItem("SBFDg4h"+i) == 0) ) {
+						document.getElementById("s2h"+i+"TD").style.background = "gray";	
+					}
+				}	
+			}									
+			for (let i = 10; i < 19; i++) {
+				if ( localStorage.getItem("SBFDg2h"+i) != "&nbsp;&nbsp;" && (p2NAME!=null && p3NAME!=null && p2NAME!="" && p3NAME!="") ) {				
+					if (localStorage.getItem("SBFDg2h"+i)>localStorage.getItem("SBFDg3h"+i)) {s3valB = (s3valB+1);}
+					else if (localStorage.getItem("SBFDg2h"+i)<localStorage.getItem("SBFDg3h"+i)) {s3valB = (s3valB-1);}
+					else {s3valB = s3valB;}
+					document.getElementById("s3h"+i+"TD").innerText = s3valB;	
+					if ( (localStorage.getItem("SBFDg2h"+i) == 0) && (localStorage.getItem("SBFDg3h"+i) == 0) ) {
+						document.getElementById("s3h"+i+"TD").style.background = "gray";	
+					}
+				}
+			}								
+			for (let i = 10; i < 19; i++) {
+				if ( localStorage.getItem("SBFDg2h"+i) != "&nbsp;&nbsp;" && (p2NAME!=null && p4NAME!=null && p2NAME!="" && p4NAME!="") ) {				
+					if (localStorage.getItem("SBFDg2h"+i)>localStorage.getItem("SBFDg4h"+i)) {s4valB = (s4valB+1);}
+					else if (localStorage.getItem("SBFDg2h"+i)<localStorage.getItem("SBFDg4h"+i)) {s4valB = (s4valB-1);}
+					else {s4valB = s4valB;}
+					document.getElementById("s4h"+i+"TD").innerText = s4valB;	
+					if ( (localStorage.getItem("SBFDg2h"+i) == 0) && (localStorage.getItem("SBFDg4h"+i) == 0) ) {
+						document.getElementById("s4h"+i+"TD").style.background = "gray";	
+					}	
+				}
+			}									
+			for (let i = 10; i < 19; i++) {
+				if ( localStorage.getItem("SBFDg1h"+i) != "&nbsp;&nbsp;" && (p1NAME!=null && p2NAME!=null && p3NAME!=null && p4NAME!=null && p1NAME!="" && p2NAME!="" && p3NAME!="" && p4NAME!="" ) ) {				
+					if ( (localStorage.getItem("SBFDg1h"+i) > localStorage.getItem("SBFDg3h"+i)) && (localStorage.getItem("SBFDg1h"+i) > localStorage.getItem("SBFDg4h"+i)) )  {MAINvalB = (MAINvalB+1);}
+					else if ( (localStorage.getItem("SBFDg2h"+i) > localStorage.getItem("SBFDg3h"+i)) && (localStorage.getItem("SBFDg2h"+i) > localStorage.getItem("SBFDg4h"+i)) )  {MAINvalB = (MAINvalB+1);}
+					else if ( (localStorage.getItem("SBFDg3h"+i) > localStorage.getItem("SBFDg1h"+i)) && (localStorage.getItem("SBFDg3h"+i) > localStorage.getItem("SBFDg2h"+i)) )  {MAINvalB = (MAINvalB-1);}
+					else if ( (localStorage.getItem("SBFDg4h"+i) > localStorage.getItem("SBFDg1h"+i)) && (localStorage.getItem("SBFDg4h"+i) > localStorage.getItem("SBFDg2h"+i)) )  {MAINvalB = (MAINvalB-1);}
+					else {MAINvalB = MAINvalB;}
+					document.getElementById("mainh"+i+"TD").innerText = MAINvalB;	
+					if ( (localStorage.getItem("SBFDg1h"+i) == 0) && (localStorage.getItem("SBFDg2h"+i) == 0)  && (localStorage.getItem("SBFDg3h"+i) == 0) && (localStorage.getItem("SBFDg4h"+i) == 0) ) {
+						document.getElementById("mainh"+i+"TD").style.background = "gray";	
+					}	
+				}
+			}					
+			for (let i = 10; i < 19; i++) {
+				if ( localStorage.getItem("SBFDg1h"+i) != "&nbsp;&nbsp;" && (p1NAME!=null && p2NAME!=null && p1NAME!="" && p2NAME!="") ) {				
+					if (localStorage.getItem("SBFDg1h"+i)>localStorage.getItem("SBFDg2h"+i)) {s5valB = (s5valB+1);}
+					else if (localStorage.getItem("SBFDg1h"+i)<localStorage.getItem("SBFDg2h"+i)) {s5valB = (s5valB-1);}
+					else {s5valB = s5valB;}
+					document.getElementById("s5h"+i+"TD").innerText = s5valB;	
+					if ( (localStorage.getItem("SBFDg1h"+i) == 0) && (localStorage.getItem("SBFDg2h"+i) == 0) ) {
+						document.getElementById("s5h"+i+"TD").style.background = "gray";	
+					}	
+				}
+			}
+			for (let i = 10; i < 19; i++) {
+				if ( localStorage.getItem("SBFDg3h"+i) != "&nbsp;&nbsp;" && (p3NAME!=null && p4NAME!=null && p3NAME!="" && p4NAME!="") ) {				
+					if (localStorage.getItem("SBFDg3h"+i)>localStorage.getItem("SBFDg4h"+i)) {s6valB = (s6valB+1);}
+					else if (localStorage.getItem("SBFDg3h"+i)<localStorage.getItem("SBFDg4h"+i)) {s6valB = (s6valB-1);}
+					else {s6valB = s6valB;}
+					document.getElementById("s6h"+i+"TD").innerText = s6valB;	
+					if ( (localStorage.getItem("SBFDg3h"+i) == 0) && (localStorage.getItem("SBFDg4h"+i) == 0) ) {
+						document.getElementById("s6h"+i+"TD").style.background = "gray";	
+					}
+				}
+			}														
+			
+			if (p1NAME!=null && p2NAME!=null && p3NAME!=null && p4NAME!=null && p1NAME!="" && p2NAME!="" && p3NAME!="" && p4NAME!="") {
+				document.getElementById("mainTOT").innerText = MAINval+MAINvalB;  }
+			if (p1NAME!=null && p3NAME!=null && p1NAME!="" && p3NAME!="") {
+				document.getElementById("s1TOT").innerText = s1val+s1valB; }
+			if (p1NAME!=null && p4NAME!=null && p1NAME!="" && p4NAME!="") {
+				document.getElementById("s2TOT").innerText = s2val+s2valB;	}
+			if (p2NAME!=null && p3NAME!=null && p2NAME!="" && p3NAME!="") {
+				document.getElementById("s3TOT").innerText = s3val+s3valB;	}
+			if (p2NAME!=null && p4NAME!=null && p2NAME!="" && p4NAME!="") {
+				document.getElementById("s4TOT").innerText = s4val+s4valB;	}
+			if (p1NAME!=null && p2NAME!=null && p1NAME!="" && p2NAME!="") {
+				document.getElementById("s5TOT").innerText = s5val+s5valB;	}
+			if (p3NAME!=null && p4NAME!=null && p3NAME!="" && p4NAME!="") {
+				document.getElementById("s6TOT").innerText = s6val+s6valB;	}
+			
+					/*----------------------*/
+					
+			if ( localStorage.getItem("hideS1") == "y" ) { hideS1(); }					
+			if ( localStorage.getItem("hideS2") == "y" ) { hideS2(); }
+			if ( localStorage.getItem("hideS3") == "y" ) { hideS3(); }
+			if ( localStorage.getItem("hideS4") == "y" ) { hideS4(); }
+			if ( localStorage.getItem("hideS5") == "y" ) { hideS5(); }
+			if ( localStorage.getItem("hideS6") == "y" ) { hideS6(); }
+			if ( localStorage.getItem("hideM") == "y" ) { hideM(); }
+		
+	}	
+	
+	function INFOside1() {
+		alert("Side match #1 = 1 v 3");
+	}
+	function INFOside2() { alert("Side match #2 = 1 v 4"); }
+	function INFOside3() { alert("Side match #3 = 2 v 3"); }
+	function INFOmain() { alert("Main match: 1+2 v 3+4"); }
+	function INFOside4() { alert("Side match #4 = 2 v 4"); }	
+	function INFOside5() { alert("Side match #5 = 1 v 2"); }
+	function INFOside6() { alert("Side match #6 = 3 v 4"); }
+	
+	function hideS4() {
+		//alert ("Will try to hide/collapse S4 column!");
+		document.getElementById("p2/p4").style.display = "none";
+		document.getElementById("s4head").style.display = "none";
+		for (let i = 1; i < 19; i++) {
+			document.getElementById("s4h"+i+"TD").style.display = "none";	
+		}
+		document.getElementById("s4x").style.display = "none";
+		document.getElementById("s4TOT").style.display = "none";
+		//alert ("S4 column will be removed!");
+		localStorage.setItem('hideS4','y');		// = hideM > hideS6
+	}
+	function hideS3() {
+		//alert ("Will try to hide/collapse S4 column!");
+		document.getElementById("p2/p3").style.display = "none";
+		document.getElementById("s3head").style.display = "none";
+		for (let i = 1; i < 19; i++) {
+			document.getElementById("s3h"+i+"TD").style.display = "none";	
+		}
+		document.getElementById("s3x").style.display = "none";
+		document.getElementById("s3TOT").style.display = "none";
+		//alert ("S3 column will be removed!");
+		localStorage.setItem('hideS3','y');
+	}
+	function hideS1() {
+		//alert ("Will try to hide/collapse S4 column!");
+		document.getElementById("p1/p3").style.display = "none";
+		document.getElementById("s1head").style.display = "none";
+		for (let i = 1; i < 19; i++) {
+			document.getElementById("s1h"+i+"TD").style.display = "none";	
+		}
+		document.getElementById("s1x").style.display = "none";
+		document.getElementById("s1TOT").style.display = "none";
+		//alert ("S1 column will be removed!");
+		localStorage.setItem('hideS1','y');
+	}	
+	function hideS2() {
+		//alert ("Will try to hide/collapse S4 column!");
+		document.getElementById("p1/p4").style.display = "none";
+		document.getElementById("s2head").style.display = "none";
+		for (let i = 1; i < 19; i++) {
+			document.getElementById("s2h"+i+"TD").style.display = "none";	
+		}
+		document.getElementById("s2x").style.display = "none";
+		document.getElementById("s2TOT").style.display = "none";
+		//alert ("S2 column will be removed!");
+		localStorage.setItem('hideS2','y');
+	}		
+	function hideS5() {
+		//alert ("Will try to hide/collapse S4 column!");
+		document.getElementById("p1/p2").style.display = "none";
+		document.getElementById("s5head").style.display = "none";
+		for (let i = 1; i < 19; i++) {
+			document.getElementById("s5h"+i+"TD").style.display = "none";	
+		}
+		document.getElementById("s5x").style.display = "none";
+		document.getElementById("s5TOT").style.display = "none";
+		//alert ("S5 column will be removed!");
+		localStorage.setItem('hideS5','y');
+	}		
+	function hideS6() {
+		//alert ("Will try to hide/collapse S4 column!");
+		document.getElementById("p3/p4").style.display = "none";
+		document.getElementById("s6head").style.display = "none";
+		for (let i = 1; i < 19; i++) {
+			document.getElementById("s6h"+i+"TD").style.display = "none";	
+		}
+		document.getElementById("s6x").style.display = "none";
+		document.getElementById("s6TOT").style.display = "none";
+		//alert ("S6 column will be removed!");
+		localStorage.setItem('hideS6','y');
+	}			
+	function hideM() {
+		//alert ("Will try to hide/collapse S4 column!");
+		document.getElementById("mainMatch").style.display = "none";
+		document.getElementById("Mhead").style.display = "none";
+		for (let i = 1; i < 19; i++) {
+			document.getElementById("mainh"+i+"TD").style.display = "none";	
+		}
+		document.getElementById("sMx").style.display = "none";
+		document.getElementById("mainTOT").style.display = "none";
+		//alert ("M column will be removed!");
+		localStorage.setItem('hideM','y');
+	}				
+
+	function replaceMatch() {
+		//alert("Will try to REPLACE hidden matches");
+		var reply = prompt("Will try to REPLACE hidden matches.\nEnter match to display.", 'M, S1-S6, all')
+		if ( reply === null ) {
+			return;
+		}
+		//alert ("reply was "+reply);
+		if ( reply == "S1" ) {
+			localStorage.setItem('hideS1','n');
+			//location.reload(true); // < works on Pixel!
+		}
+		if ( reply == "S2" ) { localStorage.setItem('hideS2','n'); }
+		if ( reply == "S3" ) { localStorage.setItem('hideS3','n'); }
+		if ( reply == "S4" ) { localStorage.setItem('hideS4','n'); }
+		if ( reply == "S5" ) { localStorage.setItem('hideS5','n'); }
+		if ( reply == "S6" ) { localStorage.setItem('hideS6','n'); }
+		if ( reply == "M" ) { localStorage.setItem('hideM','n'); }
+		if ( reply == "all" ) { 
+			localStorage.setItem('hideS1','n'); localStorage.setItem('hideS2','n');
+			localStorage.setItem('hideS3','n'); localStorage.setItem('hideS4','n');
+			localStorage.setItem('hideS5','n'); localStorage.setItem('hideS6','n');
+			localStorage.setItem('hideM','n');
+		}
+		location.reload(true);
+		
+	}
+
+							/*   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%.  */
+
+	function checkPICUPS() {
+		var CIRCLESstring = localStorage.getItem('lsCIRCLED');
+		const CIRCLESarray = CIRCLESstring.split(',');
+						/* CIRCLESarray.forEach(element => {
+							 alert("'forEach' array element = "+element);
+						   });	*/
+		for (let index=0; index < CIRCLESarray.length; ++index) {
+			const el = CIRCLESarray[index];
+				//alert("'for loop' el = "+index+"; "+el);
+			var REPel = el.replace("p", "g");
+			var lSsbfd = localStorage.getItem("SBFD"+REPel);
+			var REPel2 = REPel.replace("h","H");
+			var lSscore = localStorage.getItem(REPel2+"s"); 	//localStorage.getItem("g1H1s")
+				alert(index+": 'lSsbfd' for "+el+" = "+lSsbfd+"\n"+
+					"\tlSscore = "+lSscore);				//localStorage.getItem("SBFDg3h"+i)
+			
+		}		
+	}
+	
+	function P5matches() {
+			var p1NAME = localStorage.getItem("g1NAME"); var p2NAME = localStorage.getItem("g2NAME");
+			var p3NAME = localStorage.getItem("g3NAME"); var p4NAME = localStorage.getItem("g4NAME");
+			var p5NAME = localStorage.getItem("g5NAME");	
+
+			/*	++++++++++++++ FRONT 9 \/ ++++++++++++++++++. */			
+			//s1val = 0; s2val = 0; s3val = 0; s4val = 0; s5val = 0; s6val = 0;
+			s5v1 = 0; s5v2 = 0; s5v3 = 0; s5v4 = 0;
+			//MAINval = 0; 
+			//alert("localStorage.getItem('SBFDg1h6') = '"+localStorage.getItem("SBFDg1h6")+"'!");			
+		  	for (let i = 1; i < 10; i++) {		// 1 v 5:
+				if ( localStorage.getItem("SBFDg5h"+i) != "&nbsp;&nbsp;" && (p1NAME!=null && p5NAME!=null && p1NAME!="" && p5NAME!="") ) {
+					if (localStorage.getItem("SBFDg5h"+i)>localStorage.getItem("SBFDg1h"+i)) {s5v1 = (s5v1+1);}
+					else if (localStorage.getItem("SBFDg5h"+i)<localStorage.getItem("SBFDg1h"+i)) {s5v1 = (s5v1-1);}
+					else {s5v1 = s5v1;}
+					//document.getElementById("s1h"+i+"TD").innerText = s1val;	
+					/*if ( (localStorage.getItem("SBFDg1h"+i) == 0) && (localStorage.getItem("SBFDg3h"+i) == 0) ) {
+						document.getElementById("s1h"+i+"TD").style.background = "gray";
+					}*/		
+					/*alert("i = "+i+"\n"+
+						"SBFDg1h = " + localStorage.getItem('SBFDg1h'+i) +"\n"+
+						"SBFDg5h = " + localStorage.getItem('SBFDg5h'+i) +"\n"+
+						"s5v1 = " + s5v1);*/					
+				}
+			}	
+			for (let i = 1; i < 10; i++) {		// 2 v 5:
+				if ( localStorage.getItem("SBFDg5h"+i) != "&nbsp;&nbsp;" && (p2NAME!=null && p5NAME!=null && p2NAME!="" && p5NAME!="") ) {
+					if (localStorage.getItem("SBFDg5h"+i)>localStorage.getItem("SBFDg2h"+i)) {s5v2 = (s5v2+1);}
+					else if (localStorage.getItem("SBFDg5h"+i)<localStorage.getItem("SBFDg2h"+i)) {s5v2 = (s5v2-1);}
+					else {s5v2 = s5v2;}
+				}
+			}			
+			for (let i = 1; i < 10; i++) {		// 3 v 5:
+				if ( localStorage.getItem("SBFDg5h"+i) != "&nbsp;&nbsp;" && (p3NAME!=null && p5NAME!=null && p3NAME!="" && p5NAME!="") ) {
+					if (localStorage.getItem("SBFDg5h"+i)>localStorage.getItem("SBFDg3h"+i)) {s5v3 = (s5v3+1);}
+					else if (localStorage.getItem("SBFDg5h"+i)<localStorage.getItem("SBFDg3h"+i)) {s5v3 = (s5v3-1);}
+					else {s5v3 = s5v3;}
+				}
+			}		
+			for (let i = 1; i < 10; i++) {		// 4 v 5:
+				if ( localStorage.getItem("SBFDg5h"+i) != "&nbsp;&nbsp;" && (p4NAME!=null && p5NAME!=null && p4NAME!="" && p5NAME!="") ) {
+					if (localStorage.getItem("SBFDg5h"+i)>localStorage.getItem("SBFDg4h"+i)) {s5v4 = (s5v4+1);}
+					else if (localStorage.getItem("SBFDg5h"+i)<localStorage.getItem("SBFDg4h"+i)) {s5v4 = (s5v4-1);}
+					else {s5v4 = s5v4;}
+				}
+			}				
+			/*	++++++++++++++ BACK 9 \/ ++++++++++++++++++. */	
+			s5v1B = 0; s5v2B = 0; s5v3B = 0; s5v4B = 0;		
+			for (let i = 10; i < 19; i++) {		// 1 v 5 (B):
+				if ( localStorage.getItem("SBFDg5h"+i) != "&nbsp;&nbsp;" && (p2NAME!=null && p5NAME!=null && p2NAME!="" && p5NAME!="") ) {
+					if (localStorage.getItem("SBFDg5h"+i)>localStorage.getItem("SBFDg1h"+i)) {s5v1B = (s5v1B+1);}
+					else if (localStorage.getItem("SBFDg5h"+i)<localStorage.getItem("SBFDg1h"+i)) {s5v1B = (s5v1B-1);}
+					else {s5v1B = s5v1B;}
+				}
+			}						
+			for (let i = 10; i < 19; i++) {		// 2 v 5 (B):
+				if ( localStorage.getItem("SBFDg5h"+i) != "&nbsp;&nbsp;" && (p2NAME!=null && p5NAME!=null && p2NAME!="" && p5NAME!="") ) {
+					if (localStorage.getItem("SBFDg5h"+i)>localStorage.getItem("SBFDg2h"+i)) {s5v2B = (s5v2B+1);}
+					else if (localStorage.getItem("SBFDg5h"+i)<localStorage.getItem("SBFDg2h"+i)) {s5v2B = (s5v2B-1);}
+					else {s5v2B = s5v2B;}
+				}
+			}						
+			for (let i = 10; i < 19; i++) {		// 3 v 5 (B):
+				if ( localStorage.getItem("SBFDg5h"+i) != "&nbsp;&nbsp;" && (p2NAME!=null && p5NAME!=null && p2NAME!="" && p5NAME!="") ) {
+					if (localStorage.getItem("SBFDg5h"+i)>localStorage.getItem("SBFDg3h"+i)) {s5v3B = (s5v3B+1);}
+					else if (localStorage.getItem("SBFDg5h"+i)<localStorage.getItem("SBFDg3h"+i)) {s5v3B = (s5v3B-1);}
+					else {s5v3B = s5v3B;}
+				}
+			}	
+			for (let i = 10; i < 19; i++) {		// 4 v 5 (B):
+				if ( localStorage.getItem("SBFDg5h"+i) != "&nbsp;&nbsp;" && (p2NAME!=null && p5NAME!=null && p2NAME!="" && p5NAME!="") ) {
+					if (localStorage.getItem("SBFDg5h"+i)>localStorage.getItem("SBFDg4h"+i)) {s5v4B = (s5v4B+1);}
+					else if (localStorage.getItem("SBFDg5h"+i)<localStorage.getItem("SBFDg4h"+i)) {s5v4B = (s5v4B-1);}
+					else {s5v4B = s5v4B;}
+				}
+			}									
+			alert(p5NAME + "(p5) matches:\n"+
+				p5NAME+"v\t\t"+p1NAME+"\t"+p2NAME+"\t"+p3NAME+"\t"+p4NAME+"\n"+
+				"F\t\t"+s5v1+"\t"+s5v2+"\t"+s5v3+"\t"+s5v4+"\n"+
+				"B\t\t"+s5v1B+"\t"+s5v2B+"\t"+s5v3B+"\t"+s5v4B+"\n"+
+				"G\t\t"+(s5v1B+s5v1)+"\t"+(s5v2B+s5v2)+"\t"+(s5v3B+s5v3)+"\t"+(s5v4B+s5v4));
+
+			/*	++++++++++++++ BACK 9 \/ ++++++++++++++++++. */	
+			//s5v1B = 0; s5v2B = 0; s5v3B = 0; s5v4B = 0;		
+/*			s1valB = 0; s2valB = 0; s3valB = 0; s4valB = 0; s5valB = 0; s6valB = 0;
+			MAINvalB = 0; 						
+			for (let i = 10; i < 19; i++) {
+				if ( localStorage.getItem("SBFDg1h"+i) != "&nbsp;&nbsp;" && (p1NAME!=null && p3NAME!=null && p1NAME!="" && p3NAME!="") ) {				
+					if (localStorage.getItem("SBFDg1h"+i)>localStorage.getItem("SBFDg3h"+i)) {s1valB = (s1valB+1);}
+					else if (localStorage.getItem("SBFDg1h"+i)<localStorage.getItem("SBFDg3h"+i)) {s1valB = (s1valB-1);}
+					else {s1valB = s1valB;}
+					document.getElementById("s1h"+i+"TD").innerText = s1valB;	
+					if ( (localStorage.getItem("SBFDg1h"+i) == 0) && (localStorage.getItem("SBFDg3h"+i) == 0) ) {
+						document.getElementById("s1h"+i+"TD").style.background = "gray";	
+					}
+				}	
+			}	
+*/			
+	}	
+	
+	
+</script>	
+	
+</head>
+
+<body onload="matchLOAD()">
+	
+<TABLE class="" style="padding-top:10px; padding-bottom:10px;" border=1 align=center > <!-- style='color:maroon; visibility:visible;' bgcolor='lightgray' --> 
+<TR><TD><span style="background:slategray; border:1px outset silver; border-radius:10px;  FONT-SIZE:60px; padding:2px;">Match Play</span><!-- font-family="Comic Sans MS"  <br><font size=2 color=lightgray>May 22, 2024</font>--></TD> 
+<!--<TD style="padding:10px;"><span style="border:2px outset green; border-radius:10px;  cursor:pointer; background:ivory;color:maroon; FONT-SIZE:80px;" onclick="openNav()">&#9776;</span> </TD> -->
+<!--<TD>
+<img src="goofy4.gif" width=50 height=50>
+</TD>-->
+<TD>
+	<button id='PICKUPbtn' onclick="checkPICUPS()" style="FONT-WEIGHT:normal; FONT-SIZE:20px; COLOR:black; background:white; border:2px solid black; border-radius:5px; opacity:100%;">Pickups</button>
+	<button id='P5btn' onclick="P5matches()" style="FONT-WEIGHT:normal; FONT-SIZE:20px; COLOR:black; background:white; border:2px solid black; border-radius:5px; opacity:100%;">P5</button>
+	
+</TD>
+</TR>
+</TABLE>
+
+
+<!--<DIV style="width:150px; overflow-y:scroll;">-->
+<table style="width:95%">
+<TR> 
+	<TH style="background:white; color:black;">
+		<A href="index.html" style='color:black;'><</A>
+	</TH>
+	<TH id="Mhead" style="color:silver; background:slategray; font-size:20px;">MAIN</TH>
+	<TH id="s1head" style="color:silver;  background:slategray; font-size:20px;">side 1</TH> 
+	<TH id="s2head" style="color:silver;  background:slategray; font-size:20px;">side 2</TH>	
+	<TH id="s3head" style="color:silver;  background:slategray; font-size:20px;">side 3</TH>
+	<TH id="s4head" style="color:silver;  background:slategray; font-size:20px;">side 4</TH>
+	<TH  id="s5head" colspan=1 style="background:white;"></TH>
+	<TH  id="s6head" colspan=1 style="background:white;"></TH>
+</TR> 
+<TR> 
+	<TH style="background:maroon;">H</TH>
+	<TH id='mainMatch' onclick="INFOmain();" style=" background:slategray; color:yellow; font-size:20px;" ></TH>
+	<TH id='p1/p3' onclick="INFOside1();" style=" background:slategray; font-size:25px;" ></TH> 
+	<TH id='p1/p4' onclick="INFOside2();" style=" background:slategray; font-size:25px;" ></TH>
+	
+	<TH id='p2/p3' onclick="INFOside3();" style=" background:slategray; font-size:25px;" ></TH>
+	
+	<TH id='p2/p4' onclick="INFOside4();" style=" background:slategray; font-size:25px;" ></TH>
+	<TH id='p1/p2' onclick="INFOside5();" style="color:silver; background:maroon; font-size:25px;" ></TH>
+	<TH id='p3/p4' onclick="INFOside6();" style="color:silver; background:maroon; font-size:25px;" ></TH>
+	
+</TR> 
+
+<TR>
+	<TD>1</TD>
+	<TD id="mainh1TD"></TD> <TD id="s1h1TD"></TD> <TD id="s2h1TD"></TD> <TD id="s3h1TD"></TD> <TD id="s4h1TD"></TD> <TD id="s5h1TD"></TD> <TD id="s6h1TD"></TD>
+</TR>
+<TR>
+	<TD>2</TD>
+	<TD id="mainh2TD"></TD> <TD id="s1h2TD"></TD> <TD id="s2h2TD"></TD> <TD id="s3h2TD"></TD> <TD id="s4h2TD"></TD> <TD id="s5h2TD"></TD> <TD id="s6h2TD"></TD>
+</TR>
+<TR>
+	<TD>3</TD>
+	<TD id="mainh3TD"></TD> <TD id="s1h3TD"></TD> <TD id="s2h3TD"></TD> <TD id="s3h3TD"></TD> <TD id="s4h3TD"></TD> <TD id="s5h3TD"></TD> <TD id="s6h3TD"></TD>
+</TR>
+<TR>
+	<TD>4</TD>
+	<TD id="mainh4TD"></TD> <TD id="s1h4TD"></TD> <TD id="s2h4TD"></TD> <TD id="s3h4TD"></TD> <TD id="s4h4TD"></TD> <TD id="s5h4TD"></TD> <TD id="s6h4TD"></TD>
+</TR>
+<TR>
+	<TD>5</TD>
+	<TD id="mainh5TD"></TD> <TD id="s1h5TD"></TD> <TD id="s2h5TD"></TD> <TD id="s3h5TD"></TD> <TD id="s4h5TD"></TD> <TD id="s5h5TD"></TD> <TD id="s6h5TD"></TD>
+</TR>
+<TR>
+	<TD>6</TD>
+	<TD id="mainh6TD"></TD> <TD id="s1h6TD"></TD> <TD id="s2h6TD"></TD> <TD id="s3h6TD"></TD> <TD id="s4h6TD"></TD> <TD id="s5h6TD"></TD> <TD id="s6h6TD"></TD>
+</TR>
+<TR>
+	<TD>7</TD>
+	<TD id="mainh7TD"></TD> <TD id="s1h7TD"></TD> <TD id="s2h7TD"></TD> <TD id="s3h7TD"></TD> <TD id="s4h7TD"></TD> <TD id="s5h7TD"></TD> <TD id="s6h7TD"></TD>
+</TR>
+<TR>
+	<TD>8</TD>
+	<TD id="mainh8TD"></TD> <TD id="s1h8TD"></TD> <TD id="s2h8TD"></TD> <TD id="s3h8TD"></TD> <TD id="s4h8TD"></TD> <TD id="s5h8TD"></TD> <TD id="s6h8TD"></TD>
+</TR>
+<TR>
+	<TD>9</TD>
+	<TD id="mainh9TD"></TD> <TD id="s1h9TD"></TD> <TD id="s2h9TD"></TD> <TD id="s3h9TD"></TD> <TD id="s4h9TD"></TD> <TD id="s5h9TD"></TD> <TD id="s6h9TD"></TD>
+</TR>
+
+<TR style="height:10px;""><TD colspan=8 style="background:white;"></TD></TR>
+
+<TR>
+	<TD>10</TD>
+	<TD id="mainh10TD"></TD> <TD id="s1h10TD"></TD> <TD id="s2h10TD"></TD> <TD id="s3h10TD"></TD> <TD id="s4h10TD"></TD> <TD id="s5h10TD"></TD> <TD id="s6h10TD"></TD>
+</TR>
+<TR>
+	<TD>11</TD>
+	<TD id="mainh11TD"></TD> <TD id="s1h11TD"></TD> <TD id="s2h11TD"></TD> <TD id="s3h11TD"></TD> <TD id="s4h11TD"></TD> <TD id="s5h11TD"></TD> <TD id="s6h11TD"></TD>
+</TR>
+<TR>
+	<TD>12</TD>
+	<TD id="mainh12TD"></TD> <TD id="s1h12TD"></TD> <TD id="s2h12TD"></TD> <TD id="s3h12TD"></TD> <TD id="s4h12TD"></TD> <TD id="s5h12TD"></TD> <TD id="s6h12TD"></TD>
+</TR>
+<TR>
+	<TD>13</TD>
+	<TD id="mainh13TD"></TD> <TD id="s1h13TD"></TD> <TD id="s2h13TD"></TD> <TD id="s3h13TD"></TD> <TD id="s4h13TD"></TD> <TD id="s5h13TD"></TD> <TD id="s6h13TD"></TD>
+</TR>
+<TR>
+	<TD>14</TD>
+	<TD id="mainh14TD"></TD> <TD id="s1h14TD"></TD> <TD id="s2h14TD"></TD> <TD id="s3h14TD"></TD> <TD id="s4h14TD"></TD> <TD id="s5h14TD"></TD> <TD id="s6h14TD"></TD>
+</TR>
+<TR>
+	<TD>15</TD>
+	<TD id="mainh15TD"></TD> <TD id="s1h15TD"></TD> <TD id="s2h15TD"></TD> <TD id="s3h15TD"></TD> <TD id="s4h15TD"></TD> <TD id="s5h15TD"></TD> <TD id="s6h15TD"></TD>
+</TR>
+<TR>
+	<TD>16</TD>
+	<TD id="mainh16TD"></TD> <TD id="s1h16TD"></TD> <TD id="s2h16TD"></TD> <TD id="s3h16TD"></TD> <TD id="s4h16TD"></TD> <TD id="s5h16TD"></TD> <TD id="s6h16TD"></TD>
+</TR>
+<TR>
+	<TD>17</TD>
+	<TD id="mainh17TD"></TD> <TD id="s1h17TD"></TD> <TD id="s2h17TD"></TD> <TD id="s3h17TD"></TD> <TD id="s4h17TD"></TD> <TD id="s5h17TD"></TD> <TD id="s6h17TD"></TD>
+</TR>
+<TR>
+	<TD>18</TD>
+	<TD id="mainh18TD"></TD> <TD id="s1h18TD"></TD> <TD id="s2h18TD"></TD> <TD id="s3h18TD"></TD> <TD id="s4h18TD"></TD> <TD id="s5h18TD"></TD> <TD id="s6h18TD"></TD>
+</TR>
+
+<TR style="height:10px;"><TD colspan=8 style="background:white;"></TD></TR>
+
+<TR>
+	<TD style="background:maroon; color:white;">G</TD>
+	<TD id="mainTOT" style="background:beige; color:black; border:2px solid black;"></TD> 
+	<TD id="s1TOT" style="background:beige; color:black;"></TD> 
+	<TD id="s2TOT" style="background:beige; color:black;"></TD> 
+	<TD id="s3TOT" style="background:beige; color:black;"></TD> 
+	<TD id="s4TOT" style="background:beige; color:black;"></TD> 
+	<TD id="s5TOT"></TD> 
+	<TD id="s6TOT"></TD>
+</TR>
+
+<TR>
+	<TD style="background:white; color:gray;" onclick="replaceMatch();">+</TD>
+	<TD id="sMx" style="background:white; color:purple;" onclick="hideM();">X</TD> 
+	<TD id="s1x" style="background:white; color:purple;" onclick="hideS1();">X</TD> 
+	<TD id="s2x" style="background:white; color:purple;" onclick="hideS2();">X</TD> 
+	<TD id="s3x" style="background:white; color:purple;" onclick="hideS3();">X</TD> 
+	<TD id="s4x" style="background:white; color:purple;" onclick="hideS4();">X</TD> 
+	<TD id="s5x" style="background:white; color:purple;" onclick="hideS5();">X</TD> 
+	<TD id="s6x" style="background:white; color:purple;" onclick="hideS6();">X</TD>
+</TR>
+
+</TABLE>
+	
+</body>
+</html>
