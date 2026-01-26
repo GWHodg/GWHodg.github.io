@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>HISTORY</title>
+						
+<style>
+            table, th, td {
+              border:2px solid white;
+              border-collapse: collapse;
+              background:black; color:white;
+              FONT-SIZE:50px; zoom:100%;
+              margin: 0px auto;
+              padding-top:5px; padding-bottom:5px;
+			  text-align:center;
+            }
+			
+</style>
+
+<script>
+	
+	function clearDATA(){	
+		localStorage.removeItem('myFavoriteSandwich');
+		//localStorage.removeItem('myDATA');
+		localStorage.setItem('myDATA',"2000-01-01: (30) 99");
+		localStorage.setItem('myDATA',"----date------  hcp SCR");
+			var cD = localStorage.getItem('myFavoriteSandwich');
+			var cMD = localStorage.getItem('myDATA');
+			alert("myFavoriteSandwich (CLEARED) = '"+cD+"'\n\n"+
+				  "myDATA (CLEARED) = '"+cMD+"'");
+	}
+		
+	function appendTOarray(){
+		var vG1h1s = localStorage.getItem("g1H1s"); var vG1h2s = localStorage.getItem("g1H2s");
+		var vG1h3s = localStorage.getItem("g1H3s"); var vG1h4s = localStorage.getItem("g1H4s");
+		var vG1h5s = localStorage.getItem("g1H5s"); var vG1h6s = localStorage.getItem("g1H6s");
+		var vG1h7s = localStorage.getItem("g1H7s"); var vG1h8s = localStorage.getItem("g1H8s");
+			var vG1h9s = localStorage.getItem("g1H9s");
+		var vG1h10s = localStorage.getItem("g1H10s"); var vG1h11s = localStorage.getItem("g1H11s");
+		var vG1h12s = localStorage.getItem("g1H12s"); var vG1h13s = localStorage.getItem("g1H13s");
+		var vG1h14s = localStorage.getItem("g1H14s"); var vG1h15s = localStorage.getItem("g1H15s");
+		var vG1h16s = localStorage.getItem("g1H16s"); var vG1h17s = localStorage.getItem("g1H17s");
+			var vG1h18s = localStorage.getItem("g1H18s");
+		var G1t18 = +vG1h1s + +vG1h2s + +vG1h3s + +vG1h4s + +vG1h5s + +vG1h6s + +vG1h7s +
+				    +vG1h8s + +vG1h9s +
+					+vG1h10s + +vG1h11s + +vG1h12s + +vG1h13s + +vG1h14s + +vG1h15s + +vG1h16s +
+				    +vG1h17s + +vG1h18s;
+		var G1t18last2 = G1t18.toString().slice(-2);
+		var date = localStorage.getItem('DATE');
+		var Chc = localStorage.getItem("g1HC");
+		var dataSTR = date+": ("+Chc+") "+G1t18last2;
+			document.getElementById("currentDATA").value=dataSTR;
+			/* alert("DATE: "+date+"\nCourse Handicap = "+Chc+"\nvG1h1s = "+vG1h1s+"\nvG1h2s = "+vG1h2s+"\n"+
+				"G1h9s = "+vG1h9s+"\nG1t18 = "+G1t18+"\n\n"+
+				"dataSTR: "+dataSTR); */			
+		var existing = localStorage.getItem('myDATA');		
+		//get 1st 10 chs of string:
+		const first10 = localStorage.getItem('myDATA').slice(0,10);
+			//const LASTdate = localStorage.getItem('myDATA').slice(-19,-9);
+		const FINALdate = localStorage.getItem('myDATA').slice(existing.length-19,existing.length-9);
+		/* alert("First 10 chs of 'myDATA' = "+first10+"\n"+
+		  "FINALdate = "+FINALdate); */
+		
+		// If no existing data, create an array
+		// Otherwise, convert the localStorage string to an array
+		if ( date != FINALdate ) {
+			existing = existing ? existing.split(',') : [];		
+			// Add new data to localStorage Array
+			existing.push(dataSTR);		 
+		}
+		else { 
+			//alert("Current date already listed!"); 
+			document.getElementById("currentLABEL").style.visibility="visible";
+			//Must still convert 'existing' string to array:
+			existing = existing.split(",");
+		}
+		
+		// Save back to localStorage
+		localStorage.setItem('myDATA', existing.toString());
+			var arrayDATA = localStorage.getItem('myDATA');
+			/* alert("myDATA:\n"+arrayDATA); */
+		for (i = 0; i < existing.length; i++) {
+			/* alert("existing["+i+"] = "+existing[i]);	*/
+				/*document.getElementById("dataNOTE").innerText = 
+				document.getElementById("dataNOTE").innerHTML + " | " + existing[i];*/
+		}
+		
+		/*alert("2nd item in 'arrayDATA' = "+arrayDATA[1]+"\n"+
+		"2nd item in 'existing' STRING/?ARRAY = "+existing[1]);*/	
+		
+		//Display contents of array in a list:	  
+		const listElement = document.getElementById('myList');		
+		// Generate the list HTML string and insert it into the DOM
+		listElement.innerHTML = `<ul>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;		
+	}
+	
+</script>	
+	
+</head>
+
+<body onload="appendTOarray();">
+	
+<TABLE class="" style="padding-top:10px; padding-bottom:10px;" border=1 align=center > <!-- style='color:maroon; visibility:visible;' bgcolor='lightgray' --> 
+	<TR><TD><span style="background:slategray; border:1px outset silver; border-radius:10px;  FONT-SIZE:60px; padding:2px;">GWH Score Hx</span>
+</TR>
+</TABLE>
+
+
+<!--<DIV style="width:150px; overflow-y:scroll;">-->
+<table style="width:50%">
+<TR> 
+	<TH style="background:white; color:black;">
+		<A href="index.html" style='color:black;'><</A>
+	</TH>
+	<TD style="font-size:20px;">
+		current entry:<input type="text" id="currentDATA" style="font-size:12px; width:120px; background:slategray; color:white; border:2px outset white; border-radius:10px;" value=". .current . .">
+				<label id="currentLABEL" for="currentDATA" style="visibility:hidden;"">< already listed</label>
+		<br>
+		<button id='ARRAYbtn' onclick="appendTOarray()" style="FONT-WEIGHT:normal; FONT-SIZE:20px; COLOR:white; background:maroon; border:2px outset white; border-radius:10px; opacity:100%;">Append To Array</button>	  
+		<button id='CLEARbtn' onclick="clearDATA()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:white; background:maroon; border:2px solid black; border-radius:10px; opacity:100%; float:right;">Clear Data</button>	  
+	</TD>
+	
+</TR> 		
+
+</table>
+
+	<div id="myList" style="border:1px solid black; margin:auto; border-radius:10px; background:moccasin; FONT-SIZE:20px; width:30%; "></div>	
+	
+</body>
+</html>
