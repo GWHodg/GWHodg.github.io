@@ -44,7 +44,7 @@
 				var cMD = localStorage.getItem('myDATA');
 				alert("myDATA (CLEARED) = \n"+cMD);
 					  
-			document.getElementById("currentLABEL").innerText="< NOT listed!"; // < * ??	
+			document.getElementById("currentLABEL").innerText="< unlisted"; // < * ??	
 
 			var existing = localStorage.getItem('myDATA');	
 			existing = existing ? existing.split(',') : [];	
@@ -152,7 +152,7 @@
 			  // Generate the list HTML string and insert it into the DOM
 			  listElement.innerHTML = `<ul>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
 			  
-			  document.getElementById("currentLABEL").innerText="< NOT listed!"; // < **	  
+			  document.getElementById("currentLABEL").innerText="< unlisted"; // < **	  
 			  document.getElementById("currentDATA").style.background = "green"; // < **	  
 			} else {
 			  // Handle the case where no comma is found (return original string)
