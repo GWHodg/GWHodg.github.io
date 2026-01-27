@@ -27,14 +27,34 @@
 <script>
 	
 	function clearDATA(){	
-		localStorage.removeItem('myFavoriteSandwich');
-		//localStorage.removeItem('myDATA');
-		localStorage.setItem('myDATA',"2000-01-01: (30) 99");
-		localStorage.setItem('myDATA',"----date------  hcp SCR");
-			var cD = localStorage.getItem('myFavoriteSandwich');
-			var cMD = localStorage.getItem('myDATA');
-			alert("myFavoriteSandwich (CLEARED) = '"+cD+"'\n\n"+
-				  "myDATA (CLEARED) = '"+cMD+"'");
+		let reply;
+		if (confirm("Are you SURE you want to clear ALL data?") == true) {
+			reply = "YES!";
+		} else {
+			reply = "NO!";
+		}
+		alert(reply);
+		  
+		if ( reply=="YES!") {				
+			//localStorage.removeItem('myFavoriteSandwich');
+			//localStorage.removeItem('myDATA');
+			//localStorage.setItem('myDATA',"2000-01-01: (30) 99");
+			localStorage.setItem('myDATA',"----date------  hcp SCR");
+				//var cD = localStorage.getItem('myFavoriteSandwich');
+				var cMD = localStorage.getItem('myDATA');
+				alert("myDATA (CLEARED) = \n"+cMD);
+					  
+			document.getElementById("currentLABEL").innerText="< NOT listed!"; // < * ??	
+
+			var existing = localStorage.getItem('myDATA');	
+			existing = existing ? existing.split(',') : [];	
+			  //Display contents of array in a list:	  
+			const listElement = document.getElementById('myList');		
+			  // Generate the list HTML string and insert it into the DOM
+			listElement.innerHTML = `<ul>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
+			document.getElementById("currentDATA").style.background = "green"; // < **	  			
+					  
+		}
 	}
 		
 	function appendTOarray(){
@@ -73,7 +93,10 @@
 		if ( date != FINALdate ) {
 			existing = existing ? existing.split(',') : [];		
 			// Add new data to localStorage Array
-			existing.push(dataSTR);		 
+			existing.push(dataSTR);		
+		
+			document.getElementById("currentLABEL").style.visibility="visible"; // < ** ?
+			
 		}
 		else { 
 			//alert("Current date already listed!"); 
@@ -102,24 +125,42 @@
 	}
 
 	function remLAST() {
-		alert("Trying to remove final item of 'existing' string [localStorage.getItem('myDATA')].\n\n"+
-			  "localStorage (myDATA) string = " + localStorage.getItem('myDATA'));
-		const str = localStorage.getItem('myDATA');	  
-		const lastCommaIndex = str.lastIndexOf(",");
-		if (lastCommaIndex !== -1) {
-		  // Slice the string from the start (index 0) up to the last comma's index
-		  const result = str.slice(0, lastCommaIndex);
-		  alert("'result' of str.slice = '" + result + "'.");
-		  localStorage.setItem('myDATA',result);  // < **	  
-		  //console.log(result);
-		  // Output: "apple,banana,cherry"
-		} else {
-		  // Handle the case where no comma is found (return original string)
-		  alert("No comma found! Return original string: '" + str + "'.");
-		  //console.log(str);
-		  // Output: "apple,banana,cherry,date" (if no comma was present)
-		}	  
-	
+		/*alert("Trying to remove final item of 'existing' string [localStorage.getItem('myDATA')].\n\n"+
+			  "localStorage (myDATA) string = " + localStorage.getItem('myDATA'));*/
+	  let reply;
+	  if (confirm("Are you SURE you want to remove final item of 'existing' string [localStorage.getItem('myDATA')]?") == true) {
+	    reply = "YES!";
+	  } else {
+	    reply = "NO!";
+	  }
+	  alert(reply);
+		  
+	  if ( reply=="YES!") {
+			const str = localStorage.getItem('myDATA');	  
+			const lastCommaIndex = str.lastIndexOf(",");
+			if (lastCommaIndex !== -1) {
+			  // Slice the string from the start (index 0) up to the last comma's index
+			  const result = str.slice(0, lastCommaIndex);
+			  alert("'result' of str.slice = \n" + result);
+			  localStorage.setItem('myDATA',result);  // < **	  
+			  //console.log(result);
+			  // Output: "apple,banana,cherry"
+			  var existing = localStorage.getItem('myDATA');	
+			  existing = existing ? existing.split(',') : [];	
+			  //Display contents of array in a list:	  
+			  const listElement = document.getElementById('myList');		
+			  // Generate the list HTML string and insert it into the DOM
+			  listElement.innerHTML = `<ul>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
+			  
+			  document.getElementById("currentLABEL").innerText="< NOT listed!"; // < **	  
+			  document.getElementById("currentDATA").style.background = "green"; // < **	  
+			} else {
+			  // Handle the case where no comma is found (return original string)
+			  alert("No comma found! Return original string: '" + str + "'.");
+			  //console.log(str);
+			  // Output: "apple,banana,cherry,date" (if no comma was present)
+			}	  
+	   }		
 			
 	}	
 	
