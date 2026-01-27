@@ -5,7 +5,14 @@
 <title>HISTORY</title>
 						
 <style>
-            table, th, td {
+	 body {
+	   zoom:250%;	/* 250%; */
+	  /* overscroll-behavior-y: contain; */ /* < prevents 'pull-to-refresh' in CHROME (not DDG) */
+	  /*overscroll-behavior: none;*/ /* Sept/25 */
+	  /*background:gray;*/
+ 	 }
+			
+			table, th, td {
               border:2px solid white;
               border-collapse: collapse;
               background:black; color:white;
@@ -111,10 +118,11 @@
 <TR> 
 	<TH style="background:white; color:black;">
 		<A href="index.html" style='color:black;'><</A>
+		&nbsp;<!--&emsp;-->
 	</TH>
 	<TD style="font-size:20px;">
-		current entry:<input type="text" id="currentDATA" style="font-size:12px; width:120px; background:slategray; color:white; border:2px outset white; border-radius:10px;" value=". .current . .">
-				<label id="currentLABEL" for="currentDATA" style="visibility:hidden;"">< already listed</label>
+		<!--current entry:--><input type="text" id="currentDATA" style="font-size:12px; width:120px; background:slategray; color:white; border:2px outset white; border-radius:10px;" value=". .current . .">
+				<label id="currentLABEL" for="currentDATA" style="visibility:hidden;"">< listed</label>
 		<br>
 		<button id='ARRAYbtn' onclick="appendTOarray()" style="FONT-WEIGHT:normal; FONT-SIZE:20px; COLOR:white; background:maroon; border:2px outset white; border-radius:10px; opacity:100%;">Append To Array</button>	  
 		<button id='CLEARbtn' onclick="clearDATA()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:white; background:maroon; border:2px solid black; border-radius:10px; opacity:100%; float:right;">Clear Data</button>	  
