@@ -121,7 +121,17 @@
 		//Display contents of array in a list:	  
 		const listElement = document.getElementById('myList');		
 		// Generate the list HTML string and insert it into the DOM
-		listElement.innerHTML = `<ul>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;		
+		//listElement.innerHTML = `<ul>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
+	
+		//reverse a JavaScript array starting from the second index (index 1):
+		//let arr = ['a', 'b', 'c', 'd'];
+		const toReverse = existing.splice(1); // Removes 'b','c','d' and returns them
+		toReverse.reverse(); // ['d', 'c', 'b']
+		existing.push(...toReverse); // ['a', 'd', 'c', 'b']
+		//console.log(arr); // ['a', 'd', 'c', 'b']
+		listElement.innerHTML = `<ul>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
+	
+		
 	}
 
 	function remLAST() {
@@ -149,6 +159,14 @@
 			  existing = existing ? existing.split(',') : [];	
 			  //Display contents of array in a list:	  
 			  const listElement = document.getElementById('myList');		
+			  	//reverse a JavaScript array starting from the second index (index 1):
+				//let arr = ['a', 'b', 'c', 'd'];
+				const toReverse = existing.splice(1); // Removes 'b','c','d' and returns them
+				toReverse.reverse(); // ['d', 'c', 'b']
+				existing.push(...toReverse); // ['a', 'd', 'c', 'b']
+				//console.log(arr); // ['a', 'd', 'c', 'b']
+				//listElement.innerHTML = `<ul>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
+		
 			  // Generate the list HTML string and insert it into the DOM
 			  listElement.innerHTML = `<ul>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
 			  
