@@ -2947,6 +2947,7 @@
 	}
 	
 	function loadFN() {  
+		//alert("BOO!");
 		document.getElementById('p&h').value = localStorage.getItem('g1NAME') + ' 2';
 		document.getElementById("SLIDER").style.visibility="hidden";
 		
@@ -3405,7 +3406,7 @@ else {
 		*/
 		//alert ("p3h5 val = "+localStorage.getItem("SBFDg3h5"));
 		
-		window.location = "HISTORY.html";
+		window.location = "HISTORY2.html";
 	}
 	
 	function editSP() {

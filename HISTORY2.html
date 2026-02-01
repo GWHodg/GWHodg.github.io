@@ -1,0 +1,348 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>HISTORY2</title>
+						
+<style>
+	 body {
+	   zoom:250%;	/* 250%; */
+	  /* overscroll-behavior-y: contain; */ /* < prevents 'pull-to-refresh' in CHROME (not DDG) */
+	  /*overscroll-behavior: none;*/ /* Sept/25 */
+	  /*background:gray;*/
+ 	 }
+			
+			table, th, td {
+              border:2px solid white;
+              border-collapse: collapse;
+              background:black; color:white;
+              FONT-SIZE:50px; zoom:100%;
+              margin: 0px auto;
+              padding-top:5px; padding-bottom:5px;
+			  text-align:center;
+            }
+			
+</style>
+
+<script>
+	
+	function clearDATA(){	
+		let reply;
+		if (confirm("Are you SURE you want to clear ALL data?") == true) {
+			reply = "YES!";
+		} else {
+			reply = "NO!";
+		}
+		alert(reply);
+		  
+		if ( reply=="YES!") {				
+			//localStorage.removeItem('myFavoriteSandwich');
+			//localStorage.removeItem('myDATA');
+			//localStorage.setItem('myDATA',"2000-01-01: (30) 99");
+			localStorage.setItem('myDATA',"----date------  hcp SCR");
+				//var cD = localStorage.getItem('myFavoriteSandwich');
+				var cMD = localStorage.getItem('myDATA');
+				alert("myDATA (CLEARED) = \n"+cMD);
+					  
+			document.getElementById("currentLABEL").innerText="< unlisted"; // < * ??	
+
+			var existing = localStorage.getItem('myDATA');	
+			existing = existing ? existing.split(',') : [];	
+			  //Display contents of array in a list:	  
+			const listElement = document.getElementById('myList');		
+			  // Generate the list HTML string and insert it into the DOM
+			listElement.innerHTML = `<ul>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
+			document.getElementById("currentDATA").style.background = "green"; // < **	  			
+					  
+		}
+		
+		loadLIST();	// < ??		
+		
+	}
+		
+	function appendTOarray(){
+		var vG1h1s = localStorage.getItem("g1H1s"); var vG1h2s = localStorage.getItem("g1H2s");
+		var vG1h3s = localStorage.getItem("g1H3s"); var vG1h4s = localStorage.getItem("g1H4s");
+		var vG1h5s = localStorage.getItem("g1H5s"); var vG1h6s = localStorage.getItem("g1H6s");
+		var vG1h7s = localStorage.getItem("g1H7s"); var vG1h8s = localStorage.getItem("g1H8s");
+			var vG1h9s = localStorage.getItem("g1H9s");
+		var vG1h10s = localStorage.getItem("g1H10s"); var vG1h11s = localStorage.getItem("g1H11s");
+		var vG1h12s = localStorage.getItem("g1H12s"); var vG1h13s = localStorage.getItem("g1H13s");
+		var vG1h14s = localStorage.getItem("g1H14s"); var vG1h15s = localStorage.getItem("g1H15s");
+		var vG1h16s = localStorage.getItem("g1H16s"); var vG1h17s = localStorage.getItem("g1H17s");
+			var vG1h18s = localStorage.getItem("g1H18s");
+		var G1t18 = +vG1h1s + +vG1h2s + +vG1h3s + +vG1h4s + +vG1h5s + +vG1h6s + +vG1h7s +
+				    +vG1h8s + +vG1h9s +
+					+vG1h10s + +vG1h11s + +vG1h12s + +vG1h13s + +vG1h14s + +vG1h15s + +vG1h16s +
+				    +vG1h17s + +vG1h18s;
+		var G1t18last2 = G1t18.toString().slice(-2);
+		var date = localStorage.getItem('DATE');
+		var Chc = localStorage.getItem("g1HC");
+		var dataSTR = date+": ("+Chc+") "+G1t18last2;
+			document.getElementById("currentDATA").value=dataSTR;
+			/* alert("DATE: "+date+"\nCourse Handicap = "+Chc+"\nvG1h1s = "+vG1h1s+"\nvG1h2s = "+vG1h2s+"\n"+
+				"G1h9s = "+vG1h9s+"\nG1t18 = "+G1t18+"\n\n"+
+				"dataSTR: "+dataSTR); */			
+		var existing = localStorage.getItem('myDATA');		
+		//get 1st 10 chs of string:
+		const first10 = localStorage.getItem('myDATA').slice(0,10);
+			//const LASTdate = localStorage.getItem('myDATA').slice(-19,-9);
+		const FINALdate = localStorage.getItem('myDATA').slice(existing.length-19,existing.length-9);
+		/* alert("First 10 chs of 'myDATA' = "+first10+"\n"+
+		  "FINALdate = "+FINALdate); */
+		
+		// If no existing data, create an array
+		// Otherwise, convert the localStorage string to an array
+		if ( date != FINALdate ) {
+			alert("Current date will be appended to list."); 
+			existing = existing ? existing.split(',') : [];		
+			// Add new data to localStorage Array
+			existing.push(dataSTR);		
+		
+			document.getElementById("currentLABEL").style.visibility="visible"; // < ** ?
+			document.getElementById("currentLABEL").innerText="listed";
+			document.getElementById("currentDATA").style.background="gray";
+			document.getElementById("ARRAYbtn").style.display="none";
+			
+		}
+		else { 
+			alert("Current date already listed!"); 
+			document.getElementById("currentLABEL").style.visibility="visible";
+			//Must still convert 'existing' string to array:
+			existing = existing.split(",");
+		}
+		
+		// Save back to localStorage
+		localStorage.setItem('myDATA', existing.toString());
+			var arrayDATA = localStorage.getItem('myDATA');
+			/* alert("myDATA:\n"+arrayDATA); */
+		for (i = 0; i < existing.length; i++) {
+			/* alert("existing["+i+"] = "+existing[i]);	*/
+				/*document.getElementById("dataNOTE").innerText = 
+				document.getElementById("dataNOTE").innerHTML + " | " + existing[i];*/
+		}
+		
+		/*alert("2nd item in 'arrayDATA' = "+arrayDATA[1]+"\n"+
+		"2nd item in 'existing' STRING/?ARRAY = "+existing[1]);*/	
+		
+		//Display contents of array in a list:	  
+		const listElement = document.getElementById('myList');		
+		// Generate the list HTML string and insert it into the DOM
+		//listElement.innerHTML = `<ul>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
+	
+/*		//reverse a JavaScript array starting from the second index (index 1):
+		//let arr = ['a', 'b', 'c', 'd'];
+		const toReverse = existing.splice(1); // Removes 'b','c','d' and returns them
+		toReverse.reverse(); // ['d', 'c', 'b']
+		existing.push(...toReverse); // ['a', 'd', 'c', 'b']
+		//console.log(arr); // ['a', 'd', 'c', 'b']
+*/
+							
+							//alert("UNsorted 'existing' array = \n"+existing);
+							existing.sort();
+							//alert("SORTED 'existing' array = \n"+existing);
+							//reverse a JavaScript array starting from the second index (index 1):
+							//let arr = ['a', 'b', 'c', 'd'];
+							const toReverse = existing.splice(1); // Removes 'b','c','d' and returns them
+							toReverse.reverse(); // ['d', 'c', 'b']
+							existing.push(...toReverse); // ['a', 'd', 'c', 'b']
+							
+		listElement.innerHTML = `<ul>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
+
+		loadLIST();	
+		
+	}
+
+	function remLAST() {
+		/*alert("Trying to remove final item of 'existing' string [localStorage.getItem('myDATA')].\n\n"+
+			  "localStorage (myDATA) string = " + localStorage.getItem('myDATA'));*/
+	  let reply;
+	  if (confirm("Last entered score = \n"+ localStorage.getItem('myDATA').slice(-19) + "\n\n"+
+	  			  "Are you SURE you want to remove final item of 'existing' string [localStorage.getItem('myDATA')]?") == true) {
+	    reply = "YES!";
+	  } else {
+	    reply = "NO!";
+	  }
+	  alert(reply);
+		  
+	  if ( reply=="YES!") {
+			const str = localStorage.getItem('myDATA');	  
+			const lastCommaIndex = str.lastIndexOf(",");
+			if (lastCommaIndex !== -1) {
+			  // Slice the string from the start (index 0) up to the last comma's index
+			  const result = str.slice(0, lastCommaIndex);
+			  alert("'result' of str.slice = \n" + result);
+			  localStorage.setItem('myDATA',result);  // < **	  
+			  //console.log(result);
+			  // Output: "apple,banana,cherry"
+			  var existing = localStorage.getItem('myDATA');	
+			  existing = existing ? existing.split(',') : [];	
+			  //Display contents of array in a list:	  
+			  const listElement = document.getElementById('myList');		
+			  	//reverse a JavaScript array starting from the second index (index 1):
+				//let arr = ['a', 'b', 'c', 'd'];
+				const toReverse = existing.splice(1); // Removes 'b','c','d' and returns them
+				toReverse.reverse(); // ['d', 'c', 'b']
+				existing.push(...toReverse); // ['a', 'd', 'c', 'b']
+				//console.log(arr); // ['a', 'd', 'c', 'b']
+				//listElement.innerHTML = `<ul>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
+		
+			  // Generate the list HTML string and insert it into the DOM
+			  listElement.innerHTML = `<ul>${
+				  								existing.map(item => `<li>${item}</li>`).join('')
+											}</ul>`;	
+			  
+			  document.getElementById("currentLABEL").innerText="unlisted"; // < **	  
+			  document.getElementById("currentDATA").style.background = "green"; // < **	  
+			  document.getElementById("ARRAYbtn").style.display="block";
+			} else {
+			  // Handle the case where no comma is found (return original string)
+			  alert("No comma found! Return original string: '" + str + "'.");
+			  //console.log(str);
+			  // Output: "apple,banana,cherry,date" (if no comma was present)
+			}	  
+	   }		
+
+		loadLIST();	// < ??	
+	   
+	}	
+
+	function loadLIST(){
+		var vG1h1s = localStorage.getItem("g1H1s"); var vG1h2s = localStorage.getItem("g1H2s");
+		var vG1h3s = localStorage.getItem("g1H3s"); var vG1h4s = localStorage.getItem("g1H4s");
+		var vG1h5s = localStorage.getItem("g1H5s"); var vG1h6s = localStorage.getItem("g1H6s");
+		var vG1h7s = localStorage.getItem("g1H7s"); var vG1h8s = localStorage.getItem("g1H8s");
+			var vG1h9s = localStorage.getItem("g1H9s");
+		var vG1h10s = localStorage.getItem("g1H10s"); var vG1h11s = localStorage.getItem("g1H11s");
+		var vG1h12s = localStorage.getItem("g1H12s"); var vG1h13s = localStorage.getItem("g1H13s");
+		var vG1h14s = localStorage.getItem("g1H14s"); var vG1h15s = localStorage.getItem("g1H15s");
+		var vG1h16s = localStorage.getItem("g1H16s"); var vG1h17s = localStorage.getItem("g1H17s");
+			var vG1h18s = localStorage.getItem("g1H18s");
+		var G1t18 = +vG1h1s + +vG1h2s + +vG1h3s + +vG1h4s + +vG1h5s + +vG1h6s + +vG1h7s +
+				    +vG1h8s + +vG1h9s +
+					+vG1h10s + +vG1h11s + +vG1h12s + +vG1h13s + +vG1h14s + +vG1h15s + +vG1h16s +
+				    +vG1h17s + +vG1h18s;
+		var G1t18last2 = G1t18.toString().slice(-2);
+		var date = localStorage.getItem('DATE');
+		var Chc = localStorage.getItem("g1HC");
+		var dataSTR = date+": ("+Chc+") "+G1t18last2;
+			document.getElementById("currentDATA").value=dataSTR;
+			/* alert("DATE: "+date+"\nCourse Handicap = "+Chc+"\nvG1h1s = "+vG1h1s+"\nvG1h2s = "+vG1h2s+"\n"+
+				"G1h9s = "+vG1h9s+"\nG1t18 = "+G1t18+"\n\n"+
+				"dataSTR: "+dataSTR); */			
+				var existing = localStorage.getItem('myDATA');	
+		
+		const FINALdate = localStorage.getItem('myDATA').slice(existing.length-19,existing.length-9);
+		/* alert("First 10 chs of 'myDATA' = "+first10+"\n"+
+		  "FINALdate = "+FINALdate); */
+		
+		// If no existing data, create an array
+		// Otherwise, convert the localStorage string to an array
+		if ( date == FINALdate ) {
+			document.getElementById("currentLABEL").style.visibility="visible"; // < ** ?	
+			document.getElementById("ARRAYbtn").style.display="none";		
+		}	
+		else {
+			document.getElementById("currentLABEL").style.visibility="visible";
+			document.getElementById("currentLABEL").innerText="unlisted";
+			document.getElementById("currentDATA").style.background="green";
+			document.getElementById("ARRAYbtn").style.display="block";
+		}	
+	
+		existing = existing.split(",");
+		
+		//Display contents of array in a list:	  
+		const listElement = document.getElementById('myList');		
+		// Generate the list HTML string and insert it into the DOM
+		//listElement.innerHTML = `<ul>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
+	
+		//reverse a JavaScript array starting from the second index (index 1):
+		//let arr = ['a', 'b', 'c', 'd'];
+/*		const toReverse = existing.splice(1); // Removes 'b','c','d' and returns them
+		toReverse.reverse(); // ['d', 'c', 'b']
+		existing.push(...toReverse); // ['a', 'd', 'c', 'b']
+*/				
+				//alert("REVERSED 'existing' array = \n"+existing);
+				existing.slice(0).forEach((fruit, index) => {
+					var FRUITlast2 = fruit.toString().slice(-2);
+					//alert(`Fruit at index ${index} is ${fruit}`);
+					if (FRUITlast2<=96 && FRUITlast2>20) {
+						//alert("last 2 chrs in "+fruit+" <= 90!");
+						//fruit = "* " + fruit;
+						fruit = fruit + " *";
+					}
+					//else { fruit = "&nbsp;&nbsp;&nbsp;" + fruit; }
+					//alert(`Fruit at index ${index} is \n ${fruit}`);
+					//existing[index] = "* "+fruit;
+					existing[index] = fruit;
+						//alert("NEW 'existing' array = \n"+existing);
+				});
+			
+						//existing.slice(0).forEach((fruit, index) => {
+							//var FRUITfirst10 = fruit.toString().slice(0, 10);
+							//alert(`FRUITfirst10 at index ${index} is ${FRUITfirst10}`);
+						/*	if (FRUITlast2<=96 && FRUITlast2>20) {
+								//alert("last 2 chrs in "+fruit+" <= 90!");
+								//fruit = "* " + fruit;
+								fruit = fruit + " *";
+							}
+							//else { fruit = "&nbsp;&nbsp;&nbsp;" + fruit; }
+							//alert(`Fruit at index ${index} is \n ${fruit}`);
+							//existing[index] = "* "+fruit;
+							existing[index] = fruit;
+						*/		//alert("NEW 'existing' array = \n"+existing);
+							//});
+							
+							//alert("UNsorted 'existing' array = \n"+existing);
+							existing.sort();
+							//alert("SORTED 'existing' array = \n"+existing);
+							//reverse a JavaScript array starting from the second index (index 1):
+							//let arr = ['a', 'b', 'c', 'd'];
+							const toReverse = existing.splice(1); // Removes 'b','c','d' and returns them
+							toReverse.reverse(); // ['d', 'c', 'b']
+							existing.push(...toReverse); // ['a', 'd', 'c', 'b']
+					
+		//console.log(arr); // ['a', 'd', 'c', 'b']
+		listElement.innerHTML = `<ul>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
+				
+	}
+	
+</script>	
+	
+</head>
+
+<body onload="loadLIST();">
+	
+<TABLE class="" style="padding-top:10px; padding-bottom:10px;" border=1 align=center > <!-- style='color:maroon; visibility:visible;' bgcolor='lightgray' --> 
+	<TR><TD><span style="background:slategray; border:1px outset silver; border-radius:10px;  FONT-SIZE:60px; padding:2px;">GWH Scores</span>
+</TR>
+</TABLE>
+
+
+<!--<DIV style="width:150px; overflow-y:scroll;">-->
+<table style="width:80%">
+<TR> 
+	<TH style="background:white; color:black;">
+		<A href="index.html" style='color:black;'><</A>
+		&nbsp;<!--&emsp;-->
+	</TH>
+	<TD style="font-size:20px;">
+		<button id='ARRAYbtn' onclick="appendTOarray()" style="FONT-WEIGHT:normal; FONT-SIZE:20px; COLOR:white; background:maroon; border:2px outset white; border-radius:10px; opacity:100%;">Append To Array</button>
+		<span style="float:right; border:1px solid gold; border-radius:10px;"><font color=orange>&emsp;<b>*</b> = <b><=96&emsp;</b></font></span>
+		<br>
+		<!--current entry:--><input type="text" id="currentDATA" style="font-size:12px; width:120px; background:slategray; color:white; border:2px outset white; border-radius:10px;" value=". .current . .">
+				<label id="currentLABEL" for="currentDATA" style="visibility:hidden;"">< listed</label>
+		<br>
+		<!--<button id='ARRAYbtn' onclick="appendTOarray()" style="FONT-WEIGHT:normal; FONT-SIZE:20px; COLOR:white; background:maroon; border:2px outset white; border-radius:10px; opacity:100%;">Append To Array</button>-->  
+		<button id='REMOVEbtn' onclick="remLAST()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:white; background:maroon; border:1px solid white; border-radius:10px; opacity:100%; float:left;">Remove Last Item</button>	
+		<button id='CLEARbtn' onclick="clearDATA()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:white; background:maroon; border:1px solid white; border-radius:10px; opacity:100%; float:right;">Clear Data</button>	  
+	</TD>
+	
+</TR> 		
+
+</table>
+
+	<div id="myList" style="border:1px solid black; margin:auto; border-radius:10px; background:moccasin; FONT-SIZE:20px; width:90%; ">* = <=96</div>	
+	
+</body>
+</html>
