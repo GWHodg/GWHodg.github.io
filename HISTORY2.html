@@ -171,7 +171,7 @@
 			if (lastCommaIndex !== -1) {
 			  // Slice the string from the start (index 0) up to the last comma's index
 			  const result = str.slice(0, lastCommaIndex);
-			  alert("'result' of str.slice = \n" + result);
+			  //alert("'result' of str.slice = \n" + result);
 			  localStorage.setItem('myDATA',result);  // < **	  
 			  //console.log(result);
 			  // Output: "apple,banana,cherry"
@@ -327,9 +327,9 @@
 		&nbsp;<!--&emsp;-->
 	</TH>
 	<TD style="font-size:20px;">
-		<button id='ARRAYbtn' onclick="appendTOarray()" style="FONT-WEIGHT:normal; FONT-SIZE:20px; COLOR:white; background:maroon; border:2px outset white; border-radius:10px; opacity:100%;">Append To Array</button>
-		<span style="float:right; border:1px solid gold; border-radius:10px;"><font color=orange>&emsp;<b>*</b> = <b><=96&emsp;</b></font></span>
-		<br>
+		<span style="float:right; border:1px solid gold; border-radius:10px;"><font color=orange size=2>&nbsp;<b>*</b> = <b><=96</b>&nbsp;</font></span> <!-- float:right; -->
+		<button id='ARRAYbtn' onclick="appendTOarray()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:white; background:maroon; border:2px outset white; border-radius:10px; opacity:100%;">Append</button>
+	
 		<!--current entry:--><input type="text" id="currentDATA" style="font-size:12px; width:120px; background:slategray; color:white; border:2px outset white; border-radius:10px;" value=". .current . .">
 				<label id="currentLABEL" for="currentDATA" style="visibility:hidden;"">< listed</label>
 		<br>
