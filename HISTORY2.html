@@ -13,9 +13,9 @@
  	 }
 			
 			table, th, td {
-              border:2px solid white;
+              /*border:2px solid slategray;*/
               border-collapse: collapse;
-              background:black; color:white;
+              /*background:moccasin; color:white;*/
               FONT-SIZE:50px; zoom:100%;
               margin: 0px auto;
               padding-top:5px; padding-bottom:5px;
@@ -44,14 +44,15 @@
 				var cMD = localStorage.getItem('myDATA');
 				alert("myDATA (CLEARED) = \n"+cMD);
 					  
-			document.getElementById("currentLABEL").innerText="< unlisted"; // < * ??	
+			document.getElementById("currentLABEL").innerText="unlisted"; // < * ??	
 
 			var existing = localStorage.getItem('myDATA');	
 			existing = existing ? existing.split(',') : [];	
 			  //Display contents of array in a list:	  
 			const listElement = document.getElementById('myList');		
 			  // Generate the list HTML string and insert it into the DOM
-			listElement.innerHTML = `<ul>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
+			//listElement.innerHTML = `<ul>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
+			listElement.innerHTML = `<ul style='display:table; margin:0 auto;'>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
 			document.getElementById("currentDATA").style.background = "green"; // < **	  			
 					  
 		}
@@ -102,7 +103,8 @@
 			document.getElementById("currentLABEL").style.visibility="visible"; // < ** ?
 			document.getElementById("currentLABEL").innerText="listed";
 			document.getElementById("currentDATA").style.background="gray";
-			document.getElementById("ARRAYbtn").style.display="none";
+			//document.getElementById("ARRAYbtn").style.display="none";
+				document.getElementById("ARRAYbtn").style.visibility="hidden";
 			
 		}
 		else { 
@@ -147,8 +149,9 @@
 							toReverse.reverse(); // ['d', 'c', 'b']
 							existing.push(...toReverse); // ['a', 'd', 'c', 'b']
 							
-		listElement.innerHTML = `<ul>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
-
+		//listElement.innerHTML = `<ul>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
+		listElement.innerHTML = `<ul style='display:table; margin:0 auto;'>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
+		
 		loadLIST();	
 		
 	}
@@ -188,13 +191,15 @@
 				//listElement.innerHTML = `<ul>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
 		
 			  // Generate the list HTML string and insert it into the DOM
-			  listElement.innerHTML = `<ul>${
+			  /*listElement.innerHTML = `<ul>${
 				  								existing.map(item => `<li>${item}</li>`).join('')
-											}</ul>`;	
+											}</ul>`;*/
+			  listElement.innerHTML = `<ul style='display:table; margin:0 auto;'>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;									
 			  
 			  document.getElementById("currentLABEL").innerText="unlisted"; // < **	  
 			  document.getElementById("currentDATA").style.background = "green"; // < **	  
-			  document.getElementById("ARRAYbtn").style.display="block";
+			  //document.getElementById("ARRAYbtn").style.display="block";
+			  		document.getElementById("ARRAYbtn").style.visibility="visible";
 			} else {
 			  // Handle the case where no comma is found (return original string)
 			  alert("No comma found! Return original string: '" + str + "'.");
@@ -240,13 +245,15 @@
 		// Otherwise, convert the localStorage string to an array
 		if ( date == FINALdate ) {
 			document.getElementById("currentLABEL").style.visibility="visible"; // < ** ?	
-			document.getElementById("ARRAYbtn").style.display="none";		
+			//document.getElementById("ARRAYbtn").style.display="none";		
+				document.getElementById("ARRAYbtn").style.visibility="hidden";
 		}	
 		else {
 			document.getElementById("currentLABEL").style.visibility="visible";
 			document.getElementById("currentLABEL").innerText="unlisted";
 			document.getElementById("currentDATA").style.background="green";
-			document.getElementById("ARRAYbtn").style.display="block";
+			//document.getElementById("ARRAYbtn").style.display="block";
+				document.getElementById("ARRAYbtn").style.visibility="visible";
 		}	
 	
 		existing = existing.split(",");
@@ -303,7 +310,9 @@
 							existing.push(...toReverse); // ['a', 'd', 'c', 'b']
 					
 		//console.log(arr); // ['a', 'd', 'c', 'b']
-		listElement.innerHTML = `<ul>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
+		//listElement.innerHTML = `<ul>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
+		listElement.innerHTML = `<ul style='display:table; margin:0 auto;'>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
+		
 				
 	}
 	
@@ -313,28 +322,28 @@
 
 <body onload="loadLIST();">
 	
-<TABLE class="" style="padding-top:10px; padding-bottom:10px;" border=1 align=center > <!-- style='color:maroon; visibility:visible;' bgcolor='lightgray' --> 
-	<TR><TD><span style="background:slategray; border:1px outset silver; border-radius:10px;  FONT-SIZE:60px; padding:2px;">GWH Scores</span>
+<TABLE class="" style="padding-top:10px; padding-bottom:10px;" border=0 align=center > <!-- style='color:maroon; visibility:visible;' bgcolor='lightgray' --> 
+	<TR><TD><span style="background:slategray; color:ivory; border:1px outset silver; border-radius:10px;  FONT-SIZE:60px; padding:2px;">GWH Scores</span>
 </TR>
 </TABLE>
 
 
 <!--<DIV style="width:150px; overflow-y:scroll;">-->
-<table style="width:80%">
+<table style="width:90%" border=1>
 <TR> 
 	<TH style="background:white; color:black;">
 		<A href="index.html" style='color:black;'><</A>
 		&nbsp;<!--&emsp;-->
 	</TH>
-	<TD style="font-size:20px;">
+	<TD style="font-size:20px; background:black; color:white;">
 		<span style="float:right; border:1px solid gold; border-radius:10px;"><font color=orange size=2>&nbsp;<b>*</b> = <b><=96</b>&nbsp;</font></span> <!-- float:right; -->
-		<button id='ARRAYbtn' onclick="appendTOarray()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:white; background:maroon; border:2px outset white; border-radius:10px; opacity:100%;">Append</button>
-	
+		<button id='ARRAYbtn' onclick="appendTOarray()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:white; background:maroon; border:2px outset white; border-radius:10px; opacity:100%; visibility:hidden; ">Append</button>
+		<br>
 		<!--current entry:--><input type="text" id="currentDATA" style="font-size:12px; width:120px; background:slategray; color:white; border:2px outset white; border-radius:10px;" value=". .current . .">
-				<label id="currentLABEL" for="currentDATA" style="visibility:hidden;"">< listed</label>
+				<label id="currentLABEL" for="currentDATA" style="visibility:hidden; FONT-SIZE:15px;">listed</label>
 		<br>
 		<!--<button id='ARRAYbtn' onclick="appendTOarray()" style="FONT-WEIGHT:normal; FONT-SIZE:20px; COLOR:white; background:maroon; border:2px outset white; border-radius:10px; opacity:100%;">Append To Array</button>-->  
-		<button id='REMOVEbtn' onclick="remLAST()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:white; background:maroon; border:1px solid white; border-radius:10px; opacity:100%; float:left;">Remove Last Item</button>	
+		<button id='REMOVEbtn' onclick="remLAST()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:white; background:maroon; border:1px solid white; border-radius:10px; opacity:100%; float:left;">Remove Last<!-- Item--></button>	
 		<button id='CLEARbtn' onclick="clearDATA()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:white; background:maroon; border:1px solid white; border-radius:10px; opacity:100%; float:right;">Clear Data</button>	  
 	</TD>
 	
@@ -342,7 +351,7 @@
 
 </table>
 
-	<div id="myList" style="border:1px solid black; margin:auto; border-radius:10px; background:moccasin; FONT-SIZE:20px; width:90%; ">* = <=96</div>	
+	<div id="myList" style=" border:1px solid black; margin:auto; border-radius:10px; background:moccasin; FONT-SIZE:20px; width:90%; ">* = <=96</div>	<!-- text-align:center; -->
 	
 </body>
 </html>
