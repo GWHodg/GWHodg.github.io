@@ -21,6 +21,19 @@
               padding-top:5px; padding-bottom:5px;
 			  text-align:center;
             }
+	
+	.container-flex {
+	  display: flex;
+	  justify-content: center; /* Centers the list horizontally */
+	  align-items: center;     /* Centers the list vertically (if container has a defined height) */
+	  height: 200px;           /* Example height for vertical centering demonstration */
+	  border: 1px solid black; /* Optional: for visibility */
+	}	
+	.container-flex ul {
+	  list-style: none;      /* Optional: remove bullet points */
+	  padding: 0;            /* Optional: remove default padding */
+	  margin: 0;             /* Optional: remove default margin */
+	}
 			
 </style>
 
@@ -336,7 +349,7 @@
 		&nbsp;<!--&emsp;-->
 	</TH>
 	<TD style="font-size:20px; background:black; color:white;">
-		<span style="float:right; border:1px solid gold; border-radius:10px;"><font color=orange size=2>&nbsp;<b>*</b> = <b><=96</b>&nbsp;</font></span> <!-- float:right; -->
+		<span style="float:right; border:1px solid gold; border-radius:10px;"><font color=gold size=2>&nbsp;<b>*</b> = <b><=96</b>&nbsp;</font></span> <!-- float:right; -->
 		<button id='ARRAYbtn' onclick="appendTOarray()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:white; background:maroon; border:2px outset white; border-radius:10px; opacity:100%; visibility:hidden; ">Append</button>
 		<br>
 		<!--current entry:--><input type="text" id="currentDATA" style="font-size:12px; width:120px; background:slategray; color:white; border:2px outset white; border-radius:10px;" value=". .current . .">
@@ -351,7 +364,7 @@
 
 </table>
 
-	<div id="myList" style=" border:1px solid black; margin:auto; border-radius:10px; background:moccasin; FONT-SIZE:20px; width:90%; ">* = <=96</div>	<!-- text-align:center; -->
+	<div class="container-flex" id="myList" style=" border:1px solid black; margin:auto; border-radius:10px; background:moccasin; FONT-SIZE:20px; width:90%; ">* = <=96</div>	<!-- text-align:center; -->
 	
 </body>
 </html>
