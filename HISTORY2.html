@@ -51,8 +51,8 @@
 			  //Display contents of array in a list:	  
 			const listElement = document.getElementById('myList');		
 			  // Generate the list HTML string and insert it into the DOM
-			//listElement.innerHTML = `<ul>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
-			listElement.innerHTML = `<ul style='display:table; margin:0 auto;'>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
+			listElement.innerHTML = `<ul>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
+			/*listElement.innerHTML = `<ul style='display:table; margin:0 auto;'>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	*/
 			document.getElementById("currentDATA").style.background = "green"; // < **	  			
 					  
 		}
@@ -149,8 +149,8 @@
 							toReverse.reverse(); // ['d', 'c', 'b']
 							existing.push(...toReverse); // ['a', 'd', 'c', 'b']
 							
-		//listElement.innerHTML = `<ul>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
-		listElement.innerHTML = `<ul style='display:table; margin:0 auto;'>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
+		listElement.innerHTML = `<ul>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
+		/*listElement.innerHTML = `<ul style='display:table; margin:0 auto;'>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	*/
 		
 		loadLIST();	
 		
@@ -191,10 +191,10 @@
 				//listElement.innerHTML = `<ul>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
 		
 			  // Generate the list HTML string and insert it into the DOM
-			  /*listElement.innerHTML = `<ul>${
+			  listElement.innerHTML = `<ul>${
 				  								existing.map(item => `<li>${item}</li>`).join('')
-											}</ul>`;*/
-			  listElement.innerHTML = `<ul style='display:table; margin:0 auto;'>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;									
+											}</ul>`;
+			  /*listElement.innerHTML = `<ul style='display:table; margin:0 auto;'>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;		*/
 			  
 			  document.getElementById("currentLABEL").innerText="unlisted"; // < **	  
 			  document.getElementById("currentDATA").style.background = "green"; // < **	  
@@ -310,8 +310,8 @@
 							existing.push(...toReverse); // ['a', 'd', 'c', 'b']
 					
 		//console.log(arr); // ['a', 'd', 'c', 'b']
-		//listElement.innerHTML = `<ul>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
-		listElement.innerHTML = `<ul style='display:table; margin:0 auto;'>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
+		listElement.innerHTML = `<ul>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	
+		/*listElement.innerHTML = `<ul style='display:table; margin:0 auto;'>${existing.map(item => `<li>${item}</li>`).join('')}</ul>`;	*/
 		
 				
 	}
