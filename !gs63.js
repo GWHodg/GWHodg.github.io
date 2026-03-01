@@ -3004,7 +3004,7 @@
 			}
 		}	//localStorage.setItem("lsFLAGh"+H,"n");
 
-		pHCcolors(); restrictTAB(); // < moved from top of fn Oct 8/25 **
+		pHCcolors();  restrictTAB(); // < moved from top of fn Oct 8/25 **
 		
 	}	
 
@@ -3439,5 +3439,26 @@ else {
 			
 	}
 	
-	
+	function misc() {		 
+		let pwd = prompt("Please enter password", "");	
+				if (pwd === null) {
+			        return; //break out of the function early
+			    }
+			if (pwd == 'roentgen') {
+				//alert ("Will try to bring up selected menu item!");	
+				let mnuITEM = prompt("Enter MENU ITEM:\n\t1. Slider\n\t2. SlideX\n\t3. NOTE"+
+								     "\n\t4.Matches\n\t5. Hx\n\t6. SAVED\n\t7. BOOK/bridge"+
+									 "\n\t8. coding *", "7");	
+				if ( mnuITEM == "7" ) { book() }
+				else if ( mnuITEM == "1" ) { showSLIDER() }
+				else if ( mnuITEM == "2" ) { clrSLDR() }
+				else if ( mnuITEM == "3" ) { note() }
+				else if ( mnuITEM == "4" ) { setLSsbfd() }
+				else if ( mnuITEM == "5" ) { history() }
+				else if ( mnuITEM == "6" ) { replace() }
+				else if ( mnuITEM == "8" ) { codeHELP() }
+				else { return; }
+			}	
+			
+		}	
 	
