@@ -1715,20 +1715,16 @@
 		  let reply;
 		  if (confirm("Are you SURE you want to CLEAR all 'saved' input?") == true) {
 		    reply = "YES!";
-		  } else {
-		    reply = "NO!";
-		  }
-  		  alert(reply);
+		  } else { reply = "NO!"; }
+  		  //alert(reply);
 			  
 		if ( reply=="YES!") {
 
 			  let answer; var DELholeChgs;
 			  if (confirm("Do you want to include all HOLE CHANGES (pars/handicaps) in this deletion?") == true) {
 			    answer = "YES!";
-			  } else {
-			    answer = "NO!";
-			  }
-	  		  alert(answer);			  
+			  } else { answer = "NO!"; }
+	  		  //alert(answer);			  
 			  if ( answer=="YES!") {		
 					DELholeChgs = 'y';
 			  }
@@ -3440,14 +3436,14 @@ else {
 	}
 	
 	function misc() {		 
-		let pwd = prompt("Please enter password", "");	
+		let pwd = prompt("Please enter password", "r");	 
 				if (pwd === null) {
 			        return; //break out of the function early
 			    }
 			if (pwd == 'roentgen') {
 				//alert ("Will try to bring up selected menu item!");	
-				let mnuITEM = prompt("Enter MENU ITEM:\n\t1. Slider\n\t2. SlideX\n\t3. NOTE"+
-								     "\n\t4.Matches\n\t5. Hx\n\t6. SAVED\n\t7. BOOK/bridge"+
+				let mnuITEM = prompt("Enter MENU ITEM:\n\t1. Slider +/-\n\t2. SlideValsX\n\t3. NOTE"+
+								     "\n\t4. Matches\n\t5. Hx\n\t6. SAVED\n\t7. BOOK/bridge"+
 									 "\n\t8. coding *", "7");	
 				if ( mnuITEM == "7" ) { book() }
 				else if ( mnuITEM == "1" ) { showSLIDER() }

@@ -118,12 +118,12 @@
 		alert("HELP:\n\n"+
 			  "\u2022Load link (https://gwhodg.github.io/index.html) into browser search field. Enter.\n"+
 			  "\u2022Install & save with home screen icon.\n\n"+
-			  	"\u2022To clear all existing data tap “clear”. ‘OK’ X 4.  *\n"+
-				"\u2022Enter date (upper right input) if desired.\n"+
-				"\u2022Tap & enter 1-4 players initials (2 characters) + their course handicaps (upper left input boxes).\n"+
-				"\u2022Tap Reload!’’ (or just reload app) > only active inputs enabled + stoke holes colour coded (white=0; lime=1; green=2).\n"+
+			  	"\u2022To clear all existing data tap “clear”.\n"+ // ‘OK’ X 4.  *
+				"\u2022Can enter date (upper right input).\n"+
+				"\u2022Enter 1-4 players initials (2 chs) + their course handicaps (upper left inputs).\n"+
+				"\u2022Tap 'Reload!’ (or just reload app) > only active inputs enabled + stoke holes colour coded (white=0; lime=1; green=2).\n"+
 				"\u2022Enter scores as played. Stableford points + totals displayed upon leaving input box. Active box > red border (except player1/hole1)!\n\n"+
-				"\u2022[Tap StrokesX > remove player stoke holes (white=0; lime=1; green=2).]\n"+
+				"\u2022[Tap StrokesX > remove player stoke holes]\n"+
 				"\u2022. . ."); 
 	}
 	
@@ -411,8 +411,8 @@
 	}	
 
 	function book() {
-		pwd = prompt("Please enter password", "");
-		if (pwd == "GWH42") {
+		pwd = prompt("'book' OR 'bridge'", "");
+		if (pwd == "book") {
 			//alert ("Password is valid. Will try to load href = 'indexCOPYbook24.html'.");
 			window.location.href = "indexCOPYbook24.html";
 		}
@@ -421,7 +421,7 @@
 			window.location.href = "ttBRIDGEcol2.html";
 		}
 		else {
-			alert ("Password is not valid.");
+			alert ("No selection made.");
 		}
 	}	
 	
@@ -675,7 +675,7 @@
 			</tr>	
 	
 			<TR>
-				<TH  style="background:lightgray;">F9  <span style='font-size:10px; float:left; color:blue; background:lightgray;'>46</span> </TH>
+				<TH  style="background:lightgray;">F9  <span style='font-size:8px; opacity:50%; float:left; color:blue; background:lightgray;'>46</span> </TH>
 				<TD style='background:white; color:black;'>
 					<span class="gTOT" id='gTf9p1'>0</span>
 					<span id='sTf9p1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>
@@ -852,7 +852,7 @@
 			</tr>
 
 			<TR>
-				<TH  style="background:lightgray;">B9 <span style='font-size:10px; float:left; color:blue; background:lightgray;'>48</span> </TH>
+				<TH  style="background:lightgray;">B9 <span style='font-size:8px; opacity:50%; float:left; color:blue; background:lightgray;'>48</span> </TH>
 				<TD style='background:white; color:black;'>
 					<span class="gTOT" id='gTb9p1'>0</span>
 					<span id='sTb9p1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>
@@ -882,7 +882,7 @@
 				<TD style="background:lightgray;"></TD>				
 			</TR>	
 			<TR>
-				<TH  style="background:lightgray;">T <span style='font-size:10px; float:left; color:blue; background:lightgray;'>94</span> </TH>
+				<TH  style="background:lightgray;">T <span style='font-size:8px; opacity:50%; float:left; color:blue; background:lightgray;'>94</span> </TH>
 				<TD style='background:white; color:black;'>
 					<span class="gTOT" id='gT18p1'>0</span>
 					<span id='sT18p1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">0</span>
@@ -1679,17 +1679,17 @@
 	  <a style="color:green; font-size:20px;" onclick="showADDIN(),addTIP()">Add</a>
 	  <a style="color:red; font-size:25px;" onclick="clearSAVED()">clear<!--savedX--></a>
 	  
-	  <a style="color:green; font-size:25px;" onclick="displayP5()">P5<font size=3>+/-</font></a>	
+	  <a style="color:green; font-size:30px;" onclick="HELP()">Help</a>	
 	  <button id='STROKESbtn' onclick="pHCcolors()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:gray; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">Strokes</button>  	  
 	  <br>
 	  <a style="color:red; font-size:30px;" onclick="editTEST()">InputEdit</a>
 	  		<!--<a style="color:orange; font-size:20px;" onclick="remREADONLY()">editTEST</a>-->
 	  <a style="color:green; font-size:30px;" onclick="freeze()">HCfreeze</a>	  
 	  <button id='HOLEbtn' onclick="editHOLES()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:red; border:1px solid black; border-radius:10px;">Edit Holes<!--Edit Holes +--></button>	  
-	  <a onclick="editSP()">SPedit</a>
 	  
-	  <a style="color:green; font-size:30px;" onclick="HELP()">Help</a>
+	  <a style="color:green; font-size:25px;" onclick="displayP5()">P5<font size=3>+/-</font></a>
 	  <a style="color:red; font-size:15px;" onclick="showPARTIAL()"><b>PARTrd</b></a>
+	  <a onclick="editSP()">SPedit</a>
 	  
 	  <button id='MISCbtn' onclick="misc()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:white; background:maroon; border:2px solid black; border-radius:10px; opacity:100%;">MISC</button>
 		  <!--	  
