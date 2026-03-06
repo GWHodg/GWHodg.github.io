@@ -115,16 +115,16 @@
 	}
 
 	function HELP() {
-		alert("HELP:\n\n"+
+		alert(//"HELP:\n\n"+
 			  "\u2022Load link (https://gwhodg.github.io/index.html) into browser search field. Enter.\n"+
 			  "\u2022Install & save with home screen icon.\n\n"+
 			  	"\u2022To clear all existing data tap “clear”.\n"+ // ‘OK’ X 4.  *
 				"\u2022Can enter date (upper right input).\n"+
 				"\u2022Enter 1-4 players initials (2 chs) + their course handicaps (upper left inputs).\n"+
 				"\u2022Tap 'Reload!’ (or just reload app) > only active inputs enabled + stoke holes colour coded (white=0; lime=1; green=2).\n"+
-				"\u2022Enter scores as played. Stableford points + totals displayed upon leaving input box. Active box > red border (except player1/hole1)!\n\n"+
-				"\u2022[Tap StrokesX > remove player stoke holes]\n"+
-				"\u2022. . ."); 
+				"\u2022Enter scores as played. Stableford points + totals displayed upon leaving input box. Active box > red border (EXCEPT player1/hole1)!\n\n"+
+				"\u2022. . .\n"+
+				"\u2022[Tap StrokesX > remove player stoke holes]"); 
 	}
 	
 	function addTIP() {
@@ -466,7 +466,7 @@
 				-->
 				
 <TABLE id="HEADtbl" border=1 align=center style='FONT-SIZE:large; color:maroon; visibility:visible;' bgcolor='lightgray'>	
-	<TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:gold; background:purple; FONT-WEIGHT:bold;" >!gs63<br><font size=2 color=silver><b>F26a<font color=gold>&#9733;<!--&#10024;--></font></b></font>	
+	<TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:gold; background:purple; FONT-WEIGHT:bold;" >!gs63<br><font size=2 color=silver><b>Mr26<font color=gold>&#9733;<!--&#10024;--></font></b></font>	
 </TD> <!--<TD width=20><font size=1>93i</font></TD>	-->
 <TD>
 					<div class="dropup" style="cursor:pointer; color:black; background:lightgray; /*position:relative; left:18%;*/">
@@ -1673,24 +1673,25 @@
 	  <a style="color:red; font-size:30px;" onclick="calcALL()">SFpts</a>
 	  <a style="color:green; font-size:30px;" onclick="calcTOTALS()">Totals</a>
 	  <button id='TABbtn' onclick="window.location.reload()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:blue; background:orange; border:2px solid black; border-radius:10px; opacity:100%;"><b>Reload!</b></button>	
-						<!--  onclick="restrictTAB()"   Inputs+/  --->	  <!-- NB++ Feb/26 ** -->
+						<!--  onclick="restrictTAB()"   Inputs+/- -->	  <!-- NB++ Feb/26 ** -->
 						
 	  <a style="color:red; font-size:20px;" onclick="showDROP()"><b><u>Drop</u></b></a>
 	  <a style="color:green; font-size:20px;" onclick="showADDIN(),addTIP()">Add</a>
+	  <button id='STROKESbtn' onclick="pHCcolors()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">Strokes</button>  	  
 	  <a style="color:red; font-size:25px;" onclick="clearSAVED()">clear<!--savedX--></a>
 	  
 	  <a style="color:green; font-size:30px;" onclick="HELP()">Help</a>	
-	  <button id='STROKESbtn' onclick="pHCcolors()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:gray; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">Strokes</button>  	  
 	  <br>
 	  <a style="color:red; font-size:30px;" onclick="editTEST()">InputEdit</a>
 	  		<!--<a style="color:orange; font-size:20px;" onclick="remREADONLY()">editTEST</a>-->
 	  <a style="color:green; font-size:30px;" onclick="freeze()">HCfreeze</a>	  
 	  <button id='HOLEbtn' onclick="editHOLES()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:red; border:1px solid black; border-radius:10px;">Edit Holes<!--Edit Holes +--></button>	  
-	  
+	  <!--
 	  <a style="color:green; font-size:25px;" onclick="displayP5()">P5<font size=3>+/-</font></a>
 	  <a style="color:red; font-size:15px;" onclick="showPARTIAL()"><b>PARTrd</b></a>
 	  <a onclick="editSP()">SPedit</a>
-	  
+	  -->
+	  <button id='STROKESbtn' onclick="restrictTAB()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">Inputs+/-</button> 
 	  <button id='MISCbtn' onclick="misc()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:white; background:maroon; border:2px solid black; border-radius:10px; opacity:100%;">MISC</button>
 		  <!--	  
 	  	  <a style="color:blue; font-size:20px;" onclick="showSLIDER()">Slider</a>

@@ -328,6 +328,19 @@
 		
 				
 	}
+
+	function manual(){
+		var curDATA = document.getElementById("currentDATA").value;
+		//var MYnewT = curDATA.slice(-2);
+		var thisDATE = curDATA.substring(0, 10);
+		alert("Will TRY to change 'score' data for this date!\n"+
+			  "Current data = "+curDATA+"\n"+
+			  "Date to enter = '"+thisDATE+"'");	
+			  
+		let MYnewT = prompt("Enter new T (96, 99, 01):", "02");	
+		alert("My new T to enter = "+MYnewT);								
+			  
+	}	
 	
 </script>	
 	
@@ -352,8 +365,9 @@
 		<span style="float:right; border:1px solid gold; border-radius:10px;"><font color=gold size=2>&nbsp;<b>*</b> = <b><=96</b>&nbsp;</font></span> <!-- float:right; -->
 		<button id='ARRAYbtn' onclick="appendTOarray()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:white; background:maroon; border:2px outset white; border-radius:10px; opacity:100%; visibility:hidden; ">Append</button>
 		<br>
-		<!--current entry:--><input type="text" id="currentDATA" style="font-size:12px; width:120px; background:slategray; color:white; border:2px outset white; border-radius:10px;" value=". .current . .">
+		<input type="text" id="currentDATA" style="font-size:12px; width:120px; background:slategray; color:white; border:2px outset white; border-radius:10px;" value=". .current . .">
 				<label id="currentLABEL" for="currentDATA" style="visibility:hidden; FONT-SIZE:15px;">listed</label>
+		<button id='MANUALbtn' onclick="manual()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:white; background:dodgerblue; border:1px solid white; border-radius:10px; opacity:100%; ">mnl</button>	
 		<br>
 		<!--<button id='ARRAYbtn' onclick="appendTOarray()" style="FONT-WEIGHT:normal; FONT-SIZE:20px; COLOR:white; background:maroon; border:2px outset white; border-radius:10px; opacity:100%;">Append To Array</button>-->  
 		<button id='REMOVEbtn' onclick="remLAST()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:white; background:maroon; border:1px solid white; border-radius:10px; opacity:100%; float:left;">Remove Last<!-- Item--></button>	
