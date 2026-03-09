@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Speech API Example</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        textarea { width: 100%; height: 150px; }
+        button { padding: 10px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <button id="toggle-recording">Start Listening</button>
+    <textarea id="transcription-result" placeholder="Speak..."></textarea>
+	
+	<input class='' type="tel" id="inputTEST" maxlength=5 onclick="" tabindex="5" onchange="" onfocus="" onblur=""  onkeyup="">
+		<span id='SPNtest' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">span</span>
+
+    <script>
+        // Use standard or vendor-prefixed speech recognition
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+        if (SpeechRecognition) {
+            const recognition = new SpeechRecognition(); //
+            const toggleButton = document.getElementById("toggle-recording");
+            const output = document.getElementById("transcription-result");
+            let isRecording = false;
+
+            // Configure settings
+            recognition.continuous = true;
+            recognition.interimResults = true;
+            recognition.lang = 'en-US';
+
+            // Handle results
+            recognition.onresult = (event) => {
+                let text = '';
+                for (let i = event.resultIndex; i < event.results.length; ++i) {
+                    text += event.results[i][0].transcript;
+                }
+                output.value = text;
+            };
+
+            // Start/Stop logic
+            toggleButton.addEventListener("click", () => {
+                if (isRecording) {
+                    recognition.stop();
+                    toggleButton.textContent = "Start Listening";
+                } else {
+                    recognition.start();
+                    toggleButton.textContent = "Stop Listening";
+                }
+                isRecording = !isRecording;
+            });
+        } else {
+            alert("Web Speech API not supported.");
+        }
+    </script>
+</body>
+</html>
