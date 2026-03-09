@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <title>Web Speech API Example</title>
     <style>
-        body { font-family: sans-serif; padding: 20px; }
-        textarea { width: 100%; height: 150px; }
-        button { padding: 10px; cursor: pointer; }
+        body { font-family: sans-serif; padding: 20px; zoom:250%; }
+        textarea { width: 80%; height: 150px; font-size:25px; padding-top:10px; padding-bottom:10px; 
+			display:block; margin-left:auto; margin-right:auto; }
+        button { padding: 10px; cursor: pointer; font-size:30px; }
     </style>
 </head>
 <body>
     <button id="toggle-recording">Start Listening</button>
     <textarea id="transcription-result" placeholder="Speak..."></textarea>
-	
-	<input class='' type="tel" id="inputTEST" maxlength=5 onclick="" tabindex="5" onchange="" onfocus="" onblur=""  onkeyup="">
+	<br><hr><br>
+	<input id="inputTEST" maxlength=5 placeholder="input test" style="font-size:25px;">
 		<span id='SPNtest' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">span</span>
 
     <script>
@@ -24,6 +25,7 @@
             const recognition = new SpeechRecognition(); //
             const toggleButton = document.getElementById("toggle-recording");
             const output = document.getElementById("transcription-result");
+					const output2 = document.getElementById("inputTEST");
             let isRecording = false;
 
             // Configure settings
@@ -37,7 +39,7 @@
                 for (let i = event.resultIndex; i < event.results.length; ++i) {
                     text += event.results[i][0].transcript;
                 }
-                output.value = text;
+                output.value = text;	output2.value = text;	
             };
 
             // Start/Stop logic
