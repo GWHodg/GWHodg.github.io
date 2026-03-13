@@ -5,20 +5,33 @@
     <title>Web Speech API Example</title>
     <style>
         body { font-family: sans-serif; padding: 20px; zoom:250%; }
-        textarea { width: 80%; height: 150px; font-size:25px; padding-top:10px; padding-bottom:10px; 
+        textarea { width: 60%; height: 50px; font-size:25px; padding-top:10px; padding-bottom:10px; 
 			display:block; margin-left:auto; margin-right:auto; }
         button { padding: 10px; cursor: pointer; font-size:30px; }
     </style>
+	<script>
+		function LOAD(){
+			//document.getElementById("inputTEST").focus();
+		}
+	</script>
 </head>
-<body>
-    <button id="toggle-recording">Start Listening</button>
-    <textarea id="transcription-result" placeholder="Speak..."></textarea>
+<body onload="LOAD()">
+    <h2>Web Speech API <font size=2>(V2)</font></h2>
+	<button id="toggle-recording">Start Listening</button>
+		&emsp;chosen box: <input  id="box" style="background:yellow; width:25px; font-size:20px; border:2px dotted black; color:red;" placeholder="num">
+    <textarea id="transcription-result" placeholder="textarea"></textarea>
 	<br><hr><br>
 	<input id="inputTEST" maxlength=5 placeholder="input test" style="font-size:25px;">
-		<span id='SPNtest' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">span</span>
+		<span id='SPNtest' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">span</span><br>
+		<input class='' type="tel" id="tel" maxlength=1  tabindex="0">'tel' input<br>
+		<input class='' type="number" id="num" maxlength=1  tabindex="0">'number' input<br>
+		<input class='' type="text" id="txt" maxlength=1  tabindex="0">'text' input<br>
 
     <script>
-        // Use standard or vendor-prefixed speech recognition
+        const itYN = prompt("Box to use (a/s/p/n/t):" , "a");
+		//alert("itYN = "+itYN);
+		document.getElementById("box").value=itYN;
+		// Use standard or vendor-prefixed speech recognition
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
         if (SpeechRecognition) {
@@ -26,6 +39,9 @@
             const toggleButton = document.getElementById("toggle-recording");
             const output = document.getElementById("transcription-result");
 					const output2 = document.getElementById("inputTEST");
+					const outputP = document.getElementById("tel");
+					const outputN = document.getElementById("num");
+					const outputT = document.getElementById("txt");
             let isRecording = false;
 
             // Configure settings
@@ -39,7 +55,54 @@
                 for (let i = event.resultIndex; i < event.results.length; ++i) {
                     text += event.results[i][0].transcript;
                 }
-                output.value = text;	output2.value = text;	
+                //output.value = text;	output2.value = text;	
+				if ( itYN == "s" ) {
+					document.getElementById("inputTEST").focus();
+					output2.value = text;
+				}
+				else if (  itYN == "a" ) {  
+					//parseInt(text, 10);
+					document.getElementById("transcription-result").focus();
+					output.value = text;
+				}
+				else if (  itYN == "p" ) {   
+					document.getElementById("tel").focus();
+					outputP.value = text;
+				}
+				else if (  itYN == "n" ) {   
+					// Convert to a number (removes potential string formatting)
+					const numericValue = parseFloat(text);
+					document.getElementById("num").focus();
+					//alert("got this far");
+					outputN.value = numericValue;
+					//To print only the 2nd digit:
+					//const numericValue2nd = numericValue
+     				  // Convert the number to a string
+/*					  const numStr = String(Math.abs(numericValue)); // Use Math.abs to handle negative numbers consistently
+					  // Check if the number has at least two digits
+					  if (numStr.length < 2) {
+					    return undefined; // Or handle as appropriate (e.g., return null, -1, or throw an error)
+					  }				
+					  // Get the character at index 1 (the second position)
+					  const secondDigitChar = numStr[1];
+					  	alert("secondDigitChar = '"+ secondDigitChar+"'\n"+
+							"text = "+text+"'\n"+
+							"numericValue = "+numericValue+"'\n"+
+							"numStr = "+numStr);
+					  // Convert the character back to a number
+					  //return Number(secondDigitChar); // The Number() built-in function converts the character string to a number
+					//outputN.value = Number(secondDigitChar);
+					//outputN.value = Number;
+					alert("at end of 'n'!");
+*/					
+				}
+				else if (  itYN == "t" ) {   
+					const TnumericValue = parseFloat(text);
+					document.getElementById("txt").focus();
+					//outputT.value = text;
+					outputT.value = TnumericValue;
+				}	
+				else { alert("No box chosen!") }			
             };
 
             // Start/Stop logic
@@ -56,6 +119,8 @@
         } else {
             alert("Web Speech API not supported.");
         }
+	
+		
     </script>
 </body>
 </html>
