@@ -21,6 +21,30 @@
 		&emsp;box: <input  id="box" style="background:yellow; width:25px; font-size:20px; border:2px dotted black; color:red;" placeholder="num">
     <textarea id="transcription-result" placeholder="textarea"></textarea>
 	<br><hr><br>
+	
+	<TABLE border=1 style="margin-left:auto; margin-right:auto; ">
+	<tr>			
+				<th style="background:silver; font-size:40px;">H</th>
+				<th><input type="text" id="VRp1NAME"   tabindex="201" style="background:whitesmoke; width:20px;" maxlength=2 value="WH"></th>	<!-- P1 -->
+				<th><input type="text" id="VRp2NAME"  tabindex="203" style="background:whitesmoke; width:20px;" maxlength=2 value="B"></th> <!-- P2 -->
+				<th><input type="text" id="VRp3NAME"  tabindex="205" style="background:whitesmoke; width:20px;" maxlength=2 value="C"></th> 
+				<th><input type="text" id="VRp4NAME"  tabindex="207" style="background:whitesmoke; width:20px; maxlength=2" value="D"></th>
+				<th id="vrTDp5NAME"><input type="text" id="VRp5NAME" tabindex="209" style="background:whitesmoke; width:20px; maxlength=2" value="p5"></th>	
+	</tr>	
+	<tr> 		<!--<TH id="vrH3" style="cursor:pointer;" onclick="cellTOslide(1,3)">3</TH> -->
+				<th style="background:silver;"><input type="text" id="vrHno"   tabindex="201" style="width:15px; text-align:center;" maxlength=2 value='3'></th>
+				<td id="vrTDp1h3"> <input id="VRp1h3" type="tel" maxlength=1 style="width:20px;"></td> 
+				<td id="vrTDp2h3" style='background:yellow;'> <input id="VRp2h3" type="tel" maxlength=1  style="width:20px;""></td> 
+				<td id="vrTDp3h3"> <input class='' id="VRp3h3" type="tel" maxlength=1  style="width:20px;"> </td> 
+				<td id="vrTDp4h3"> <input class='' id="VRp4h3" type="tel" maxlength=1 style="width:20px;" > </td> 
+				<td id="vrTDp5h3"> <input class='' id="VRp5h3" type="tel" maxlength=1 style="width:20px;" > </td> 
+	</tr>	
+	</TABLE>		
+	
+	
+	<br><hr><br>	
+	
+	
 	<input id="inputTEST" maxlength=5 placeholder="input test" style="font-size:25px;"><br>
 		<span id='SPNtest' style="border:1px solid silver; border-radius:0px; padding:2px; font-weight:bold;">span</span><br>
 		<input class='' type="tel" id="tel" maxlength=1  tabindex="0" style="background:yellow;">'tel' input<br>
@@ -46,7 +70,7 @@
             let isRecording = false;
 
             // Configure settings
-            recognition.continuous = true;
+            recognition.continuous = true;	//false;	//true;    //false = stop after single 'utterance'
             recognition.interimResults = true;
             recognition.lang = 'en-US';
 
@@ -64,7 +88,30 @@
 				else if (  itYN == "a" ) {  
 					//parseInt(text, 10);
 					document.getElementById("transcription-result").focus();
+					if (text=='Six' || text=="6" || text=="sex" || text=="Sex") { 
+						document.getElementById("VRp2h3").value=6; 
+					}
+					else if ( text=='Two' || text=="To" || text=='2' ) {  
+						document.getElementById("VRp2h3").value=2; 
+						/*recognition.stop();
+						toggleButton.textContent = "Start Listening";*/
+						
+					}
+					else { alert("Input NOT = 6 or 2!"); document.getElementById("VRp2h3").value=null;}
+					
+					if ( text=="Hole five" || text=="Whole five" || text=="05" ) { 
+						document.getElementById("vrHno").value=5; 
+						
+					}
+					else {alert("Hole not mentioned!")}
+					
+					
 					output.value = text;
+					
+					alert("text = '"+text+"'");	
+					
+					//document.getElementById("VRp2h3").value=text;
+					
 				}
 				else if (  itYN == "p" ) {   
 					document.getElementById("tel").focus();
