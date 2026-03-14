@@ -18,17 +18,17 @@
 <body onload="LOAD()">
     <h2>Web Speech API <font size=2>(V2)</font></h2>
 	<button id="toggle-recording">Start Listening</button>
-		&emsp;chosen box: <input  id="box" style="background:yellow; width:25px; font-size:20px; border:2px dotted black; color:red;" placeholder="num">
+		&emsp;box: <input  id="box" style="background:yellow; width:25px; font-size:20px; border:2px dotted black; color:red;" placeholder="num">
     <textarea id="transcription-result" placeholder="textarea"></textarea>
 	<br><hr><br>
-	<input id="inputTEST" maxlength=5 placeholder="input test" style="font-size:25px;">
-		<span id='SPNtest' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">span</span><br>
-		<input class='' type="tel" id="tel" maxlength=1  tabindex="0">'tel' input<br>
+	<input id="inputTEST" maxlength=5 placeholder="input test" style="font-size:25px;"><br>
+		<span id='SPNtest' style="border:1px solid silver; border-radius:0px; padding:2px; font-weight:bold;">span</span><br>
+		<input class='' type="tel" id="tel" maxlength=1  tabindex="0" style="background:yellow;">'tel' input<br>
 		<input class='' type="number" id="num" maxlength=1  tabindex="0">'number' input<br>
 		<input class='' type="text" id="txt" maxlength=1  tabindex="0">'text' input<br>
 
     <script>
-        const itYN = prompt("Box to use (a/s/p/n/t):" , "a");
+        const itYN = prompt("Box to use (a/i/s/p/n/t):" , "a");
 		//alert("itYN = "+itYN);
 		document.getElementById("box").value=itYN;
 		// Use standard or vendor-prefixed speech recognition
@@ -39,7 +39,8 @@
             const toggleButton = document.getElementById("toggle-recording");
             const output = document.getElementById("transcription-result");
 					const output2 = document.getElementById("inputTEST");
-					const outputP = document.getElementById("tel");
+					const outputS = document.getElementById("SPNtest");
+					const outputP = document.getElementById("tel"); // < **
 					const outputN = document.getElementById("num");
 					const outputT = document.getElementById("txt");
             let isRecording = false;
@@ -56,7 +57,7 @@
                     text += event.results[i][0].transcript;
                 }
                 //output.value = text;	output2.value = text;	
-				if ( itYN == "s" ) {
+				if ( itYN == "i" ) {
 					document.getElementById("inputTEST").focus();
 					output2.value = text;
 				}
@@ -67,7 +68,23 @@
 				}
 				else if (  itYN == "p" ) {   
 					document.getElementById("tel").focus();
+					if ( text=='Six' ) { text='6' }
+					else if ( text=='Two' || text=="To" ) { text='2' }
+					else if ( text=='One' ) { text='1' }
+					else if ( text=='Three' ) { text='3' }
+					else if ( text=='Four' || text=="For" ) { text='4' }
+					else if ( text=='Five'  || text=="Fire" || text=="Fine" ) { text='5' }
+					else if ( text=='Seven' ) { text='7' }
+					else if ( text=='Eight' ) { text='8' }
+					else if ( text=='Nine' ) { text='9' }
+					else { alert("Input N/A!")}
 					outputP.value = text;
+					alert("text = '"+text+"'");	//\n"+
+						//"numericValue = "+numericValue+"'")
+				}
+				else if (  itYN == "s" ) {   
+					document.getElementById("SPNtest").focus();
+					outputS.value = text;
 				}
 				else if (  itYN == "n" ) {   
 					// Convert to a number (removes potential string formatting)
@@ -75,6 +92,8 @@
 					document.getElementById("num").focus();
 					//alert("got this far");
 					outputN.value = numericValue;
+					alert("text = "+text+"'\n"+
+						  "numericValue = "+numericValue+"'")
 					//To print only the 2nd digit:
 					//const numericValue2nd = numericValue
      				  // Convert the number to a string
