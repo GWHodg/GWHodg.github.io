@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Speech API Example 2</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; zoom:250%; }
+        textarea { width: 60%; height: 50px; font-size:25px; padding-top:10px; padding-bottom:10px; 
+			display:block; margin-left:auto; margin-right:auto; }
+        button { padding: 10px; cursor: pointer; font-size:30px; }
+    </style>
+	<script>		
+		// Use standard or vendor-prefixed speech recognition
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+		const recognition = new SpeechRecognition(); 
+		
+		function ScoreInput() {
+		  alert("In 'ScoreInput()'!\n"+
+		  		"\tEnter '6' or '2'.");
+		  if (SpeechRecognition) {        
+			//const recognition = new SpeechRecognition(); 
+				recognition.start();
+            //const toggleButton = document.getElementById("toggle-recording");
+            const output = document.getElementById("transcription-result");
+            let isRecording = false;
+
+            // Configure settings
+            recognition.continuous = true;	//false;	//true;    //false = stop after single 'utterance'
+            recognition.interimResults = true;
+            recognition.lang = 'en-US';
+
+            // Handle results
+            recognition.onresult = (event) => {
+                let text = '';
+                for (let i = event.resultIndex; i < event.results.length; ++i) {
+                    text += event.results[i][0].transcript;
+                }
+                output.value = text;	
+				
+					document.getElementById("transcription-result").focus();
+					if (text=='Six' || text=="6" || text=="sex" || text=="Sex") { 
+						document.getElementById("VRp2h3").value=6; 
+					}
+					else if ( text=='Two' || text=="To" || text=='2' ) {  
+						document.getElementById("VRp2h3").value=2; 
+						//recognition.stop();
+						//toggleButton.textContent = "Start Listening";
+					}
+					else { alert("Input NOT = 6 or 2!"); document.getElementById("VRp2h3").value=null;}					
+					output.value = text;					
+					alert("text = '"+text+"'");	
+			}
+		  }				
+		}
+		
+		function CLICKvr(inputID) {
+		  alert("In 'CLICKvr(inputID)'!\n"+
+		  		"\tEnter '03' or '04'.");
+		  if (SpeechRecognition) {        
+			//const recognition = new SpeechRecognition(); 
+				recognition.start();
+            //const toggleButton = document.getElementById("toggle-recording");
+            const output = document.getElementById("transcription-result");
+            let isRecording = false;
+
+            // Configure settings
+            recognition.continuous = true;	//false;	//true;    //false = stop after single 'utterance'
+            recognition.interimResults = true;
+            recognition.lang = 'en-US';
+
+            // Handle results
+            recognition.onresult = (event) => {
+                let text = '';
+                for (let i = event.resultIndex; i < event.results.length; ++i) {
+                    text += event.results[i][0].transcript;
+                }
+                output.value = text;	
+				
+					document.getElementById("transcription-result").focus();
+					if (text=='03') { 
+						document.getElementById(inputID).value=3; 
+					}
+					else if (text=='04') {  
+						document.getElementById(inputID).value=4; 
+					}
+					else { alert("Input NOT = 6 or 2!"); document.getElementById(inputID).value=null;}					
+					output.value = text;					
+					alert("text = '"+text+"'");	
+			}
+		  }				
+	  }
+	 
+	  var thisFOCUS; 
+	  function FOCUSvr(inputID) {
+		  thisFOCUS = inputID;
+		  alert("In 'FOCUSvr(inputID)'!\n"+
+		  		 "inputID = '"+inputID+"'\n"+
+				 "thisFOCUS = '"+thisFOCUS+"'");	//VRp1h3
+	  }
+	  
+	</script>
+</head>
+<body onload="">
+    <h2>Web Speech API <font size=2>(II)</font></h2>
+	<button id="toggle-recording" style=" border:2px solid dodgerblue; border-radius:10px; ">Start Listening</button>
+	<button id='SCOREbtn' onclick="ScoreInput()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:white; background:black; border:3px solid orange; border-radius:10px; cursor:pointer;">Score Input</button>
+			
+
+    <textarea id="transcription-result" placeholder="textarea" style='background:yellow;'></textarea>
+	<br><hr><br>
+	
+	<TABLE border=1 style="margin-left:auto; margin-right:auto; ">
+	<tr>			
+				<th style="background:silver; font-size:40px;">H</th>
+				<th><input type="text" id="VRp1NAME"   tabindex="201" style="background:whitesmoke; width:20px;" maxlength=2 value="WH"></th>	<!-- P1 -->
+				<th><input type="text" id="VRp2NAME"  tabindex="203" style="background:whitesmoke; width:20px;" maxlength=2 value="B"></th> <!-- P2 -->
+				<th><input type="text" id="VRp3NAME"  tabindex="205" style="background:whitesmoke; width:20px;" maxlength=2 value="C"></th> 
+				<th><input type="text" id="VRp4NAME"  tabindex="207" style="background:whitesmoke; width:20px; maxlength=2" value="D"></th>
+				<th id="vrTDp5NAME"><input type="text" id="VRp5NAME" tabindex="209" style="background:whitesmoke; width:20px; maxlength=2" value="p5"></th>	
+	</tr>	
+	<tr> 		<!--<TH id="vrH3" style="cursor:pointer;" onclick="cellTOslide(1,3)">3</TH> -->
+				<th style="background:silver;"><input type="text" id="vrHno"   tabindex="201" style="width:15px; text-align:center;" maxlength=2 value='3'></th>
+				<td id="vrTDp1h3" style='background:skyblue;'> <input id="VRp1h3" type="tel" maxlength=1 style="width:20px;" onclick="FOCUSvr('VRp1h3')"></td> <!-- placeholder=""  font-size:12px;--> 
+				<td id="vrTDp2h3" style='background:yellow;'> <input id="VRp2h3" type="tel" maxlength=1  style="width:20px;""></td> 
+				<td id="vrTDp3h3" style='background:brown;'> <input class='' id="VRp3h3" type="tel" maxlength=1  style="width:20px;"  onclick="CLICKvr('VRp3h3')"> </td> 
+				<td id="vrTDp4h3"> <input class='' id="VRp4h3" type="tel" maxlength=1 style="width:20px;" > </td> 
+				<td id="vrTDp5h3"> <input class='' id="VRp5h3" type="tel" maxlength=1 style="width:20px;" > </td> 
+	</tr>	
+	</TABLE>		
+	
+	
+	
+    <script>
+		// Use standard or vendor-prefixed speech recognition
+        //const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+        if (SpeechRecognition) {
+            const recognition = new SpeechRecognition(); //
+            //const toggleButton = document.getElementById("toggle-recording");	//VRp1h3
+				const toggleButton = document.getElementById("VRp1h3");	//VRp1h3 **
+            const output = document.getElementById("transcription-result");
+            let isRecording = false;
+
+            // Configure settings
+            recognition.continuous = true;	//false;	//true;    //false = stop after single 'utterance'
+            recognition.interimResults = true;
+            recognition.lang = 'en-US';
+
+            // Handle results
+            recognition.onresult = (event) => {
+                let text = '';
+                for (let i = event.resultIndex; i < event.results.length; ++i) {
+                    text += event.results[i][0].transcript;
+                }
+                //output.value = text;	//output2.value = text;	
+				
+
+					//parseInt(text, 10);
+					//document.getElementById("transcription-result").focus();
+					//let focusedElement = document.activeElement;
+						//const focusedElementId = focusedElement.id;
+					//if (text=='Six' || text=="6" || text=="sex" || text=="Sex") { 
+					if (text==06) { 
+						alert("You said '"+text+"'! (wanted'06')\nthisFOCUS = "+thisFOCUS);	
+						//document.getElementById("VRp2h3").value=6; 
+						document.getElementById(thisFOCUS).value=6; 
+						//document.getElementById(focusedElement).value=6; 
+					}
+					else if ( text=='Two' || text=="To" || text=='2' ) {  
+						alert("You said '2'!\nthisFOCUS = "+thisFOCUS);	
+								//\n focusedElementID = '"+ focusedElementID +"'." )
+						//document.getElementById("VRp2h3").value=2; 
+						document.getElementById(thisFOCUS).value=2; 
+						//document.getElementById(focusedElementID).value=2; 
+						/*recognition.stop();
+						toggleButton.textContent = "Start Listening";*/
+						
+					}
+					else { alert("Input NOT = 6 or 2!"); document.getElementById("VRp2h3").value=null;}
+					/*
+					if ( text=="Hole five" || text=="Whole five" || text=="05" ) { 
+						document.getElementById("vrHno").value=5; 						
+					}
+					else {alert("Hole not mentioned!")}
+					*/
+					
+					output.value = text;
+					
+					alert("text = '"+text+"'");	
+					
+					//document.getElementById("VRp2h3").value=text;
+					
+			}
+				
+            // Start/Stop logic
+            toggleButton.addEventListener("click", () => {
+                if (isRecording) {
+                    recognition.stop();
+                    //toggleButton.textContent = "Start Listening";
+					//toggleButton.textContent = text;
+                } else {
+                    recognition.start();
+                    //toggleButton.textContent = "Stop Listening";
+                }
+                isRecording = !isRecording;
+            });
+        } else {
+            alert("Web Speech API not supported.");
+        }
+	
+		
+		
+    </script>
+</body>
+</html>
