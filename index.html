@@ -90,6 +90,87 @@
 </style>
 
 <script>
+
+		
+		// Use standard or vendor-prefixed speech recognition
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+		const recognition = new SpeechRecognition(); 
+	
+		var VRyn;
+		function fVRyn() {
+			  let reply;
+			  if (confirm("Do you want to use voice recognition?") == true) {
+			    reply = "YES!";
+			  } else {
+			    reply = "NO!";
+			  }
+	  		  //alert(reply);			  
+			  if ( reply=="YES!") {	
+				//alert("You replied "+reply); 
+				VRyn = "y";	
+				document.getElementById("VRbtn").style.background='green';
+				document.getElementById("VRbtn").innerText='VR -';
+			  }
+			  else { 
+				  VRyn = 'n';
+				  document.getElementById("VRbtn").style.background='gray';
+				  document.getElementById("VRbtn").innerText='VR +';
+			  }
+			  alert("You replied "+reply+"\n\t(VRyn = "+VRyn+")");
+		  }		
+		  
+		function CLICKvr(inputID) {
+		  if (VRyn=="y") {
+     		  alert("Say '01' > '09' ('zero' or 'oh').\n"+
+			  		"inputID = "+inputID+""); 
+			  if (SpeechRecognition) {        
+					//const recognition = new SpeechRecognition(); 
+						recognition.start();
+		            //const toggleButton = document.getElementById("toggle-recording");
+		            const output = document.getElementById("transcription-result");
+		            let isRecording = false;
+						//alert("In SR!");
+		            // Configure settings
+		            recognition.continuous = true;	//false;	//true;    //false = stop after single 'utterance'
+		            recognition.interimResults = true;
+		            recognition.lang = 'en-US';
+		
+		            // Handle results
+		            recognition.onresult = (event) => {
+		                let text = '';
+		                for (let i = event.resultIndex; i < event.results.length; ++i) {
+		                    text += event.results[i][0].transcript;
+		                }
+		                output.value = text;					
+							document.getElementById("transcription-result").focus();
+							if (text=='03' || text=="Three") { 
+								document.getElementById(inputID).value=3; 
+							}
+							else if (text=='04' || text=="Four") { document.getElementById(inputID).value=4; }
+							else if (text=='02' || text=="Two") { document.getElementById(inputID).value=2; }
+							else if (text=='05' || text=="Five") { document.getElementById(inputID).value=5; }
+							else if (text=='06' || text=="Six") { document.getElementById(inputID).value=6; }
+							else if (text=='07' || text=="Seven") { document.getElementById(inputID).value=7; }
+							else if (text=='08' || text=="Eight" || text=="8" || text=="It") { 
+								document.getElementById(inputID).value=8; 
+							}
+							else if (text=='09' || text=="Nine") { document.getElementById(inputID).value=9; }
+							else if (text=='01' || text=="One") { document.getElementById(inputID).value=1; }
+							else { alert("Input NOT = 01-09 [or 'one > nine']!"); document.getElementById(inputID).value=null;}					
+							output.value = text;					
+							alert("text = '"+text+"'");	
+					}
+			  }	
+	    }		  
+	  }
+	  
+
+
+
+
+
+
+
 	function codeHELP() {
 		alert("CODING Help:\n\n"+
 			"To start new round: MENU > CLEAR 'saved' scores\n\n"+ 
@@ -514,6 +595,7 @@
 			<TR>
 				<TH style="background:lightgray;">     
 					<!--<span id="battery-percentage" style="padding:2px; background:lightgreen; color:black;">0</span><font size=2 color=black>%</font>-->
+					<textarea id="transcription-result" cols="3" style='background:yellow;'></textarea> <!-- placeholder="TA" visibility:hidden; display:none; -->
 				</TH> <!-- << put battery % here ^ -->
 				<TH><input type="" id="p1HC" maxlength=2 onchange="localStorage.setItem('g1HC',this.value);" name='NMp1hc' autofocus tabindex="202" style="background:whitesmoke; width:60%; font-weight:bold;" ></TH> <!-- value=24  onchange="pHCcolors('p1')" -->
 				<TH><input type="" id="p2HC" maxlength=2 onchange="localStorage.setItem('g2HC',this.value);" tabindex="204" style="background:whitesmoke; width:60%;" ></TH> <!-- P2 HC -->
@@ -545,9 +627,9 @@
 			</tr>
 			<tr>
 				<TH id="H2" style="cursor:pointer;" onclick="cellTOslide(1,2)">2</TH>
-				<td id="TDp1h2"> <input class='' id="p1h2" type="tel" maxlength=1 onclick="changeGLOBAL('p1h2')" tabindex="6" onchange="localStorage.setItem('g1H2s',this.value);" onfocus="FOCUSfn('p1h2')" onblur="BLURfn('p1h2')"  onkeyup="KeyUp()"  onkeyup="KeyUp()"><span id='SPp1h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
-				<td id="TDp2h2">	<!-- style='border:2px solid orange; background:orange;' --> 
-					<input class=''  id="p2h2" type="tel" maxlength=1 onclick="changeGLOBAL('p2h2')" tabindex="7" onchange="localStorage.setItem('g2H2s',this.value);" onfocus="FOCUSfn('p2h2')" onblur="BLURfn('p2h2')"  onkeyup="KeyUp()"><span id='SPp2h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
+				<td id="TDp1h2"> <input class='' id="p1h2" type="tel" maxlength=1 onclick="changeGLOBAL('p1h2')" tabindex="6" onchange="localStorage.setItem('g1H2s',this.value);" onfocus="FOCUSfn('p1h2')" onblur="BLURfn('p1h2')"  onkeyup="KeyUp()" ><span id='SPp1h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
+				<td id="TDp2h2">	<!-- style='border:2px solid orange; background:orange;' -->  
+					<input class=''  id="p2h2" type="tel" maxlength=1 onclick="changeGLOBAL('p2h2')" tabindex="7" onchange="localStorage.setItem('g2H2s',this.value);" onfocus="FOCUSfn('p2h2')" onblur="BLURfn('p2h2')"  onkeyup="KeyUp()" onmousedown="CLICKvr('p2h2')"><span id='SPp2h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
 				<td id="TDp3h2"> <input class=''  id="p3h2" type="tel" maxlength=1 onclick="changeGLOBAL('p3h2')" tabindex="8" onchange="localStorage.setItem('g3H2s',this.value);" onfocus="FOCUSfn('p3h2')" onblur="BLURfn('p3h2')"  onkeyup="KeyUp()"><span id='SPp3h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
 				<td id="TDp4h2"> <input class=''  id="p4h2" type="tel" maxlength=1 onclick="changeGLOBAL('p4h2')" tabindex="9" onchange="localStorage.setItem('g4H2s',this.value);" onfocus="FOCUSfn('p4h2')" onblur="BLURfn('p4h2')"  onkeyup="KeyUp()"><span id='SPp4h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
 				<td id="TDp5h2"> <input class=''  id="p5h2" type="tel" maxlength=1 onclick="changeGLOBAL('p5h2')" tabindex="10"
@@ -1685,7 +1767,8 @@
 	  <a style="color:green; font-size:20px;" onclick="showADDIN(),addTIP()">Add</a>
 	  <button id='STROKESbtn' onclick="pHCcolors()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">Strokes</button>  	  
 	  <a style="color:red; font-size:25px;" onclick="clearSAVED()">clear<!--savedX--></a>
-	  <button id='MISCbtn' onclick="misc()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:white; background:maroon; border:2px solid black; border-radius:10px; opacity:100%;">MISC</button>	  
+	  <button id='MISCbtn' onclick="misc()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:white; background:maroon; border:2px solid black; border-radius:10px; opacity:100%;">MISC</button>	
+	  <a style="color:maroon; font-size:20px;" onclick="VoiceRec()">VRec</a>   
 
 	  <br>
 	  <a style="color:red; font-size:30px;" onclick="editTEST()">InputEdit</a>
@@ -1700,7 +1783,8 @@
 	  <button id='STROKESbtn' onclick="restrictTAB()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">Inputs+/-</button> 
 	  <a style="color:green; font-size:30px;" onclick="HELP()">Help</a>	
 	
-	 <a style="color:maroon; font-size:20px;" onclick="VoiceRec()">Voice(3)</a> 
+	 <button id='VRbtn' onclick="fVRyn()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:blue; border:2px solid orange; border-radius:10px; cursor: pointer;">Speech</button>
+	 
 
 		  <!--	  
 	  	  <a style="color:blue; font-size:20px;" onclick="showSLIDER()">Slider</a>
