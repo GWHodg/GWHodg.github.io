@@ -5,70 +5,94 @@
     <title>Web Speech API EG 3</title>
     <style>
         body { font-family: sans-serif; padding: 20px; zoom:250%; }
-        textarea { width: 60%; height: 50px; font-size:25px; padding-top:10px; padding-bottom:10px; 
+        textarea { width: 40%; height: 50px; font-size:25px; padding-top:10px; padding-bottom:10px; 
 			display:block; margin-left:auto; margin-right:auto; }
-        button { padding: 10px; cursor: pointer; font-size:30px; }
+        /* button { padding: 10px; cursor: pointer; font-size:30px; } */
+		input { text-align:center; }
     </style>
 	<script>		
 		// Use standard or vendor-prefixed speech recognition
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 		const recognition = new SpeechRecognition(); 
 		
+		var VRyn;
+		function fVRyn() {
+			  let reply;
+			  if (confirm("Do you want to use voice recognition? (y/n)") == true) {
+			    reply = "YES!";
+			  } else {
+			    reply = "NO!";
+			  }
+	  		  //alert(reply);			  
+			  if ( reply=="YES!") {	
+				alert("You replied "+reply); 
+				VRyn = "y";	
+				document.getElementById("VRbtn").style.background='green';
+				document.getElementById("VRbtn").innerText='VR -';
+			  }
+			  else { 
+				  VRyn = 'n';
+				  document.getElementById("VRbtn").style.background='gray';
+				  document.getElementById("VRbtn").innerText='VR +';
+			  }
+			  alert("VRyn = "+VRyn);
+		}
+		
 		function CLICKvr(inputID) {
-		  alert("In 'CLICKvr(inputID)'!\n"+
-		  		"\tEnter '01' > '09' [OR 'one' > 'nine'].");
-		  if (SpeechRecognition) {        
-			//const recognition = new SpeechRecognition(); 
-				recognition.start();
-            //const toggleButton = document.getElementById("toggle-recording");
-            const output = document.getElementById("transcription-result");
-            let isRecording = false;
-
-            // Configure settings
-            recognition.continuous = true;	//false;	//true;    //false = stop after single 'utterance'
-            recognition.interimResults = true;
-            recognition.lang = 'en-US';
-
-            // Handle results
-            recognition.onresult = (event) => {
-                let text = '';
-                for (let i = event.resultIndex; i < event.results.length; ++i) {
-                    text += event.results[i][0].transcript;
-                }
-                output.value = text;					
-					document.getElementById("transcription-result").focus();
-					if (text=='03' || text=="Three") { 
-						document.getElementById(inputID).value=3; 
+		  if (VRyn=="y") {
+     		  alert("In 'CLICKvr(inputID)'!\n"+
+			  		"\tEnter '01' > '09' [OR 'one' > 'nine'].");
+			  if (SpeechRecognition) {        
+					//const recognition = new SpeechRecognition(); 
+						recognition.start();
+		            //const toggleButton = document.getElementById("toggle-recording");
+		            const output = document.getElementById("transcription-result");
+		            let isRecording = false;
+		
+		            // Configure settings
+		            recognition.continuous = true;	//false;	//true;    //false = stop after single 'utterance'
+		            recognition.interimResults = true;
+		            recognition.lang = 'en-US';
+		
+		            // Handle results
+		            recognition.onresult = (event) => {
+		                let text = '';
+		                for (let i = event.resultIndex; i < event.results.length; ++i) {
+		                    text += event.results[i][0].transcript;
+		                }
+		                output.value = text;					
+							document.getElementById("transcription-result").focus();
+							if (text=='03' || text=="Three") { 
+								document.getElementById(inputID).value=3; 
+							}
+							else if (text=='04' || text=="Four") { document.getElementById(inputID).value=4; }
+							else if (text=='02' || text=="Two") { document.getElementById(inputID).value=2; }
+							else if (text=='05' || text=="Five") { document.getElementById(inputID).value=5; }
+							else if (text=='06' || text=="Six") { document.getElementById(inputID).value=6; }
+							else if (text=='07' || text=="Seven") { document.getElementById(inputID).value=7; }
+							else if (text=='08' || text=="Eight" || text=="8" || text=="It") { 
+								document.getElementById(inputID).value=8; 
+							}
+							else if (text=='09' || text=="Nine") { document.getElementById(inputID).value=9; }
+							else if (text=='01' || text=="One") { document.getElementById(inputID).value=1; }
+							else { alert("Input NOT = 01-09 [or 'one > nine']!"); document.getElementById(inputID).value=null;}					
+							output.value = text;					
+							//alert("text = '"+text+"'");	
 					}
-					else if (text=='04' || text=="Four") { document.getElementById(inputID).value=4; }
-					else if (text=='02' || text=="Two") { document.getElementById(inputID).value=2; }
-					else if (text=='05' || text=="Five") { document.getElementById(inputID).value=5; }
-					else if (text=='06' || text=="Six") { document.getElementById(inputID).value=6; }
-					else if (text=='07' || text=="Seven") { document.getElementById(inputID).value=7; }
-					else if (text=='08' || text=="Eight" || text=="8" || text=="It") { 
-						document.getElementById(inputID).value=8; 
-					}
-					else if (text=='09' || text=="Nine") { document.getElementById(inputID).value=9; }
-					else if (text=='01' || text=="One") { document.getElementById(inputID).value=1; }
-					else { alert("Input NOT = 01-09 [or 'one > nine']!"); document.getElementById(inputID).value=null;}					
-					output.value = text;					
-					//alert("text = '"+text+"'");	
-			}
-		  }				
+			  }	
+	    }		  
 	  }
 	  
 	</script>
 </head>
 <body onload="">
-    <h2>Web Speech API <font size=2>(V3)</font></h2>
-	<!--
-	<button id="toggle-recording" style=" border:2px solid dodgerblue; border-radius:10px; ">Start Listening</button>
-	<button id='SCOREbtn' onclick="ScoreInput()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:white; background:black; border:3px solid orange; border-radius:10px; cursor:pointer;">Score Input</button>
-	-->		
+    <h2>Web Speech API <font size=2>(V3b)</font></h2>
 	
-	<TABLE border=1 style="margin-left:auto; margin-right:auto; zoom:2;">
+	
+	
+	<TABLE border=1 style="margin-left:auto; margin-right:auto; zoom:1.9;">
 	<tr>			
-				<th style="background:silver; font-size:40px;">H</th>
+				<th style="background:silver; font-size:30px;">H</th>
 				<th><input type="text" id="VRp1NAME"   tabindex="201" style="background:whitesmoke; width:20px;" maxlength=2 value="WH"></th>	<!-- P1 -->
 				<th><input type="text" id="VRp2NAME"  tabindex="203" style="background:whitesmoke; width:20px;" maxlength=2 value="B"></th> <!-- P2 -->
 				<th><input type="text" id="VRp3NAME"  tabindex="205" style="background:whitesmoke; width:20px;" maxlength=2 value="C"></th> 
@@ -85,6 +109,9 @@
 	</tr>	
 	</TABLE>		
 	
+			<button id='VRbtn' onclick="fVRyn()" style="FONT-WEIGHT:bold; FONT-SIZE:12px; COLOR:white; background:blue; border:2px solid orange; border-radius:10px; cursor: pointer; font-size:30px; display: block; margin: 0 auto;">? VR</button>
+				
+	<br>
 	<br><hr><br>
 	<textarea id="transcription-result" placeholder="textarea" style='background:yellow;'></textarea>
 
