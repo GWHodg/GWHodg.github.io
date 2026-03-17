@@ -117,6 +117,16 @@
 				  document.getElementById("VRbtn").innerText='VR +';
 			  }
 			  alert("You replied "+reply+"\n\t(VRyn = "+VRyn+")");
+			  
+			  document.getElementById("TDp2h4").style.borderRight = "4px solid gold";
+			  document.getElementById("TDp2h4").style.borderBottom = "4px solid gold";
+			  
+			  			/*const nextInput = inputs[index + 1];
+			            if (nextInput) {
+			                nextInput.focus();
+			            }*/
+						//focusNextElement();
+						
 		  }		
 		  
 		function CLICKvr(inputID) {
@@ -157,7 +167,8 @@
 							document.getElementById("transcription-result").focus();
 							if (text=='03' || text=="Three") { 
 								document.getElementById(inputID).value=3; 
-								localStorage.setItem('g'+p+'H'+h+'s',3)
+								localStorage.setItem('g'+p+'H'+h+'s',3);
+								focusNextElement(); // < Mar 17/26 **
 							}
 							else if (text=='04' || text=="Four") { document.getElementById(inputID).value=4;  localStorage.setItem('g'+p+'H'+h+'s',4) }  // ** (Mar 16/26) **
 							else if (text=='02' || text=="Two") { document.getElementById(inputID).value=2; localStorage.setItem('g'+p+'H'+h+'s',2)}
