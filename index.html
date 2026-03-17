@@ -110,16 +110,19 @@
 				VRyn = "y";	
 				document.getElementById("VRbtn").style.background='green';
 				document.getElementById("VRbtn").innerText='VR -';
+				document.getElementById("TDp2h4").style.borderRight = "4px solid gold"; // < Mar/26 **
+				document.getElementById("TDp2h4").style.borderBottom = "4px solid gold";
 			  }
 			  else { 
 				  VRyn = 'n';
 				  document.getElementById("VRbtn").style.background='gray';
 				  document.getElementById("VRbtn").innerText='VR +';
+				  document.getElementById("TDp2h4").style.borderRight = "0px solid black";
+				  document.getElementById("TDp2h4").style.borderBottom = "0px solid black";
 			  }
 			  alert("You replied "+reply+"\n\t(VRyn = "+VRyn+")");
 			  
-			  document.getElementById("TDp2h4").style.borderRight = "4px solid gold";
-			  document.getElementById("TDp2h4").style.borderBottom = "4px solid gold";
+			  
 			  
 			  			/*const nextInput = inputs[index + 1];
 			            if (nextInput) {
@@ -132,7 +135,7 @@
 		function CLICKvr(inputID) {
 		  //document.getElementById("TD"+inputID).style.background = "red";   //TDp1h1
 		  if (VRyn=="y") {  
-			  document.getElementById("TD"+inputID).style.background = "red";   //TDp1h1
+			  //document.getElementById("TD"+inputID).style.background = "red";   //TDp1h1
 			  let p = inputID.charAt(1); 
 			  var h;
 			  if ( inputID.length > 4 ) {
@@ -143,7 +146,8 @@
 			  alert("Say '01' > '09' ('zero' or 'oh').\n"+
 				    "inputID = "+inputID+"\n"+
 					"p = "+p+"; h = "+h); 
-			  document.getElementById("TD"+inputID).style.background = "red";   //TDp1h1
+			  //document.getElementById("TD"+inputID).style.background = "red";   //TDp1h1
+			  document.getElementById("TD"+inputID).style.border = "2px solid red";   // < Mar/26 **
 			  
 			  if (SpeechRecognition) {        
 					//const recognition = new SpeechRecognition(); 
@@ -168,7 +172,7 @@
 							if (text=='03' || text=="Three") { 
 								document.getElementById(inputID).value=3; 
 								localStorage.setItem('g'+p+'H'+h+'s',3);
-								focusNextElement(); // < Mar 17/26 **
+								//focusNextElement(); // < Mar 17/26 **
 							}
 							else if (text=='04' || text=="Four") { document.getElementById(inputID).value=4;  localStorage.setItem('g'+p+'H'+h+'s',4) }  // ** (Mar 16/26) **
 							else if (text=='02' || text=="Two") { document.getElementById(inputID).value=2; localStorage.setItem('g'+p+'H'+h+'s',2)}
