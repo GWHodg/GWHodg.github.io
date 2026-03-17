@@ -1031,13 +1031,17 @@
 			//changeGLOBAL(x);
 			/*alert("In 'FOCUSfn()'! SCRinput = "+SCRinput+". prevIPT = "+prevIPT+". lastFOCUS = "+lastFOCUS+".\n\n"+
 			  "document.getElementById('lastFOCUS').value = "+document.getElementById('lastFOCUS').value);*/
-			if ( document.getElementById('lastFOCUS').value != "" ) {
+			if ( document.getElementById('lastFOCUS').value != "" && VRyn != "y" ) {   // << Mar/26 **
 			  	var lstFCSel =  document.getElementById('lastFOCUS').value;
 				document.getElementById("TD"+lstFCSel).style.background = "aqua";   // < Nov 20/25 **
 			}
 		document.getElementById(prevIPT).style.background = "aqua";   // < Nov 20/25 **
 			
 		//localStorage.setItem("lastFOCUSval", document.getElementById(SCRinput).value);
+		
+		
+		//CLICKvr(SCRinput);   // < Mar/26 **
+		
 		
 	}
 	var lastFOCUS; var lastSCORE;
@@ -3462,4 +3466,5 @@ else {
 			}	
 			
 		}	
+
 		
