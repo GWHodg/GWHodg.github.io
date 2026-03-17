@@ -1031,7 +1031,7 @@
 			//changeGLOBAL(x);
 			/*alert("In 'FOCUSfn()'! SCRinput = "+SCRinput+". prevIPT = "+prevIPT+". lastFOCUS = "+lastFOCUS+".\n\n"+
 			  "document.getElementById('lastFOCUS').value = "+document.getElementById('lastFOCUS').value);*/
-			if ( document.getElementById('lastFOCUS').value != "" && VRyn != "y" ) {   // << Mar/26 **
+			if ( document.getElementById('lastFOCUS').value != "" )  {	// && VRyn != "y" ) {   // << Mar/26 **
 			  	var lstFCSel =  document.getElementById('lastFOCUS').value;
 				document.getElementById("TD"+lstFCSel).style.background = "aqua";   // < Nov 20/25 **
 			}
@@ -1196,12 +1196,12 @@
 	
 	function KeyUp() {
 		var CHGaudio = new Audio('mixkit-modern-technology-select-3124.wav');
-		CHGaudio.play(); 	
+		//CHGaudio.play(); 	// < Mar/26 **
 	}
 		
 	function BLURfn(SCRinput) {
 		var BLURaudio = new Audio('mixkit-fast-double-click-on-mouse-275.wav');
-		BLURaudio.play(); 
+		//BLURaudio.play();  // < Mar/26 **
 		  	//alert("'this' variable = "+x);
 			//x.style.background = "yellow";
 			//document.getElementById("TD"+x).background = "red";
