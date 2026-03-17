@@ -120,8 +120,8 @@
 		  }		
 		  
 		function CLICKvr(inputID) {
-		  if (VRyn=="y") {
-			  
+		  //document.getElementById("TD"+inputID).style.background = "red";   //TDp1h1
+		  if (VRyn=="y") {  
 			  let p = inputID.charAt(1); 
 			  var h;
 			  if ( inputID.length > 4 ) {
@@ -132,6 +132,7 @@
 			  alert("Say '01' > '09' ('zero' or 'oh').\n"+
 				    "inputID = "+inputID+"\n"+
 					"p = "+p+"; h = "+h); 
+			  document.getElementById("TD"+inputID).style.background = "red";   //TDp1h1
 			  
 			  if (SpeechRecognition) {        
 					//const recognition = new SpeechRecognition(); 
@@ -173,7 +174,8 @@
 							alert("text = '"+text+"'");	
 					}
 			  }	
-	    }		  
+	    }
+		document.getElementById("TD"+inputID).style.background = "red";   //TDp1h1		
 	  }
 	  
 
