@@ -163,11 +163,17 @@
 				    e.preventDefault();
 				  });	
 				  */	
-				    const inputField = document.getElementById(inputID);
+				    /*
+				  	const inputField = document.getElementById(inputID);
 					inputField.addEventListener('keydown', event => {
 					    event.preventDefault();
 					});	  
-					
+					*/
+					document.getElementById(inputID).addEventListener('focus', (event) => {
+						event.target.blur();
+					});
+					//document.getElementById(inputID).inputmode="none";
+					//document.getElementById(inputID).readonly="true";				
 				  
 			  var CHGaudio = new Audio('mixkit-modern-technology-select-3124.wav'); // < **
 			  //document.getElementById("TD"+inputID).style.background = "red";   //TDp1h1
@@ -674,12 +680,14 @@
 </TD></TR>
 </TABLE>
 
+<textarea id="transcription-result" cols="2" rows="1" style='position:sticky; top:0; background:yellow; border:2px solid green; visibility:visible; text-align:center; valign:center; font-size:15px; font-weight:bold'>SR</textarea> <!-- placeholder="TA" visibility:hidden; display:none; -->			
+
 	
 	<table class="table2" id="SCOREStbl" border='3'   align=center 
 	style='table-layout:fixed; FONT-SIZE:large; color:maroon; visibility:visible; zoom:100%;' bgcolor='lightgray'> <!-- lightgreen -->
 		<thead> <!--  bgcolor='gray' style="color:white;" -->
-				<th><!--H-->
-					<textarea id="transcription-result" cols="2" rows="1" style='background:yellow; border:2px solid green; visibility:visible; text-align:center; valign:center; font-size:15px; font-weight:bold'>H</textarea> <!-- placeholder="TA" visibility:hidden; display:none; -->				
+				<th>H
+					<!--<textarea id="transcription-result" cols="2" rows="1" style='background:yellow; border:2px solid green; visibility:visible; text-align:center; valign:center; font-size:15px; font-weight:bold'>H</textarea>--> <!-- placeholder="TA" visibility:hidden; display:none; -->				
 				</th>
 				<th><input type="text" id="p1NAME" onchange="localStorage.setItem('g1NAME',this.value);"  tabindex="201" style="background:whitesmoke; width:60%; font-weight:bold; font-size:14px;" maxlength=2 value=""></th>	<!-- P1 -->
 				<th><input type="text" id="p2NAME" onchange="localStorage.setItem('g2NAME',this.value);"  tabindex="203" style="background:whitesmoke; width:60%;" maxlength=2 value=""></th> <!-- P2 -->
