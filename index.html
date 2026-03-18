@@ -114,7 +114,7 @@
 				document.getElementById("TDp3h4").style.borderLeft = "4px solid gold"; // < Mar/26 **
 				//document.getElementById("TDp2h5").style.borderTop = "4px solid gold";
 				document.getElementById("TDp3h5").style.borderLeft = "4px solid gold";
-				//document.getElementById("transcription-result").style.visibility = "visible";
+				document.getElementById("transcription-result").style.visibility = "visible";
 				document.getElementById("transcription-result").value = "";
 			  }
 			  else { 
@@ -125,7 +125,7 @@
 				  document.getElementById("TDp3h4").style.borderLeft = "0px solid black";
 				  //document.getElementById("TDp2h5").style.borderTop = "0px solid black";
 				  document.getElementById("TDp3h5").style.borderLeft = "0px solid black";
-				  //document.getElementById("transcription-result").style.visibility = "hidden";
+				  document.getElementById("transcription-result").style.visibility = "hidden";
 				  document.getElementById("transcription-result").value = "H";
 			  }
 			  //alert("You replied "+reply+"\n\t(VRyn = "+VRyn+")");
@@ -203,7 +203,7 @@
 		                for (let i = event.resultIndex; i < event.results.length; ++i) {
 		                    text += event.results[i][0].transcript;
 		                }
-		                output.value = text;					
+		                //output.value = text;	// << **!!				
 							document.getElementById("transcription-result").focus();
 							if (text=='03' || text=="Three") { 
 								document.getElementById(inputID).value=3; 
@@ -253,11 +253,11 @@
 								document.getElementById(inputID).value=null;
 								return; // < ?????? **
 							}					
-							output.value = text;		// < deleted Mar 18, 2026 (??) **
+							//output.value = text;		// < deleted Mar 18, 2026 (??) ** // **!!
 							//alert("text = '"+text+"'");	
 							//document.getElementById("TD"+inputID).style.background = "red";   //TDp1h1
 							//n = n+1;
-							document.getElementById("TD"+inputID).style.border = "0px solid black";   // < Mar/26 **
+							//document.getElementById("TD"+inputID).style.border = "0px solid black";   // < Mar/26 **
 					}
 					//document.getElementById("TD"+inputID).style.background = "red";   //TDp1h1
 			  }	
@@ -680,7 +680,6 @@
 </TD></TR>
 </TABLE>
 
-<textarea id="transcription-result" cols="2" rows="1" style='position:fixed; top:0; background:yellow; border:2px solid green; visibility:visible; text-align:center; valign:center; font-size:15px; font-weight:bold'>SR</textarea> <!-- position:sticky; top:0; placeholder="TA" visibility:hidden; display:none; -->			
 
 	
 	<table class="table2" id="SCOREStbl" border='3'   align=center 
@@ -698,7 +697,11 @@
 				<th>p</th>
 				<th>hc</th>	
 		</thead>
-		<tbody id='TBLbody'> 							
+		<tbody id='TBLbody'> 	
+
+<textarea id="transcription-result" cols="2" rows="1" style='position:fixed; top:0; background:yellow; border:2px solid green; visibility:visible; text-align:center; valign:center; font-size:15px; font-weight:bold; visibility:hidden;'>SR</textarea> <!-- position:sticky; top:0; placeholder="TA" visibility:hidden; display:none; -->			
+
+			
 			<TR>
 				<TH style="background:lightgray;">     
 					<!--<span id="battery-percentage" style="padding:2px; background:lightgreen; color:black;">0</span><font size=2 color=black>%</font>-->
