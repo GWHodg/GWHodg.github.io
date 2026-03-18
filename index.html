@@ -114,7 +114,8 @@
 				document.getElementById("TDp3h4").style.borderLeft = "4px solid gold"; // < Mar/26 **
 				//document.getElementById("TDp2h5").style.borderTop = "4px solid gold";
 				document.getElementById("TDp3h5").style.borderLeft = "4px solid gold";
-				document.getElementById("transcription-result").style.visibility = "visible";
+				//document.getElementById("transcription-result").style.visibility = "visible";
+				document.getElementById("transcription-result").value = "";
 			  }
 			  else { 
 				  VRyn = 'n';
@@ -124,7 +125,8 @@
 				  document.getElementById("TDp3h4").style.borderLeft = "0px solid black";
 				  //document.getElementById("TDp2h5").style.borderTop = "0px solid black";
 				  document.getElementById("TDp3h5").style.borderLeft = "0px solid black";
-				  document.getElementById("transcription-result").style.visibility = "hidden";
+				  //document.getElementById("transcription-result").style.visibility = "hidden";
+				  document.getElementById("transcription-result").value = "H";
 			  }
 			  //alert("You replied "+reply+"\n\t(VRyn = "+VRyn+")");
 			  
@@ -154,12 +156,17 @@
 				    "inputID = "+inputID); */		//+"\n"+
 					//"p = "+p+"; h = "+h); 
 
-					
+				  /*	
 				  const inputField = document.getElementById(inputID);				
 				  // Prevent any keyboard input
 				  inputField.addEventListener('keydown', function(e) {
 				    e.preventDefault();
-				  });					
+				  });	
+				  */	
+				    const inputField = document.getElementById(inputID);
+					inputField.addEventListener('keydown', event => {
+					    event.preventDefault();
+					});	  
 					
 				  
 			  var CHGaudio = new Audio('mixkit-modern-technology-select-3124.wav'); // < **
@@ -240,7 +247,7 @@
 								document.getElementById(inputID).value=null;
 								return; // < ?????? **
 							}					
-							//output.value = text;		// < deleted Mar 18, 2026 (??) **
+							output.value = text;		// < deleted Mar 18, 2026 (??) **
 							//alert("text = '"+text+"'");	
 							//document.getElementById("TD"+inputID).style.background = "red";   //TDp1h1
 							//n = n+1;
@@ -671,7 +678,9 @@
 	<table class="table2" id="SCOREStbl" border='3'   align=center 
 	style='table-layout:fixed; FONT-SIZE:large; color:maroon; visibility:visible; zoom:100%;' bgcolor='lightgray'> <!-- lightgreen -->
 		<thead> <!--  bgcolor='gray' style="color:white;" -->
-				<th>H</th>
+				<th><!--H-->
+					<textarea id="transcription-result" cols="2" rows="1" style='background:yellow; border:2px solid green; visibility:visible; text-align:center; valign:center; font-size:15px; font-weight:bold'>H</textarea> <!-- placeholder="TA" visibility:hidden; display:none; -->				
+				</th>
 				<th><input type="text" id="p1NAME" onchange="localStorage.setItem('g1NAME',this.value);"  tabindex="201" style="background:whitesmoke; width:60%; font-weight:bold; font-size:14px;" maxlength=2 value=""></th>	<!-- P1 -->
 				<th><input type="text" id="p2NAME" onchange="localStorage.setItem('g2NAME',this.value);"  tabindex="203" style="background:whitesmoke; width:60%;" maxlength=2 value=""></th> <!-- P2 -->
 				<th><input type="text" id="p3NAME" onchange="localStorage.setItem('g3NAME',this.value);"  tabindex="205" style="background:whitesmoke; width:60%;" maxlength=2 value=""></th> 
@@ -685,7 +694,6 @@
 			<TR>
 				<TH style="background:lightgray;">     
 					<!--<span id="battery-percentage" style="padding:2px; background:lightgreen; color:black;">0</span><font size=2 color=black>%</font>-->
-					<textarea id="transcription-result" cols="3" rows="1" style='background:yellow; border:2px solid green; visibility:hidden;'></textarea> <!-- placeholder="TA" visibility:hidden; display:none; -->
 				</TH> <!-- << put battery % here ^ -->
 				<TH><input type="" id="p1HC" maxlength=2 onchange="localStorage.setItem('g1HC',this.value);" name='NMp1hc' autofocus tabindex="202" style="background:whitesmoke; width:60%; font-weight:bold;" ></TH> <!-- value=24  onchange="pHCcolors('p1')" -->
 				<TH><input type="" id="p2HC" maxlength=2 onchange="localStorage.setItem('g2HC',this.value);" tabindex="204" style="background:whitesmoke; width:60%;" ></TH> <!-- P2 HC -->
