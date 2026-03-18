@@ -1724,7 +1724,7 @@
 		/*alert("Will CLEAR 'saved' inputs here!\n\n"+
 			  "g1H1s PRE 'clear' = " + localStorage.getItem("g1H1s"));*/
 		  let reply;
-		  if (confirm("Are you SURE you want to CLEAR all 'saved' input?") == true) {
+		  if (confirm("Are you SURE you want to CLEAR 'saved' input?") == true) {
 		    reply = "YES!";
 		  } else { reply = "NO!"; }
   		  //alert(reply);
@@ -1740,6 +1740,16 @@
 					DELholeChgs = 'y';
 			  }
 
+			  let answerS; var DELscoresOnly;
+			  if (confirm("Do you want to delete JUST scores (i.e. retain players/HCs)?") == true) {
+			    answerS = "YES!";
+			  } else { answerS = "NO!"; }
+	  		  //alert(answer);			  
+			  if ( answerS=="YES!") {		
+					DELscoresOnly = 'y';
+				}
+			  
+			  
 			for (var h = 1; h < 19; h++) {
 					for (var n = 1; n < 6; n++) {
 						localStorage.setItem('g'+n+'H'+h+'s',""); document.getElementById("p"+n+"h"+h).value = "";
@@ -1751,19 +1761,20 @@
 										/* %%%%%%%%%%%%% Jun/24 ^ %%%%%%%%%%%%%%% */										
 					}
 			}
-			
-			localStorage.setItem("DATE",""); document.getElementById("DATE").value = ""; 
-			localStorage.setItem("g1NAME",""); document.getElementById("p1NAME").value = ""; 
-				localStorage.setItem("g2NAME",""); document.getElementById("p2NAME").value = ""; 
-				localStorage.setItem("g3NAME",""); document.getElementById("p3NAME").value = ""; 
-				localStorage.setItem("g4NAME",""); document.getElementById("p4NAME").value = ""; 
-				localStorage.setItem("g5NAME",""); document.getElementById("p5NAME").value = ""; 
-			localStorage.setItem("g1HC",""); document.getElementById("p1HC").value = ""; 
-				localStorage.setItem("g2HC",""); document.getElementById("p2HC").value = ""; 
-				localStorage.setItem("g3HC",""); document.getElementById("p3HC").value = ""; 
-				localStorage.setItem("g4HC",""); document.getElementById("p4HC").value = ""; 
-				localStorage.setItem("g5HC",""); document.getElementById("p5HC").value = ""; 
 
+			if ( DELscoresOnly != "y" ) {	// < Mar/26 **
+				localStorage.setItem("DATE",""); document.getElementById("DATE").value = ""; 
+				localStorage.setItem("g1NAME",""); document.getElementById("p1NAME").value = ""; 
+					localStorage.setItem("g2NAME",""); document.getElementById("p2NAME").value = ""; 
+					localStorage.setItem("g3NAME",""); document.getElementById("p3NAME").value = ""; 
+					localStorage.setItem("g4NAME",""); document.getElementById("p4NAME").value = ""; 
+					localStorage.setItem("g5NAME",""); document.getElementById("p5NAME").value = ""; 
+				localStorage.setItem("g1HC",""); document.getElementById("p1HC").value = ""; 
+					localStorage.setItem("g2HC",""); document.getElementById("p2HC").value = ""; 
+					localStorage.setItem("g3HC",""); document.getElementById("p3HC").value = ""; 
+					localStorage.setItem("g4HC",""); document.getElementById("p4HC").value = ""; 
+					localStorage.setItem("g5HC",""); document.getElementById("p5HC").value = ""; 
+			}
 				
 			for (var h = 1; h < 19; h++) { 	//clear 'Matches' values (Apr/25):
 					for (var n = 1; n < 6; n++) {
