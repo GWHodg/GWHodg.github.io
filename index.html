@@ -110,15 +110,15 @@
 				VRyn = "y";	
 				document.getElementById("VRbtn").style.background='green';
 				document.getElementById("VRbtn").innerText='VR -';
-				document.getElementById("TDp2h4").style.borderRight = "4px solid gold"; // < Mar/26 **
-				document.getElementById("TDp2h4").style.borderBottom = "4px solid gold";
+				document.getElementById("TDp3h4").style.borderLeft = "4px solid gold"; // < Mar/26 **
+				document.getElementById("TDp2h5").style.borderTop = "4px solid gold";
 			  }
 			  else { 
 				  VRyn = 'n';
 				  document.getElementById("VRbtn").style.background='gray';
 				  document.getElementById("VRbtn").innerText='VR +';
-				  document.getElementById("TDp2h4").style.borderRight = "0px solid black";
-				  document.getElementById("TDp2h4").style.borderBottom = "0px solid black";
+				  document.getElementById("TDp3h4").style.borderLeft = "0px solid black";
+				  document.getElementById("TDp2h5").style.borderTop = "0px solid black";
 			  }
 			  alert("You replied "+reply+"\n\t(VRyn = "+VRyn+")");
 			  
@@ -135,6 +135,7 @@
 		function CLICKvr(inputID) {
 		  //document.getElementById("TD"+inputID).style.background = "red";   //TDp1h1
 		  if (VRyn=="y") {  
+			  document.getElementById("TD"+inputID).style.border = "2px solid red";   // < Mar/26 **
 			  //document.getElementById("TD"+inputID).style.background = "red";   //TDp1h1
 			  let p = inputID.charAt(1); 
 			  var h;
@@ -147,8 +148,9 @@
 				    "inputID = "+inputID+"\n"+
 					"p = "+p+"; h = "+h); 
 			  //document.getElementById("TD"+inputID).style.background = "red";   //TDp1h1
-			  document.getElementById("TD"+inputID).style.border = "2px solid red";   // < Mar/26 **
+			  //document.getElementById("TD"+inputID).style.border = "2px solid red";   // < Mar/26 **
 			  
+			  //let n = 0;
 			  if (SpeechRecognition) {        
 					//const recognition = new SpeechRecognition(); 
 						recognition.start();
@@ -185,15 +187,22 @@
 							}
 							else if (text=='09' || text=="Nine") { document.getElementById(inputID).value=9; localStorage.setItem('g'+p+'H'+h+'s',9)}
 							else if (text=='01' || text=="One") { document.getElementById(inputID).value=1; localStorage.setItem('g'+p+'H'+h+'s',1)}
-							else { alert("Input NOT = 01-09 [or 'one > nine']!"); document.getElementById(inputID).value=null;}					
+							else { 
+								alert("Input NOT = 01-09");	// [or 'one nine']!");
+								document.getElementById(inputID).value=null;
+							}					
 							output.value = text;					
 							alert("text = '"+text+"'");	
 							//document.getElementById("TD"+inputID).style.background = "red";   //TDp1h1
+							//n = n+1;
+							document.getElementById("TD"+inputID).style.border = "0px solid black";   // < Mar/26 **
 					}
 					//document.getElementById("TD"+inputID).style.background = "red";   //TDp1h1
 			  }	
+			  //alert("n = "+n+" [times through 'if (SpeechRecognition)' > 'recognition.onresult']");
 	    }
-		//document.getElementById("TD"+inputID).style.background = "red";   //TDp1h1		
+		//document.getElementById("TD"+inputID).style.background = "red";   //TDp1h1	
+		
 	  }
 	  
 
