@@ -980,7 +980,8 @@
 			document.getElementById("myRange").value = +curPAR+1;	// < Nov 18/25 **
 				document.getElementById("demo").innerHTML = document.getElementById("myRange").value;	
 				
-
+		//var CHGaudio = new Audio('mixkit-modern-technology-select-3124.wav');
+		//CHGaudio.play(); 	// < Mar/26 **
 
 
 
@@ -1195,13 +1196,19 @@
 	
 	
 	function KeyUp() {
-		var CHGaudio = new Audio('mixkit-modern-technology-select-3124.wav');
+		//var CHGaudio = new Audio('mixkit-modern-technology-select-3124.wav');
 		//CHGaudio.play(); 	// < Mar/26 **
+	}
+	function telAUDIO() {
+		var CHGaudio = new Audio('mixkit-modern-technology-select-3124.wav');
+		CHGaudio.play(); 	// < Mar/26 **
 	}
 		
 	function BLURfn(SCRinput) {
 		var BLURaudio = new Audio('mixkit-fast-double-click-on-mouse-275.wav');
-		//BLURaudio.play();  // < Mar/26 **
+		BLURaudio.play();  // < Mar/26 **
+		//var CHGaudio = new Audio('mixkit-modern-technology-select-3124.wav');
+		//CHGaudio.play(); 	// < Mar/26 **
 		  	//alert("'this' variable = "+x);
 			//x.style.background = "yellow";
 			//document.getElementById("TD"+x).background = "red";
