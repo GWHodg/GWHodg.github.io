@@ -145,8 +145,8 @@
 			  else { h = inputID.charAt(3) }
 			 
 			  alert("Say '01' > '09' ('zero' or 'oh').\n"+
-				    "inputID = "+inputID+"\n"+
-					"p = "+p+"; h = "+h); 
+				    "inputID = "+inputID);//+"\n"+
+					//"p = "+p+"; h = "+h); 
 			  //document.getElementById("TD"+inputID).style.background = "red";   //TDp1h1
 			  //document.getElementById("TD"+inputID).style.border = "2px solid red";   // < Mar/26 **
 			  
@@ -188,11 +188,12 @@
 							else if (text=='09' || text=="Nine") { document.getElementById(inputID).value=9; localStorage.setItem('g'+p+'H'+h+'s',9)}
 							else if (text=='01' || text=="One") { document.getElementById(inputID).value=1; localStorage.setItem('g'+p+'H'+h+'s',1)}
 							else { 
-								alert("Input NOT = 01-09");	// [or 'one nine']!");
+								//alert("Input NOT = 01-09");	// [or 'one nine']!");
 								document.getElementById(inputID).value=null;
+								return; // < ?????? **
 							}					
 							output.value = text;					
-							alert("text = '"+text+"'");	
+							//alert("text = '"+text+"'");	
 							//document.getElementById("TD"+inputID).style.background = "red";   //TDp1h1
 							//n = n+1;
 							document.getElementById("TD"+inputID).style.border = "0px solid black";   // < Mar/26 **
