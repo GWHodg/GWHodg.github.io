@@ -153,6 +153,15 @@
 			  /* alert("Say '01' > '09' ('zero' or 'oh').\n"+
 				    "inputID = "+inputID); */		//+"\n"+
 					//"p = "+p+"; h = "+h); 
+
+					
+				  const inputField = document.getElementById(inputID);				
+				  // Prevent any keyboard input
+				  inputField.addEventListener('keydown', function(e) {
+				    e.preventDefault();
+				  });					
+					
+				  
 			  var CHGaudio = new Audio('mixkit-modern-technology-select-3124.wav'); // < **
 			  //document.getElementById("TD"+inputID).style.background = "red";   //TDp1h1
 			  //document.getElementById("TD"+inputID).style.border = "2px solid red";   // < Mar/26 **
@@ -171,9 +180,9 @@
 		            recognition.lang = 'en-US';
 					
 					//Ensure input field cannot be typed into via keyboard:
-					speechInput.addEventListener('keydown', (e) => {
+					/*speechInput.addEventListener('keydown', (e) => {	// < Mar/26 **
 						e.preventDefault();
-					});
+					});*/
 		
 		            // Handle results
 		            recognition.onresult = (event) => {
@@ -231,7 +240,7 @@
 								document.getElementById(inputID).value=null;
 								return; // < ?????? **
 							}					
-							output.value = text;					
+							//output.value = text;		// < deleted Mar 18, 2026 (??) **
 							//alert("text = '"+text+"'");	
 							//document.getElementById("TD"+inputID).style.background = "red";   //TDp1h1
 							//n = n+1;
