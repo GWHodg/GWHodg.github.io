@@ -197,8 +197,9 @@
 							}*/
 							if (txtP=='cat') {p=2}
 								else if (txtP=='dog') {p=1}
-								else if (txtP=='cow') {p=3}
-								else {p=4};
+								else if (txtP=='pig') {p=3}
+								else if (txtP=='cow') {p=4} // < ? too soft (? > ' ')
+								else {p=0};
 							if (txtS==' three'||txtS=='three'||txtS=='3') {S=3}
 								else if (txtS==' four'||txtS=='four'||txtS=='4'||txtS=='for'||txtS==' for') {S=4}
 								else {
@@ -206,7 +207,7 @@
 									//return; // < ?????? **}
 									S=0; //alert("S=9!");
 								}
-							if ( text!="" && text.length>4 ) {		//&& S!=0) {
+							if ( text!="" && text.length>3 ) {		//&& S!=0) {
 								alert("text = '"+text+"'!\nP = '"+txtP+"'\nS = '"+txtS+"'\n\n"+
 									  "p = "+p+"; h = "+h+"; S = "+S+"\n"+
 								  		"inputID = "+inputID+"\n"+
