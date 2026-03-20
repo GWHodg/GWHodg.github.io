@@ -108,8 +108,7 @@
 			  if ( reply=="YES!") {	
 				//alert("You replied "+reply); 
 				VRyn = "y";	
-				alert("Can use speech recognition for P1 & P2!\n\nSay '01' > '09' ('zero' or 'oh')\n"+
-					  "\t or B3/B4");
+				alert("Can use speech recognition!\n\nSay 'dog/cat/cow/pig 3/4'");
 				document.getElementById("VRbtn").style.background='green';
 				document.getElementById("VRbtn").innerText='VR -';
 				document.getElementById("TDp3h4").style.borderLeft = "4px solid gold"; // < Mar/26 **
@@ -129,6 +128,13 @@
 				  //document.getElementById("transcription-result").style.visibility = "hidden";
 				  document.getElementById("transcription-result").value = "H";
 			  }
+			  /*
+			  const textT = "cat three";
+			  const txtP = textT.slice(0, 3); //player
+			  const txtS = textT.slice(3); //score
+			  alert("textT = '"+textT+"'!\nP = '"+txtP+"'\nS = '"+txtS+"'");						
+			  */
+			  
 		  }		
 		
 		function CLICKvr(inputID) {
@@ -175,86 +181,50 @@
 								/*
 								if (allowedCommands.includes(text)) {
 								    console.log("Valid command:", text);
+									alert("Valid command:", text);
 								    // Execute command
 								  } else {
 								    console.log("Invalid command, ignoring:", text);
+									alert("Invalid command, ignoring:", text);
 								}
 								*/
-						
-							if (text=='03' || text=="Three") { 
-								document.getElementById(inputID).value=3; 
-								localStorage.setItem('g'+p+'H'+h+'s',3);
-								CHGaudio.play();
-								//focusNextElement(); // < Mar 17/26 **
+							//var text = "cat three";			 //dog/cat/cow/pig
+							let txtP = text.slice(0, 3); //player
+							let txtS = text.slice(3); //dictated score
+							var S; //score integer!
+							if ( text!="" ) {
+								alert("text = '"+text+"'!\nP = '"+txtP+"'\nS = '"+txtS+"'");
 							}
-							else if (text=='04' || text=="Four") { 
-								document.getElementById(inputID).value=4;  
-								localStorage.setItem('g'+p+'H'+h+'s',4);
-								CHGaudio.play();
-							}  // ** (Mar 16/26) **
-							else if (text=='02' || text=="Two") { 
-								document.getElementById(inputID).value=2; 
-								localStorage.setItem('g'+p+'H'+h+'s',2);
-								//var CHGaudio = new Audio('mixkit-modern-technology-select-3124.wav');
-								CHGaudio.play(); 	// < Mar/26 **
-							}
-							else if (text=='05' || text=="Five") { 
-								document.getElementById(inputID).value=5; 
-								localStorage.setItem('g'+p+'H'+h+'s',5);
-								CHGaudio.play();
-							}
-							else if (text=='06' || text=="Six") { 
-								document.getElementById(inputID).value=6; 
-								localStorage.setItem('g'+p+'H'+h+'s',6);
-								CHGaudio.play();
-							}
-							else if (text=='07' || text=="Seven") { 
-								document.getElementById(inputID).value=7; 
-								localStorage.setItem('g'+p+'H'+h+'s',7);
-								CHGaudio.play();
-							}
-							else if (text=='08' || text=="Eight" || text=="8" || text=="It") { 
-								document.getElementById(inputID).value=8;
-								localStorage.setItem('g'+p+'H'+h+'s',8);
-								CHGaudio.play();
-							}
-							else if (text=='09' || text=="Nine") { 
-								document.getElementById(inputID).value=9; 
-								localStorage.setItem('g'+p+'H'+h+'s',9);
-								CHGaudio.play();
-							}
-							else if (text=='01' || text=="One") { 
-								document.getElementById(inputID).value=1; 
-								localStorage.setItem('g'+p+'H'+h+'s',1);
-								CHGaudio.play();
-							}
+							if (txtP=='cat') {p=2}
+								else if (txtP=='dog') {p=1}
+								else if (txtP=='cow') {p=3}
+								else {p=4};
+							if (txtS==' three'||txtS=='three'||txtS=='3') {S=3}
+								else if (txtS==' four'||txtS=='four'||txtS=='4'||txtS=='for'||txtS==' for') {S=4}
+								else {
+									document.getElementById('p2H'+h).value=null;
+									//return; // < ?????? **}
+								}
+							alert("p = "+p+"; h = "+h+"; S = "+S);
+							document.getElementById('p'+p+'H'+h).value=S; 	
 							/*
-							else { 
-								//alert("Input NOT = 01-09");	// [or 'one nine']!");
-								document.getElementById(inputID).value=null;
-								return; // < ?????? **
-							}
-							*/
-							
-							//output.value = text;		// < deleted Mar 18, 2026 (??) ** // **!!
-							//alert("text = '"+text+"'");	
-							
-							else if (text=='B3') { 
+							else if (text=='dog three') { //pl2
 								document.getElementById('p2H'+h).value=3; 
 								localStorage.setItem('g2H'+h+'s',3);
 								CHGaudio.play();
 							}
-							else if (text=='B4') { 
+							else if (text=='dog four') { 
 								document.getElementById('p2H'+h).value=4; 
 								localStorage.setItem('g2H'+h+'s',4);
 								CHGaudio.play();
 							}
 							else { 
-								alert("Input NOT = 01-09 or B3/B4\n"+
+								alert("Input NOT = 01-09 or dog3/dog4\n"+
 									  "text = '"+text+"'");			// [or 'one nine']!");
 								document.getElementById('p2H'+h).value=null;
 								return; // < ?????? **
 							}
+							*/
 					} //end recognition.onresult = (event) => 
 					
 			  }	//end if (SpeechRecognition)
