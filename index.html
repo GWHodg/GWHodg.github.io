@@ -206,11 +206,12 @@
 									//return; // < ?????? **}
 									S=0; //alert("S=9!");
 								}
-							if ( text!="" && S!=0) {
+							if ( text!="" && text.length>4 ) {		//&& S!=0) {
 								alert("text = '"+text+"'!\nP = '"+txtP+"'\nS = '"+txtS+"'\n\n"+
 									  "p = "+p+"; h = "+h+"; S = "+S+"\n"+
-								  		"inputID = "+inputID+"\t"+
-								  		"'p'+p+'h'+h = "+'p'+p+'h'+h);
+								  		"inputID = "+inputID+"\n"+
+								  		"'p'+p+'h'+h = "+'p'+p+'h'+h + "\n\n"+
+										"text.length = "+text.length);
 							}
 							document.getElementById('p'+p+'h'+h).value=S;	//+S; 	
 							/*
