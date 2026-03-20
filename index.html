@@ -195,10 +195,10 @@
 							/*if ( text!="" ) {
 								alert("text = '"+text+"'!\nP = '"+txtP+"'\nS = '"+txtS+"'");
 							}*/
-							if (txtP=='cat') {p=2}
-								else if (txtP=='dog') {p=1}
-								else if (txtP=='pig') {p=3}
-								else if (txtP=='bad') {p=4} // < 'cow' too soft (? > 'bad')
+							if (txtP=='cat'||txtP=='Cog') {p=2}
+								else if (txtP=='dog'||txtP=='Dog') {p=1}
+								else if (txtP=='pig'||txtP=='Pig') {p=3}
+								else if (txtP=='bad'||txtP=='Bad') {p=4} // < 'cow' too soft (? > 'bad')
 								else {p=0};
 							if (txtS==' three'||txtS=='three'||txtS=='3'||txtS==' 3') {S=3}
 								else if (txtS==' four'||txtS=='four'||txtS=='4'||txtS=='for'||txtS==' for'
@@ -206,6 +206,7 @@
 								else if (txtS==' five'||txtS=='five'||txtS=='5'||txtS==' 5') {S=5}
 								else if (txtS==' six'||txtS=='six'||txtS=='6'||txtS==' 6'||txtS==' sex') {S=6}
 								else if (txtS==' seven'||txtS=='seven'||txtS=='7'||txtS==' 7') {S=7}
+								else if (txtS==' two'||txtS=='two'||txtS=='2'||txtS==' 2'||txtS==' to'||txtS=='2') {S=2}
 								else {
 									//document.getElementById('p2H'+h).value=null;
 									//return; // < ?????? **}
