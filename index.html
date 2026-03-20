@@ -202,11 +202,12 @@
 							if (txtS==' three'||txtS=='three'||txtS=='3') {S=3}
 								else if (txtS==' four'||txtS=='four'||txtS=='4'||txtS=='for'||txtS==' for') {S=4}
 								else {
-									document.getElementById('p2H'+h).value=null;
+									//document.getElementById('p2H'+h).value=null;
 									//return; // < ?????? **}
+									S=9; alert("S=9!");
 								}
 							alert("p = "+p+"; h = "+h+"; S = "+S);
-							document.getElementById('p'+p+'H'+h).value=S; 	
+							document.getElementById('p'+p+'H'+h).value=+S; 	
 							/*
 							else if (text=='dog three') { //pl2
 								document.getElementById('p2H'+h).value=3; 
