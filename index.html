@@ -192,9 +192,9 @@
 							let txtP = text.slice(0, 3); //player
 							let txtS = text.slice(3); //dictated score
 							var S; //score integer!
-							if ( text!="" ) {
+							/*if ( text!="" ) {
 								alert("text = '"+text+"'!\nP = '"+txtP+"'\nS = '"+txtS+"'");
-							}
+							}*/
 							if (txtP=='cat') {p=2}
 								else if (txtP=='dog') {p=1}
 								else if (txtP=='cow') {p=3}
@@ -204,11 +204,14 @@
 								else {
 									//document.getElementById('p2H'+h).value=null;
 									//return; // < ?????? **}
-									S=9; alert("S=9!");
+									S=0; //alert("S=9!");
 								}
-							alert("p = "+p+"; h = "+h+"; S = "+S+"\n\n"+
-								  "inputID = "+inputID+"\n"+
-								  "'p'+p+'h'+h = "+'p'+p+'h'+h);
+							if ( text!="" && S!=0) {
+								alert("text = '"+text+"'!\nP = '"+txtP+"'\nS = '"+txtS+"'\n\n"+
+									  "p = "+p+"; h = "+h+"; S = "+S+"\n"+
+								  		"inputID = "+inputID+"\t"+
+								  		"'p'+p+'h'+h = "+'p'+p+'h'+h);
+							}
 							document.getElementById('p'+p+'h'+h).value=S;	//+S; 	
 							/*
 							else if (text=='dog three') { //pl2
