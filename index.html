@@ -206,8 +206,10 @@
 									//return; // < ?????? **}
 									S=9; alert("S=9!");
 								}
-							alert("p = "+p+"; h = "+h+"; S = "+S);
-							document.getElementById('p'+p+'H'+h).value=+S; 	
+							alert("p = "+p+"; h = "+h+"; S = "+S+"\n\n"+
+								  "inputID = "+inputID+"\n"+
+								  "'p'+p+'H'+h = "+'p'+p+'H'+h);
+							document.getElementById('p'+p+'H'+h).value=8;	//+S; 	
 							/*
 							else if (text=='dog three') { //pl2
 								document.getElementById('p2H'+h).value=3; 
