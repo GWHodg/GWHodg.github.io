@@ -165,10 +165,24 @@
 		            const output = document.getElementById("transcription-result");
 		            let isRecording = false;
 		            // Configure settings
-		            recognition.continuous = true;	//false;	//true;    //false = stop after single 'utterance'
-		            recognition.interimResults = true;
+		            //recognition.continuous = true;	//false;	//true;    //false = stop after single 'utterance'
+		            //recognition.interimResults = true;
 		            recognition.lang = 'en-US';
-							
+					
+					//recognition.lang = 'en-US'; - Sets the language for better accuracy.
+					recognition.continuous = false; //- (Optional) Stops recognition after a single utterance, useful for number input.
+					recognition.interimResults = false; //- (Optional) //Ensures only final results are returned.
+					
+					//Add Event Listener for result: This is where you process the recognized speech. The result will be in the form of a string (e.g., "one two three" or "123").
+					recognition.onresult = function(event) {
+					    var current = event.resultIndex;
+					    var transcript = event.results[current][0].transcript;
+					    //console.log('Recognized speech: ' + transcript);
+							alert("onresult transcript var = "+transcript);
+					    //processNumber(transcript); // Call a custom function to handle the number
+					};
+					
+/*							
 		            // Handle results
 		            recognition.onresult = (event) => {
 		                let text = '';
@@ -176,25 +190,15 @@
 		                    text += event.results[i][0].transcript;
 		                }
 		                //output.value = text;	// << **!!		
-								/*
-								if (allowedCommands.includes(text)) { // Mar21/26*
-								    //console.log("Valid command:", text);
-									alert("Valid command: "+text);
-								    // Execute command
-								  } else {
-								    //console.log("Invalid command, ignoring:", text);
-									alert("Invalid command, ignoring: "+text);
-								}
-								*/
 						
 							//document.getElementById("transcription-result").focus();
-							if (text=='3'||text=="Three"||text=="33") { 
+							if (text=='3'||text=="Three"||text=="33" ||text=="three"||text=="on three") { 
 								alert("Valid command: "+text);
 								document.getElementById(inputID).value=3; 
 								//localStorage.setItem('g'+p+'H'+h+'s',3); CHGaudio.play();	
 							}							
 							//} else { alert("Invalid command, ignoring: "+text) };
-							else if (text=='4'||text=="Four"||text=="44"||text=="For"||text=="Ford") { 
+							else if (text=='4'||text=="Four"||text=="44"||text=="For"||text=="Ford"||text=="for"||text=="four"||text=="on four") { 
 								alert("Valid command: "+text);
 								document.getElementById(inputID).value=4; 
 								//localStorage.setItem('g'+p+'H'+h+'s',4); CHGaudio.play();	
@@ -233,7 +237,7 @@
 							//alert("text = '"+text+"'");	
 							
 					}
-					
+*/					
 			  }	
 			  
 	    }
