@@ -180,6 +180,7 @@
 					    //console.log('Recognized speech: ' + transcript);
 							alert("onresult transcript var = "+transcript);
 					    //processNumber(transcript); // Call a custom function to handle the number
+						processSR(transcript,h,p);
 					};
 					
 /*							
@@ -245,11 +246,29 @@
 		
 	  }
 	  
-
-
-
-
-
+	function processSR(S,H,P) { // < S=transcript=VRresult=par/bird; H=hole; P=player(1-4)
+		var Hpar = document.getElementById("PARh"+H).value;
+		alert("VR result = "+S+"; HOLE = "+H+"; Player = "+P+"\n"+
+			  "Hole par = "+Hpar+"\n"+
+			  "'p'+P+'h'+H = "+"p"+P+"h"+H +"!");
+		
+		if ((S=='bogie'||S=="Bogie"||S=="Bogey") && Hpar==4) {
+			document.getElementById("p"+P+"h"+H).value=Hpar+1; 
+			//localStorage.setItem('g'+P+'H'+H+'s',6); 
+		}
+		if ((S=='double'||S=="Double") && Hpar==4) {
+			document.getElementById("p"+P+"h"+H).value=Hpar+2; 
+			//localStorage.setItem('g'+P+'H'+H+'s',6); 
+		}
+		if ((S=='on par'||S=="On par") && Hpar==4) {
+			document.getElementById("p"+P+"h"+H).value=Hpar; 
+			//localStorage.setItem('g'+P+'H'+H+'s',6); 
+		}		
+		if ((S=='eagle'||S=="Eagle") && Hpar==4) {
+			document.getElementById("p"+P+"h"+H).value=Hpar-1; 
+			//localStorage.setItem('g'+P+'H'+H+'s',6); 
+		}		
+	}
 
 
 	function codeHELP() {
