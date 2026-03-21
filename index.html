@@ -95,7 +95,7 @@
 		// Use standard or vendor-prefixed speech recognition
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 		const recognition = new SpeechRecognition(); 
-		//const allowedCommands = ["three", "four", "five", "six"];
+		//const allowedCommands = ["three", "four", "five", "six"];  // < M21/26*
 	
 		var VRyn;
 		function fVRyn() {
@@ -105,19 +105,16 @@
 			  } else {
 			    reply = "NO!";
 			  }
+	  		  //alert(reply);			  
 			  if ( reply=="YES!") {	
 				//alert("You replied "+reply); 
 				VRyn = "y";	
-				alert("Can use speech recognition!\n\nSay 'dog/cat/pig/bad 2-7'");
+				alert("Can use speech recognition for P1 & P2!\n\n\tSay 'Two > Eight' (Mar 21, '26)\n");
 				document.getElementById("VRbtn").style.background='green';
 				document.getElementById("VRbtn").innerText='VR -';
-				document.getElementById("TDp2h4").style.borderLeft = "4px solid gold"; // < Mar/26 **
+				document.getElementById("TDp3h4").style.borderLeft = "4px solid gold"; // < Mar/26 **
 				//document.getElementById("TDp2h5").style.borderTop = "4px solid gold";
-				document.getElementById("TDp2h5").style.borderLeft = "4px solid gold";
-				document.getElementById("TDp2h6").style.borderLeft = "4px solid gold";
-					document.getElementById("TDp2h13").style.borderLeft = "4px solid gold"; 
-					document.getElementById("TDp2h14").style.borderLeft = "4px solid gold";
-					document.getElementById("TDp2h15").style.borderLeft = "4px solid gold";
+				document.getElementById("TDp3h5").style.borderLeft = "4px solid gold";
 				//document.getElementById("transcription-result").style.visibility = "visible";
 				document.getElementById("transcription-result").value = "";
 			  }
@@ -126,34 +123,27 @@
 				  alert("Speech recognition is didabled. Enter scored manually.");
 				  document.getElementById("VRbtn").style.background='gray';
 				  document.getElementById("VRbtn").innerText='VR +';
-				  document.getElementById("TDp2h4").style.borderLeft = "0px solid black";
+				  document.getElementById("TDp3h4").style.borderLeft = "0px solid black";
 				  //document.getElementById("TDp2h5").style.borderTop = "0px solid black";
-				  document.getElementById("TDp2h5").style.borderLeft = "0px solid black";
-				  document.getElementById("TDp2h6").style.borderLeft = "0px solid black";
-					document.getElementById("TDp2h13").style.borderLeft = "0px solid black"; 
-					document.getElementById("TDp2h14").style.borderLeft = "0px solid black";
-					document.getElementById("TDp2h15").style.borderLeft = "0px solid black";				  
+				  document.getElementById("TDp3h5").style.borderLeft = "0px solid black";
 				  //document.getElementById("transcription-result").style.visibility = "hidden";
 				  document.getElementById("transcription-result").value = "H";
 			  }
-			  /*
-			  const textT = "cat three";
-			  const txtP = textT.slice(0, 3); //player
-			  const txtS = textT.slice(3); //score
-			  alert("textT = '"+textT+"'!\nP = '"+txtP+"'\nS = '"+txtS+"'");						
-			  */
-			  
+			  //alert("You replied "+reply+"\n\t(VRyn = "+VRyn+")");
 		  }		
 		
 		function CLICKvr(inputID) {
 		  if (VRyn=="y") {  
 			   for (var a = 1; a < 19; a++) {	//a=h; b=p
-					for (var b = 1; b<2; b++) {	
+					for (var b = 1; b<3; b++) {	
 						document.getElementById("TDp"+b+"h"+a).style.border = "0px solid black";   //clear red borders
 					}
 				}
 			  
 			  document.getElementById("TD"+inputID).style.border = "2px solid red";   // < Mar/26 **
+			  
+			  //const allowedCommands = ["three", "four", "five", "six"];  // < M21/26*
+			  
 			  let p = inputID.charAt(1); 
 			  var h;
 			  if ( inputID.length > 4 ) {
@@ -164,16 +154,16 @@
 					document.getElementById(inputID).addEventListener('focus', (event) => {
 						event.target.blur();
 					});
-					//document.getElementById(inputID).inputmode="none";
-					//document.getElementById(inputID).readonly="true";				
-				  
+					
 			  var CHGaudio = new Audio('mixkit-modern-technology-select-3124.wav'); // < **
 			  
 			  if (SpeechRecognition) {        
-					recognition.start();
+					//const allowedCommands = ["three", "four", "five", "six"];  // < M21/26*
+				    //const recognition = new SpeechRecognition(); 
+						recognition.start();
+		            //const toggleButton = document.getElementById("toggle-recording");
 		            const output = document.getElementById("transcription-result");
 		            let isRecording = false;
-
 		            // Configure settings
 		            recognition.continuous = true;	//false;	//true;    //false = stop after single 'utterance'
 		            recognition.interimResults = true;
@@ -187,77 +177,77 @@
 		                }
 		                //output.value = text;	// << **!!		
 								/*
-								if (allowedCommands.includes(text)) {
-								    console.log("Valid command:", text);
-									alert("Valid command:", text);
+								if (allowedCommands.includes(text)) { // Mar21/26*
+								    //console.log("Valid command:", text);
+									alert("Valid command: "+text);
 								    // Execute command
 								  } else {
-								    console.log("Invalid command, ignoring:", text);
-									alert("Invalid command, ignoring:", text);
+								    //console.log("Invalid command, ignoring:", text);
+									alert("Invalid command, ignoring: "+text);
 								}
 								*/
-							//var text = "cat three";			 //dog/cat/cow/pig
-							let txtP = text.slice(0, 3); //player
-							let txtS = text.slice(3); //dictated score
-							var S; //score integer!
-							/*if ( text!="" ) {
-								alert("text = '"+text+"'!\nP = '"+txtP+"'\nS = '"+txtS+"'");
-							}*/
-							if (txtP=='cat'||txtP=='Cat') {p=2}
-								else if (txtP=='dog'||txtP=='Dog') {p=1}
-								else if (txtP=='pig'||txtP=='Pig') {p=3}
-								else if (txtP=='bad'||txtP=='Bad') {p=4} // < 'cow' too soft (? > 'bad')
-								else {p=0};
-							if (txtS==' three'||txtS=='three'||txtS=='3'||txtS==' 3') {S=3}
-								else if (txtS==' four'||txtS=='four'||txtS=='4'||txtS=='for'||txtS==' for'
-									||txtS==' 4') {S=4}
-								else if (txtS==' five'||txtS=='five'||txtS=='5'||txtS==' 5') {S=5}
-								else if (txtS==' six'||txtS=='six'||txtS=='6'||txtS==' 6'||txtS==' sex') {S=6}
-								else if (txtS==' seven'||txtS=='seven'||txtS=='7'||txtS==' 7') {S=7}
-								else if (txtS==' two'||txtS=='two'||txtS=='2'||txtS==' 2'||txtS==' to'||txtS=='2') {S=2}
-								else {
-									//document.getElementById('p2H'+h).value=null;
-									//return; // < ?????? **}
-									S=8; //alert("S=9!");
-								}
-							/*
-							if ( text!="" && text.length>3 ) {		//&& S!=0) {
-								alert("text = '"+text+"'!\nP = '"+txtP+"'\nS = '"+txtS+"'\n\n"+
-									  "p = "+p+"; h = "+h+"; S = "+S+"\n"+
-								  		"inputID = "+inputID+"\n"+
-								  		"'p'+p+'h'+h = "+'p'+p+'h'+h + "\n\n"+
-										"text.length = "+text.length);
+						
+							//document.getElementById("transcription-result").focus();
+							if (text=='3'||text=="Three"||text=="33") { 
+								alert("Valid command: "+text);
+								document.getElementById(inputID).value=3; 
+								//localStorage.setItem('g'+p+'H'+h+'s',3); CHGaudio.play();	
+							}							
+							//} else { alert("Invalid command, ignoring: "+text) };
+							else if (text=='4'||text=="Four"||text=="44"||text=="For"||text=="Ford") { 
+								alert("Valid command: "+text);
+								document.getElementById(inputID).value=4; 
+								//localStorage.setItem('g'+p+'H'+h+'s',4); CHGaudio.play();	
+							}							
+							//} else { alert("Invalid command, ignoring: "+text) };	
+							else if (text=='5'||text=="Five"||text=="55") { 
+								alert("Valid command: "+text);
+								document.getElementById(inputID).value=5; 
+								//localStorage.setItem('g'+p+'H'+h+'s',5); CHGaudio.play();								
+							} 
+							else if (text=='2'||text=="Two"||text=="22"||text=="To"||text=="True") { 
+								alert("Valid command: "+text);
+								document.getElementById(inputID).value=2; 
+								//localStorage.setItem('g'+p+'H'+h+'s',2); CHGaudio.play();								
+							} 
+							else if (text=='6'||text=="Six"||text=="66"||text=="Sex") { 
+								alert("Valid command: "+text);
+								document.getElementById(inputID).value=6; 
+								//localStorage.setItem('g'+p+'H'+h+'s',6); CHGaudio.play();								
 							}
-							*/
-							document.getElementById('p'+p+'h'+h).value=S;	//+S; 	
-							/*
-							else if (text=='dog three') { //pl2
-								document.getElementById('p2H'+h).value=3; 
-								localStorage.setItem('g2H'+h+'s',3);
-								CHGaudio.play();
+							else if (text=='7'||text=="Seven"||text=="77") { 
+								alert("Valid command: "+text);
+								document.getElementById(inputID).value=7; 
+								//localStorage.setItem('g'+p+'H'+h+'s',7); CHGaudio.play();								
 							}
-							else if (text=='dog four') { 
-								document.getElementById('p2H'+h).value=4; 
-								localStorage.setItem('g2H'+h+'s',4);
-								CHGaudio.play();
+							else if (text=='8'||text=="Eight"||text=="88"||text=="Ate"||text=="It") { 
+								alert("Valid command: "+text);
+								document.getElementById(inputID).value=8; 
+								//localStorage.setItem('g'+p+'H'+h+'s',8); CHGaudio.play();								
 							}
-							else { 
-								alert("Input NOT = 01-09 or dog3/dog4\n"+
-									  "text = '"+text+"'");			// [or 'one nine']!");
-								document.getElementById('p2H'+h).value=null;
-								return; // < ?????? **
-							}
-							*/
-					} //end recognition.onresult = (event) => 
+							else { alert("Invalid command, ignoring: "+text) };													
+							
+							
+							
+							//output.value = text;		// < deleted Mar 18, 2026 (??) ** // **!!
+							//alert("text = '"+text+"'");	
+							
+					}
 					
-			  }	//end if (SpeechRecognition)
+			  }	
 			  
-	    } //end if (VRyn=="y")
+	    }
 		
 		
-	  } //end function
+	  }
 	  
-	  
+
+
+
+
+
+
+
 	function codeHELP() {
 		alert("CODING Help:\n\n"+
 			"To start new round: MENU > CLEAR 'saved' scores\n\n"+ 
@@ -640,7 +630,7 @@
 				-->
 				
 <TABLE id="HEADtbl" border=1 align=center style='FONT-SIZE:large; color:maroon; visibility:visible;' bgcolor='lightgray'>	
-	<TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:gold; background:purple; FONT-WEIGHT:bold;" >!gs63<br><font size=2 color=silver><b>M26d<font color=gold>&#9733;<!--&#10024;--></font></b></font>	
+	<TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:gold; background:purple; FONT-WEIGHT:bold;" >!gs63<br><font size=2 color=silver><b>M26e<font color=gold>&#9733;<!--&#10024;--></font></b></font>	
 </TD> <!--<TD width=20><font size=1>93i</font></TD>	-->
 <TD>
 					<div class="dropup" style="cursor:pointer; color:black; background:lightgray; /*position:relative; left:18%;*/">
@@ -704,7 +694,7 @@
 			<tr>
 				<TH id="H1" style="cursor:pointer;" onclick="cellTOslide(1,1)">1</TH>
 				<td id="TDp1h1"> <input class='' type="tel" id="p1h1" maxlength=1 onclick="changeGLOBAL('p1h1')" tabindex="1" onchange="localStorage.setItem('g1H1s',this.value);" onfocus="FOCUSfn('p1h1')" onblur="BLURfn('p1h1')" onkeyup="KeyUp()" onmousedown="CLICKvr('p1h1')"><span id='SPp1h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	<!-- WORKS! -->				
-				<td id="TDp2h1"> <input class='' type="tel" maxlength=1 id="p2h1"  onclick="changeGLOBAL('p2h1')"  tabindex="2" onchange="localStorage.setItem('g2H1s',this.value);" onfocus="FOCUSfn('p2h1')" onblur="BLURfn('p2h1')"  onkeyup="KeyUp()" onmousedown=""><span id='SPp2h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>					
+				<td id="TDp2h1"> <input class='' type="tel" maxlength=1 id="p2h1"  onclick="changeGLOBAL('p2h1')"  tabindex="2" onchange="localStorage.setItem('g2H1s',this.value);" onfocus="FOCUSfn('p2h1')" onblur="BLURfn('p2h1')"  onkeyup="KeyUp()" onmousedown="CLICKvr('p2h1')"><span id='SPp2h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>					
 				<td id="TDp3h1"> <input class='' type="tel" id="p3h1" maxlength=1 onclick="changeGLOBAL('p3h1')" tabindex="3" onchange="localStorage.setItem('g3H1s',this.value);" onfocus="FOCUSfn('p3h1')" onblur="BLURfn('p3h1')"  onkeyup="KeyUp()"><span id='SPp3h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> <!-- WORKS! * -->				
 				<td id="TDp4h1"> <input class='' type="tel" maxlength=1 id="p4h1"  onclick="changeGLOBAL('p4h1')" tabindex="4" onchange="localStorage.setItem('g4H1s',this.value);" onfocus="FOCUSfn('p4h1')" onblur="BLURfn('p4h1')""  onkeyup="KeyUp()"><span id='SPp4h1' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>					
 				<td id="TDp5h1"> <input class='' type="tel" maxlength=1 id="p5h1" onclick="changeGLOBAL('p5h1')"  tabindex="5" onchange="localStorage.setItem('g5H1s',this.value);" onfocus="FOCUSfn('p5h1')" onblur="BLURfn('p5h1')" onkeyup="KeyUp()"> <br> 
@@ -722,7 +712,7 @@
 				<TH id="H2" style="cursor:pointer;" onclick="cellTOslide(1,2)">2</TH>
 				<td id="TDp1h2"> <input class='' id="p1h2" type="tel" maxlength=1 onclick="changeGLOBAL('p1h2')" tabindex="6" onchange="localStorage.setItem('g1H2s',this.value);" onfocus="FOCUSfn('p1h2')" onblur="BLURfn('p1h2')"  onkeyup="KeyUp()" onmousedown="CLICKvr('p1h2')"><span id='SPp1h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
 				<td id="TDp2h2">	<!-- style='border:2px solid orange; background:orange;' -->  
-					<input class=''  id="p2h2" type="tel" maxlength=1 onclick="changeGLOBAL('p2h2')" tabindex="7" onchange="localStorage.setItem('g2H2s',this.value);" onfocus="FOCUSfn('p2h2')" onblur="BLURfn('p2h2')"  onkeyup="KeyUp()" onmousedown=""><span id='SPp2h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
+					<input class=''  id="p2h2" type="tel" maxlength=1 onclick="changeGLOBAL('p2h2')" tabindex="7" onchange="localStorage.setItem('g2H2s',this.value);" onfocus="FOCUSfn('p2h2')" onblur="BLURfn('p2h2')"  onkeyup="KeyUp()" onmousedown="CLICKvr('p2h2')"><span id='SPp2h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
 				<td id="TDp3h2"> <input class=''  id="p3h2" type="tel" maxlength=1 onclick="changeGLOBAL('p3h2')" tabindex="8" onchange="localStorage.setItem('g3H2s',this.value);" onfocus="FOCUSfn('p3h2')" onblur="BLURfn('p3h2')"  onkeyup="KeyUp()"><span id='SPp3h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
 				<td id="TDp4h2"> <input class=''  id="p4h2" type="tel" maxlength=1 onclick="changeGLOBAL('p4h2')" tabindex="9" onchange="localStorage.setItem('g4H2s',this.value);" onfocus="FOCUSfn('p4h2')" onblur="BLURfn('p4h2')"  onkeyup="KeyUp()"><span id='SPp4h2' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
 				<td id="TDp5h2"> <input class=''  id="p5h2" type="tel" maxlength=1 onclick="changeGLOBAL('p5h2')" tabindex="10"
@@ -740,7 +730,7 @@
 				<td id="TDp1h3"> <input id="p1h3" type="tel" maxlength=1 onclick="changeGLOBAL('p1h3')" tabindex="11" onchange="localStorage.setItem('g1H3s',this.value);" onfocus="FOCUSfn('p1h3')" onblur="BLURfn('p1h3')"  onkeyup="KeyUp()" onmousedown="CLICKvr('p1h3')"><span id='SPp1h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
 <!-- onchange test ^ : -->
 				<td id="TDp2h3" style='background:black;'> <input id="p2h3" type="tel" maxlength=1 onclick="changeGLOBAL('p2h3')" tabindex="12" 
-						onchange="localStorage.setItem('g2H3s',this.value);" onfocus="FOCUSfn('p2h3')" onblur="BLURfn('p2h3')"  onkeyup="KeyUp()" onmousedown=""><span id='SPp2h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+						onchange="localStorage.setItem('g2H3s',this.value);" onfocus="FOCUSfn('p2h3')" onblur="BLURfn('p2h3')"  onkeyup="KeyUp()" onmousedown="CLICKvr('p2h3')"><span id='SPp2h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
 
 				<td id="TDp3h3"> <input class='' id="p3h3" type="tel" maxlength=1 onclick="changeGLOBAL('p3h3')" tabindex="13" onchange="localStorage.setItem('g3H3s',this.value);" onfocus="FOCUSfn('p3h3')" onblur="BLURfn('p3h3')"  onkeyup="KeyUp()"><span id='SPp3h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<td id="TDp4h3"> <input class='' id="p4h3" type="tel" maxlength=1 onclick="changeGLOBAL('p4h3')" tabindex="14" onchange="localStorage.setItem('g4H3s',this.value);" onfocus="FOCUSfn('p4h3')" onblur="BLURfn('p4h3')"  onkeyup="KeyUp()"><span id='SPp4h3' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
@@ -757,7 +747,7 @@
 			<tr> <TH id="H4" style="cursor:pointer;" onclick="cellTOslide(1,4)">4</TH> 
 				<td id="TDp1h4"> <input class='' type="tel" id="p1h4" maxlength=1 onclick="changeGLOBAL('p1h4')" tabindex="16"  onchange="localStorage.setItem('g1H4s',this.value);" onfocus="FOCUSfn('p1h4')" onblur="BLURfn('p1h4')"  onkeyup="KeyUp()" onmousedown="CLICKvr('p1h4')"><span id='SPp1h4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
 				<td id="TDp2h4"> <input class='' type="tel" id="p2h4" maxlength=1 onclick="changeGLOBAL('p2h4')" tabindex="17" 
-					onchange="localStorage.setItem('g2H4s',this.value);" onfocus="FOCUSfn('p2h4')" onblur="BLURfn('p2h4')"  onkeyup="KeyUp()" onmousedown=""><span id='SPp2h4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+					onchange="localStorage.setItem('g2H4s',this.value);" onfocus="FOCUSfn('p2h4')" onblur="BLURfn('p2h4')"  onkeyup="KeyUp()" onmousedown="CLICKvr('p2h4')"><span id='SPp2h4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
 				<td id="TDp3h4"> <input class='' type="tel" id="p3h4" maxlength=1 onclick="changeGLOBAL('p3h4')" tabindex="18" 
 					onchange="localStorage.setItem('g3H4s',this.value);" onfocus="FOCUSfn('p3h4')" onblur="BLURfn('p3h4')"  onkeyup="KeyUp()"><span id='SPp3h4' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<td id="TDp4h4"> <input class='' type="tel" id="p4h4" maxlength=1 onclick="changeGLOBAL('p4h4')" tabindex="19" 
@@ -777,7 +767,7 @@
 			</tr>	
 			<tr> <TH id="H5" style="cursor:pointer;" onclick="cellTOslide(1,5)">5</TH> 
 				<td id="TDp1h5"> <input class='' type="tel" id="p1h5" maxlength=1 onclick="changeGLOBAL('p1h5')" tabindex="21" onchange="localStorage.setItem('g1H5s',this.value);" onfocus="FOCUSfn('p1h5')" onblur="BLURfn('p1h5')"  onkeyup="KeyUp()" onmousedown="CLICKvr('p1h5')"><span id='SPp1h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
-				<td id="TDp2h5"> <input class='' type="tel" id="p2h5" maxlength=1 onclick="changeGLOBAL('p2h5')" tabindex="22" onchange="localStorage.setItem('g2H5s',this.value);" onfocus="FOCUSfn('p2h5')" onblur="BLURfn('p2h5')"  onkeyup="KeyUp()" onmousedown=""><span id='SPp2h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td id="TDp2h5"> <input class='' type="tel" id="p2h5" maxlength=1 onclick="changeGLOBAL('p2h5')" tabindex="22" onchange="localStorage.setItem('g2H5s',this.value);" onfocus="FOCUSfn('p2h5')" onblur="BLURfn('p2h5')"  onkeyup="KeyUp()" onmousedown="CLICKvr('p2h5')"><span id='SPp2h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
 				<td id="TDp3h5"> <input class='' type="tel" id="p3h5" maxlength=1 onclick="changeGLOBAL('p3h5')" tabindex="23" onchange="localStorage.setItem('g3H5s',this.value);" onfocus="FOCUSfn('p3h5')" onblur="BLURfn('p3h5')"  onkeyup="KeyUp()"><span id='SPp3h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<td id="TDp4h5"> <input class='' type="tel" id="p4h5" maxlength=1 onclick="changeGLOBAL('p4h5')" tabindex="24" onchange="localStorage.setItem('g4H5s',this.value);" onfocus="FOCUSfn('p4h5')" onblur="BLURfn('p4h5')"  onkeyup="KeyUp()"><span id='SPp4h5' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<td id="TDp5h5"> <input class='' type="tel" id="p5h5" maxlength=1 onclick="changeGLOBAL('p5h5')" tabindex="25"
@@ -794,7 +784,7 @@
 			</tr>	
 			<tr> <TH id="H6" style="cursor:pointer;" onclick="cellTOslide(1,6)" >6</TH> 
 				<td id="TDp1h6"> <input class='' type="tel" id="p1h6" maxlength=1 onclick="changeGLOBAL('p1h6')" tabindex="26" onchange="localStorage.setItem('g1H6s',this.value);" onfocus="FOCUSfn('p1h6')" onblur="BLURfn('p1h6')"  onkeyup="KeyUp()" onmousedown="CLICKvr('p1h6')"><span id='SPp1h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
-				<td id="TDp2h6"> <input class='' type="tel" id="p2h6" maxlength=1 onclick="changeGLOBAL('p2h6')" tabindex="27" onchange="localStorage.setItem('g2H6s',this.value);" onfocus="FOCUSfn('p2h6')" onblur="BLURfn('p2h6')"  onkeyup="KeyUp()" onmousedown=""><span id='SPp2h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td id="TDp2h6"> <input class='' type="tel" id="p2h6" maxlength=1 onclick="changeGLOBAL('p2h6')" tabindex="27" onchange="localStorage.setItem('g2H6s',this.value);" onfocus="FOCUSfn('p2h6')" onblur="BLURfn('p2h6')"  onkeyup="KeyUp()" onmousedown="CLICKvr('p2h6')"><span id='SPp2h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
 				<td id="TDp3h6"> <input class='' type="tel" id="p3h6" maxlength=1 onclick="changeGLOBAL('p3h6')" tabindex="28" onchange="localStorage.setItem('g3H6s',this.value);" onfocus="FOCUSfn('p3h6')" onblur="BLURfn('p3h6')"  onkeyup="KeyUp()"><span id='SPp3h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<td id="TDp4h6"> <input class='' type="tel" id="p4h6" maxlength=1 onclick="changeGLOBAL('p4h6')" tabindex="29" onchange="localStorage.setItem('g4H6s',this.value);" onfocus="FOCUSfn('p4h6')" onblur="BLURfn('p4h6')"  onkeyup="KeyUp()"><span id='SPp4h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<td id="TDp5h6"> <input class='' type="tel" id="p5h6" maxlength=1 onclick="changeGLOBAL('p5h6')" tabindex="30" onchange="localStorage.setItem('g5H6s',this.value);" onfocus="FOCUSfn('p5h6')" onblur="BLURfn('p5h6')" onkeyup="KeyUp()"> <br> <span id='SPp5h6' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
@@ -808,7 +798,7 @@
 			</tr>	
 			<tr> <TH id="H7" style="cursor:pointer;" onclick="cellTOslide(1,7)" >7</TH> 
 				<td id="TDp1h7"> <input class='' type="tel" id="p1h7" maxlength=1 onclick="changeGLOBAL('p1h7')" tabindex="31" onchange="localStorage.setItem('g1H7s',this.value);" onfocus="FOCUSfn('p1h7')" onblur="BLURfn('p1h7')"  onkeyup="KeyUp()" onmousedown="CLICKvr('p1h7')"><span id='SPp1h7' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
-				<td id="TDp2h7"> <input class='' type="tel" id="p2h7" maxlength=1 onclick="changeGLOBAL('p2h7')" tabindex="32" onchange="localStorage.setItem('g2H7s',this.value);" onfocus="FOCUSfn('p2h7')" onblur="BLURfn('p2h7')"  onkeyup="KeyUp()" onmousedown=""><span id='SPp2h7' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td id="TDp2h7"> <input class='' type="tel" id="p2h7" maxlength=1 onclick="changeGLOBAL('p2h7')" tabindex="32" onchange="localStorage.setItem('g2H7s',this.value);" onfocus="FOCUSfn('p2h7')" onblur="BLURfn('p2h7')"  onkeyup="KeyUp()" onmousedown="CLICKvr('p2h7')"><span id='SPp2h7' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
 				<td id="TDp3h7"> <input class='' type="tel" id="p3h7" maxlength=1 onclick="changeGLOBAL('p3h7')" tabindex="33" onchange="localStorage.setItem('g3H7s',this.value);" onfocus="FOCUSfn('p3h7')" onblur="BLURfn('p3h7')"  onkeyup="KeyUp()"><span id='SPp3h7' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<td id="TDp4h7"> <input class='' type="tel" id="p4h7" maxlength=1 onclick="changeGLOBAL('p4h7')" tabindex="34" onchange="localStorage.setItem('g4H7s',this.value);" onfocus="FOCUSfn('p4h7')" onblur="BLURfn('p4h7')"  onkeyup="KeyUp()"><span id='SPp4h7' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<td id="TDp5h7"> <input class='' type="tel" id="p5h7" maxlength=1 onclick="changeGLOBAL('p5h7')" tabindex="35" onchange="localStorage.setItem('g5H7s',this.value);" onfocus="FOCUSfn('p5h7')" onblur="BLURfn('p5h7')" onkeyup="KeyUp()"> <br> <span id='SPp5h7' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
@@ -822,7 +812,7 @@
 			</tr>
 			<tr> <TH id="H8" style="cursor:pointer;" onclick="cellTOslide(1,8)" >8</TH> 
 				<td id="TDp1h8"> <input class='' type="tel" id="p1h8" maxlength=1 onclick="changeGLOBAL('p1h8')" tabindex="36" onchange="localStorage.setItem('g1H8s',this.value);" onfocus="FOCUSfn('p1h8')" onblur="BLURfn('p1h8')"  onkeyup="KeyUp()" onmousedown="CLICKvr('p1h8')"><span id='SPp1h8' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
-				<td id="TDp2h8"> <input class='' type="tel" id="p2h8" maxlength=1 onclick="changeGLOBAL('p2h8')" tabindex="37" onchange="localStorage.setItem('g2H8s',this.value);" onfocus="FOCUSfn('p2h8')" onblur="BLURfn('p2h8')"  onkeyup="KeyUp()" onmousedown=""><span id='SPp2h8' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td id="TDp2h8"> <input class='' type="tel" id="p2h8" maxlength=1 onclick="changeGLOBAL('p2h8')" tabindex="37" onchange="localStorage.setItem('g2H8s',this.value);" onfocus="FOCUSfn('p2h8')" onblur="BLURfn('p2h8')"  onkeyup="KeyUp()" onmousedown="CLICKvr('p2h8')"><span id='SPp2h8' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
 				<td id="TDp3h8"> <input class='' type="tel" id="p3h8" maxlength=1 onclick="changeGLOBAL('p3h8')" tabindex="38" onchange="localStorage.setItem('g3H8s',this.value);" onfocus="FOCUSfn('p3h8')" onblur="BLURfn('p3h8')"  onkeyup="KeyUp()"><span id='SPp3h8' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<td id="TDp4h8"> <input class='' type="tel" id="p4h8" maxlength=1 onclick="changeGLOBAL('p4h8')" tabindex="39" onchange="localStorage.setItem('g4H8s',this.value);" onfocus="FOCUSfn('p4h8')" onblur="BLURfn('p4h8')"  onkeyup="KeyUp()"><span id='SPp4h8' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<td id="TDp5h8"> <input class='' type="tel" id="p5h8" maxlength=1 onclick="changeGLOBAL('p5h8')" tabindex="40" onchange="localStorage.setItem('g5H8s',this.value);" onfocus="FOCUSfn('p5h8')" onblur="BLURfn('p5h8')" onkeyup="KeyUp()"> <br> <span id='SPp5h8' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
@@ -842,7 +832,7 @@
 			</tr>
 			<tr> <TH id="H9" style="cursor:pointer;" onclick="cellTOslide(1,9)" >9</TH> 
 				<td id="TDp1h9"> <input class='' type="tel" id="p1h9" maxlength=1 onclick="changeGLOBAL('p1h9')" tabindex="41" onchange="localStorage.setItem('g1H9s',this.value);" onfocus="FOCUSfn('p1h9')" onblur="BLURfn('p1h9')"  onkeyup="KeyUp()" onmousedown="CLICKvr('p1h9')"><span id='SPp1h9' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
-				<td id="TDp2h9"> <input class='' type="tel" id="p2h9" maxlength=1 onclick="changeGLOBAL('p2h9')" tabindex="42" onchange="localStorage.setItem('g2H9s',this.value);" onfocus="FOCUSfn('p2h9')" onblur="BLURfn('p2h9')"  onkeyup="KeyUp()" onmousedown=""><span id='SPp2h9' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td id="TDp2h9"> <input class='' type="tel" id="p2h9" maxlength=1 onclick="changeGLOBAL('p2h9')" tabindex="42" onchange="localStorage.setItem('g2H9s',this.value);" onfocus="FOCUSfn('p2h9')" onblur="BLURfn('p2h9')"  onkeyup="KeyUp()" onmousedown="CLICKvr('p2h9')"><span id='SPp2h9' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
 				<td id="TDp3h9"> <input class='' type="tel" id="p3h9" maxlength=1 onclick="changeGLOBAL('p3h9')" tabindex="43" onchange="localStorage.setItem('g3H9s',this.value);" onfocus="FOCUSfn('p3h9')" onblur="BLURfn('p3h9')"  onkeyup="KeyUp()"><span id='SPp3h9' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<td id="TDp4h9"> <input class='' type="tel" id="p4h9" maxlength=1 onclick="changeGLOBAL('p4h9')" tabindex="44" onchange="localStorage.setItem('g4H9s',this.value);" onfocus="FOCUSfn('p4h9')" onblur="BLURfn('p4h9')"  onkeyup="KeyUp()"><span id='SPp4h9' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<td id="TDp5h9"> <input class='' type="tel" id="p5h9" maxlength=1 onclick="changeGLOBAL('p5h9')" tabindex="45" onchange="localStorage.setItem('g5H9s',this.value);" onfocus="FOCUSfn('p5h9')" onblur="BLURfn('p5h9')" onkeyup="KeyUp()"> <br> <span id='SPp5h9' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
@@ -893,7 +883,7 @@
 			<tr>
 				<TH id="H10" style="cursor:pointer;" onclick="cellTOslide(1,10)">10</TH>
 				<td id="TDp1h10"> <input class='' type="tel" id="p1h10" maxlength=1 onclick="changeGLOBAL('p1h10')" tabindex="46" onchange="localStorage.setItem('g1H10s',this.value);" onfocus="FOCUSfn('p1h10')" onblur="BLURfn('p1h10')" onkeyup="KeyUp()" onmousedown="CLICKvr('p1h10')"><span id='SPp1h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
-				<td id="TDp2h10"> <input class='' type="tel" id="p2h10" maxlength=1 onclick="changeGLOBAL('p2h10')"  tabindex="47" onchange="localStorage.setItem('g2H10s',this.value);" onfocus="FOCUSfn('p2h10')" onblur="BLURfn('p2h10')" onkeyup="KeyUp()" onmousedown=""><span id='SPp2h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	
+				<td id="TDp2h10"> <input class='' type="tel" id="p2h10" maxlength=1 onclick="changeGLOBAL('p2h10')"  tabindex="47" onchange="localStorage.setItem('g2H10s',this.value);" onfocus="FOCUSfn('p2h10')" onblur="BLURfn('p2h10')" onkeyup="KeyUp()" onmousedown="CLICKvr('p2h10')"><span id='SPp2h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	
 				<td id="TDp3h10"> <input class='' type="tel" id="p3h10" maxlength=1 onclick="changeGLOBAL('p3h10')" tabindex="48" onchange="localStorage.setItem('g3H10s',this.value);" onfocus="FOCUSfn('p3h10')" onblur="BLURfn('p3h10')"  onkeyup="KeyUp()"><span id='SPp3h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
 				<td id="TDp4h10"> <input class='' type="tel" id="p4h10" maxlength=1 onclick="changeGLOBAL('p4h10')" tabindex="49"  onchange="localStorage.setItem('g4H10s',this.value);" onfocus="FOCUSfn('p4h10')" onblur="BLURfn('p4h10')"  onkeyup="KeyUp()"><span id='SPp4h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	
 				<td id="TDp5h10"> <input class='' type="tel" id="p5h10" maxlength=1 onclick="changeGLOBAL('p5h10')"  tabindex="50" onchange="localStorage.setItem('g5H10s',this.value);" onfocus="FOCUSfn('p5h10')" onblur="BLURfn('p5h10')" onkeyup="KeyUp()"> <br> <span id='SPp5h10' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
@@ -909,7 +899,7 @@
 				<TH id="H11" style="cursor:pointer;" onclick="cellTOslide(1,11)">11</TH>
 				<td id="TDp1h11"> <input class='' type="tel" id="p1h11" maxlength=1 onclick="changeGLOBAL('p1h11')" tabindex="51" onchange="localStorage.setItem('g1H11s',this.value);" onfocus="FOCUSfn('p1h11')" onblur="BLURfn('p1h11')" onkeyup="KeyUp()" onmousedown="CLICKvr('p1h11')"><span id='SPp1h11' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
 				<td id="TDp2h11">	<!-- style='background:orange;' --> 
-					<input class='' type="tel" id="p2h11" maxlength=1 onclick="changeGLOBAL('p2h11')" tabindex="52" onchange="localStorage.setItem('g2H11s',this.value);" onfocus="FOCUSfn('p2h11')" onblur="BLURfn('p2h11')" onkeyup="KeyUp()" onmousedown=""><span id='SPp2h11' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
+					<input class='' type="tel" id="p2h11" maxlength=1 onclick="changeGLOBAL('p2h11')" tabindex="52" onchange="localStorage.setItem('g2H11s',this.value);" onfocus="FOCUSfn('p2h11')" onblur="BLURfn('p2h11')" onkeyup="KeyUp()" onmousedown="CLICKvr('p2h11')"><span id='SPp2h11' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
 				<td id="TDp3h11"> <input class='' type="tel" id="p3h11" maxlength=1 onclick="changeGLOBAL('p3h11')" tabindex="53" onchange="localStorage.setItem('g3H11s',this.value);" onfocus="FOCUSfn('p3h11')" onblur="BLURfn('p3h11')"  onkeyup="KeyUp()"><span id='SPp3h11' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
 				<td id="TDp4h11"> <input class='' type="tel" id="p4h11" maxlength=1 onclick="changeGLOBAL('p4h11')" tabindex="54" onchange="localStorage.setItem('g4H11s',this.value);" onfocus="FOCUSfn('p4h11')" onblur="BLURfn('p4h11')"  onkeyup="KeyUp()"><span id='SPp4h11' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
 				<td id="TDp5h11"> <input class='' type="tel" id="p5h11" maxlength=1 onclick="changeGLOBAL('p5h11')" tabindex="55" onchange="localStorage.setItem('g5H11s',this.value);" onfocus="FOCUSfn('p5h11')" onblur="BLURfn('p5h11')" onkeyup="KeyUp()"> <br> <span id='SPp5h11' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>
@@ -923,7 +913,7 @@
 			</tr>				
 			<tr> <TH id="H12" style="cursor:pointer;" onclick="cellTOslide(1,12)">12</TH> 
 				<td id="TDp1h12"> <input type="tel" id="p1h12" maxlength=1 onclick="changeGLOBAL('p1h12')" tabindex="56" onchange="localStorage.setItem('g1H12s',this.value);" onfocus="FOCUSfn('p1h12')" onblur="BLURfn('p1h12')"  onkeyup="KeyUp()" onmousedown="CLICKvr('p1h12')"><span id='SPp1h12' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
-				<td id="TDp2h12"> <input type="tel" id="p2h12" maxlength=1 onclick="changeGLOBAL('p2h12')" tabindex="57" onchange="localStorage.setItem('g2H12s',this.value);" onfocus="FOCUSfn('p2h12')" onblur="BLURfn('p2h12')"  onkeyup="KeyUp()" onmousedown=""><span id='SPp2h12' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td id="TDp2h12"> <input type="tel" id="p2h12" maxlength=1 onclick="changeGLOBAL('p2h12')" tabindex="57" onchange="localStorage.setItem('g2H12s',this.value);" onfocus="FOCUSfn('p2h12')" onblur="BLURfn('p2h12')"  onkeyup="KeyUp()" onmousedown="CLICKvr('p2h12')"><span id='SPp2h12' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
 				<td id="TDp3h12"> <input class='' type="tel" id="p3h12" maxlength=1 onclick="changeGLOBAL('p3h12')" tabindex="58" onchange="localStorage.setItem('g3H12s',this.value);" onfocus="FOCUSfn('p3h12')" onblur="BLURfn('p3h12')"  onkeyup="KeyUp()"><span id='SPp3h12' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<td id="TDp4h12"> <input class='' type="tel" id="p4h12" maxlength=1 onclick="changeGLOBAL('p4h12')" tabindex="59" onchange="localStorage.setItem('g4H12s',this.value);" onfocus="FOCUSfn('p4h12')" onblur="BLURfn('p4h12')"  onkeyup="KeyUp()"><span id='SPp4h12' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<td id="TDp5h12"> <input class='' type="tel" id="p5h12" maxlength=1 onclick="changeGLOBAL('p5h12')" tabindex="60"
@@ -939,7 +929,7 @@
 			</tr>							
 			<tr> <TH id="H13" style="cursor:pointer;" onclick="cellTOslide(1,13)">13</TH> 
 				<td id="TDp1h13"> <input type="tel" id="p1h13" maxlength=1 onclick="changeGLOBAL('p1h13')" tabindex="61" onchange="localStorage.setItem('g1H13s',this.value);" onfocus="FOCUSfn('p1h13')" onblur="BLURfn('p1h13')" onkeyup="KeyUp()" onmousedown="CLICKvr('p1h13')"><span id='SPp1h13' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
-				<td id="TDp2h13"> <input type="tel" id="p2h13" maxlength=1 onclick="changeGLOBAL('p2h13')" tabindex="62" onchange="localStorage.setItem('g2H13s',this.value);" onfocus="FOCUSfn('p2h13')" onblur="BLURfn('p2h13')" onkeyup="KeyUp()" onmousedown=""><span id='SPp2h13' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
+				<td id="TDp2h13"> <input type="tel" id="p2h13" maxlength=1 onclick="changeGLOBAL('p2h13')" tabindex="62" onchange="localStorage.setItem('g2H13s',this.value);" onfocus="FOCUSfn('p2h13')" onblur="BLURfn('p2h13')" onkeyup="KeyUp()" onmousedown="CLICKvr('p2h13')"><span id='SPp2h13' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td> 
 				<td id="TDp3h13"> <input class='' type="tel" id="p3h13" maxlength=1 onclick="changeGLOBAL('p3h13')" tabindex="63" onchange="localStorage.setItem('g3H13s',this.value);" onfocus="FOCUSfn('p3h13')" onblur="BLURfn('p3h13')"  onkeyup="KeyUp()"><span id='SPp3h13' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<td id="TDp4h13"> <input class='' type="tel" id="p4h13" maxlength=1 onclick="changeGLOBAL('p4h13')" tabindex="64" onchange="localStorage.setItem('g4H13s',this.value);" onfocus="FOCUSfn('p4h13')" onblur="BLURfn('p4h13')"  onkeyup="KeyUp()"><span id='SPp4h13' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
 				<td id="TDp5h13"> <input class='' type="tel" id="p5h13" maxlength=1 onclick="changeGLOBAL('p5h13')" tabindex="65" onchange="localStorage.setItem('g5H13s',this.value);" onfocus="FOCUSfn('p5h13')" onblur="BLURfn('p5h13')" onkeyup="KeyUp()"> <br> <span id='SPp5h13' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td> 
@@ -955,7 +945,7 @@
 				<TH id="H14" style="cursor:pointer;" onclick="cellTOslide(1,14)">14</TH>
 				<td id="TDp1h14"> <input class='' type="tel" id="p1h14" maxlength=1 onclick="changeGLOBAL('p1h14')" tabindex="66" onchange="localStorage.setItem('g1H14s',this.value);" onfocus="FOCUSfn('p1h14')" onblur="BLURfn('p1h14')" onkeyup="KeyUp()" onmousedown="CLICKvr('p1h14')"><span id='SPp1h14' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
 				<td id="TDp2h14">	<!-- style='background:orange;' --> 
-					<input class='' type="tel" id="p2h14" maxlength=1 onclick="changeGLOBAL('p2h14')" tabindex="67" onchange="localStorage.setItem('g2H14s',this.value);" onfocus="FOCUSfn('p2h14')" onblur="BLURfn('p2h14')" onkeyup="KeyUp()" onmousedown=""><span id='SPp2h14' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
+					<input class='' type="tel" id="p2h14" maxlength=1 onclick="changeGLOBAL('p2h14')" tabindex="67" onchange="localStorage.setItem('g2H14s',this.value);" onfocus="FOCUSfn('p2h14')" onblur="BLURfn('p2h14')" onkeyup="KeyUp()" onmousedown="CLICKvr('p2h14')"><span id='SPp2h14' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
 				<td id="TDp3h14"> <input class='' type="tel" id="p3h14" maxlength=1 onclick="changeGLOBAL('p3h14')" tabindex="68" onchange="localStorage.setItem('g3H14s',this.value);" onfocus="FOCUSfn('p3h14')" onblur="BLURfn('p3h14')"  onkeyup="KeyUp()"><span id='SPp3h14' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
 				<td id="TDp4h14"> <input class='' type="tel" id="p4h14" maxlength=1 onclick="changeGLOBAL('p4h14')" tabindex="69" onchange="localStorage.setItem('g4H14s',this.value);" onfocus="FOCUSfn('p4h14')" onblur="BLURfn('p4h14')"  onkeyup="KeyUp()"><span id='SPp4h14' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
 				<td id="TDp5h14"> <input class='' type="tel" id="p5h14" maxlength=1 onclick="changeGLOBAL('p5h14')" tabindex="70" onchange="localStorage.setItem('g5H14s',this.value);" onfocus="FOCUSfn('p5h14')" onblur="BLURfn('p5h14')" onkeyup="KeyUp()"> <br> <span id='SPp5h14' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>
@@ -971,7 +961,7 @@
 				<TH id="H15" style="cursor:pointer;" onclick="cellTOslide(1,15)">15</TH>
 				<td id="TDp1h15"> <input class='' type="tel" id="p1h15" maxlength=1 onclick="changeGLOBAL('p1h15')" tabindex="71" onchange="localStorage.setItem('g1H15s',this.value);" onfocus="FOCUSfn('p1h15')" onblur="BLURfn('p1h15')"  onkeyup="KeyUp()" onmousedown="CLICKvr('p1h15')"><span id='SPp1h15' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
 				<td id="TDp2h15">	<!-- style='background:orange;' --> 
-					<input class='' type="tel" id="p2h15" maxlength=1 onclick="changeGLOBAL('p2h15')" tabindex="72" onchange="localStorage.setItem('g2H15s',this.value);" onfocus="FOCUSfn('p2h15')" onblur="BLURfn('p2h15')"  onkeyup="KeyUp()" onmousedown=""><span id='SPp2h15' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
+					<input class='' type="tel" id="p2h15" maxlength=1 onclick="changeGLOBAL('p2h15')" tabindex="72" onchange="localStorage.setItem('g2H15s',this.value);" onfocus="FOCUSfn('p2h15')" onblur="BLURfn('p2h15')"  onkeyup="KeyUp()" onmousedown="CLICKvr('p2h15')"><span id='SPp2h15' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
 				<td id="TDp3h15"> <input class='' type="tel" id="p3h15" maxlength=1 onclick="changeGLOBAL('p3h15')" tabindex="73" onchange="localStorage.setItem('g3H15s',this.value);" onfocus="FOCUSfn('p3h15')" onblur="BLURfn('p3h15')"  onkeyup="KeyUp()"><span id='SPp3h15' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
 				<td id="TDp4h15"> <input class='' type="tel" id="p4h15" maxlength=1 onclick="changeGLOBAL('p4h15')" tabindex="74" onchange="localStorage.setItem('g4H15s',this.value);" onfocus="FOCUSfn('p4h15')" onblur="BLURfn('p4h15')"  onkeyup="KeyUp()"><span id='SPp4h15' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
 				<td id="TDp5h15"> <input class='' type="tel" id="p5h15" maxlength=1 onclick="changeGLOBAL('p5h15')" tabindex="75" onchange="localStorage.setItem('g5H15s',this.value);" onfocus="FOCUSfn('p5h15')" onblur="BLURfn('p5h15')" onkeyup="KeyUp()"> <br> <span id='SPp5h15' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>
@@ -987,7 +977,7 @@
 				<TH id="H16" style="cursor:pointer;" onclick="cellTOslide(1,16)">16</TH>
 				<td id="TDp1h16"> <input class='' type="tel" id="p1h16" maxlength=1 onclick="changeGLOBAL('p1h16')" tabindex="76" onchange="localStorage.setItem('g1H16s',this.value);" onfocus="FOCUSfn('p1h16')" onblur="BLURfn('p1h16')"  onkeyup="KeyUp()" onmousedown="CLICKvr('p1h16')"><span id='SPp1h16' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
 				<td id="TDp2h16">	<!-- style='background:orange;' --> 
-					<input class='' type="tel" id="p2h16" maxlength=1 onclick="changeGLOBAL('p2h16')" tabindex="77" onchange="localStorage.setItem('g2H16s',this.value);" onfocus="FOCUSfn('p2h16')" onblur="BLURfn('p2h16')"  onkeyup="KeyUp()" onmousedown=""><span id='SPp2h16' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
+					<input class='' type="tel" id="p2h16" maxlength=1 onclick="changeGLOBAL('p2h16')" tabindex="77" onchange="localStorage.setItem('g2H16s',this.value);" onfocus="FOCUSfn('p2h16')" onblur="BLURfn('p2h16')"  onkeyup="KeyUp()" onmousedown="CLICKvr('p2h16')"><span id='SPp2h16' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
 				<td id="TDp3h16"> <input class='' type="tel" id="p3h16" maxlength=1 onclick="changeGLOBAL('p3h16')" tabindex="78" onchange="localStorage.setItem('g3H16s',this.value);" onfocus="FOCUSfn('p3h16')" onblur="BLURfn('p3h16')"  onkeyup="KeyUp()"><span id='SPp3h16' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
 				<td id="TDp4h16"> <input class='' type="tel" id="p4h16" maxlength=1 onclick="changeGLOBAL('p4h16')" tabindex="79" onchange="localStorage.setItem('g4H16s',this.value);" onfocus="FOCUSfn('p4h16')" onblur="BLURfn('p4h16')"  onkeyup="KeyUp()"><span id='SPp4h16' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
 				<td id="TDp5h16"> <input class='' type="tel" id="p5h16" maxlength=1 onclick="changeGLOBAL('p5h16')" tabindex="80" onchange="localStorage.setItem('g5H16s',this.value);" onfocus="FOCUSfn('p5h16')" onblur="BLURfn('p5h16')" onkeyup="KeyUp()"> <br> <span id='SPp5h16' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>
@@ -1003,7 +993,7 @@
 				<TH id="H17" style="cursor:pointer;" onclick="cellTOslide(1,17)">17</TH>
 				<td id="TDp1h17"> <input class='' type="tel" id="p1h17" maxlength=1 onclick="changeGLOBAL('p1h17')" tabindex="81" onchange="localStorage.setItem('g1H17s',this.value);" onfocus="FOCUSfn('p1h17')" onblur="BLURfn('p1h17')"  onkeyup="KeyUp()" onmousedown="CLICKvr('p1h17')"><span id='SPp1h17' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
 				<td id="TDp2h17">	<!-- style='background:orange;' --> 
-					<input class='' type="tel" id="p2h17" maxlength=1 onclick="changeGLOBAL('p2h17')" tabindex="82" onchange="localStorage.setItem('g2H17s',this.value);" onfocus="FOCUSfn('p2h17')" onblur="BLURfn('p2h17')"  onkeyup="KeyUp()" onmousedown=""><span id='SPp2h17' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
+					<input class='' type="tel" id="p2h17" maxlength=1 onclick="changeGLOBAL('p2h17')" tabindex="82" onchange="localStorage.setItem('g2H17s',this.value);" onfocus="FOCUSfn('p2h17')" onblur="BLURfn('p2h17')"  onkeyup="KeyUp()" onmousedown="CLICKvr('p2h17')"><span id='SPp2h17' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
 				<td id="TDp3h17"> <input class='' type="tel" id="p3h17" maxlength=1 onclick="changeGLOBAL('p3h17')" tabindex="83" onchange="localStorage.setItem('g3H17s',this.value);" onfocus="FOCUSfn('p3h17')" onblur="BLURfn('p3h17')"  onkeyup="KeyUp()"><span id='SPp3h17' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
 				<td id="TDp4h17"> <input class='' type="tel" id="p4h17" maxlength=1 onclick="changeGLOBAL('p4h17')" tabindex="84" onchange="localStorage.setItem('g4H17s',this.value);" onfocus="FOCUSfn('p4h17')" onblur="BLURfn('p4h17')"  onkeyup="KeyUp()"><span id='SPp4h17' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
 				<td id="TDp5h17"> <input class='' type="tel" id="p5h17" maxlength=1 onclick="changeGLOBAL('p5h17')" tabindex="85" onchange="localStorage.setItem('g5H17s',this.value);" onfocus="FOCUSfn('p5h17')" onblur="BLURfn('p5h17')" onkeyup="KeyUp()"> <br> <span id='SPp5h17' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>
@@ -1019,7 +1009,7 @@
 				<TH id="H18" style="cursor:pointer;" onclick="cellTOslide(1,18)">18</TH>
 				<td id="TDp1h18"> <input class='' type="tel" id="p1h18" maxlength=1 onclick="changeGLOBAL('p1h18')" tabindex="86" onchange="localStorage.setItem('g1H18s',this.value);" onfocus="FOCUSfn('p1h18')" onblur="BLURfn('p1h18')"  onkeyup="KeyUp()" onmousedown="CLICKvr('p1h18')"><span id='SPp1h18' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>	
 				<td id="TDp2h18">	<!-- style='background:orange;' --> 
-					<input class='' type="tel" id="p2h18" maxlength=1 onclick="changeGLOBAL('p2h18')" tabindex="87" onchange="localStorage.setItem('g2H18s',this.value);" onfocus="FOCUSfn('p2h18')" onblur="BLURfn('p2h18')"  onkeyup="KeyUp()" onmousedown=""><span id='SPp2h18' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
+					<input class='' type="tel" id="p2h18" maxlength=1 onclick="changeGLOBAL('p2h18')" tabindex="87" onchange="localStorage.setItem('g2H18s',this.value);" onfocus="FOCUSfn('p2h18')" onblur="BLURfn('p2h18')"  onkeyup="KeyUp()" onmousedown="CLICKvr('p2h18')"><span id='SPp2h18' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>	<!-- * -->
 				<td id="TDp3h18"> <input class='' type="tel" id="p3h18" maxlength=1 onclick="changeGLOBAL('p3h18')" tabindex="88" onchange="localStorage.setItem('g3H18s',this.value);" onfocus="FOCUSfn('p3h18')" onblur="BLURfn('p3h18')"  onkeyup="KeyUp()"><span id='SPp3h18' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
 				<td id="TDp4h18"> <input class='' type="tel" id="p4h18" maxlength=1 onclick="changeGLOBAL('p4h18')" tabindex="89" onchange="localStorage.setItem('g4H18s',this.value);" onfocus="FOCUSfn('p4h18')" onblur="BLURfn('p4h18')"  onkeyup="KeyUp()"><span id='SPp4h18' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span></td>
 				<td id="TDp5h18"> <input class='' type="tel" id="p5h18" maxlength=1 onclick="changeGLOBAL('p5h18')" tabindex="90" onchange="localStorage.setItem('g5H18s',this.value);" onfocus="FOCUSfn('p5h18')" onblur="BLURfn('p5h18')" onkeyup="KeyUp()"> <br> <span id='SPp5h18' style="border:1px solid white; border-radius:0px; padding:2px; font-weight:bold;">&nbsp;&nbsp;</span> </td>
@@ -1861,7 +1851,7 @@
 	  <button id='STROKESbtn' onclick="pHCcolors()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">Strokes</button>  	  
 	  <a style="color:red; font-size:25px;" onclick="clearSAVED()">clear<!--savedX--></a>
 	  <button id='MISCbtn' onclick="misc()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:white; background:maroon; border:2px solid black; border-radius:10px; opacity:100%;">MISC</button>	
-	  <a style="color:maroon; font-size:20px;" onclick="VoiceRec()">VRec</a>
+	  <!--<a style="color:maroon; font-size:20px;" onclick="VoiceRec()">VRec</a>-->
 
 	  <br>
 	  <a style="color:red; font-size:30px;" onclick="editTEST()">InputEdit</a>
