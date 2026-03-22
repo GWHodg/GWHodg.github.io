@@ -2965,17 +2965,17 @@
 	}
 	
 	function loadFN() {  
-		//alert("BOO!");
+		//alert("BOO! In loadFN().");
 		document.getElementById('p&h').value = localStorage.getItem('g1NAME') + ' 2';
 		document.getElementById("SLIDER").style.visibility="hidden";
-		
+			//alert("pre replace() in loadFN (problem PROBABLY here)");	
 		replace(); //pHCcolors(); restrictTAB(); 
+			//alert("post replace() in loadFN . . .");	
 		//circleMAXs25();
-		calcALL(); calcTOTALS(); 
+		calcALL(); calcTOTALS(); 	//alert("post calcALL() in loadFN . . .");	
 			//showPARTIAL();
 		circleMAXs25();
-			//circleMAXs();
-			
+			//circleMAXs();		//alert("post circleMAXs25() in loadFN . . .");	
 		for (Pno=1; Pno<6; Pno++) {	/* Added Sept/25 */
 			if (document.getElementById("p"+Pno+"NAME").value=="" && document.getElementById("p"+Pno+"HC").value=="") {
 				for (n=1; n<19; n++) {
@@ -3023,7 +3023,7 @@
 		}	//localStorage.setItem("lsFLAGh"+H,"n");
 
 		pHCcolors();  restrictTAB(); // < moved from top of fn Oct 8/25 **
-		
+		//alert("@ end loadFN()!");
 	}	
 
 	function cellTOslide(P,H) {

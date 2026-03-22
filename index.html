@@ -109,13 +109,14 @@
 			  if ( reply=="YES!") {	
 				//alert("You replied "+reply); 
 				VRyn = "y";	
-				alert("Can use speech recognition for P1 & P2!\n\n\tSay 'Two > Eight' (Mar 21, '26)\n");
+				alert("Can use speech recognition for P1 & P2!\n\nSay 'good/fine/poor/bad/worse|great/eagle/ace'\n");
 				document.getElementById("VRbtn").style.background='green';
 				document.getElementById("VRbtn").innerText='VR -';
 				document.getElementById("TDp3h4").style.borderLeft = "4px solid gold"; // < Mar/26 **
 				//document.getElementById("TDp2h5").style.borderTop = "4px solid gold";
 				document.getElementById("TDp3h5").style.borderLeft = "4px solid gold";
 				//document.getElementById("transcription-result").style.visibility = "visible";
+				document.getElementById("MICsymbol").style.visibility = "visible";
 				document.getElementById("transcription-result").value = "";
 			  }
 			  else { 
@@ -127,6 +128,7 @@
 				  //document.getElementById("TDp2h5").style.borderTop = "0px solid black";
 				  document.getElementById("TDp3h5").style.borderLeft = "0px solid black";
 				  //document.getElementById("transcription-result").style.visibility = "hidden";
+				  document.getElementById("MICsymbol").style.visibility = "hidden";
 				  document.getElementById("transcription-result").value = "H";
 			  }
 			  //alert("You replied "+reply+"\n\t(VRyn = "+VRyn+")");
@@ -167,12 +169,30 @@
 		            // Configure settings
 		            //recognition.continuous = true;	//false;	//true;    //false = stop after single 'utterance'
 		            //recognition.interimResults = true;
-		            recognition.lang = 'en-US';
-					
+		            recognition.lang = 'en-US';					
 					//recognition.lang = 'en-US'; - Sets the language for better accuracy.
 					recognition.continuous = false; //- (Optional) Stops recognition after a single utterance, useful for number input.
 					recognition.interimResults = false; //- (Optional) //Ensures only final results are returned.
-					
+
+							const constraints = {
+							  audio: {
+							    noiseSuppression: true, // Enable built-in noise suppression
+							    echoCancellation: true  // Recommended for communication apps
+							  },
+							  video: false
+							};
+							
+							navigator.mediaDevices.getUserMedia(constraints)
+							  .then(stream => {
+							    // Use the stream (e.g., in a video call or for speech recognition)
+							    // The stream will have basic noise suppression applied automatically
+							    const audioTrack = stream.getAudioTracks()[0];
+							    console.log('Noise suppression enabled:', audioTrack.getSettings().noiseSuppression);
+							  })
+							  .catch(err => {
+							    console.error('Error accessing microphone: ', err);
+							});
+	
 					//Add Event Listener for result: This is where you process the recognized speech. The result will be in the form of a string (e.g., "one two three" or "123").
 					recognition.onresult = function(event) {
 					    var current = event.resultIndex;
@@ -180,7 +200,7 @@
 					    //console.log('Recognized speech: ' + transcript);
 							alert("onresult transcript var = "+transcript);
 					    //processNumber(transcript); // Call a custom function to handle the number
-						processSR(transcript,h,p);
+						processSR(transcript,h,p); //Handle results
 					};
 					
 /*							
@@ -205,44 +225,14 @@
 								//localStorage.setItem('g'+p+'H'+h+'s',4); CHGaudio.play();	
 							}							
 							//} else { alert("Invalid command, ignoring: "+text) };	
-							else if (text=='5'||text=="Five"||text=="55") { 
-								alert("Valid command: "+text);
-								document.getElementById(inputID).value=5; 
-								//localStorage.setItem('g'+p+'H'+h+'s',5); CHGaudio.play();								
-							} 
-							else if (text=='2'||text=="Two"||text=="22"||text=="To"||text=="True") { 
-								alert("Valid command: "+text);
-								document.getElementById(inputID).value=2; 
-								//localStorage.setItem('g'+p+'H'+h+'s',2); CHGaudio.play();								
-							} 
-							else if (text=='6'||text=="Six"||text=="66"||text=="Sex") { 
-								alert("Valid command: "+text);
-								document.getElementById(inputID).value=6; 
-								//localStorage.setItem('g'+p+'H'+h+'s',6); CHGaudio.play();								
-							}
-							else if (text=='7'||text=="Seven"||text=="77") { 
-								alert("Valid command: "+text);
-								document.getElementById(inputID).value=7; 
-								//localStorage.setItem('g'+p+'H'+h+'s',7); CHGaudio.play();								
-							}
-							else if (text=='8'||text=="Eight"||text=="88"||text=="Ate"||text=="It") { 
-								alert("Valid command: "+text);
-								document.getElementById(inputID).value=8; 
-								//localStorage.setItem('g'+p+'H'+h+'s',8); CHGaudio.play();								
-							}
 							else { alert("Invalid command, ignoring: "+text) };													
-							
-							
-							
 							//output.value = text;		// < deleted Mar 18, 2026 (??) ** // **!!
-							//alert("text = '"+text+"'");	
-							
+							//alert("text = '"+text+"'");							
 					}
 */					
 			  }	
 			  
-	    }
-		
+	    }	
 		
 	  }
 	  
@@ -252,24 +242,36 @@
 			  "Hole par = "+Hpar+"\n"+
 			  "'p'+P+'h'+H = "+"p"+P+"h"+H +"!");
 		
-		if ((S=='bogie'||S=="Bogie"||S=="Bogey") && Hpar==4) {
-			document.getElementById("p"+P+"h"+H).value=Hpar+1; 
+		if (S=='fine'||S=="Fine") { //bogey
+			document.getElementById("p"+P+"h"+H).value=+Hpar+1; 
 			//localStorage.setItem('g'+P+'H'+H+'s',6); 
 		}
-		if ((S=='double'||S=="Double") && Hpar==4) {
-			document.getElementById("p"+P+"h"+H).value=Hpar+2; 
+		if (S=='poor'||S=="Poor") { //double bogey
+			document.getElementById("p"+P+"h"+H).value=+Hpar+2; 
 			//localStorage.setItem('g'+P+'H'+H+'s',6); 
 		}
-		if ((S=='on par'||S=="On par") && Hpar==4) {
-			document.getElementById("p"+P+"h"+H).value=Hpar; 
+		if (S=='bad'||S=="Bad"||S=="Bag") { //triple bogey
+			document.getElementById("p"+P+"h"+H).value=+Hpar+3; 
+			//localStorage.setItem('g'+P+'H'+H+'s',6); 
+		}
+		if (S=='worse'||S=="Worse") { //quad bogey (8 on par 4) [? 'worse']
+			document.getElementById("p"+P+"h"+H).value=+Hpar+4; 
+			//localStorage.setItem('g'+P+'H'+H+'s',6); 
+		}
+		if (S=='good'||S=="Good") { //par (ANY hole)
+			document.getElementById("p"+P+"h"+H).value=+Hpar; 
 			//localStorage.setItem('g'+P+'H'+H+'s',6); 
 		}		
-		if ((S=='eagle'||S=="Eagle") && Hpar==4) {
-			document.getElementById("p"+P+"h"+H).value=Hpar-2; 
+		if (S=='eagle'||S=="Eagle") { //eagle
+			document.getElementById("p"+P+"h"+H).value=+Hpar-2; 
 			//localStorage.setItem('g'+P+'H'+H+'s',6); 
 		}		
-		if ((S=='bird'||S=="Bird"||S=="Birdie") && Hpar==4) {
-			document.getElementById("p"+P+"h"+H).value=Hpar-1; 
+		if (S=='great'||S=="Great"||S=="Grate") { //birdie
+			document.getElementById("p"+P+"h"+H).value=+Hpar-1; 
+			//localStorage.setItem('g'+P+'H'+H+'s',6); 
+		}
+		if (S=='ace'||S=="Ace") { //hole-in-one 
+			document.getElementById("p"+P+"h"+H).value=1;	//+Hpar-3; 
 			//localStorage.setItem('g'+P+'H'+H+'s',6); 
 		}		
 	}
@@ -623,38 +625,6 @@
 <body class="body" style="background-color:white;"  onload="loadFN()" > <!--  zoom:250%; -->
 	
 <div class="wrapper"><!-- Put the page contents here -->
-				<!--
-				<div id="mySidenav" class="sidenav"  style='opacity:1.0; border-right:5px solid brown;'>
-						<div class="grid-container">
-							  <div><button id='calcALLbtn' onclick="calcALL()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:white; background:blue; border:3px solid black; border-radius:10px; opacity:95%;"><u>SF</u></button></div>
-							  <div><button id='calcTOTbtn' onclick="calcTOTALS()" style="FONT-WEIGHT: bold; FONT-SIZE:15px; COLOR:black; background:lime; border:3px solid black; border-radius:10px; opacity:95%;"><u>T</u></button></div>
-							  <div><button id='STROKESbtn' onclick="pHCcolors()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;">Strokes</button></div>
-							  <div><button id='TABbtn' onclick="restrictTAB()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:orange; border:2px solid black; border-radius:10px; opacity:100%;">Inputs+/-</button></div>
-							  <div><button onclick="remREADONLY()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Input<br>Edit</button></div>
-							  <div><button id='SLIDEbtn' onclick="showSLIDER()" style="FONT-WEIGHT:bold; FONT-SIZE:12px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">Slide</button><span style="" onclick="clrSLDR()">X</span>
-							  </div>
-							  <div><button id='DROPbtn' onclick="showDROP()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:white; background:slategray; border:2px solid black; border-radius:10px; opacity:100%;">Drop<br>&emsp;</button></div>
-							  <div><button id='HOLEbtn' onclick="editHOLES()" style="FONT-WEIGHT:bold; FONT-SIZE:10px; COLOR:white; background:red; border:1px solid black; border-radius:10px;">Edit Holes</button><br>
-								  <button id='editSPbtn' onclick="editSP()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:yellow; background:black; border:1px solid red; border-radius:10px; opacity:100%;">SP Edit</button>
-							  </div>
-							 <div><button id='CLEARbtn' onclick="clearSAVED()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;"><s>saved X</s></button></div> 
-							 <div><button id='ADDbtn' onclick="showADDIN(),addTIP()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:ivory; background:slategray; border:2px solid black; border-radius:10px; opacity:100%;">Add</button></div> 
-							 <div><button id='FreezeHCbtn' onclick="freeze()" style="FONT-WEIGHT:normal; FONT-SIZE:12px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">HC freeze</button>
-							  </div>
-							  <div><button onclick="displayP5()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:10px;'>P5+/-</button></div>							  
-							  <div><button id='REPLACEbtn' onclick="replace()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">SAVED</button></div>
-							  <div><button onclick="HELP()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:15px;'>Help</button></div>
-							  <div><button id='PARTbtn' onclick="showPARTIAL()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:green; border:3px solid orange; border-radius:10px;">PARTrd</button></div>							  
-							  <div>
-								    <button id='BOOKbtn' onclick="book()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:white; background:maroon; border:2px solid black; border-radius:10px; opacity:100%;">BOOK</button>
-							  </div>
-							  <div><button onclick="showHCs()" style='background:black; color:white; border:2px solid black; border-radius:10px; text-align:center; FONT-SIZE:10px;'>pHCs</button></div>
-							  <div><button id='NOTEbtn' onclick="note()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:black; background:yellow; border:2px solid black; border-radius:10px; opacity:100%;"><b>NOTE</b></button></div>
-							  <div><button id='CLEARbtn' onclick="showLSread()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">READ</button></div>
-							  <div><button id='REPLACEbtn'  onclick="showLSwrite()" style="FONT-WEIGHT:normal; FONT-SIZE:10px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">WRITE</button></div>
-						</div> 
-				</div>
-				-->
 				
 <TABLE id="HEADtbl" border=1 align=center style='FONT-SIZE:large; color:maroon; visibility:visible;' bgcolor='lightgray'>	
 	<TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:gold; background:purple; FONT-WEIGHT:bold;" >!gs63<br><font size=2 color=silver><b>M26e<font color=gold>&#9733;<!--&#10024;--></font></b></font>	
@@ -701,10 +671,10 @@
 		<tbody id='TBLbody'> 	
 
 <textarea id="transcription-result" cols="2" rows="1" style='position:fixed; top:0; background:yellow; border:2px solid green; visibility:hidden; display:none; text-align:center; valign:center; font-size:15px; font-weight:bold; visibility:hidden;'>SR</textarea> <!-- position:sticky; top:0; placeholder="TA" visibility:hidden; display:none; -->			
-
 			
 			<TR>
-				<TH style="background:lightgray;">     
+				<TH style="background:lightgray;">   
+					<span id="MICsymbol" style="padding:0px; background:white; border:2px inset black; border-radius:15%; font-size:25px; visibility:hidden;">&#127908;</span> <!-- mic symbol   speaker = &#128265; -->		
 					<!--<span id="battery-percentage" style="padding:2px; background:lightgreen; color:black;">0</span><font size=2 color=black>%</font>-->
 				</TH> <!-- << put battery % here ^ -->
 				<TH><input type="" id="p1HC" maxlength=2 onchange="localStorage.setItem('g1HC',this.value);" name='NMp1hc' autofocus tabindex="202" style="background:whitesmoke; width:60%; font-weight:bold;" ></TH> <!-- value=24  onchange="pHCcolors('p1')" -->
