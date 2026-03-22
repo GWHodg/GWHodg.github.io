@@ -112,10 +112,10 @@
 				alert("Can use speech recognition for P1 & P2!\n\nSay 'good/fine/poor/bad/worse|great/eagle/ace'\n");
 				document.getElementById("VRbtn").style.background='green';
 				document.getElementById("VRbtn").innerText='VR -';
-				document.getElementById("TDp3h4").style.borderLeft = "4px solid gold"; // < Mar/26 **
-				//document.getElementById("TDp2h5").style.borderTop = "4px solid gold";
-				document.getElementById("TDp3h5").style.borderLeft = "4px solid gold";
-				//document.getElementById("transcription-result").style.visibility = "visible";
+				//document.getElementById("TDp3h4").style.borderLeft = "4px solid gold"; // < Mar/26 **
+						//document.getElementById("TDp2h5").style.borderTop = "4px solid gold";
+				//document.getElementById("TDp3h5").style.borderLeft = "4px solid gold";
+						//document.getElementById("transcription-result").style.visibility = "visible";
 				document.getElementById("MICsymbol").style.visibility = "visible";
 				document.getElementById("transcription-result").value = "";
 			  }
@@ -124,10 +124,10 @@
 				  alert("Speech recognition is didabled. Enter scored manually.");
 				  document.getElementById("VRbtn").style.background='gray';
 				  document.getElementById("VRbtn").innerText='VR +';
-				  document.getElementById("TDp3h4").style.borderLeft = "0px solid black";
-				  //document.getElementById("TDp2h5").style.borderTop = "0px solid black";
-				  document.getElementById("TDp3h5").style.borderLeft = "0px solid black";
-				  //document.getElementById("transcription-result").style.visibility = "hidden";
+				  //document.getElementById("TDp3h4").style.borderLeft = "0px solid black";
+				  		//document.getElementById("TDp2h5").style.borderTop = "0px solid black";
+				  //document.getElementById("TDp3h5").style.borderLeft = "0px solid black";
+				  		//document.getElementById("transcription-result").style.visibility = "hidden";
 				  document.getElementById("MICsymbol").style.visibility = "hidden";
 				  document.getElementById("transcription-result").value = "H";
 			  }
@@ -173,7 +173,7 @@
 					//recognition.lang = 'en-US'; - Sets the language for better accuracy.
 					recognition.continuous = false; //- (Optional) Stops recognition after a single utterance, useful for number input.
 					recognition.interimResults = false; //- (Optional) //Ensures only final results are returned.
-
+							/*
 							const constraints = {
 							  audio: {
 							    noiseSuppression: true, // Enable built-in noise suppression
@@ -192,7 +192,7 @@
 							  .catch(err => {
 							    console.error('Error accessing microphone: ', err);
 							});
-	
+							*/
 					//Add Event Listener for result: This is where you process the recognized speech. The result will be in the form of a string (e.g., "one two three" or "123").
 					recognition.onresult = function(event) {
 					    var current = event.resultIndex;
@@ -305,7 +305,8 @@
 		alert(//"HELP:\n\n"+
 			  "\u2022Load link (https://gwhodg.github.io/index.html) into browser search field. Enter.\n"+
 			  "\u2022> MENU (Android phones) or UP-ARROW icon (iPhones) > 'Add to Home screen' (Installs & saves with home screen icon).\n"+
-			  "\u2022NOTE: App takes 10 seconds to load on iPhones (BE PATIENT)!\n\n"+
+			  "\u2022NOTE: App takes 10 seconds to load on iPhones (BE PATIENT)!\n"+
+			  "\u2022NOTE: MAY have to perform a 'clear' after a new app download to get stoke hole colors & totals to display on 'reload'.\n\n"+
 			  	"\u2022To clear all existing data tap “clear”.\n"+ // ‘OK’ X 4.  *
 				"\u2022Can enter date (upper right input).\n"+
 				"\u2022Enter 1-4 players initials (2 chs) + their course handicaps (upper left inputs).\n"+
