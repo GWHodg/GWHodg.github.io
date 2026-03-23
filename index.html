@@ -119,6 +119,12 @@
 						//document.getElementById("transcription-result").style.visibility = "visible";
 				document.getElementById("MICsymbol").style.visibility = "visible";
 				document.getElementById("transcription-result").value = "";
+				document.getElementById("THhc").style.background = "yellow";
+					document.getElementById("THhc").style.fontSize = "35px";
+					document.getElementById("THhc").innerHTML = ">";
+				document.getElementById("THsf").style.background = "yellow";
+					document.getElementById("THsf").style.fontSize = "35px";
+					document.getElementById("THsf").innerHTML = "<";	
 			  }
 			  else { 
 				  VRyn = 'n';
@@ -131,9 +137,16 @@
 				  		//document.getElementById("transcription-result").style.visibility = "hidden";
 				  document.getElementById("MICsymbol").style.visibility = "hidden";
 				  document.getElementById("transcription-result").value = "H";
+				  document.getElementById("THhc").style.background = "beige";
+						document.getElementById("THhc").style.fontSize = "20px";
+				  		document.getElementById("THhc").innerHTML = "hc";
+				  document.getElementById("THsf").style.background = "beige";
+						document.getElementById("THsf").style.fontSize = "20px";
+				  		document.getElementById("THsf").innerHTML = "Sf";					  
 			  }
 			  //alert("You replied "+reply+"\n\t(VRyn = "+VRyn+")");
 			  
+			  /*
 			  p1nn="Me"; p5nn="Dude";
 			  if (document.getElementById("p2NAME").value=="BP") {p2nn="Bud"};
 			  	if (document.getElementById("p3NAME").value=="BP") {p3nn="Bud"};
@@ -154,7 +167,7 @@
 			  	if (document.getElementById("p3NAME").value=="TC") {p3nn="Tom"};
 			  	if (document.getElementById("p4NAME").value=="TC") {p4nn="Tom"};
 			  alert("PLAYER SR NAMES:\n\t"+p1nn+"; "+p2nn+"; "+p3nn+"; "+p4nn+"; "+p5nn);
-			  
+			  */
 		  }		
 		
 		function CLICKvr(inputID) {
@@ -303,7 +316,7 @@
 	
 							//const fullString = "Hello World, welcome to GeeksforGeeks";
 							const firstWord = S.split(' ')[0];
-							if (firstword=="Bud" && p2nn=="Bud") { P=2 };
+							if ((firstword=="Bud"||firstword=="bud"||firstword=="but") && p2nn=="Bud") { P=2 };
 							alert("first word of 'transcript' (S) string = "+firstword+"\n"+
 								  "P = "+P);
 							//console.log(firstWord);
@@ -656,6 +669,69 @@
 	function VoiceRec(){
 		window.location.href = "VoiceRec3.html";
 	}
+
+	
+	function GOback() {
+		if (VRyn=="y") {  
+			var lastFOCUSgo = document.getElementById('lastFOCUS').value;
+			//var LFindex = lastFOCUSgo.tabIndex;
+				  let p = lastFOCUSgo.charAt(1); 
+				  var h;
+				  if ( lastFOCUSgo.length > 4 ) {
+						h = lastFOCUSgo.substr(lastFOCUSgo.length-2);	
+				  }
+				  else { h = lastFOCUSgo.charAt(3) }
+			alert("Will try to focus on LAST index!\n"+
+				  "current focused input = "+lastFOCUSgo+"\n"+
+				  "p = "+p+"; h = "+h);
+			var lastP=0; var lastH=0;	  
+			if (p==1) {lastP=4; lastH=+h-1}		
+			else {lastP=+p-1; lastH=+h};	//4th player. > nxt hole *
+			alert("lastP = "+lastP+"; lastH = "+lastH);			
+			//document.getElementById("p"+p+"h"+h).disabled = false;			
+			if (document.getElementById("p"+lastP+"h"+lastH).disabled) {
+			    alert("The element is disabled.");
+				//lastP=1; lastH=+lastH-1;
+			} else {
+			  	alert("The element is enabled.");
+			}			
+			document.getElementById("p"+lastP+"h"+lastH).focus();			
+		}		
+	}	
+	function GOnext() {
+		if (VRyn=="y") {  
+			var lastFOCUSgo = document.getElementById('lastFOCUS').value;
+			//var LFindex = lastFOCUSgo.tabIndex;
+				  let p = lastFOCUSgo.charAt(1); 
+				  var h;
+				  if ( lastFOCUSgo.length > 4 ) {
+						h = lastFOCUSgo.substr(lastFOCUSgo.length-2);	
+				  }
+				  else { h = lastFOCUSgo.charAt(3) }
+			alert("Will try to focus on NEXT index!\n"+
+				  "last focused input = "+lastFOCUSgo+"\n"+
+				  "p = "+p+"; h = "+h);
+							//"GNlastFOCUS ="+lastFOCUSgo+"\nLFindex = "+LFindex);
+			var nxtP=0; var nxtH=0;	  
+			if (p<4) {nxtP=+p+1; nxtH=+h}		
+			else {nxtP=1; nxtH=+h+1};	//4th player. > nxt hole *
+			alert("nxtP = "+nxtP+"; nxtH = "+nxtH);
+			
+			//document.getElementById("p"+p+"h"+h).disabled = false;			
+			if (document.getElementById("p"+nxtP+"h"+nxtH).disabled) {
+			    alert("The element is disabled. Go to next hole.");
+				nxtP=1; nxtH=+nxtH+1;
+				//console.log("The element is disabled.");
+			} else {
+			  	alert("The element is enabled.");
+				//document.getElementById("p"+nxtP+"h"+nxtH).focus();
+				//console.log("The element is enabled.");
+			}
+			
+			document.getElementById("p"+nxtP+"h"+nxtH).focus();
+			
+		}		
+	}
 	
 </script>
 
@@ -703,9 +779,9 @@
 				<th><input type="text" id="p3NAME" onchange="localStorage.setItem('g3NAME',this.value);"  tabindex="205" style="background:whitesmoke; width:60%;" maxlength=2 value=""></th> 
 				<th><input type="text" id="p4NAME" onchange="localStorage.setItem('g4NAME',this.value);"  tabindex="207" style="background:whitesmoke; width:60%; maxlength=2" value=""></th>
 				<th id="TDp5NAME"><input type="text" id="p5NAME" onchange="localStorage.setItem('g5NAME',this.value);"  tabindex="209" style="background:whitesmoke; width:60%; maxlength=2"></th>	
-				<th>Sf</th>
+				<th id="THsf" onclick="GOback()">Sf</th>
 				<th>p</th>
-				<th>hc</th>	
+				<th id="THhc" onclick="GOnext()">hc</th>	
 		</thead>
 		<tbody id='TBLbody'> 	
 
