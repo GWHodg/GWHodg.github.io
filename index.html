@@ -122,7 +122,7 @@
 			  }
 			  else { 
 				  VRyn = 'n';
-				  alert("Speech recognition is didabled. Enter scored manually.");
+				  alert("Speech recognition is didabled. Enter scores manually.");
 				  document.getElementById("VRbtn").style.background='gray';
 				  document.getElementById("VRbtn").innerText='VR +';
 				  //document.getElementById("TDp3h4").style.borderLeft = "0px solid black";
@@ -222,6 +222,7 @@
 					    var transcript = event.results[current][0].transcript;
 					    //console.log('Recognized speech: ' + transcript);
 							alert("onresult transcript var = "+transcript);
+								
 					    //processNumber(transcript); // Call a custom function to handle the number
 						processSR(transcript,h,p); //Handle results
 					};
@@ -263,8 +264,8 @@
 		var Hpar = document.getElementById("PARh"+H).value;
 		alert("VR result = "+S+"; HOLE = "+H+"; Player = "+P+"\n"+
 			  "Hole par = "+Hpar+"\n"+
-			  "'p'+P+'h'+H = "+"p"+P+"h"+H +"!");
-		
+			  "'p'+P+'h'+H = "+"p"+P+"h"+H +"!");	  
+			  
 		if (S=='fine'||S=="Fine") { //bogey
 			document.getElementById("p"+P+"h"+H).value=+Hpar+1; 
 			localStorage.setItem('g'+P+'H'+H+'s',+Hpar+1); CHGaudio.play();	
@@ -297,7 +298,20 @@
 		if (S=='ace'||S=="Ace") { //hole-in-one 
 			document.getElementById("p"+P+"h"+H).value=1;	//+Hpar-3; 
 			localStorage.setItem('g'+P+'H'+H+'s',1); CHGaudio.play();	
-		}		
+		}	
+	
+	
+							//const fullString = "Hello World, welcome to GeeksforGeeks";
+							const firstWord = S.split(' ')[0];
+							if (firstword=="Bud" && p2nn=="Bud") { P=2 };
+							alert("first word of 'transcript' (S) string = "+firstword+"\n"+
+								  "P = "+P);
+							//console.log(firstWord);
+							// Output: "Hello"			
+							
+	
+	
+		
 	}
 
 
