@@ -279,6 +279,8 @@
 			  "Hole par = "+Hpar+"\n"+
 			  "'p'+P+'h'+H = "+"p"+P+"h"+H +"!");	  
 			  
+		var CHGaudio = new Audio('mixkit-modern-technology-select-3124.wav'); // < **			  
+			  
 		if (S=='fine'||S=="Fine") { //bogey
 			document.getElementById("p"+P+"h"+H).value=+Hpar+1; 
 			localStorage.setItem('g'+P+'H'+H+'s',+Hpar+1); CHGaudio.play();	
@@ -695,7 +697,9 @@
 			} else {
 			  	alert("The element is enabled.");
 			}			
-			document.getElementById("p"+lastP+"h"+lastH).focus();			
+			document.getElementById("p"+lastP+"h"+lastH).focus();	
+			var newFocus = "p"+lastP+"h"+lastH;			
+			function CLICKvr(newFocus);			
 		}		
 	}	
 	function GOnext() {
@@ -729,6 +733,8 @@
 			}
 			
 			document.getElementById("p"+nxtP+"h"+nxtH).focus();
+			var newFocus = "p"+nxtP+"h"+nxtH;			
+			function CLICKvr(newFocus);
 			
 		}		
 	}
