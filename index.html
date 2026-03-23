@@ -275,9 +275,9 @@
 	  
 	function processSR(S,H,P) { // < S=transcript=VRresult=par/bird; H=hole; P=player(1-4)
 		var Hpar = document.getElementById("PARh"+H).value;
-		alert("VR result = "+S+"; HOLE = "+H+"; Player = "+P+"\n"+
+		/* alert("VR result = "+S+"; HOLE = "+H+"; Player = "+P+"\n"+
 			  "Hole par = "+Hpar+"\n"+
-			  "'p'+P+'h'+H = "+"p"+P+"h"+H +"!");	  
+			  "'p'+P+'h'+H = "+"p"+P+"h"+H +"!"); */
 			  
 		var CHGaudio = new Audio('mixkit-modern-technology-select-3124.wav'); // < **			  
 			  
@@ -694,6 +694,7 @@
 			if (document.getElementById("p"+lastP+"h"+lastH).disabled) {
 			    alert("The element is disabled.");
 				//lastP=1; lastH=+lastH-1;
+				lastP=1; lastH=+lastH; // < ?? *
 			} else {
 			  	alert("The element is enabled.");
 			}			
@@ -712,9 +713,9 @@
 						h = lastFOCUSgo.substr(lastFOCUSgo.length-2);	
 				  }
 				  else { h = lastFOCUSgo.charAt(3) }
-			alert("Will try to focus on NEXT index!\n"+
+			/*alert("Will try to focus on NEXT index!\n"+
 				  "last focused input = "+lastFOCUSgo+"\n"+
-				  "p = "+p+"; h = "+h);
+				  "p = "+p+"; h = "+h);*/
 							//"GNlastFOCUS ="+lastFOCUSgo+"\nLFindex = "+LFindex);
 			var nxtP=0; var nxtH=0;	  
 			if (p<4) {nxtP=+p+1; nxtH=+h}		
