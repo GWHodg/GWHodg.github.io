@@ -234,7 +234,7 @@
 					    var current = event.resultIndex;
 					    var transcript = event.results[current][0].transcript;
 					    //console.log('Recognized speech: ' + transcript);
-							alert("onresult transcript var = "+transcript);
+							//alert("onresult transcript var = "+transcript);
 								
 					    //processNumber(transcript); // Call a custom function to handle the number
 						processSR(transcript,h,p); //Handle results
@@ -720,15 +720,15 @@
 			var nxtP=0; var nxtH=0;	  
 			if (p<4) {nxtP=+p+1; nxtH=+h}		
 			else {nxtP=1; nxtH=+h+1};	//4th player. > nxt hole *
-			alert("nxtP = "+nxtP+"; nxtH = "+nxtH);
+			//alert("nxtP = "+nxtP+"; nxtH = "+nxtH);
 			
 			//document.getElementById("p"+p+"h"+h).disabled = false;			
 			if (document.getElementById("p"+nxtP+"h"+nxtH).disabled) {
-			    alert("The element is disabled. Go to next hole.");
+			    //alert("The element is disabled. Go to next hole.");
 				nxtP=1; nxtH=+nxtH+1;
 				//console.log("The element is disabled.");
 			} else {
-			  	alert("The element is enabled.");
+			  	//alert("The element is enabled.");
 				//document.getElementById("p"+nxtP+"h"+nxtH).focus();
 				//console.log("The element is enabled.");
 			}
