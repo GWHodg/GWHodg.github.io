@@ -181,6 +181,10 @@
 			  document.getElementById("TD"+inputID).style.border = "2px solid red";   // < Mar/26 **
 			  document.getElementById("TD"+inputID).style.background = "gold";
 			  //const allowedCommands = ["three", "four", "five", "six"];  // < M21/26*
+			  //Prevent keyboard input using the disabled attribute
+			  	//document.getElementById(inputID).disabled = true;
+			  //Prevent keyboard input using the readonly attribute
+			  	document.getElementById(inputID).readOnly = true; // < **
 			  
 			  let p = inputID.charAt(1); 
 			  var h;
