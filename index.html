@@ -94,9 +94,14 @@
 		
 		// Use standard or vendor-prefixed speech recognition
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+			//const SpeechGrammarList = window.SpeechGrammarList || window.webkitSpeechGrammarList; //??
 		const recognition = new SpeechRecognition(); 
 		//const allowedCommands = ["three", "four", "five", "six"];  // < M21/26*
-	
+		
+		
+		
+		
+		
 		var VRyn;
 		var p1nn; var p2nn; var p3nn; var p4nn; var p5nn; // < player nicknames for SR!
 		function fVRyn() {
@@ -110,7 +115,7 @@
 			  if ( reply=="YES!") {	
 				//alert("You replied "+reply); 
 				VRyn = "y";	
-				alert("Can use speech recognition for P1-4!\n\nSay 'good/fine/poor/bad/worse|great/eagle/ace'\n");
+				alert("Can use speech recognition for P1-4!\n\nSay 'good/fine/fair/poor/bad/worse | great/eagle/albatross/ace'\n");
 				document.getElementById("VRbtn").style.background='green';
 				document.getElementById("VRbtn").innerText='VR -';
 				//document.getElementById("TDp3h4").style.borderLeft = "4px solid gold"; // < Mar/26 **
@@ -213,6 +218,19 @@
 					//recognition.lang = 'en-US'; - Sets the language for better accuracy.
 					recognition.continuous = false; //- (Optional) Stops recognition after a single utterance, useful for number input.
 					recognition.interimResults = false; //- (Optional) //Ensures only final results are returned.
+					
+					/*
+					const speechRecognitionList = new SpeechGrammarList();	// <+\/ ??		
+					const commands = ['good', 'fine', 'fair', 'poor', 'bad', 'worse', 'great', 'eagle', 'albatross',, 'ace']; // Your specific words
+					const grammar = '#JSGF V1.0; grammar commands; public <command> = ' + commands.join(' | ') + ' ;';			
+					speechRecognitionList.addFromString(grammar, 1); // Add grammar with a high weight
+					recognition.grammars = speechRecognitionList;
+					*/
+					//recognition.lang = 'en-US';
+					// ... other properties (e.g., continuous, interimResults)		
+					recognition.phrases = ['good', 'fine', 'fair', 'poor', 'bad', 'worse', 'great', 'eagle', 'albatross',, 'ace'];
+			
+					
 							/*
 							const constraints = {
 							  audio: {
@@ -289,18 +307,22 @@
 			document.getElementById("p"+P+"h"+H).value=+Hpar+1; 
 			localStorage.setItem('g'+P+'H'+H+'s',+Hpar+1); CHGaudio.play();	
 		}
-		if (S=='poor'||S=="Poor") { //double bogey
+		if (S=='fair'||S=="Fair"||S=="fare") { //double bogey
 			document.getElementById("p"+P+"h"+H).value=+Hpar+2; 
 			localStorage.setItem('g'+P+'H'+H+'s',+Hpar+2); CHGaudio.play();	
 			//localStorage.setItem('g'+P+'H'+H+'s',6); 
 		}
-		if (S=='bad'||S=="Bad"||S=="Bag") { //triple bogey
+		if (S=='poor'||S=="Poor") { //triple bogey
 			document.getElementById("p"+P+"h"+H).value=+Hpar+3; 
 			localStorage.setItem('g'+P+'H'+H+'s',+Hpar+3); CHGaudio.play();	
 		}
-		if (S=='worse'||S=="Worse") { //quad bogey (8 on par 4) [? 'worse']
+		if (S=='bad'||S=="Bad"||S=="Bag") { //quad bogey (8 on par 4)
 			document.getElementById("p"+P+"h"+H).value=+Hpar+4; 
 			localStorage.setItem('g'+P+'H'+H+'s',+Hpar+4); CHGaudio.play();	
+		}
+		if (S=='worse'||S=="Worse"||S=="worst") { // pickup (?) **
+			document.getElementById("p"+P+"h"+H).value="#"; 
+			localStorage.setItem('g'+P+'H'+H+'s',"#"); CHGaudio.play();	
 		}
 		if (S=='good'||S=="Good") { //par (ANY hole)
 			document.getElementById("p"+P+"h"+H).value=+Hpar; 
@@ -309,7 +331,11 @@
 		if (S=='eagle'||S=="Eagle") { //eagle
 			document.getElementById("p"+P+"h"+H).value=+Hpar-2; 
 			localStorage.setItem('g'+P+'H'+H+'s',+Hpar-2); CHGaudio.play();	
-		}		
+		}
+		if (S=='albatross'||S=="Albatross") { //albatross = 3 under par
+			document.getElementById("p"+P+"h"+H).value=+Hpar-3; 
+			localStorage.setItem('g'+P+'H'+H+'s',+Hpar-3); CHGaudio.play();	
+		}	
 		if (S=='great'||S=="Great"||S=="Grate") { //birdie
 			document.getElementById("p"+P+"h"+H).value=+Hpar-1; 
 			localStorage.setItem('g'+P+'H'+H+'s',+Hpar-1); CHGaudio.play();	
@@ -695,13 +721,16 @@
 			else {lastP=+p-1; lastH=+h};	//4th player. > nxt hole *
 			//alert("lastP = "+lastP+"; lastH = "+lastH);			
 			//document.getElementById("p"+p+"h"+h).disabled = false;			
-			if (document.getElementById("p"+lastP+"h"+lastH).disabled) {
-			    //alert("The element is disabled.");
+			if (document.getElementById("p"+lastP+"h"+lastH).disabled) {			// **
+			    if (document.getElementById("p3NAME").value!="") {lastP=+p+2; lastH=+h-1}
+				else if (document.getElementById("p2NAME").value!="") {lastP=+p+1; lastH=+h-1}
+				else {lastP=1; lastH=+lastH-1};
+				//alert("The element is disabled.");
 				//lastP=1; lastH=+lastH-1;
-				lastP=1; lastH=+lastH; // < ?? *
-			} else {
+				//lastP=1; lastH=+lastH; // < ?? *
+			} /*else {
 			  	//alert("The element is enabled.");
-			}			
+			}*/			
 			document.getElementById("p"+lastP+"h"+lastH).focus();	
 			var newFocus = "p"+lastP+"h"+lastH;			
 			CLICKvr(newFocus);			
@@ -753,7 +782,7 @@
 <div class="wrapper"><!-- Put the page contents here -->
 				
 <TABLE id="HEADtbl" border=1 align=center style='FONT-SIZE:large; color:maroon; visibility:visible;' bgcolor='lightgray'>	
-	<TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:gold; background:purple; FONT-WEIGHT:bold;" >!gs63<br><font size=2 color=silver><b>M26e<font color=gold>&#9733;<!--&#10024;--></font></b></font>	
+	<TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:gold; background:purple; FONT-WEIGHT:bold;" >!gs63<br><font size=2 color=silver><b>M26<font color=lime>f</font><font color=gold>&#9733;<!--&#10024;--></font></b></font>	
 </TD> <!--<TD width=20><font size=1>93i</font></TD>	-->
 <TD>
 					<div class="dropup" style="cursor:pointer; color:black; background:lightgray; /*position:relative; left:18%;*/">
