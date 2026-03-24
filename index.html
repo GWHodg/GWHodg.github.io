@@ -179,7 +179,7 @@
 				}
 			  
 			  document.getElementById("TD"+inputID).style.border = "2px solid red";   // < Mar/26 **
-			  
+			  document.getElementById("TD"+inputID).style.background = "gold";
 			  //const allowedCommands = ["three", "four", "five", "six"];  // < M21/26*
 			  
 			  let p = inputID.charAt(1); 
@@ -683,20 +683,20 @@
 						h = lastFOCUSgo.substr(lastFOCUSgo.length-2);	
 				  }
 				  else { h = lastFOCUSgo.charAt(3) }
-			alert("Will try to focus on LAST index!\n"+
+			/* alert("Will try to focus on LAST index!\n"+
 				  "current focused input = "+lastFOCUSgo+"\n"+
-				  "p = "+p+"; h = "+h);
+				  "p = "+p+"; h = "+h); */
 			var lastP=0; var lastH=0;	  
 			if (p==1) {lastP=4; lastH=+h-1}		
 			else {lastP=+p-1; lastH=+h};	//4th player. > nxt hole *
-			alert("lastP = "+lastP+"; lastH = "+lastH);			
+			//alert("lastP = "+lastP+"; lastH = "+lastH);			
 			//document.getElementById("p"+p+"h"+h).disabled = false;			
 			if (document.getElementById("p"+lastP+"h"+lastH).disabled) {
-			    alert("The element is disabled.");
+			    //alert("The element is disabled.");
 				//lastP=1; lastH=+lastH-1;
 				lastP=1; lastH=+lastH; // < ?? *
 			} else {
-			  	alert("The element is enabled.");
+			  	//alert("The element is enabled.");
 			}			
 			document.getElementById("p"+lastP+"h"+lastH).focus();	
 			var newFocus = "p"+lastP+"h"+lastH;			
