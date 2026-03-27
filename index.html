@@ -564,6 +564,7 @@
 							/*   ()()()()()()()()   */		
 		
 		var Ft = 0;  var p1Ft=0; var p2Ft=0; var p3Ft=0; var p4Ft=0;
+					 var p1Bt=0; var p2Bt=0; var p3Bt=0; var p4Bt=0;
 		for (let i = 1; i < 19; i++) {	  
 			if(document.getElementById('chkF'+i).checked) {
 				document.getElementById("H"+i+"tSF").innerText = document.getElementById("SPgpH"+i).innerText;
@@ -591,6 +592,11 @@
 				Bt = +Bt + +document.getElementById("H"+x+"tSF").innerText;
 				document.getElementById("H"+x+"tSF").style.background = "yellow";
 				document.getElementById("H"+x+"tSF").style.color = "maroon";
+				
+				p1Bt = +p1Bt + +document.getElementById("SPp1h"+x).innerText; //**. //alert("p1Ft = "+p1Ft);
+				p2Bt = +p2Bt + +document.getElementById("SPp2h"+x).innerText; //**
+				p3Bt = +p3Bt + +document.getElementById("SPp3h"+x).innerText; //**
+				p4Bt = +p4Bt + +document.getElementById("SPp4h"+x).innerText; //**
 			}
 		}
 		//alert("Bt = '"+Bt+"'!");		
@@ -614,6 +620,16 @@
 				document.getElementById("F9p3sf").innerHTML = p3Ft;
 				document.getElementById("F9p4sf").innerHTML = p4Ft;
 
+				document.getElementById("B9p1sf").innerHTML = p1Bt;
+				document.getElementById("B9p2sf").innerHTML = p2Bt;
+				document.getElementById("B9p3sf").innerHTML = p3Bt;
+				document.getElementById("B9p4sf").innerHTML = p4Bt;
+				
+				document.getElementById("Tp1sf").innerHTML = p1Ft+p1Bt;
+				document.getElementById("Tp2sf").innerHTML = p2Ft+p2Bt;
+				document.getElementById("Tp3sf").innerHTML = p3Ft+p3Bt;
+				document.getElementById("Tp4sf").innerHTML = p4Ft+p4Bt;
+				
 		
 		
 	}
@@ -1883,7 +1899,7 @@
 	<!-- 	√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√ \/ PARTIAL ROUND \/ √√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√	  -->
 
 <!--<TABLE align=center><TR><TD>-->
-	<div id="PARTIALdiv" style= "border:3px inset slategray; border-radius:10px; width:200px; height:400px; overflow:scroll; margin:auto; visibility:hidden; background:white;  position:fixed; left:65%; transform:translate(-50%,0); top:10%;  zoom:100%;"> <!-- left:35%; -->
+	<div id="PARTIALdiv" style= "border:3px inset slategray; border-radius:10px; width:250px; height:400px; overflow:scroll; margin:auto; visibility:hidden; background:white;  position:fixed; left:65%; transform:translate(-50%,0); top:10%;  zoom:100%;"> <!-- width:200px;  left:35%; -->
 		
 		<font size=5><b>Part Rd</b></font>
 						<button id='fullPARTIALbtn' onclick="FULLpartial()" style="FONT-WEIGHT:bold; FONT-SIZE:20px; COLOR:blue; background:transparent; border:1px solid blue; border-radius:5px;">+</button>
