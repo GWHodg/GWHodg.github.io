@@ -115,7 +115,7 @@
 			  if ( reply=="YES!") {	
 				//alert("You replied "+reply); 
 				VRyn = "y";	
-				alert("Can use speech recognition for P1-4!\n\nSay 'good/fine/fair/poor/bad/worse | great/eagle/albatross/ace'\n");
+				alert("Can use speech recognition for P1-4!\n\nSay 'good/fine/fair/poor/bad/worse | great/eagle/albatross/ace'\n(good = par)");
 				document.getElementById("VRbtn").style.background='green';
 				document.getElementById("VRbtn").innerText='VR -';
 				//document.getElementById("TDp3h4").style.borderLeft = "4px solid gold"; // < Mar/26 **
@@ -389,7 +389,7 @@
 			  "\u2022Load link (https://gwhodg.github.io/index.html) into browser search field. Enter.\n"+
 			  "\u2022> MENU (Android phones) or UP-ARROW icon (iPhones) > 'Add to Home screen' (Installs & saves with home screen icon).\n"+
 			  "\u2022NOTE: App takes 10 seconds to load on iPhones (BE PATIENT)!\n"+
-			  "\u2022NOTE: MAY have to perform a 'clear' after a new app download to get stoke hole colors & totals to display on 'reload'.\n\n"+
+			  "\u2022NOTE: MAY have to perform a 'clear' after a new app download to get stroke hole colors & totals to display on 'reload'. *\n\n"+
 			  	"\u2022To clear all existing data tap “clear”.\n"+ // ‘OK’ X 4.  *
 				"\u2022Can enter date (upper right input).\n"+
 				"\u2022Enter 1-4 players initials (2 chs) + their course handicaps (upper left inputs).\n"+
@@ -563,16 +563,21 @@
 		
 							/*   ()()()()()()()()   */		
 		
-		var Ft = 0;
+		var Ft = 0;  var p1Ft=0; var p2Ft=0; var p3Ft=0; var p4Ft=0;
 		for (let i = 1; i < 19; i++) {	  
 			if(document.getElementById('chkF'+i).checked) {
 				document.getElementById("H"+i+"tSF").innerText = document.getElementById("SPgpH"+i).innerText;
 				Ft = +Ft + +document.getElementById("H"+i+"tSF").innerText;
 				document.getElementById("H"+i+"tSF").style.background = "black";
 				document.getElementById("H"+i+"tSF").style.color = "white";
+				
+				p1Ft = +p1Ft + +document.getElementById("SPp1h"+i).innerText; //**. //alert("p1Ft = "+p1Ft);
+				p2Ft = +p2Ft + +document.getElementById("SPp2h"+i).innerText; //**
+				p3Ft = +p3Ft + +document.getElementById("SPp3h"+i).innerText; //**
+				p4Ft = +p4Ft + +document.getElementById("SPp4h"+i).innerText; //**
 			}
 		}
-		alert("Ft = '"+Ft+"'!");
+		//alert("Ft = '"+Ft+"'!");
 		document.getElementById("myF9ptT").innerText = Ft;  //f9ptT 
 		document.getElementById("myF9ptT").style.background = "black";
 		document.getElementById("myF9ptT").style.color = "white";
@@ -588,7 +593,7 @@
 				document.getElementById("H"+x+"tSF").style.color = "maroon";
 			}
 		}
-		alert("Bt = '"+Bt+"'!");		
+		//alert("Bt = '"+Bt+"'!");		
 		document.getElementById("myB9ptT").innerText = Bt;  //f9ptT 
 		document.getElementById("myB9ptT").style.background = "yellow";
 		document.getElementById("myB9ptT").style.color = "maroon";
@@ -596,6 +601,20 @@
 		document.getElementById("my18ptT").innerText = Ft+Bt;  //f9ptT 
 		document.getElementById("my18ptT").style.background = "red";
 		document.getElementById("my18ptT").style.color = "white";
+		
+				//INDIVIDUAL PLAYER POINTS (Mar/26):
+					//alert("localStorage.getItem('guy1') = "+localStorage.getItem("guy1"));
+				document.getElementById("PARTp1").innerHTML = localStorage.getItem("g1NAME");  //individual pts **
+				document.getElementById("PARTp2").innerHTML = localStorage.getItem("g2NAME");
+				document.getElementById("PARTp3").innerHTML = localStorage.getItem("g3NAME");
+				document.getElementById("PARTp4").innerHTML = localStorage.getItem("g4NAME");
+				
+				document.getElementById("F9p1sf").innerHTML = p1Ft;
+				document.getElementById("F9p2sf").innerHTML = p2Ft;
+				document.getElementById("F9p3sf").innerHTML = p3Ft;
+				document.getElementById("F9p4sf").innerHTML = p4Ft;
+
+		
 		
 	}
 	function calcPARTdropped() {
@@ -1889,8 +1908,10 @@
 				 
 				 <td rowspan=20 style="background:slategray;"> </td>
 				 <TD colspan=2 style="color:blue;""><b>TOT</b></TD>
-				 
-				 
+				 	<td id="PARTp1" style="font-size:10px; color:green;">P1</td>
+					<td id="PARTp2" style="font-size:10px; color:green;">P2</td>
+				 	<td id="PARTp3" style="font-size:10px; color:green;">P3</td>
+					<td id="PARTp4" style="font-size:10px; color:green;">P4</td>
 
 			
 				 
@@ -1903,7 +1924,10 @@
 				<td id="H1tSF"></td> 
 				
 							 <td><b>F</b></td> <td width=10 colspan=1 id="myF9ptT"></td> 
-							 
+							 	 <td id="F9p1sf" style="font-size:10px; color:green;"></td> <!--  Mar 27/26 ** -->
+								 <td id="F9p2sf" style="font-size:10px; color:green;"></td>
+								 <td id="F9p3sf" style="font-size:10px; color:green;"></td> <!--  Mar 27/26 ** -->
+								 <td id="F9p4sf" style="font-size:10px; color:green;"></td>
 			</tr>
 			<tr><td><input type="checkbox" style="color:yellow; zoom:1;" id="chkF2"></td>
 				<td><input type="checkbox" style="color:yellow; zoom:1;" id="chkB2"></td>
@@ -1912,6 +1936,10 @@
 				<td id="H2tSF"></td> 
 				
 							<td><b>B</b></td> <td colspan=1 id="myB9ptT"></td> 
+								<td id="B9p1sf" style="font-size:10px; color:green;"></td> <!--  Mar 27/26 ** -->
+								<td id="B9p2sf" style="font-size:10px; color:green;"></td>
+								<td id="B9p3sf" style="font-size:10px; color:green;"></td> <!--  Mar 27/26 ** -->
+								<td id="B9p4sf" style="font-size:10px; color:green;"></td>
 							
 				
 			</tr>
@@ -1922,7 +1950,11 @@
 				<td id="H3tSF"></td> 
 				
 				 		<td><b>T</b></td> <td colspan=1 id="my18ptT"></td> 
-				
+								<td id="Tp1sf" style="font-size:12px; color:green;"></td> <!--  Mar 27/26 ** -->
+								<td id="Tp2sf" style="font-size:12px; color:green;"></td>
+								<td id="Tp3sf" style="font-size:12px; color:green;"></td> <!--  Mar 27/26 ** -->
+								<td id="Tp4sf" style="font-size:12px; color:green;"></td>
+								
 			</tr>
 			<tr><td><input type="checkbox" style="color:yellow; zoom:1;" id="chkF4"></td>
 				<td><input type="checkbox" style="color:yellow; zoom:1;" id="chkB4"></td>
@@ -2004,7 +2036,7 @@
 	  <a style="color:red; font-size:25px;" onclick="clearSAVED()">clear<!--savedX--></a>
 	  <button id='MISCbtn' onclick="misc()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:white; background:maroon; border:2px solid black; border-radius:10px; opacity:100%;">MISC</button>	
 	  <!--<a style="color:maroon; font-size:20px;" onclick="VoiceRec()">VRec</a>-->
-
+	  <a style="color:black; font-size:15px;" onclick="showPARTIAL()"><b>PARTrd</b></a>
 	  <br>
 	  <a style="color:red; font-size:30px;" onclick="editTEST()">InputEdit</a>
 	  		<!--<a style="color:orange; font-size:20px;" onclick="remREADONLY()">editTEST</a>-->
@@ -2012,7 +2044,6 @@
 	  <button id='VRbtn' onclick="fVRyn()" style="FONT-WEIGHT:bold; FONT-SIZE:15px; COLOR:white; background:blue; border:2px solid orange; border-radius:10px; cursor: pointer;">Speech</button>
 	  <!--
 	  <a style="color:green; font-size:25px;" onclick="displayP5()">P5<font size=3>+/-</font></a>
-	  <a style="color:red; font-size:15px;" onclick="showPARTIAL()"><b>PARTrd</b></a>
 	  <a onclick="editSP()">SPedit</a>
 	  -->
 	  <button id='STROKESbtn' onclick="restrictTAB()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">Inputs+/-</button> 
