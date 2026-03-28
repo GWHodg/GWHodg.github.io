@@ -3022,6 +3022,15 @@
 			}
 		}	//localStorage.setItem("lsFLAGh"+H,"n");
 
+		
+		if (localStorage.getItem("lsCOURSE")=="CordovaBay") {
+			document.getElementById("CourseLogo").src="CBGClogo.jpeg";	
+		}
+		else {
+			document.getElementById("CourseLogo").src="VGClogo.jpeg";
+		}
+		
+		
 		pHCcolors();  restrictTAB(); // < moved from top of fn Oct 8/25 **
 		//alert("@ end loadFN()!");
 	}	

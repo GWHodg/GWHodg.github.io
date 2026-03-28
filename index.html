@@ -814,6 +814,7 @@
 									 "\n\t5. Uplands\n\t6. Gorge Vail", "1");	
 		if (newCOURSE=="1") { 
 			alert("You chose Cordova Bay . . .");
+				localStorage.setItem("lsCOURSE","CordovaBay");
 			document.getElementById("CourseLogo").src="CBGClogo.jpeg";
 			
 			document.getElementById("PARh1").value=4; document.getElementById("HCPh1").value=5;
@@ -835,12 +836,23 @@
 			document.getElementById("PARh16").value=4; document.getElementById("HCPh16").value=8;
 			document.getElementById("PARh17").value=3; document.getElementById("HCPh17").value=12;
 			document.getElementById("PARh18").value=5; document.getElementById("HCPh18").value=16;
+			
+			for (var h = 1; h < 19; h++) {
+				localStorage.setItem("lsPARh"+h,document.getElementById("PARh"+h).value);
+				localStorage.setItem("lsHCPh"+h,document.getElementById("HCPh"+h).value);
+			}			
+			pHCcolors(); 
+			//alert("Will now REPLACE stroke colors . . ."); 
+						pHCcolors(); // < ??	
+			calcALL(); calcTOTALS(); // < ?? Nov/25 **
+				
 		}
 		else if (newCOURSE=="2") { 
 			alert("You chose VGC . . .");
 		}
 		else { alert("No course chosen!"); }
 	}
+	
 	
 </script>
 
