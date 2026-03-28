@@ -1738,6 +1738,7 @@
 	  		  //alert(answer);			  
 			  if ( answer=="YES!") {		
 					DELholeChgs = 'y';
+					localStorage.setItem("lsCOURSE",""); // < Mar 28/26 **
 			  }
 
 			  let answerS; var DELscoresOnly;
