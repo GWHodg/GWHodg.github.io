@@ -3467,7 +3467,7 @@ else {
 				let mnuITEM = prompt("Enter MENU ITEM:\n\t1. Hx\n\t2. NOTE"+
 								     "\n\t3. Matches\n\t4. BOOK/bridge"+
 									 "\n\t5. Slider +/-\n\t6. SlideValsX\n\t7. SAVED\n\t8. coding *"+
-									 "\n\t9. P5+/-\n\t10. Part Round\n\t11. Edit Stablefords", "1");	
+									 "\n\t9. P5+/-\n\t10. Change Course\n\t11. Edit Stablefords", "1");	
 									 	//onclick="restrictTAB()"   Inputs+/  --->	  <!-- NB++ Feb/26 ** -->
 				if ( mnuITEM == "4" ) { book() }
 				else if ( mnuITEM == "5" ) { showSLIDER() }
@@ -3478,7 +3478,7 @@ else {
 				else if ( mnuITEM == "7" ) { replace() }
 				else if ( mnuITEM == "8" ) { codeHELP() }
 				else if ( mnuITEM == "9" ) { displayP5() }
-				else if ( mnuITEM == "10" ) { showPARTIAL() }
+				else if ( mnuITEM == "10" ) { changeCOURSE() }
 				else if ( mnuITEM == "11" ) { editSP() }
 				else { return; }
 			}	
