@@ -3027,6 +3027,9 @@
 		if (localStorage.getItem("lsCOURSE")=="CordovaBay") {
 			document.getElementById("CourseLogo").src="CBGClogo.jpeg";	
 		}
+		else if (localStorage.getItem("lsCOURSE")=="Uplands") {
+			document.getElementById("CourseLogo").src="UPLANDSlogo.jpeg";	
+		}
 		else {
 			document.getElementById("CourseLogo").src="VGClogo.jpeg";
 		}
