@@ -3030,6 +3030,9 @@
 		else if (localStorage.getItem("lsCOURSE")=="Uplands") {
 			document.getElementById("CourseLogo").src="UPLANDSlogo.jpeg";	
 		}
+		else if (localStorage.getItem("lsCOURSE")=="Colwood") {
+			document.getElementById("CourseLogo").src="COLWOODlogo.png";	
+		}
 		else {
 			document.getElementById("CourseLogo").src="VGClogo.jpeg";
 		}
