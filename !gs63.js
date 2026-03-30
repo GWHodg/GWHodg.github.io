@@ -3033,6 +3033,9 @@
 		else if (localStorage.getItem("lsCOURSE")=="Colwood") {
 			document.getElementById("CourseLogo").src="COLWOODlogo.png";	
 		}
+		else if (localStorage.getItem("lsCOURSE")=="VGC") {
+			document.getElementById("CourseLogo").src="VGClogo.jpeg";	
+		}
 		else {
 			document.getElementById("CourseLogo").src="VGClogo.jpeg";
 		}
