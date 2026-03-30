@@ -534,10 +534,13 @@
 	}											
 	function showCALCULATOR() {
 		if (document.getElementById("Calculator").style.visibility=="visible") {
-			document.getElementById("Calculator").style.visibility="hidden"; 
+			document.getElementById("CalcFrame").src="";
+			document.getElementById("Calculator").style.visibility="hidden"; 			
 		}		
 		else {
 			document.getElementById("Calculator").style.visibility="visible";
+			//loadOnlineCalc();
+			document.getElementById("CalcFrame").src="https://www.theonlinecalculator.com";
 		}
 		
 		hideMENU();		
@@ -929,6 +932,14 @@
 		else { alert("No course chosen!"); }
 	}
 	
+	/*function loadOnlineCalc() {
+		document.getElementById("CalcFrame").src="https://www.theonlinecalculator.com";
+	}*/
+	function loadCALCapp() {
+		window.location = "Calculator://open";
+		//https://apps.apple.com/app/id486645049
+	}	
+
 	
 </script>
 
@@ -939,7 +950,7 @@
 <div class="wrapper"><!-- Put the page contents here -->
 				
 <TABLE id="HEADtbl" border=1 align=center style='FONT-SIZE:large; color:maroon; visibility:visible;' bgcolor='lightgray'>	
-	<TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:gold; background:purple; FONT-WEIGHT:bold;" >!gs63<br><font size=2 color=silver><b>M26<font color=lime>f</font><font color=gold>&#9733;<!--&#10024;--></font></b></font>	
+	<TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:gold; background:purple; FONT-WEIGHT:bold;" >!gs63<br><font size=2 color=silver><b>M26<font color=lime>g</font><font color=gold>&#9733;<!--&#10024;--></font></b></font>	
 </TD> <!--<TD width=20><font size=1>93i</font></TD>	-->
 <TD>
 					<div class="dropup" style="cursor:pointer; color:black; background:lightgray; /*position:relative; left:18%;*/">
@@ -2219,14 +2230,19 @@
 			<!--&nbsp;<button><font color=red size=2>cancel</font></button>-->
 	</div> 
 
-	
+	 
 	<div id="Calculator" style= "border:3px inset slategray; border-radius:10px; width:350px; height:600px; overflow:scroll; margin:auto; visibility:hidden; background:white;  position:fixed; left:55%; transform:translate(-50%,0); top:5%;  zoom:100%;"> <!-- width:200px>250;  left:35% > 65%; -->
-		<!--<a href="https://www.theonlinecalculator.com">theonlinecalculator.com</a>-->		
-		<span class="closebtn" onclick="this.parentElement.style.visibility='hidden';">&times;</span>
-		<iframe src="https://www.theonlinecalculator.com" title="External Website" 
+		<!--<a href="https://www.theonlinecalculator.com">theonlinecalculator.com</a>-->
+		<!--<button id='CALCbtn' onclick="loadOnlineCalc()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">theonlinecalculator.com</button>-->
+		<button id='APPbtn' onclick="loadCALCapp()" style="FONT-WEIGHT:normal; FONT-SIZE:15px; COLOR:black; background:ivory; border:2px solid black; border-radius:10px; opacity:100%;">Calculator App</button>		
+		<span class="closebtn" onclick="showCALCULATOR()">&times;</span> <!-- onclick="this.parentElement.style.visibility='hidden';" -->
+		<!--<iframe src="https://www.theonlinecalculator.com" title="External Website" 
             style="width: 100%; height: 100%; border: none;">
+		</iframe>-->
+		<iframe id="CalcFrame" src="" title="External Website" 
+            style="width: 100%; height: 100%; border:2px outset green;"> <!-- border: none; -->
 		</iframe>
-	
+		
 	</div>
 	
 </div>	
