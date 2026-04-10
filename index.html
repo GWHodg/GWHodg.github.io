@@ -260,6 +260,9 @@
 								
 					    //processNumber(transcript); // Call a custom function to handle the number
 						processSR(transcript,h,p); //Handle results
+						
+						GOnext(); // < Apr 10/26 for auto advance to nxt box post speach input (??) **  
+						
 					};
 					
 /*							
@@ -288,12 +291,12 @@
 							//output.value = text;		// < deleted Mar 18, 2026 (??) ** // **!!
 							//alert("text = '"+text+"'");							
 					}
-*/					
+*/					//GOnext(); // < Apr 10/26 for auto advance to nxt box post speach input (??) **  	
 			  }	
-			  
+			  //GOnext(); // < Apr 10/26 for auto advance to nxt box post speach input (??) **  
 	    }	
-		
-	  }
+		//GOnext(); // < Apr 10/26 for auto advance to nxt box post speach input (??) **  
+	  } 
 	  
 	function processSR(S,H,P) { // < S=transcript=VRresult=par/bird; H=hole; P=player(1-4)
 		var Hpar = document.getElementById("PARh"+H).value;
@@ -985,7 +988,7 @@
 <div class="wrapper"><!-- Put the page contents here -->
 				
 <TABLE id="HEADtbl" border=1 align=center style='FONT-SIZE:large; color:maroon; visibility:visible;' bgcolor='lightgray'>	
-	<TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:gold; background:purple; FONT-WEIGHT:bold;" >!gs63<br><font size=2 color=silver><b>M26<font color=lime>g</font><font color=gold>&#9733;<!--&#10024;--></font></b></font>	
+	<TR><TD style="FONT-WEIGHT: bold; FONT-SIZE:20px; COLOR:gold; background:purple; FONT-WEIGHT:bold;" >!gs63<br><font size=2 color=silver><b>M26<font color=lime>h</font><font color=gold>&#9733;<!--&#10024;--></font></b></font>	
 </TD> <!--<TD width=20><font size=1>93i</font></TD>	-->
 <TD>
 					<div class="dropup" style="cursor:pointer; color:black; background:lightgray; /*position:relative; left:18%;*/">
