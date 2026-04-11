@@ -176,8 +176,13 @@
 		  }		
 		
 		function CLICKvr(inputID) {
+		  //document.getElementById('lastFOCUS').value=inputID;
+		  //var lastFOCUSvr = document.getElementById('lastFOCUS').value;
 		  if (VRyn=="y") {  
-			   for (var a = 1; a < 19; a++) {	//a=h; b=p
+			  document.getElementById('lastFOCUS').value=inputID; // < Apr 11/26 **
+			  		var lastFOCUSvr = document.getElementById('lastFOCUS').value; 
+					alert("In 'CLICKvr(inputID)' function!\nlastFOCUSvr = "+lastFOCUSvr);
+			  for (var a = 1; a < 19; a++) {	//a=h; b=p
 					for (var b = 1; b<3; b++) {	
 						document.getElementById("TDp"+b+"h"+a).style.border = "0px solid black";   //clear red borders
 					}
@@ -261,7 +266,7 @@
 					    //processNumber(transcript); // Call a custom function to handle the number
 						processSR(transcript,h,p); //Handle results
 						
-						//GOnext(); // < Apr 10/26 for auto advance to nxt box post speach input (??) **  
+						GOnext(); // < Apr 10/26 for auto advance to nxt box post speach input (??) **  
 						
 					};
 					
@@ -293,7 +298,7 @@
 					}
 */					//GOnext(); // < Apr 10/26 for auto advance to nxt box post speach input (??) **  	
 			  }	
-			  GOnext(); // < Apr 10/26 for auto advance to nxt box post speach input (??) **  
+			  //GOnext(); // < Apr 10/26 for auto advance to nxt box post speach input (??) **  
 	    }	
 		//GOnext(); // < Apr 10/26 for auto advance to nxt box post speach input (??) **  
 	  } 
