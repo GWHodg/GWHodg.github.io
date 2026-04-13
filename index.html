@@ -179,7 +179,7 @@
 		  //document.getElementById('lastFOCUS').value=inputID;
 		  //var lastFOCUSvr = document.getElementById('lastFOCUS').value;
 		  if (VRyn=="y") {  
-			  document.getElementById('lastFOCUS').value=inputID; // < Apr 11/26 **
+			  //document.getElementById('lastFOCUS').value=inputID; // < Apr 11/26 **
 			  		/* var lastFOCUSvr = document.getElementById('lastFOCUS').value; 
 					   alert("In 'CLICKvr(inputID)' function!\nlastFOCUSvr = "+lastFOCUSvr+"\n"+
 						   "inputID = "+inputID); */
@@ -267,43 +267,15 @@
 					    //processNumber(transcript); // Call a custom function to handle the number
 						processSR(transcript,h,p); //Handle results
 						
+						/*
 						var lastFOCUSvr = document.getElementById('lastFOCUS').value; 
 					    alert("In 'CLICKvr(inputID)' function > 'if (SpeechRecognition)'!\nlastFOCUSvr = "+lastFOCUSvr+"\ninputID = "+inputID);
-						GOnext(); // < Apr 10/26 for auto advance to nxt box post speach input (??) **  
-						
-					};
-					
-/*							
-		            // Handle results
-		            recognition.onresult = (event) => {
-		                let text = '';
-		                for (let i = event.resultIndex; i < event.results.length; ++i) {
-		                    text += event.results[i][0].transcript;
-		                }
-		                //output.value = text;	// << **!!		
-						
-							//document.getElementById("transcription-result").focus();
-							if (text=='3'||text=="Three"||text=="33" ||text=="three"||text=="on three") { 
-								alert("Valid command: "+text);
-								document.getElementById(inputID).value=3; 
-								//localStorage.setItem('g'+p+'H'+h+'s',3); CHGaudio.play();	
-							}							
-							//} else { alert("Invalid command, ignoring: "+text) };
-							else if (text=='4'||text=="Four"||text=="44"||text=="For"||text=="Ford"||text=="for"||text=="four"||text=="on four") { 
-								alert("Valid command: "+text);
-								document.getElementById(inputID).value=4; 
-								//localStorage.setItem('g'+p+'H'+h+'s',4); CHGaudio.play();	
-							}							
-							//} else { alert("Invalid command, ignoring: "+text) };	
-							else { alert("Invalid command, ignoring: "+text) };													
-							//output.value = text;		// < deleted Mar 18, 2026 (??) ** // **!!
-							//alert("text = '"+text+"'");							
-					}
-*/					//GOnext(); // < Apr 10/26 for auto advance to nxt box post speach input (??) **  	
+						GOnext(); // < Apr 10/26 for auto advance to nxt box post speach input 
+								  // - works in Safari ONLY       **  
+						*/
+					};	
 			  }	
-			  //GOnext(); // < Apr 10/26 for auto advance to nxt box post speach input (??) **  
 	    }	
-		//GOnext(); // < Apr 10/26 for auto advance to nxt box post speach input (??) **  
 	  } 
 	  
 	function processSR(S,H,P) { // < S=transcript=VRresult=par/bird; H=hole; P=player(1-4)
@@ -825,7 +797,7 @@
 			}
 			
 			document.getElementById("p"+nxtP+"h"+nxtH).focus();
-			var newFocus = "p"+nxtP+"h"+nxtH;	alert("GOnext  newFocus = "+ newFocus);		
+			var newFocus = "p"+nxtP+"h"+nxtH;	//alert("GOnext  newFocus = "+ newFocus);		
 			CLICKvr(newFocus);
 			
 		}		
