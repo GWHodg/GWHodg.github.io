@@ -1264,7 +1264,7 @@
 		MAXscore = +PAR + +STROKES + 2;							
 		//alert("In BLURfn. 'SCRinput' = "+SCRinput);
 		//if ((document.getElementById(SCRinput).value=="#")||(document.getElementById(SCRinput).value>=MAXscore)) {
-		if ((document.getElementById(SCRinput).value=="#")||(document.getElementById(SCRinput).value>=MAXscore+1)) {
+		if ((document.getElementById(SCRinput).value=="#")||(document.getElementById(SCRinput).value>=MAXscore+1) ||(document.getElementById(SCRinput).value==".")) {		// < Apr/26 **
 			/*alert("In BLURfn. 'SCRinput' = "+SCRinput+"\n"+
 				"'HOLE' = '"+HOLE+"'"+
 				"\t\t'PAR' = '"+PAR+"'\n\n"+
@@ -1903,7 +1903,8 @@
 				document.getElementById("postMNUtd").innerHTML ="<font size=2>Strokes</font><br>"+
 										"<span style='font-size:10px; background:lime; border:1px solid black; color:black;'>&nbsp;1&nbsp;</span>"+
 										"<span style='font-size:10px; background:green; border:1px solid black; '>&nbsp;2&nbsp;</span>"+
-										"<span style='font-size:10px; background:white; border:1px solid black; color:black;'>&nbsp;0&nbsp;</span>";					
+										"<span style='font-size:10px; background:white; border:1px solid black; color:black;'>&nbsp;0&nbsp;</span>";//+
+										//"<span style='font-size:10px; background:purple; border:1px solid black; '>&nbsp;3&nbsp;</span>";					
 		}			
 		else { 
 			remCOLORS(); 
@@ -1937,7 +1938,7 @@
 				PAR = document.getElementById("PARh"+h).value;
 				MAXscore = +PAR + +STROKES + 2;							
 				//alert("In BLURfn. 'SCRinput' = "+SCRinput);
-				if ((document.getElementById("p"+p+"h"+h).value=="#")||(document.getElementById("p"+p+"h"+h).value>=MAXscore)) {
+				if ((document.getElementById("p"+p+"h"+h).value=="#")||(document.getElementById("p"+p+"h"+h).value>=MAXscore) ||(document.getElementById(SCRinput).value==".")) {	// < Apr/26 **
 					/*alert("In BLURfn. 'SCRinput' = "+SCRinput+"\n"+
 						"'HOLE' = '"+HOLE+"'"+
 						"\t\t'PAR' = '"+PAR+"'\n\n"+
