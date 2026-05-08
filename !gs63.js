@@ -427,6 +427,7 @@
 					else if (Hscr-0 == Hpar ) {Hpts = 3;} //net birdie
 					else if (+Hscr + +1 == Hpar ) {Hpts = 4;} //net EAGLE
 						else if (+Hscr + +2 == Hpar ) {Hpts = 5;} //net DBL EAGLE (albatross)
+						else if (+Hscr + +3 == Hpar ) {Hpts = 6;} // < May 6/26 *
 					else {Hpts = 0;}	//net ^ bogie:			
 				}
 				else {   // HC < 19 but <Hhc!
@@ -436,6 +437,7 @@
 					else if (+Hscr + +1 == Hpar ) {Hpts = 3;} //net birdie
 					else if (+Hscr + +2 == Hpar ) {Hpts = 4;} //net EAGLE
 						else if (+Hscr + +3 == Hpar ) {Hpts = 5;} //net DBL EAGLE (albatross)
+						else if (+Hscr + +4 == Hpar ) {Hpts = 6;} // < May 6/26 *
 					else {Hpts = 0;}	//net ^ bogie								
 				}
 			}	
@@ -448,6 +450,7 @@
 					else if (Hscr-1 == Hpar ) {Hpts = 3;} //net birdie
 					else if (+Hscr + +0 == Hpar ) {Hpts = 4;} //net EAGLE
 						else if (+Hscr + +1 == Hpar ) {Hpts = 5;} //net DBL EAGLE (albatross)
+						else if (+Hscr + +2 == Hpar ) {Hpts = 6;} // < May 6/26 *
 					else {Hpts = 0;}	//net ^ bogie:			
 				}
 				else {   // HC > 18 but <Hhc!
@@ -458,6 +461,7 @@
 					else if (Hscr-0 == Hpar ) {Hpts = 3;} //net birdie
 					else if (+Hscr + +1 == Hpar ) {Hpts = 4;} //net EAGLE
 						else if (+Hscr + +2 == Hpar ) {Hpts = 5;} //net DBL EAGLE (albatross)
+						else if (+Hscr + +3 == Hpar ) {Hpts = 6;} // < May 6/26 *
 					else {Hpts = 0;}	//net ^ bogie:			
 				}
 			}	
